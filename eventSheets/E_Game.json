@@ -1,0 +1,58 @@
+{
+	"name": "E_Game",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "HP_Max",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 887721480458675
+		},
+		{
+			"eventType": "variable",
+			"name": "HP",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 518109268606905
+		},
+		{
+			"eventType": "variable",
+			"name": "Shield_Max",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 155466279094063
+		},
+		{
+			"eventType": "variable",
+			"name": "Shield",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 249620096397536
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 219989695723544
+				}
+			],
+			"actions": [],
+			"sid": 535886495439238
+		}
+	],
+	"sid": 739369905008436
+}

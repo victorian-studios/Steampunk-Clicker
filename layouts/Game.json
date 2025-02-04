@@ -1,8 +1,8 @@
 {
-	"name": "Layout 1",
+	"name": "Game",
 	"layers": [
 		{
-			"name": "Layer 0",
+			"name": "Production",
 			"overriden": 0,
 			"subLayers": [],
 			"instances": [
@@ -30,8 +30,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 511,
-						"y": 374,
+						"x": 502,
+						"y": 300,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -70,8 +70,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 452,
-						"y": 399,
+						"x": 443,
+						"y": 325,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -110,8 +110,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 511,
-						"y": 556,
+						"x": 502,
+						"y": 482,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -150,8 +150,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 452,
-						"y": 581,
+						"x": 443,
+						"y": 507,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -190,8 +190,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 515,
-						"y": 735,
+						"x": 506,
+						"y": 661,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -230,8 +230,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 456,
-						"y": 760,
+						"x": 447,
+						"y": 686,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -270,8 +270,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 513,
-						"y": 921,
+						"x": 504,
+						"y": 847,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -310,8 +310,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 454,
-						"y": 946,
+						"x": 445,
+						"y": 872,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -350,8 +350,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1280,
-						"y": 378,
+						"x": 1271,
+						"y": 304,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -390,8 +390,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1221,
-						"y": 403,
+						"x": 1212,
+						"y": 329,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -430,8 +430,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1280,
-						"y": 560,
+						"x": 1271,
+						"y": 486,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -470,8 +470,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1221,
-						"y": 585,
+						"x": 1212,
+						"y": 511,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -510,8 +510,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1284,
-						"y": 739,
+						"x": 1275,
+						"y": 665,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -550,8 +550,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1225,
-						"y": 764,
+						"x": 1216,
+						"y": 690,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -590,8 +590,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1282,
-						"y": 925,
+						"x": 1273,
+						"y": 851,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -630,8 +630,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1223,
-						"y": 950,
+						"x": 1214,
+						"y": 876,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -670,12 +670,52 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 886,
-						"y": 183,
+						"x": 877,
+						"y": 109,
 						"width": 1402,
 						"height": 152,
 						"originX": 0.5,
 						"originY": 0.506578947368421,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Seletor",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 20,
+					"sid": 344458498538684,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 344458498538684,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 924,
+						"y": 1001,
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -715,6 +755,108 @@
 			"blendMode": "normal",
 			"zElevation": 0,
 			"global": false
+		},
+		{
+			"name": "Upgrades",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 919239883303039,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Workshop",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 703473544311262,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "Fight",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [],
+			"sid": 368142349705544,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
 		}
 	],
 	"scene-graphs-folder-root": {
@@ -739,5 +881,5 @@
 	"vpX": 0.5,
 	"vpY": 0.5,
 	"projection": "perspective",
-	"eventSheet": "Event sheet 1"
+	"eventSheet": "E_Game"
 }
