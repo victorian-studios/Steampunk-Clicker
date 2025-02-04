@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -18,7 +25,9 @@
 	"objectTypes": {
 		"items": [
 			"Production",
-			"Progress_Bar"
+			"Progress_Bar",
+			"Sprite",
+			"Dictionary"
 		],
 		"subfolders": []
 	},
@@ -123,7 +132,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "Prod_Data.json",
+					"type": "application/json",
+					"sid": 588188562172582,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		}
 	},
