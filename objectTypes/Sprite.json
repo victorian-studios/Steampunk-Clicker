@@ -4,7 +4,36 @@
 	"sid": 891332689959726,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "material_id",
+			"type": "string",
+			"desc": "identificador do material",
+			"show": true,
+			"sid": 155954886378438
+		},
+		{
+			"name": "prod_quant",
+			"type": "number",
+			"desc": "quantidade produzida",
+			"show": true,
+			"sid": 475820534951126
+		},
+		{
+			"name": "prod_cap",
+			"type": "number",
+			"desc": "capacidade limite do produtor",
+			"show": true,
+			"sid": 139844796060250
+		},
+		{
+			"name": "prod_usage",
+			"type": "number",
+			"desc": "material usado para produzir",
+			"show": true,
+			"sid": 431400142634433
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
