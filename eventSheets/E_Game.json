@@ -50,8 +50,210 @@
 					"sid": 219989695723544
 				}
 			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "arrow_fake",
+					"sid": 264949153184228
+				}
+			],
+			"sid": 535886495439238,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 658214153592809,
+							"parameters": {
+								"object": "btn_screens",
+								"expression": "btn_screens.AnimationName",
+								"comparison": 0,
+								"value": "\"Production\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "arrow",
+							"sid": 784635310643556,
+							"parameters": {
+								"object": "arrow_fake",
+								"layer": "arrow.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "arrow",
+							"sid": 632283540806375,
+							"parameters": {
+								"x": "btn_screens.X",
+								"y": "btn_screens.Y"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "arrow_fake",
+							"sid": 690948285190183,
+							"parameters": {
+								"angle": "arrow.Angle"
+							}
+						}
+					],
+					"sid": 533590286066754
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 197848285911464,
+					"parameters": {
+						"object": "btn_screens"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 895691245022409
+				}
+			],
 			"actions": [],
-			"sid": 535886495439238
+			"sid": 474756016012658,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "arrow_angle",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 841830483361060
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "arrow_fake",
+							"sid": 282299641863179,
+							"parameters": {
+								"x": "btn_screens.X",
+								"y": "btn_screens.Y"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 154014988481199,
+							"parameters": {
+								"variable": "arrow_angle",
+								"value": "arrow_fake.Angle"
+							}
+						}
+					],
+					"sid": 486639641044644,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "arrow",
+									"sid": 699076386731724,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"angle_change\"",
+										"property": "offsetAngle",
+										"end-value": "arrow_angle",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 923761253559391
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 696485519598392,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "btn_screens"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 479634637158614,
+					"parameters": {
+						"layer": "\"Fight\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 151331101313638,
+					"parameters": {
+						"layer": "\"Workshop\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 483206282083832,
+					"parameters": {
+						"layer": "\"Upgrades\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 258687001142818,
+					"parameters": {
+						"layer": "\"Production\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 418499593655214,
+					"parameters": {
+						"layer": "btn_screens.AnimationName",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 580049461119616
 		}
 	],
 	"sid": 739369905008436

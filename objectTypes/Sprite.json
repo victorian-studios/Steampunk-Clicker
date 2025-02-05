@@ -41,25 +41,89 @@
 			{
 				"frames": [
 					{
-						"width": 1402,
-						"height": 152,
+						"width": 1400,
+						"height": 150,
 						"originX": 0.5,
-						"originY": 0.506578947368421,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4742996,
+						"imageSpriteId": 7577159,
 						"collisionPoly": {
 							"points": [
-								0.0007132667617689016,
+								0.0007142857142857143,
 								0,
-								0.9992867332382311,
+								0.20857142857142857,
 								0,
-								0.9992867332382311,
+								0.95,
+								0.22,
+								0.9778571428571429,
+								0.3333333333333333,
+								0.9778571428571429,
 								1,
-								0.0007132667617689016,
-								1
+								0,
+								0.9933333333333333
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 1400,
+						"height": 150,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3921594,
+						"collisionPoly": {
+							"points": [
+								0.0007142857142857143,
+								0,
+								0.20857142857142857,
+								0,
+								0.9542857142857143,
+								0.22666666666666666,
+								0.9778571428571429,
+								0.3333333333333333,
+								0.9778571428571429,
+								1,
+								0,
+								0.9933333333333333
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 1400,
+						"height": 150,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9316315,
+						"collisionPoly": {
+							"points": [
+								0.0007142857142857143,
+								0,
+								0.20857142857142857,
+								0,
+								0.9571428571428572,
+								0.23333333333333334,
+								0.9778571428571429,
+								0.3333333333333333,
+								0.9778571428571429,
+								1,
+								0,
+								0.9933333333333333
 							]
 						},
 						"useCollisionPoly": true,
@@ -69,11 +133,11 @@
 				],
 				"sid": 923990706003077,
 				"name": "Animation 1",
-				"isLooping": false,
+				"isLooping": true,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 0
+				"speed": 5
 			}
 		],
 		"subfolders": []
