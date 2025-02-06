@@ -76,6 +76,14 @@
 					],
 					"actions": [
 						{
+							"id": "set-animation-frame",
+							"objectClass": "btn_screens",
+							"sid": 105437975813472,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
 							"id": "spawn-another-object",
 							"objectClass": "arrow",
 							"sid": 784635310643556,
@@ -119,11 +127,6 @@
 					"parameters": {
 						"object": "btn_screens"
 					}
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 895691245022409
 				}
 			],
 			"actions": [],
@@ -141,7 +144,13 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 817064084529197
+						}
+					],
 					"actions": [
 						{
 							"id": "set-angle-toward-position",
@@ -253,7 +262,57 @@
 					}
 				}
 			],
-			"sid": 580049461119616
+			"sid": 580049461119616,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 320167366868911,
+							"parameters": {
+								"object": "btn_screens"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "btn_screens",
+							"sid": 710652326975176,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 104116511249538
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 910406113270070,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "btn_screens",
+							"sid": 665803570104649,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 992033366798702
+				}
+			]
 		}
 	],
 	"sid": 739369905008436

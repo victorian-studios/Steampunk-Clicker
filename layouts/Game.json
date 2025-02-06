@@ -7,6 +7,46 @@
 			"subLayers": [],
 			"instances": [
 				{
+					"type": "tela",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 26,
+					"sid": 457894224846192,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 457894224846192,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 960,
+						"y": 540,
+						"width": 1920,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
 					"type": "Production",
 					"properties": {
 						"initially-visible": true,
@@ -30,8 +70,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 502,
-						"y": 300,
+						"x": 552,
+						"y": 360,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -70,8 +110,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 443,
-						"y": 325,
+						"x": 488,
+						"y": 384,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -110,8 +150,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 502,
-						"y": 482,
+						"x": 552,
+						"y": 544,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -150,8 +190,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 443,
-						"y": 507,
+						"x": 488,
+						"y": 568,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -190,8 +230,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 506,
-						"y": 661,
+						"x": 552,
+						"y": 720,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -230,8 +270,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 447,
-						"y": 686,
+						"x": 496,
+						"y": 744,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -270,8 +310,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1271,
-						"y": 304,
+						"x": 1320,
+						"y": 360,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -310,8 +350,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1212,
-						"y": 329,
+						"x": 1256,
+						"y": 384,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -350,8 +390,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1271,
-						"y": 486,
+						"x": 1320,
+						"y": 544,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -390,8 +430,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1212,
-						"y": 511,
+						"x": 1256,
+						"y": 568,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -430,8 +470,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1275,
-						"y": 665,
+						"x": 1320,
+						"y": 728,
 						"width": 700,
 						"height": 150,
 						"originX": 0.5,
@@ -470,8 +510,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1216,
-						"y": 690,
+						"x": 1264,
+						"y": 752,
 						"width": 358,
 						"height": 58,
 						"originX": 0,
@@ -515,8 +555,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 877,
-						"y": 109,
+						"x": 936,
+						"y": 152,
 						"width": 1400,
 						"height": 150,
 						"originX": 0.5,
@@ -555,11 +595,147 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 468,
-						"y": 133,
+						"x": 520,
+						"y": 176,
 						"width": 1058,
 						"height": 58,
 						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text_Vapor",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 21,
+					"sid": 216676784583506,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 216676784583506,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 776,
+						"y": 144,
+						"width": 571,
+						"height": 65,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Icon_prod",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29,
+					"sid": 812649378362172,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 812649378362172,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 352,
+						"y": 144,
+						"width": 95,
+						"height": 95,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Icon_prod",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 30,
+					"sid": 638293472329347,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 638293472329347,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 320,
+						"y": 360,
+						"width": 95,
+						"height": 95,
+						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -605,7 +781,48 @@
 			"name": "Upgrades",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
+			"instances": [
+				{
+					"type": "tela2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 20,
+					"sid": 829336082440671,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 829336082440671,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 960,
+						"y": 540,
+						"width": 1920,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 919239883303039,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -639,7 +856,48 @@
 			"name": "Workshop",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
+			"instances": [
+				{
+					"type": "tela3",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 27,
+					"sid": 464593813188431,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 464593813188431,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 960,
+						"y": 540,
+						"width": 1920,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
 			"sid": 703473544311262,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -675,37 +933,21 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Text_Vapor",
+					"type": "tela4",
 					"properties": {
-						"text": "Text",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 24,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
-						"wrapping": "word",
-						"text-direction": "ltr",
-						"icon-set": -1,
 						"initially-visible": true,
-						"origin": "top-left",
-						"read-aloud": false
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
 					},
-					"uid": 21,
-					"sid": 216676784583506,
+					"uid": 28,
+					"sid": 146506969668939,
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
 					"instanceFolderItem": {
-						"sid": 216676784583506,
+						"sid": 146506969668939,
 						"expanded": true,
 						"folderName": "",
 						"indexInFolder": -1,
@@ -714,12 +956,12 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 718,
-						"y": 99,
-						"width": 571,
-						"height": 65,
-						"originX": 0,
-						"originY": 0,
+						"x": 960,
+						"y": 540,
+						"width": 1920,
+						"height": 1080,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -766,46 +1008,6 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Seletor",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 20,
-					"sid": 344458498538684,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 344458498538684,
-						"expanded": true,
-						"folderName": "",
-						"indexInFolder": -1,
-						"folderNestingLevel": -1
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 931.7117609321032,
-						"y": 986.6014620972321,
-						"width": 272,
-						"height": 264,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "btn_screens",
 					"properties": {
 						"initially-visible": true,
@@ -829,10 +1031,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 800,
-						"y": 1032,
-						"width": 80,
-						"height": 80,
+						"x": 772,
+						"y": 1028,
+						"width": 104,
+						"height": 104,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -869,10 +1071,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 872,
-						"y": 952,
-						"width": 80,
-						"height": 80,
+						"x": 880,
+						"y": 944,
+						"width": 104,
+						"height": 104,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -909,10 +1111,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 992,
-						"y": 952,
-						"width": 80,
-						"height": 80,
+						"x": 1040,
+						"y": 944,
+						"width": 104,
+						"height": 104,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -949,10 +1151,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1048,
-						"y": 1032,
-						"width": 80,
-						"height": 80,
+						"x": 1152,
+						"y": 1024,
+						"width": 104,
+						"height": 104,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -995,8 +1197,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 919.606521596012,
-						"y": 1073.6774018326018,
+						"x": 960,
+						"y": 1072,
 						"width": 176,
 						"height": 64,
 						"originX": 0.09677419354838712,
