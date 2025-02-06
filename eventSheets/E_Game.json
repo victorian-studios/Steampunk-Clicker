@@ -55,6 +55,42 @@
 					"id": "destroy",
 					"objectClass": "arrow_fake",
 					"sid": 264949153184228
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 399784315723164,
+					"parameters": {
+						"layer": "\"Fight\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 293088245314561,
+					"parameters": {
+						"layer": "\"Workshop\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 494334004739090,
+					"parameters": {
+						"layer": "\"Upgrades\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 214020111581136,
+					"parameters": {
+						"layer": "\"Production\"",
+						"visibility": "visible"
+					}
 				}
 			],
 			"sid": 535886495439238,
@@ -116,6 +152,18 @@
 					"sid": 533590286066754
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 509063140566776
+				}
+			],
+			"actions": [],
+			"sid": 239401094400489
 		},
 		{
 			"eventType": "block",
@@ -313,6 +361,179 @@
 					"sid": 992033366798702
 				}
 			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Vapor Prod",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Progress_Bar_Vapor_Fake",
+							"sid": 321810991018850,
+							"parameters": {
+								"object": "Production_Vapor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "Progress_Bar_Vapor_Fake",
+							"sid": 635016628848784,
+							"parameters": {
+								"width": "1058 - ( Production_Vapor.Timer.TotalTime(\"vapor_prod_time\") * ( 1058 / Production_Vapor.prod_time ) )"
+							}
+						}
+					],
+					"sid": 652147842974597
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Progress_Bar_Vapor",
+							"sid": 894484105034711,
+							"parameters": {
+								"object": "Production_Vapor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "Progress_Bar_Vapor",
+							"sid": 849620226935238,
+							"parameters": {
+								"speed": "60 /  Production_Vapor.prod_time"
+							}
+						}
+					],
+					"sid": 479864442842182
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Production_Vapor",
+							"sid": 153266093692531,
+							"parameters": {
+								"object": "Text_Vapor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_Vapor",
+							"sid": 678044823896013,
+							"parameters": {
+								"text": "\"Steam: \"&Production_Vapor.prod_quant&\" / \"&Production_Vapor.prod_cap"
+							}
+						}
+					],
+					"sid": 697503332036469
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 837635271979448,
+							"parameters": {
+								"object": "Production_Vapor",
+								"type": "start"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production_Vapor",
+							"sid": 756064599809816,
+							"parameters": {
+								"instance-variable": "Producing"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production_Vapor",
+							"sid": 939947403175595,
+							"parameters": {
+								"instance-variable": "prod_quant",
+								"comparison": 2,
+								"value": "Self.prod_cap"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "Production_Vapor",
+							"sid": 253072911020643,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "Production_Vapor.prod_time",
+								"type": "once",
+								"tag": "\"vapor_prod_time\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Production_Vapor",
+							"sid": 738544808671933,
+							"parameters": {
+								"instance-variable": "Producing",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 242072189643906
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Production_Vapor",
+							"sid": 684091682199480,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"vapor_prod_time\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Production_Vapor",
+							"sid": 653470795749982,
+							"parameters": {
+								"instance-variable": "prod_quant",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Production_Vapor",
+							"sid": 683940251447248,
+							"parameters": {
+								"instance-variable": "Producing",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 928977095445732
+				}
+			],
+			"sid": 873005429721545
 		}
 	],
 	"sid": 739369905008436

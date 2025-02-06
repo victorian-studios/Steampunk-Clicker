@@ -1,5 +1,5 @@
 {
-	"name": "Sprite",
+	"name": "Production_Vapor",
 	"plugin-id": "Sprite",
 	"sid": 891332689959726,
 	"isGlobal": false,
@@ -32,9 +32,29 @@
 			"desc": "material usado para produzir",
 			"show": true,
 			"sid": 431400142634433
+		},
+		{
+			"name": "prod_time",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 578183742073201
+		},
+		{
+			"name": "Producing",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 424110822119573
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 882844202567877
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -50,22 +70,6 @@
 						"exportQuality": 0.8,
 						"fileType": "image/png",
 						"imageSpriteId": 7577159,
-						"collisionPoly": {
-							"points": [
-								0.0007142857142857143,
-								0,
-								0.20857142857142857,
-								0,
-								0.95,
-								0.22,
-								0.9778571428571429,
-								0.3333333333333333,
-								0.9778571428571429,
-								1,
-								0,
-								0.9933333333333333
-							]
-						},
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
@@ -80,22 +84,6 @@
 						"exportQuality": 0.8,
 						"fileType": "image/png",
 						"imageSpriteId": 3921594,
-						"collisionPoly": {
-							"points": [
-								0.0007142857142857143,
-								0,
-								0.20857142857142857,
-								0,
-								0.9542857142857143,
-								0.22666666666666666,
-								0.9778571428571429,
-								0.3333333333333333,
-								0.9778571428571429,
-								1,
-								0,
-								0.9933333333333333
-							]
-						},
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
@@ -110,22 +98,6 @@
 						"exportQuality": 0.8,
 						"fileType": "image/png",
 						"imageSpriteId": 9316315,
-						"collisionPoly": {
-							"points": [
-								0.0007142857142857143,
-								0,
-								0.20857142857142857,
-								0,
-								0.9571428571428572,
-								0.23333333333333334,
-								0.9778571428571429,
-								0.3333333333333333,
-								0.9778571428571429,
-								1,
-								0,
-								0.9933333333333333
-							]
-						},
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
