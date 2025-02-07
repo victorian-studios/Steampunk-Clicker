@@ -32,9 +32,29 @@
 			"desc": "",
 			"show": true,
 			"sid": 683709739662464
+		},
+		{
+			"name": "prod_time",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 595235914855075
+		},
+		{
+			"name": "Producing",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 818290570315030
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 666316586979074
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [

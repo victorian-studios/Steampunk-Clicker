@@ -534,6 +534,131 @@
 				}
 			],
 			"sid": 873005429721545
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Outros Prods",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Progress_Bar",
+							"sid": 467285551841323,
+							"parameters": {
+								"object": "Production"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-speed",
+							"objectClass": "Progress_Bar",
+							"sid": 473626131531428,
+							"parameters": {
+								"speed": "60 /  Production.prod_time"
+							}
+						}
+					],
+					"sid": 433452338963999
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 868534717477783,
+							"parameters": {
+								"object": "Production",
+								"type": "start"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 110331807960943,
+							"parameters": {
+								"instance-variable": "Producing"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 748462769171223,
+							"parameters": {
+								"instance-variable": "prod_quant",
+								"comparison": 2,
+								"value": "Self.prod_cap"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "Production",
+							"sid": 582095353472263,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "Production.prod_time",
+								"type": "once",
+								"tag": "\"vapor_prod_time\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Production",
+							"sid": 700916742323337,
+							"parameters": {
+								"instance-variable": "Producing",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 786510466374065
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Production",
+							"sid": 299597391090253,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"vapor_prod_time\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "Production",
+							"sid": 379131176271189,
+							"parameters": {
+								"instance-variable": "prod_quant",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Production",
+							"sid": 216224462733898,
+							"parameters": {
+								"instance-variable": "Producing",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 863931689074789
+				}
+			],
+			"sid": 587819655587724
 		}
 	],
 	"sid": 739369905008436
