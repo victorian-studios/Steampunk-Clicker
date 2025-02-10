@@ -91,6 +91,45 @@
 						"layer": "\"Production\"",
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 208515742087545,
+					"parameters": {
+						"tag": "\"prod_data\"",
+						"file": "Prod_Data.json"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text_Upg_Description",
+					"sid": 969823686903977,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Bkg_Upg_Desc",
+						"x": true,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Text_Upg_Price",
+					"sid": 465697174422325,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Bkg_Upg_Desc",
+						"x": true,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
 				}
 			],
 			"sid": 535886495439238,
@@ -157,12 +196,53 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 238743538000667,
+					"parameters": {
+						"tag": "\"prod_data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "Dict_Prod_Data",
+					"sid": 226459821707579,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 390750922834888
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 509063140566776
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_Material_Quant",
+					"sid": 805934696160675,
+					"parameters": {
+						"text": "Dict_Prod_Data.Get(Self.material_id)"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "Text_Material_Quant",
+					"sid": 211594589170833,
+					"parameters": {
+						"width": "32 + ( len(Self.Text) * 32 )"
+					}
+				}
+			],
 			"sid": 239401094400489
 		},
 		{
@@ -308,6 +388,15 @@
 						"layer": "btn_screens.AnimationName",
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Bkg_tela_fundo",
+					"sid": 350794976714362,
+					"parameters": {
+						"animation": "btn_screens.AnimationName",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 580049461119616,
@@ -359,6 +448,112 @@
 						}
 					],
 					"sid": 992033366798702
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 246134046205408,
+					"parameters": {
+						"first-value": "Mouse.Y",
+						"comparison": 3,
+						"second-value": "890"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 441311459221704,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 650561054378872,
+							"parameters": {
+								"object": "btn_screens",
+								"expression": "btn_screens.AnimationFrame",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 698698646201532,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "arrow_angle",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 202692338570378
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 541752838905794
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "arrow_fake",
+									"sid": 278714259036254,
+									"parameters": {
+										"x": "btn_screens.X",
+										"y": "btn_screens.Y"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 908080976595815,
+									"parameters": {
+										"variable": "arrow_angle",
+										"value": "arrow_fake.Angle"
+									}
+								}
+							],
+							"sid": 272943556740563,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "arrow",
+											"sid": 714663589487384,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"angle_change\"",
+												"property": "offsetAngle",
+												"end-value": "arrow_angle",
+												"time": "0.2",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 215591700345694
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -433,9 +628,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text_Vapor",
-							"sid": 678044823896013,
+							"sid": 428121579274825,
 							"parameters": {
-								"text": "\"Steam: \"&Production_Vapor.prod_quant&\" / \"&Production_Vapor.prod_cap"
+								"text": "\"Steam: \"& Dict_Prod_Data.Get(\"Steam\") &\" / \"&Production_Vapor.prod_cap"
 							}
 						}
 					],
@@ -465,11 +660,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Production_Vapor",
-							"sid": 939947403175595,
+							"sid": 178011997457402,
 							"parameters": {
-								"instance-variable": "prod_quant",
-								"comparison": 2,
-								"value": "Self.prod_cap"
+								"instance-variable": "prod_cap",
+								"comparison": 5,
+								"value": "Dict_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
 							}
 						}
 					],
@@ -512,21 +707,21 @@
 					],
 					"actions": [
 						{
-							"id": "add-to-instvar",
-							"objectClass": "Production_Vapor",
-							"sid": 653470795749982,
-							"parameters": {
-								"instance-variable": "prod_quant",
-								"value": "1"
-							}
-						},
-						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Production_Vapor",
 							"sid": 683940251447248,
 							"parameters": {
 								"instance-variable": "Producing",
 								"value": "false"
+							}
+						},
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Prod_Data",
+							"sid": 751259437362288,
+							"parameters": {
+								"key": "\"Steam\"",
+								"value": "Dict_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
 							}
 						}
 					],
@@ -546,6 +741,171 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 699371722339828,
+							"parameters": {
+								"object": "Production"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 499353027503954,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Production",
+									"sid": 371829579230794,
+									"parameters": {
+										"instance-variable": "Unlocked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Production",
+									"sid": 655465079434608,
+									"parameters": {
+										"speed": "9"
+									}
+								}
+							],
+							"sid": 189642347409811,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_prod",
+											"sid": 225519500001396,
+											"parameters": {
+												"object": "Production"
+											}
+										},
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_prod",
+											"sid": 514062723841350,
+											"parameters": {
+												"layer": "\"Primary_Icons\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 390522488489769,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Production",
+													"sid": 235208777277137,
+													"parameters": {
+														"instance-variable": "material_id",
+														"comparison": 0,
+														"value": "\"Wood\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_prod",
+													"sid": 260152298726178,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 508168732885872
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Production",
+													"sid": 995438850585605,
+													"parameters": {
+														"instance-variable": "material_id",
+														"comparison": 0,
+														"value": "\"Copper\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_prod",
+													"sid": 607441979167573,
+													"parameters": {
+														"frame-number": "2"
+													}
+												}
+											],
+											"sid": 899871363113814
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 300921254294781
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-speed",
+									"objectClass": "Production",
+									"sid": 609524075098845,
+									"parameters": {
+										"speed": "0"
+									}
+								}
+							],
+							"sid": 310066768781343
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Progress_Bar_Fake",
+							"sid": 199017411988311,
+							"parameters": {
+								"object": "Production"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "Progress_Bar_Fake",
+							"sid": 172655780786171,
+							"parameters": {
+								"width": "358- ( Production.Timer.TotalTime(\"other_prod_time\") * ( 358 / Production.prod_time ) )"
+							}
+						}
+					],
+					"sid": 937578922010191
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Progress_Bar",
 							"sid": 467285551841323,
@@ -558,9 +918,9 @@
 						{
 							"id": "set-animation-speed",
 							"objectClass": "Progress_Bar",
-							"sid": 473626131531428,
+							"sid": 487077937704270,
 							"parameters": {
-								"speed": "60 /  Production.prod_time"
+								"speed": "240/  Production.prod_time"
 							}
 						}
 					],
@@ -590,37 +950,500 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Production",
-							"sid": 748462769171223,
+							"sid": 751493206536156,
 							"parameters": {
-								"instance-variable": "prod_quant",
-								"comparison": 2,
-								"value": "Self.prod_cap"
+								"instance-variable": "prod_cap",
+								"comparison": 5,
+								"value": "Dict_Prod_Data.Get(Production.material_id) + Production.prod_quant"
 							}
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 786510466374065,
+					"children": [
 						{
-							"id": "start-timer",
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 983290278154043,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 365128841866264,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "Production",
+									"sid": 954405796217570,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "Production.prod_time",
+										"type": "once",
+										"tag": "\"other_prod_time\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production",
+									"sid": 725158437735155,
+									"parameters": {
+										"instance-variable": "Producing",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 335572673070040
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 119778840428347,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 138912301516084,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 457421197532932,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 313169183672803,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Production",
+											"sid": 153059665278951,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Production.prod_time",
+												"type": "once",
+												"tag": "\"other_prod_time\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 232540656807909,
+											"parameters": {
+												"instance-variable": "Producing",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 205344179374477,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										}
+									],
+									"sid": 367059494127774
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 885019714670076,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 557010090136339,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 299297208177731,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 458160838878295,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										},
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 362142260247820,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Production",
+											"sid": 754531147085950,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Production.prod_time",
+												"type": "once",
+												"tag": "\"other_prod_time\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 364198361193314,
+											"parameters": {
+												"instance-variable": "Producing",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 106317503338036,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 917082623562545,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
+												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+											}
+										}
+									],
+									"sid": 289177073885129
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Production",
-							"sid": 582095353472263,
-							"behaviorType": "Timer",
+							"sid": 145986347135172,
 							"parameters": {
-								"duration": "Production.prod_time",
-								"type": "once",
-								"tag": "\"vapor_prod_time\""
+								"instance-variable": "Autoprod"
 							}
 						},
 						{
-							"id": "set-boolean-instvar",
+							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Production",
-							"sid": 700916742323337,
+							"sid": 291660006195850,
 							"parameters": {
-								"instance-variable": "Producing",
-								"value": "true"
+								"instance-variable": "Unlocked"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 155062049761402,
+							"parameters": {
+								"instance-variable": "Producing"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 687154649562670,
+							"parameters": {
+								"instance-variable": "prod_cap",
+								"comparison": 5,
+								"value": "Dict_Prod_Data.Get(Production.material_id) + Production.prod_quant"
 							}
 						}
 					],
-					"sid": 786510466374065
+					"actions": [],
+					"sid": 857994153844385,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 413306999951804,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 698581567244514,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "Production",
+									"sid": 972442545016155,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "Production.prod_time",
+										"type": "once",
+										"tag": "\"other_prod_time\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production",
+									"sid": 610248440087963,
+									"parameters": {
+										"instance-variable": "Producing",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 609988236518169
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 961852686155647,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 244530874437512,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 183122725935078,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 136967351973957,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Production",
+											"sid": 711072715164910,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Production.prod_time",
+												"type": "once",
+												"tag": "\"other_prod_time\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 327287632805601,
+											"parameters": {
+												"instance-variable": "Producing",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 358886125799736,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										}
+									],
+									"sid": 188446028912478
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 536614464426088,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 393138627260978,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 529116550882787,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 306760547622983,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										},
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 991308050954767,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Production",
+											"sid": 123856763674916,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Production.prod_time",
+												"type": "once",
+												"tag": "\"other_prod_time\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 558831775538931,
+											"parameters": {
+												"instance-variable": "Producing",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 345706735974883,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Prod_Data",
+											"sid": 834473530104637,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
+												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+											}
+										}
+									],
+									"sid": 896805858096080
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -628,37 +1451,1007 @@
 						{
 							"id": "on-timer",
 							"objectClass": "Production",
-							"sid": 299597391090253,
+							"sid": 567335477057851,
 							"behaviorType": "Timer",
 							"parameters": {
-								"tag": "\"vapor_prod_time\""
+								"tag": "\"other_prod_time\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 863931689074789,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 260562534386646,
+									"parameters": {
+										"object": "Production"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production",
+									"sid": 465262501233053,
+									"parameters": {
+										"instance-variable": "Producing",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-key",
+									"objectClass": "Dict_Prod_Data",
+									"sid": 956111287722289,
+									"parameters": {
+										"key": "Production.material_id",
+										"value": "Dict_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+									}
+								}
+							],
+							"sid": 368957852590897
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Production",
+							"sid": 474321650813790,
+							"parameters": {
+								"object": "Text_ProdQuant"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "add-to-instvar",
-							"objectClass": "Production",
-							"sid": 379131176271189,
+							"id": "set-text",
+							"objectClass": "Text_ProdQuant",
+							"sid": 841712403657292,
 							"parameters": {
-								"instance-variable": "prod_quant",
-								"value": "1"
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Production",
-							"sid": 216224462733898,
-							"parameters": {
-								"instance-variable": "Producing",
-								"value": "false"
+								"text": "Production.material_id & \" \" & Dict_Prod_Data.Get(Production.material_id) & \" / \" & Production.prod_cap"
 							}
 						}
 					],
-					"sid": 863931689074789
+					"sid": 339086955959346
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 662029395000138,
+							"parameters": {
+								"object": "Text_con_material_quant_1"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Production",
+							"sid": 867855770530291,
+							"parameters": {
+								"object": "Text_con_material_quant_1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_con_material_quant_1",
+							"sid": 380719310210579,
+							"parameters": {
+								"text": "tokenat ( Production.cond_material_quant_1, 1, \"_\" )"
+							}
+						}
+					],
+					"sid": 201773117177150,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Prod_Data",
+									"sid": 479491962703817,
+									"parameters": {
+										"key": "tokenat ( Production.cond_material_quant_1, 0, \"_\" )",
+										"comparison": 2,
+										"value": "tokenat ( Production.cond_material_quant_1, 1, \"_\" )"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Text_con_material_quant_1",
+									"sid": 410558030583637,
+									"parameters": {
+										"color": "rgbEx(255, 0, 0)"
+									}
+								}
+							],
+							"sid": 135091896699145
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Prod_Data",
+									"sid": 275333690807234,
+									"parameters": {
+										"key": "tokenat ( Production.cond_material_quant_1, 0, \"_\" )",
+										"comparison": 5,
+										"value": "tokenat ( Production.cond_material_quant_1, 1, \"_\" )"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Text_con_material_quant_1",
+									"sid": 700460382552355,
+									"parameters": {
+										"color": "rgbEx(0, 0, 0)"
+									}
+								}
+							],
+							"sid": 665306392551406
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 824071625913499,
+							"parameters": {
+								"object": "Text_con_material_quant_2"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Production",
+							"sid": 425606946697959,
+							"parameters": {
+								"object": "Text_con_material_quant_2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_con_material_quant_2",
+							"sid": 983902555481307,
+							"parameters": {
+								"text": "tokenat ( Production.cond_material_quant_2, 1, \"_\" )"
+							}
+						}
+					],
+					"sid": 959799285782166,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Prod_Data",
+									"sid": 538177211948626,
+									"parameters": {
+										"key": "tokenat ( Production.cond_material_quant_2, 0, \"_\" )",
+										"comparison": 2,
+										"value": "tokenat ( Production.cond_material_quant_2, 1, \"_\" )"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Text_con_material_quant_2",
+									"sid": 600562586447401,
+									"parameters": {
+										"color": "rgbEx(255, 0, 0)"
+									}
+								}
+							],
+							"sid": 961021758029479
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Prod_Data",
+									"sid": 154676267890142,
+									"parameters": {
+										"key": "tokenat ( Production.cond_material_quant_2, 0, \"_\" )",
+										"comparison": 5,
+										"value": "tokenat ( Production.cond_material_quant_2, 1, \"_\" )"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Text_con_material_quant_2",
+									"sid": 646931701705544,
+									"parameters": {
+										"color": "rgbEx(0, 0, 0)"
+									}
+								}
+							],
+							"sid": 126244308316384
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 396455837734004,
+							"parameters": {
+								"object": "Prod_Pannel"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 402495614510700,
+							"parameters": {
+								"object": "Production"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 591547523836239,
+							"parameters": {
+								"instance-variable": "Unlocked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 992851598533559,
+							"parameters": {
+								"layer": "\"Secondary_Icons\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 634768173275301,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 984606238085369,
+									"parameters": {
+										"object": "Text_con_material_quant_1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_con_material_quant_1",
+									"sid": 773274011144329,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 705903645922470
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 909477373425935,
+									"parameters": {
+										"object": "Text_con_material_quant_2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_con_material_quant_2",
+									"sid": 978635381648480,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 497781249258976
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 896307661657016,
+									"parameters": {
+										"object": "Icon_prod"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_prod",
+									"sid": 273065076210783,
+									"parameters": {
+										"layer": "\"Secondary_Icons\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Icon_prod",
+									"sid": 794848578167316,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 585347296731906
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 923404780051697,
+									"parameters": {
+										"object": "Icon_prod"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_prod",
+									"sid": 873630901370678,
+									"parameters": {
+										"layer": "\"Primary_Icons\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Icon_prod",
+									"sid": 734719806137707,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 362556358551231
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 296874962039211,
+									"parameters": {
+										"object": "TextoAiDaVida"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "TextoAiDaVida",
+									"sid": 390792577999287,
+									"parameters": {
+										"layer": "\"Secondary_Icons\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "TextoAiDaVida",
+									"sid": 899571376559354,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 188963323557904
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 687857115391058,
+							"parameters": {
+								"object": "Prod_Pannel"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 691490791748463,
+							"parameters": {
+								"layer": "\"Secondary_Icons\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 963048253066384,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 376017785119594,
+									"parameters": {
+										"object": "Text_con_material_quant_1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_con_material_quant_1",
+									"sid": 544096783313606,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 339559115584991
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 580905618577477,
+									"parameters": {
+										"object": "Text_con_material_quant_2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Text_con_material_quant_2",
+									"sid": 488611180841671,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 918416716379348
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 508892472655561,
+									"parameters": {
+										"object": "Icon_prod"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_prod",
+									"sid": 111800990712490,
+									"parameters": {
+										"layer": "\"Secondary_Icons\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Icon_prod",
+									"sid": 584443692584626,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 282552447338144
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 385900044123789,
+									"parameters": {
+										"object": "Icon_prod"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_prod",
+									"sid": 748986079715782,
+									"parameters": {
+										"layer": "\"Primary_Icons\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Icon_prod",
+									"sid": 945680913838070,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 529384400114791
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Prod_Pannel",
+									"sid": 775754153005517,
+									"parameters": {
+										"object": "TextoAiDaVida"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "TextoAiDaVida",
+									"sid": 880640827934335,
+									"parameters": {
+										"layer": "\"Secondary_Icons\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "TextoAiDaVida",
+									"sid": 519600436467582,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 822786370872580
+						}
+					]
 				}
 			],
 			"sid": 587819655587724
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Upgrades",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 449961158935850,
+							"parameters": {
+								"object": "TileBkg_Connect"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 760496501949364,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Icon_Upg",
+									"sid": 716784972536655,
+									"parameters": {
+										"object": "TileBkg_Connect"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Upg",
+									"sid": 832928840653683,
+									"parameters": {
+										"instance-variable": "Sold"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Upg",
+									"sid": 765104436133072,
+									"parameters": {
+										"instance-variable": "Unlocked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "TileBkg_Connect",
+									"sid": 877040362807616,
+									"parameters": {
+										"instance-variable": "Unlocked",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 803678765557021
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 892441845963398,
+							"parameters": {
+								"object": "Icon_Gear"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 223398513587968,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Icon_Gear",
+									"sid": 777995153904392,
+									"parameters": {
+										"object": "TileBkg_Connect"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "TileBkg_Connect",
+									"sid": 530397220508826,
+									"parameters": {
+										"instance-variable": "Unlocked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Icon_Gear",
+									"sid": 524828797576613,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 410725246005563
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 497967917646870,
+							"parameters": {
+								"object": "Icon_Upg"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 634169279337935,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Icon_Upg",
+									"sid": 885095381142835,
+									"parameters": {
+										"object": "Icon_Gear"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Icon_Gear",
+									"sid": 505633186982247,
+									"parameters": {
+										"comparison": 0,
+										"number": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Icon_Upg",
+									"sid": 211493480347199,
+									"parameters": {
+										"instance-variable": "Unlocked",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 654903709761936
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 548255016211163,
+							"parameters": {
+								"object": "Icon_Upg"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_Upg_Description",
+							"sid": 352079396491072,
+							"parameters": {
+								"text": "Icon_Upg.Name & newline & newline & Icon_Upg.Description"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Upg_Price",
+							"sid": 875649589971872,
+							"parameters": {
+								"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
+							}
+						}
+					],
+					"sid": 516951630579224,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 351036347892851,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 3,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 214170413666090,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 3,
+										"second-value": "352"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 543764177966179,
+									"parameters": {
+										"x": "Mouse.X + 240",
+										"y": "Mouse.Y + 192"
+									}
+								}
+							],
+							"sid": 983236180555636
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 631966132145880,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 3,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 362394958174085,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 4,
+										"second-value": "352"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 283241217331798,
+									"parameters": {
+										"x": "Mouse.X + 240",
+										"y": "Mouse.Y - 192"
+									}
+								}
+							],
+							"sid": 972670192744781
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 870554829936060,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 4,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 236205759071796,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 3,
+										"second-value": "352"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 145257653290476,
+									"parameters": {
+										"x": "Mouse.X - 240",
+										"y": "Mouse.Y + 192"
+									}
+								}
+							],
+							"sid": 503580730030968
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 720710099103690,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 4,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 337157958732023,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 4,
+										"second-value": "352"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 499113822215409,
+									"parameters": {
+										"x": "Mouse.X - 240",
+										"y": "Mouse.Y - 192"
+									}
+								}
+							],
+							"sid": 971533713180394
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Icon_Upg",
+									"sid": 931036361703579,
+									"parameters": {
+										"instance-variable": "Price_2",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Price",
+									"sid": 291070198453122,
+									"parameters": {
+										"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / \" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
+									}
+								}
+							],
+							"sid": 981002047253732
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 782839708742734
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Bkg_Upg_Desc",
+							"sid": 680780677105357,
+							"parameters": {
+								"x": "-1000",
+								"y": "-1000"
+							}
+						}
+					],
+					"sid": 352406090675990
+				}
+			],
+			"sid": 955653302142717
 		}
 	],
 	"sid": 739369905008436

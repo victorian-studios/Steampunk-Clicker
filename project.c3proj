@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
@@ -36,8 +43,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -62,24 +83,38 @@
 			"Production",
 			"Progress_Bar",
 			"Production_Vapor",
-			"Dictionary",
+			"Dict_Prod_Data",
 			"Text_Vapor",
 			"arrow",
 			"Progress_Bar_Vapor",
 			"btn_screens",
 			"Mouse",
 			"arrow_fake",
-			"tela",
-			"tela2",
+			"Bkg_Tela",
 			"tela3",
-			"tela4",
 			"Icon_prod",
 			"Touch",
 			"Progress_Bar_Vapor_Fake",
 			"icon_zumbi",
 			"icon_weapon",
-			"icon_caixa",
-			"icon_hp"
+			"Icon_Upg",
+			"icon_hp",
+			"Text_ProdQuant",
+			"Progress_Bar_Fake",
+			"AJAX",
+			"TextoAiDaVida",
+			"Text_con_material_quant_1",
+			"Text_con_material_quant_2",
+			"Prod_Pannel",
+			"Bkg_tela_fundo",
+			"tala_upgrades",
+			"armadura_madeira",
+			"Text_Material_Quant",
+			"Bkg_Upg_Desc",
+			"Text_Upg_Description",
+			"Text_Upg_Price",
+			"Icon_Gear",
+			"TileBkg_Connect"
 		],
 		"subfolders": []
 	},

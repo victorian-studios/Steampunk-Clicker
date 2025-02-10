@@ -1,0 +1,133 @@
+{
+	"name": "Icon_Upg",
+	"plugin-id": "Sprite",
+	"sid": 280468511402614,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 398510378414193
+		},
+		{
+			"name": "Description",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 751571998200625
+		},
+		{
+			"name": "Price_1",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 622980666739974
+		},
+		{
+			"name": "Price_2",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 377360688280427
+		},
+		{
+			"name": "Unlocked",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 927357755018086
+		},
+		{
+			"name": "Sold",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 326845217131366
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 95,
+						"height": 95,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 4213904,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 902681240755879,
+				"name": "Steam",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1027653,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 615668488552423,
+				"name": "Wood",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2069679,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 685450675284546,
+				"name": "Copper",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
