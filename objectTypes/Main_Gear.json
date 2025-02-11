@@ -1,33 +1,39 @@
 {
-	"name": "tela3",
+	"name": "Main_Gear",
 	"plugin-id": "Sprite",
-	"sid": 971860047151995,
+	"sid": 216722693075476,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 135374447174357
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 1920,
-						"height": 1080,
+						"width": 628,
+						"height": 628,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 8170896,
+						"imageSpriteId": 5744690,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 210249817952942,
-				"name": "Default",
+				"sid": 103500251557616,
+				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

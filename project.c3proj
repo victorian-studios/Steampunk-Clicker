@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 42400,
+	"savedWithRelease": 42402,
 	"name": "Steampunk Clicker",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -52,6 +52,13 @@
 			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -114,7 +121,9 @@
 			"Text_Upg_Description",
 			"Text_Upg_Price",
 			"Icon_Gear",
-			"TileBkg_Connect"
+			"TileBkg_Connect",
+			"Main_Gear",
+			"Selector"
 		],
 		"subfolders": []
 	},
