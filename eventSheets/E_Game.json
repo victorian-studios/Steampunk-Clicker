@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "HP_Max",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "100",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "HP",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "100",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -25,7 +25,7 @@
 			"eventType": "variable",
 			"name": "Shield_Max",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "10",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -35,7 +35,7 @@
 			"eventType": "variable",
 			"name": "Shield",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "10",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -304,6 +304,22 @@
 					"sid": 211594589170833,
 					"parameters": {
 						"width": "32 + ( len(Self.Text) * 32 )"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "ProgBar_HP",
+					"sid": 525667098307470,
+					"parameters": {
+						"width": "HP * ( 300 / HP_Max )"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "ProgBar_Shield",
+					"sid": 319833940410397,
+					"parameters": {
+						"width": "Shield * ( 300 / Shield_Max )"
 					}
 				}
 			],
@@ -1238,7 +1254,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Progress_Bar",
+							"objectClass": "ProgBar_Producers",
 							"sid": 467285551841323,
 							"parameters": {
 								"object": "Production"
@@ -1248,7 +1264,7 @@
 					"actions": [
 						{
 							"id": "set-animation-speed",
-							"objectClass": "Progress_Bar",
+							"objectClass": "ProgBar_Producers",
 							"sid": 487077937704270,
 							"parameters": {
 								"speed": "240/  Production.prod_time"
@@ -4403,6 +4419,15 @@
 				}
 			],
 			"sid": 955653302142717
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Workshop",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 607375331398686
 		}
 	],
 	"sid": 739369905008436

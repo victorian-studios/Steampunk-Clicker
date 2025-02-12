@@ -267,7 +267,7 @@
 							}
 						},
 						{
-							"type": "Progress_Bar",
+							"type": "ProgBar_Producers",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -362,7 +362,7 @@
 							}
 						},
 						{
-							"type": "Progress_Bar",
+							"type": "ProgBar_Producers",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -457,7 +457,7 @@
 							}
 						},
 						{
-							"type": "Progress_Bar",
+							"type": "ProgBar_Producers",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -552,7 +552,7 @@
 							}
 						},
 						{
-							"type": "Progress_Bar",
+							"type": "ProgBar_Producers",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -647,7 +647,7 @@
 							}
 						},
 						{
-							"type": "Progress_Bar",
+							"type": "ProgBar_Producers",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -742,7 +742,7 @@
 							}
 						},
 						{
-							"type": "Progress_Bar",
+							"type": "ProgBar_Producers",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -8533,6 +8533,86 @@
 						"width": 95,
 						"height": 95,
 						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ProgBar_HP",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 185,
+					"sid": 911991618672620,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 911991618672620,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1456,
+						"y": 208,
+						"width": 305,
+						"height": 50,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "ProgBar_Shield",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 186,
+					"sid": 659324549862193,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 659324549862193,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1456,
+						"y": 320,
+						"width": 305,
+						"height": 50,
+						"originX": 0,
 						"originY": 0.5,
 						"color": [
 							1,
