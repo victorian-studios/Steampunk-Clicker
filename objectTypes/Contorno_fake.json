@@ -1,0 +1,52 @@
+{
+	"name": "Contorno_fake",
+	"plugin-id": "Sprite",
+	"sid": 489646117107209,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 178818,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Top_Limit",
+								"x": 0.044,
+								"y": 0.124
+							},
+							{
+								"name": "Bottom_Limit",
+								"x": 0.044,
+								"y": 0.852
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 481633651391922,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

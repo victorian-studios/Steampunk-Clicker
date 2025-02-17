@@ -1,11 +1,17 @@
 {
-	"name": "Sprite",
+	"name": "Enemy",
 	"plugin-id": "Sprite",
-	"sid": 586219988536226,
+	"sid": 201912785579794,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 448417409070917
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -20,13 +26,13 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 2561054,
+						"imageSpriteId": 6868062,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 589297438230159,
+				"sid": 534798438457229,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

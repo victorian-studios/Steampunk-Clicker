@@ -132,6 +132,15 @@
 					}
 				},
 				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 338070072819691,
+					"parameters": {
+						"tag": "\"weapon_data\"",
+						"file": "weapons.json"
+					}
+				},
+				{
 					"id": "pin-to-object-properties",
 					"objectClass": "Text_Upg_Description",
 					"sid": 969823686903977,
@@ -284,6 +293,30 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 527873347810248,
+					"parameters": {
+						"tag": "\"weapon_data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Weapons",
+					"sid": 968707594004674,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 918042758228026
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 509063140566776
@@ -308,7 +341,7 @@
 				},
 				{
 					"id": "set-width",
-					"objectClass": "ProgBar_HP",
+					"objectClass": "ProgBar_HP_Player",
 					"sid": 525667098307470,
 					"parameters": {
 						"width": "HP * ( 300 / HP_Max )"
@@ -4426,7 +4459,711 @@
 			"title": "Workshop",
 			"description": "",
 			"isActiveOnStart": true,
-			"children": [],
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Scroll Dialog Interaction",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 876977046099810,
+									"parameters": {
+										"object": "Item_Card"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 269214032246518,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "Item_Card",
+											"sid": 509118028358954,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "80"
+											}
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "Item_Card",
+											"sid": 659165569855764,
+											"parameters": {
+												"comparison": 4,
+												"y-co-ordinate": "720"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Item_Card",
+											"sid": 993544209646920,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 596438429253092,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 449149446657223
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Item_Card",
+											"sid": 208242977015616,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 691009902674421
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 373375497736332,
+									"parameters": {
+										"object": "icon_weapon_list"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 900001381546527,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "icon_weapon_list",
+											"sid": 607259180610318,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "80"
+											}
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "icon_weapon_list",
+											"sid": 625254711594804,
+											"parameters": {
+												"comparison": 4,
+												"y-co-ordinate": "720"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "icon_weapon_list",
+											"sid": 636134837531976,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 943563946111467,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 337187608414861
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "icon_weapon_list",
+											"sid": 440480610849392,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 284022327518163
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 892234239094898,
+									"parameters": {
+										"object": "Text_Item_Name"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 742140683538690,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "Text_Item_Name",
+											"sid": 121218280683096,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "80"
+											}
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "Text_Item_Name",
+											"sid": 290031910713487,
+											"parameters": {
+												"comparison": 4,
+												"y-co-ordinate": "720"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Text_Item_Name",
+											"sid": 100160222037267,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 388808192106027,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 281257727239279
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Text_Item_Name",
+											"sid": 867356544329083,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 464510094485900
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-mouse-wheel",
+									"objectClass": "Mouse",
+									"sid": 339595211450440,
+									"parameters": {
+										"direction": "down"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 782902727036982,
+									"parameters": {
+										"y": "Self.Y + 20"
+									}
+								}
+							],
+							"sid": 670636040206896
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-mouse-wheel",
+									"objectClass": "Mouse",
+									"sid": 486987097032880,
+									"parameters": {
+										"direction": "up"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 961326883810995,
+									"parameters": {
+										"y": "Self.Y - 20"
+									}
+								}
+							],
+							"sid": 136703205635572
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 176665427565102,
+									"parameters": {
+										"first-value": "Bkg_Tab_List.ImagePointY(\"Top\")",
+										"comparison": 4,
+										"second-value": "Contorno_fake.ImagePointY(\"Top_Limit\")"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 747568878009038,
+									"parameters": {
+										"y": "Contorno_fake.ImagePointY(\"Top_Limit\")"
+									}
+								}
+							],
+							"sid": 194992322485318
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 239103672787039,
+									"parameters": {
+										"first-value": "Bkg_Tab_List.ImagePointY(\"Bottom\")",
+										"comparison": 2,
+										"second-value": "Contorno_fake.ImagePointY(\"Bottom_Limit\")"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 150589397539363,
+									"parameters": {
+										"y": "Contorno_fake.ImagePointY(\"Bottom_Limit\") - Bkg_Tab_List.Height"
+									}
+								}
+							],
+							"sid": 450109437524810
+						}
+					],
+					"sid": 511046342918322
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Scroll Dialog",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "PopulateList",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Item_Card",
+									"sid": 228412340029318
+								},
+								{
+									"id": "set-height",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 404086551158994,
+									"parameters": {
+										"height": "int( max( (A_Weapons.Depth - 1) * Item_Card.Height, Contorno_fake.ImagePointY(\"Bottom_Limit\") - Contorno_fake.ImagePointY(\"Top_Limit\") ) ) - 1"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 533738090905057,
+									"parameters": {
+										"x": "336",
+										"y": "144"
+									}
+								}
+							],
+							"sid": 700601831389817,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-height",
+											"objectClass": "Bkg_Tab_List",
+											"sid": 638849645386418,
+											"parameters": {
+												"comparison": 0,
+												"height": "int ( Contorno_fake.ImagePointY(2) - Contorno_fake.ImagePointY(1) ) - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Bkg_Tab_List",
+											"sid": 809491826726403,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 910593714399549
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 386127497537491
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Bkg_Tab_List",
+											"sid": 214370811665470,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 828631934651509
+								},
+								{
+									"eventType": "variable",
+									"name": "counter",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 290902955523320
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 851952881453131,
+											"parameters": {
+												"name": "\"\"",
+												"start-index": "0",
+												"end-index": "A_Weapons.Depth - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 267132910047209,
+											"parameters": {
+												"object-to-create": "Item_Card",
+												"layer": "\"Weapon List\"",
+												"x": "Bkg_Tab_List.X",
+												"y": "Bkg_Tab_List.Y + 16 + ( ( 16 + Item_Card.Height )  * counter )",
+												"create-hierarchy": true,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Item_Card",
+											"sid": 672959571440514,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Bkg_Tab_List",
+												"x": false,
+												"y": true,
+												"angle": false,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "icon_weapon_list",
+											"sid": 608494698806562,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Bkg_Tab_List",
+												"x": false,
+												"y": true,
+												"angle": false,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Text_Item_Name",
+											"sid": 558475572553430,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Item_Card",
+												"x": false,
+												"y": true,
+												"angle": false,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "icon_weapon_list",
+											"sid": 896785206324317,
+											"parameters": {
+												"frame-number": "counter"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Item_Name",
+											"sid": 212680471764810,
+											"parameters": {
+												"text": "A_Weapons.At(1,1,counter)"
+											}
+										}
+									],
+									"sid": 401022687496114,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 167174686891507,
+													"parameters": {
+														"variable": "counter",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 781993122955115
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "HideScrollDialog",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 239440349763669,
+									"parameters": {
+										"layer": "\"Weapon List\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 457031350681070,
+									"parameters": {
+										"group-name": "\"Scroll Dialog Interaction\"",
+										"state": "deactivated"
+									}
+								}
+							],
+							"sid": 190968432551535
+						},
+						{
+							"functionName": "ShowScrollDialog",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "List",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 415617077013688
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 582287529160294,
+									"parameters": {
+										"layer": "\"Weapon List\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 351825877221150,
+									"parameters": {
+										"group-name": "\"Scroll Dialog Interaction\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 623961436279532,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 545941026837544,
+											"parameters": {
+												"variable": "List",
+												"comparison": 0,
+												"value": "\"Weapons\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "PopulateList",
+											"sid": 511453007311586
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 728526895571675,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "PopulateList",
+											"sid": 849763266411630
+										}
+									],
+									"sid": 120933973230407
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 725152955472436,
+											"parameters": {
+												"variable": "List",
+												"comparison": 0,
+												"value": "\"Hab\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 448789023993364
+								}
+							]
+						}
+					],
+					"sid": 701507979657375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 479592388919144,
+							"parameters": {
+								"object": "Btn_Tabs_Workshop",
+								"type": "end"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 499205465896860,
+							"parameters": {
+								"layer": "\"Workshop\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ShowScrollDialog",
+							"sid": 997885977011009,
+							"parameters": [
+								"Btn_Tabs_Workshop.List"
+							]
+						}
+					],
+					"sid": 892075092048138
+				}
+			],
 			"sid": 607375331398686
 		}
 	],

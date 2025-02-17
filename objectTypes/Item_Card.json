@@ -1,0 +1,84 @@
+{
+	"name": "Item_Card",
+	"plugin-id": "Sprite",
+	"sid": 999592088889857,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 476698055025941
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 480,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 2031272,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Icon_Img",
+								"x": 0.13333333333333333,
+								"y": 0.5
+							},
+							{
+								"name": "Name_Txt",
+								"x": 0.6333333333333333,
+								"y": 0.5
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 480,
+						"height": 304,
+						"originX": 0.5,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5048448,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Desc_Txt",
+								"x": 0.03333333333333333,
+								"y": 0.5263157894736842
+							},
+							{
+								"name": "Btn_Upg",
+								"x": 0.85,
+								"y": 0.7368421052631579
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 688113904493907,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,58 @@
+{
+	"name": "Bkg_Tab_List",
+	"plugin-id": "Sprite",
+	"sid": 413558019260756,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 682631567905843
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9430906,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Top",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Bottom",
+								"x": 0.5,
+								"y": 1
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 326632261465111,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
