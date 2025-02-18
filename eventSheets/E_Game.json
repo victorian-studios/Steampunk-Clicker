@@ -141,6 +141,15 @@
 					}
 				},
 				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 399648180182786,
+					"parameters": {
+						"tag": "\"habilities_data\"",
+						"file": "habilities.json"
+					}
+				},
+				{
 					"id": "pin-to-object-properties",
 					"objectClass": "Text_Upg_Description",
 					"sid": 969823686903977,
@@ -312,6 +321,30 @@
 				}
 			],
 			"sid": 918042758228026
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 897032801910387,
+					"parameters": {
+						"tag": "\"habilities_data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Habilities",
+					"sid": 173382832507249,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 737375258787193
 		},
 		{
 			"eventType": "block",
@@ -5123,7 +5156,25 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"callFunction": "PopulateList",
+											"sid": 870888179320447
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 967375007322947,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "PopulateList",
+											"sid": 462904396416248
+										}
+									],
 									"sid": 448789023993364
 								}
 							]

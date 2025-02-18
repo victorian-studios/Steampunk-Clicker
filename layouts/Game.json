@@ -8509,6 +8509,62 @@
 								"angle": 0,
 								"zElevation": 0
 							}
+						},
+						{
+							"type": "Text_HP_Player",
+							"properties": {
+								"text": "999",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 38,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									1,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 213,
+							"sid": 961450960855315,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 961450960855315,
+								"expanded": true,
+								"folderName": "",
+								"indexInFolder": -1,
+								"folderNestingLevel": -1
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1424,
+								"y": 144,
+								"width": 128,
+								"height": 64,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
 						}
 					],
 					"sid": 470543263524853,
@@ -8805,8 +8861,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1376,
-						"y": -64,
+						"x": 1600,
+						"y": 176,
 						"width": 95,
 						"height": 95,
 						"originX": 0.5,
@@ -8845,8 +8901,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 80,
-						"y": -224,
+						"x": 1456,
+						"y": -144,
 						"width": 305,
 						"height": 50,
 						"originX": 0,
@@ -9325,6 +9381,18 @@
 			},
 			"uid": 212,
 			"sid": 814198225454968,
+			"tags": "",
+			"instanceVariables": {}
+		},
+		{
+			"type": "A_Habilities",
+			"properties": {
+				"width": 6,
+				"height": 11,
+				"depth": 2
+			},
+			"uid": 214,
+			"sid": 520027809107537,
 			"tags": "",
 			"instanceVariables": {}
 		}
