@@ -1,7 +1,7 @@
 {
-	"name": "Bkg_Shield",
+	"name": "Contorno_ProgBar_Shield_Player",
 	"plugin-id": "Sprite",
-	"sid": 727042702137539,
+	"sid": 217326517109850,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
@@ -12,21 +12,35 @@
 			{
 				"frames": [
 					{
-						"width": 203,
-						"height": 205,
-						"originX": 0.5073891625615764,
-						"originY": 0.551219512195122,
+						"width": 30,
+						"height": 58,
+						"originX": 0.5,
+						"originY": 1,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 7194974,
+						"imageSpriteId": 6960300,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 30,
+						"height": 58,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7330870,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 804917040957165,
+				"sid": 101559034277869,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
