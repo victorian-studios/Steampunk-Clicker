@@ -224,7 +224,7 @@
 							"objectClass": "System",
 							"sid": 658214153592809,
 							"parameters": {
-								"object": "btn_screens",
+								"object": "Btn_screens",
 								"expression": "btn_screens.AnimationName",
 								"comparison": 0,
 								"value": "\"Production\""
@@ -234,7 +234,7 @@
 					"actions": [
 						{
 							"id": "set-animation-frame",
-							"objectClass": "btn_screens",
+							"objectClass": "Btn_screens",
 							"sid": 105437975813472,
 							"parameters": {
 								"frame-number": "1"
@@ -242,7 +242,7 @@
 						},
 						{
 							"id": "spawn-another-object",
-							"objectClass": "arrow",
+							"objectClass": "Arrow",
 							"sid": 784635310643556,
 							"parameters": {
 								"object": "arrow_fake",
@@ -254,7 +254,7 @@
 						},
 						{
 							"id": "set-angle-toward-position",
-							"objectClass": "arrow",
+							"objectClass": "Arrow",
 							"sid": 632283540806375,
 							"parameters": {
 								"x": "btn_screens.X",
@@ -399,7 +399,7 @@
 					"objectClass": "Mouse",
 					"sid": 197848285911464,
 					"parameters": {
-						"object": "btn_screens"
+						"object": "Btn_screens"
 					}
 				}
 			],
@@ -507,7 +507,7 @@
 							"actions": [
 								{
 									"id": "tween-one-property",
-									"objectClass": "arrow",
+									"objectClass": "Arrow",
 									"sid": 699076386731724,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -539,7 +539,7 @@
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
-						"object-clicked": "btn_screens"
+						"object-clicked": "Btn_screens"
 					}
 				}
 			],
@@ -654,14 +654,14 @@
 							"objectClass": "System",
 							"sid": 320167366868911,
 							"parameters": {
-								"object": "btn_screens"
+								"object": "Btn_screens"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-animation-frame",
-							"objectClass": "btn_screens",
+							"objectClass": "Btn_screens",
 							"sid": 710652326975176,
 							"parameters": {
 								"frame-number": "0"
@@ -685,7 +685,7 @@
 						},
 						{
 							"id": "set-animation-frame",
-							"objectClass": "btn_screens",
+							"objectClass": "Btn_screens",
 							"sid": 665803570104649,
 							"parameters": {
 								"frame-number": "1"
@@ -823,7 +823,7 @@
 							"objectClass": "System",
 							"sid": 650561054378872,
 							"parameters": {
-								"object": "btn_screens",
+								"object": "Btn_screens",
 								"expression": "btn_screens.AnimationFrame",
 								"comparison": 0,
 								"value": "1"
@@ -880,7 +880,7 @@
 									"actions": [
 										{
 											"id": "tween-one-property",
-											"objectClass": "arrow",
+											"objectClass": "Arrow",
 											"sid": 714663589487384,
 											"behaviorType": "Tween",
 											"parameters": {

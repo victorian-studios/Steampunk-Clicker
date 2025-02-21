@@ -3084,8 +3084,8 @@
 							"world": {
 								"x": 351,
 								"y": 360,
-								"width": 95,
-								"height": 95,
+								"width": 100,
+								"height": 100,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3132,8 +3132,8 @@
 							"world": {
 								"x": 1119,
 								"y": 360,
-								"width": 95,
-								"height": 95,
+								"width": 100,
+								"height": 100,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3180,8 +3180,8 @@
 							"world": {
 								"x": 1120,
 								"y": 544,
-								"width": 95,
-								"height": 95,
+								"width": 100,
+								"height": 100,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3228,8 +3228,8 @@
 							"world": {
 								"x": 1120,
 								"y": 720,
-								"width": 95,
-								"height": 95,
+								"width": 100,
+								"height": 100,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3276,8 +3276,8 @@
 							"world": {
 								"x": 352,
 								"y": 720,
-								"width": 95,
-								"height": 95,
+								"width": 100,
+								"height": 100,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3324,8 +3324,8 @@
 							"world": {
 								"x": 352,
 								"y": 544,
-								"width": 95,
-								"height": 95,
+								"width": 100,
+								"height": 100,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3674,8 +3674,8 @@
 							"world": {
 								"x": 1784,
 								"y": 608,
-								"width": 88,
-								"height": 88,
+								"width": 92.63157894736842,
+								"height": 92.63157894736842,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3722,8 +3722,8 @@
 							"world": {
 								"x": 1784,
 								"y": 712,
-								"width": 88,
-								"height": 88,
+								"width": 92.63157894736842,
+								"height": 92.63157894736842,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3770,8 +3770,8 @@
 							"world": {
 								"x": 1784,
 								"y": 816,
-								"width": 88,
-								"height": 88,
+								"width": 92.63157894736842,
+								"height": 92.63157894736842,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -8414,8 +8414,8 @@
 							"world": {
 								"x": 336,
 								"y": 480,
-								"width": 512,
-								"height": 720,
+								"width": 576,
+								"height": 847,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -8627,8 +8627,8 @@
 							"world": {
 								"x": 336,
 								"y": 504,
-								"width": 528,
-								"height": 832,
+								"width": 576,
+								"height": 847,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -8668,7 +8668,7 @@
 							"locked": false,
 							"world": {
 								"x": 208,
-								"y": 80,
+								"y": 144,
 								"width": 240,
 								"height": 64,
 								"originX": 0.5,
@@ -8710,7 +8710,7 @@
 							"locked": false,
 							"world": {
 								"x": 448,
-								"y": 80,
+								"y": 144,
 								"width": 240,
 								"height": 64,
 								"originX": 0.5,
@@ -9068,7 +9068,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "btn_screens",
+					"type": "Btn_screens",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Production",
@@ -9108,7 +9108,7 @@
 					}
 				},
 				{
-					"type": "btn_screens",
+					"type": "Btn_screens",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Upgrades",
@@ -9148,7 +9148,7 @@
 					}
 				},
 				{
-					"type": "btn_screens",
+					"type": "Btn_screens",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Workshop",
@@ -9188,7 +9188,7 @@
 					}
 				},
 				{
-					"type": "btn_screens",
+					"type": "Btn_screens",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Fight",
@@ -9228,7 +9228,7 @@
 					}
 				},
 				{
-					"type": "arrow",
+					"type": "Arrow",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Default",
