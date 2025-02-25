@@ -1,45 +1,39 @@
 {
-	"name": "Bkg_Habs",
+	"name": "batalha_turno_dirigivel",
 	"plugin-id": "Sprite",
-	"sid": 428365671514013,
+	"sid": 557672716206727,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 461180173883048
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 294,
-						"height": 106,
+						"width": 61,
+						"height": 31,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3770763,
-						"collisionPoly": {
-							"points": [
-								0.01020408163265306,
-								0,
-								1,
-								0.02830188679245283,
-								0.9897959183673469,
-								1,
-								0,
-								0.9716981132075472
-							]
-						},
+						"imageSpriteId": 1728215,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 915623348907054,
-				"name": "Animation 1",
+				"sid": 971330031870790,
+				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
