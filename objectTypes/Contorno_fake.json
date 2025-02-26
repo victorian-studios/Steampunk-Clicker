@@ -20,7 +20,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3522596,
+						"imageSpriteId": 4010284,
 						"collisionPoly": {
 							"points": [
 								0.010416666666666666,
@@ -37,13 +37,89 @@
 						"imagePoints": [
 							{
 								"name": "Top_Limit",
-								"x": 0.044,
-								"y": 0.124
+								"x": 0.5,
+								"y": 0.1729634002361269
 							},
 							{
 								"name": "Bottom_Limit",
-								"x": 0.044,
-								"y": 0.852
+								"x": 0.5,
+								"y": 0.8252656434474617
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 576,
+						"height": 847,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3955979,
+						"collisionPoly": {
+							"points": [
+								0.010416666666666666,
+								0,
+								1,
+								0.0070838252656434475,
+								0.9965277777777778,
+								1,
+								0,
+								0.9976387249114522
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Top_Limit",
+								"x": 0.5,
+								"y": 0.1729634002361269
+							},
+							{
+								"name": "Bottom_Limit",
+								"x": 0.5,
+								"y": 0.8252656434474617
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 576,
+						"height": 847,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6419753,
+						"collisionPoly": {
+							"points": [
+								0.010416666666666666,
+								0,
+								1,
+								0.0070838252656434475,
+								0.9965277777777778,
+								1,
+								0,
+								0.9976387249114522
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Top_Limit",
+								"x": 0.5,
+								"y": 0.1729634002361269
+							},
+							{
+								"name": "Bottom_Limit",
+								"x": 0.5,
+								"y": 0.8252656434474617
 							}
 						],
 						"duration": 1,
@@ -51,7 +127,56 @@
 					}
 				],
 				"sid": 481633651391922,
-				"name": "Animation 1",
+				"name": "Weapons",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 576,
+						"height": 847,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9161680,
+						"collisionPoly": {
+							"points": [
+								0.010416666666666666,
+								0,
+								1,
+								0.0070838252656434475,
+								0.9965277777777778,
+								1,
+								0,
+								0.9976387249114522
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Top_Limit",
+								"x": 0.5,
+								"y": 0.1729634002361269
+							},
+							{
+								"name": "Bottom_Limit",
+								"x": 0.5,
+								"y": 0.8252656434474617
+							}
+						],
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 502561354332924,
+				"name": "Armor",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

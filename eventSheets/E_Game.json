@@ -3992,6 +3992,15 @@
 							}
 						},
 						{
+							"id": "set-animation",
+							"objectClass": "Bkg_tela_upgrades",
+							"sid": 889485638982287,
+							"parameters": {
+								"animation": "ActiveLayer",
+								"from": "beginning"
+							}
+						},
+						{
 							"id": "set-size",
 							"objectClass": "Icon_prod",
 							"sid": 962016825585606,
@@ -5461,7 +5470,44 @@
 							]
 						}
 					],
-					"sid": 892075092048138
+					"sid": 892075092048138,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 796825640371333,
+									"parameters": {
+										"object": "Contorno_fake",
+										"expression": "Contorno_fake.AnimationName",
+										"comparison": 0,
+										"value": "\"Weapons\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Contorno_fake",
+									"sid": 681287777176186,
+									"parameters": {
+										"frame-number": "Btn_Tabs_Workshop.AnimationFrame"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Bkg_Tab_Workshop",
+									"sid": 477218013976361,
+									"parameters": {
+										"frame-number": "Btn_Tabs_Workshop.AnimationFrame"
+									}
+								}
+							],
+							"sid": 445760270455460
+						}
+					]
 				}
 			],
 			"sid": 607375331398686

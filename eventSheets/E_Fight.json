@@ -1,5 +1,164 @@
 {
 	"name": "E_Fight",
-	"events": [],
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Enemy_HP",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 470069990710523
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_HP_MAX",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 545197700425030
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 919485952791365
+				}
+			],
+			"actions": [],
+			"sid": 575714370838546,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 575969135817119,
+							"parameters": {
+								"object": "ProgBar_HP_Player",
+								"expression": "ProgBar_HP_Player.AnimationFrame",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "ProgBar_HP_Player",
+							"sid": 112131185324906,
+							"parameters": {
+								"width": "HP * ( 500 / HP_Max )"
+							}
+						}
+					],
+					"sid": 611726964501038
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 168241132900805,
+							"parameters": {
+								"object": "ProgBar_HP_Enemy",
+								"expression": "ProgBar_HP_Enemy.AnimationFrame",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "ProgBar_HP_Enemy",
+							"sid": 590150355215737,
+							"parameters": {
+								"width": "Enemy_HP * ( 500 / Enemy_HP_Max )"
+							}
+						}
+					],
+					"sid": 969000628462731
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 596370513062971,
+					"parameters": {
+						"object": "Btn_Exit",
+						"type": "start"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 513812859761443,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 279140177838667
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 123104288296142,
+					"parameters": {
+						"object": "Buttons"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Buttons",
+					"sid": 788015011128020,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 197266562268419
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 436356375017441
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Buttons",
+					"sid": 268151980551001,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 510785531584362
+		}
+	],
 	"sid": 486033056870913
 }

@@ -1,7 +1,7 @@
 {
-	"name": "Bkg_Tab_Armor",
+	"name": "Btn_Exit",
 	"plugin-id": "Sprite",
-	"sid": 586219988536226,
+	"sid": 918238486863037,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [],
@@ -12,25 +12,39 @@
 			{
 				"frames": [
 					{
-						"width": 576,
-						"height": 847,
+						"width": 120,
+						"height": 120,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 2643015,
+						"imageSpriteId": 1888986,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 120,
+						"height": 120,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9461417,
 						"collisionPoly": {
 							"points": [
-								0.010416666666666666,
+								0.025,
 								0,
 								1,
-								0.0070838252656434475,
-								0.9965277777777778,
+								0.025,
+								0.975,
 								1,
 								0,
-								0.9976387249114522
+								0.975
 							]
 						},
 						"useCollisionPoly": true,
@@ -38,8 +52,8 @@
 						"tag": ""
 					}
 				],
-				"sid": 589297438230159,
-				"name": "Animation 1",
+				"sid": 801451506086945,
+				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
