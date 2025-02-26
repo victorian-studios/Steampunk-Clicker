@@ -158,6 +158,96 @@
 				}
 			],
 			"sid": 510785531584362
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 359173021543880
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 459163471456302,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"angle": "180"
+					}
+				}
+			],
+			"sid": 554297306720855
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 264824820361167,
+					"parameters": {
+						"comparison": 3,
+						"x-co-ordinate": "1500"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 109261011889477,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"angle": "0"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 987578737412869,
+					"parameters": {
+						"state": "mirrored"
+					}
+				}
+			],
+			"sid": 629693360016799
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 382744268855410,
+					"parameters": {
+						"comparison": 5,
+						"x-co-ordinate": "2280"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 323557212028110,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"angle": "180"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 615710666267517,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				}
+			],
+			"sid": 688901669532321
 		}
 	],
 	"sid": 486033056870913

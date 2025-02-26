@@ -5436,81 +5436,116 @@
 									"sid": 448789023993364
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 984126951614198,
+									"parameters": {
+										"object": "Btn_Tabs_Workshop",
+										"type": "end"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 318667379354485,
+									"parameters": {
+										"layer": "\"Workshop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ShowScrollDialog",
+									"sid": 903756402496782,
+									"parameters": [
+										"Btn_Tabs_Workshop.List"
+									]
+								}
+							],
+							"sid": 908196926933260,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 394356887442598,
+											"parameters": {
+												"object": "Contorno_fake",
+												"expression": "Contorno_fake.AnimationName",
+												"comparison": 0,
+												"value": "\"Weapons\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Contorno_fake",
+											"sid": 109075533809042,
+											"parameters": {
+												"frame-number": "Btn_Tabs_Workshop.AnimationFrame"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Bkg_Tab_Workshop",
+											"sid": 101328483683774,
+											"parameters": {
+												"frame-number": "Btn_Tabs_Workshop.AnimationFrame"
+											}
+										}
+									],
+									"sid": 866902742753124
+								}
+							]
 						}
 					],
 					"sid": 701507979657375
-				},
+				}
+			],
+			"sid": 607375331398686
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Fight Map",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-touched-object",
 							"objectClass": "Touch",
-							"sid": 479592388919144,
+							"sid": 460852486714939,
 							"parameters": {
-								"object": "Btn_Tabs_Workshop",
-								"type": "end"
-							}
-						},
-						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 499205465896860,
-							"parameters": {
-								"layer": "\"Workshop\""
+								"object": "icon_zumbi",
+								"type": "start"
 							}
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "ShowScrollDialog",
-							"sid": 997885977011009,
-							"parameters": [
-								"Btn_Tabs_Workshop.List"
-							]
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 492048564168253,
+							"parameters": {
+								"layout": "Fight"
+							}
 						}
 					],
-					"sid": 892075092048138,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 796825640371333,
-									"parameters": {
-										"object": "Contorno_fake",
-										"expression": "Contorno_fake.AnimationName",
-										"comparison": 0,
-										"value": "\"Weapons\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Contorno_fake",
-									"sid": 681287777176186,
-									"parameters": {
-										"frame-number": "Btn_Tabs_Workshop.AnimationFrame"
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "Bkg_Tab_Workshop",
-									"sid": 477218013976361,
-									"parameters": {
-										"frame-number": "Btn_Tabs_Workshop.AnimationFrame"
-									}
-								}
-							],
-							"sid": 445760270455460
-						}
-					]
+					"sid": 768665804726247
 				}
 			],
-			"sid": 607375331398686
+			"sid": 464899724946462
 		}
 	],
 	"sid": 739369905008436
