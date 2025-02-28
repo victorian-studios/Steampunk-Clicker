@@ -905,6 +905,51 @@
 			]
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 106155483517457,
+					"parameters": {
+						"object": "Buttons"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Buttons",
+					"sid": 345569344289315,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 916467393684467
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 431442946916399
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Buttons",
+					"sid": 468295364870532,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 122369912731733
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Vapor Prod",
@@ -3193,9 +3238,9 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "Icon_prod",
-													"sid": 411969405327077,
+													"sid": 489887053898985,
 													"parameters": {
-														"frame-number": "Self.ZIndex - 1"
+														"frame-number": "loopindex"
 													}
 												}
 											],
@@ -3992,15 +4037,6 @@
 							}
 						},
 						{
-							"id": "set-animation",
-							"objectClass": "Bkg_tela_upgrades",
-							"sid": 889485638982287,
-							"parameters": {
-								"animation": "ActiveLayer",
-								"from": "beginning"
-							}
-						},
-						{
 							"id": "set-size",
 							"objectClass": "Icon_prod",
 							"sid": 962016825585606,
@@ -4055,7 +4091,37 @@
 							}
 						}
 					],
-					"sid": 589161514220957
+					"sid": 589161514220957,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 160087524072343,
+									"parameters": {
+										"object": "Bkg_tela_upgrades",
+										"expression": "Bkg_tela_upgrades.LayerName",
+										"comparison": 0,
+										"value": "\"Bkg_Upg\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Bkg_tela_upgrades",
+									"sid": 786583462152577,
+									"parameters": {
+										"animation": "ActiveLayer",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 106037707892345
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -4530,10 +4596,10 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Item_Card",
-											"sid": 509118028358954,
+											"sid": 467888907528890,
 											"parameters": {
 												"comparison": 2,
-												"y-co-ordinate": "80"
+												"y-co-ordinate": "30"
 											}
 										},
 										{
@@ -4612,10 +4678,10 @@
 										{
 											"id": "compare-y",
 											"objectClass": "icon_list_weapon",
-											"sid": 625254711594804,
+											"sid": 166606352209070,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "720"
+												"y-co-ordinate": "785"
 											}
 										}
 									],
@@ -4661,6 +4727,79 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
+									"sid": 484371762238053,
+									"parameters": {
+										"object": "Btn_Upgrade_Weapon"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 475783403610470,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "Btn_Upgrade_Weapon",
+											"sid": 216359543180769,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "180"
+											}
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "Btn_Upgrade_Weapon",
+											"sid": 916194162267661,
+											"parameters": {
+												"comparison": 4,
+												"y-co-ordinate": "740"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Btn_Upgrade_Weapon",
+											"sid": 796128926038193,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 978862106906193,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 759578223660756
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Btn_Upgrade_Weapon",
+											"sid": 627259686148611,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 335162329049108
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
 									"sid": 892234239094898,
 									"parameters": {
 										"object": "Text_Item_Name"
@@ -4676,19 +4815,19 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Text_Item_Name",
-											"sid": 121218280683096,
+											"sid": 443592395103128,
 											"parameters": {
 												"comparison": 2,
-												"y-co-ordinate": "80"
+												"y-co-ordinate": "130"
 											}
 										},
 										{
 											"id": "compare-y",
 											"objectClass": "Text_Item_Name",
-											"sid": 290031910713487,
+											"sid": 921591826770227,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "720"
+												"y-co-ordinate": "785"
 											}
 										}
 									],
@@ -4725,6 +4864,79 @@
 										}
 									],
 									"sid": 464510094485900
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 239519412937636,
+									"parameters": {
+										"object": "Text_Item_Info"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 933586659252730,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-y",
+											"objectClass": "Text_Item_Info",
+											"sid": 391225407506589,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "180"
+											}
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "Text_Item_Info",
+											"sid": 533556859162069,
+											"parameters": {
+												"comparison": 4,
+												"y-co-ordinate": "740"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Text_Item_Info",
+											"sid": 228456012396627,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 854952631826551,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 528830306575977
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Text_Item_Info",
+											"sid": 793354149881007,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 560055630996184
 								}
 							]
 						},
@@ -4860,6 +5072,10 @@
 							"sid": 700601831389817,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "250 é o Item_Card.Height"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -4882,9 +5098,9 @@
 										{
 											"id": "set-height",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 599316854306312,
+											"sid": 370421045903915,
 											"parameters": {
-												"height": "int( max( (A_Weapons.Depth - 1) * Item_Card.Height, Contorno_fake.ImagePointY(\"Bottom_Limit\") - Contorno_fake.ImagePointY(\"Top_Limit\") ) ) - 1"
+												"height": "int( max( (A_Weapons.Depth) * 266, Contorno_fake.ImagePointY(\"Bottom_Limit\") - Contorno_fake.ImagePointY(\"Top_Limit\") ) ) - 1"
 											}
 										},
 										{
@@ -4986,6 +5202,14 @@
 													}
 												},
 												{
+													"id": "set-animation-frame",
+													"objectClass": "Item_Card",
+													"sid": 619249070441147,
+													"parameters": {
+														"frame-number": "1"
+													}
+												},
+												{
 													"id": "pin-to-object-properties",
 													"objectClass": "Item_Card",
 													"sid": 439691375411950,
@@ -5003,10 +5227,10 @@
 												{
 													"id": "pin-to-object-properties",
 													"objectClass": "icon_list_weapon",
-													"sid": 976993069023322,
+													"sid": 782305486124517,
 													"behaviorType": "Pin",
 													"parameters": {
-														"pin-to": "Bkg_Tab_List",
+														"pin-to": "Item_Card",
 														"x": false,
 														"y": true,
 														"angle": false,
@@ -5044,6 +5268,78 @@
 													"sid": 439050622609212,
 													"parameters": {
 														"text": "A_Weapons.At(1,1,counter)"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Item_Card",
+													"sid": 395754535649873,
+													"parameters": {
+														"object": "Text_Item_Info",
+														"layer": "\"Weapon List\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Text_Item_Info",
+													"sid": 585518260788117,
+													"parameters": {
+														"x": "Item_Card.ImagePointX(\"Desc_Txt\")",
+														"y": "Item_Card.ImagePointY(\"Desc_Txt\")"
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Text_Item_Info",
+													"sid": 664867271620643,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Item_Card",
+														"x": false,
+														"y": true,
+														"angle": false,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Item_Card",
+													"sid": 747392560403671,
+													"parameters": {
+														"object": "Btn_Upgrade_Weapon",
+														"layer": "\"Weapon List\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Btn_Upgrade_Weapon",
+													"sid": 422881752430394,
+													"parameters": {
+														"x": "Item_Card.ImagePointX(\"Btn_Upg\")",
+														"y": "Item_Card.ImagePointY(\"Btn_Upg\")"
+													}
+												},
+												{
+													"id": "pin-to-object-properties",
+													"objectClass": "Btn_Upgrade_Weapon",
+													"sid": 711133369021842,
+													"behaviorType": "Pin",
+													"parameters": {
+														"pin-to": "Item_Card",
+														"x": false,
+														"y": true,
+														"angle": false,
+														"width-type": "no",
+														"height-type": "no",
+														"z": false
 													}
 												}
 											],
@@ -5193,6 +5489,14 @@
 														"y": "Bkg_Tab_List.Y + 16 + ( ( 16 + Item_Card.Height )  * counter )",
 														"create-hierarchy": true,
 														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Item_Card",
+													"sid": 690704678804505,
+													"parameters": {
+														"frame-number": "0"
 													}
 												},
 												{
@@ -5508,6 +5812,32 @@
 						}
 					],
 					"sid": 701507979657375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 383710067220961,
+							"parameters": {
+								"object": "Btn_Upgrade_Weapon",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 333148078472362,
+							"parameters": {
+								"layer": "\"Work Upg\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 749384712363329
 				}
 			],
 			"sid": 607375331398686

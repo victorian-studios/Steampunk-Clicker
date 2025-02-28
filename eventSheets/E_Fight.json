@@ -22,6 +22,38 @@
 			"sid": 545197700425030
 		},
 		{
+			"eventType": "variable",
+			"name": "TURN",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "0 - Player / 1 - Enemy ",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 705805426395131
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 423127593141497
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 175536525679917,
+					"parameters": {
+						"variable": "TURN",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 141394572375646
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
