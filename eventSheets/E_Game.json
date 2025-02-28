@@ -134,6 +134,15 @@
 				{
 					"id": "request-project-file",
 					"objectClass": "AJAX",
+					"sid": 468848238618479,
+					"parameters": {
+						"tag": "\"save_file\"",
+						"file": "Save_File.json"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
 					"sid": 338070072819691,
 					"parameters": {
 						"tag": "\"weapon_data\"",
@@ -297,6 +306,30 @@
 				}
 			],
 			"sid": 390750922834888
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 918647569834814,
+					"parameters": {
+						"tag": "\"save_file\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "Dict_Save_File",
+					"sid": 340386067722932,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 902377868448926
 		},
 		{
 			"eventType": "block",
@@ -5347,6 +5380,351 @@
 											"children": [
 												{
 													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 193053849811155,
+															"parameters": {
+																"key": "\"WP_\" & counter",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 273110784341184,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se tem dano penetrante"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Weapons",
+																	"sid": 979436679143000,
+																	"parameters": {
+																		"x": "3",
+																		"y": "1",
+																		"z": "counter",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 240919358749664,
+															"children": [
+																{
+																	"eventType": "comment",
+																	"text": "Verifica se tem munição"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Weapons",
+																			"sid": 930340421973168,
+																			"parameters": {
+																				"x": "4",
+																				"y": "1",
+																				"z": "counter",
+																				"comparison": 4,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Item_Info",
+																			"sid": 763140636861280,
+																			"parameters": {
+																				"text": "\"Dmg: \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"P. Dmg: \" & A_Weapons.At( 3, 1, counter ) & newline & \"Ammo: \" & A_Weapons.At( 4, 1, counter ) & newline & \"Special: \" & A_Weapons.At( 5, 1, counter )"
+																			}
+																		}
+																	],
+																	"sid": 876275729925210
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 804615698723869
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Item_Info",
+																			"sid": 982528536462716,
+																			"parameters": {
+																				"text": "\"Dmg: \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"P. Dmg: \" & A_Weapons.At( 3, 1, counter ) & newline & newline & \"Special: \" & A_Weapons.At( 5, 1, counter )"
+																			}
+																		}
+																	],
+																	"sid": 905236710438239
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 605922607153765
+																}
+															],
+															"actions": [],
+															"sid": 140995152995852,
+															"children": [
+																{
+																	"eventType": "comment",
+																	"text": "Verifica se tem munição"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Weapons",
+																			"sid": 638228775882345,
+																			"parameters": {
+																				"x": "4",
+																				"y": "1",
+																				"z": "counter",
+																				"comparison": 4,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 949922240381767
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 589270657606123
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Item_Info",
+																			"sid": 153984207535078,
+																			"parameters": {
+																				"text": "\"Dmg: \" & A_Weapons.At( 2, 1, counter ) & newline & newline & \"Special: \" & A_Weapons.At( 5, 1, counter )"
+																			}
+																		}
+																	],
+																	"sid": 538133302002655
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 244030541783349,
+															"parameters": {
+																"key": "\"WP_\" & counter",
+																"comparison": 5,
+																"value": "1"
+															}
+														},
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 525334183694073,
+															"parameters": {
+																"key": "\"WP_\" & counter",
+																"comparison": 2,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 725344787654011,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se tem dano penetrante"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Weapons",
+																	"sid": 745935587910072,
+																	"parameters": {
+																		"x": "3",
+																		"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
+																		"z": "counter",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 813832857415528,
+															"disabled": true,
+															"children": [
+																{
+																	"eventType": "comment",
+																	"text": "Verifica se tem munição"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Weapons",
+																			"sid": 309841063770222,
+																			"parameters": {
+																				"x": "4",
+																				"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
+																				"z": "counter",
+																				"comparison": 4,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Item_Info",
+																			"sid": 179223932827075,
+																			"parameters": {
+																				"text": "\"Dmg: \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" > \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter ) & \" | \" & \"P. Dmg: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" > \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter ) & newline & \"Ammo: \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" > \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter )  & newline & \"Special: \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter )"
+																			}
+																		}
+																	],
+																	"sid": 152845389686277,
+																	"disabled": true
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 302363022382850
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Item_Info",
+																			"sid": 416469579027789,
+																			"parameters": {
+																				"text": "\"Dmg: \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" > \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter ) & \" | \" & \"P. Dmg: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" > \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter ) & newline & newline & \"Special: \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter )"
+																			}
+																		}
+																	],
+																	"sid": 536666935243719,
+																	"disabled": true
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 355673867347709
+																}
+															],
+															"actions": [],
+															"sid": 254947971527444,
+															"disabled": true,
+															"children": [
+																{
+																	"eventType": "comment",
+																	"text": "Verifica se tem munição"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Weapons",
+																			"sid": 941637314083873,
+																			"parameters": {
+																				"x": "4",
+																				"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
+																				"z": "counter",
+																				"comparison": 4,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 443272739749116,
+																	"disabled": true
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 958795943839840
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Item_Info",
+																			"sid": 643395812025378,
+																			"parameters": {
+																				"text": "\"Dmg: \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" > \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter ) & newline & newline & \"Special: \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter+1 ), counter )"
+																			}
+																		}
+																	],
+																	"sid": 791335092982444,
+																	"disabled": true
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 141861190715773,
+															"parameters": {
+																"key": "\"WP_\" & counter",
+																"comparison": 0,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 997069529082753,
+													"disabled": true
+												},
+												{
+													"eventType": "block",
 													"conditions": [],
 													"actions": [
 														{
@@ -5838,6 +6216,32 @@
 						}
 					],
 					"sid": 749384712363329
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 885612247852600,
+							"parameters": {
+								"object": "Btn_Close",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 270420060607874,
+							"parameters": {
+								"layer": "\"Work Upg\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 996712785924855
 				}
 			],
 			"sid": 607375331398686
