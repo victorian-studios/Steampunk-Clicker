@@ -666,19 +666,36 @@
 						"layer": "btn_screens.AnimationName",
 						"interactive": true
 					}
-				},
-				{
-					"id": "set-animation",
-					"objectClass": "Bkg_tela_fundo",
-					"sid": 350794976714362,
-					"parameters": {
-						"animation": "btn_screens.AnimationName",
-						"from": "beginning"
-					}
 				}
 			],
 			"sid": 580049461119616,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Bkg_tela_fundo",
+							"sid": 192994059091681,
+							"parameters": {
+								"instance-variable": "Ignore"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Bkg_tela_fundo",
+							"sid": 142961040279703,
+							"parameters": {
+								"animation": "btn_screens.AnimationName",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 456339590064082
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -3182,6 +3199,16 @@
 										"comparison": 0,
 										"value": "16"
 									}
+								},
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Prod_Data",
+									"sid": 782276160199609,
+									"parameters": {
+										"key": "\"Wood\"",
+										"comparison": 0,
+										"value": "-1"
+									}
 								}
 							],
 							"actions": [
@@ -3208,6 +3235,16 @@
 										"key": "\"Wood\"",
 										"comparison": 0,
 										"value": "16"
+									}
+								},
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Prod_Data",
+									"sid": 102284824941519,
+									"parameters": {
+										"key": "\"Copper\"",
+										"comparison": 0,
+										"value": "-1"
 									}
 								}
 							],
@@ -3271,9 +3308,9 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "Icon_prod",
-													"sid": 489887053898985,
+													"sid": 335042469714180,
 													"parameters": {
-														"frame-number": "loopindex"
+														"frame-number": "Self.upg_icon_frame"
 													}
 												}
 											],
@@ -4095,33 +4132,6 @@
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 381745372853651,
-							"parameters": {
-								"seconds": "0.2",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Icon_prod",
-							"sid": 221807719894036,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"bounce\"",
-								"property": "size",
-								"end-x": "88",
-								"end-y": "88",
-								"time": "0.1",
-								"ease": "easeinoutbounce",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
 						}
 					],
 					"sid": 589161514220957,
@@ -4153,6 +4163,40 @@
 								}
 							],
 							"sid": 106037707892345
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 939071130606021,
+									"parameters": {
+										"seconds": "0.2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Icon_prod",
+									"sid": 102628003938412,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"bounce\"",
+										"property": "size",
+										"end-x": "88",
+										"end-y": "88",
+										"time": "0.1",
+										"ease": "easeinoutbounce",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 808603452198917
 						}
 					]
 				},
@@ -4629,19 +4673,19 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Item_Card",
-											"sid": 467888907528890,
+											"sid": 333911350331967,
 											"parameters": {
 												"comparison": 2,
-												"y-co-ordinate": "30"
+												"y-co-ordinate": "-28"
 											}
 										},
 										{
 											"id": "compare-y",
 											"objectClass": "Item_Card",
-											"sid": 659165569855764,
+											"sid": 205874586224165,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "720"
+												"y-co-ordinate": "740"
 											}
 										}
 									],
@@ -4775,19 +4819,19 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Btn_Upgrade_Weapon",
-											"sid": 216359543180769,
+											"sid": 886808999942506,
 											"parameters": {
 												"comparison": 2,
-												"y-co-ordinate": "180"
+												"y-co-ordinate": "150"
 											}
 										},
 										{
 											"id": "compare-y",
 											"objectClass": "Btn_Upgrade_Weapon",
-											"sid": 916194162267661,
+											"sid": 816255075080629,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "740"
+												"y-co-ordinate": "760"
 											}
 										}
 									],
@@ -4930,10 +4974,10 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Text_Item_Info",
-											"sid": 533556859162069,
+											"sid": 436933387512988,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "740"
+												"y-co-ordinate": "760"
 											}
 										}
 									],
@@ -6097,22 +6141,6 @@
 											"parameters": [
 												"List"
 											]
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 967375007322947,
-											"parameters": {
-												"seconds": "0.01",
-												"use-timescale": true
-											}
-										},
-										{
-											"callFunction": "PopulateList",
-											"sid": 462904396416248,
-											"parameters": [
-												"\"\""
-											]
 										}
 									],
 									"sid": 448789023993364
@@ -6144,6 +6172,22 @@
 								{
 									"callFunction": "ShowScrollDialog",
 									"sid": 903756402496782,
+									"parameters": [
+										"Btn_Tabs_Workshop.List"
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 424436892379231,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "ShowScrollDialog",
+									"sid": 620050173623209,
 									"parameters": [
 										"Btn_Tabs_Workshop.List"
 									]
@@ -6202,6 +6246,14 @@
 								"object": "Btn_Upgrade_Weapon",
 								"type": "start"
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 727547105222776,
+							"parameters": {
+								"layer": "\"Workshop\""
+							}
 						}
 					],
 					"actions": [
@@ -6228,6 +6280,14 @@
 								"object": "Btn_Close",
 								"type": "start"
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 230122345834876,
+							"parameters": {
+								"layer": "\"Work Upg\""
+							}
 						}
 					],
 					"actions": [
@@ -6242,6 +6302,30 @@
 						}
 					],
 					"sid": 996712785924855
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 579170110805695,
+							"parameters": {
+								"object": "Btn_Buy",
+								"type": "start"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 594034162392211,
+							"parameters": {
+								"layer": "\"Work Upg\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 933917626251747
 				}
 			],
 			"sid": 607375331398686
