@@ -280,6 +280,476 @@
 				}
 			],
 			"sid": 688901669532321
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 715706261323127,
+					"parameters": {
+						"object": "Hab_Slot_Special"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 743310173712617,
+					"parameters": {
+						"variable": "TURN",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 303737899400162
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 892020520274934,
+					"parameters": {
+						"object": "Hab_Slot"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 187120443391479,
+					"parameters": {
+						"variable": "TURN",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 122682499015237,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Hab_Slot",
+							"sid": 401372110546570,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 458786353514611
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Hab_Slot",
+							"sid": 688055596447617,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 652605566024827
+				}
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "rng",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 621969946021603
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 241937547337227,
+					"parameters": {
+						"variable": "TURN",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 288313143098408,
+					"parameters": {
+						"variable": "rng",
+						"value": "random(0, 100)"
+					}
+				}
+			],
+			"sid": 361905535175792,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 882226151950503,
+							"parameters": {
+								"variable": "rng",
+								"comparison": 3,
+								"value": "Enemy.Hab_1_Chance"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Use_Hab_Enemy",
+							"sid": 710865580224021,
+							"parameters": [
+								"Enemy.Hab_1"
+							]
+						}
+					],
+					"sid": 479482692363105
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 825812235823905
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Use_Hab_Enemy",
+							"sid": 909645605884310,
+							"parameters": [
+								"Enemy.Hab_2"
+							]
+						}
+					],
+					"sid": 874815505131429
+				}
+			]
+		},
+		{
+			"functionName": "Use_Hab_Enemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Name",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 648817077703956
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 387631547987296,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 489260823557366,
+							"parameters": {
+								"first-value": "tokenat ( Name, 0, \"_\" ) ",
+								"comparison": 0,
+								"second-value": "\"Atk\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 198952200804395,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 969739274892346,
+									"parameters": {
+										"first-value": "tokenat ( Name, 1, \"_\" ) ",
+										"comparison": 0,
+										"second-value": "\"default\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 343634414694778
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "Change_Health_Player",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Amount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 182888696640222
+				},
+				{
+					"name": "Piercong",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "",
+					"sid": 291472757928363
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 809294579975613,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Heal"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 168367171649885,
+							"parameters": {
+								"variable": "Amount",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 701832628432621,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 669084964072684,
+									"parameters": {
+										"first-value": "HP + Amount",
+										"comparison": 3,
+										"second-value": "HP_Max"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 329285956588075,
+									"parameters": {
+										"variable": "HP",
+										"value": "Amount"
+									}
+								}
+							],
+							"sid": 917732021266934
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 649802882552712
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 766005254104428,
+									"parameters": {
+										"variable": "HP",
+										"value": "HP_Max"
+									}
+								}
+							],
+							"sid": 881512099965092
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Damage"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 116997109636974,
+							"parameters": {
+								"variable": "Amount",
+								"comparison": 2,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 317056246375954,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 185534381223973,
+									"parameters": {
+										"variable": "Piercong"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 662276143238412,
+									"parameters": {
+										"variable": "HP",
+										"value": "abs( Amount )"
+									}
+								}
+							],
+							"sid": 503747844280558
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 319355690279746
+								}
+							],
+							"actions": [],
+							"sid": 187276833094368,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "remaining_dmg",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 661426042220975
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 713898677829264,
+											"parameters": {
+												"first-value": "Shield - abs( Amount )",
+												"comparison": 5,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 906011964963915,
+											"parameters": {
+												"variable": "Shield",
+												"value": "abs( Amount )"
+											}
+										}
+									],
+									"sid": 494986619886667
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 536972506249618
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 480389045860678,
+											"parameters": {
+												"variable": "remaining_dmg",
+												"value": "abs( Shield - abs( Amount ) )"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 190189442172040,
+											"parameters": {
+												"variable": "Shield",
+												"value": "0"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 886179799579070,
+											"parameters": {
+												"variable": "HP",
+												"value": "remaining_dmg"
+											}
+										}
+									],
+									"sid": 317130275445451
+								}
+							]
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 486033056870913
