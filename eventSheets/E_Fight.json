@@ -503,8 +503,43 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "Change_Health_Player",
+									"sid": 453727714035278,
+									"parameters": [
+										"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
+										false
+									]
+								}
+							],
 							"sid": 343634414694778
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 381696890310844,
+									"parameters": {
+										"first-value": "tokenat ( Name, 1, \"_\" ) ",
+										"comparison": 0,
+										"second-value": "\"fullpierce\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Health_Player",
+									"sid": 872369677534400,
+									"parameters": [
+										"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
+										true
+									]
+								}
+							],
+							"sid": 156214102548938
 						}
 					]
 				}
@@ -526,7 +561,7 @@
 					"sid": 182888696640222
 				},
 				{
-					"name": "Piercong",
+					"name": "Piercing",
 					"type": "boolean",
 					"initialValue": "false",
 					"comment": "",
@@ -639,7 +674,7 @@
 									"objectClass": "System",
 									"sid": 185534381223973,
 									"parameters": {
-										"variable": "Piercong"
+										"variable": "Piercing"
 									}
 								}
 							],
