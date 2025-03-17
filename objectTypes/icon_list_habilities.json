@@ -1,15 +1,42 @@
 {
-	"name": "Btn_Upgrade_Weapon",
+	"name": "icon_list_habilities",
 	"plugin-id": "Sprite",
-	"sid": 895135840331577,
+	"sid": 543081654383431,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Origin_X",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 123399964497357
+		},
+		{
+			"name": "Origin_Y",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 411262993352959
+		},
+		{
+			"name": "Pin_Obj_UID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 645037523452486
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Pin",
 			"name": "Pin",
-			"sid": 119106094683841
+			"sid": 963399756116508
+		},
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 459312474658768
 		}
 	],
 	"effectTypes": [],
@@ -18,75 +45,64 @@
 			{
 				"frames": [
 					{
-						"width": 90,
-						"height": 90,
+						"width": 95,
+						"height": 95,
 						"originX": 0.5,
-						"originY": 0.5111111111111111,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 9741438,
+						"imageSpriteId": 2768986,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
-						"width": 90,
-						"height": 90,
+						"width": 95,
+						"height": 95,
 						"originX": 0.5,
-						"originY": 0.5111111111111111,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 9061423,
-						"useCollisionPoly": true,
-						"duration": 1,
-						"tag": ""
-					}
-				],
-				"sid": 929725871943236,
-				"name": "Upgrade",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 90,
-						"height": 90,
-						"originX": 0.5,
-						"originY": 0.5111111111111111,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 7859734,
+						"imageSpriteId": 3060953,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
-						"width": 90,
-						"height": 90,
+						"width": 95,
+						"height": 95,
 						"originX": 0.5,
-						"originY": 0.5111111111111111,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6256918,
+						"imageSpriteId": 5697917,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 95,
+						"height": 95,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 3237351,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 881649487553206,
-				"name": "Buy",
+				"sid": 679974401842138,
+				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

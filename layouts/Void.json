@@ -124,7 +124,11 @@
 					"uid": 206,
 					"sid": 760146599344358,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"Origin_X": 0,
+						"Origin_Y": 0,
+						"Pin_Obj_UID": 0
+					},
 					"behaviors": {
 						"Pin": {
 							"properties": {
@@ -348,7 +352,7 @@
 					"type": "Btn_Upgrade_Weapon",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Upgrade",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -426,6 +430,175 @@
 						"height": 148,
 						"originX": 0.5,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "icon_list_weapon_clone",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 243,
+					"sid": 344877089141007,
+					"tags": "",
+					"instanceVariables": {
+						"Origin_X": 0,
+						"Origin_Y": 0,
+						"Pin_Obj_UID": 0,
+						"Recent_Copy": true
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 243,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": false,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 344877089141007,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 52,
+						"y": -60,
+						"width": 92,
+						"height": 92,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "icon_list_habilities",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 248,
+					"sid": 618634260066878,
+					"tags": "",
+					"instanceVariables": {
+						"Origin_X": 0,
+						"Origin_Y": 0,
+						"Pin_Obj_UID": 0
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": true
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": false
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 248,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": false,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 618634260066878,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 192,
+						"y": -60,
+						"width": 92,
+						"height": 92,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
