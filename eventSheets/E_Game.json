@@ -7341,6 +7341,36 @@
 													"children": [
 														{
 															"eventType": "comment",
+															"text": "Defesa"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 227288512173557,
+																	"parameters": {
+																		"variable": "counter",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Item_Info",
+																	"sid": 968031425965370,
+																	"parameters": {
+																		"text": "\"Aplica um buff de \" & A_Habilities.At( 2, 1, counter ) & \" de defesa por \" & A_Habilities.At( 4, 1, counter ) & \" turnos. \" & newline & \"Cooldown: \" & A_Habilities.At( 5, 1, counter ) & \" turnos.\""
+																	}
+																}
+															],
+															"sid": 627174340231389
+														},
+														{
+															"eventType": "comment",
 															"text": "Verifica se tem dano penetrante"
 														},
 														{
@@ -7361,6 +7391,7 @@
 															],
 															"actions": [],
 															"sid": 819340138548861,
+															"disabled": true,
 															"children": [
 																{
 																	"eventType": "comment",
@@ -7392,7 +7423,8 @@
 																			}
 																		}
 																	],
-																	"sid": 784426347706951
+																	"sid": 784426347706951,
+																	"disabled": true
 																},
 																{
 																	"eventType": "block",
@@ -7413,7 +7445,8 @@
 																			}
 																		}
 																	],
-																	"sid": 604380074301148
+																	"sid": 604380074301148,
+																	"disabled": true
 																}
 															]
 														},
@@ -7428,6 +7461,7 @@
 															],
 															"actions": [],
 															"sid": 561814413188267,
+															"disabled": true,
 															"children": [
 																{
 																	"eventType": "comment",
@@ -7459,7 +7493,8 @@
 																			}
 																		}
 																	],
-																	"sid": 869722168614910
+																	"sid": 869722168614910,
+																	"disabled": true
 																},
 																{
 																	"eventType": "block",
@@ -7480,7 +7515,8 @@
 																			}
 																		}
 																	],
-																	"sid": 960062931837980
+																	"sid": 960062931837980,
+																	"disabled": true
 																}
 															]
 														}
