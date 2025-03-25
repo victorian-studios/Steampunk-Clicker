@@ -260,6 +260,14 @@
 					"parameters": [
 						"\"Weapons\""
 					]
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Icon_check_batalhas",
+					"sid": 931603475736857,
+					"parameters": {
+						"visibility": "invisible"
+					}
 				}
 			],
 			"sid": 535886495439238,
@@ -7149,6 +7157,66 @@
 																}
 															],
 															"sid": 317502133353601
+														},
+														{
+															"eventType": "comment",
+															"text": "Heal"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 841646075476806,
+																	"parameters": {
+																		"variable": "counter",
+																		"comparison": 0,
+																		"value": "1"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Item_Info",
+																	"sid": 696999894195547,
+																	"parameters": {
+																		"text": "\"Ativa um poder de vitalidade, capaz de curar \" & A_Habilities.At( 2, 1, counter ) & \" de PV.\" & newline & \"Cooldown: \" & A_Habilities.At( 5, 1, counter ) & \" turnos.\""
+																	}
+																}
+															],
+															"sid": 364873798762399
+														},
+														{
+															"eventType": "comment",
+															"text": "Fire Bomb"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 683080672812488,
+																	"parameters": {
+																		"variable": "counter",
+																		"comparison": 0,
+																		"value": "2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Item_Info",
+																	"sid": 574367777661534,
+																	"parameters": {
+																		"text": "\"Ataque em área. Dano: \" & A_Habilities.At( 2, 1, counter ) & newline & \"Especial: \" & A_Habilities.At( 3, 1, counter ) & \" de fogo por \" & A_Habilities.At( 4, 1, counter ) & \" turnos\" & newline & \"Cooldown: \" & A_Habilities.At( 5, 1, counter ) & \" turnos\""
+																	}
+																}
+															],
+															"sid": 868028933696334
 														},
 														{
 															"eventType": "block",
