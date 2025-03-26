@@ -6031,7 +6031,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Wood",
-								"initial-frame": 0,
+								"initial-frame": 5,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -8971,9 +8971,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 96,
+								"x": 118,
 								"y": 78,
-								"width": 256,
+								"width": 192,
 								"height": 56,
 								"originX": 0,
 								"originY": 0,
@@ -9027,9 +9027,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 360,
-								"y": 80,
-								"width": 256,
+								"x": 395,
+								"y": 77,
+								"width": 176,
 								"height": 56,
 								"originX": 0,
 								"originY": 0,
@@ -9348,7 +9348,7 @@
 						{
 							"type": "Btn_Close",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -9388,7 +9388,7 @@
 						{
 							"type": "Btn_Buy",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"initial-animation": "Animation 1",
 								"initial-frame": 0,
 								"enable-collisions": true,
@@ -9426,7 +9426,7 @@
 							}
 						},
 						{
-							"type": "Text_Item_Info2",
+							"type": "Text_Item_Upg_Info",
 							"properties": {
 								"text": "Dmg: 999 > 999 | P. Dmg: 999 > 999\n\nSpecial: 50% Crit chance",
 								"enable-bbcode": true,
@@ -9472,9 +9472,9 @@
 							"locked": false,
 							"world": {
 								"x": 579,
-								"y": 501.5,
+								"y": 471,
 								"width": 746,
-								"height": 226,
+								"height": 165,
 								"originX": 0,
 								"originY": 0.5,
 								"color": [
@@ -9488,9 +9488,9 @@
 							}
 						},
 						{
-							"type": "Text_Item_Name2",
+							"type": "Text_Item_Name_Upg",
 							"properties": {
-								"text": "ARMA BRABA (L. 10)",
+								"text": "ARMA BRABA \nLVL 9 > 10",
 								"enable-bbcode": true,
 								"font": "Arial",
 								"size": 42,
@@ -9562,11 +9562,185 @@
 							"locked": false,
 							"world": {
 								"x": 1021.5,
-								"y": 302,
+								"y": 303,
 								"width": 571,
-								"height": 93,
+								"height": 113,
 								"originX": 0.5,
 								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "TextoAiDaVida",
+							"properties": {
+								"text": "UPGRADE",
+								"enable-bbcode": true,
+								"font": "monospace",
+								"size": 34,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 253,
+							"sid": 281803594849622,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 281803594849622,
+								"expanded": true,
+								"folderName": "",
+								"indexInFolder": -1,
+								"folderNestingLevel": -1
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 664,
+								"y": 655,
+								"width": 181,
+								"height": 45,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "TextoAiDaVida",
+							"properties": {
+								"text": "CANCEL",
+								"enable-bbcode": true,
+								"font": "monospace",
+								"size": 34,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 254,
+							"sid": 866934736550819,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 866934736550819,
+								"expanded": true,
+								"folderName": "",
+								"indexInFolder": -1,
+								"folderNestingLevel": -1
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1062,
+								"y": 658,
+								"width": 181,
+								"height": 45,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Text_Work_Upg_Price",
+							"properties": {
+								"text": "COST: 999 T [icon=steam]",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 42,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": 248002167639998,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 255,
+							"sid": 394659459066291,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Pin": {
+									"properties": {
+										"destroy": false
+									}
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 394659459066291,
+								"expanded": true,
+								"folderName": "",
+								"indexInFolder": -1,
+								"folderNestingLevel": -1
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 569,
+								"y": 566,
+								"width": 768,
+								"height": 67,
+								"originX": 0,
+								"originY": 0,
 								"color": [
 									1,
 									1,
@@ -10483,7 +10657,7 @@
 		{
 			"type": "A_Weapons",
 			"properties": {
-				"width": 6,
+				"width": 8,
 				"height": 11,
 				"depth": 3
 			},
@@ -10495,7 +10669,7 @@
 		{
 			"type": "A_Habilities",
 			"properties": {
-				"width": 6,
+				"width": 8,
 				"height": 11,
 				"depth": 2
 			},

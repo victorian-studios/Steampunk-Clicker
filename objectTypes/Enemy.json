@@ -32,6 +32,11 @@
 			"behaviorId": "Tween",
 			"name": "Tween",
 			"sid": 448417409070917
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 334716156580457
 		}
 	],
 	"effectTypes": [],
@@ -40,15 +45,15 @@
 			{
 				"frames": [
 					{
-						"width": 280,
-						"height": 658,
+						"width": 359,
+						"height": 663,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 1825576,
+						"imageSpriteId": 3695755,
 						"collisionPoly": {
 							"points": [
 								0.37857142857142856,
@@ -73,6 +78,42 @@
 								0.601823708206687,
 								0.16785714285714284,
 								0.09574468085106383
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 359,
+						"height": 663,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 8760224,
+						"collisionPoly": {
+							"points": [
+								0.6908077994428969,
+								0.02865761689291101,
+								0.8105849582172702,
+								0.10256410256410256,
+								0.8440111420612814,
+								0.4539969834087481,
+								0.8217270194986073,
+								0.8808446455505279,
+								0.7688022284122563,
+								0.9125188536953243,
+								0.7186629526462396,
+								0.9276018099547512,
+								0.16991643454038996,
+								0.8461538461538461,
+								0.06685236768802229,
+								0.25339366515837103,
+								0.43454038997214484,
+								0.04524886877828054
 							]
 						},
 						"useCollisionPoly": true,

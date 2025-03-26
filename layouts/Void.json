@@ -7,7 +7,113 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Item_Card",
+					"type": "Item_Card_H",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 249,
+					"sid": 250417240313028,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": null,
+						"uid": 249,
+						"children": [
+							{
+								"uid": 248,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": false,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							},
+							{
+								"uid": 250,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": false,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								}
+							}
+						],
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": true,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 250417240313028,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 230,
+						"y": 280,
+						"width": 452,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Item_Card_W",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -395,7 +501,7 @@
 					}
 				},
 				{
-					"type": "Item_Card",
+					"type": "Item_Card_W",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -556,7 +662,7 @@
 						}
 					},
 					"sceneGraphData": {
-						"parent-uid": null,
+						"parent-uid": 249,
 						"uid": 248,
 						"flags": {
 							"x": true,
@@ -593,12 +699,210 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 247,
-						"y": -60,
+						"x": 72,
+						"y": 346,
 						"width": 92,
 						"height": 92,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text_Item_Name",
+					"properties": {
+						"text": "HAB FODA (L. 10)",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 33,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "center",
+						"read-aloud": false
+					},
+					"uid": 250,
+					"sid": 531987416236947,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": true
+							}
+						}
+					},
+					"sceneGraphData": {
+						"parent-uid": 249,
+						"uid": 250,
+						"flags": {
+							"x": true,
+							"y": true,
+							"z": true,
+							"w": true,
+							"h": false,
+							"a": true,
+							"o": false,
+							"v": false,
+							"d": true,
+							"sm": "normal"
+						},
+						"preview": {
+							"transformX": 0,
+							"transformY": 0,
+							"transformZElevation": 0,
+							"transformW": 0,
+							"transformH": 0,
+							"transformA": 0,
+							"transformSX": 0,
+							"transformSY": 0,
+							"transformO": 0,
+							"previewSceneGraph": false
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 531987416236947,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 288,
+						"y": 347,
+						"width": 284,
+						"height": 93,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text_Item_Info",
+					"properties": {
+						"text": "Defense 20% (3 turnos)\n\nCooldown: 2 turnos",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 16,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "left",
+						"read-aloud": false
+					},
+					"uid": 251,
+					"sid": 463177187407074,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 463177187407074,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 25,
+						"y": 454,
+						"width": 310,
+						"height": 83,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Btn_Upgrade_Weapon",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Upgrade",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 252,
+					"sid": 383358120249544,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 383358120249544,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 391,
+						"y": 456,
+						"width": 90,
+						"height": 90,
+						"originX": 0.5,
+						"originY": 0.5111111111111111,
 						"color": [
 							1,
 							1,
