@@ -1,33 +1,17 @@
 {
-	"name": "Btn_Buy",
+	"name": "Bkg_Tab_List2",
 	"plugin-id": "Sprite",
-	"sid": 686920065423896,
+	"sid": 472404715296956,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
+	"instanceVariables": [],
+	"behaviorTypes": [
 		{
-			"name": "Price_1",
-			"type": "string",
-			"desc": "",
-			"show": true,
-			"sid": 395537778089077
-		},
-		{
-			"name": "Price_2",
-			"type": "string",
-			"desc": "",
-			"show": true,
-			"sid": 843698762991491
-		},
-		{
-			"name": "Type",
-			"type": "string",
-			"desc": "",
-			"show": true,
-			"sid": 430250523712221
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 456067088936268
 		}
 	],
-	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -37,18 +21,30 @@
 						"width": 250,
 						"height": 250,
 						"originX": 0.5,
-						"originY": 0.5,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4184712,
+						"imageSpriteId": 5485648,
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Top",
+								"x": 0.5,
+								"y": 0
+							},
+							{
+								"name": "Bottom",
+								"x": 0.5,
+								"y": 1
+							}
+						],
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 775483230082395,
+				"sid": 813109482007384,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
