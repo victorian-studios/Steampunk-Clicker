@@ -43,6 +43,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "SlotAtual",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 864062756945485
+		},
+		{
+			"eventType": "variable",
 			"name": "GearAnimLeftRight",
 			"type": "number",
 			"initialValue": "0",
@@ -50,16 +60,6 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 890944339696340
-		},
-		{
-			"eventType": "variable",
-			"name": "SlotAtual",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 197177567387881
 		},
 		{
 			"eventType": "variable",
@@ -5847,6 +5847,95 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 811500693630558,
+									"parameters": {
+										"object": "icon_list_armor",
+										"type": "start"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "icon_list_armor",
+									"sid": 209772980568936
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "icon_list_armor",
+									"sid": 719617733322845,
+									"parameters": {
+										"comparison": 1,
+										"number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 781865381410698,
+									"parameters": {
+										"object-to-create": "icon_list_armor_clone",
+										"layer": "\"Workshop\"",
+										"x": "Mouse.X",
+										"y": "Mouse.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 791949273457793,
+									"parameters": {
+										"frame-number": "icon_list_armor.AnimationFrame"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 332036135107618,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 760761475409724,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot_Special",
+											"sid": 290981482278291,
+											"parameters": {
+												"object": "icon_list_armor_clone"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Hab_Slot_Special",
+											"sid": 653224085245774,
+											"parameters": {
+												"instance-variable": "Free",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 448344059447150
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "is-dragging",
 									"objectClass": "icon_list_weapon_clone",
 									"sid": 235363098531715,
@@ -6048,7 +6137,7 @@
 													"objectClass": "icon_list_weapon_clone",
 													"sid": 578550812842956,
 													"parameters": {
-														"instance-variable": "Pin_Obj_UID",
+														"instance-variable": "Pin_Obj_ID",
 														"value": "Hab_Slot.ID"
 													}
 												},
@@ -6117,6 +6206,300 @@
 										}
 									],
 									"sid": 822562144021580
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-dragging",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 415690495281043,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "Hab_Slot_Special",
+									"sid": 413184182410910,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 970195355026056,
+									"parameters": {
+										"instance-variable": "Recent_Copy",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 159247257962450
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 717030194850383,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "Hab_Slot_Special",
+									"sid": 670025589123592,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Hab_Slot_Special",
+									"sid": 740660683744945,
+									"parameters": {
+										"scale": "1"
+									}
+								}
+							],
+							"sid": 746520438345517,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "frame",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 691537998269216
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "icon_list_armor_clone",
+											"sid": 515971971385875,
+											"parameters": {
+												"object": "Hab_Slot_Special"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 706605102400815,
+											"parameters": {
+												"variable": "frame",
+												"value": "icon_list_armor_clone.AnimationFrame"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 315976194188436,
+											"parameters": {
+												"variable": "SlotAtual",
+												"value": "Hab_Slot.ID"
+											}
+										}
+									],
+									"sid": 673219630126991,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Hab_Slot_Special",
+													"sid": 348734291780384,
+													"parameters": {
+														"instance-variable": "Free"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 702574005224914,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "icon_list_armor_clone",
+															"sid": 609820525522477,
+															"parameters": {
+																"instance-variable": "Recent_Copy"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "icon_list_armor_clone",
+															"sid": 573420124772208
+														},
+														{
+															"callFunction": "Change Equipped Hab",
+															"sid": 835339929216808,
+															"parameters": [
+																"frame"
+															]
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 416531459895070,
+															"parameters": {
+																"variable": "Armor_ID",
+																"value": "icon_list_armor_clone.AnimationFrame"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "armadura_madeira",
+															"sid": 914379765578220,
+															"parameters": {
+																"frame-number": "Armor_ID"
+															}
+														}
+													],
+													"sid": 767900436191581
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "Hab_Slot_Special",
+													"sid": 945353415432253,
+													"parameters": {
+														"instance-variable": "Free"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Change Equipped Hab",
+													"sid": 922681382040780,
+													"parameters": [
+														"frame"
+													]
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 886861923071093,
+													"parameters": {
+														"seconds": "0.01",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 447231138954125,
+													"parameters": {
+														"x": "Hab_Slot_Special.X",
+														"y": "Hab_Slot_Special.Y"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 353043498386113,
+													"parameters": {
+														"instance-variable": "Recent_Copy",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 190865568423994,
+													"parameters": {
+														"instance-variable": "Pin_Obj_ID",
+														"value": "Hab_Slot.ID"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot_Special",
+													"sid": 162237607256163,
+													"parameters": {
+														"instance-variable": "Free",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 157254583194468
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 906632415498420
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "icon_list_armor_clone",
+											"sid": 973892800059835,
+											"parameters": {
+												"instance-variable": "Recent_Copy"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "icon_list_armor_clone",
+											"sid": 583576437750061
+										}
+									],
+									"sid": 949572336740498
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot_Special",
+											"sid": 850125884287961,
+											"parameters": {
+												"object": "icon_list_armor_clone"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Hab_Slot_Special",
+											"sid": 993817415820492,
+											"parameters": {
+												"instance-variable": "Free",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 368642914640085
 								}
 							]
 						},
@@ -6200,7 +6583,7 @@
 											"sid": 605327725178349,
 											"parameters": {
 												"object": "icon_list_weapon_clone",
-												"expression": "icon_list_weapon_clone.Pin_Obj_UID",
+												"expression": "icon_list_weapon_clone.Pin_Obj_ID",
 												"comparison": 0,
 												"value": "SlotAtual"
 											}
@@ -6316,7 +6699,7 @@
 											"sid": 786267889894606,
 											"parameters": {
 												"object": "icon_list_weapon_clone",
-												"expression": "icon_list_weapon_clone.Pin_Obj_UID",
+												"expression": "icon_list_weapon_clone.Pin_Obj_ID",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -6407,7 +6790,7 @@
 											"sid": 631867629173119,
 											"parameters": {
 												"object": "icon_list_weapon_clone",
-												"expression": "icon_list_weapon_clone.Pin_Obj_UID",
+												"expression": "icon_list_weapon_clone.Pin_Obj_ID",
 												"comparison": 0,
 												"value": "2"
 											}
@@ -6463,6 +6846,77 @@
 								}
 							],
 							"sid": 275463895123048
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Hab_Slot_Special",
+									"sid": 455244240855312,
+									"parameters": {
+										"object": "icon_list_armor_clone"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 591081395790749,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 482120577733441,
+											"parameters": {
+												"object": "icon_list_armor_clone",
+												"expression": "icon_list_armor_clone.IID",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 805610673931349,
+											"parameters": {
+												"variable": "Armor_ID",
+												"value": "icon_list_armor_clone.AnimationFrame"
+											}
+										}
+									],
+									"sid": 191090698117276
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Hab_Slot_Special",
+									"sid": 637973650401535,
+									"parameters": {
+										"object": "icon_list_armor_clone"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 824726933691213,
+									"parameters": {
+										"variable": "Weapon_ID_2",
+										"value": "\"\""
+									}
+								}
+							],
+							"sid": 650148446251444
 						}
 					],
 					"sid": 511046342918322
