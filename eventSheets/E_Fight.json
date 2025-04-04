@@ -32,6 +32,26 @@
 			"sid": 705805426395131
 		},
 		{
+			"eventType": "variable",
+			"name": "Weapon_ID_1",
+			"type": "string",
+			"initialValue": "WP_1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 490051759023043
+		},
+		{
+			"eventType": "variable",
+			"name": "Weapon_ID_2",
+			"type": "string",
+			"initialValue": "HAB_0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 674332434504744
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -69,24 +89,55 @@
 			"sid": 141394572375646,
 			"children": [
 				{
+					"eventType": "variable",
+					"name": "hab_1_x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 887046148053918
+				},
+				{
+					"eventType": "variable",
+					"name": "hab_1_y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 116428843953094
+				},
+				{
+					"eventType": "variable",
+					"name": "hab_2_x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 314151952868249
+				},
+				{
+					"eventType": "variable",
+					"name": "hab_2_y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 195954390194315
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
+							"id": "pick-by-comparison",
 							"objectClass": "System",
-							"sid": 928241794915269,
+							"sid": 396055247168362,
 							"parameters": {
-								"variable": "Weapon_ID_1",
-								"comparison": 1,
-								"value": "\"\""
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Hab_Slot",
-							"sid": 453572738904460,
-							"parameters": {
-								"instance-variable": "ID",
+								"object": "Hab_Slot",
+								"expression": "Hab_Slot.ID",
 								"comparison": 0,
 								"value": "1"
 							}
@@ -94,48 +145,36 @@
 					],
 					"actions": [
 						{
-							"id": "create-object",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 318382306512780,
+							"sid": 127940397315027,
 							"parameters": {
-								"object-to-create": "icon_list_weapon",
-								"layer": "\"HUD\"",
-								"x": "Hab_Slot.X",
-								"y": "Hab_Slot.Y",
-								"create-hierarchy": false,
-								"template-name": "\"\""
+								"variable": "hab_1_x",
+								"value": "Hab_Slot.X"
 							}
 						},
 						{
-							"id": "set-animation-frame",
-							"objectClass": "icon_list_weapon",
-							"sid": 178478599131990,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 547359660431361,
 							"parameters": {
-								"frame-number": "int(Weapon_ID_1) + 1"
+								"variable": "hab_1_y",
+								"value": "Hab_Slot.Y"
 							}
 						}
 					],
-					"sid": 298432684673681
+					"sid": 289687807409608
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
+							"id": "pick-by-comparison",
 							"objectClass": "System",
-							"sid": 183640628857237,
+							"sid": 878406195067014,
 							"parameters": {
-								"variable": "Weapon_ID_2",
-								"comparison": 1,
-								"value": "\"\""
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Hab_Slot",
-							"sid": 401778808941955,
-							"parameters": {
-								"instance-variable": "ID",
+								"object": "Hab_Slot",
+								"expression": "Hab_Slot.ID",
 								"comparison": 0,
 								"value": "2"
 							}
@@ -143,28 +182,219 @@
 					],
 					"actions": [
 						{
-							"id": "create-object",
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 617809530795167,
+							"sid": 500655161665643,
 							"parameters": {
-								"object-to-create": "icon_list_weapon",
-								"layer": "\"HUD\"",
-								"x": "Hab_Slot.X",
-								"y": "Hab_Slot.Y",
-								"create-hierarchy": false,
-								"template-name": "\"\""
+								"variable": "hab_2_x",
+								"value": "Hab_Slot.X"
 							}
 						},
 						{
-							"id": "set-animation-frame",
-							"objectClass": "icon_list_weapon",
-							"sid": 590809280118033,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 599581679393455,
 							"parameters": {
-								"frame-number": "int(Weapon_ID_2) + 1"
+								"variable": "hab_2_y",
+								"value": "Hab_Slot.Y"
 							}
 						}
 					],
-					"sid": 101277640884887
+					"sid": 404214958315434
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 645244450671461,
+							"parameters": {
+								"variable": "Weapon_ID_1",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 298432684673681,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 781120904734434,
+									"parameters": {
+										"first-value": "tokenat( Weapon_ID_1, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"WP\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 931165385571970,
+									"parameters": {
+										"object-to-create": "icon_list_weapon",
+										"layer": "\"HUD\"",
+										"x": "hab_1_x",
+										"y": "hab_1_y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_weapon",
+									"sid": 856040193915557,
+									"parameters": {
+										"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\") ) + 1"
+									}
+								}
+							],
+							"sid": 551044477236211
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 415882094414803,
+									"parameters": {
+										"first-value": "tokenat( Weapon_ID_1, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"HAB\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 401104710685172,
+									"parameters": {
+										"object-to-create": "icon_list_habilities",
+										"layer": "\"HUD\"",
+										"x": "hab_1_x",
+										"y": "hab_1_y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_habilities",
+									"sid": 564606101084081,
+									"parameters": {
+										"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\") ) + 1"
+									}
+								}
+							],
+							"sid": 436920222270774
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 558529902877807,
+							"parameters": {
+								"variable": "Weapon_ID_2",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 101277640884887,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 549813480930344,
+									"parameters": {
+										"first-value": "tokenat( Weapon_ID_2, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"WP\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 452145543107958,
+									"parameters": {
+										"object-to-create": "icon_list_weapon",
+										"layer": "\"HUD\"",
+										"x": "hab_2_x",
+										"y": "hab_2_y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_weapon",
+									"sid": 810920184812014,
+									"parameters": {
+										"frame-number": "int( tokenat( Weapon_ID_2, 1, \"_\") ) + 1"
+									}
+								}
+							],
+							"sid": 604008749751732
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 352605268998525,
+									"parameters": {
+										"first-value": "tokenat( Weapon_ID_2, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"HAB\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 557152198637798,
+									"parameters": {
+										"object-to-create": "icon_list_habilities",
+										"layer": "\"HUD\"",
+										"x": "hab_2_x",
+										"y": "hab_2_y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_habilities",
+									"sid": 605525428088972,
+									"parameters": {
+										"frame-number": "int( tokenat( Weapon_ID_2, 1, \"_\") ) + 1"
+									}
+								}
+							],
+							"sid": 497678866033885
+						}
+					]
 				}
 			]
 		},
@@ -177,7 +407,24 @@
 					"sid": 919485952791365
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_HP_Enemy",
+					"sid": 173563734879839,
+					"parameters": {
+						"text": "Enemy_HP & \" / \" & Enemy_HP_MAX"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_HP_Player",
+					"sid": 129476397354103,
+					"parameters": {
+						"text": "HP & \" / \" & HP_Max"
+					}
+				}
+			],
 			"sid": 575714370838546,
 			"children": [
 				{
@@ -1009,9 +1256,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Item_Info",
-											"sid": 488887739008753,
+											"sid": 144880333364313,
 											"parameters": {
-												"text": "\"Dmg: \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"P. Dmg: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"Ammo: \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"Special: \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+												"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 											}
 										}
 									],
@@ -1030,9 +1277,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Item_Info",
-											"sid": 402044841846547,
+											"sid": 344163848263890,
 											"parameters": {
-												"text": "\"Dmg: \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"P. Dmg: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & newline & \"Special: \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+												"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 											}
 										}
 									],
@@ -1076,9 +1323,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Item_Info",
-											"sid": 377726969359224,
+											"sid": 725073352539762,
 											"parameters": {
-												"text": "\"Dmg: \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"Ammo: \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"Special: \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+												"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 											}
 										}
 									],
@@ -1097,9 +1344,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Item_Info",
-											"sid": 473426752717867,
+											"sid": 325102493327814,
 											"parameters": {
-												"text": "\"Dmg: \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & newline & \"Special: \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+												"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 											}
 										}
 									],
@@ -1113,23 +1360,172 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "else",
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 330233529670199,
+							"parameters": {
+								"object": "icon_list_habilities"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 463188024672749
+							"sid": 493371215009839,
+							"parameters": {
+								"variable": "counter",
+								"value": "icon_list_habilities.AnimationFrame - 1"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Bkg_Upg_Desc",
+							"sid": 829873377227073,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Bkg_Upg_Desc",
+							"sid": 606312647464643
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Text_Item_Info",
+							"sid": 557809883219568
+						}
+					],
+					"sid": 976466609318735,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Defesa"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 751848632840359,
+									"parameters": {
+										"variable": "counter",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Item_Info",
+									"sid": 503081785718511,
+									"parameters": {
+										"text": "\"Apply a \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \"% defense buff for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns. \" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns.\""
+									}
+								}
+							],
+							"sid": 445841398807063
+						},
+						{
+							"eventType": "comment",
+							"text": "Heal"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 152364641572750,
+									"parameters": {
+										"variable": "counter",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Item_Info",
+									"sid": 493957192691908,
+									"parameters": {
+										"text": "\"Active a vitality power, capable of healing \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" HP.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns.\""
+									}
+								}
+							],
+							"sid": 374181741838717
+						},
+						{
+							"eventType": "comment",
+							"text": "Fire Bomb"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 724044650851923,
+									"parameters": {
+										"variable": "counter",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Item_Info",
+									"sid": 358332045750129,
+									"parameters": {
+										"text": "\"Area Attack. [icon=dmg] : \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \"  fire for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\""
+									}
+								}
+							],
+							"sid": 948549592133284
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 282260250875538,
+							"parameters": {
+								"object": "icon_list_weapon"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 726179486764500,
+							"parameters": {
+								"object": "icon_list_habilities"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
 							"id": "set-position",
 							"objectClass": "Bkg_Upg_Desc",
-							"sid": 932651389409542,
+							"sid": 756803731652468,
 							"parameters": {
 								"x": "-100",
 								"y": "-1000"
 							}
 						}
 					],
-					"sid": 625275952781176
+					"sid": 643934415373835
 				}
 			],
 			"sid": 780596957737166

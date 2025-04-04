@@ -366,6 +366,20 @@
 							"properties": {
 								"enabled": true
 							}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "vertical",
+								"wave": "sine",
+								"period": 5,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 10,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -1157,10 +1171,10 @@
 				{
 					"type": "Text_Item_Info",
 					"properties": {
-						"text": "Dmg: 20 > 22 | P. Dmg: 10 > 11\n\nSpecial: 50% Crit chance",
+						"text": "[icon=dmg] 999 | [icon=pdmg] 999 | [icon=ammo] 99\n[icon=special] 50% Crit chance",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 23,
+						"size": 33,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -1170,11 +1184,11 @@
 							0,
 							1
 						],
-						"horizontal-alignment": "left",
+						"horizontal-alignment": "center",
 						"vertical-alignment": "center",
 						"wrapping": "word",
 						"text-direction": "ltr",
-						"icon-set": -1,
+						"icon-set": 248002167639998,
 						"initially-visible": true,
 						"origin": "left",
 						"read-aloud": false

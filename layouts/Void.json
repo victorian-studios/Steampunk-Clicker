@@ -1560,8 +1560,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 120,
-						"y": -103,
+						"x": 240,
+						"y": -102,
 						"width": 91.99999999999999,
 						"height": 91.99999999999999,
 						"originX": 0.5,
@@ -1643,6 +1643,63 @@
 						"height": 90,
 						"originX": 0.5,
 						"originY": 0.5111111111111111,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "icon_list_habilities_clone",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 265,
+					"sid": 619202045064324,
+					"tags": "",
+					"instanceVariables": {
+						"Origin_X": 0,
+						"Origin_Y": 0,
+						"Pin_Obj_ID": 0,
+						"Recent_Copy": true
+					},
+					"behaviors": {
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 619202045064324,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 120,
+						"y": -105,
+						"width": 95,
+						"height": 95,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
