@@ -122,6 +122,34 @@
 			],
 			"actions": [
 				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 488521055074242,
+					"parameters": {
+						"tag": "\"Menu\""
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 683055715591466,
+					"parameters": {
+						"tag": "\"Fight\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 427305422901093,
+					"parameters": {
+						"audio-file": "Steampunk_Victorian_Orchestra_by_Humanoide_Media",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"Main\""
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "arrow_fake",
 					"sid": 264949153184228
@@ -524,10 +552,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 733678662872771,
+									"sid": 232495466486593,
 									"parameters": {
 										"object-to-create": "icon_list_weapon_clone",
-										"layer": "\"Workshop\"",
+										"layer": "\"Frg List\"",
 										"x": "hab_1_x",
 										"y": "hab_1_y",
 										"create-hierarchy": false,
@@ -563,10 +591,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 506306763825784,
+									"sid": 925500789804541,
 									"parameters": {
 										"object-to-create": "icon_list_habilities_clone",
-										"layer": "\"Workshop\"",
+										"layer": "\"Frg List\"",
 										"x": "hab_1_x",
 										"y": "hab_1_y",
 										"create-hierarchy": false,
@@ -616,6 +644,16 @@
 										"comparison": 0,
 										"value": "1"
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 578747012436331,
+									"parameters": {
+										"variable": "hab_1_x",
+										"comparison": 0,
+										"value": "0"
+									}
 								}
 							],
 							"actions": [
@@ -652,6 +690,16 @@
 										"expression": "Hab_Slot.ID",
 										"comparison": 0,
 										"value": "2"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 815030238101061,
+									"parameters": {
+										"variable": "hab_2_x",
+										"comparison": 0,
+										"value": "0"
 									}
 								}
 							],
@@ -695,10 +743,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 550008531670327,
+									"sid": 886704472385522,
 									"parameters": {
 										"object-to-create": "icon_list_weapon_clone",
-										"layer": "\"Workshop\"",
+										"layer": "\"Frg List\"",
 										"x": "hab_2_x",
 										"y": "hab_2_y",
 										"create-hierarchy": false,
@@ -734,10 +782,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 500409581869346,
+									"sid": 284822391359678,
 									"parameters": {
 										"object-to-create": "icon_list_habilities_clone",
-										"layer": "\"Workshop\"",
+										"layer": "\"Frg List\"",
 										"x": "hab_2_x",
 										"y": "hab_2_y",
 										"create-hierarchy": false,
@@ -756,6 +804,53 @@
 							"sid": 199597775713703
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 142391090188125,
+							"parameters": {
+								"variable": "Armor_ID",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 763840782977529,
+							"parameters": {
+								"object-to-create": "icon_list_armor_clone",
+								"layer": "\"Frg List\"",
+								"x": "Hab_Slot_Special.X",
+								"y": "Hab_Slot_Special.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "icon_list_armor_clone",
+							"sid": 304960451878154,
+							"parameters": {
+								"frame-number": "int( Armor_ID )"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "armadura_madeira",
+							"sid": 630748930064456,
+							"parameters": {
+								"frame-number": "int ( Armor_ID )"
+							}
+						}
+					],
+					"sid": 764542562304001
 				}
 			]
 		},
@@ -5474,10 +5569,10 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Btn_Upgrade_Weapon",
-											"sid": 816255075080629,
+											"sid": 881390271183794,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "760"
+												"y-co-ordinate": "770"
 											}
 										}
 									],
@@ -5547,10 +5642,10 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Btn_Upgrade_Armor",
-											"sid": 350056076534794,
+											"sid": 545374941039181,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "760"
+												"y-co-ordinate": "770"
 											}
 										}
 									],
@@ -5766,10 +5861,10 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Text_Item_Info",
-											"sid": 436933387512988,
+											"sid": 796597556955514,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "760"
+												"y-co-ordinate": "770"
 											}
 										}
 									],
@@ -5839,10 +5934,10 @@
 										{
 											"id": "compare-y",
 											"objectClass": "Text_Item_Info_Armor",
-											"sid": 123356899194779,
+											"sid": 172355771814708,
 											"parameters": {
 												"comparison": 4,
-												"y-co-ordinate": "760"
+												"y-co-ordinate": "770"
 											}
 										}
 									],
@@ -6147,10 +6242,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 393877348440114,
+									"sid": 712450348342341,
 									"parameters": {
 										"object-to-create": "icon_list_weapon_clone",
-										"layer": "\"Workshop\"",
+										"layer": "\"Frg List\"",
 										"x": "Mouse.X",
 										"y": "Mouse.Y",
 										"create-hierarchy": false,
@@ -6236,10 +6331,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 274498358825421,
+									"sid": 997866355791220,
 									"parameters": {
 										"object-to-create": "icon_list_habilities_clone",
-										"layer": "\"Workshop\"",
+										"layer": "\"Frg List\"",
 										"x": "Mouse.X",
 										"y": "Mouse.Y",
 										"create-hierarchy": false,
@@ -6325,10 +6420,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 781865381410698,
+									"sid": 914261693232611,
 									"parameters": {
 										"object-to-create": "icon_list_armor_clone",
-										"layer": "\"Workshop\"",
+										"layer": "\"Frg List\"",
 										"x": "Mouse.X",
 										"y": "Mouse.Y",
 										"create-hierarchy": false,
@@ -7901,6 +7996,56 @@
 							"conditions": [
 								{
 									"id": "is-overlapping-another-object",
+									"objectClass": "Hab_Slot_Special",
+									"sid": 195978592418246,
+									"parameters": {
+										"object": "icon_list_armor_clone"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 212471694968558,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 604783372922915,
+											"parameters": {
+												"object": "icon_list_armor_clone",
+												"expression": "icon_list_armor_clone.IID",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 165834905951031,
+											"parameters": {
+												"variable": "Armor_ID",
+												"value": "icon_list_armor_clone.AnimationFrame"
+											}
+										}
+									],
+									"sid": 598153491592374
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-touch-start",
+									"objectClass": "Touch",
+									"sid": 206411463436645
+								},
+								{
+									"id": "is-overlapping-another-object",
 									"objectClass": "Hab_Slot",
 									"sid": 600583106934717,
 									"parameters": {
@@ -7944,6 +8089,11 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "on-any-touch-start",
+									"objectClass": "Touch",
+									"sid": 395171486695028
+								},
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Hab_Slot",
@@ -7990,50 +8140,10 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot_Special",
-									"sid": 455244240855312,
-									"parameters": {
-										"object": "icon_list_armor_clone"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 591081395790749,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 482120577733441,
-											"parameters": {
-												"object": "icon_list_armor_clone",
-												"expression": "icon_list_armor_clone.IID",
-												"comparison": 0,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 805610673931349,
-											"parameters": {
-												"variable": "Armor_ID",
-												"value": "icon_list_armor_clone.AnimationFrame"
-											}
-										}
-									],
-									"sid": 191090698117276
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
+									"id": "on-any-touch-start",
+									"objectClass": "Touch",
+									"sid": 743470780850625
+								},
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Hab_Slot_Special",
@@ -8434,6 +8544,15 @@
 															"parameters": {
 																"frame-number": "0"
 															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Weapon",
+															"sid": 751127093520510,
+															"parameters": {
+																"animation": "\"Buy\"",
+																"from": "beginning"
+															}
 														}
 													],
 													"sid": 273110784341184,
@@ -8620,6 +8739,15 @@
 															"sid": 612409483314571,
 															"parameters": {
 																"frame-number": "counter + 1"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Weapon",
+															"sid": 320780287173321,
+															"parameters": {
+																"animation": "\"Upgrade\"",
+																"from": "beginning"
 															}
 														}
 													],
@@ -9311,6 +9439,15 @@
 															"parameters": {
 																"frame-number": "0"
 															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Weapon",
+															"sid": 677011858674377,
+															"parameters": {
+																"animation": "\"Buy\"",
+																"from": "beginning"
+															}
 														}
 													],
 													"sid": 153640968528657,
@@ -9442,6 +9579,15 @@
 															"sid": 975423685317645,
 															"parameters": {
 																"frame-number": "counter + 1"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Weapon",
+															"sid": 168728363475275,
+															"parameters": {
+																"animation": "\"Upgrade\"",
+																"from": "beginning"
 															}
 														}
 													],
@@ -10015,6 +10161,15 @@
 															}
 														},
 														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Armor",
+															"sid": 552357285651576,
+															"parameters": {
+																"animation": "\"Buy\"",
+																"from": "beginning"
+															}
+														},
+														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info_Armor",
 															"sid": 239308190364862,
@@ -10118,6 +10273,15 @@
 															"sid": 903292685436913,
 															"parameters": {
 																"frame-number": "counter + 1"
+															}
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Armor",
+															"sid": 468884859127192,
+															"parameters": {
+																"animation": "\"Upgrade\"",
+																"from": "beginning"
 															}
 														},
 														{

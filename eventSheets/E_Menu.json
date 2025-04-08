@@ -1,5 +1,563 @@
 {
 	"name": "E_Menu",
-	"events": [],
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LayoutZoom",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 861160931904266
+		},
+		{
+			"eventType": "variable",
+			"name": "ZoomAtual",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 815984735137389
+		},
+		{
+			"eventType": "variable",
+			"name": "Ativar_Effects",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 396719452978669
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 508248932356963
+				}
+			],
+			"actions": [
+				{
+					"id": "set-rate",
+					"objectClass": "Particles_Steam",
+					"sid": 133604812983444,
+					"parameters": {
+						"rate": "0"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Particles_Steam",
+					"sid": 893143064156474,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Game_Logo",
+						"x": false,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 401793048327794,
+					"parameters": {
+						"audio-file": "Cinematic_Violin_Uplifting_Music_by_Humanoide_Media",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"Menu\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 376337786850447,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Game_Logo",
+					"sid": 977877409510294,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"down\"",
+						"property": "offsetY",
+						"end-value": "210",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 652930984059956
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Game_Logo",
+					"sid": 524447221891490,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"down\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 581322447225940,
+					"parameters": {
+						"variable": "Ativar_Effects",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-rate",
+					"objectClass": "Particles_Steam",
+					"sid": 700465770616718,
+					"parameters": {
+						"rate": "3"
+					}
+				},
+				{
+					"id": "unpin",
+					"objectClass": "Particles_Steam",
+					"sid": 752123601791218,
+					"behaviorType": "Pin"
+				},
+				{
+					"id": "set-active",
+					"objectClass": "Particles_Steam",
+					"sid": 189493446367776,
+					"behaviorType": "Sine",
+					"parameters": {
+						"state": "active"
+					}
+				}
+			],
+			"sid": 123323893538294
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 912737423440623,
+					"parameters": {
+						"first-value": "ZoomAtual",
+						"comparison": 2,
+						"second-value": "LayoutZoom"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 691248468516981,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 842509699441646,
+							"parameters": {
+								"interval-seconds": "0.01"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 674867151780188,
+							"parameters": {
+								"variable": "ZoomAtual",
+								"value": "0.02"
+							}
+						},
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 149233819122127,
+							"parameters": {
+								"scale": "ZoomAtual"
+							}
+						}
+					],
+					"sid": 710459659334183
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 351630832977001,
+					"parameters": {
+						"interval-seconds": "random ( 0.4 , 1 )"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 577177069068738,
+					"parameters": {
+						"variable": "Ativar_Effects"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 934140219349372,
+					"parameters": {
+						"object-to-create": "icon_shiny",
+						"layer": "0",
+						"x": "random( Game_Logo.ImagePointX(1), Game_Logo.ImagePointX(2) )",
+						"y": "random ( Game_Logo.ImagePointY(1), Game_Logo.ImagePointY(2) )",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 801893080208092
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 621903582075636,
+					"parameters": {
+						"object": "Btn_Start_Menu",
+						"type": "start"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_Start_Menu",
+					"sid": 294070406392571,
+					"parameters": {
+						"frame-number": "1"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Btn_Start_Menu",
+					"sid": 988425102077059,
+					"parameters": {
+						"opacity": "99"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "menu_engrenagem",
+					"sid": 970478906763171,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"rotate\"",
+						"property": "offsetAngle",
+						"end-value": "180",
+						"time": "0.35",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "3"
+					}
+				}
+			],
+			"sid": 627762374304824
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "menu_engrenagem",
+					"sid": 885689340258646,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"rotate\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Btn_Start_Menu",
+					"sid": 137358002197316,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "menu_engrenagem",
+						"x": true,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "menu_engrenagem",
+					"sid": 674120490670052,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "menu_porta_esquerda",
+						"x": true,
+						"y": true,
+						"angle": false,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "play-timeline",
+					"objectClass": "TimelineController",
+					"sid": 988972816749385,
+					"parameters": {
+						"timeline": "Door_Open",
+						"tags": "\"door_open\""
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "menu_porta_esquerda",
+					"sid": 591351319455574,
+					"disabled": true,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "760",
+						"time": "0.25",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "menu_porta_direita",
+					"sid": 873564075764184,
+					"disabled": true,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "1160",
+						"time": "0.25",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 590538253340728,
+					"disabled": true,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "menu_porta_esquerda",
+					"sid": 577665410505397,
+					"disabled": true,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "-200",
+						"time": "1.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "menu_porta_direita",
+					"sid": 835031490275413,
+					"disabled": true,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "2120",
+						"time": "1.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 144040542731413,
+					"parameters": {
+						"seconds": "0.6",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "fade-volume",
+					"objectClass": "Audio",
+					"sid": 961336183247768,
+					"parameters": {
+						"tag": "\"Menu\"",
+						"db": "-100",
+						"duration": "1",
+						"ending": "stop"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Game_Logo",
+					"sid": 107907080160238,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetY",
+						"end-value": "-30",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 699801989963752,
+					"parameters": {
+						"variable": "LayoutZoom",
+						"value": "3"
+					}
+				}
+			],
+			"sid": 956114931158599
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 104362534249074,
+					"parameters": {
+						"object": "Btn_Start_Menu"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_Start_Menu",
+					"sid": 581792971818798,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 261777027354391
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 357515831153045
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 529142523521917,
+					"parameters": {
+						"first-value": "menu_engrenagem.Angle",
+						"comparison": 0,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_Start_Menu",
+					"sid": 765934457621194,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 936425541911076
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 623576833753679,
+					"parameters": {
+						"first-value": "ZoomAtual",
+						"comparison": 5,
+						"second-value": "3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 195601158478569,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 896395620394577
+		}
+	],
 	"sid": 603429320980167
 }

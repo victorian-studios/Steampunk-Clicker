@@ -1,0 +1,58 @@
+{
+	"name": "menu_porta_direita",
+	"plugin-id": "Sprite",
+	"sid": 647836730194782,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 726460097999436
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 962,
+						"height": 1082,
+						"originX": 0.0010395010395010396,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 6796513,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.0009242144177449168,
+								0.998960498960499,
+								0.0009242144177449168,
+								0.998960498960499,
+								0.9990757855822551,
+								0,
+								0.9990757855822551
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 575081033155201,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

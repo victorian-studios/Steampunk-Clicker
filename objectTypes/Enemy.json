@@ -6,6 +6,20 @@
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
 		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 995625016461197
+		},
+		{
+			"name": "MAX_HP",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 682580495258371
+		},
+		{
 			"name": "Hab_1_Chance",
 			"type": "number",
 			"desc": "",
@@ -25,6 +39,20 @@
 			"desc": "",
 			"show": true,
 			"sid": 629654452692253
+		},
+		{
+			"name": "My_ID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 484161205435379
+		},
+		{
+			"name": "Block",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 613194269257100
 		}
 	],
 	"behaviorTypes": [
@@ -81,6 +109,13 @@
 							]
 						},
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.4428969359331476,
+								"y": 0.3453996983408748
+							}
+						],
 						"duration": 1,
 						"tag": ""
 					},

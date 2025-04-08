@@ -22,6 +22,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Dictionary",
 			"name": "Dictionary",
 			"author": "Scirra",
@@ -50,6 +57,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -71,6 +85,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Timeline",
+			"name": "Timeline controller",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
@@ -87,6 +108,13 @@
 			"type": "behavior",
 			"id": "DragnDrop",
 			"name": "Drag & Drop",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -222,7 +250,23 @@
 			"A_Armor",
 			"Bkg_Tab_List2",
 			"Btn_Upgrade_Armor",
-			"Keyboard"
+			"Keyboard",
+			"menu_porta_esquerda",
+			"menu_porta_direita",
+			"menu_engrenagem",
+			"Btn_Start_Menu",
+			"TimelineController",
+			"Frg_Fade",
+			"Text_Info_Battle",
+			"Icon_Mira",
+			"Select_Hab",
+			"Game_Logo",
+			"Audio",
+			"Particles_Steam",
+			"icon_shiny",
+			"Text_SP_Player",
+			"Text_SP_Enemy",
+			"configuracoes"
 		],
 		"subfolders": []
 	},
@@ -258,65 +302,269 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [
+			"items": [],
+			"subfolders": [
 				{
-					"name": "atk_stab_3.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 964046341590341,
-					"file-info": {
-						"purpose": "none"
-					}
+					"items": [
+						{
+							"name": "atk_stab_1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 513677096005601,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "hitting-in-a-face 1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 278527259911275,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "atk_stab_2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 562276637227488,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "atk_stab_3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 201481984159713,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "gun_shot.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 598649409400205,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "hitting-in-a-face 2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 143753738060536,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "hitting-in-a-face 3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 480194223366591,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Attacks"
 				},
 				{
-					"name": "atk_stab_1.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 639014078808418,
-					"file-info": {
-						"purpose": "none"
-					}
+					"items": [
+						{
+							"name": "Confirm_by_Ana_Caldeira.mp3",
+							"type": "audio/mpeg",
+							"sid": 401397824743382,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Level_Up_by_Universfield.mp3",
+							"type": "audio/mpeg",
+							"sid": 316409353178362,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Short_Success_Sound_Glockenspiel_Treasure_Video_Game_by_Freesound_Community.mp3",
+							"type": "audio/mpeg",
+							"sid": 276282488267682,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Confirm"
 				},
 				{
-					"name": "atk_stab_2.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 980689656015839,
-					"file-info": {
-						"purpose": "none"
-					}
+					"items": [
+						{
+							"name": "Violin_Lose_1_by_Floraphonic.mp3",
+							"type": "audio/mpeg",
+							"sid": 202109929065439,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Verloren_by_Freesaound_Community.mp3",
+							"type": "audio/mpeg",
+							"sid": 145498900070771,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "KL_Peach_Game_Over_iii_by_Lightyeartraxx.mp3",
+							"type": "audio/mpeg",
+							"sid": 931960298432515,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Violin_Lose_4_by_Floraphonic.mp3",
+							"type": "audio/mpeg",
+							"sid": 201774087596055,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "KL_Peach_Music_Box_Game_Over_iii_by_Lightyeartraxx.mp3",
+							"type": "audio/mpeg",
+							"sid": 826390414191650,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Defeat"
 				},
 				{
-					"name": "hitting-in-a-face 1.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 612852566153689,
-					"file-info": {
-						"purpose": "none"
-					}
+					"items": [
+						{
+							"name": "Upgrade_Select_Ui_by_Techspired_Minds.wav",
+							"type": "audio/wav",
+							"sid": 265015843741393,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Blocked_by_Ana_Caldeira.mp3",
+							"type": "audio/mpeg",
+							"sid": 355164190296926,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Shop"
 				},
 				{
-					"name": "hitting-in-a-face 2.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 378579465262198,
-					"file-info": {
-						"purpose": "none"
-					}
+					"items": [
+						{
+							"name": "Level_Up_2_by_Freesound_Community.mp3",
+							"type": "audio/mpeg",
+							"sid": 840489295026734,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Video_Game_Bonus_by_Universfield.mp3",
+							"type": "audio/mpeg",
+							"sid": 371161269914046,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Level_Up_3_by_Universfield.mp3",
+							"type": "audio/mpeg",
+							"sid": 316191480632714,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Bonus_Points_by_Liecio.mp3",
+							"type": "audio/mpeg",
+							"sid": 935681438522144,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Upgrade"
 				},
 				{
-					"name": "hitting-in-a-face 3.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 428430756571110,
-					"file-info": {
-						"purpose": "none"
-					}
-				},
-				{
-					"name": "gun_shot.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 313701969569498,
-					"file-info": {
-						"purpose": "none"
-					}
+					"items": [
+						{
+							"name": "Violin_Win_1_by_Floraphonic.mp3",
+							"type": "audio/mpeg",
+							"sid": 556208786767836,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Brass_New_Level_by_Universfield.mp3",
+							"type": "audio/mpeg",
+							"sid": 362039764987500,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Good_Result_by_Freesound_Community.mp3",
+							"type": "audio/mpeg",
+							"sid": 605825926017943,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Success_Fanfare_Trumpets_by_Freesound_Community.mp3",
+							"type": "audio/mpeg",
+							"sid": 338017137983631,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Tadaa_byFreesound_Community.mp3",
+							"type": "audio/mpeg",
+							"sid": 959288755545994,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Brass_Fanfare_With_Timpani_And_Winchimes_Reverberated_by_u_ss015dykrt.mp3",
+							"type": "audio/mpeg",
+							"sid": 346918156156658,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Violin_Win_5_by_Floraphonic.mp3",
+							"type": "audio/mpeg",
+							"sid": 721793680834318,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Victory"
 				}
-			],
-			"subfolders": []
+			]
 		},
 		"music": {
 			"items": [
@@ -329,7 +577,188 @@
 					}
 				}
 			],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 577217384039814,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Creepy_Halloween_Orchestra_by_Humanoide_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 295441864459132,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Epic_Battle_by_Francisco_Samuel.mp3",
+							"type": "audio/mpeg",
+							"sid": 722172079678403,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Battle_Theme_by_Aley_Vlas.mp3",
+							"type": "audio/mpeg",
+							"sid": 252337052500168,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Epic_Battle_Song_by_Rolandomat.mp3",
+							"type": "audio/mpeg",
+							"sid": 911761781134058,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Battles"
+				},
+				{
+					"items": [
+						{
+							"name": "One_Thousand_Years_Ago_Victorian_Gothic_Piano_Music_Loopable_by_Joel_Fazhari.mp3",
+							"type": "audio/mpeg",
+							"sid": 870920521010136,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Steampunk_Adventure_Scherzo_Only_Orchestra_by_Humanoide_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 685954840666183,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "The_Victorian_Mansion_by_Geoff_Harvey.mp3",
+							"type": "audio/mpeg",
+							"sid": 610852716891673,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Credits"
+				},
+				{
+					"items": [
+						{
+							"name": "Steampunk_Victorian_Orchestra_by_Humanoide_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 400576667531195,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Classical_String_Quartet_by_Humanoide_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 321496644802819,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Victorian_Violin_Waltz_by_Humanoid_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 581532345802705,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Main Game"
+				},
+				{
+					"items": [
+						{
+							"name": "Cinematic_Violin_Uplifting_Music_by_Humanoide_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 718982957957233,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Bloody_Haunting_Night_Epic_Dark_Horror_Soundtrack_Loopable_by_Joel_Fazhari.mp3",
+							"type": "audio/mpeg",
+							"sid": 379415214405173,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Menu"
+				},
+				{
+					"items": [
+						{
+							"name": "in_game_ver_4.mp3",
+							"type": "audio/mpeg",
+							"sid": 379099635763228,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "in_game_ver_2.mp3",
+							"type": "audio/mpeg",
+							"sid": 380992230415973,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "in_game.mp3",
+							"type": "audio/mpeg",
+							"sid": 259242449779346,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "in_game_ver_3.mp3",
+							"type": "audio/mpeg",
+							"sid": 642204608495853,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "musicas por ana"
+				},
+				{
+					"items": [
+						{
+							"name": "Cinematic_Epic_Orchestral_Music_by_All_World_Music.mp3",
+							"type": "audio/mpeg",
+							"sid": 790385884156920,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Trailer"
+				}
+			]
 		},
 		"video": {
 			"items": [],
@@ -448,7 +877,7 @@
 	},
 	"timelines": {
 		"items": [
-			"Timeline 1"
+			"Door_Open"
 		],
 		"subfolders": [
 			{
@@ -458,9 +887,7 @@
 		]
 	},
 	"flowcharts": {
-		"items": [
-			"Flowchart 1"
-		],
+		"items": [],
 		"subfolders": []
 	},
 	"properties": {

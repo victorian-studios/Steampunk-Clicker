@@ -33,9 +33,9 @@
 					"locked": false,
 					"world": {
 						"x": 960,
-						"y": 540,
-						"width": 1920,
-						"height": 1080,
+						"y": 463,
+						"width": 1862,
+						"height": 925,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -111,8 +111,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 968,
-								"y": 466,
+								"x": 952,
+								"y": 1513,
 								"width": 1752,
 								"height": 823,
 								"originX": 0.5,
@@ -8069,9 +8069,9 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 248,
+						"x": 252,
 						"y": -224,
-						"width": 480,
+						"width": 488,
 						"height": 384,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -8195,7 +8195,7 @@
 					"world": {
 						"x": 24,
 						"y": -112,
-						"width": 448,
+						"width": 457,
 						"height": 72,
 						"originX": 0,
 						"originY": 0,
@@ -10631,6 +10631,57 @@
 							0.5
 						],
 						"angle": 6.054084722914789,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Frg_Fade",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 271,
+					"sid": 728316742527435,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1.75,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 728316742527435,
+						"expanded": true,
+						"folderName": "",
+						"indexInFolder": -1,
+						"folderNestingLevel": -1
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 953.5,
+						"y": 550,
+						"width": 1987,
+						"height": 1114,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
 						"zElevation": 0
 					}
 				}

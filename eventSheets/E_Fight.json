@@ -3,26 +3,6 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "Enemy_HP",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 470069990710523
-		},
-		{
-			"eventType": "variable",
-			"name": "Enemy_HP_MAX",
-			"type": "number",
-			"initialValue": "100",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 545197700425030
-		},
-		{
-			"eventType": "variable",
 			"name": "TURN",
 			"type": "number",
 			"initialValue": "0",
@@ -62,6 +42,35 @@
 			],
 			"actions": [
 				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 369405679482554,
+					"parameters": {
+						"tag": "\"Main\""
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 885282006685045,
+					"parameters": {
+						"audio-file": "Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media",
+						"loop": "looping",
+						"volume": "-12",
+						"stereo-pan": "0",
+						"tag-optional": "\"Fight\""
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 608901735520100,
+					"parameters": {
+						"layer": "\"HUD\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
 					"sid": 175536525679917,
@@ -83,6 +92,76 @@
 						"width-type": "no",
 						"height-type": "no",
 						"z": false
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 642761307565863,
+					"parameters": {
+						"seconds": "Text_Info_Battle.Fade.FadeInTime + 1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 456637000162879,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "930",
+						"time": "0.2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 235924173187588,
+					"parameters": {
+						"seconds": "0.2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 894713915785263,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "2500",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 788295677628439,
+					"parameters": {
+						"layer": "\"HUD\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Select_Hab",
+					"sid": 555141628012050,
+					"parameters": {
+						"x": "-100",
+						"y": "-1000"
 					}
 				}
 			],
@@ -395,6 +474,40 @@
 							"sid": 497678866033885
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 465506032263831,
+							"parameters": {
+								"variable": "Armor_Special_ID",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "icon_list_armor",
+							"sid": 372313892554494,
+							"parameters": {
+								"frame-number": "int( Armor_Special_ID )"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "icon_list_armor",
+							"sid": 566571053390100,
+							"parameters": {
+								"scale": "1"
+							}
+						}
+					],
+					"sid": 852205907838256
 				}
 			]
 		},
@@ -410,18 +523,26 @@
 			"actions": [
 				{
 					"id": "set-text",
-					"objectClass": "Text_HP_Enemy",
-					"sid": 173563734879839,
-					"parameters": {
-						"text": "Enemy_HP & \" / \" & Enemy_HP_MAX"
-					}
-				},
-				{
-					"id": "set-text",
 					"objectClass": "Text_HP_Player",
 					"sid": 129476397354103,
 					"parameters": {
 						"text": "HP & \" / \" & HP_Max"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_SP_Player",
+					"sid": 183641348856521,
+					"parameters": {
+						"text": "Shield"
+					}
+				},
+				{
+					"id": "set-height",
+					"objectClass": "ProgBar_Shield_Player",
+					"sid": 677587482907475,
+					"parameters": {
+						"height": "Shield * ( 86.5 / Shield_Max )"
 					}
 				}
 			],
@@ -460,10 +581,21 @@
 						{
 							"id": "pick-by-comparison",
 							"objectClass": "System",
-							"sid": 168241132900805,
+							"sid": 366154059629342,
 							"parameters": {
 								"object": "ProgBar_HP_Enemy",
 								"expression": "ProgBar_HP_Enemy.AnimationFrame",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 198968985986127,
+							"parameters": {
+								"object": "Enemy",
+								"expression": "Enemy.My_ID",
 								"comparison": 0,
 								"value": "1"
 							}
@@ -473,13 +605,21 @@
 						{
 							"id": "set-width",
 							"objectClass": "ProgBar_HP_Enemy",
-							"sid": 590150355215737,
+							"sid": 160434937180353,
 							"parameters": {
-								"width": "Enemy_HP * ( 500 / Enemy_HP_Max )"
+								"width": "Enemy.HP * ( 500 / Enemy.MAX_HP )"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_HP_Enemy",
+							"sid": 352035089310380,
+							"parameters": {
+								"text": "Enemy.HP & \" / \" & Enemy.MAX_HP"
 							}
 						}
 					],
-					"sid": 969000628462731
+					"sid": 895280481754822
 				}
 			]
 		},
@@ -647,506 +787,64 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 715706261323127,
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 737673462886842,
 					"parameters": {
-						"object": "Hab_Slot_Special"
+						"object": "Text_SP_Player"
 					}
 				},
 				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 743310173712617,
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 573351982943647,
 					"parameters": {
-						"variable": "TURN",
-						"comparison": 0,
-						"value": "0"
+						"object": "Text_SP_Player"
 					}
 				}
 			],
 			"actions": [],
-			"sid": 303737899400162
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-tap-object",
-					"objectClass": "Touch",
-					"sid": 892020520274934,
-					"parameters": {
-						"object": "Hab_Slot"
-					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 187120443391479,
-					"parameters": {
-						"variable": "TURN",
-						"comparison": 0,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 122682499015237,
+			"sid": 255152343841322,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Hab_Slot",
-							"sid": 401372110546570,
-							"parameters": {
-								"instance-variable": "ID",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 458786353514611
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Hab_Slot",
-							"sid": 688055596447617,
-							"parameters": {
-								"instance-variable": "ID",
-								"comparison": 0,
-								"value": "2"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 652605566024827
-				}
-			]
-		},
-		{
-			"eventType": "variable",
-			"name": "rng",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 621969946021603
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 241937547337227,
-					"parameters": {
-						"variable": "TURN",
-						"comparison": 0,
-						"value": "1"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 288313143098408,
-					"parameters": {
-						"variable": "rng",
-						"value": "random(0, 100)"
-					}
-				}
-			],
-			"sid": 361905535175792,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 882226151950503,
-							"parameters": {
-								"variable": "rng",
-								"comparison": 3,
-								"value": "Enemy.Hab_1_Chance"
-							}
+							"id": "is-flashing",
+							"objectClass": "Text_SP_Player",
+							"sid": 296354004690762,
+							"behaviorType": "Flash",
+							"isInverted": true
 						}
 					],
 					"actions": [
 						{
-							"callFunction": "Use_Hab_Enemy",
-							"sid": 710865580224021,
-							"parameters": [
-								"Enemy.Hab_1"
-							]
-						}
-					],
-					"sid": 479482692363105
-				},
-				{
-					"eventType": "block",
-					"conditions": [
+							"id": "set-visible",
+							"objectClass": "Text_SP_Player",
+							"sid": 640596469824580,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
 						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 825812235823905
-						}
-					],
-					"actions": [
+							"id": "set-opacity",
+							"objectClass": "Text_SP_Player",
+							"sid": 515401525288994,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
 						{
-							"callFunction": "Use_Hab_Enemy",
-							"sid": 909645605884310,
-							"parameters": [
-								"Enemy.Hab_2"
-							]
+							"id": "restart-fade",
+							"objectClass": "Text_SP_Player",
+							"sid": 853361793572274,
+							"behaviorType": "Fade"
 						}
 					],
-					"sid": 874815505131429
-				}
-			]
-		},
-		{
-			"functionName": "Use_Hab_Enemy",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Name",
-					"type": "string",
-					"initialValue": "",
-					"comment": "",
-					"sid": 648817077703956
+					"sid": 281119292917366
 				}
 			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 387631547987296,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 489260823557366,
-							"parameters": {
-								"first-value": "tokenat ( Name, 0, \"_\" ) ",
-								"comparison": 0,
-								"second-value": "\"Atk\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 198952200804395,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 969739274892346,
-									"parameters": {
-										"first-value": "tokenat ( Name, 1, \"_\" ) ",
-										"comparison": 0,
-										"second-value": "\"default\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "Change_Health_Player",
-									"sid": 453727714035278,
-									"parameters": [
-										"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
-										false
-									]
-								}
-							],
-							"sid": 343634414694778
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 381696890310844,
-									"parameters": {
-										"first-value": "tokenat ( Name, 1, \"_\" ) ",
-										"comparison": 0,
-										"second-value": "\"fullpierce\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "Change_Health_Player",
-									"sid": 872369677534400,
-									"parameters": [
-										"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
-										true
-									]
-								}
-							],
-							"sid": 156214102548938
-						}
-					]
-				}
-			]
-		},
-		{
-			"functionName": "Change_Health_Player",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionCopyPicked": false,
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "Amount",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 182888696640222
-				},
-				{
-					"name": "Piercing",
-					"type": "boolean",
-					"initialValue": "false",
-					"comment": "",
-					"sid": 291472757928363
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [],
-			"sid": 809294579975613,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Heal"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 168367171649885,
-							"parameters": {
-								"variable": "Amount",
-								"comparison": 4,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 701832628432621,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 669084964072684,
-									"parameters": {
-										"first-value": "HP + Amount",
-										"comparison": 3,
-										"second-value": "HP_Max"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 329285956588075,
-									"parameters": {
-										"variable": "HP",
-										"value": "Amount"
-									}
-								}
-							],
-							"sid": 917732021266934
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 649802882552712
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 766005254104428,
-									"parameters": {
-										"variable": "HP",
-										"value": "HP_Max"
-									}
-								}
-							],
-							"sid": 881512099965092
-						}
-					]
-				},
-				{
-					"eventType": "comment",
-					"text": "Damage"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 116997109636974,
-							"parameters": {
-								"variable": "Amount",
-								"comparison": 2,
-								"value": "0"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 317056246375954,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 185534381223973,
-									"parameters": {
-										"variable": "Piercing"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "subtract-from-eventvar",
-									"objectClass": "System",
-									"sid": 662276143238412,
-									"parameters": {
-										"variable": "HP",
-										"value": "abs( Amount )"
-									}
-								}
-							],
-							"sid": 503747844280558
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 319355690279746
-								}
-							],
-							"actions": [],
-							"sid": 187276833094368,
-							"children": [
-								{
-									"eventType": "variable",
-									"name": "remaining_dmg",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 661426042220975
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 713898677829264,
-											"parameters": {
-												"first-value": "Shield - abs( Amount )",
-												"comparison": 5,
-												"second-value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-eventvar",
-											"objectClass": "System",
-											"sid": 906011964963915,
-											"parameters": {
-												"variable": "Shield",
-												"value": "abs( Amount )"
-											}
-										}
-									],
-									"sid": 494986619886667
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 536972506249618
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 480389045860678,
-											"parameters": {
-												"variable": "remaining_dmg",
-												"value": "abs( Shield - abs( Amount ) )"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 190189442172040,
-											"parameters": {
-												"variable": "Shield",
-												"value": "0"
-											}
-										},
-										{
-											"id": "subtract-from-eventvar",
-											"objectClass": "System",
-											"sid": 886179799579070,
-											"parameters": {
-												"variable": "HP",
-												"value": "remaining_dmg"
-											}
-										}
-									],
-									"sid": 317130275445451
-								}
-							]
-						}
-					]
-				}
-			]
+			"isOrBlock": true
 		},
 		{
 			"eventType": "group",
@@ -1205,6 +903,14 @@
 							"id": "move-to-top",
 							"objectClass": "Text_Item_Info",
 							"sid": 222290499079194
+						},
+						{
+							"id": "set-font-size",
+							"objectClass": "Text_Item_Info",
+							"sid": 773479129832154,
+							"parameters": {
+								"size-pt": "33"
+							}
 						}
 					],
 					"sid": 836160999218673,
@@ -1348,6 +1054,14 @@
 											"parameters": {
 												"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 											}
+										},
+										{
+											"id": "set-font-size",
+											"objectClass": "Text_Item_Info",
+											"sid": 486118872132675,
+											"parameters": {
+												"size-pt": "40"
+											}
 										}
 									],
 									"sid": 599571268894757
@@ -1396,6 +1110,14 @@
 							"id": "move-to-top",
 							"objectClass": "Text_Item_Info",
 							"sid": 557809883219568
+						},
+						{
+							"id": "set-font-size",
+							"objectClass": "Text_Item_Info",
+							"sid": 494150402289608,
+							"parameters": {
+								"size-pt": "33"
+							}
 						}
 					],
 					"sid": 976466609318735,
@@ -1498,6 +1220,120 @@
 						{
 							"id": "cursor-is-over-object",
 							"objectClass": "Mouse",
+							"sid": 693932695843485,
+							"parameters": {
+								"object": "icon_list_armor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 177120896921853,
+							"parameters": {
+								"variable": "counter",
+								"value": "icon_list_armor.AnimationFrame - 1"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Bkg_Upg_Desc",
+							"sid": 384821173488122,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Bkg_Upg_Desc",
+							"sid": 255336746845623
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Text_Item_Info",
+							"sid": 540433572282454
+						}
+					],
+					"sid": 487318432698250,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "None"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 485130079671673,
+									"parameters": {
+										"variable": "Armor_Special_ID",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Item_Info",
+									"sid": 763170769891577,
+									"parameters": {
+										"text": "\"Locked !\""
+									}
+								},
+								{
+									"id": "set-font-size",
+									"objectClass": "Text_Item_Info",
+									"sid": 878336326228703,
+									"parameters": {
+										"size-pt": "60"
+									}
+								}
+							],
+							"sid": 625045705541218
+						},
+						{
+							"eventType": "comment",
+							"text": "Madeira - Falta decidir como o jogo vai ler e aplicar as descrições das habilidades especiais da armadura"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 395491633887963,
+									"parameters": {
+										"variable": "Armor_Special_ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Item_Info",
+									"sid": 937797775220142,
+									"parameters": {
+										"text": "\"Something cool.\""
+									}
+								}
+							],
+							"sid": 923824616965996
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
 							"sid": 282260250875538,
 							"parameters": {
 								"object": "icon_list_weapon"
@@ -1510,6 +1346,15 @@
 							"sid": 726179486764500,
 							"parameters": {
 								"object": "icon_list_habilities"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 691462012582071,
+							"parameters": {
+								"object": "icon_list_armor"
 							},
 							"isInverted": true
 						}
@@ -1526,9 +1371,3078 @@
 						}
 					],
 					"sid": 643934415373835
+				},
+				{
+					"eventType": "comment",
+					"text": "A fazer..."
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 374252550098835,
+							"parameters": {
+								"object": "Hab_Slot_Special"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 420978398066535,
+							"parameters": {
+								"variable": "TURN",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Icon_Mira",
+							"sid": 690086338229895
+						}
+					],
+					"sid": 503998363858830
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 545460475627814,
+							"parameters": {
+								"object": "Hab_Slot"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 237347572078527,
+							"parameters": {
+								"variable": "TURN",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Icon_Mira",
+							"sid": 253959902021467
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Select_Hab",
+							"sid": 954395724431841,
+							"parameters": {
+								"x": "Hab_Slot.X",
+								"y": "Hab_Slot.Y"
+							}
+						}
+					],
+					"sid": 359963832568780,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hab_Slot",
+									"sid": 255738279659700,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Get_Targets",
+									"sid": 864215865569282,
+									"parameters": [
+										"Hab_Slot.ID",
+										"tokenat( Weapon_ID_1, 0, \"_\" )",
+										"Dict_Save_File.Get(Weapon_ID_1 )"
+									]
+								}
+							],
+							"sid": 268321704848572
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Hab_Slot",
+									"sid": 871865496848973,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Get_Targets",
+									"sid": 947643557220278,
+									"parameters": [
+										"Hab_Slot.ID",
+										"tokenat( Weapon_ID_2, 0, \"_\" )",
+										"Dict_Save_File.Get(Weapon_ID_2 )"
+									]
+								}
+							],
+							"sid": 323185162842990
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 554523886235609,
+							"parameters": {
+								"object": "Icon_Mira"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 963535280154321,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "the_mira",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 506449860408713
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 416111186162946,
+									"parameters": {
+										"variable": "the_mira",
+										"value": "Icon_Mira.UID"
+									}
+								}
+							],
+							"sid": 931700496421706
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Mira",
+									"sid": 997580354723394,
+									"parameters": {
+										"instance-variable": "All_Targets"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 755504811863401,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 358732466717234,
+											"parameters": {
+												"object": "Icon_Mira"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Icon_Mira",
+											"sid": 163629010336837,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										}
+									],
+									"sid": 986505483144526
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Mira",
+									"sid": 575033552138805,
+									"parameters": {
+										"instance-variable": "All_Targets"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 883164228981670,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 107030055786922,
+											"parameters": {
+												"object": "Icon_Mira"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 615041121618554
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Icon_Mira",
+											"sid": 478192702410278,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-scale",
+											"objectClass": "Icon_Mira",
+											"sid": 513845717978365,
+											"parameters": {
+												"scale": "1"
+											}
+										}
+									],
+									"sid": 441848647670093
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 431291095252092,
+											"parameters": {
+												"object": "Icon_Mira",
+												"expression": "Icon_Mira.UID",
+												"comparison": 0,
+												"value": "the_mira"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "Icon_Mira",
+											"sid": 737787940570111,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										}
+									],
+									"sid": 231301167930763
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 438282987757480,
+							"parameters": {
+								"object": "Icon_Mira"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 756942839416911,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 949037855957095,
+									"parameters": {
+										"first-value": "Icon_Mira.Count",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "Icon_Mira",
+									"sid": 656443054770560,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Icon_Mira",
+									"sid": 320526477562420,
+									"parameters": {
+										"scale": "1"
+									}
+								}
+							],
+							"sid": 281944992137638
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Mira",
+									"sid": 262706490215514,
+									"parameters": {
+										"instance-variable": "All_Targets"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "Icon_Mira",
+									"sid": 839234302972176,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Icon_Mira",
+									"sid": 827024138530370,
+									"parameters": {
+										"scale": "1"
+									}
+								}
+							],
+							"sid": 932901927391072
+						}
+					]
+				},
+				{
+					"eventType": "variable",
+					"name": "rng",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 250534565673379
+				},
+				{
+					"functionName": "Get_Targets",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Slot_ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "slot id",
+							"sid": 872786342241752
+						},
+						{
+							"name": "Hab_Type",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 930136063503451
+						},
+						{
+							"name": "Hab_Lvl",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 331054320246392
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 190621967311679,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 882224565200363,
+									"parameters": {
+										"variable": "Slot_ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 480576857501901,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 916937501131879,
+											"parameters": {
+												"variable": "Hab_Type",
+												"comparison": 0,
+												"value": "\"WP\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 677844764279762,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 426934326192282,
+													"parameters": {
+														"first-value": "A_Weapons.At( 0, Hab_Lvl, tokenat( Weapon_ID_1, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"one\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 604887921992527,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 856663204383188,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Icon_Mira",
+													"sid": 488561777919677,
+													"parameters": {
+														"instance-variable": "My_Target",
+														"value": "Enemy.UID"
+													}
+												}
+											],
+											"sid": 184130346563337
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 549335486078541,
+													"parameters": {
+														"first-value": "A_Weapons.At( 0, Hab_Lvl, tokenat( Weapon_ID_1, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"all\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 955458698935340,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 584944103869990,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 398229986758401,
+													"parameters": {
+														"instance-variable": "All_Targets",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 917694714675835
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 568936417863517,
+													"parameters": {
+														"first-value": "A_Weapons.At( 0, Hab_Lvl, tokenat( Weapon_ID_1, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"self\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Player",
+													"sid": 976746423862003,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 122223685468398,
+													"parameters": {
+														"instance-variable": "Friendly",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 302979920036019
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 849679605141823,
+											"parameters": {
+												"variable": "Hab_Type",
+												"comparison": 0,
+												"value": "\"HAB\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 479898002758922,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 401219019596062,
+													"parameters": {
+														"first-value": "A_Habilities.At( 0, Hab_Lvl, tokenat( Weapon_ID_1, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"one\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 505144115891264,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 764686392829913,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Icon_Mira",
+													"sid": 702484295344207,
+													"parameters": {
+														"instance-variable": "My_Target",
+														"value": "Enemy.UID"
+													}
+												}
+											],
+											"sid": 982834135028329
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 874217136501638,
+													"parameters": {
+														"first-value": "A_Habilities.At( 0, Hab_Lvl, tokenat( Weapon_ID_1, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"all\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 190744617624101,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 931110641249492,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 591224621315561,
+													"parameters": {
+														"instance-variable": "All_Targets",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 496028779753171
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 315923772302227,
+													"parameters": {
+														"first-value": "A_Habilities.At( 0, Hab_Lvl, tokenat( Weapon_ID_1, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"self\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Player",
+													"sid": 511642205348789,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 587765400046108,
+													"parameters": {
+														"instance-variable": "Friendly",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 668013716099406
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 461544189355002,
+									"parameters": {
+										"variable": "Slot_ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 933308883234922,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 986203228405116,
+											"parameters": {
+												"variable": "Hab_Type",
+												"comparison": 0,
+												"value": "\"WP\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 146017210995277,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 537082695231515,
+													"parameters": {
+														"first-value": "A_Weapons.At( 0, Hab_Lvl, tokenat( Weapon_ID_2, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"one\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 926785559429284,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 283574002010344,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Icon_Mira",
+													"sid": 436906705506353,
+													"parameters": {
+														"instance-variable": "My_Target",
+														"value": "Enemy.UID"
+													}
+												}
+											],
+											"sid": 157510464472469
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 652648639269296,
+													"parameters": {
+														"first-value": "A_Weapons.At( 0, Hab_Lvl, tokenat( Weapon_ID_2, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"all\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 357088059433333,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 384378901943529,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 144074361925233,
+													"parameters": {
+														"instance-variable": "All_Targets",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 957951833154170
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 234019086861369,
+													"parameters": {
+														"first-value": "A_Weapons.At( 0, Hab_Lvl, tokenat( Weapon_ID_2, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"self\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Player",
+													"sid": 447810390395800,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 307818960434334,
+													"parameters": {
+														"instance-variable": "Friendly",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 195321769585341
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 393985140142766,
+											"parameters": {
+												"variable": "Hab_Type",
+												"comparison": 0,
+												"value": "\"HAB\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 178019737762623,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 589136978390544,
+													"parameters": {
+														"first-value": "A_Habilities.At( 0, Hab_Lvl, tokenat( Weapon_ID_2, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"one\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 970104899702571,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 294168704566494,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Icon_Mira",
+													"sid": 446070577898312,
+													"parameters": {
+														"instance-variable": "My_Target",
+														"value": "Enemy.UID"
+													}
+												}
+											],
+											"sid": 838518514469919
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 393568947438567,
+													"parameters": {
+														"first-value": "A_Habilities.At( 0, Hab_Lvl, tokenat( Weapon_ID_2, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"all\""
+													}
+												},
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 105275269830275,
+													"parameters": {
+														"object": "Enemy"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Enemy",
+													"sid": 799714897703863,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 717704179868115,
+													"parameters": {
+														"instance-variable": "All_Targets",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 822998869078866
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 951879928707292,
+													"parameters": {
+														"first-value": "A_Habilities.At( 0, Hab_Lvl, tokenat( Weapon_ID_2, 1, \"_\" ) )",
+														"comparison": 0,
+														"second-value": "\"self\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Player",
+													"sid": 810503128031309,
+													"parameters": {
+														"object": "Icon_Mira",
+														"layer": "\"HUD\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Mira",
+													"sid": 975388040656303,
+													"parameters": {
+														"instance-variable": "Friendly",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 782510963170389
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 472089207293432,
+							"parameters": {
+								"object": "Icon_Mira"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 362407190321953,
+							"parameters": {
+								"variable": "TURN",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 131755814775777,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "the_target",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 396308402151437
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Mira",
+									"sid": 385923012727294,
+									"parameters": {
+										"instance-variable": "All_Targets"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 715538255214085,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Select_Hab",
+											"sid": 229562616960859,
+											"parameters": {
+												"object": "Hab_Slot"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 861913680419337,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 305105443612345,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Use_Hab_Player",
+													"sid": 817521370763625,
+													"parameters": [
+														"tokenat(Weapon_ID_1, 0, \"_\")",
+														"int( tokenat(Weapon_ID_1, 1, \"_\") )",
+														"Dict_Save_File.Get(Weapon_ID_1)",
+														"0",
+														true,
+														false
+													]
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Mira",
+													"sid": 761813021672207
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 332075564393240,
+													"parameters": {
+														"x": "-100",
+														"y": "-1000"
+													}
+												}
+											],
+											"sid": 841367568022542
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 577624429356729,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Use_Hab_Player",
+													"sid": 521611129124101,
+													"parameters": [
+														"tokenat(Weapon_ID_2, 0, \"_\")",
+														"int( tokenat(Weapon_ID_2, 1, \"_\") )",
+														"Dict_Save_File.Get(Weapon_ID_2)",
+														"0",
+														true,
+														false
+													]
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Mira",
+													"sid": 613603048950085
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 389074816974841,
+													"parameters": {
+														"x": "-100",
+														"y": "-1000"
+													}
+												}
+											],
+											"sid": 509422998026281
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Mira",
+									"sid": 594591663530493,
+									"parameters": {
+										"instance-variable": "Friendly"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 420699970285813,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Select_Hab",
+											"sid": 982136921908079,
+											"parameters": {
+												"object": "Hab_Slot"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 447680429670690,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 991488284079129,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Use_Hab_Player",
+													"sid": 667445208747502,
+													"parameters": [
+														"tokenat(Weapon_ID_1, 0, \"_\")",
+														"int( tokenat(Weapon_ID_1, 1, \"_\") )",
+														"Dict_Save_File.Get(Weapon_ID_1)",
+														"0",
+														false,
+														true
+													]
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Mira",
+													"sid": 135570058792193
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 892153488432371,
+													"parameters": {
+														"x": "-100",
+														"y": "-1000"
+													}
+												}
+											],
+											"sid": 472494893240014
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 330605374550873,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Use_Hab_Player",
+													"sid": 907461467819013,
+													"parameters": [
+														"tokenat(Weapon_ID_2, 0, \"_\")",
+														"int( tokenat(Weapon_ID_2, 1, \"_\") )",
+														"Dict_Save_File.Get(Weapon_ID_2)",
+														"0",
+														false,
+														true
+													]
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Mira",
+													"sid": 393744330615213
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 352560046586391,
+													"parameters": {
+														"x": "-100",
+														"y": "-1000"
+													}
+												}
+											],
+											"sid": 359472626975581
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Mira",
+									"sid": 372778607778759,
+									"parameters": {
+										"instance-variable": "All_Targets"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Mira",
+									"sid": 933352938846431,
+									"parameters": {
+										"instance-variable": "Friendly"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 804514386959718,
+									"parameters": {
+										"variable": "the_target",
+										"value": "Icon_Mira.My_Target"
+									}
+								}
+							],
+							"sid": 459162964285010,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Select_Hab",
+											"sid": 751036443312890,
+											"parameters": {
+												"object": "Hab_Slot"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 571772316805176,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 473908906613895,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Use_Hab_Player",
+													"sid": 527905728092343,
+													"parameters": [
+														"tokenat(Weapon_ID_1, 0, \"_\")",
+														"int( tokenat(Weapon_ID_1, 1, \"_\") )",
+														"Dict_Save_File.Get(Weapon_ID_1)",
+														"the_target",
+														false,
+														false
+													]
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Mira",
+													"sid": 369935412074733
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 801478424705190,
+													"disabled": true,
+													"parameters": {
+														"x": "-100",
+														"y": "-1000"
+													}
+												}
+											],
+											"sid": 187020149333484
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 413463552879247,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Use_Hab_Player",
+													"sid": 846547223058494,
+													"parameters": [
+														"tokenat(Weapon_ID_2, 0, \"_\")",
+														"int( tokenat(Weapon_ID_2, 1, \"_\") )",
+														"Dict_Save_File.Get(Weapon_ID_2)",
+														"the_target",
+														false,
+														false
+													]
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Mira",
+													"sid": 785345217020531
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 455837034016731,
+													"disabled": true,
+													"parameters": {
+														"x": "-100",
+														"y": "-1000"
+													}
+												}
+											],
+											"sid": 354745127600078
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Use_Hab_Player",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Hab_Type",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 689425288926763
+						},
+						{
+							"name": "Hab_ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 497374997137081
+						},
+						{
+							"name": "Hab_Lvl",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 950616424141684
+						},
+						{
+							"name": "Target_ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 944625020653498
+						},
+						{
+							"name": "All_Targets",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 615061342606663
+						},
+						{
+							"name": "Friendly",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 685302726364482
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 679859074140275,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 963874269999876,
+									"parameters": {
+										"variable": "Hab_Type",
+										"comparison": 0,
+										"value": "\"WP\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 745442422710656,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 779337860912222,
+											"parameters": {
+												"variable": "All_Targets"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 558887814666465
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 860703139014143,
+											"parameters": {
+												"variable": "Friendly"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 959447811545744
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 146046021608652,
+											"parameters": {
+												"variable": "All_Targets"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 376171743260151,
+											"parameters": {
+												"variable": "Friendly"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 953616550025377,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Tem dano perfurante"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Weapons",
+													"sid": 600738608048722,
+													"parameters": {
+														"x": "3",
+														"y": "Hab_Lvl",
+														"z": "Hab_ID",
+														"comparison": 1,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 658451283236849,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 309097236741476,
+															"parameters": {
+																"object": "Enemy",
+																"expression": "Enemy.UID",
+																"comparison": 0,
+																"value": "Target_ID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Change_Health_Enemy",
+															"sid": 667080043304428,
+															"parameters": [
+																"-1 * ( A_Weapons.At ( 3, Hab_Lvl, Hab_ID ) )",
+																true,
+																"Target_ID"
+															]
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 861970223045465,
+															"parameters": {
+																"seconds": "0.1",
+																"use-timescale": true
+															}
+														},
+														{
+															"callFunction": "Change_Health_Enemy",
+															"sid": 101434618833395,
+															"parameters": [
+																"A_Weapons.At ( 2, Hab_Lvl, Hab_ID ) > 0 ? -1 * ( A_Weapons.At ( 3, Hab_Lvl, Hab_ID ) ) : 0",
+																false,
+																"Target_ID"
+															]
+														}
+													],
+													"sid": 266013882257510
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Não tem dano perfurante"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 888047350891634
+												}
+											],
+											"actions": [],
+											"sid": 377735296894175,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 581012750189640,
+															"parameters": {
+																"object": "Enemy",
+																"expression": "Enemy.UID",
+																"comparison": 0,
+																"value": "Target_ID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Change_Health_Enemy",
+															"sid": 128568098097457,
+															"parameters": [
+																"-1 * ( A_Weapons.At ( 2, Hab_Lvl, Hab_ID ) )",
+																false,
+																"Target_ID"
+															]
+														}
+													],
+													"sid": 239260933980331
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 463202736029566,
+									"parameters": {
+										"variable": "Hab_Type",
+										"comparison": 0,
+										"value": "\"HAB\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 441634683679705,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 682152363906051,
+											"parameters": {
+												"variable": "All_Targets"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 675250101986647
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 837264124192300,
+											"parameters": {
+												"variable": "Friendly"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 405192716877887,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Defense"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 406954275615141,
+													"parameters": {
+														"variable": "Hab_ID",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 575290993579214
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 459297277905605,
+											"parameters": {
+												"variable": "All_Targets"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 366682454239034,
+											"parameters": {
+												"variable": "Friendly"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 471436579596757
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Change_Health_Enemy",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Amount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 752191375034297
+						},
+						{
+							"name": "Piercing",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 381150073947430
+						},
+						{
+							"name": "Enemy_ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 478125143852963
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 845076839775537,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 639675159069599,
+									"parameters": {
+										"object": "Enemy",
+										"expression": "Enemy.UID",
+										"comparison": 0,
+										"value": "Enemy_ID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 371850944903759,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Heal"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 974560623877627,
+											"parameters": {
+												"variable": "Amount",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 771275386024469,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 903045831171336,
+													"parameters": {
+														"first-value": "Enemy.HP + Amount",
+														"comparison": 3,
+														"second-value": "Enemy.MAX_HP"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Enemy",
+													"sid": 586135604826215,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "Amount"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 299710548978192,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "Enemy.ImagePointX(1)",
+														"y": "Enemy.ImagePointY(1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-gravity",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 251422160812548,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"gravity": "0"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 978783245048104,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "270"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 523803524456861,
+													"parameters": {
+														"color": "rgbEx(0, 255, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 382986898751804,
+													"parameters": {
+														"text": "Amount"
+													}
+												}
+											],
+											"sid": 101958034176715
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 488217779789969
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 262155618689924,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "Enemy.ImagePointX(1)",
+														"y": "Enemy.ImagePointY(1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-gravity",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 114230787032854,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"gravity": "0"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 278180351318272,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "270"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 750601777858150,
+													"parameters": {
+														"color": "rgbEx(0, 255, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 694076533383315,
+													"parameters": {
+														"text": "Enemy.MAX_HP - Enemy.HP"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Enemy",
+													"sid": 826219692541733,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "Enemy.MAX_HP"
+													}
+												}
+											],
+											"sid": 105549793169555
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Damage"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 444386703350948,
+											"parameters": {
+												"variable": "Amount",
+												"comparison": 2,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 411935104205285,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 370447853264517,
+													"parameters": {
+														"variable": "Piercing"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Enemy",
+													"sid": 237438233471873,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "abs( Amount )"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 165509134560291,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "Enemy.ImagePointX(1)",
+														"y": "Enemy.ImagePointY(1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 832782884855985,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "random ( 240, 300 )"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 989418440093680,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 989791843136878,
+													"parameters": {
+														"text": "abs ( Amount )"
+													}
+												}
+											],
+											"sid": 158337354566990
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 168859610915420
+												}
+											],
+											"actions": [],
+											"sid": 792412701651730,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "remaining_dmg",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 153304816890516
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 676892061418984,
+															"parameters": {
+																"first-value": "Enemy.Block - abs( Amount )",
+																"comparison": 5,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Enemy",
+															"sid": 749614362799760,
+															"parameters": {
+																"instance-variable": "Block",
+																"value": "abs( Amount )"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 914346115662961,
+															"parameters": {
+																"object-to-create": "Text_Dmg_Numb",
+																"layer": "\"HUD\"",
+																"x": "Enemy.ImagePointX(1)",
+																"y": "Enemy.ImagePointY(1)",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 953070279568123,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random ( 240, 300 )"
+															}
+														},
+														{
+															"id": "set-font-color",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 780223762955026,
+															"parameters": {
+																"color": "rgbEx(0, 0, 0)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 259505528235222,
+															"parameters": {
+																"text": "abs ( Amount )"
+															}
+														}
+													],
+													"sid": 579040987670552
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 189778164923388
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 886404673136058,
+															"parameters": {
+																"variable": "remaining_dmg",
+																"value": "abs( Enemy.Block - abs( Amount ) )"
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Enemy",
+															"sid": 462386912563172,
+															"parameters": {
+																"instance-variable": "Block",
+																"value": "0"
+															}
+														},
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Enemy",
+															"sid": 348412908655939,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "remaining_dmg"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 755491624835786,
+															"parameters": {
+																"object-to-create": "Text_Dmg_Numb",
+																"layer": "\"HUD\"",
+																"x": "Enemy.ImagePointX(1)",
+																"y": "Enemy.ImagePointY(1)",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 191565530651066,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random ( 240, 300 )"
+															}
+														},
+														{
+															"id": "set-font-color",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 806671996053985,
+															"parameters": {
+																"color": "rgbEx(255, 0, 0)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 745895123663005,
+															"parameters": {
+																"text": "remaining_dmg"
+															}
+														}
+													],
+													"sid": 417618408495479
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-flashing",
+													"objectClass": "Enemy",
+													"sid": 830246241934331,
+													"behaviorType": "Flash",
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Enemy",
+													"sid": 844547001270233,
+													"parameters": {
+														"frame-number": "1"
+													}
+												},
+												{
+													"id": "flash",
+													"objectClass": "Enemy",
+													"sid": 365825099542581,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "0.4"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 384546976173422,
+													"parameters": {
+														"seconds": "0.4",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Enemy",
+													"sid": 268729574865322,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 198132206976842
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 922581684844196,
+							"parameters": {
+								"variable": "TURN",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 402925021404630,
+							"parameters": {
+								"variable": "rng",
+								"value": "random(0, 100)"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Icon_Mira",
+							"sid": 188611376508759
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Select_Hab",
+							"sid": 997404253418983
+						}
+					],
+					"sid": 189458102217364,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 508535055930079,
+									"parameters": {
+										"variable": "rng",
+										"comparison": 3,
+										"value": "Enemy.Hab_1_Chance"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Use_Hab_Enemy",
+									"sid": 507832236240771,
+									"parameters": [
+										"Enemy.Hab_1"
+									]
+								}
+							],
+							"sid": 911594978826053
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 996765337356137
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Use_Hab_Enemy",
+									"sid": 573027767636799,
+									"parameters": [
+										"Enemy.Hab_2"
+									]
+								}
+							],
+							"sid": 961925625416247
+						}
+					]
+				},
+				{
+					"functionName": "Use_Hab_Enemy",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 648817077703956
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 234915274350300,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 434094841760118,
+									"parameters": {
+										"first-value": "tokenat ( Name, 0, \"_\" ) ",
+										"comparison": 0,
+										"second-value": "\"Atk\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 949473012071963,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 455388900521061,
+											"parameters": {
+												"first-value": "tokenat ( Name, 1, \"_\" ) ",
+												"comparison": 0,
+												"second-value": "\"default\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Change_Health_Player",
+											"sid": 784055423346777,
+											"parameters": [
+												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
+												false
+											]
+										}
+									],
+									"sid": 956529589243369
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 470226818709142,
+											"parameters": {
+												"first-value": "tokenat ( Name, 1, \"_\" ) ",
+												"comparison": 0,
+												"second-value": "\"fullpierce\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Change_Health_Player",
+											"sid": 775644321723104,
+											"parameters": [
+												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
+												true
+											]
+										}
+									],
+									"sid": 179606941244718
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Change_Health_Player",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Amount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 182888696640222
+						},
+						{
+							"name": "Piercing",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 291472757928363
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 557115395690227,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Heal"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 724755585545359,
+									"parameters": {
+										"variable": "Amount",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 639089404119001,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 701336059281546,
+											"parameters": {
+												"first-value": "HP + Amount",
+												"comparison": 3,
+												"second-value": "HP_Max"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 407583835919471,
+											"parameters": {
+												"variable": "HP",
+												"value": "Amount"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 323477991336978,
+											"parameters": {
+												"object-to-create": "Text_Dmg_Numb",
+												"layer": "\"HUD\"",
+												"x": "Player.ImagePointX(1)",
+												"y": "Player.ImagePointY(1)",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 225666780151702,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "270"
+											}
+										},
+										{
+											"id": "set-font-color",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 783839296300137,
+											"parameters": {
+												"color": "rgbEx(0, 255, 0)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 499501490362599,
+											"parameters": {
+												"text": "abs ( Amount )"
+											}
+										}
+									],
+									"sid": 604197326208763
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 338097825508076
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 116577746822336,
+											"parameters": {
+												"object-to-create": "Text_Dmg_Numb",
+												"layer": "\"HUD\"",
+												"x": "Player.ImagePointX(1)",
+												"y": "Player.ImagePointY(1)",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 335140765363168,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "270"
+											}
+										},
+										{
+											"id": "set-font-color",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 199809107062432,
+											"parameters": {
+												"color": "rgbEx(0, 255, 0)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 881643648963381,
+											"parameters": {
+												"text": "HP - HP_Max"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 390225453969705,
+											"parameters": {
+												"variable": "HP",
+												"value": "HP_Max"
+											}
+										}
+									],
+									"sid": 272484674811292
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Damage"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 269893644359264,
+									"parameters": {
+										"variable": "Amount",
+										"comparison": 2,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 335146641146290,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 233879192041115,
+											"parameters": {
+												"variable": "Piercing"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 104136819130440,
+											"parameters": {
+												"variable": "HP",
+												"value": "abs( Amount )"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 344337594080033,
+											"parameters": {
+												"object-to-create": "Text_Dmg_Numb",
+												"layer": "\"HUD\"",
+												"x": "Player.ImagePointX(1)",
+												"y": "Player.ImagePointY(1)",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 695934060019363,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "random ( 240, 300 )"
+											}
+										},
+										{
+											"id": "set-font-color",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 527639157251804,
+											"parameters": {
+												"color": "rgbEx(255, 0, 0)"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 930641663504846,
+											"parameters": {
+												"text": "abs ( Amount )"
+											}
+										}
+									],
+									"sid": 207469380921209
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 259485248868539
+										}
+									],
+									"actions": [],
+									"sid": 184572129467999,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "remaining_dmg",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 348209132163250
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 497173334149400,
+													"parameters": {
+														"variable": "Shield",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "Text_SP_Player",
+													"sid": 125046412401715,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "0.6"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Text_SP_Player",
+													"sid": 453754868403315,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Text_SP_Player",
+													"sid": 502820890819872,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "restart-fade",
+													"objectClass": "Text_SP_Player",
+													"sid": 553018823743903,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 125842608132990
+										},
+										{
+											"eventType": "comment",
+											"text": "Tankou"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 641731485550738,
+													"parameters": {
+														"first-value": "Shield - abs( Amount )",
+														"comparison": 5,
+														"second-value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 997983502918638,
+													"parameters": {
+														"variable": "Shield",
+														"value": "abs( Amount )"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 540742763752949,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "Player.ImagePointX(1)",
+														"y": "Player.ImagePointY(1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 156319720571834,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "random ( 240, 300 )"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 617617241867476,
+													"parameters": {
+														"color": "rgbEx(0, 0, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 514745438481746,
+													"parameters": {
+														"text": "abs ( Amount )"
+													}
+												}
+											],
+											"sid": 719554980845154
+										},
+										{
+											"eventType": "comment",
+											"text": "Não tankou"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 825614250528318
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 207585207996958,
+													"parameters": {
+														"variable": "remaining_dmg",
+														"value": "abs( Shield - abs( Amount ) )"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 818761711867392,
+													"parameters": {
+														"variable": "Shield",
+														"value": "0"
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 420303692842824,
+													"parameters": {
+														"variable": "HP",
+														"value": "remaining_dmg"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 942592913448406,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "Player.ImagePointX(1)",
+														"y": "Player.ImagePointY(1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 222650525351543,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "random ( 240, 300 )"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 944622844966106,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 878728380746677,
+													"parameters": {
+														"text": "abs ( remaining_dmg )"
+													}
+												}
+											],
+											"sid": 978978459635242
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 780596957737166
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-flash-ended",
+					"objectClass": "Enemy",
+					"sid": 819228611705958,
+					"behaviorType": "Flash"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Enemy",
+					"sid": 705034772102370,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 203116985622910
 		}
 	],
 	"sid": 486033056870913
