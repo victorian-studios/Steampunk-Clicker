@@ -32,6 +32,16 @@
 			"sid": 674332434504744
 		},
 		{
+			"eventType": "variable",
+			"name": "Battle_Ended",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 521466113839050
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -68,6 +78,24 @@
 					"parameters": {
 						"layer": "\"HUD\"",
 						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 571723876770990,
+					"parameters": {
+						"layer": "\"Habs\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 726347224971335,
+					"parameters": {
+						"variable": "Battle_Ended",
+						"value": "false"
 					}
 				},
 				{
@@ -152,6 +180,15 @@
 					"sid": 788295677628439,
 					"parameters": {
 						"layer": "\"HUD\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 306728824864985,
+					"parameters": {
+						"layer": "\"Habs\"",
 						"visibility": "visible"
 					}
 				},
@@ -316,10 +353,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 931165385571970,
+									"sid": 293779655348921,
 									"parameters": {
 										"object-to-create": "icon_list_weapon",
-										"layer": "\"HUD\"",
+										"layer": "\"Habs\"",
 										"x": "hab_1_x",
 										"y": "hab_1_y",
 										"create-hierarchy": false,
@@ -355,10 +392,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 401104710685172,
+									"sid": 187643695724455,
 									"parameters": {
 										"object-to-create": "icon_list_habilities",
-										"layer": "\"HUD\"",
+										"layer": "\"Habs\"",
 										"x": "hab_1_x",
 										"y": "hab_1_y",
 										"create-hierarchy": false,
@@ -413,10 +450,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 452145543107958,
+									"sid": 766322904349434,
 									"parameters": {
 										"object-to-create": "icon_list_weapon",
-										"layer": "\"HUD\"",
+										"layer": "\"Habs\"",
 										"x": "hab_2_x",
 										"y": "hab_2_y",
 										"create-hierarchy": false,
@@ -452,10 +489,10 @@
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 557152198637798,
+									"sid": 365750698178317,
 									"parameters": {
 										"object-to-create": "icon_list_habilities",
-										"layer": "\"HUD\"",
+										"layer": "\"Habs\"",
 										"x": "hab_2_x",
 										"y": "hab_2_y",
 										"create-hierarchy": false,
@@ -867,11 +904,62 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 584967773448488,
+							"parameters": {
+								"variable": "TURN",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 613296476579885,
+							"parameters": {
+								"variable": "Battle_Ended"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 771498783024695
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 769502386673504,
+							"parameters": {
+								"layer": "\"Habs\"",
+								"opacity": "100"
+							}
+						}
+					],
+					"sid": 321514504314406
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "cursor-is-over-object",
 							"objectClass": "Mouse",
 							"sid": 647099783502457,
 							"parameters": {
 								"object": "icon_list_weapon"
+							}
+						},
+						{
+							"id": "compare-layer-opacity",
+							"objectClass": "System",
+							"sid": 222114258719349,
+							"parameters": {
+								"layer": "\"Habs\"",
+								"comparison": 0,
+								"opacity": "100"
 							}
 						}
 					],
@@ -1080,6 +1168,16 @@
 							"parameters": {
 								"object": "icon_list_habilities"
 							}
+						},
+						{
+							"id": "compare-layer-opacity",
+							"objectClass": "System",
+							"sid": 805097685366290,
+							"parameters": {
+								"layer": "\"Habs\"",
+								"comparison": 0,
+								"opacity": "100"
+							}
 						}
 					],
 					"actions": [
@@ -1223,6 +1321,16 @@
 							"sid": 693932695843485,
 							"parameters": {
 								"object": "icon_list_armor"
+							}
+						},
+						{
+							"id": "compare-layer-opacity",
+							"objectClass": "System",
+							"sid": 494521597601889,
+							"parameters": {
+								"layer": "\"Habs\"",
+								"comparison": 0,
+								"opacity": "100"
 							}
 						}
 					],
@@ -1396,6 +1504,15 @@
 								"comparison": 0,
 								"value": "0"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 506137780630884,
+							"parameters": {
+								"variable": "Battle_Ended"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -1427,6 +1544,15 @@
 								"comparison": 0,
 								"value": "0"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 326022957423935,
+							"parameters": {
+								"variable": "Battle_Ended"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -1757,16 +1883,6 @@
 							"sid": 932901927391072
 						}
 					]
-				},
-				{
-					"eventType": "variable",
-					"name": "rng",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": false,
-					"isConstant": false,
-					"sid": 250534565673379
 				},
 				{
 					"functionName": "Get_Targets",
@@ -2471,6 +2587,15 @@
 								"comparison": 0,
 								"value": "0"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 596363643349167,
+							"parameters": {
+								"variable": "Battle_Ended"
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -2816,7 +2941,6 @@
 													"id": "set-position",
 													"objectClass": "Select_Hab",
 													"sid": 801478424705190,
-													"disabled": true,
 													"parameters": {
 														"x": "-100",
 														"y": "-1000"
@@ -2861,7 +2985,6 @@
 													"id": "set-position",
 													"objectClass": "Select_Hab",
 													"sid": 455837034016731,
-													"disabled": true,
 													"parameters": {
 														"x": "-100",
 														"y": "-1000"
@@ -3122,6 +3245,31 @@
 											]
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 965698770843954,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 517128078855128,
+											"parameters": {
+												"variable": "TURN",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 316466684657549
 								}
 							]
 						},
@@ -3219,6 +3367,31 @@
 									],
 									"actions": [],
 									"sid": 471436579596757
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 970176128197616,
+											"parameters": {
+												"seconds": "1.0",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 978000261658218,
+											"parameters": {
+												"variable": "TURN",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 858940002512164
 								}
 							]
 						}
@@ -3763,31 +3936,75 @@
 								"comparison": 0,
 								"value": "1"
 							}
-						}
-					],
-					"actions": [
+						},
 						{
-							"id": "set-eventvar-value",
+							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 402925021404630,
+							"sid": 930322413491401,
 							"parameters": {
-								"variable": "rng",
-								"value": "random(0, 100)"
+								"variable": "Battle_Ended"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 183255067638462,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 4,
+								"value": "0"
 							}
 						},
 						{
-							"id": "destroy",
-							"objectClass": "Icon_Mira",
-							"sid": 188611376508759
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Select_Hab",
-							"sid": 997404253418983
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 214920099501656
 						}
 					],
+					"actions": [],
 					"sid": 189458102217364,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "rng",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 861994372604935
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Icon_Mira",
+									"sid": 636543726831774
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Select_Hab",
+									"sid": 608319011564773,
+									"parameters": {
+										"x": "-100",
+										"y": "-1000"
+									}
+								},
+								{
+									"id": "set-layer-opacity",
+									"objectClass": "System",
+									"sid": 383848837493367,
+									"parameters": {
+										"layer": "\"Habs\"",
+										"opacity": "50"
+									}
+								}
+							],
+							"sid": 965963519437697
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -3803,6 +4020,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 437830843549972,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
 								{
 									"callFunction": "Use_Hab_Enemy",
 									"sid": 507832236240771,
@@ -3823,6 +4049,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 942697176883134,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
 								{
 									"callFunction": "Use_Hab_Enemy",
 									"sid": 573027767636799,
@@ -3905,6 +4140,49 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
+											"sid": 393648898879355,
+											"parameters": {
+												"first-value": "tokenat ( Name, 1, \"_\" ) ",
+												"comparison": 0,
+												"second-value": "\"pierce\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Change_Health_Player",
+											"sid": 507750986802746,
+											"parameters": [
+												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
+												true
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 899118470197566,
+											"parameters": {
+												"seconds": "0.2",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "Change_Health_Player",
+											"sid": 271455897482377,
+											"parameters": [
+												"-1 * ( int ( tokenat ( Name, 3, \"_\") ) )",
+												false
+											]
+										}
+									],
+									"sid": 912134562579102
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
 											"sid": 470226818709142,
 											"parameters": {
 												"first-value": "tokenat ( Name, 1, \"_\" ) ",
@@ -3924,6 +4202,31 @@
 										}
 									],
 									"sid": 179606941244718
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 422938943543926,
+											"parameters": {
+												"seconds": "2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 342975104815065,
+											"parameters": {
+												"variable": "TURN",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 734644766670665
 								}
 							]
 						}
@@ -4005,14 +4308,23 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 323477991336978,
+											"sid": 109813661365736,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
 												"layer": "\"HUD\"",
-												"x": "Player.ImagePointX(1)",
-												"y": "Player.ImagePointY(1)",
+												"x": "Player.X",
+												"y": "Player.Y",
 												"create-hierarchy": false,
 												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-gravity",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 105923213247819,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"gravity": "0"
 											}
 										},
 										{
@@ -4056,14 +4368,23 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 116577746822336,
+											"sid": 686709205230378,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
 												"layer": "\"HUD\"",
-												"x": "Player.ImagePointX(1)",
-												"y": "Player.ImagePointY(1)",
+												"x": "Player.X",
+												"y": "Player.Y",
 												"create-hierarchy": false,
 												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-gravity",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 768042920718178,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"gravity": "0"
 											}
 										},
 										{
@@ -4151,12 +4472,12 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 344337594080033,
+											"sid": 516391045961694,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
 												"layer": "\"HUD\"",
-												"x": "Player.ImagePointX(1)",
-												"y": "Player.ImagePointY(1)",
+												"x": "Player.X",
+												"y": "Player.Y",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -4184,6 +4505,17 @@
 											"sid": 930641663504846,
 											"parameters": {
 												"text": "abs ( Amount )"
+											}
+										},
+										{
+											"id": "flash",
+											"objectClass": "Player",
+											"sid": 407007818710034,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.6"
 											}
 										}
 									],
@@ -4293,12 +4625,12 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 540742763752949,
+													"sid": 786388803428530,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
 														"layer": "\"HUD\"",
-														"x": "Player.ImagePointX(1)",
-														"y": "Player.ImagePointY(1)",
+														"x": "Player.X",
+														"y": "Player.Y",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
@@ -4375,12 +4707,12 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 942592913448406,
+													"sid": 264828838459659,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
 														"layer": "\"HUD\"",
-														"x": "Player.ImagePointX(1)",
-														"y": "Player.ImagePointY(1)",
+														"x": "Player.X",
+														"y": "Player.Y",
 														"create-hierarchy": false,
 														"template-name": "\"\""
 													}
@@ -4408,6 +4740,17 @@
 													"sid": 878728380746677,
 													"parameters": {
 														"text": "abs ( remaining_dmg )"
+													}
+												},
+												{
+													"id": "flash",
+													"objectClass": "Player",
+													"sid": 533106747863069,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "0.6"
 													}
 												}
 											],
@@ -4443,6 +4786,427 @@
 				}
 			],
 			"sid": 203116985622910
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Enemy",
+					"sid": 422243350595240,
+					"parameters": {
+						"instance-variable": "HP",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Enemy",
+					"sid": 982274586485572,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 562171166784289,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 643755797958964
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Enemy",
+							"sid": 243969897674127,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "2"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 121224539739995,
+							"parameters": {
+								"seconds": "2",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "start-fade",
+							"objectClass": "Enemy",
+							"sid": 914366984647703,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 959880060495386
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 810953846008221,
+					"parameters": {
+						"variable": "HP",
+						"comparison": 3,
+						"value": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 778038024851249
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 816973541484701,
+					"parameters": {
+						"variable": "Battle_Ended",
+						"value": "true"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "ProgBar_HP_Enemy",
+					"sid": 550647461178429
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Text_HP_Enemy",
+					"sid": 878447962299992
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 768277959403682,
+					"parameters": {
+						"audio-file": "Violin_Lose_4_by_Floraphonic",
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 231126173899937,
+					"parameters": {
+						"layer": "\"Habs\"",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 956048043763306,
+					"parameters": {
+						"layer": "\"Habs\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "Text_Info_Battle",
+					"sid": 138417205011922,
+					"parameters": {
+						"x": "-610"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Info_Battle",
+					"sid": 483441227930051,
+					"parameters": {
+						"text": "\"[outline=#000000]BATTLE LOST![/outline]\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text_Info_Battle",
+					"sid": 217389209218567,
+					"parameters": {
+						"color": "rgbEx(255, 0, 0)"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 555173315599956,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "960",
+						"time": "0.3",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 386438034575769,
+					"parameters": {
+						"seconds": "1.2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 301246349784664,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "930",
+						"time": "0.2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 990931261603831,
+					"parameters": {
+						"seconds": "0.2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 307027714816000,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "2500",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 877071390513853,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 442360873630255,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 986100391182858
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 335261485082396,
+					"parameters": {
+						"first-value": "Enemy.Count",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 952835216160740
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 924303914671035,
+					"parameters": {
+						"variable": "Battle_Ended",
+						"value": "true"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 457055989103826,
+					"parameters": {
+						"audio-file": "Violin_Win_5_by_Floraphonic",
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 937561107177664,
+					"parameters": {
+						"layer": "\"Habs\"",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 767675367492671,
+					"parameters": {
+						"layer": "\"Habs\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "Text_Info_Battle",
+					"sid": 576170756502382,
+					"parameters": {
+						"x": "-610"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Info_Battle",
+					"sid": 527121221422124,
+					"parameters": {
+						"text": "\"[outline=#000000]BATTLE WON![/outline]\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text_Info_Battle",
+					"sid": 307565862266193,
+					"parameters": {
+						"color": "rgbEx(255, 0, 0)"
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 285438290848399,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "960",
+						"time": "0.3",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 484986102326998,
+					"parameters": {
+						"seconds": "0.3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 162482734479845,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "930",
+						"time": "0.2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 103571063072508,
+					"parameters": {
+						"seconds": "0.2",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "tween-one-property",
+					"objectClass": "Text_Info_Battle",
+					"sid": 480606386344862,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetX",
+						"end-value": "2500",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 253797247402031,
+					"parameters": {
+						"seconds": "0.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 789808494123064,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 620213737318665
 		}
 	],
 	"sid": 486033056870913

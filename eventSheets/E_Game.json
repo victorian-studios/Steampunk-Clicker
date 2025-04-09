@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "HP_Max",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "50",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "HP",
 			"type": "number",
-			"initialValue": "100",
+			"initialValue": "50",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -13599,22 +13599,68 @@
 								"object": "icon_zumbi",
 								"type": "start"
 							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 648211121560315,
+							"parameters": {
+								"variable": "Armor_ID",
+								"comparison": 1,
+								"value": "0"
+							}
 						}
 					],
 					"actions": [
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 492048564168253,
-							"parameters": {
-								"layout": "Fight"
-							}
+							"callFunction": "Go_To_Fight_Level",
+							"sid": 578690859169674
 						}
 					],
 					"sid": 768665804726247
 				}
 			],
 			"sid": 464899724946462
+		},
+		{
+			"functionName": "Go_To_Fight_Level",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 830894105051413,
+					"parameters": {
+						"variable": "HP",
+						"value": "HP_Max"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 964917211011009,
+					"parameters": {
+						"variable": "Shield",
+						"value": "Shield_Max"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 339385906489190,
+					"parameters": {
+						"layout": "Fight"
+					}
+				}
+			],
+			"sid": 205516793428784
 		}
 	],
 	"sid": 739369905008436
