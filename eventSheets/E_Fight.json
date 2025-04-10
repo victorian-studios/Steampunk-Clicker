@@ -4092,6 +4092,16 @@
 					"sid": 234915274350300,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "sfx_rng",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 846962857508172
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -4105,7 +4115,26 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 693233366044710,
+									"parameters": {
+										"animation": "\"Attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 707914376541259,
+									"parameters": {
+										"variable": "sfx_rng",
+										"value": "choose ( 1, 2, 3 )"
+									}
+								}
+							],
 							"sid": 949473012071963,
 							"children": [
 								{
@@ -4210,9 +4239,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 422938943543926,
+											"sid": 944108260441661,
 											"parameters": {
-												"seconds": "2",
+												"seconds": "1.25",
 												"use-timescale": true
 											}
 										},
@@ -4227,6 +4256,96 @@
 										}
 									],
 									"sid": 734644766670665
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 779220508408520,
+											"parameters": {
+												"variable": "sfx_rng",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 313939390670910,
+											"parameters": {
+												"audio-file": "atk_stab_1",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 231612042996200
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 418020998491387,
+											"parameters": {
+												"variable": "sfx_rng",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 130395510671104,
+											"parameters": {
+												"audio-file": "atk_stab_2",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 172871888605858
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 839161726532464,
+											"parameters": {
+												"variable": "sfx_rng",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 333129286108029,
+											"parameters": {
+												"audio-file": "atk_stab_3",
+												"loop": "not-looping",
+												"volume": "-5",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 162924973616021
 								}
 							]
 						}
@@ -4786,6 +4905,31 @@
 				}
 			],
 			"sid": 203116985622910
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-animation-finished",
+					"objectClass": "Enemy",
+					"sid": 510379742426750,
+					"parameters": {
+						"animation": "\"Attack\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "Enemy",
+					"sid": 939598028706402,
+					"parameters": {
+						"animation": "\"Idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 582687923729451
 		},
 		{
 			"eventType": "block",
