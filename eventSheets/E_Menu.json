@@ -289,6 +289,18 @@
 						"ping-pong": "no",
 						"repeat-count": "3"
 					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 625781754228663,
+					"parameters": {
+						"audio-file": "rotating_metal_cog",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"rotate\""
+					}
 				}
 			],
 			"sid": 627762374304824
@@ -307,6 +319,14 @@
 				}
 			],
 			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 830511392174283,
+					"parameters": {
+						"tag": "\"rotate\""
+					}
+				},
 				{
 					"id": "pin-to-object-properties",
 					"objectClass": "Btn_Start_Menu",
@@ -347,85 +367,15 @@
 					}
 				},
 				{
-					"id": "tween-one-property",
-					"objectClass": "menu_porta_esquerda",
-					"sid": 591351319455574,
-					"disabled": true,
-					"behaviorType": "Tween",
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 398180538773067,
 					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetX",
-						"end-value": "760",
-						"time": "0.25",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "menu_porta_direita",
-					"sid": 873564075764184,
-					"disabled": true,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetX",
-						"end-value": "1160",
-						"time": "0.25",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 590538253340728,
-					"disabled": true,
-					"parameters": {
-						"seconds": "0.5",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "menu_porta_esquerda",
-					"sid": 577665410505397,
-					"disabled": true,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetX",
-						"end-value": "-200",
-						"time": "1.5",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				},
-				{
-					"id": "tween-one-property",
-					"objectClass": "menu_porta_direita",
-					"sid": 835031490275413,
-					"disabled": true,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"\"",
-						"property": "offsetX",
-						"end-value": "2120",
-						"time": "1.5",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
+						"audio-file": "442382__hisoul__bmx-rotating-chain-and-wheels-mechanical-mono",
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"\""
 					}
 				},
 				{

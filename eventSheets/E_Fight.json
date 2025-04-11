@@ -5028,16 +5028,6 @@
 					}
 				},
 				{
-					"id": "destroy",
-					"objectClass": "ProgBar_HP_Enemy",
-					"sid": 550647461178429
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Text_HP_Enemy",
-					"sid": 878447962299992
-				},
-				{
 					"id": "play",
 					"objectClass": "Audio",
 					"sid": 768277959403682,
@@ -5210,6 +5200,16 @@
 					}
 				},
 				{
+					"id": "destroy",
+					"objectClass": "ProgBar_HP_Enemy",
+					"sid": 271834020077525
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Text_HP_Enemy",
+					"sid": 768844127078653
+				},
+				{
 					"id": "play",
 					"objectClass": "Audio",
 					"sid": 457055989103826,
@@ -5335,9 +5335,9 @@
 				{
 					"id": "wait",
 					"objectClass": "System",
-					"sid": 253797247402031,
+					"sid": 629845748609510,
 					"parameters": {
-						"seconds": "0.5",
+						"seconds": "0.7",
 						"use-timescale": true
 					}
 				},
