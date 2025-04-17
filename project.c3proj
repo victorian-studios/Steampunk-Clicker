@@ -36,6 +36,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Internationalization",
+			"name": "Internationalization",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
@@ -266,7 +273,12 @@
 			"icon_shiny",
 			"Text_SP_Player",
 			"Text_SP_Enemy",
-			"configuracoes"
+			"configuracoes",
+			"Icon_Seta",
+			"Internationalization",
+			"t_balao_de_fala",
+			"t_personagem",
+			"Text_Tutorial"
 		],
 		"subfolders": []
 	},
@@ -275,7 +287,8 @@
 	"families": {
 		"items": [
 			"Buttons",
-			"EquipSlots"
+			"EquipSlots",
+			"Tutorial_F"
 		],
 		"subfolders": []
 	},
@@ -897,6 +910,22 @@
 					"name": "armor.json",
 					"type": "application/json",
 					"sid": 936437440005015,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "pt-BR.json",
+					"type": "application/json",
+					"sid": 698634726952953,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "en-US.json",
+					"type": "application/json",
+					"sid": 519934206350581,
 					"file-info": {
 						"purpose": "none"
 					}

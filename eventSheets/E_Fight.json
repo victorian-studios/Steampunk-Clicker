@@ -42,6 +42,16 @@
 			"sid": 521466113839050
 		},
 		{
+			"eventType": "variable",
+			"name": "Tutorial_Fight",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 774935585907737
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -4885,118 +4895,128 @@
 			"sid": 780596957737166
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-flash-ended",
-					"objectClass": "Enemy",
-					"sid": 819228611705958,
-					"behaviorType": "Flash"
-				}
-			],
-			"actions": [
-				{
-					"id": "set-visible",
-					"objectClass": "Enemy",
-					"sid": 705034772102370,
-					"parameters": {
-						"visibility": "visible"
-					}
-				}
-			],
-			"sid": 203116985622910
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-animation-finished",
-					"objectClass": "Enemy",
-					"sid": 510379742426750,
-					"parameters": {
-						"animation": "\"Attack\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "Enemy",
-					"sid": 939598028706402,
-					"parameters": {
-						"animation": "\"Idle\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 582687923729451
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "Enemy",
-					"sid": 422243350595240,
-					"parameters": {
-						"instance-variable": "HP",
-						"comparison": 3,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation-frame",
-					"objectClass": "Enemy",
-					"sid": 982274586485572,
-					"parameters": {
-						"frame-number": "1"
-					}
-				}
-			],
-			"sid": 562171166784289,
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "trigger-once-while-true",
-							"objectClass": "System",
-							"sid": 643755797958964
+							"id": "on-flash-ended",
+							"objectClass": "Enemy",
+							"sid": 942214712164908,
+							"behaviorType": "Flash"
 						}
 					],
 					"actions": [
 						{
-							"id": "flash",
+							"id": "set-visible",
 							"objectClass": "Enemy",
-							"sid": 243969897674127,
-							"behaviorType": "Flash",
+							"sid": 983969296151196,
 							"parameters": {
-								"on-time": "0.1",
-								"off-time": "0.1",
-								"duration": "2"
+								"visibility": "visible"
 							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 121224539739995,
-							"parameters": {
-								"seconds": "2",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "start-fade",
-							"objectClass": "Enemy",
-							"sid": 914366984647703,
-							"behaviorType": "Fade"
 						}
 					],
-					"sid": 959880060495386
+					"sid": 623015199886846
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Enemy",
+							"sid": 840515941428698,
+							"parameters": {
+								"animation": "\"Attack\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Enemy",
+							"sid": 947741076399388,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 149827371106133
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 733369235904838,
+							"parameters": {
+								"instance-variable": "HP",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Enemy",
+							"sid": 982629295392481,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 635079720803883,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 299058037387610
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "Enemy",
+									"sid": 967823273193478,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "2"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 150232837948401,
+									"parameters": {
+										"seconds": "2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "Enemy",
+									"sid": 990752526525411,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 301935928035432
+						}
+					]
 				}
-			]
+			],
+			"sid": 828992132795308
 		},
 		{
 			"eventType": "block",
@@ -5351,6 +5371,500 @@
 				}
 			],
 			"sid": 620213737318665
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Tutorial_Fighters",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 167351793709080,
+							"parameters": {
+								"variable": "Tutorial_Fight"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 789996870765331,
+							"parameters": {
+								"layer": "\"HUD\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 291423976259787
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 533392572986466,
+							"parameters": {
+								"variable": "Tutorial",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 833101643668336,
+							"parameters": {
+								"variable": "Tutorial_Name",
+								"value": "\"fight\""
+							}
+						},
+						{
+							"id": "typewriter-text",
+							"objectClass": "Text_Tutorial",
+							"sid": 148192360469378,
+							"parameters": {
+								"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
+								"duration": "1"
+							}
+						}
+					],
+					"sid": 150109290097454
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 934434922414903,
+							"parameters": {
+								"variable": "Tutorial_Fight"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 255308226197943
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Pop_up_Tutorial",
+							"sid": 367317870258953
+						}
+					],
+					"sid": 689559068641603
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-click",
+							"objectClass": "Mouse",
+							"sid": 459050735330295
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Text_Tutorial",
+							"sid": 345592525085842
+						}
+					],
+					"actions": [],
+					"sid": 634911983069438,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-running-typewriter-text",
+									"objectClass": "Text_Tutorial",
+									"sid": 959981694866581
+								}
+							],
+							"actions": [
+								{
+									"id": "typewriter-finish",
+									"objectClass": "Text_Tutorial",
+									"sid": 861058587294021
+								}
+							],
+							"sid": 313044279385871
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-running-typewriter-text",
+									"objectClass": "Text_Tutorial",
+									"sid": 124912665213244,
+									"isInverted": true
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "Text_Tutorial",
+									"sid": 385010997804516,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"prevent_skip\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 787124544424837,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 585575075714499,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"comparison": 0,
+												"value": "\"fight\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 585880565278897,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Se for o final do tutorial, fecha o diálogo"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 375154404199872,
+													"parameters": {
+														"variable": "Tutorial",
+														"comparison": 0,
+														"value": "13"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Pop_up_Tutorial",
+													"sid": 397065000350630
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 172200403347454,
+													"parameters": {
+														"variable": "Tutorial_Name",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 559793027645606,
+													"parameters": {
+														"variable": "Tutorial",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 898014440441741,
+													"parameters": {
+														"variable": "Tutorial_Fight",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 603139016639911,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Se não for um momento de escolha ou fim do tutorial, continua o texto"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 858512036790781,
+													"parameters": {
+														"variable": "Tutorial",
+														"comparison": 1,
+														"value": "13"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "start-timer",
+													"objectClass": "Text_Tutorial",
+													"sid": 706590451271247,
+													"behaviorType": "Timer",
+													"parameters": {
+														"duration": "1.0",
+														"type": "once",
+														"tag": "\"prevent_skip\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 581621244614115,
+													"parameters": {
+														"variable": "Tutorial",
+														"value": "1"
+													}
+												},
+												{
+													"id": "typewriter-text",
+													"objectClass": "Text_Tutorial",
+													"sid": 540633813736736,
+													"parameters": {
+														"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
+														"duration": "3"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "t_personagem",
+													"sid": 690157241801763,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 474982316409631,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 426225197923757,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "4"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation-frame",
+															"objectClass": "t_personagem",
+															"sid": 744816414406774,
+															"parameters": {
+																"frame-number": "1"
+															}
+														},
+														{
+															"id": "destroy",
+															"objectClass": "Icon_Seta",
+															"sid": 492009901833700
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 486717015565473,
+															"parameters": {
+																"object-to-create": "Icon_Seta",
+																"layer": "\"HUD\"",
+																"x": "1006",
+																"y": "270",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle",
+															"objectClass": "Icon_Seta",
+															"sid": 819489255730674,
+															"parameters": {
+																"angle": "270"
+															}
+														},
+														{
+															"id": "set-movement",
+															"objectClass": "Icon_Seta",
+															"sid": 544109109436413,
+															"behaviorType": "Sine",
+															"parameters": {
+																"movement": "vertical"
+															}
+														}
+													],
+													"sid": 144640482912497
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 807238613064353,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "8"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation-frame",
+															"objectClass": "t_personagem",
+															"sid": 561766154233403,
+															"parameters": {
+																"frame-number": "1"
+															}
+														}
+													],
+													"sid": 983795418300103
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 851951961085382,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "9"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Icon_Seta",
+															"sid": 903692254764740
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 989320921204977,
+															"parameters": {
+																"object-to-create": "Icon_Seta",
+																"layer": "\"HUD\"",
+																"x": "1485",
+																"y": "961",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle",
+															"objectClass": "Icon_Seta",
+															"sid": 593161573917637,
+															"parameters": {
+																"angle": "180"
+															}
+														}
+													],
+													"sid": 473549021126400
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 514796064206821,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "10"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Icon_Seta",
+															"sid": 842417883299781
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 761962416811067,
+															"parameters": {
+																"object-to-create": "Icon_Seta",
+																"layer": "\"HUD\"",
+																"x": "1116",
+																"y": "961",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle",
+															"objectClass": "Icon_Seta",
+															"sid": 725819353993490,
+															"parameters": {
+																"angle": "180"
+															}
+														}
+													],
+													"sid": 123206387434634
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 777108451668265,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "13"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Icon_Seta",
+															"sid": 837333807618405
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "t_personagem",
+															"sid": 737793241521458,
+															"parameters": {
+																"frame-number": "1"
+															}
+														}
+													],
+													"sid": 877385646551735
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 253042410548355
 		}
 	],
 	"sid": 486033056870913
