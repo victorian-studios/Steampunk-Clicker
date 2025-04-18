@@ -13773,7 +13773,7 @@
 							"objectClass": "Touch",
 							"sid": 460852486714939,
 							"parameters": {
-								"object": "icon_zumbi",
+								"object": "icon_zombie",
 								"type": "start"
 							}
 						},
@@ -13788,18 +13788,21 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 648211121560315,
+							"sid": 801224269732059,
 							"parameters": {
 								"variable": "Armor_ID",
 								"comparison": 1,
-								"value": "0"
+								"value": "\"\""
 							}
 						}
 					],
 					"actions": [
 						{
 							"callFunction": "Go_To_Fight_Level",
-							"sid": 578690859169674
+							"sid": 273988755455442,
+							"parameters": [
+								"icon_zombie.Level_ID"
+							]
 						}
 					],
 					"sid": 768665804726247
@@ -13811,7 +13814,15 @@
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "Lvl_ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 586842177922925
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
