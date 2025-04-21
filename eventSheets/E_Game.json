@@ -297,7 +297,11 @@
 				},
 				{
 					"callFunction": "Pop_up_Tutorial",
-					"sid": 273869528143535
+					"sid": 273869528143535,
+					"parameters": [
+						"\"\"",
+						"0"
+					]
 				},
 				{
 					"callFunction": "PopulateList",
@@ -894,6 +898,31 @@
 						}
 					],
 					"sid": 764542562304001
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "Icon_prod",
+							"sid": 187749616327915,
+							"parameters": {
+								"layer": "\"Primary_Icons\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Icon_prod",
+							"sid": 719197194732230,
+							"parameters": {
+								"instance-variable": "Self_X",
+								"value": "Self.X"
+							}
+						}
+					],
+					"sid": 264275605624889
 				}
 			]
 		},
@@ -2210,6 +2239,14 @@
 								"instance-variable": "Producing"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 189211606774659,
+							"parameters": {
+								"instance-variable": "Unlocked"
+							}
 						},
 						{
 							"id": "compare-instance-variable",
@@ -3680,6 +3717,289 @@
 							"sid": 822786370872580
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Feedback de que esta travado"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 259767678987642
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 844857124394612,
+							"parameters": {
+								"layer": "\"Production\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 827979498931706,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 852508829994036,
+									"parameters": {
+										"object": "Icon_prod"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_prod",
+									"sid": 652786796624866,
+									"parameters": {
+										"layer": "\"Primary_Icons\""
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "Icon_prod",
+									"sid": 169175872739882,
+									"parameters": {
+										"comparison": 0,
+										"number": "Icon_prod.AnimationFrameCount - 1"
+									}
+								},
+								{
+									"id": "is-playing",
+									"objectClass": "Icon_prod",
+									"sid": 387142319770095,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Icon_prod",
+									"sid": 149460393281854,
+									"parameters": {
+										"x": "Self.Self_X"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Icon_prod",
+									"sid": 916108836019875,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\"",
+										"property": "offsetX",
+										"end-value": "Self.X + 7",
+										"time": "0.05",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 764429279908245,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Icon_prod",
+									"sid": 120421380290066,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\"",
+										"property": "offsetX",
+										"end-value": "Self.X - 14",
+										"time": "0.05",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 178928989794006,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Icon_prod",
+									"sid": 412682051874811,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\"",
+										"property": "offsetX",
+										"end-value": "Self.X + 7",
+										"time": "0.05",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 207506261074194
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 245931278159445,
+									"parameters": {
+										"object": "Production"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 492434160236813,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Production",
+											"sid": 821725628834142,
+											"parameters": {
+												"object": "Icon_prod"
+											}
+										},
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_prod",
+											"sid": 157749153349265,
+											"parameters": {
+												"layer": "\"Primary_Icons\""
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Icon_prod",
+											"sid": 979160469371265,
+											"parameters": {
+												"comparison": 0,
+												"number": "Icon_prod.AnimationFrameCount - 1"
+											}
+										},
+										{
+											"id": "is-playing",
+											"objectClass": "Icon_prod",
+											"sid": 358355714856516,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"shake\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "Icon_prod",
+											"sid": 964185104539650,
+											"parameters": {
+												"x": "Self.Self_X"
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Icon_prod",
+											"sid": 789682270634776,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"shake\"",
+												"property": "offsetX",
+												"end-value": "Self.X + 7",
+												"time": "0.05",
+												"ease": "easeinsine",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 109008679210375,
+											"parameters": {
+												"seconds": "0.05",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Icon_prod",
+											"sid": 391356192650550,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"shake\"",
+												"property": "offsetX",
+												"end-value": "Self.X - 14",
+												"time": "0.05",
+												"ease": "easeinsine",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 448201929393015,
+											"parameters": {
+												"seconds": "0.05",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Icon_prod",
+											"sid": 241794152725889,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"shake\"",
+												"property": "offsetX",
+												"end-value": "Self.X + 7",
+												"time": "0.05",
+												"ease": "easeinsine",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										}
+									],
+									"sid": 611491880728220
+								}
+							]
+						}
+					]
 				}
 			],
 			"sid": 587819655587724
@@ -3691,6 +4011,125 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"functionName": "Get_Upg_Desc",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Upgrade_ID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 741117591182192
+						},
+						{
+							"name": "Upgrade_Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 993011936618015
+						},
+						{
+							"name": "Upgrade_Layer",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 945843340112353
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 970481525808667,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 192669880626904,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_ID, 1, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"unlock\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 295839492045483,
+									"parameters": {
+										"text": "Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".unlock\", tokenat (Upgrade_ID, 1, \"_\") )"
+									}
+								}
+							],
+							"sid": 665311839325409
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 159570750353381,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_ID, 1, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodcapup\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 985106773769422,
+									"parameters": {
+										"text": "Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".prodcapup\", tokenat (Upgrade_ID, 2, \"_\") )"
+									}
+								}
+							],
+							"sid": 290430458411333
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 567474621544058,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_ID, 1, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodspeedup\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 339318764294595,
+									"parameters": {
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer  & \".prodspeedup\", tokenat (Upgrade_ID, 2, \"_\") )"
+									}
+								}
+							],
+							"sid": 694091531790344
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Atualiza as conexões de upgrade a todo momento"
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -4060,6 +4499,15 @@
 													"parameters": {
 														"frame-number": "Self.upg_icon_frame"
 													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "Icon_prod",
+													"sid": 888374105986990,
+													"parameters": {
+														"width": "85",
+														"height": "85"
+													}
 												}
 											],
 											"sid": 441768076627130
@@ -4154,6 +4602,15 @@
 													"parameters": {
 														"frame-number": "4"
 													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "Icon_prod",
+													"sid": 290388110322477,
+													"parameters": {
+														"width": "85",
+														"height": "85"
+													}
 												}
 											],
 											"sid": 544506343862457
@@ -4245,16 +4702,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text_Upg_Description",
-							"sid": 352079396491072,
-							"parameters": {
-								"text": "Icon_Upg.Name & newline & newline & Icon_Upg.Description"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 516951630579224,
 					"children": [
 						{
@@ -4708,6 +5156,28 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 450622131311083
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Get_Upg_Desc",
+									"sid": 571487467274397,
+									"parameters": [
+										"Icon_Upg.Upgrade_ID",
+										"Icon_Upg.Name",
+										"Icon_Upg.LayerName"
+									]
+								}
+							],
+							"sid": 820940142766348
 						}
 					]
 				},
@@ -4928,13 +5398,13 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Icon_prod",
-									"sid": 102628003938412,
+									"sid": 170853838919830,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"bounce\"",
 										"property": "size",
-										"end-x": "88",
-										"end-y": "88",
+										"end-x": "85",
+										"end-y": "85",
 										"time": "0.1",
 										"ease": "easeinoutbounce",
 										"destroy-on-complete": "no",
@@ -13784,28 +14254,82 @@
 							"parameters": {
 								"layer": "\"Fight\""
 							}
+						}
+					],
+					"actions": [],
+					"sid": 768665804726247,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 895372689352193,
+									"parameters": {
+										"variable": "Armor_ID",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Go_To_Fight_Level",
+									"sid": 836932469162894,
+									"parameters": [
+										"icon_zombie.Level_ID"
+									]
+								}
+							],
+							"sid": 912401266356968
 						},
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 801224269732059,
-							"parameters": {
-								"variable": "Armor_ID",
-								"comparison": 1,
-								"value": "\"\""
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 450743174172220,
+									"parameters": {
+										"variable": "Armor_ID",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 121002379416210,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Pop_up_Tutorial",
+									"sid": 920286563060090,
+									"parameters": [
+										"Internationalization.Lookup(\"tutorial.error.no_armor_fight\")",
+										"3"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 876656783635783,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"value": "\"error\""
+									}
+								}
+							],
+							"sid": 342116209427840
 						}
-					],
-					"actions": [
-						{
-							"callFunction": "Go_To_Fight_Level",
-							"sid": 273988755455442,
-							"parameters": [
-								"icon_zombie.Level_ID"
-							]
-						}
-					],
-					"sid": 768665804726247
+					]
 				},
 				{
 					"functionName": "Go_To_Fight_Level",
@@ -13872,7 +14396,22 @@
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
-					"functionParameters": [],
+					"functionParameters": [
+						{
+							"name": "Specifict_Text",
+							"type": "string",
+							"initialValue": "",
+							"comment": "tem algum texto especifico pra aparecer aqui?",
+							"sid": 207425173121272
+						},
+						{
+							"name": "Duration",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 175395419896586
+						}
+					],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
@@ -13966,6 +14505,17 @@
 									}
 								},
 								{
+									"id": "start-timer",
+									"objectClass": "Text_Tutorial",
+									"sid": 541336060834845,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "0.75",
+										"type": "once",
+										"tag": "\"prevent_skip\""
+									}
+								},
+								{
 									"id": "set-animation-frame",
 									"objectClass": "t_personagem",
 									"sid": 544432848385197,
@@ -14055,6 +14605,14 @@
 									}
 								},
 								{
+									"id": "set-text",
+									"objectClass": "Text_Tutorial",
+									"sid": 298974890184159,
+									"parameters": {
+										"text": "\"\""
+									}
+								},
+								{
 									"id": "set-visible",
 									"objectClass": "Text_Tutorial",
 									"sid": 148750794227005,
@@ -14063,7 +14621,45 @@
 									}
 								}
 							],
-							"sid": 259709911840848
+							"sid": 259709911840848,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 516609667922692,
+											"parameters": {
+												"variable": "Specifict_Text",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 256849778873127,
+											"parameters": {
+												"seconds": "0.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "typewriter-text",
+											"objectClass": "Text_Tutorial",
+											"sid": 257675451773812,
+											"parameters": {
+												"text": "Specifict_Text",
+												"duration": "Duration"
+											}
+										}
+									],
+									"sid": 333357389208631
+								}
+							]
 						}
 					]
 				},
@@ -14106,7 +14702,11 @@
 							"actions": [
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 852184502797621
+									"sid": 852184502797621,
+									"parameters": [
+										"\"\"",
+										"0"
+									]
 								},
 								{
 									"id": "set-layer-visible",
@@ -14246,7 +14846,11 @@
 											"actions": [
 												{
 													"callFunction": "Pop_up_Tutorial",
-													"sid": 529477248348386
+													"sid": 529477248348386,
+													"parameters": [
+														"\"\"",
+														"0"
+													]
 												},
 												{
 													"id": "set-eventvar-value",
@@ -15225,6 +15829,50 @@
 											]
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 961536930826524,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"comparison": 0,
+												"value": "\"error\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 488878611294992,
+											"parameters": [
+												"\"\"",
+												"0"
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 843878167638076,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 501338159050798,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 964795501037288
 								}
 							]
 						}

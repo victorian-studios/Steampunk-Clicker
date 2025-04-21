@@ -10,7 +10,16 @@
 
         "game": {
             "prod": {},
-            "upg": {},
+            "upg": {
+                "unlock": "Unlock the {0} production.",
+                "prodcapup": "Raises the production capacity by {0}",
+                "prodspeedup": "Reduce the production time by {0}",
+                "Steam": {
+                    "1": "[b]Coal[/b]",
+                    "2.1": "[b]Coal Sacks[/b]",
+                    "2.2": "[b]Coal Boxes[/b]"
+                }
+            },
             "work": {},
             "map": {}
         },
@@ -20,6 +29,9 @@
         },
 
         "tutorial": {
+            "error": {
+                "no_armor_fight": "Calm down, you don't have any armor equipped yet in the workshop. If you don't have any armor, produce some materials to create the level 1 [b]Wood Armor[/b], then you can fight!"
+            },
             "welcome": {
                 "1": "Oh you finally arrived the factory. Welcome my daughter!",
                 "2": "I know, you're a grown woman now, but there's a lot of time that you don't came here. Would you like a quick reminder of how things work around this place?\nPress (Y) Yes / (N) No",

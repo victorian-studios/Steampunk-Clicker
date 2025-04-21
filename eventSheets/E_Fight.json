@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "Weapon_ID_1",
 			"type": "string",
-			"initialValue": "WP_1",
+			"initialValue": "\"\"",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -25,7 +25,7 @@
 			"eventType": "variable",
 			"name": "Weapon_ID_2",
 			"type": "string",
-			"initialValue": "HAB_0",
+			"initialValue": "\"\"",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -5466,7 +5466,11 @@
 					"actions": [
 						{
 							"callFunction": "Pop_up_Tutorial",
-							"sid": 367317870258953
+							"sid": 367317870258953,
+							"parameters": [
+								"\"\"",
+								"0"
+							]
 						}
 					],
 					"sid": 689559068641603
@@ -5567,7 +5571,11 @@
 											"actions": [
 												{
 													"callFunction": "Pop_up_Tutorial",
-													"sid": 397065000350630
+													"sid": 397065000350630,
+													"parameters": [
+														"\"\"",
+														"0"
+													]
 												},
 												{
 													"id": "set-eventvar-value",
