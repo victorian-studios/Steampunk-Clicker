@@ -6635,6 +6635,14 @@
 											"parameters": {
 												"y": "Self.Y + 20"
 											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_1",
+											"sid": 157881600079819,
+											"parameters": {
+												"y": "Bkg_Tab_List.Y + 256"
+											}
 										}
 									],
 									"sid": 259024945343532
@@ -6658,6 +6666,14 @@
 											"sid": 123622774373961,
 											"parameters": {
 												"y": "Self.Y + 20"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_2",
+											"sid": 293833975254026,
+											"parameters": {
+												"y": "Bkg_Tab_List2.Y + 256"
 											}
 										}
 									],
@@ -6700,6 +6716,14 @@
 											"parameters": {
 												"y": "Self.Y - 20"
 											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_1",
+											"sid": 448403616257175,
+											"parameters": {
+												"y": "Bkg_Tab_List.Y + 256"
+											}
 										}
 									],
 									"sid": 996292045481951
@@ -6723,6 +6747,14 @@
 											"sid": 916819081778630,
 											"parameters": {
 												"y": "Self.Y - 20"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_2",
+											"sid": 738100837628580,
+											"parameters": {
+												"y": "Bkg_Tab_List2.Y + 256"
 											}
 										}
 									],
@@ -6752,6 +6784,14 @@
 									"parameters": {
 										"y": "Contorno_fake.ImagePointY(\"Top_Limit\")"
 									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_1",
+									"sid": 239184148929820,
+									"parameters": {
+										"y": "Bkg_Tab_List.Y + 256"
+									}
 								}
 							],
 							"sid": 194992322485318
@@ -6777,6 +6817,14 @@
 									"sid": 150589397539363,
 									"parameters": {
 										"y": "Contorno_fake.ImagePointY(\"Bottom_Limit\") - Bkg_Tab_List.Height"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_1",
+									"sid": 870118282221976,
+									"parameters": {
+										"y": "Bkg_Tab_List.Y + 256"
 									}
 								}
 							],
@@ -6804,6 +6852,14 @@
 									"parameters": {
 										"y": "Contorno_fake.ImagePointY(\"Top_Limit\")"
 									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_2",
+									"sid": 524136650861125,
+									"parameters": {
+										"y": "Bkg_Tab_List2.Y + 256"
+									}
 								}
 							],
 							"sid": 111117332037699
@@ -6830,9 +6886,209 @@
 									"parameters": {
 										"y": "Contorno_fake.ImagePointY(\"Bottom_Limit\") - Bkg_Tab_List2.Height"
 									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_2",
+									"sid": 428674638663164,
+									"parameters": {
+										"y": "Bkg_Tab_List2.Y + 256"
+									}
 								}
 							],
 							"sid": 439951349325377
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 332746075486516,
+									"parameters": {
+										"first-value": "Scroll_1.Y",
+										"comparison": 2,
+										"second-value": "202"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_1",
+									"sid": 668373638905306,
+									"parameters": {
+										"y": "202"
+									}
+								}
+							],
+							"sid": 742831427415957
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 168282075535911,
+									"parameters": {
+										"first-value": "Scroll_1.Y",
+										"comparison": 4,
+										"second-value": "446"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_1",
+									"sid": 655405897196884,
+									"parameters": {
+										"y": "446"
+									}
+								}
+							],
+							"sid": 830369104515461
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 729147061858250,
+									"parameters": {
+										"first-value": "Scroll_2.Y",
+										"comparison": 2,
+										"second-value": "202"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_2",
+									"sid": 240665243100201,
+									"parameters": {
+										"y": "202"
+									}
+								}
+							],
+							"sid": 399708967357642
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 115301429184535,
+									"parameters": {
+										"first-value": "Scroll_2.Y",
+										"comparison": 4,
+										"second-value": "446"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_2",
+									"sid": 349550643145890,
+									"parameters": {
+										"y": "446"
+									}
+								}
+							],
+							"sid": 825549503278282
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-dragging",
+									"objectClass": "Scroll_1",
+									"sid": 393972406935944,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 729694491741966,
+									"parameters": {
+										"y": "Scroll_1.Y - 252"
+									}
+								}
+							],
+							"sid": 355003367923406
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-dragging",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 685503478692657,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_1",
+									"sid": 238520980168866,
+									"parameters": {
+										"y": "Bkg_Tab_List.Y + 252"
+									}
+								}
+							],
+							"sid": 982556920652082
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-dragging",
+									"objectClass": "Scroll_2",
+									"sid": 398121857609607,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List2",
+									"sid": 596604023885240,
+									"parameters": {
+										"y": "Scroll_2.Y - 252"
+									}
+								}
+							],
+							"sid": 877465116485250
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-dragging",
+									"objectClass": "Bkg_Tab_List2",
+									"sid": 369038312929678,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_2",
+									"sid": 310232464573806,
+									"parameters": {
+										"y": "Bkg_Tab_List2.Y + 252"
+									}
+								}
+							],
+							"sid": 836977042015285
 						},
 						{
 							"eventType": "block",
@@ -8871,9 +9127,9 @@
 										{
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 269420205720743,
+											"sid": 914704265416631,
 											"parameters": {
-												"x": "336",
+												"x": "325",
 												"y": "194"
 											}
 										}
@@ -9766,9 +10022,9 @@
 										{
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 198915606549869,
+											"sid": 292670322359617,
 											"parameters": {
-												"x": "336",
+												"x": "325",
 												"y": "194"
 											}
 										}
@@ -10486,9 +10742,9 @@
 										{
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List2",
-											"sid": 735609216520381,
+											"sid": 600907783912228,
 											"parameters": {
-												"x": "1562",
+												"x": "1535",
 												"y": "194"
 											}
 										}
