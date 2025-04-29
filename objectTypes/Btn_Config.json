@@ -1,39 +1,10 @@
 {
-	"name": "Hab_Slot",
+	"name": "Btn_Config",
 	"plugin-id": "Sprite",
-	"sid": 442342296636912,
+	"sid": 670108621372510,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
-		{
-			"name": "ID",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 592161286616335
-		},
-		{
-			"name": "Free",
-			"type": "boolean",
-			"desc": "",
-			"show": true,
-			"sid": 377190122848721
-		},
-		{
-			"name": "CD_Max",
-			"type": "number",
-			"desc": "Cooldown que essa habilidade possui",
-			"show": true,
-			"sid": 336739183252714
-		},
-		{
-			"name": "Ready",
-			"type": "boolean",
-			"desc": "pronta pra ser usada em batalha",
-			"show": true,
-			"sid": 303779254101529
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -41,25 +12,25 @@
 			{
 				"frames": [
 					{
-						"width": 106,
-						"height": 106,
+						"width": 120,
+						"height": 120,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4294898,
+						"imageSpriteId": 3991473,
 						"collisionPoly": {
 							"points": [
+								0.025,
+								0,
 								1,
-								0.9905660377358491,
-								0.009433962264150941,
+								0.025,
+								0.975,
 								1,
 								0,
-								0.009433962264150943,
-								0.9905660377358491,
-								0
+								0.975
 							]
 						},
 						"useCollisionPoly": true,
@@ -67,25 +38,25 @@
 						"tag": ""
 					},
 					{
-						"width": 106,
-						"height": 106,
+						"width": 120,
+						"height": 120,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 3838539,
+						"imageSpriteId": 5149544,
 						"collisionPoly": {
 							"points": [
-								0.009433962264150943,
+								0.025,
 								0,
 								1,
-								0.009433962264150943,
-								0.9905660377358491,
+								0.025,
+								0.975,
 								1,
 								0,
-								0.9905660377358491
+								0.975
 							]
 						},
 						"useCollisionPoly": true,
@@ -93,7 +64,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 693035437922606,
+				"sid": 448881885902088,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

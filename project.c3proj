@@ -57,6 +57,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
@@ -167,7 +174,7 @@
 			"Production",
 			"ProgBar_Producers",
 			"Production_Vapor",
-			"Dict_Prod_Data",
+			"Dict_Temp_Prod_Data",
 			"Text_Vapor",
 			"Arrow",
 			"Progress_Bar_Vapor",
@@ -214,7 +221,7 @@
 			"Text_HP_Enemy",
 			"Text_HP_Player",
 			"Text_Dmg_Numb",
-			"Btn_Pause",
+			"Btn_Config",
 			"Bkg_Tab_List",
 			"Item_Card_W",
 			"Text_Item_Name",
@@ -273,14 +280,24 @@
 			"icon_shiny",
 			"Text_SP_Player",
 			"Text_SP_Enemy",
-			"configuracoes",
+			"Bkg_options",
 			"Icon_Seta",
 			"Internationalization",
 			"t_balao_de_fala",
 			"t_personagem",
 			"Text_Tutorial",
 			"Scroll_1",
-			"Scroll_2"
+			"Scroll_2",
+			"Cooldown",
+			"Text_CD",
+			"LocalStorage",
+			"A_Prod_Data",
+			"barra_volume",
+			"Slider_Volume",
+			"Progbar_volume",
+			"Bkg_black_Options",
+			"Btn_Info",
+			"Bkg_Work_Info"
 		],
 		"subfolders": []
 	},
@@ -307,7 +324,8 @@
 		"items": [
 			"E_Game",
 			"E_Fight",
-			"E_Menu"
+			"E_Menu",
+			"Options"
 		],
 		"subfolders": []
 	},
@@ -608,6 +626,66 @@
 					],
 					"subfolders": [],
 					"name": "Menu"
+				},
+				{
+					"items": [
+						{
+							"name": "TypeWriter_Mutiple_v5_wav.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 471867649688454,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "TypeWriter_Mutiple_v4_wav.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 110976624707980,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "TypeWriter_Mutiple_v3_wav.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 152480229145794,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "TypeWriter_Mutiple_v2_wav.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 972727023575681,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "TypeWriter_Mutiple_v1_wav.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 489557902717321,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Dialogue"
+				},
+				{
+					"items": [
+						{
+							"name": "free_locked.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 451861542082419,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Misc"
 				}
 			]
 		},
@@ -877,14 +955,6 @@
 		"general": {
 			"items": [
 				{
-					"name": "Prod_Data.json",
-					"type": "application/json",
-					"sid": 588188562172582,
-					"file-info": {
-						"purpose": "none"
-					}
-				},
-				{
 					"name": "weapons.json",
 					"type": "application/json",
 					"sid": 861273126371642,
@@ -928,6 +998,22 @@
 					"name": "en-US.json",
 					"type": "application/json",
 					"sid": 519934206350581,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Prod_Data.json",
+					"type": "application/json",
+					"sid": 275447342488325,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Temp_Prod_Data.json",
+					"type": "application/json",
+					"sid": 633644406556666,
 					"file-info": {
 						"purpose": "none"
 					}

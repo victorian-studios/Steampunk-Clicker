@@ -2,6 +2,10 @@
 	"name": "E_Fight",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Options"
+		},
+		{
 			"eventType": "variable",
 			"name": "TURN",
 			"type": "number",
@@ -56,7 +60,7 @@
 			"name": "Level",
 			"type": "number",
 			"initialValue": "1",
-			"comment": "",
+			"comment": "qual level o jogador está no momento",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 834522476980952
@@ -82,11 +86,11 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 885282006685045,
+					"sid": 873830739806098,
 					"parameters": {
 						"audio-file": "Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media",
 						"loop": "looping",
-						"volume": "-12",
+						"volume": "-35 + (VOLUME * 0.35 )",
 						"stereo-pan": "0",
 						"tag-optional": "\"Fight\""
 					}
@@ -431,7 +435,37 @@
 									}
 								}
 							],
-							"sid": 436920222270774
+							"sid": 436920222270774,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 337770674295834,
+											"parameters": {
+												"object": "Hab_Slot",
+												"expression": "Hab_Slot.X",
+												"comparison": 0,
+												"value": "hab_1_x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hab_Slot",
+											"sid": 522822055220376,
+											"parameters": {
+												"instance-variable": "CD_Max",
+												"value": "A_Habilities.At (5, Dict_Save_File.Get(Weapon_ID_1), tokenat( Weapon_ID_1, 1, \"_\" ) )"
+											}
+										}
+									],
+									"sid": 999196411672348
+								}
+							]
 						}
 					]
 				},
@@ -528,7 +562,37 @@
 									}
 								}
 							],
-							"sid": 497678866033885
+							"sid": 497678866033885,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 233985659590833,
+											"parameters": {
+												"object": "Hab_Slot",
+												"expression": "Hab_Slot.X",
+												"comparison": 0,
+												"value": "hab_2_x"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Hab_Slot",
+											"sid": 300124747943768,
+											"parameters": {
+												"instance-variable": "CD_Max",
+												"value": "A_Habilities.At (5, Dict_Save_File.Get(Weapon_ID_2), tokenat( Weapon_ID_2, 1, \"_\" ) )"
+											}
+										}
+									],
+									"sid": 242697345522329
+								}
+							]
 						}
 					]
 				},
@@ -677,6 +741,30 @@
 						}
 					],
 					"sid": 895280481754822
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Cooldown",
+							"sid": 607806407545593,
+							"parameters": {
+								"object": "Text_CD"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_CD",
+							"sid": 375107294034702,
+							"parameters": {
+								"text": "Cooldown.CD_Time"
+							}
+						}
+					],
+					"sid": 322390356860080
 				}
 			]
 		},
@@ -690,6 +778,16 @@
 					"parameters": {
 						"object": "Btn_Exit",
 						"type": "start"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 884649404687528,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"comparison": 0,
+						"value": "\"\""
 					}
 				}
 			],
@@ -906,7 +1004,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Habs",
+			"title": "Player Habs",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -959,7 +1057,85 @@
 							}
 						}
 					],
-					"sid": 321514504314406
+					"sid": 321514504314406,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Cooldown",
+									"sid": 149802808261200,
+									"parameters": {
+										"object": "Hab_Slot"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 830283431598394,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cooldown",
+											"sid": 540426480664247,
+											"parameters": {
+												"instance-variable": "CD_Time",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Cooldown",
+											"sid": 655280631418004,
+											"parameters": {
+												"instance-variable": "CD_Time",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 721131419448225
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Cooldown",
+											"sid": 718659388824038,
+											"parameters": {
+												"instance-variable": "CD_Time",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Hab_Slot",
+											"sid": 110290233377395,
+											"parameters": {
+												"instance-variable": "Ready",
+												"value": "true"
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Cooldown",
+											"sid": 619953175833405
+										}
+									],
+									"sid": 272187132684024
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -2701,6 +2877,36 @@
 														"x": "-100",
 														"y": "-1000"
 													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 885210535272055,
+													"parameters": {
+														"object": "Cooldown",
+														"layer": "\"Habs\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cooldown",
+													"sid": 646944553712748,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "Hab_Slot.CD_Max"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot",
+													"sid": 241692583738551,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "false"
+													}
 												}
 											],
 											"sid": 841367568022542
@@ -2744,6 +2950,36 @@
 													"parameters": {
 														"x": "-100",
 														"y": "-1000"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 857977355925095,
+													"parameters": {
+														"object": "Cooldown",
+														"layer": "\"Habs\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cooldown",
+													"sid": 390395284862850,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "Hab_Slot.CD_Max"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot",
+													"sid": 519733772337626,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "false"
 													}
 												}
 											],
@@ -2823,6 +3059,36 @@
 														"x": "-100",
 														"y": "-1000"
 													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 418055400135145,
+													"parameters": {
+														"object": "Cooldown",
+														"layer": "\"Habs\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cooldown",
+													"sid": 239252343896152,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "Hab_Slot.CD_Max"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot",
+													"sid": 718414002305996,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "false"
+													}
 												}
 											],
 											"sid": 472494893240014
@@ -2866,6 +3132,36 @@
 													"parameters": {
 														"x": "-100",
 														"y": "-1000"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 417533920235542,
+													"parameters": {
+														"object": "Cooldown",
+														"layer": "\"Habs\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cooldown",
+													"sid": 620716399611773,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "Hab_Slot.CD_Max"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot",
+													"sid": 966764737625217,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "false"
 													}
 												}
 											],
@@ -2965,6 +3261,36 @@
 														"x": "-100",
 														"y": "-1000"
 													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 537097650893225,
+													"parameters": {
+														"object": "Cooldown",
+														"layer": "\"Habs\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cooldown",
+													"sid": 454492141428726,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "Hab_Slot.CD_Max"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot",
+													"sid": 607389984321487,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "false"
+													}
 												}
 											],
 											"sid": 187020149333484
@@ -3008,6 +3334,36 @@
 													"parameters": {
 														"x": "-100",
 														"y": "-1000"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 550207157277691,
+													"parameters": {
+														"object": "Cooldown",
+														"layer": "\"Habs\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Cooldown",
+													"sid": 328473918779281,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "Hab_Slot.CD_Max"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot",
+													"sid": 465271804678304,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "false"
 													}
 												}
 											],
@@ -3359,7 +3715,130 @@
 												}
 											],
 											"actions": [],
-											"sid": 575290993579214
+											"sid": 575290993579214,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 746222017041189,
+															"parameters": {
+																"first-value": "Shield + int(A_Habilities.At(2, Hab_Lvl, Hab_ID))",
+																"comparison": 3,
+																"second-value": "Shield_Max"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 860857542755235,
+															"parameters": {
+																"variable": "Shield",
+																"value": "int(A_Habilities.At(2, Hab_Lvl, Hab_ID))"
+															}
+														}
+													],
+													"sid": 743181016330478
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 878462343937937
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 830346064124721,
+															"parameters": {
+																"variable": "Shield",
+																"value": "Shield_Max"
+															}
+														}
+													],
+													"sid": 529659469627432
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Heal"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 113197122543382,
+													"parameters": {
+														"variable": "Hab_ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 809206175367052,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 233642044740339,
+															"parameters": {
+																"first-value": "HP + int(A_Habilities.At(2, Hab_Lvl, Hab_ID))",
+																"comparison": 3,
+																"second-value": "HP_Max"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-eventvar",
+															"objectClass": "System",
+															"sid": 228545592759950,
+															"parameters": {
+																"variable": "HP",
+																"value": "int(A_Habilities.At(2, Hab_Lvl, Hab_ID))"
+															}
+														}
+													],
+													"sid": 924646011317066
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 461288670883407
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 660978491913322,
+															"parameters": {
+																"variable": "HP",
+																"value": "HP_Max"
+															}
+														}
+													],
+													"sid": 415618553174606
+												}
+											]
 										}
 									]
 								},
@@ -5370,17 +5849,51 @@
 						"seconds": "0.7",
 						"use-timescale": true
 					}
-				},
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 789808494123064,
-					"parameters": {
-						"layout": "Game"
-					}
 				}
 			],
-			"sid": 620213737318665
+			"sid": 620213737318665,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 934277767240842,
+							"parameters": {
+								"first-value": "Dict_Save_File.Get(\"LVL\")",
+								"comparison": 2,
+								"second-value": "Level"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Save_File",
+							"sid": 223785509957290,
+							"parameters": {
+								"key": "\"LVL\"",
+								"value": "Level"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 321896401994755
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 735596667683808,
+							"parameters": {
+								"layout": "Game"
+							}
+						}
+					],
+					"sid": 885918158399377
+				}
+			]
 		},
 		{
 			"eventType": "group",
@@ -5630,10 +6143,10 @@
 												{
 													"id": "start-timer",
 													"objectClass": "Text_Tutorial",
-													"sid": 706590451271247,
+													"sid": 112720127134172,
 													"behaviorType": "Timer",
 													"parameters": {
-														"duration": "1.0",
+														"duration": "0.7",
 														"type": "once",
 														"tag": "\"prevent_skip\""
 													}

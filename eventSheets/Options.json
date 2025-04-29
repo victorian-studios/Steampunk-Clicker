@@ -1,0 +1,493 @@
+{
+	"name": "Options",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "VOLUME",
+			"type": "number",
+			"initialValue": "75",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 375288569565460
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 358308044637404
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "Slider_Volume",
+					"sid": 366542461463141,
+					"parameters": {
+						"x": "1072"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "Progbar_volume",
+					"sid": 196290891287303,
+					"parameters": {
+						"width": "384"
+					}
+				}
+			],
+			"sid": 452432177324698
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 287598200510438,
+					"parameters": {
+						"object": "Btn_Config"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 220877296978181,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 488862661229787,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Bkg_options",
+							"sid": 848160716988222,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "540"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Bkg_black_Options",
+							"sid": 860011469267688,
+							"parameters": {
+								"x": "970",
+								"y": "-1000"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_options",
+							"sid": 573546289343444,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_up\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 927316605692110,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_options",
+							"sid": 173089683523951,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down\"",
+								"property": "offsetY",
+								"end-value": "-310",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 667722915807141
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Bkg_options",
+							"sid": 177940692263456,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "-310"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Bkg_black_Options",
+							"sid": 873830612383070,
+							"parameters": {
+								"x": "970",
+								"y": "540"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_options",
+							"sid": 204412744475339,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 135121712479002,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_options",
+							"sid": 601284037027747,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down\"",
+								"property": "offsetY",
+								"end-value": "540",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 456299175790139
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 455795777619139,
+							"parameters": {
+								"object": "TextoAiDaVida",
+								"expression": "TextoAiDaVida.UID",
+								"comparison": 0,
+								"value": "376"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextoAiDaVida",
+							"sid": 469699202731784,
+							"parameters": {
+								"text": "Internationalization.Lookup(\"options.title\")"
+							}
+						}
+					],
+					"sid": 768143520821877
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 152570695880598,
+							"parameters": {
+								"object": "TextoAiDaVida",
+								"expression": "TextoAiDaVida.UID",
+								"comparison": 0,
+								"value": "377"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextoAiDaVida",
+							"sid": 433278504971651,
+							"parameters": {
+								"text": "Internationalization.Lookup(\"options.music\")"
+							}
+						}
+					],
+					"sid": 610755930406822
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-dragging",
+					"objectClass": "Slider_Volume",
+					"sid": 343945147639199,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "Progbar_volume",
+					"sid": 873772576646610,
+					"parameters": {
+						"width": "Slider_Volume.X - 688"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 950318001419356,
+					"parameters": {
+						"variable": "VOLUME",
+						"value": "int( Progbar_volume.Width / 5.12 )"
+					}
+				},
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 483244601641183,
+					"parameters": {
+						"tag": "\"Main\"",
+						"db": "-35 + ( VOLUME * 0.35 )"
+					}
+				},
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 626745719386579,
+					"parameters": {
+						"tag": "\"Fight\"",
+						"db": "-35 + ( VOLUME * 0.35 )"
+					}
+				}
+			],
+			"sid": 750533876044155,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider_Volume",
+							"sid": 883446234169366,
+							"parameters": {
+								"comparison": 2,
+								"x-co-ordinate": "688"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider_Volume",
+							"sid": 580086010418147,
+							"parameters": {
+								"x": "688"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 818521059842344,
+							"parameters": {
+								"variable": "VOLUME",
+								"value": "0"
+							}
+						},
+						{
+							"id": "drop",
+							"objectClass": "Slider_Volume",
+							"sid": 170807566267151,
+							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "set-silent",
+							"objectClass": "Audio",
+							"sid": 200529883064688,
+							"parameters": {
+								"mode": "silent"
+							}
+						}
+					],
+					"sid": 514770476678865
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider_Volume",
+							"sid": 474652383725199,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "688"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-silent",
+							"objectClass": "Audio",
+							"sid": 353446062514900,
+							"parameters": {
+								"mode": "not-silent"
+							}
+						}
+					],
+					"sid": 411680860952115
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider_Volume",
+							"sid": 912320672942803,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "1200"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider_Volume",
+							"sid": 483060257767925,
+							"parameters": {
+								"x": "1200"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 667727408605437,
+							"parameters": {
+								"variable": "VOLUME",
+								"value": "100"
+							}
+						},
+						{
+							"id": "drop",
+							"objectClass": "Slider_Volume",
+							"sid": 455274954913936,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"sid": 147314482452236
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "Slider_Volume",
+					"sid": 149166790493686,
+					"behaviorType": "DragDrop"
+				}
+			],
+			"actions": [],
+			"sid": 988714708891147,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider_Volume",
+							"sid": 211724445256380,
+							"parameters": {
+								"comparison": 2,
+								"x-co-ordinate": "688"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider_Volume",
+							"sid": 112213843873264,
+							"parameters": {
+								"x": "688"
+							}
+						}
+					],
+					"sid": 629027653782683
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Slider_Volume",
+							"sid": 393757313521148,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "1200"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Slider_Volume",
+							"sid": 158165397405243,
+							"parameters": {
+								"x": "1200"
+							}
+						}
+					],
+					"sid": 520678141762383
+				}
+			]
+		}
+	],
+	"sid": 564593724783545
+}

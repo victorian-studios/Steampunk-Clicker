@@ -2,6 +2,10 @@
 	"name": "E_Game",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Options"
+		},
+		{
 			"eventType": "variable",
 			"name": "HP_Max",
 			"type": "number",
@@ -170,11 +174,11 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 427305422901093,
+					"sid": 544544893802003,
 					"parameters": {
 						"audio-file": "Steampunk_Victorian_Orchestra_by_Humanoide_Media",
 						"loop": "looping",
-						"volume": "-10",
+						"volume": "-40 + ( VOLUME * 0.4 )",
 						"stereo-pan": "0",
 						"tag-optional": "\"Main\""
 					}
@@ -218,51 +222,6 @@
 					"parameters": {
 						"layer": "\"Production\"",
 						"visibility": "visible"
-					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 208515742087545,
-					"parameters": {
-						"tag": "\"prod_data\"",
-						"file": "Prod_Data.json"
-					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 468848238618479,
-					"parameters": {
-						"tag": "\"save_file\"",
-						"file": "Save_File.json"
-					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 338070072819691,
-					"parameters": {
-						"tag": "\"weapon_data\"",
-						"file": "weapons.json"
-					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 399648180182786,
-					"parameters": {
-						"tag": "\"habilities_data\"",
-						"file": "habilities.json"
-					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 875425630082326,
-					"parameters": {
-						"tag": "\"armour_data\"",
-						"file": "armor.json"
 					}
 				},
 				{
@@ -930,168 +889,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 238743538000667,
-					"parameters": {
-						"tag": "\"prod_data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "Dict_Prod_Data",
-					"sid": 226459821707579,
-					"parameters": {
-						"json": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 390750922834888
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 918647569834814,
-					"parameters": {
-						"tag": "\"save_file\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "Dict_Save_File",
-					"sid": 340386067722932,
-					"parameters": {
-						"json": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 902377868448926
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 527873347810248,
-					"parameters": {
-						"tag": "\"weapon_data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "A_Weapons",
-					"sid": 968707594004674,
-					"parameters": {
-						"json": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 918042758228026
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 897032801910387,
-					"parameters": {
-						"tag": "\"habilities_data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "A_Habilities",
-					"sid": 173382832507249,
-					"parameters": {
-						"json": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 737375258787193
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 917357576295580,
-					"parameters": {
-						"tag": "\"armour_data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "A_Armor",
-					"sid": 702100647706297,
-					"parameters": {
-						"json": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 733075412778510
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 410398267087580,
-					"parameters": {
-						"tag": "\"en-US\""
-					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 433584534547894,
-					"parameters": {
-						"variable": "Language",
-						"comparison": 0,
-						"value": "\"en-US\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load-from-json",
-					"objectClass": "Internationalization",
-					"sid": 492956243724419,
-					"parameters": {
-						"json": "AJAX.LastData"
-					}
-				},
-				{
-					"id": "set-locale",
-					"objectClass": "Internationalization",
-					"sid": 195735958635003,
-					"parameters": {
-						"locale": "Language"
-					}
-				}
-			],
-			"sid": 723349626852249
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "every-tick",
 					"objectClass": "System",
 					"sid": 509063140566776
@@ -1103,7 +900,7 @@
 					"objectClass": "Text_Material_Quant",
 					"sid": 805934696160675,
 					"parameters": {
-						"text": "Dict_Prod_Data.Get(Self.material_id)"
+						"text": "Dict_Temp_Prod_Data.Get(Self.material_id)"
 					}
 				},
 				{
@@ -1477,6 +1274,33 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 253599031175970,
+							"parameters": {
+								"tag": "\"rotate\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Play_Audio",
+							"sid": 313641906402255,
+							"parameters": [
+								false,
+								false,
+								false,
+								true
+							]
+						}
+					],
+					"sid": 694846757297768
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 643401765434633,
@@ -1801,7 +1625,7 @@
 							"objectClass": "Text_Vapor",
 							"sid": 428121579274825,
 							"parameters": {
-								"text": "\"Steam: \"& Dict_Prod_Data.Get(\"Steam\") &\" / \"&Production_Vapor.prod_cap"
+								"text": "\"Steam: \"& Dict_Temp_Prod_Data.Get(\"Steam\") &\" / \"&Production_Vapor.prod_cap"
 							}
 						}
 					],
@@ -1843,7 +1667,7 @@
 							"parameters": {
 								"instance-variable": "prod_cap",
 								"comparison": 5,
-								"value": "Dict_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
 							}
 						}
 					],
@@ -1944,11 +1768,22 @@
 						},
 						{
 							"id": "set-key",
-							"objectClass": "Dict_Prod_Data",
-							"sid": 751259437362288,
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 690941110521163,
 							"parameters": {
 								"key": "\"Steam\"",
-								"value": "Dict_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 787099212368863,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "0",
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
 							}
 						}
 					],
@@ -2173,6 +2008,14 @@
 							"parameters": {
 								"object": "Production"
 							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 741297185548261,
+							"parameters": {
+								"instance-variable": "Unlocked"
+							}
 						}
 					],
 					"actions": [
@@ -2196,6 +2039,14 @@
 							"sid": 467285551841323,
 							"parameters": {
 								"object": "Production"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 210811131244627,
+							"parameters": {
+								"instance-variable": "Unlocked"
 							}
 						}
 					],
@@ -2255,7 +2106,7 @@
 							"parameters": {
 								"instance-variable": "prod_cap",
 								"comparison": 5,
-								"value": "Dict_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+								"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
 							}
 						}
 					],
@@ -2342,7 +2193,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 313169183672803,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
@@ -2374,11 +2225,11 @@
 										},
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 205344179374477,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
 											}
 										}
 									],
@@ -2471,7 +2322,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 474020344507376,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
@@ -2525,7 +2376,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 101348535964592,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
@@ -2579,7 +2430,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 189928389723859,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
@@ -2589,7 +2440,7 @@
 										},
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 343528171369833,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
@@ -2666,7 +2517,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 458160838878295,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
@@ -2676,7 +2527,7 @@
 										},
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 362142260247820,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
@@ -2708,20 +2559,20 @@
 										},
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 106317503338036,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
 											}
 										},
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 917082623562545,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
-												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
 											}
 										}
 									],
@@ -2766,7 +2617,7 @@
 							"parameters": {
 								"instance-variable": "prod_cap",
 								"comparison": 5,
-								"value": "Dict_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+								"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
 							}
 						}
 					],
@@ -2853,7 +2704,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 136967351973957,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
@@ -2885,11 +2736,11 @@
 										},
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 358886125799736,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
 											}
 										}
 									],
@@ -2929,7 +2780,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 306760547622983,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
@@ -2939,7 +2790,7 @@
 										},
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 991308050954767,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
@@ -2971,20 +2822,20 @@
 										},
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 345706735974883,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
 											}
 										},
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 834473530104637,
 											"parameters": {
 												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
-												"value": "Dict_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
 											}
 										}
 									],
@@ -3034,11 +2885,22 @@
 								},
 								{
 									"id": "set-key",
-									"objectClass": "Dict_Prod_Data",
-									"sid": 956111287722289,
+									"objectClass": "Dict_Temp_Prod_Data",
+									"sid": 618587861466434,
 									"parameters": {
 										"key": "Production.material_id",
-										"value": "Dict_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+										"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+									}
+								},
+								{
+									"id": "set-at-xyz",
+									"objectClass": "A_Prod_Data",
+									"sid": 885899731346609,
+									"parameters": {
+										"x": "4",
+										"y": "1",
+										"z": "Production.Array_ID",
+										"value": "Dict_Temp_Prod_Data.Get(Production.material_id)"
 									}
 								}
 							],
@@ -3145,7 +3007,7 @@
 									"objectClass": "Text_ProdQuant",
 									"sid": 184416599863321,
 									"parameters": {
-										"text": "Production.material_id & \" \" & Dict_Prod_Data.Get(Production.material_id) & \" / \" & Production.prod_cap"
+										"text": "Production.material_id & \" \" & Dict_Temp_Prod_Data.Get(Production.material_id) & \" / \" & Production.prod_cap"
 									}
 								}
 							],
@@ -3211,7 +3073,7 @@
 							"conditions": [
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 479491962703817,
 									"parameters": {
 										"key": "tokenat ( Production.cond_material_quant_1, 0, \"_\" )",
@@ -3237,7 +3099,7 @@
 							"conditions": [
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 275333690807234,
 									"parameters": {
 										"key": "tokenat ( Production.cond_material_quant_1, 0, \"_\" )",
@@ -3297,7 +3159,7 @@
 							"conditions": [
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 538177211948626,
 									"parameters": {
 										"key": "tokenat ( Production.cond_material_quant_2, 0, \"_\" )",
@@ -3323,7 +3185,7 @@
 							"conditions": [
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 154676267890142,
 									"parameters": {
 										"key": "tokenat ( Production.cond_material_quant_2, 0, \"_\" )",
@@ -3737,6 +3599,15 @@
 							"parameters": {
 								"layer": "\"Production\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 924773236835060,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -3782,6 +3653,16 @@
 								}
 							],
 							"actions": [
+								{
+									"callFunction": "Play_Audio",
+									"sid": 711011593418586,
+									"parameters": [
+										false,
+										false,
+										true,
+										false
+									]
+								},
 								{
 									"id": "set-x",
 									"objectClass": "Icon_prod",
@@ -3918,6 +3799,16 @@
 									],
 									"actions": [
 										{
+											"callFunction": "Play_Audio",
+											"sid": 405745553404581,
+											"parameters": [
+												false,
+												false,
+												true,
+												false
+											]
+										},
+										{
 											"id": "set-x",
 											"objectClass": "Icon_prod",
 											"sid": 964185104539650,
@@ -4052,9 +3943,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 192669880626904,
+									"sid": 495213543768271,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_ID, 1, \"_\" )",
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"unlock\""
 									}
@@ -4064,9 +3955,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 295839492045483,
+									"sid": 244727145134430,
 									"parameters": {
-										"text": "Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".unlock\", tokenat (Upgrade_ID, 1, \"_\") )"
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.unlock\", tokenat (Upgrade_ID, 1, \"_\") )"
 									}
 								}
 							],
@@ -4078,9 +3969,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 159570750353381,
+									"sid": 306333803340927,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_ID, 1, \"_\" )",
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"prodcapup\""
 									}
@@ -4090,9 +3981,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 985106773769422,
+									"sid": 120082727593219,
 									"parameters": {
-										"text": "Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upgrade.\" & Upgrade_Layer & \".prodcapup\", tokenat (Upgrade_ID, 2, \"_\") )"
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", tokenat (Upgrade_ID, 2, \"_\") )"
 									}
 								}
 							],
@@ -4104,9 +3995,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 567474621544058,
+									"sid": 861945903395620,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_ID, 1, \"_\" )",
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"prodspeedup\""
 									}
@@ -4116,9 +4007,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 339318764294595,
+									"sid": 591242768543845,
 									"parameters": {
-										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer  & \".prodspeedup\", tokenat (Upgrade_ID, 2, \"_\") )"
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.prodspeedup\", tokenat (Upgrade_ID, 2, \"_\") )"
 									}
 								}
 							],
@@ -4379,17 +4270,17 @@
 							"conditions": [
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
-									"sid": 706894658204032,
+									"objectClass": "Dict_Temp_Prod_Data",
+									"sid": 806160083787898,
 									"parameters": {
 										"key": "\"Steam\"",
-										"comparison": 0,
+										"comparison": 5,
 										"value": "16"
 									}
 								},
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 782276160199609,
 									"parameters": {
 										"key": "\"Wood\"",
@@ -4401,11 +4292,28 @@
 							"actions": [
 								{
 									"id": "set-key",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 391572219303788,
 									"parameters": {
 										"key": "\"Wood\"",
 										"value": "0"
+									}
+								},
+								{
+									"callFunction": "Pop_up_Tutorial",
+									"sid": 142612790620843,
+									"parameters": [
+										"Internationalization.Lookup(\"game.upg.Steam.unlock_next\")",
+										"2"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 698815750003887,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"value": "\"unlock_next\""
 									}
 								}
 							],
@@ -4416,17 +4324,17 @@
 							"conditions": [
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
-									"sid": 809209998384301,
+									"objectClass": "Dict_Temp_Prod_Data",
+									"sid": 875657511740557,
 									"parameters": {
 										"key": "\"Wood\"",
-										"comparison": 0,
+										"comparison": 5,
 										"value": "16"
 									}
 								},
 								{
 									"id": "compare-value",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 102284824941519,
 									"parameters": {
 										"key": "\"Copper\"",
@@ -4438,11 +4346,28 @@
 							"actions": [
 								{
 									"id": "set-key",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 116689115643828,
 									"parameters": {
 										"key": "\"Copper\"",
 										"value": "0"
+									}
+								},
+								{
+									"callFunction": "Pop_up_Tutorial",
+									"sid": 604569041934849,
+									"parameters": [
+										"Internationalization.Lookup(\"game.upg.Wood.unlock_next\")",
+										"2"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 611613099445425,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"value": "\"unlock_next\""
 									}
 								}
 							],
@@ -4453,7 +4378,7 @@
 							"conditions": [
 								{
 									"id": "for-each-key",
-									"objectClass": "Dict_Prod_Data",
+									"objectClass": "Dict_Temp_Prod_Data",
 									"sid": 955433577634454
 								}
 							],
@@ -4465,7 +4390,7 @@
 									"conditions": [
 										{
 											"id": "compare-current-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 349129689975556,
 											"parameters": {
 												"comparison": 1,
@@ -4487,7 +4412,7 @@
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 1, \"_\" )",
 														"comparison": 0,
-														"value": "Dict_Prod_Data.CurrentKey"
+														"value": "Dict_Temp_Prod_Data.CurrentKey"
 													}
 												}
 											],
@@ -4523,7 +4448,7 @@
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 2, \"_\" )",
 														"comparison": 0,
-														"value": "Dict_Prod_Data.CurrentKey"
+														"value": "Dict_Temp_Prod_Data.CurrentKey"
 													}
 												}
 											],
@@ -4590,7 +4515,7 @@
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 1, \"_\" )",
 														"comparison": 0,
-														"value": "Dict_Prod_Data.CurrentKey"
+														"value": "Dict_Temp_Prod_Data.CurrentKey"
 													}
 												}
 											],
@@ -4626,7 +4551,7 @@
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 2, \"_\" )",
 														"comparison": 0,
-														"value": "Dict_Prod_Data.CurrentKey"
+														"value": "Dict_Temp_Prod_Data.CurrentKey"
 													}
 												}
 											],
@@ -4902,7 +4827,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 252117620699412,
 											"parameters": {
 												"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -4982,7 +4907,7 @@
 											"conditions": [
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 562564744159674,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -4992,7 +4917,7 @@
 												},
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 478662919250877,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
@@ -5026,7 +4951,7 @@
 											"conditions": [
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 910819507931746,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -5036,7 +4961,7 @@
 												},
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 831918941118216,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
@@ -5070,7 +4995,7 @@
 											"conditions": [
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 844148468149150,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -5080,7 +5005,7 @@
 												},
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 774320807513094,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
@@ -5114,7 +5039,7 @@
 											"conditions": [
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 645455794944802,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -5124,7 +5049,7 @@
 												},
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 745378889687254,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
@@ -5466,7 +5391,19 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "Check_Upg_Price",
+									"sid": 551174101556326,
+									"disabled": true,
+									"parameters": [
+										"Icon_Upg.Price_1",
+										"\"\"",
+										"Icon_Upg.Upgrade_ID",
+										"Icon_Upg.UID"
+									]
+								}
+							],
 							"sid": 936009989939496,
 							"children": [
 								{
@@ -5474,7 +5411,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 379552368014139,
 											"parameters": {
 												"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -5486,7 +5423,7 @@
 									"actions": [
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 893707556911434,
 											"parameters": {
 												"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -5508,6 +5445,10 @@
 											"parameters": [
 												"Icon_Upg.Upgrade_ID"
 											]
+										},
+										{
+											"callFunction": "Dictionary_to_Array",
+											"sid": 183771124624982
 										}
 									],
 									"sid": 745482289238472
@@ -5538,7 +5479,19 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"callFunction": "Check_Upg_Price",
+									"sid": 337718041987600,
+									"disabled": true,
+									"parameters": [
+										"Icon_Upg.Price_1",
+										"Icon_Upg.Price_2",
+										"Icon_Upg.Upgrade_ID",
+										"Icon_Upg.UID"
+									]
+								}
+							],
 							"sid": 212078064503399,
 							"children": [
 								{
@@ -5546,7 +5499,7 @@
 									"conditions": [
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 853049868320101,
 											"parameters": {
 												"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -5556,7 +5509,7 @@
 										},
 										{
 											"id": "compare-value",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 730615192183201,
 											"parameters": {
 												"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
@@ -5568,7 +5521,7 @@
 									"actions": [
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 820651141172633,
 											"parameters": {
 												"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
@@ -5577,7 +5530,7 @@
 										},
 										{
 											"id": "set-key",
-											"objectClass": "Dict_Prod_Data",
+											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 123054018055626,
 											"parameters": {
 												"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
@@ -5599,9 +5552,530 @@
 											"parameters": [
 												"Icon_Upg.Upgrade_ID"
 											]
+										},
+										{
+											"callFunction": "Dictionary_to_Array",
+											"sid": 107708970322997
 										}
 									],
 									"sid": 832365582065899
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Check_Upg_Price",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Price_1",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 207040418392983
+						},
+						{
+							"name": "Price_2",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 998776084110166
+						},
+						{
+							"name": "Upgrade_ID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 801115237160746
+						},
+						{
+							"name": "Icon_Upg_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 964248650224722
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 923657978298649,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "price_1_array_id",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 744605811594292
+						},
+						{
+							"eventType": "variable",
+							"name": "price_2_array_id",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 174217171170137
+						},
+						{
+							"eventType": "comment",
+							"text": "Price 1 check"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 526664190609556,
+									"parameters": {
+										"first-value": "tokenat ( Price_1, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Steam\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 986319201673310,
+									"parameters": {
+										"variable": "price_1_array_id",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 789771854525281,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 219596850628947,
+									"parameters": {
+										"first-value": "tokenat ( Price_1, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Wood\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 422918609326354,
+									"parameters": {
+										"variable": "price_1_array_id",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 398659027363440,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 101208770560352,
+									"parameters": {
+										"first-value": "tokenat ( Price_1, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Copper\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 664731502191761,
+									"parameters": {
+										"variable": "price_1_array_id",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 977149484224945,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 934431221377627,
+									"parameters": {
+										"first-value": "tokenat ( Price_1, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Iron\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 520463097798560,
+									"parameters": {
+										"variable": "price_1_array_id",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 935516617290909,
+							"disabled": true
+						},
+						{
+							"eventType": "comment",
+							"text": "Price 2 check"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 249302806623628,
+									"parameters": {
+										"first-value": "tokenat ( Price_2, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Steam\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 887466955654985,
+									"parameters": {
+										"variable": "price_2_array_id",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 306677576505468,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 677345499233753,
+									"parameters": {
+										"first-value": "tokenat ( Price_2, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Wood\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 348266363826329,
+									"parameters": {
+										"variable": "price_2_array_id",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 483341858027150,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 304810944142002,
+									"parameters": {
+										"first-value": "tokenat ( Price_2, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Copper\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 286672653738058,
+									"parameters": {
+										"variable": "price_2_array_id",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 339758496607104,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 872833717466170,
+									"parameters": {
+										"first-value": "tokenat ( Price_2, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"Iron\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 517371866430118,
+									"parameters": {
+										"variable": "price_2_array_id",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 722032666115632,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 159992909355446,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Só tem 1 preço"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 956543862796572,
+											"parameters": {
+												"variable": "Price_2",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 681386762279105,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 780840772189503,
+													"parameters": {
+														"x": "4",
+														"y": "1",
+														"z": "price_1_array_id",
+														"comparison": 5,
+														"value": "int( tokenat ( Price_1, 1, \"_\" ) )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 985580805221759,
+													"parameters": {
+														"x": "4",
+														"y": "1",
+														"z": "price_1_array_id",
+														"value": "Self.At( 4, 1, price_1_array_id) - int(tokenat( Price_1, 1, \"_\") )"
+													}
+												}
+											],
+											"sid": 830590452155266,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 793056930687405,
+															"parameters": {
+																"object": "Icon_Upg",
+																"expression": "Icon_Upg.UID",
+																"comparison": 0,
+																"value": "Icon_Upg_UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Icon_Upg",
+															"sid": 582964396255416,
+															"parameters": {
+																"instance-variable": "Sold",
+																"value": "true"
+															}
+														},
+														{
+															"callFunction": "Upgrade_Production",
+															"sid": 538115892722417,
+															"parameters": [
+																"Upgrade_ID"
+															]
+														}
+													],
+													"sid": 136647903739653,
+													"disabled": true
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Tem 2 preços"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 184108053916568,
+											"parameters": {
+												"variable": "Price_2",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 922673325232248,
+									"disabled": true,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 612455332926561,
+													"parameters": {
+														"x": "4",
+														"y": "1",
+														"z": "price_1_array_id",
+														"comparison": 5,
+														"value": "int( tokenat ( Price_1, 1, \"_\" ) )"
+													}
+												},
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 120853565941470,
+													"parameters": {
+														"x": "4",
+														"y": "1",
+														"z": "price_2_array_id",
+														"comparison": 5,
+														"value": "int( tokenat ( Price_2, 1, \"_\" ) )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 111270015033808,
+													"parameters": {
+														"x": "4",
+														"y": "1",
+														"z": "price_1_array_id",
+														"value": "Self.At( 4, 1, price_1_array_id) - int(tokenat( Price_1, 1, \"_\") )"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 494374295381920,
+													"parameters": {
+														"x": "4",
+														"y": "1",
+														"z": "price_2_array_id",
+														"value": "Self.At( 4, 1, price_2_array_id) - int(tokenat( Price_2, 1, \"_\") )"
+													}
+												}
+											],
+											"sid": 806771652772870,
+											"disabled": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 381020639098420,
+															"parameters": {
+																"object": "Icon_Upg",
+																"expression": "Icon_Upg.UID",
+																"comparison": 0,
+																"value": "Icon_Upg_UID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Icon_Upg",
+															"sid": 536450205674518,
+															"parameters": {
+																"instance-variable": "Sold",
+																"value": "true"
+															}
+														},
+														{
+															"callFunction": "Upgrade_Production",
+															"sid": 192055799203446,
+															"parameters": [
+																"Upgrade_ID"
+															]
+														}
+													],
+													"sid": 410635326452559,
+													"disabled": true
+												}
+											]
+										}
+									]
 								}
 							]
 						}
@@ -5625,7 +6099,18 @@
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"callFunction": "Play_Audio",
+							"sid": 707604665632911,
+							"parameters": [
+								false,
+								true,
+								false,
+								false
+							]
+						}
+					],
 					"sid": 698524508351873,
 					"children": [
 						{
@@ -5668,6 +6153,17 @@
 												"instance-variable": "prod_time",
 												"value": "float ( tokenat ( Upgrade_id, 2, \"_\" ) )"
 											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 669748619452835,
+											"parameters": {
+												"x": "3",
+												"y": "1",
+												"z": "0",
+												"value": "Production_Vapor.prod_time"
+											}
 										}
 									],
 									"sid": 229290580930035
@@ -5707,6 +6203,17 @@
 													"parameters": {
 														"instance-variable": "prod_time",
 														"value": "float ( tokenat ( Upgrade_id, 2, \"_\" ) )"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 662155661139620,
+													"parameters": {
+														"x": "3",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_time"
 													}
 												}
 											],
@@ -5756,6 +6263,27 @@
 												"instance-variable": "prod_cap",
 												"value": "int ( tokenat ( Upgrade_id, 2, \"_\" ) )"
 											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 194998752442102,
+											"parameters": {
+												"x": "2",
+												"y": "1",
+												"z": "0",
+												"value": "Production_Vapor.prod_cap"
+											}
+										},
+										{
+											"id": "set-item",
+											"objectClass": "LocalStorage",
+											"sid": 482695837583923,
+											"disabled": true,
+											"parameters": {
+												"key": "\"prod_Steam_cap\"",
+												"value": "Production_Vapor.prod_cap"
+											}
 										}
 									],
 									"sid": 404967026634611
@@ -5795,6 +6323,27 @@
 													"parameters": {
 														"instance-variable": "prod_cap",
 														"value": "int ( tokenat ( Upgrade_id, 2, \"_\" ) )"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 999862329136676,
+													"parameters": {
+														"x": "2",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_cap"
+													}
+												},
+												{
+													"id": "set-item",
+													"objectClass": "LocalStorage",
+													"sid": 616647163884352,
+													"disabled": true,
+													"parameters": {
+														"key": "\"prod_\" & tokenat( Upgrade_id, 1, \"_\" ) & \"_cap\"",
+														"value": "Production.prod_cap"
 													}
 												}
 											],
@@ -5844,6 +6393,27 @@
 											"parameters": {
 												"instance-variable": "Unlocked",
 												"value": "true"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 873614475026768,
+											"parameters": {
+												"x": "0",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-item",
+											"objectClass": "LocalStorage",
+											"sid": 475108661103882,
+											"disabled": true,
+											"parameters": {
+												"key": "\"prod_\" & tokenat( Upgrade_id, 1, \"_\" ) & \"_quant\"",
+												"value": "0"
 											}
 										}
 									],
@@ -9483,9 +10053,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 762196415400051,
+																			"sid": 913818922352734,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & \" | \" & \"[icon=ammor] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special]: \" & A_Weapons.At( 5, 1, counter )"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
 																			}
 																		}
 																	],
@@ -9504,9 +10074,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 178576294166898,
+																			"sid": 388538065885351,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & newline & \"[icon=special]: \" & A_Weapons.At( 5, 1, counter )"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
 																			}
 																		}
 																	],
@@ -10353,9 +10923,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Info",
-																	"sid": 297230460047966,
+																	"sid": 648231706118482,
 																	"parameters": {
-																		"text": "\"Apply a \" & A_Habilities.At( 2, 1, counter ) & \"% defense buff for\" & A_Habilities.At( 4, 1, counter ) & \" turns. \" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
+																		"text": "\"Instantly regenerate \" & A_Habilities.At( 2, 1, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
 																	}
 																}
 															],
@@ -10494,9 +11064,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Info",
-																	"sid": 685819274967160,
+																	"sid": 453717137583160,
 																	"parameters": {
-																		"text": "\"Apply a \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \"% defense buff for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns. \" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns.\""
+																		"text": "\"Instantly regenerate \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns.\""
 																	}
 																}
 															],
@@ -10616,9 +11186,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Info",
-																	"sid": 227030321844359,
+																	"sid": 213386731713232,
 																	"parameters": {
-																		"text": "\"Apply a \" & A_Habilities.At( 2, 10, counter ) & \"% defense buff for \" & A_Habilities.At( 4, 10, counter ) & \" turns. \" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
+																		"text": "\"Instatly regenerate \" & A_Habilities.At( 2, 10, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
 																	}
 																}
 															],
@@ -11581,6 +12151,52 @@
 										}
 									],
 									"sid": 866902742753124
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_1",
+											"sid": 756538200992152,
+											"parameters": {
+												"y": "Bkg_Tab_List.Y + 252"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_2",
+											"sid": 739260207119360,
+											"parameters": {
+												"y": "Bkg_Tab_List2.Y + 252"
+											}
+										},
+										{
+											"callFunction": "PopulateList",
+											"sid": 319781097528730,
+											"parameters": [
+												"\"Armor\""
+											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 571788462034083,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "PopulateList",
+											"sid": 704406614118184,
+											"parameters": [
+												"\"Armor\""
+											]
+										}
+									],
+									"sid": 600953231184624
 								}
 							]
 						}
@@ -11594,6 +12210,51 @@
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 634214391906018,
+									"parameters": {
+										"layer": "\"Workshop\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Btn_Info",
+									"sid": 141328433516962,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 372976821483978
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 815270233826627
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Btn_Info",
+									"sid": 661928094964938,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 146289020389494
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -11810,6 +12471,14 @@
 															"parameters": {
 																"visibility": "visible"
 															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "TextoAiDaVida",
+															"sid": 461647526989517,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.unlock\")"
+															}
 														}
 													],
 													"sid": 612296098795164
@@ -11968,9 +12637,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 390427680690363,
+																	"sid": 694527624445176,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special]: \" & A_Weapons.At( 5, 1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
 																	}
 																}
 															],
@@ -11989,9 +12658,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 407876454497526,
+																	"sid": 856689610777270,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & newline & \"[icon=special]: \" & A_Weapons.At( 5, 1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
 																	}
 																}
 															],
@@ -12135,6 +12804,14 @@
 															"sid": 416368619900995,
 															"parameters": {
 																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "TextoAiDaVida",
+															"sid": 137411180605430,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.upgrade\")"
 															}
 														}
 													],
@@ -12706,6 +13383,14 @@
 															"parameters": {
 																"visibility": "visible"
 															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "TextoAiDaVida",
+															"sid": 681497756879250,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.unlock\")"
+															}
 														}
 													],
 													"sid": 476312293510528
@@ -12839,9 +13524,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Upg_Info",
-															"sid": 474011348200213,
+															"sid": 695088976949127,
 															"parameters": {
-																"text": "\"Apply a \" & A_Habilities.At( 2, 1, counter ) & \"% defense buff for\" & A_Habilities.At( 4, 1, counter ) & \" turns. \" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
+																"text": "\"Instantly regenerate \" & A_Habilities.At( 2, 1, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
 															}
 														}
 													],
@@ -12976,6 +13661,14 @@
 															"sid": 110049070746387,
 															"parameters": {
 																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "TextoAiDaVida",
+															"sid": 327028928286953,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.upgrade\")"
 															}
 														}
 													],
@@ -13520,6 +14213,14 @@
 															"parameters": {
 																"visibility": "visible"
 															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "TextoAiDaVida",
+															"sid": 519112452219491,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.unlock\")"
+															}
 														}
 													],
 													"sid": 821870317929458
@@ -13760,6 +14461,14 @@
 															"sid": 883012253148869,
 															"parameters": {
 																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "TextoAiDaVida",
+															"sid": 130339171145683,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.upgrade\")"
 															}
 														}
 													],
@@ -14056,7 +14765,7 @@
 											"conditions": [
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 772348420631894,
 													"parameters": {
 														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
@@ -14067,20 +14776,18 @@
 											],
 											"actions": [
 												{
-													"id": "play",
-													"objectClass": "Audio",
-													"sid": 490105781797376,
-													"parameters": {
-														"audio-file": "Confirm_by_Ana_Caldeira",
-														"loop": "not-looping",
-														"volume": "0",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
+													"callFunction": "Play_Audio",
+													"sid": 326124611938665,
+													"parameters": [
+														false,
+														true,
+														false,
+														false
+													]
 												},
 												{
 													"id": "set-key",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 958648806763781,
 													"parameters": {
 														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
@@ -14230,7 +14937,7 @@
 											"conditions": [
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 242007210486590,
 													"parameters": {
 														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
@@ -14240,7 +14947,7 @@
 												},
 												{
 													"id": "compare-value",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 634037665446075,
 													"parameters": {
 														"key": "tokenat ( Btn_Buy.Price_2, 0, \"_\" )",
@@ -14251,20 +14958,18 @@
 											],
 											"actions": [
 												{
-													"id": "play",
-													"objectClass": "Audio",
-													"sid": 882235512345471,
-													"parameters": {
-														"audio-file": "Confirm_by_Ana_Caldeira",
-														"loop": "not-looping",
-														"volume": "0",
-														"stereo-pan": "0",
-														"tag-optional": "\"\""
-													}
+													"callFunction": "Play_Audio",
+													"sid": 107567662218094,
+													"parameters": [
+														false,
+														true,
+														false,
+														false
+													]
 												},
 												{
 													"id": "set-key",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 153433607518550,
 													"parameters": {
 														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
@@ -14273,7 +14978,7 @@
 												},
 												{
 													"id": "set-key",
-													"objectClass": "Dict_Prod_Data",
+													"objectClass": "Dict_Temp_Prod_Data",
 													"sid": 339353752080480,
 													"parameters": {
 														"key": "tokenat ( Btn_Buy.Price_2, 0, \"_\" )",
@@ -14529,16 +15234,46 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 912401266356968,
+							"children": [
 								{
-									"callFunction": "Go_To_Fight_Level",
-									"sid": 836932469162894,
-									"parameters": [
-										"icon_zombie.Level_ID"
-									]
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 853175573785793,
+											"parameters": {
+												"variable": "Weapon_ID_1",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 959142408069686,
+											"parameters": {
+												"variable": "Weapon_ID_2",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Go_To_Fight_Level",
+											"sid": 864535998009659,
+											"parameters": [
+												"icon_zombie.Level_ID"
+											]
+										}
+									],
+									"sid": 546369077121662,
+									"isOrBlock": true
 								}
-							],
-							"sid": 912401266356968
+							]
 						},
 						{
 							"eventType": "block",
@@ -14567,7 +15302,7 @@
 							"actions": [
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 920286563060090,
+									"sid": 734435811171473,
 									"parameters": [
 										"Internationalization.Lookup(\"tutorial.error.no_armor_fight\")",
 										"3"
@@ -14576,7 +15311,7 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 876656783635783,
+									"sid": 364121169686045,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"error\""
@@ -14584,6 +15319,51 @@
 								}
 							],
 							"sid": 342116209427840
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 398592397768088,
+									"parameters": {
+										"variable": "Weapon_ID_1",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 700749368399176,
+									"parameters": {
+										"variable": "Weapon_ID_2",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Pop_up_Tutorial",
+									"sid": 212466096918136,
+									"parameters": [
+										"Internationalization.Lookup(\"tutorial.error.no_weapon_fight\")",
+										"3"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 860659168284403,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"value": "\"error\""
+									}
+								}
+							],
+							"sid": 399996930806072
 						}
 					]
 				},
@@ -14625,6 +15405,33 @@
 							}
 						},
 						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 154012486628431,
+							"parameters": {
+								"key": "\"prod_Steam_quant\"",
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 650747343951741,
+							"parameters": {
+								"key": "\"prod_Wood_quant\"",
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 551741736109283,
+							"parameters": {
+								"key": "\"prod_Copper_quant\"",
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
 							"sid": 613191101940894,
@@ -14645,6 +15452,190 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "comment",
+					"text": "TUTORIAL TRIGGER ! ! ! ! !",
+					"text-color": [
+						0,
+						0,
+						0,
+						0
+					],
+					"background-color": [
+						1,
+						0.4,
+						0.4,
+						1
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "Frg_Fade",
+							"sid": 229444465983279
+						}
+					],
+					"actions": [],
+					"sid": 337981099064207,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 419770840742905,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"welcome\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 550907505956112,
+									"parameters": {
+										"variable": "Tutorial",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Pop_up_Tutorial",
+									"sid": 883587054249446,
+									"parameters": [
+										"\"\"",
+										"0"
+									]
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 890175268172640,
+									"parameters": {
+										"layer": "\"Tutorial\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 197380518071160,
+									"parameters": {
+										"seconds": "0.65",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "typewriter-text",
+									"objectClass": "Text_Tutorial",
+									"sid": 990416518397657,
+									"parameters": {
+										"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
+										"duration": "3"
+									}
+								}
+							],
+							"sid": 822725493820367
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 441378275522030,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 0,
+										"value": "1"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 362695739780159,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Save_File",
+									"sid": 359947003549886,
+									"parameters": {
+										"key": "\"LVL\"",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Pop_up_Tutorial",
+									"sid": 198975071933864,
+									"parameters": [
+										"\"\"",
+										"0"
+									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 473527088668253,
+									"parameters": {
+										"variable": "Tutorial",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 752029041337329,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"value": "\"end_demo\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 848800947011259,
+									"parameters": {
+										"layer": "\"Tutorial\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 504778729127263,
+									"parameters": {
+										"seconds": "0.65",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "typewriter-text",
+									"objectClass": "Text_Tutorial",
+									"sid": 567965135667715,
+									"parameters": {
+										"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
+										"duration": "3"
+									}
+								}
+							],
+							"sid": 155823297580506
+						}
+					]
+				},
 				{
 					"functionName": "Pop_up_Tutorial",
 					"functionDescription": "",
@@ -14726,6 +15717,14 @@
 										"loop": "no",
 										"ping-pong": "no",
 										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 338710675989501,
+									"parameters": {
+										"tag": "\"dialogue\""
 									}
 								}
 							],
@@ -14923,83 +15922,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-destroyed",
-							"objectClass": "Frg_Fade",
-							"sid": 762078419256612
-						}
-					],
-					"actions": [],
-					"sid": 386089277834141,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 969203254557818,
-									"parameters": {
-										"variable": "Tutorial_Name",
-										"comparison": 0,
-										"value": "\"welcome\""
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 713516274700467,
-									"parameters": {
-										"variable": "Tutorial",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "Pop_up_Tutorial",
-									"sid": 852184502797621,
-									"parameters": [
-										"\"\"",
-										"0"
-									]
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 790580449602773,
-									"parameters": {
-										"layer": "\"Tutorial\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 733153678687608,
-									"parameters": {
-										"seconds": "0.65",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "typewriter-text",
-									"objectClass": "Text_Tutorial",
-									"sid": 764176129821011,
-									"parameters": {
-										"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
-										"duration": "3"
-									}
-								}
-							],
-							"sid": 312683729433003
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-any-click",
 							"objectClass": "Mouse",
 							"sid": 963516930995920
@@ -15027,6 +15949,14 @@
 									"id": "typewriter-finish",
 									"objectClass": "Text_Tutorial",
 									"sid": 455877982106887
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 915985091604749,
+									"parameters": {
+										"tag": "\"dialogue\""
+									}
 								}
 							],
 							"sid": 790646415037808
@@ -16092,7 +17022,183 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 961536930826524,
+											"sid": 601385049839817,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"comparison": 0,
+												"value": "\"end_demo\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 431681699549507,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Se for o final do tutorial, fecha o diálogo"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 867719225670692,
+													"parameters": {
+														"variable": "Tutorial",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Pop_up_Tutorial",
+													"sid": 610768585933357,
+													"parameters": [
+														"\"\"",
+														"0"
+													]
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 715211201694686,
+													"parameters": {
+														"variable": "Tutorial_Name",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 321340450238101,
+													"parameters": {
+														"variable": "Tutorial",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 313657559452228,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "comment",
+											"text": "Se não for um momento de escolha ou fim do tutorial, continua o texto"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 301346586097485,
+													"parameters": {
+														"variable": "Tutorial",
+														"comparison": 1,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "start-timer",
+													"objectClass": "Text_Tutorial",
+													"sid": 366256354562836,
+													"behaviorType": "Timer",
+													"parameters": {
+														"duration": "1.0",
+														"type": "once",
+														"tag": "\"prevent_skip\""
+													}
+												},
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 442359208494230,
+													"parameters": {
+														"variable": "Tutorial",
+														"value": "1"
+													}
+												},
+												{
+													"id": "typewriter-text",
+													"objectClass": "Text_Tutorial",
+													"sid": 260944372394042,
+													"parameters": {
+														"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
+														"duration": "3"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "t_personagem",
+													"sid": 542212404990699,
+													"parameters": {
+														"frame-number": "0"
+													}
+												}
+											],
+											"sid": 693191049842646,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 392707254169781,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "1"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 305355471676120,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "3"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation-frame",
+															"objectClass": "t_personagem",
+															"sid": 471934890069572,
+															"parameters": {
+																"frame-number": "1"
+															}
+														}
+													],
+													"sid": 694233598451499,
+													"isOrBlock": true
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 439931338041780,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"comparison": 0,
+												"value": "\"unlock_next\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 377223446521186,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"comparison": 0,
@@ -16128,7 +17234,8 @@
 											}
 										}
 									],
-									"sid": 964795501037288
+									"sid": 964795501037288,
+									"isOrBlock": true
 								}
 							]
 						}
@@ -16304,6 +17411,52 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-running-typewriter-text",
+							"objectClass": "Text_Tutorial",
+							"sid": 233912477352255
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Text_Tutorial",
+							"sid": 434549418805858
+						}
+					],
+					"actions": [],
+					"sid": 969360143909406,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 515499802957452,
+									"parameters": {
+										"tag": "\"dialogue\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Play_Audio",
+									"sid": 818057234583266,
+									"parameters": [
+										true,
+										false,
+										false,
+										false
+									]
+								}
+							],
+							"sid": 573640182769511
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-typewriter-text-finished",
 							"objectClass": "Text_Tutorial",
 							"sid": 546293314571704
@@ -16320,12 +17473,867 @@
 								"type": "once",
 								"tag": "\"prevent_skip\""
 							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 784414233284116,
+							"parameters": {
+								"tag": "\"dialogue\""
+							}
 						}
 					],
 					"sid": 918597012908924
 				}
 			],
 			"sid": 210896493568745
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Load",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 269836108703873
+						}
+					],
+					"actions": [],
+					"sid": 971932301531214,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "É a primeira vez?"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 826947326100876,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"welcome\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 901060570815865,
+									"parameters": {
+										"tag": "\"prod_data\"",
+										"file": "Prod_Data.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 675885502014099,
+									"parameters": {
+										"tag": "\"temp_prod_data\"",
+										"file": "Temp_Prod_Data.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 700743356229294,
+									"parameters": {
+										"tag": "\"save_file\"",
+										"file": "Save_File.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 929031838873102,
+									"parameters": {
+										"tag": "\"weapon_data\"",
+										"file": "weapons.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 790811282458493,
+									"parameters": {
+										"tag": "\"habilities_data\"",
+										"file": "habilities.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 356600215132231,
+									"parameters": {
+										"tag": "\"armour_data\"",
+										"file": "armor.json"
+									}
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 275951379641544,
+									"parameters": [
+										"\"Weapons\""
+									]
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 645878483655685,
+									"parameters": [
+										"\"Armor\""
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 768073074017636,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 624870614673201,
+									"parameters": [
+										"\"Weapons\""
+									]
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 936641488131575,
+									"parameters": [
+										"\"Armor\""
+									]
+								}
+							],
+							"sid": 615556493925646
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 554211529064090,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 1,
+										"value": "\"welcome\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 615860340227453,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Steam"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 908132593419974,
+											"parameters": {
+												"instance-variable": "prod_quant",
+												"value": "A_Prod_Data.At(1,1,0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 722382296494576,
+											"parameters": {
+												"instance-variable": "prod_cap",
+												"value": "A_Prod_Data.At(2,1,0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 412956840721448,
+											"parameters": {
+												"instance-variable": "prod_time",
+												"value": "A_Prod_Data.At(3,1,0)"
+											}
+										}
+									],
+									"sid": 671927704283725
+								},
+								{
+									"eventType": "comment",
+									"text": "Others"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 934014041636753,
+											"parameters": {
+												"object": "Production"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 997418323795062,
+											"parameters": {
+												"instance-variable": "prod_quant",
+												"value": "A_Prod_Data.At(1,1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 680436700716219,
+											"parameters": {
+												"instance-variable": "prod_cap",
+												"value": "A_Prod_Data.At(2,1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 712473222953401,
+											"parameters": {
+												"instance-variable": "prod_time",
+												"value": "A_Prod_Data.At(3,1,Production.Array_ID)"
+											}
+										}
+									],
+									"sid": 366009718135203,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 380848411968874,
+													"parameters": {
+														"x": "0",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production",
+													"sid": 838861056535365,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 745648491190463
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 824021119646535,
+							"parameters": {
+								"tag": "\"prod_data\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "A_Prod_Data",
+							"sid": 781308244431904,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 846754991345896
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 821894288171905,
+							"parameters": {
+								"tag": "\"temp_prod_data\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 782993684996352,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 514669137325583
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 429747897823933,
+							"parameters": {
+								"tag": "\"save_file\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Dict_Save_File",
+							"sid": 759765718936858,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 106447070438672
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 438823384462821,
+							"parameters": {
+								"tag": "\"weapon_data\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "A_Weapons",
+							"sid": 123152762515522,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 782663126942988
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 255504477791187,
+							"parameters": {
+								"tag": "\"habilities_data\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "A_Habilities",
+							"sid": 265344253662120,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 229189962508476
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 366340634776293,
+							"parameters": {
+								"tag": "\"armour_data\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "A_Armor",
+							"sid": 308208082394534,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 380451718260023
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 650791794057901,
+							"parameters": {
+								"tag": "\"en-US\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 213749533688418,
+							"parameters": {
+								"variable": "Language",
+								"comparison": 0,
+								"value": "\"en-US\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load-from-json",
+							"objectClass": "Internationalization",
+							"sid": 761862116784441,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-locale",
+							"objectClass": "Internationalization",
+							"sid": 650770067782786,
+							"parameters": {
+								"locale": "Language"
+							}
+						}
+					],
+					"sid": 289634029343314
+				},
+				{
+					"functionName": "Dictionary_to_Array",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 253499398937307,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "0",
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 276037569443393,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "1",
+								"value": "Dict_Temp_Prod_Data.Get(\"Wood\")"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 868880319334206,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "2",
+								"value": "Dict_Temp_Prod_Data.Get(\"Copper\")"
+							}
+						}
+					],
+					"sid": 470741161082892
+				}
+			],
+			"sid": 908048861978816
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Music and Sound",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Play_Audio",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Tutorial_sfx",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 243670574654878
+						},
+						{
+							"name": "Confirm",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 527612982344949
+						},
+						{
+							"name": "Locked",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 591671868366496
+						},
+						{
+							"name": "Rotate",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 986589418274104
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 119726769479256,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "rng_sound",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 897276762566910
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 467821523433819,
+									"parameters": {
+										"variable": "Tutorial_sfx"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 141491035029030,
+									"parameters": {
+										"variable": "rng_sound",
+										"value": "choose ( 1,2,3,4,5)"
+									}
+								}
+							],
+							"sid": 169230032526743,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 177363340304841,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 864953615570589,
+											"parameters": {
+												"audio-file": "TypeWriter_Mutiple_v1_wav",
+												"loop": "not-looping",
+												"volume": "-40 + (VOLUME * 0.4)",
+												"stereo-pan": "0",
+												"tag-optional": "\"dialogue\""
+											}
+										}
+									],
+									"sid": 920900881395869
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 549871015112247,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 865465125330731,
+											"parameters": {
+												"audio-file": "TypeWriter_Mutiple_v2_wav",
+												"loop": "not-looping",
+												"volume": "-40 + (VOLUME * 0.4)",
+												"stereo-pan": "0",
+												"tag-optional": "\"dialogue\""
+											}
+										}
+									],
+									"sid": 160828132778035
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 361529523038358,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 234447160741729,
+											"parameters": {
+												"audio-file": "TypeWriter_Mutiple_v3_wav",
+												"loop": "not-looping",
+												"volume": "-40 + (VOLUME * 0.4)",
+												"stereo-pan": "0",
+												"tag-optional": "\"dialogue\""
+											}
+										}
+									],
+									"sid": 421776872991002
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 598129505797672,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 809519397284282,
+											"parameters": {
+												"audio-file": "TypeWriter_Mutiple_v4_wav",
+												"loop": "not-looping",
+												"volume": "-40 + (VOLUME * 0.4)",
+												"stereo-pan": "0",
+												"tag-optional": "\"dialogue\""
+											}
+										}
+									],
+									"sid": 258889340814784
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 322804916729317,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 846671792356660,
+											"parameters": {
+												"audio-file": "TypeWriter_Mutiple_v5_wav",
+												"loop": "not-looping",
+												"volume": "-40 + (VOLUME * 0.4)",
+												"stereo-pan": "0",
+												"tag-optional": "\"dialogue\""
+											}
+										}
+									],
+									"sid": 838707786980954
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 883963861896081,
+									"parameters": {
+										"variable": "Confirm"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 788235994849399,
+									"parameters": {
+										"audio-file": "Confirm_by_Ana_Caldeira",
+										"loop": "not-looping",
+										"volume": "-30 + ( VOLUME * 0.3 )",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 974441521457011
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 454797786994036,
+									"parameters": {
+										"variable": "Locked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 223225989830472,
+									"parameters": {
+										"audio-file": "free_locked",
+										"loop": "not-looping",
+										"volume": "-12",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 628280697865586
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 807891418399251,
+									"parameters": {
+										"variable": "Rotate"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 319435606267847,
+									"parameters": {
+										"audio-file": "rotating_metal_cog",
+										"loop": "not-looping",
+										"volume": "-20 + ( VOLUME * 0.2 )",
+										"stereo-pan": "0",
+										"tag-optional": "\"rotate\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 930033954028339,
+									"parameters": {
+										"seconds": "0.2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 572832250360490,
+									"parameters": {
+										"tag": "\"rotate\""
+									}
+								}
+							],
+							"sid": 226121548605067
+						}
+					]
+				}
+			],
+			"sid": 648895342167898
 		}
 	],
 	"sid": 739369905008436

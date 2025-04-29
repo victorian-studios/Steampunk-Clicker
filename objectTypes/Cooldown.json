@@ -1,39 +1,41 @@
 {
-	"name": "configuracoes",
+	"name": "Cooldown",
 	"plugin-id": "Sprite",
-	"sid": 111785530228058,
+	"sid": 246371321157601,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
-	"behaviorTypes": [
+	"instanceVariables": [
 		{
-			"behaviorId": "Tween",
-			"name": "Tween",
-			"sid": 894977454870944
+			"name": "CD_Time",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 672799903394094
 		}
 	],
+	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 736,
-						"height": 466,
+						"width": 250,
+						"height": 250,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 5168334,
+						"imageSpriteId": 5293931,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 741911661014111,
-				"name": "Default",
+				"sid": 877962838881625,
+				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

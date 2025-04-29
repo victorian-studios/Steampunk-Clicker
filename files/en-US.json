@@ -8,13 +8,19 @@
 
 		},
 
+        "options": {
+            "title": "OPTIONS",
+            "music": "SOUND"
+        },
+
         "game": {
             "prod": {},
             "upg": {
-                "unlock": "Unlock the {0} production.",
-                "prodcapup": "Raises the production capacity by {0}",
-                "prodspeedup": "Reduce the production time by {0}",
+                "unlock": "\nUnlock the {0} production!",
+                "prodcapup": "\nRaises the production capacity by {0}.",
+                "prodspeedup": "\nReduce the production time by {0} seconds.",
                 "Steam": {
+                    "unlock_next": "Hey Rose, you've produced sufficient Steam to buy the [b]Wood[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
                     "1": "[b]Coal[/b]",
                     "2.1": "[b]Coal Sacks[/b]",
                     "2.2": "[b]Repair Plumbing[/b]",
@@ -25,6 +31,7 @@
                     "": "[b][/b]"
                 },
                 "Wood": {
+                    "unlock_next": "Hey Rose, you've produced sufficient Wood to buy the [b]Copper[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
                     "1": "[b]Produce Wood[/b]",
                     "2.1": "[b]Old Saw[/b]",
                     "2.2": "[b]Rope[/b]",
@@ -35,6 +42,7 @@
                     "": "[b][/b]"
                 },
                 "Copper": {
+                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Iron[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
                     "1": "[b]Produce Copper[/b]",
                     "2.1": "[b]Extra Coal[/b]",
                     "2.2": "[b]Reinforced Boxes[/b]",
@@ -45,7 +53,13 @@
                     "": "[b][/b]"
                 }
             },
-            "work": {},
+            "work": {
+                "unlock": "UNLOCK",
+                "upgrade": "UPGRADE",
+                "label": {
+                    "damage": ""
+                }
+            },
             "map": {}
         },
 
@@ -55,10 +69,11 @@
 
         "tutorial": {
             "error": {
-                "no_armor_fight": "Calm down, you don't have any armor equipped yet in the workshop. If you don't have any armor, produce some materials to create the level 1 [b]Wood Armor[/b], then you can fight!"
+                "no_armor_fight": "Calm down, you don't have any armor equipped yet in the workshop. If you don't have any armor, produce some materials to create the level 1 [b]Wood Armor[/b], then you can fight!",
+                "no_weapon_fight": "Hey Rose, be carefull! You don't have any weapon equipped yet. Got to the workshop to see the options, pay their price and then equip it there. I'd recommend the [b]Club[/b] as a cheap first weapon for your first try!"
             },
             "welcome": {
-                "1": "Oh you finally arrived the factory. Welcome my daughter!",
+                "1": "Oh Rose, finally arrived the factory. Welcome my daughter!",
                 "2": "I know, you're a grown woman now, but there's a lot of time that you don't came here. Would you like a quick reminder of how things work around this place?\nPress [b](Y)[/b] Yes / [b](N)[/b] No",
                 "3": "Yeah I presumed that, I knew your time creating contraptions in my old factory would come in hand soon or later.",
                 "4": "Well, in any case, I will keep contat with you from time to time. Take care!",
@@ -77,9 +92,9 @@
                 "16" : "Okay, now that's my favorite part: [b]The Workshop[/b]!",
                 "17" : "In this place you can start using your materials for your main objective: making your armor and weapons.",
                 "18" : "I'm not gonna lie to you, this monsters out there are pretty dangerous and also seam to be much stronger than we think. So you can't leave this place without finishing your armor completely.",
-                "19" : "In the left part you have the weapons and abilities tabs. At the momment they're all locked by default. But it's just a matter of time until you have them all available to you.",
+                "19" : "In the left part you have the [b]Weapons and Skills[/b] tabs. At the momment they're all locked by default. But it's just a matter of time until you have them all available to you.",
                 "20" : "Each one have different uses and sometimes even an special effect for upgraded versions. Take your time to dedice wich one works better for every enemy. To equip is just drag and drop it in the available slot.",
-                "21" : "Now the part you're waiting for: the armor tab in the right.",
+                "21" : "Now the part you're waiting for: the [b]Armor[/b] tab in the right.",
                 "22" : "As I said, you need to equip any type of armor to go out and fight the monstrers outside. I suggest start by a wood version since it's simple, fast to make but not so effective.",
                 "23" : "Just like the weapons/abilities, you can also upgrade your armor for better stats and performance in the battle. And can also come with special bonus if you upgrade enought.",
                 "24" : "To equip the armor, is just like the others, drag and drop it but in the slot in the middle.",
@@ -108,6 +123,13 @@
                 "11": "The energy remaining wont last forever, since it will absorb most of the damage received from the enemies during the fight. Unless the enemy has some penetrating attack that ignore the energy from the armor.",
                 "12": "Remember: if you loosing, it's better to retreat and come back to factory for further upgrades. Don't give up so easy, try different builds and combinations. Every enemy has it's weakness!",
                 "13": "That's all for now, good luck!"
+            },
+            "end_demo": {
+                "1": "Hello again Rose. So you've made it right? Fantastic! Look at you, I barely couldn't recognize the little girl I once had...",
+                "2": "Oh okay okay, sorry, lets be serious now. Well done, you've defeated the first threat in your path. But as you can imagine, there's many other enemies in the way.",
+                "3": "Don't worry, things like that take time to resolve. You're in the right path, now you've learned most things needed to progress further and further.",
+                "4": "But unfortunantly that's the [b]end of the demo![/b] Fell free to continue by retrying this last battle, producing materials and buy the rest of the remaining upgrades!",
+                "5": "Stay tunned for updates in our discord! (Including this demo verion)"
             }
         }
     }
