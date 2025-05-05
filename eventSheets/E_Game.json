@@ -1398,6 +1398,58 @@
 						}
 					],
 					"sid": 684476147149760
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 699077175582229,
+							"parameters": {
+								"layer": "\"Work Info\""
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Btn_screens",
+							"sid": 877933648762560,
+							"parameters": {
+								"animation": "\"Workshop\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 522272723194106,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 173104170569767,
+							"parameters": {
+								"layer": "\"Work Info\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-interactive",
+							"objectClass": "System",
+							"sid": 230640745226472,
+							"parameters": {
+								"layer": "\"Workshop\"",
+								"interactive": true
+							}
+						}
+					],
+					"sid": 117611103847525
 				}
 			]
 		},
@@ -7171,6 +7223,16 @@
 							]
 						},
 						{
+							"eventType": "variable",
+							"name": "percentual",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 392573253085356
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -7201,17 +7263,26 @@
 										{
 											"id": "set-y",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 954306575034247,
+											"sid": 763684855864864,
 											"parameters": {
-												"y": "Self.Y + 20"
+												"y": "clamp(Self.Y+20, Contorno_fake.ImagePointY(2) - Self.Height, Contorno_fake.ImagePointY(1) )"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 893535116095979,
+											"parameters": {
+												"variable": "percentual",
+												"value": "(Bkg_Tab_List.Y - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List.Height ) ) / (Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List.Height) )"
 											}
 										},
 										{
 											"id": "set-y",
 											"objectClass": "Scroll_1",
-											"sid": 157881600079819,
+											"sid": 774341231729583,
 											"parameters": {
-												"y": "Bkg_Tab_List.Y + 256"
+												"y": "370 - percentual * ( 370 - 206 )"
 											}
 										}
 									],
@@ -7233,17 +7304,26 @@
 										{
 											"id": "set-y",
 											"objectClass": "Bkg_Tab_List2",
-											"sid": 123622774373961,
+											"sid": 823152741257788,
 											"parameters": {
-												"y": "Self.Y + 20"
+												"y": "clamp(Self.Y+20, Contorno_fake.ImagePointY(2) - Self.Height, Contorno_fake.ImagePointY(1) )"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 346280186980542,
+											"parameters": {
+												"variable": "percentual",
+												"value": "(Bkg_Tab_List2.Y - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List2.Height ) ) / (Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List2.Height) )"
 											}
 										},
 										{
 											"id": "set-y",
 											"objectClass": "Scroll_2",
-											"sid": 293833975254026,
+											"sid": 820164841904083,
 											"parameters": {
-												"y": "Bkg_Tab_List2.Y + 256"
+												"y": "370 - percentual * ( 370 - 206 )"
 											}
 										}
 									],
@@ -7272,7 +7352,7 @@
 										{
 											"id": "cursor-is-over-object",
 											"objectClass": "Mouse",
-											"sid": 691605618179722,
+											"sid": 131910491809390,
 											"parameters": {
 												"object": "Bkg_Tab_List"
 											}
@@ -7282,21 +7362,30 @@
 										{
 											"id": "set-y",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 514951252894917,
+											"sid": 533284158547428,
 											"parameters": {
-												"y": "Self.Y - 20"
+												"y": "clamp(Self.Y-20, Contorno_fake.ImagePointY(2) - Self.Height, Contorno_fake.ImagePointY(1) )"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 293410362566180,
+											"parameters": {
+												"variable": "percentual",
+												"value": "(Bkg_Tab_List.Y - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List.Height ) ) / (Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List.Height) )"
 											}
 										},
 										{
 											"id": "set-y",
 											"objectClass": "Scroll_1",
-											"sid": 448403616257175,
+											"sid": 795486414361367,
 											"parameters": {
-												"y": "Bkg_Tab_List.Y + 256"
+												"y": "370 - percentual * ( 370 - 206 )"
 											}
 										}
 									],
-									"sid": 996292045481951
+									"sid": 936330153325333
 								},
 								{
 									"eventType": "block",
@@ -7304,7 +7393,7 @@
 										{
 											"id": "cursor-is-over-object",
 											"objectClass": "Mouse",
-											"sid": 188800303419976,
+											"sid": 843016802089748,
 											"parameters": {
 												"object": "Bkg_Tab_List2"
 											}
@@ -7314,21 +7403,30 @@
 										{
 											"id": "set-y",
 											"objectClass": "Bkg_Tab_List2",
-											"sid": 916819081778630,
+											"sid": 995396914239238,
 											"parameters": {
-												"y": "Self.Y - 20"
+												"y": "clamp(Self.Y-20, Contorno_fake.ImagePointY(2) - Self.Height, Contorno_fake.ImagePointY(1) )"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 457904700886045,
+											"parameters": {
+												"variable": "percentual",
+												"value": "(Bkg_Tab_List2.Y - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List2.Height ) ) / (Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List2.Height) )"
 											}
 										},
 										{
 											"id": "set-y",
 											"objectClass": "Scroll_2",
-											"sid": 738100837628580,
+											"sid": 954069698603247,
 											"parameters": {
-												"y": "Bkg_Tab_List2.Y + 256"
+												"y": "370 - percentual * ( 370 - 206 )"
 											}
 										}
 									],
-									"sid": 203764989765162
+									"sid": 771255312545540
 								}
 							]
 						},
@@ -7359,12 +7457,14 @@
 									"id": "set-y",
 									"objectClass": "Scroll_1",
 									"sid": 239184148929820,
+									"disabled": true,
 									"parameters": {
 										"y": "Bkg_Tab_List.Y + 256"
 									}
 								}
 							],
-							"sid": 194992322485318
+							"sid": 194992322485318,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7393,12 +7493,14 @@
 									"id": "set-y",
 									"objectClass": "Scroll_1",
 									"sid": 870118282221976,
+									"disabled": true,
 									"parameters": {
 										"y": "Bkg_Tab_List.Y + 256"
 									}
 								}
 							],
-							"sid": 450109437524810
+							"sid": 450109437524810,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7427,12 +7529,14 @@
 									"id": "set-y",
 									"objectClass": "Scroll_2",
 									"sid": 524136650861125,
+									"disabled": true,
 									"parameters": {
 										"y": "Bkg_Tab_List2.Y + 256"
 									}
 								}
 							],
-							"sid": 111117332037699
+							"sid": 111117332037699,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7461,12 +7565,14 @@
 									"id": "set-y",
 									"objectClass": "Scroll_2",
 									"sid": 428674638663164,
+									"disabled": true,
 									"parameters": {
 										"y": "Bkg_Tab_List2.Y + 256"
 									}
 								}
 							],
-							"sid": 439951349325377
+							"sid": 439951349325377,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7492,7 +7598,8 @@
 									}
 								}
 							],
-							"sid": 742831427415957
+							"sid": 742831427415957,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7518,7 +7625,8 @@
 									}
 								}
 							],
-							"sid": 830369104515461
+							"sid": 830369104515461,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7544,7 +7652,8 @@
 									}
 								}
 							],
-							"sid": 399708967357642
+							"sid": 399708967357642,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7570,7 +7679,8 @@
 									}
 								}
 							],
-							"sid": 825549503278282
+							"sid": 825549503278282,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -7580,19 +7690,56 @@
 									"objectClass": "Scroll_1",
 									"sid": 393972406935944,
 									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "on-drop",
+									"objectClass": "Scroll_1",
+									"sid": 563081288913285,
+									"behaviorType": "DragDrop"
 								}
 							],
 							"actions": [
 								{
 									"id": "set-y",
 									"objectClass": "Bkg_Tab_List",
-									"sid": 729694491741966,
+									"sid": 686205245809884,
+									"disabled": true,
 									"parameters": {
-										"y": "Scroll_1.Y - 252"
+										"y": "252 - Scroll_1.Y "
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_1",
+									"sid": 897154537019210,
+									"parameters": {
+										"y": "clamp ( Self.Y, 206, 370)"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "percentual = (Posição Atual do Scroll - pos. Y mais em cima) / (pos. Y mais em baixo - pos. Y mais em cima)"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 312657606792304,
+									"parameters": {
+										"variable": "percentual",
+										"value": "(Scroll_1.Y - 206) / (370- 206)"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 842830315316280,
+									"parameters": {
+										"y": "Contorno_fake.ImagePointY(1) - percentual * ( Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - (Bkg_Tab_List.ImagePointY(\"Bottom\") - Bkg_Tab_List.ImagePointY(\"Top\") ) ) )"
 									}
 								}
 							],
-							"sid": 355003367923406
+							"sid": 355003367923406,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -7602,19 +7749,43 @@
 									"objectClass": "Bkg_Tab_List",
 									"sid": 685503478692657,
 									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "on-drop",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 175695411107761,
+									"behaviorType": "DragDrop"
 								}
 							],
 							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 378328850435194,
+									"parameters": {
+										"y": "clamp(Self.Y, Contorno_fake.ImagePointY(2) - Self.Height, Contorno_fake.ImagePointY(1) )"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 659795285350208,
+									"parameters": {
+										"variable": "percentual",
+										"value": "(Bkg_Tab_List.Y - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List.Height ) ) / (Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List.Height) )"
+									}
+								},
 								{
 									"id": "set-y",
 									"objectClass": "Scroll_1",
-									"sid": 238520980168866,
+									"sid": 360846726116175,
 									"parameters": {
-										"y": "Bkg_Tab_List.Y + 252"
+										"y": "370 - percentual * ( 370 - 206 )"
 									}
 								}
 							],
-							"sid": 982556920652082
+							"sid": 982556920652082,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -7622,7 +7793,13 @@
 								{
 									"id": "is-dragging",
 									"objectClass": "Scroll_2",
-									"sid": 398121857609607,
+									"sid": 572128683082179,
+									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "on-drop",
+									"objectClass": "Scroll_2",
+									"sid": 433796290847684,
 									"behaviorType": "DragDrop"
 								}
 							],
@@ -7630,13 +7807,44 @@
 								{
 									"id": "set-y",
 									"objectClass": "Bkg_Tab_List2",
-									"sid": 596604023885240,
+									"sid": 661070636076622,
+									"disabled": true,
 									"parameters": {
-										"y": "Scroll_2.Y - 252"
+										"y": "252 - Scroll_2.Y "
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_2",
+									"sid": 339763387628540,
+									"parameters": {
+										"y": "clamp ( Self.Y, 206, 370)"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "percentual = (Posição Atual do Scroll - pos. Y mais em cima) / (pos. Y mais em baixo - pos. Y mais em cima)"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 705146825703895,
+									"parameters": {
+										"variable": "percentual",
+										"value": "(Scroll_2.Y - 206) / (370- 206)"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Bkg_Tab_List2",
+									"sid": 725909117724266,
+									"parameters": {
+										"y": "Contorno_fake.ImagePointY(1) - percentual * ( Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - (Bkg_Tab_List2.ImagePointY(\"Bottom\") - Bkg_Tab_List2.ImagePointY(\"Top\") ) ) )"
 									}
 								}
 							],
-							"sid": 877465116485250
+							"sid": 230710011873745,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -7644,21 +7852,45 @@
 								{
 									"id": "is-dragging",
 									"objectClass": "Bkg_Tab_List2",
-									"sid": 369038312929678,
+									"sid": 993657018212604,
+									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "on-drop",
+									"objectClass": "Bkg_Tab_List2",
+									"sid": 717992624184016,
 									"behaviorType": "DragDrop"
 								}
 							],
 							"actions": [
 								{
 									"id": "set-y",
-									"objectClass": "Scroll_2",
-									"sid": 310232464573806,
+									"objectClass": "Bkg_Tab_List2",
+									"sid": 993794728189144,
 									"parameters": {
-										"y": "Bkg_Tab_List2.Y + 252"
+										"y": "clamp(Self.Y, Contorno_fake.ImagePointY(2) - Self.Height, Contorno_fake.ImagePointY(1) )"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 920540963826301,
+									"parameters": {
+										"variable": "percentual",
+										"value": "(Bkg_Tab_List2.Y - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List2.Height ) ) / (Contorno_fake.ImagePointY(1) - ( Contorno_fake.ImagePointY(2) - Bkg_Tab_List2.Height) )"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "Scroll_2",
+									"sid": 236775331118508,
+									"parameters": {
+										"y": "370 - percentual * ( 370 - 206 )"
 									}
 								}
 							],
-							"sid": 836977042015285
+							"sid": 926082032748301,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -9622,7 +9854,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Scroll Dialog",
+					"title": "Lists",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -9689,18 +9921,26 @@
 										{
 											"id": "set-height",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 370421045903915,
+											"sid": 713017713793434,
 											"parameters": {
-												"height": "int( max( (A_Weapons.Depth) * 266, Contorno_fake.ImagePointY(\"Bottom_Limit\") - Contorno_fake.ImagePointY(\"Top_Limit\") ) ) - 1"
+												"height": "int( (A_Weapons.Depth) * 266 )"
 											}
 										},
 										{
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 914704265416631,
+											"sid": 356789272236022,
 											"parameters": {
 												"x": "325",
-												"y": "194"
+												"y": "Contorno_fake.ImagePointY(1)"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_1",
+											"sid": 781412895015379,
+											"parameters": {
+												"y": "Contorno_fake.ImagePointY(1) + 11"
 											}
 										}
 									],
@@ -10584,18 +10824,26 @@
 										{
 											"id": "set-height",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 310487452605645,
+											"sid": 908295939213423,
 											"parameters": {
-												"height": "int( max( (A_Habilities.Depth) * 266, Contorno_fake.ImagePointY(\"Bottom_Limit\") - Contorno_fake.ImagePointY(\"Top_Limit\") ) ) - 1"
+												"height": "int( (A_Weapons.Depth) * 266 )"
 											}
 										},
 										{
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List",
-											"sid": 292670322359617,
+											"sid": 337872747378254,
 											"parameters": {
 												"x": "325",
-												"y": "194"
+												"y": "Contorno_fake.ImagePointY(1)"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_1",
+											"sid": 865339745463205,
+											"parameters": {
+												"y": "Contorno_fake.ImagePointY(1) + 11"
 											}
 										}
 									],
@@ -11304,18 +11552,26 @@
 										{
 											"id": "set-height",
 											"objectClass": "Bkg_Tab_List2",
-											"sid": 435014455186239,
+											"sid": 557212859711625,
 											"parameters": {
-												"height": "int( max( (A_Armor.Depth) * 266, Contorno_fake.ImagePointY(\"Bottom_Limit\") - Contorno_fake.ImagePointY(\"Top_Limit\") ) ) - 1"
+												"height": "int( (A_Weapons.Depth) * 266 )"
 											}
 										},
 										{
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List2",
-											"sid": 600907783912228,
+											"sid": 337048237649480,
 											"parameters": {
 												"x": "1535",
-												"y": "194"
+												"y": "Contorno_fake.ImagePointY(1)"
+											}
+										},
+										{
+											"id": "set-y",
+											"objectClass": "Scroll_2",
+											"sid": 244674504550073,
+											"parameters": {
+												"y": "Contorno_fake.ImagePointY(1) + 11"
 											}
 										}
 									],
@@ -12156,22 +12412,6 @@
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
-										{
-											"id": "set-y",
-											"objectClass": "Scroll_1",
-											"sid": 756538200992152,
-											"parameters": {
-												"y": "Bkg_Tab_List.Y + 252"
-											}
-										},
-										{
-											"id": "set-y",
-											"objectClass": "Scroll_2",
-											"sid": 739260207119360,
-											"parameters": {
-												"y": "Bkg_Tab_List2.Y + 252"
-											}
-										},
 										{
 											"callFunction": "PopulateList",
 											"sid": 319781097528730,
@@ -15185,6 +15425,295 @@
 						}
 					],
 					"sid": 645810540906633
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Label Screen",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 769521109452103,
+									"parameters": {
+										"object": "Btn_Info"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 154516577885249,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 163900000113996,
+									"parameters": {
+										"layer": "\"Workshop\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 603479670301422,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 740246083261968,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "383"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 172446408812802,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.name\")"
+											}
+										}
+									],
+									"sid": 968743504274168
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 513178465565247,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "385"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 751965616727508,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.damage\")"
+											}
+										}
+									],
+									"sid": 316163320307838
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 372314095192233,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "386"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 672307715461725,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.p_damage\")"
+											}
+										}
+									],
+									"sid": 970366210931615
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 967143032621466,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "387"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 857126254775265,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.ammo\")"
+											}
+										}
+									],
+									"sid": 705152746726682
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 201765072124747,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "388"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 210357827807296,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.cooldown\")"
+											}
+										}
+									],
+									"sid": 601851641335854
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 755253381628776,
+											"parameters": {
+												"layer": "\"Work Info\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 154361116004795,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 648712640962930,
+											"parameters": {
+												"layer": "\"Work Info\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 836055594207860,
+											"parameters": {
+												"layer": "\"Workshop\"",
+												"interactive": true
+											}
+										}
+									],
+									"sid": 964981046515665
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 509295008408370,
+											"parameters": {
+												"layer": "\"Work Info\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 348298757642699,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 547296981780235,
+											"parameters": {
+												"layer": "\"Work Info\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 939560802018777,
+											"parameters": {
+												"layer": "\"Workshop\"",
+												"interactive": false
+											}
+										},
+										{
+											"id": "move-to-layer",
+											"objectClass": "Bkg_black_Options",
+											"sid": 473259142862998,
+											"parameters": {
+												"layer": "\"Work Info\""
+											}
+										},
+										{
+											"id": "move-to-bottom",
+											"objectClass": "Bkg_black_Options",
+											"sid": 166183187235040
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Bkg_black_Options",
+											"sid": 382622275738999,
+											"parameters": {
+												"x": "970",
+												"y": "540"
+											}
+										}
+									],
+									"sid": 865869638185871
+								}
+							]
+						}
+					],
+					"sid": 407132002670254
 				}
 			],
 			"sid": 607375331398686
