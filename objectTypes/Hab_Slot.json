@@ -13,13 +13,6 @@
 			"sid": 592161286616335
 		},
 		{
-			"name": "Free",
-			"type": "boolean",
-			"desc": "",
-			"show": true,
-			"sid": 377190122848721
-		},
-		{
 			"name": "CD_Max",
 			"type": "number",
 			"desc": "Cooldown que essa habilidade possui",
@@ -27,11 +20,39 @@
 			"sid": 336739183252714
 		},
 		{
+			"name": "Ammo_Max",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 936340847681946
+		},
+		{
+			"name": "Ammo",
+			"type": "number",
+			"desc": "munição restante",
+			"show": true,
+			"sid": 365214536036104
+		},
+		{
+			"name": "Free",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 377190122848721
+		},
+		{
 			"name": "Ready",
 			"type": "boolean",
 			"desc": "pronta pra ser usada em batalha",
 			"show": true,
 			"sid": 303779254101529
+		},
+		{
+			"name": "Reload",
+			"type": "boolean",
+			"desc": "esta carregando?",
+			"show": true,
+			"sid": 834267624830204
 		}
 	],
 	"behaviorTypes": [],

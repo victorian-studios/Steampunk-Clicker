@@ -53,6 +53,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 613194269257100
+		},
+		{
+			"name": "OnFire",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 239764482140226
 		}
 	],
 	"behaviorTypes": [
@@ -72,7 +79,12 @@
 			"sid": 894076393441002
 		}
 	],
-	"effectTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "brightness",
+			"name": "Brightness"
+		}
+	],
 	"animations": {
 		"items": [
 			{

@@ -62,13 +62,22 @@
                     "p_damage": "Penetrating Damage",
                     "ammo": "Ammo",
                     "cooldown": "Cooldown"
+                },
+                "weapons": {
+                
+                },
+                "skills": {
+                
+                },
+                "armors": {
+                
                 }
             },
             "map": {}
         },
 
         "fight": {
-
+            "skip": "Skip your turn."
         },
 
         "tutorial": {
@@ -116,7 +125,8 @@
             "fight": {
                 "1": "Hey, Rose, it's me again!",
                 "2": "I came here as soon as I saw your armor walking in the streets. Just be carefull to not call much attention in the next time.",
-                "3": "Anyway, keep calm and focus on the battle mechanics now.",
+                "3": "Anyway, do you mind me remind you on how to battle?\nPress [b](Y)[/b] Yes / [b](N)[/b] No",
+                "3.1": "Okay okay, I'm not going to bother you anymore. Good luck Rose!",
                 "4": "First, when you enconter an enemy, you can check their health above them. When it reaches [b]zero[/b], they will de finally defeated. Try to finish this as quickly as you can to avoid bringing the armor even more damaged.",
                 "5": "Now you can choose wich ability you would like to use first. Check their information any time by moving your mouse over them.",
                 "6": "Then click to select the chosen one and finally click in your target to execute your move. After that you will finish your turn.",

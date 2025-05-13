@@ -80,6 +80,15 @@
 					],
 					"actions": [
 						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 775797442765665,
+							"parameters": {
+								"group-name": "\"Player Habs\"",
+								"state": "activated"
+							}
+						},
+						{
 							"id": "move-to-layer",
 							"objectClass": "Bkg_black_Options",
 							"sid": 836364424113033,
@@ -161,6 +170,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 282139119912996,
+							"parameters": {
+								"group-name": "\"Player Habs\"",
+								"state": "deactivated"
+							}
+						},
 						{
 							"id": "move-to-layer",
 							"objectClass": "Bkg_black_Options",

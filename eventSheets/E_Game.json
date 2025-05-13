@@ -7964,6 +7964,15 @@
 												"object": "icon_list_weapon_clone"
 											},
 											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 467944311347362,
+											"parameters": {
+												"object": "icon_list_habilities_clone"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
@@ -8051,6 +8060,15 @@
 											"sid": 253938930119790,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 293848809915192,
+											"parameters": {
+												"object": "icon_list_weapon_clone"
 											},
 											"isInverted": true
 										}
@@ -8416,7 +8434,16 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Hab_Slot",
-											"sid": 528713043209337,
+											"sid": 499405867746014,
+											"parameters": {
+												"object": "icon_list_habilities_clone"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 455145051529952,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
 											},
@@ -8427,14 +8454,14 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Hab_Slot",
-											"sid": 392200094281708,
+											"sid": 890958714602141,
 											"parameters": {
 												"instance-variable": "Free",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 822562144021580
+									"sid": 568701194403769
 								}
 							]
 						},
@@ -8695,9 +8722,18 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Hab_Slot",
-											"sid": 511818173507638,
+											"sid": 125960358614392,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 364199116257812,
+											"parameters": {
+												"object": "icon_list_weapon_clone"
 											},
 											"isInverted": true
 										}
@@ -8706,14 +8742,14 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Hab_Slot",
-											"sid": 143239004330377,
+											"sid": 296294580456850,
 											"parameters": {
 												"instance-variable": "Free",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 361831918973768
+									"sid": 269713688129149
 								}
 							]
 						},
@@ -9275,6 +9311,15 @@
 														"object": "icon_list_weapon_clone"
 													},
 													"isInverted": true
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 225786382376873,
+													"parameters": {
+														"object": "icon_list_habilities_clone"
+													},
+													"isInverted": true
 												}
 											],
 											"actions": [
@@ -9433,6 +9478,15 @@
 														"object": "icon_list_habilities_clone"
 													},
 													"isInverted": true
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 348763658075957,
+													"parameters": {
+														"object": "icon_list_weapon_clone"
+													},
+													"isInverted": true
 												}
 											],
 											"actions": [
@@ -9538,12 +9592,12 @@
 										{
 											"id": "pick-by-comparison",
 											"objectClass": "System",
-											"sid": 693008056796240,
+											"sid": 600528929257284,
 											"parameters": {
 												"object": "icon_list_weapon_clone",
 												"expression": "icon_list_weapon_clone.Pin_Obj_ID",
 												"comparison": 0,
-												"value": "1"
+												"value": "2"
 											}
 										}
 									],
@@ -9593,12 +9647,12 @@
 										{
 											"id": "pick-by-comparison",
 											"objectClass": "System",
-											"sid": 142847531137387,
+											"sid": 438387895964400,
 											"parameters": {
 												"object": "icon_list_habilities_clone",
 												"expression": "icon_list_habilities_clone.Pin_Obj_ID",
 												"comparison": 0,
-												"value": "2"
+												"value": "1"
 											}
 										}
 									],
@@ -9606,9 +9660,9 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 687368423548328,
+											"sid": 751533769588117,
 											"parameters": {
-												"variable": "Weapon_ID_2",
+												"variable": "Weapon_ID_1",
 												"value": "\"HAB_\" & icon_list_habilities_clone.AnimationFrame - 1"
 											}
 										}
@@ -11372,9 +11426,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Info",
-																	"sid": 214789723377328,
+																	"sid": 181969053215241,
 																	"parameters": {
-																		"text": "\"Area Attack. [icon=dmg] : \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \"  fire for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\""
+																		"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \"  fire for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\""
 																	}
 																}
 															],
@@ -14103,9 +14157,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Upg_Info",
-															"sid": 650349035090747,
+															"sid": 912312342916402,
 															"parameters": {
-																"text": "\"Area Attack. [icon=dmg] : \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \"  fire for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns\""
+																"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \"  fire for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns\""
 															}
 														}
 													],
@@ -15897,6 +15951,94 @@
 					]
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 681939704773089,
+							"parameters": {
+								"object": "icon_zombie"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 618902514537135,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "icon_zombie",
+									"sid": 906416631862999,
+									"parameters": {
+										"comparison": 1,
+										"number": "0"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 592079454207772
+								}
+							],
+							"actions": [
+								{
+									"id": "set-cycle-position",
+									"objectClass": "icon_zombie",
+									"sid": 513144996638694,
+									"behaviorType": "Sine",
+									"parameters": {
+										"cycle-position": "0"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "icon_zombie",
+									"sid": 728149242147895,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
+								}
+							],
+							"sid": 572173095489883
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 665186403401473
+						}
+					],
+					"actions": [
+						{
+							"id": "set-active",
+							"objectClass": "icon_zombie",
+							"sid": 723213044778916,
+							"behaviorType": "Sine",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "icon_zombie",
+							"sid": 539128758382092,
+							"parameters": {
+								"width": "125",
+								"height": "125"
+							}
+						}
+					],
+					"sid": 689985155124059
+				},
+				{
 					"functionName": "Go_To_Fight_Level",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -15915,6 +16057,10 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"callFunction": "Save_Local_Storage",
+							"sid": 328805249534133
+						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
@@ -16470,39 +16616,13 @@
 								{
 									"id": "is-running-typewriter-text",
 									"objectClass": "Text_Tutorial",
-									"sid": 690448352524442
-								}
-							],
-							"actions": [
-								{
-									"id": "typewriter-finish",
-									"objectClass": "Text_Tutorial",
-									"sid": 455877982106887
-								},
-								{
-									"id": "stop",
-									"objectClass": "Audio",
-									"sid": 915985091604749,
-									"parameters": {
-										"tag": "\"dialogue\""
-									}
-								}
-							],
-							"sid": 790646415037808
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-running-typewriter-text",
-									"objectClass": "Text_Tutorial",
-									"sid": 357746019811700,
+									"sid": 422562643031243,
 									"isInverted": true
 								},
 								{
 									"id": "is-timer-running",
 									"objectClass": "Text_Tutorial",
-									"sid": 704939495262811,
+									"sid": 741754760575460,
 									"behaviorType": "Timer",
 									"parameters": {
 										"tag": "\"prevent_skip\""
@@ -16510,8 +16630,18 @@
 									"isInverted": true
 								}
 							],
-							"actions": [],
-							"sid": 455090023744778,
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 638991013517265,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								}
+							],
+							"sid": 256195876132574,
 							"children": [
 								{
 									"eventType": "block",
@@ -16519,7 +16649,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 619569164596888,
+											"sid": 195251244816447,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"comparison": 0,
@@ -16528,7 +16658,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 895051086893201,
+									"sid": 995416568483202,
 									"children": [
 										{
 											"eventType": "comment",
@@ -16540,7 +16670,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 223766871267025,
+													"sid": 754294280442179,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 0,
@@ -16550,7 +16680,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 580759985379450,
+													"sid": 556429777056562,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 0,
@@ -16561,7 +16691,7 @@
 											"actions": [
 												{
 													"callFunction": "Pop_up_Tutorial",
-													"sid": 529477248348386,
+													"sid": 774728522340519,
 													"parameters": [
 														"\"\"",
 														"0"
@@ -16570,7 +16700,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 831507288315045,
+													"sid": 481866455376304,
 													"parameters": {
 														"variable": "Tutorial_Name",
 														"value": "\"\""
@@ -16579,14 +16709,27 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 404327255739330,
+													"sid": 468983056583652,
 													"parameters": {
 														"variable": "Tutorial",
 														"value": "0"
 													}
+												},
+												{
+													"id": "set-key",
+													"objectClass": "Dict_Save_File",
+													"sid": 328258874836942,
+													"parameters": {
+														"key": "\"TUT\"",
+														"value": "\"\""
+													}
+												},
+												{
+													"callFunction": "Save_Local_Storage",
+													"sid": 236793301399481
 												}
 											],
-											"sid": 503888335583291,
+											"sid": 516713703169097,
 											"isOrBlock": true
 										},
 										{
@@ -16599,7 +16742,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 918066797396980,
+													"sid": 835180856978921,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 1,
@@ -16609,7 +16752,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 812725404021356,
+													"sid": 951669968540322,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 1,
@@ -16619,7 +16762,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 361740483151456,
+													"sid": 818721392522096,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 1,
@@ -16629,7 +16772,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 690912574909944,
+													"sid": 999162665392900,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 1,
@@ -16639,7 +16782,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 460786633655089,
+													"sid": 398760037058845,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 1,
@@ -16651,7 +16794,7 @@
 												{
 													"id": "start-timer",
 													"objectClass": "Text_Tutorial",
-													"sid": 561321236979693,
+													"sid": 700400389808389,
 													"behaviorType": "Timer",
 													"parameters": {
 														"duration": "1.0",
@@ -16662,7 +16805,7 @@
 												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
-													"sid": 287670170309293,
+													"sid": 142745173973833,
 													"parameters": {
 														"variable": "Tutorial",
 														"value": "1"
@@ -16671,7 +16814,7 @@
 												{
 													"id": "typewriter-text",
 													"objectClass": "Text_Tutorial",
-													"sid": 653153869168629,
+													"sid": 646335486011411,
 													"parameters": {
 														"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
 														"duration": "3"
@@ -16680,13 +16823,13 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "t_personagem",
-													"sid": 304017478090086,
+													"sid": 374906692516433,
 													"parameters": {
 														"frame-number": "0"
 													}
 												}
 											],
-											"sid": 332130516940873,
+											"sid": 412048864049352,
 											"children": [
 												{
 													"eventType": "block",
@@ -16694,7 +16837,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 826962984816094,
+															"sid": 911464803433934,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -16706,13 +16849,13 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "t_personagem",
-															"sid": 276562718445594,
+															"sid": 551299427463278,
 															"parameters": {
 																"frame-number": "1"
 															}
 														}
 													],
-													"sid": 916218118942790
+													"sid": 448030740081828
 												},
 												{
 													"eventType": "block",
@@ -16720,7 +16863,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 735952802357599,
+															"sid": 931454031752039,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -16732,7 +16875,7 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "t_personagem",
-															"sid": 436939951495031,
+															"sid": 671988111597934,
 															"parameters": {
 																"frame-number": "1"
 															}
@@ -16740,7 +16883,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 792916550530639,
+															"sid": 189693939133829,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
@@ -16751,7 +16894,7 @@
 															}
 														}
 													],
-													"sid": 917391024350670
+													"sid": 743680242714463
 												},
 												{
 													"eventType": "block",
@@ -16759,7 +16902,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 584677607190539,
+															"sid": 549044193834525,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -16771,12 +16914,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 806836033695233
+															"sid": 991290324535354
 														},
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 643562977977195,
+															"sid": 817001091307586,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
@@ -16789,7 +16932,7 @@
 														{
 															"id": "set-angle",
 															"objectClass": "Icon_Seta",
-															"sid": 388381128178173,
+															"sid": 500640190933491,
 															"parameters": {
 																"angle": "270"
 															}
@@ -16797,14 +16940,14 @@
 														{
 															"id": "set-movement",
 															"objectClass": "Icon_Seta",
-															"sid": 195760958052730,
+															"sid": 447473284320250,
 															"behaviorType": "Sine",
 															"parameters": {
 																"movement": "vertical"
 															}
 														}
 													],
-													"sid": 220755424566611
+													"sid": 660050668007568
 												},
 												{
 													"eventType": "block",
@@ -16812,7 +16955,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 483313180597334,
+															"sid": 766282807939850,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -16824,7 +16967,7 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 188464188761526,
+															"sid": 459999780995977,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
@@ -16835,7 +16978,7 @@
 															}
 														}
 													],
-													"sid": 377359026814855
+													"sid": 738767644500050
 												},
 												{
 													"eventType": "block",
@@ -16843,7 +16986,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 869181850002789,
+															"sid": 446608708578279,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -16855,12 +16998,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 315197428569884
+															"sid": 232536080399054
 														},
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 607188449227312,
+															"sid": 694268257843281,
 															"parameters": {
 																"layer": "\"Production\"",
 																"visibility": "invisible"
@@ -16869,7 +17012,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 660940677010102,
+															"sid": 634966146284691,
 															"parameters": {
 																"layer": "\"Production\"",
 																"interactive": false
@@ -16878,7 +17021,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 507858770541136,
+															"sid": 839957934075080,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"visibility": "invisible"
@@ -16887,7 +17030,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 353383178739870,
+															"sid": 768311681727447,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"interactive": false
@@ -16896,7 +17039,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 636025008609536,
+															"sid": 647306148017569,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"visibility": "visible"
@@ -16905,7 +17048,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 955014982606020,
+															"sid": 972570114088909,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"interactive": true
@@ -16914,7 +17057,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 795040013051788,
+															"sid": 821747052763274,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"visibility": "invisible"
@@ -16923,7 +17066,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 863070516276637,
+															"sid": 820543007216234,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"interactive": false
@@ -16932,27 +17075,27 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "t_personagem",
-															"sid": 988271407753469,
+															"sid": 508207514156495,
 															"parameters": {
 																"frame-number": "1"
 															}
 														},
 														{
 															"callFunction": "PopulateList",
-															"sid": 903960934176248,
+															"sid": 370456465199797,
 															"parameters": [
 																"\"Weapons\""
 															]
 														},
 														{
 															"callFunction": "PopulateList",
-															"sid": 606388944643828,
+															"sid": 769939814804433,
 															"parameters": [
 																"\"Armor\""
 															]
 														}
 													],
-													"sid": 370862474964549,
+													"sid": 871621965715463,
 													"children": [
 														{
 															"eventType": "block",
@@ -16960,7 +17103,7 @@
 																{
 																	"id": "is-boolean-instance-variable-set",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 815043846788921,
+																	"sid": 451611378993015,
 																	"parameters": {
 																		"instance-variable": "Ignore"
 																	},
@@ -16971,14 +17114,14 @@
 																{
 																	"id": "set-animation",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 838668361022410,
+																	"sid": 986145239063001,
 																	"parameters": {
 																		"animation": "\"Workshop\"",
 																		"from": "beginning"
 																	}
 																}
 															],
-															"sid": 921176718257499
+															"sid": 330192451299857
 														}
 													]
 												},
@@ -16988,7 +17131,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 853796883180126,
+															"sid": 917901376451086,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -17000,12 +17143,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 688562825134749
+															"sid": 232836750373402
 														},
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 920232171865202,
+															"sid": 915993215784860,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
@@ -17018,13 +17161,13 @@
 														{
 															"id": "set-angle",
 															"objectClass": "Icon_Seta",
-															"sid": 493763775688703,
+															"sid": 142324450809569,
 															"parameters": {
 																"angle": "180"
 															}
 														}
 													],
-													"sid": 669157966528215
+													"sid": 838806760582419
 												},
 												{
 													"eventType": "block",
@@ -17032,7 +17175,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 714339782004942,
+															"sid": 105505338252768,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -17044,12 +17187,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 898225756534688
+															"sid": 846293850027819
 														},
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 924332485002972,
+															"sid": 752987728416292,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
@@ -17060,7 +17203,7 @@
 															}
 														}
 													],
-													"sid": 399988844187491
+													"sid": 886553638581555
 												},
 												{
 													"eventType": "block",
@@ -17068,7 +17211,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 549867381878099,
+															"sid": 868164352281397,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -17080,12 +17223,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 720279791812793
+															"sid": 117451208632936
 														},
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 110275390494620,
+															"sid": 409355385030378,
 															"parameters": {
 																"layer": "\"Production\"",
 																"visibility": "invisible"
@@ -17094,7 +17237,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 417632908497788,
+															"sid": 254860627314524,
 															"parameters": {
 																"layer": "\"Production\"",
 																"interactive": false
@@ -17103,7 +17246,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 291495831784246,
+															"sid": 236863850211867,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"visibility": "invisible"
@@ -17112,7 +17255,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 633103240547156,
+															"sid": 529983789156430,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"interactive": false
@@ -17121,7 +17264,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 541785610236668,
+															"sid": 527559570528325,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"visibility": "invisible"
@@ -17130,7 +17273,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 152641262679618,
+															"sid": 516676421426791,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"interactive": false
@@ -17139,7 +17282,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 674054692601128,
+															"sid": 579867269581407,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"visibility": "visible"
@@ -17148,7 +17291,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 628947552027824,
+															"sid": 377566475914072,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"interactive": true
@@ -17157,13 +17300,13 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "t_personagem",
-															"sid": 363017025368239,
+															"sid": 874713227038731,
 															"parameters": {
 																"frame-number": "1"
 															}
 														}
 													],
-													"sid": 913471335058828,
+													"sid": 738782824756416,
 													"children": [
 														{
 															"eventType": "block",
@@ -17171,7 +17314,7 @@
 																{
 																	"id": "is-boolean-instance-variable-set",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 169717142797026,
+																	"sid": 685049433530007,
 																	"parameters": {
 																		"instance-variable": "Ignore"
 																	},
@@ -17182,14 +17325,14 @@
 																{
 																	"id": "set-animation",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 831589103274043,
+																	"sid": 597501611037696,
 																	"parameters": {
 																		"animation": "\"Fight\"",
 																		"from": "beginning"
 																	}
 																}
 															],
-															"sid": 641786096444935
+															"sid": 151336459083294
 														}
 													]
 												},
@@ -17199,7 +17342,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 707783494367908,
+															"sid": 409484878701402,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -17211,12 +17354,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 760694638126264
+															"sid": 715413371142549
 														},
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 655391157453679,
+															"sid": 728026429192636,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
@@ -17227,7 +17370,7 @@
 															}
 														}
 													],
-													"sid": 965856834037026
+													"sid": 636031498770928
 												},
 												{
 													"eventType": "block",
@@ -17235,7 +17378,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 744669967132901,
+															"sid": 425328215818747,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -17247,12 +17390,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 313347424473526
+															"sid": 281174263693328
 														},
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 388119438844929,
+															"sid": 686667002859075,
 															"parameters": {
 																"layer": "\"Production\"",
 																"visibility": "visible"
@@ -17261,7 +17404,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 160051629357076,
+															"sid": 628547345256131,
 															"parameters": {
 																"layer": "\"Production\"",
 																"interactive": true
@@ -17270,7 +17413,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 360075251339753,
+															"sid": 854447850105035,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"visibility": "invisible"
@@ -17279,7 +17422,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 429433816045524,
+															"sid": 567062491996543,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"interactive": false
@@ -17288,7 +17431,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 547439770440879,
+															"sid": 196880211413977,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"visibility": "invisible"
@@ -17297,7 +17440,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 750166584489527,
+															"sid": 589037252509250,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"interactive": false
@@ -17306,7 +17449,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 366217804791973,
+															"sid": 975761094313437,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"visibility": "invisible"
@@ -17315,7 +17458,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 699937343069566,
+															"sid": 835170911656156,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"interactive": false
@@ -17324,13 +17467,13 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "t_personagem",
-															"sid": 812936386422464,
+															"sid": 443735821644267,
 															"parameters": {
 																"frame-number": "1"
 															}
 														}
 													],
-													"sid": 404848166678207,
+													"sid": 584822304502118,
 													"children": [
 														{
 															"eventType": "block",
@@ -17338,7 +17481,7 @@
 																{
 																	"id": "is-boolean-instance-variable-set",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 699786486011609,
+																	"sid": 950301410939937,
 																	"parameters": {
 																		"instance-variable": "Ignore"
 																	},
@@ -17349,14 +17492,14 @@
 																{
 																	"id": "set-animation",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 563453193459741,
+																	"sid": 403735048661503,
 																	"parameters": {
 																		"animation": "\"Production\"",
 																		"from": "beginning"
 																	}
 																}
 															],
-															"sid": 718213516892587
+															"sid": 362193902053898
 														}
 													]
 												}
@@ -17372,7 +17515,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 389169569332996,
+													"sid": 919773499171838,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 0,
@@ -17384,7 +17527,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 173868498052079,
+													"sid": 832476588773892,
 													"parameters": {
 														"variable": "Tutorial",
 														"value": "11"
@@ -17393,7 +17536,7 @@
 												{
 													"id": "typewriter-text",
 													"objectClass": "Text_Tutorial",
-													"sid": 888478722859735,
+													"sid": 215413349478626,
 													"parameters": {
 														"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
 														"duration": "3"
@@ -17402,13 +17545,13 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "t_personagem",
-													"sid": 959291953529289,
+													"sid": 145963053592134,
 													"parameters": {
 														"frame-number": "0"
 													}
 												}
 											],
-											"sid": 511510764469634,
+											"sid": 477573119889993,
 											"children": [
 												{
 													"eventType": "block",
@@ -17416,7 +17559,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 639623620155815,
+															"sid": 816953601694879,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -17428,12 +17571,12 @@
 														{
 															"id": "destroy",
 															"objectClass": "Icon_Seta",
-															"sid": 769175851434499
+															"sid": 831436597384986
 														},
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 794800291780769,
+															"sid": 380738159655810,
 															"parameters": {
 																"layer": "\"Production\"",
 																"visibility": "invisible"
@@ -17442,7 +17585,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 814730861539820,
+															"sid": 124567122491017,
 															"parameters": {
 																"layer": "\"Production\"",
 																"interactive": false
@@ -17451,7 +17594,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 862383022053380,
+															"sid": 555079332577491,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"visibility": "visible"
@@ -17460,7 +17603,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 648055393900512,
+															"sid": 380719962877341,
 															"parameters": {
 																"layer": "\"Upgrades\"",
 																"interactive": true
@@ -17469,7 +17612,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 435476889801225,
+															"sid": 967255599182139,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"visibility": "invisible"
@@ -17478,7 +17621,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 453960806496881,
+															"sid": 428116884207840,
 															"parameters": {
 																"layer": "\"Workshop\"",
 																"interactive": false
@@ -17487,7 +17630,7 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 382834590069079,
+															"sid": 590985098130908,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"visibility": "invisible"
@@ -17496,7 +17639,7 @@
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 196780928566575,
+															"sid": 381203607537182,
 															"parameters": {
 																"layer": "\"Fight\"",
 																"interactive": false
@@ -17505,13 +17648,13 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "t_personagem",
-															"sid": 368213941507832,
+															"sid": 664864908540470,
 															"parameters": {
 																"frame-number": "1"
 															}
 														}
 													],
-													"sid": 406183054709077,
+													"sid": 552548419126595,
 													"children": [
 														{
 															"eventType": "block",
@@ -17519,7 +17662,7 @@
 																{
 																	"id": "is-boolean-instance-variable-set",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 848751163909401,
+																	"sid": 252743683617719,
 																	"parameters": {
 																		"instance-variable": "Ignore"
 																	},
@@ -17530,14 +17673,14 @@
 																{
 																	"id": "set-animation",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 490807798528044,
+																	"sid": 746921810505738,
 																	"parameters": {
 																		"animation": "\"Upgrades\"",
 																		"from": "beginning"
 																	}
 																}
 															],
-															"sid": 506393215576881
+															"sid": 715814268669488
 														}
 													]
 												}
@@ -17551,7 +17694,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 601385049839817,
+											"sid": 756700127885545,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"comparison": 0,
@@ -17560,7 +17703,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 431681699549507,
+									"sid": 522751523851444,
 									"children": [
 										{
 											"eventType": "comment",
@@ -17572,7 +17715,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 867719225670692,
+													"sid": 520598792266696,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 0,
@@ -17583,7 +17726,7 @@
 											"actions": [
 												{
 													"callFunction": "Pop_up_Tutorial",
-													"sid": 610768585933357,
+													"sid": 995621151826187,
 													"parameters": [
 														"\"\"",
 														"0"
@@ -17592,7 +17735,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 715211201694686,
+													"sid": 214975802828521,
 													"parameters": {
 														"variable": "Tutorial_Name",
 														"value": "\"\""
@@ -17601,14 +17744,40 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 321340450238101,
+													"sid": 156279629630073,
 													"parameters": {
 														"variable": "Tutorial",
 														"value": "0"
 													}
+												},
+												{
+													"type": "comment",
+													"text": "Evitar repetição do texto end demo"
+												},
+												{
+													"id": "set-key",
+													"objectClass": "Dict_Save_File",
+													"sid": 216689036545144,
+													"parameters": {
+														"key": "\"LVL\"",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-key",
+													"objectClass": "Dict_Save_File",
+													"sid": 326617907757123,
+													"parameters": {
+														"key": "\"TUT\"",
+														"value": "\"\""
+													}
+												},
+												{
+													"callFunction": "Save_Local_Storage",
+													"sid": 352469214966712
 												}
 											],
-											"sid": 313657559452228,
+											"sid": 543472022379169,
 											"isOrBlock": true
 										},
 										{
@@ -17621,7 +17790,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 301346586097485,
+													"sid": 851251008090998,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 1,
@@ -17633,7 +17802,7 @@
 												{
 													"id": "start-timer",
 													"objectClass": "Text_Tutorial",
-													"sid": 366256354562836,
+													"sid": 272085300483536,
 													"behaviorType": "Timer",
 													"parameters": {
 														"duration": "1.0",
@@ -17644,7 +17813,7 @@
 												{
 													"id": "add-to-eventvar",
 													"objectClass": "System",
-													"sid": 442359208494230,
+													"sid": 450118383035871,
 													"parameters": {
 														"variable": "Tutorial",
 														"value": "1"
@@ -17653,7 +17822,7 @@
 												{
 													"id": "typewriter-text",
 													"objectClass": "Text_Tutorial",
-													"sid": 260944372394042,
+													"sid": 808535533653270,
 													"parameters": {
 														"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
 														"duration": "3"
@@ -17662,13 +17831,13 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "t_personagem",
-													"sid": 542212404990699,
+													"sid": 588739837479301,
 													"parameters": {
 														"frame-number": "0"
 													}
 												}
 											],
-											"sid": 693191049842646,
+											"sid": 683745350462582,
 											"children": [
 												{
 													"eventType": "block",
@@ -17676,7 +17845,7 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 392707254169781,
+															"sid": 331225904613080,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
@@ -17686,11 +17855,21 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 305355471676120,
+															"sid": 209074918788960,
 															"parameters": {
 																"variable": "Tutorial",
 																"comparison": 0,
 																"value": "3"
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 980906595800319,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "5"
 															}
 														}
 													],
@@ -17698,13 +17877,13 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "t_personagem",
-															"sid": 471934890069572,
+															"sid": 899083630318711,
 															"parameters": {
 																"frame-number": "1"
 															}
 														}
 													],
-													"sid": 694233598451499,
+													"sid": 840892029852919,
 													"isOrBlock": true
 												}
 											]
@@ -17717,7 +17896,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 439931338041780,
+											"sid": 793180964427260,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"comparison": 0,
@@ -17727,7 +17906,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 377223446521186,
+											"sid": 996311405423931,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"comparison": 0,
@@ -17738,7 +17917,7 @@
 									"actions": [
 										{
 											"callFunction": "Pop_up_Tutorial",
-											"sid": 488878611294992,
+											"sid": 745329544063349,
 											"parameters": [
 												"\"\"",
 												"0"
@@ -17747,7 +17926,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 843878167638076,
+											"sid": 378517334595253,
 											"parameters": {
 												"seconds": "0.01",
 												"use-timescale": true
@@ -17756,17 +17935,52 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 501338159050798,
+											"sid": 888102087130733,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"value": "\"\""
 											}
 										}
 									],
-									"sid": 964795501037288,
+									"sid": 908253138230745,
 									"isOrBlock": true
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-running-typewriter-text",
+									"objectClass": "Text_Tutorial",
+									"sid": 690448352524442
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 272735706547855,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "typewriter-finish",
+									"objectClass": "Text_Tutorial",
+									"sid": 455877982106887
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 915985091604749,
+									"parameters": {
+										"tag": "\"dialogue\""
+									}
+								}
+							],
+							"sid": 790646415037808
 						}
 					]
 				},
@@ -17995,10 +18209,10 @@
 						{
 							"id": "start-timer",
 							"objectClass": "Text_Tutorial",
-							"sid": 271177542794268,
+							"sid": 209182116897918,
 							"behaviorType": "Timer",
 							"parameters": {
-								"duration": "0.2",
+								"duration": "0.25",
 								"type": "once",
 								"tag": "\"prevent_skip\""
 							}
@@ -18163,7 +18377,72 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 286662609749814,
+									"parameters": {
+										"tag": "\"weapon_data\"",
+										"file": "weapons.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 112905749105618,
+									"parameters": {
+										"tag": "\"habilities_data\"",
+										"file": "habilities.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 990163524611751,
+									"parameters": {
+										"tag": "\"armour_data\"",
+										"file": "armor.json"
+									}
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 198951426759550,
+									"parameters": [
+										"\"Weapons\""
+									]
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 770618979466574,
+									"parameters": [
+										"\"Armor\""
+									]
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 731344657372129,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 936564587100124,
+									"parameters": [
+										"\"Weapons\""
+									]
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 672804836702765,
+									"parameters": [
+										"\"Armor\""
+									]
+								}
+							],
 							"sid": 615860340227453,
 							"children": [
 								{
@@ -18290,6 +18569,23 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-destroyed",
+							"objectClass": "Frg_Fade",
+							"sid": 166233941406113
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Save_Local_Storage",
+							"sid": 743176371901877
+						}
+					],
+					"sid": 767722359726473
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-completed",
 							"objectClass": "AJAX",
 							"sid": 824021119646535,
@@ -18332,7 +18628,8 @@
 							}
 						}
 					],
-					"sid": 514669137325583
+					"sid": 514669137325583,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -18473,6 +18770,38 @@
 					"sid": 289634029343314
 				},
 				{
+					"functionName": "Save_Local_Storage",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 691361654589560,
+							"parameters": {
+								"key": "\"My_Save\"",
+								"value": "Dict_Save_File.AsJSON"
+							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 132343741650478,
+							"parameters": {
+								"key": "\"Prod_Data\"",
+								"value": "A_Prod_Data.AsJSON"
+							}
+						}
+					],
+					"sid": 940725642699338
+				},
+				{
 					"functionName": "Dictionary_to_Array",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -18518,6 +18847,47 @@
 						}
 					],
 					"sid": 470741161082892
+				},
+				{
+					"functionName": "Array_To_Dictionary",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 585329875760146,
+							"parameters": {
+								"key": "\"Steam\"",
+								"value": "A_Prod_Data.At(4,1,0)"
+							}
+						},
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 366898215216727,
+							"parameters": {
+								"key": "\"Wood\"",
+								"value": "A_Prod_Data.At(4,1,1)"
+							}
+						},
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 291840469025109,
+							"parameters": {
+								"key": "\"Copper\"",
+								"value": "A_Prod_Data.At(4,1,2)"
+							}
+						}
+					],
+					"sid": 335628975762238
 				}
 			],
 			"sid": 908048861978816

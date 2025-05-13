@@ -12326,9 +12326,12 @@
 							"tags": "",
 							"instanceVariables": {
 								"ID": 1,
-								"Free": true,
 								"CD_Max": 0,
-								"Ready": false
+								"Ammo_Max": 0,
+								"Ammo": 0,
+								"Free": true,
+								"Ready": false,
+								"Reload": false
 							},
 							"behaviors": {
 								"Sine": {
@@ -12386,9 +12389,12 @@
 							"tags": "",
 							"instanceVariables": {
 								"ID": 2,
-								"Free": true,
 								"CD_Max": 0,
-								"Ready": false
+								"Ammo_Max": 0,
+								"Ammo": 0,
+								"Free": true,
+								"Ready": false,
+								"Reload": false
 							},
 							"behaviors": {
 								"Sine": {
@@ -13500,7 +13506,27 @@
 					"instanceVariables": {
 						"Level_ID": 1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "size",
+								"wave": "sine",
+								"period": 3,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 20,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 473222006377372,
 						"expanded": true,
@@ -13542,7 +13568,27 @@
 					"instanceVariables": {
 						"Level_ID": 2
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Sine": {
+							"properties": {
+								"movement": "horizontal",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 466740847910155,
 						"expanded": true,

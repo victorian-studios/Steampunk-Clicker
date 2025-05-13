@@ -1,18 +1,10 @@
 {
-	"name": "Cooldown",
+	"name": "Btn_Turn_Skip",
 	"plugin-id": "Sprite",
-	"sid": 246371321157601,
+	"sid": 222371737666960,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [
-		{
-			"name": "CD_Time",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 672799903394094
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -20,36 +12,36 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
+						"width": 120,
+						"height": 120,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 5293931,
+						"imageSpriteId": 659125,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
-						"width": 250,
-						"height": 250,
+						"width": 120,
+						"height": 120,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 470947,
+						"imageSpriteId": 9811363,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 877962838881625,
-				"name": "Animation 1",
+				"sid": 971856614430461,
+				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
