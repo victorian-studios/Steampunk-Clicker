@@ -124,6 +124,14 @@
 							"parameters": {
 								"key": "\"Prod_Data\""
 							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 518262163395196,
+							"parameters": {
+								"key": "\"Upg_Data\""
+							}
 						}
 					],
 					"sid": 471611278055409
@@ -585,6 +593,55 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 338402634789930,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 191749053155133,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"sid": 189856012432823
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 934764736230382,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 567400453938066,
+					"parameters": {
+						"tag": "\"upg_data\"",
+						"file": "Upg_Data.json"
+					}
+				}
+			],
+			"sid": 875187772597108
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-item-get",
 					"objectClass": "LocalStorage",
 					"sid": 959876285880791,
@@ -651,6 +708,30 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 246427360262110,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Upg_Data",
+					"sid": 517821034272829,
+					"parameters": {
+						"json": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 259786559257340
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
 					"sid": 941117730536411,
@@ -667,6 +748,30 @@
 				}
 			],
 			"sid": 187214141249157
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 204418126918842,
+					"parameters": {
+						"tag": "\"upg_data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Upg_Data",
+					"sid": 329364697570397,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 985946591960150
 		}
 	],
 	"sid": 603429320980167

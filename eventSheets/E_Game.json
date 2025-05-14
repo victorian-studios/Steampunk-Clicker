@@ -1773,12 +1773,32 @@
 							],
 							"actions": [
 								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 491049142597371,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "Text_Tutorial",
+									"sid": 510702185772817,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "1",
+										"type": "once",
+										"tag": "\"prevent_skip\""
+									}
+								},
+								{
 									"id": "typewriter-text",
 									"objectClass": "Text_Tutorial",
-									"sid": 517867452199799,
+									"sid": 560467982266367,
 									"parameters": {
 										"text": "Internationalization.Lookup( \"tutorial.welcome.10.1\" )",
-										"duration": "3"
+										"duration": "2.5"
 									}
 								},
 								{
@@ -3955,6 +3975,617 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 752522797200269
+						}
+					],
+					"actions": [],
+					"sid": 425942267749677,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Verifica cada upgrade, em cada camada, para conferir se o mesmo já foi desbloqueado e/ou comprado. Impacta apenas visualmente nos upgrades, já que o valor aprimorado por cada um é salvo no array do Prod_Data"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 406024727430842,
+									"parameters": {
+										"object": "Icon_Upg",
+										"expression": "Icon_Upg.UID",
+										"order": "ascending"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 663748689775411,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 743000373480790,
+											"parameters": {
+												"layer": "\"Steam\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 762149676415839,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 300564135358987,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 429309033900913,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 422648177715288
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 823933346273795,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 211169644931832,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 761564655139752,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 491122551834470
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 813665520882166,
+											"parameters": {
+												"layer": "\"Wood\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 532446382144573,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 470232597348358,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 462558722962301,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 770826867882537
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 192098016878750,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 746294243454351,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 917277068555706,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 394791199560253
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 389840800816150,
+											"parameters": {
+												"layer": "\"Copper\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 757122087565553,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 820332138912103,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "3",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 687591763151067,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 167629111564031
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 182721942493485,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "3",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 187486086588127,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 596484569226626,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 484150680013512
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 319839414784949,
+											"parameters": {
+												"layer": "\"Iron\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 180198175942625,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 363044558283857,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "4",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 868259539968143,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 968862745896056
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 784270655693567,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "4",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 362539580329264,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 303001276833196,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 948797043753458
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 843513708272811,
+											"parameters": {
+												"layer": "\"Titanium\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 268540751437097,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 638019135885155,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "5",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 481658302705902,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 159031085525661
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 567222259646448,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "5",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 101108825258218,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 460353030540389,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 459176641105347
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 430523454126269,
+											"parameters": {
+												"layer": "\"Tungsten\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 238101860170025,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 128028783325930,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "6",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 661333839821408,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 802840222340199
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 281784482737426,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "6",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 951792097507175,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 434008622659910,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 708026643472822
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 597732975599558,
+											"parameters": {
+												"layer": "\"Vaporium\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 243879109315874,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 371877911525503,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "7",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 411832424208706,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 459783600257985
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xy",
+													"objectClass": "A_Upg_Data",
+													"sid": 900427354165024,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "7",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 240227169349779,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 758341910436218,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 991687650260546
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
 					"functionName": "Get_Upg_Desc",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -4068,6 +4699,16 @@
 							"sid": 694091531790344
 						}
 					]
+				},
+				{
+					"eventType": "variable",
+					"name": "Layer_Y_Array",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": true,
+					"isConstant": false,
+					"sid": 353615605959802
 				},
 				{
 					"eventType": "comment",
@@ -4250,11 +4891,195 @@
 									"parameters": {
 										"layer": "ActiveLayer"
 									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Upg",
+									"sid": 822503043331730,
+									"parameters": {
+										"instance-variable": "Unlocked"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
 							"sid": 678787007365828,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 248659030156765,
+											"parameters": {
+												"layer": "\"Steam\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 680066027363128,
+											"parameters": {
+												"variable": "Layer_Y_Array",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 941757059233668
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 791927106795850,
+											"parameters": {
+												"layer": "\"Wood\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 305800679541600,
+											"parameters": {
+												"variable": "Layer_Y_Array",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 506389533294471
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 208055513173735,
+											"parameters": {
+												"layer": "\"Copper\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 761192338550587,
+											"parameters": {
+												"variable": "Layer_Y_Array",
+												"value": "3"
+											}
+										}
+									],
+									"sid": 540085552991931
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 123310402653053,
+											"parameters": {
+												"layer": "\"Iron\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 215171792147543,
+											"parameters": {
+												"variable": "Layer_Y_Array",
+												"value": "4"
+											}
+										}
+									],
+									"sid": 172631864971292
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 749452011690292,
+											"parameters": {
+												"layer": "\"Titanium\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 576712029079984,
+											"parameters": {
+												"variable": "Layer_Y_Array",
+												"value": "5"
+											}
+										}
+									],
+									"sid": 134001573977496
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 496857387131236,
+											"parameters": {
+												"layer": "\"Tungsten\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 816616286724571,
+											"parameters": {
+												"variable": "Layer_Y_Array",
+												"value": "6"
+											}
+										}
+									],
+									"sid": 322294045684666
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 795812020225352,
+											"parameters": {
+												"layer": "\"Vaporium\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 526894077579995,
+											"parameters": {
+												"variable": "Layer_Y_Array",
+												"value": "7"
+											}
+										}
+									],
+									"sid": 530705670131841
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -4293,6 +5118,20 @@
 												"instance-variable": "Unlocked",
 												"value": "true"
 											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Upg_Data",
+											"sid": 664194644517225,
+											"parameters": {
+												"x": "int(Icon_Upg.Name)",
+												"y": "Layer_Y_Array",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "Save_Local_Storage",
+											"sid": 839217882994942
 										}
 									],
 									"sid": 965114534675551
@@ -5423,6 +6262,181 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 593152454624515,
+									"parameters": {
+										"layer": "\"Steam\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 718623429947094,
+									"parameters": {
+										"variable": "Layer_Y_Array",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 912360342848025
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 354938515382950,
+									"parameters": {
+										"layer": "\"Wood\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 754471165641880,
+									"parameters": {
+										"variable": "Layer_Y_Array",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 458333269805267
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 878231478074755,
+									"parameters": {
+										"layer": "\"Copper\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 701318463051547,
+									"parameters": {
+										"variable": "Layer_Y_Array",
+										"value": "3"
+									}
+								}
+							],
+							"sid": 656817659114944
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 664875038872632,
+									"parameters": {
+										"layer": "\"Iron\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 615935682668586,
+									"parameters": {
+										"variable": "Layer_Y_Array",
+										"value": "4"
+									}
+								}
+							],
+							"sid": 443898352016564
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 650788388211572,
+									"parameters": {
+										"layer": "\"Titanium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 304685322991397,
+									"parameters": {
+										"variable": "Layer_Y_Array",
+										"value": "5"
+									}
+								}
+							],
+							"sid": 445020704909477
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 874850191321424,
+									"parameters": {
+										"layer": "\"Tungsten\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 771320851204838,
+									"parameters": {
+										"variable": "Layer_Y_Array",
+										"value": "6"
+									}
+								}
+							],
+							"sid": 857053051943595
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 308450358628977,
+									"parameters": {
+										"layer": "\"Vaporium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 198441539238120,
+									"parameters": {
+										"variable": "Layer_Y_Array",
+										"value": "7"
+									}
+								}
+							],
+							"sid": 583406878291353
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "Icon_Upg",
 									"sid": 868219233080902,
@@ -5501,6 +6515,16 @@
 										{
 											"callFunction": "Dictionary_to_Array",
 											"sid": 183771124624982
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Upg_Data",
+											"sid": 579547107197876,
+											"parameters": {
+												"x": "int(Icon_Upg.Name)",
+												"y": "Layer_Y_Array",
+												"value": "2"
+											}
 										}
 									],
 									"sid": 745482289238472
@@ -5608,6 +6632,16 @@
 										{
 											"callFunction": "Dictionary_to_Array",
 											"sid": 107708970322997
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Upg_Data",
+											"sid": 569305484398528,
+											"parameters": {
+												"x": "int(Icon_Upg.Name)",
+												"y": "Layer_Y_Array",
+												"value": "2"
+											}
 										}
 									],
 									"sid": 832365582065899
@@ -6326,16 +7360,6 @@
 												"z": "0",
 												"value": "Production_Vapor.prod_cap"
 											}
-										},
-										{
-											"id": "set-item",
-											"objectClass": "LocalStorage",
-											"sid": 482695837583923,
-											"disabled": true,
-											"parameters": {
-												"key": "\"prod_Steam_cap\"",
-												"value": "Production_Vapor.prod_cap"
-											}
 										}
 									],
 									"sid": 404967026634611
@@ -6385,16 +7409,6 @@
 														"x": "2",
 														"y": "1",
 														"z": "Production.Array_ID",
-														"value": "Production.prod_cap"
-													}
-												},
-												{
-													"id": "set-item",
-													"objectClass": "LocalStorage",
-													"sid": 616647163884352,
-													"disabled": true,
-													"parameters": {
-														"key": "\"prod_\" & tokenat( Upgrade_id, 1, \"_\" ) & \"_cap\"",
 														"value": "Production.prod_cap"
 													}
 												}
@@ -6457,21 +7471,31 @@
 												"z": "Production.Array_ID",
 												"value": "1"
 											}
-										},
-										{
-											"id": "set-item",
-											"objectClass": "LocalStorage",
-											"sid": 475108661103882,
-											"disabled": true,
-											"parameters": {
-												"key": "\"prod_\" & tokenat( Upgrade_id, 1, \"_\" ) & \"_quant\"",
-												"value": "0"
-											}
 										}
 									],
 									"sid": 594441154290343
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 478714417583267,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "Save_Local_Storage",
+									"sid": 313990190486899
+								}
+							],
+							"sid": 969018912233262
 						}
 					]
 				}
@@ -12398,6 +13422,16 @@
 									"parameters": {
 										"layer": "\"Workshop\""
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 579648695602738,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
 								}
 							],
 							"actions": [
@@ -12573,6 +13607,16 @@
 									"parameters": {
 										"layer": "\"Workshop\""
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 352018558127098,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
 								}
 							],
 							"actions": [
@@ -12618,6 +13662,16 @@
 									"sid": 829507527952628,
 									"parameters": {
 										"layer": "\"Workshop\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 755771305617053,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
 									}
 								}
 							],
@@ -15515,6 +16569,16 @@
 									"parameters": {
 										"layer": "\"Workshop\""
 									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 563733083557406,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
 								}
 							],
 							"actions": [],
@@ -15797,6 +16861,16 @@
 							"sid": 780253691247705,
 							"parameters": {
 								"layer": "\"Fight\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 349839082930281,
+							"parameters": {
+								"variable": "Tutorial_Name",
+								"comparison": 0,
+								"value": "\"\""
 							}
 						}
 					],
@@ -17958,15 +19032,6 @@
 							],
 							"actions": [
 								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 272735706547855,
-									"parameters": {
-										"seconds": "0.01",
-										"use-timescale": true
-									}
-								},
-								{
 									"id": "typewriter-finish",
 									"objectClass": "Text_Tutorial",
 									"sid": 455877982106887
@@ -18294,6 +19359,15 @@
 									"parameters": {
 										"tag": "\"save_file\"",
 										"file": "Save_File.json"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 890855456521751,
+									"parameters": {
+										"tag": "\"upg_data\"",
+										"file": "Upg_Data.json"
 									}
 								},
 								{
@@ -18628,8 +19702,7 @@
 							}
 						}
 					],
-					"sid": 514669137325583,
-					"disabled": true
+					"sid": 514669137325583
 				},
 				{
 					"eventType": "block",
@@ -18733,6 +19806,30 @@
 						{
 							"id": "on-completed",
 							"objectClass": "AJAX",
+							"sid": 930360166686750,
+							"parameters": {
+								"tag": "\"upg_data\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "A_Upg_Data",
+							"sid": 868596681944099,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 699951240682011
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
 							"sid": 650791794057901,
 							"parameters": {
 								"tag": "\"en-US\""
@@ -18797,6 +19894,15 @@
 								"key": "\"Prod_Data\"",
 								"value": "A_Prod_Data.AsJSON"
 							}
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 435246612744953,
+							"parameters": {
+								"key": "\"Upg_Data\"",
+								"value": "A_Upg_Data.AsJSON"
+							}
 						}
 					],
 					"sid": 940725642699338
@@ -18860,27 +19966,27 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-key",
+							"id": "add-key",
 							"objectClass": "Dict_Temp_Prod_Data",
-							"sid": 585329875760146,
+							"sid": 351135170254566,
 							"parameters": {
 								"key": "\"Steam\"",
 								"value": "A_Prod_Data.At(4,1,0)"
 							}
 						},
 						{
-							"id": "set-key",
+							"id": "add-key",
 							"objectClass": "Dict_Temp_Prod_Data",
-							"sid": 366898215216727,
+							"sid": 876563956063069,
 							"parameters": {
 								"key": "\"Wood\"",
 								"value": "A_Prod_Data.At(4,1,1)"
 							}
 						},
 						{
-							"id": "set-key",
+							"id": "add-key",
 							"objectClass": "Dict_Temp_Prod_Data",
-							"sid": 291840469025109,
+							"sid": 157588834698169,
 							"parameters": {
 								"key": "\"Copper\"",
 								"value": "A_Prod_Data.At(4,1,2)"
