@@ -2075,38 +2075,6 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Progress_Bar_Fake",
-							"sid": 199017411988311,
-							"parameters": {
-								"object": "Production"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Production",
-							"sid": 741297185548261,
-							"parameters": {
-								"instance-variable": "Unlocked"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-width",
-							"objectClass": "Progress_Bar_Fake",
-							"sid": 172655780786171,
-							"parameters": {
-								"width": "358- ( Production.Timer.TotalTime(\"other_prod_time\") * ( 358 / Production.prod_time ) )"
-							}
-						}
-					],
-					"sid": 937578922010191
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
 							"objectClass": "ProgBar_Producers",
 							"sid": 467285551841323,
 							"parameters": {
@@ -2921,6 +2889,56 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-timer-running",
+							"objectClass": "Production",
+							"sid": 318407419028687,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"other_prod_time\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 109513695360368,
+							"parameters": {
+								"instance-variable": "Unlocked"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 283617955700369,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Progress_Bar_Fake",
+									"sid": 141071984557554,
+									"parameters": {
+										"object": "Production"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "Progress_Bar_Fake",
+									"sid": 470440006289646,
+									"parameters": {
+										"width": "358- ( Production.Timer.TotalTime(\"other_prod_time\") * ( 358 / Production.prod_time ) )"
+									}
+								}
+							],
+							"sid": 117681818397841
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-timer",
 							"objectClass": "Production",
 							"sid": 567335477057851,
@@ -3001,6 +3019,14 @@
 												"comparison": 0,
 												"second-value": "\"Primary_Icons\""
 											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_prod",
+											"sid": 110977478213287,
+											"parameters": {
+												"object": "Production"
+											}
 										}
 									],
 									"actions": [
@@ -3035,6 +3061,30 @@
 									"sid": 357052386053392
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Progress_Bar_Fake",
+									"sid": 391404005467881,
+									"parameters": {
+										"object": "Production"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "Progress_Bar_Fake",
+									"sid": 175010434754987,
+									"parameters": {
+										"width": "358"
+									}
+								}
+							],
+							"sid": 999157564412687
 						}
 					]
 				},
@@ -17138,10 +17188,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 730905363167594,
+							"sid": 959769826479145,
 							"parameters": {
 								"variable": "HP",
-								"value": "HP_Max"
+								"value": "A_Armor.At(2,3,0)"
 							}
 						},
 						{

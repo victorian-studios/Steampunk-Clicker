@@ -7745,6 +7745,50 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
+															"sid": 362120245171092,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Icon_Seta",
+															"sid": 851992074764598
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 227995607057178,
+															"parameters": {
+																"object-to-create": "Icon_Seta",
+																"layer": "\"HUD\"",
+																"x": "1615",
+																"y": "756",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle",
+															"objectClass": "Icon_Seta",
+															"sid": 469019691922302,
+															"parameters": {
+																"angle": "90"
+															}
+														}
+													],
+													"sid": 442216167503000
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
 															"sid": 594470994529250,
 															"parameters": {
 																"variable": "Tutorial",
