@@ -499,6 +499,15 @@
 										"variable": "hab_1_y",
 										"value": "Hab_Slot.Y"
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Hab_Slot",
+									"sid": 980038599956668,
+									"parameters": {
+										"instance-variable": "Free",
+										"value": "false"
+									}
 								}
 							],
 							"sid": 730643083005777
@@ -727,6 +736,15 @@
 										"variable": "hab_2_y",
 										"value": "Hab_Slot.Y"
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Hab_Slot",
+									"sid": 405116177579618,
+									"parameters": {
+										"instance-variable": "Free",
+										"value": "false"
+									}
 								}
 							],
 							"sid": 864159544296419
@@ -848,11 +866,29 @@
 							}
 						},
 						{
+							"id": "set-enabled",
+							"objectClass": "icon_list_armor_clone",
+							"sid": 828797751064673,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
 							"id": "set-animation-frame",
 							"objectClass": "armadura_madeira",
 							"sid": 630748930064456,
 							"parameters": {
 								"frame-number": "int ( Armor_ID )"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Hab_Slot_Special",
+							"sid": 239052509746973,
+							"parameters": {
+								"instance-variable": "Free",
+								"value": "false"
 							}
 						}
 					],
@@ -8508,258 +8544,6 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 176665427565102,
-									"parameters": {
-										"first-value": "Bkg_Tab_List.ImagePointY(\"Top\")",
-										"comparison": 4,
-										"second-value": "Contorno_fake.ImagePointY(\"Top_Limit\")"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Bkg_Tab_List",
-									"sid": 747568878009038,
-									"parameters": {
-										"y": "Contorno_fake.ImagePointY(\"Top_Limit\")"
-									}
-								},
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_1",
-									"sid": 239184148929820,
-									"disabled": true,
-									"parameters": {
-										"y": "Bkg_Tab_List.Y + 256"
-									}
-								}
-							],
-							"sid": 194992322485318,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 239103672787039,
-									"parameters": {
-										"first-value": "Bkg_Tab_List.ImagePointY(\"Bottom\")",
-										"comparison": 2,
-										"second-value": "Contorno_fake.ImagePointY(\"Bottom_Limit\")"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Bkg_Tab_List",
-									"sid": 150589397539363,
-									"parameters": {
-										"y": "Contorno_fake.ImagePointY(\"Bottom_Limit\") - Bkg_Tab_List.Height"
-									}
-								},
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_1",
-									"sid": 870118282221976,
-									"disabled": true,
-									"parameters": {
-										"y": "Bkg_Tab_List.Y + 256"
-									}
-								}
-							],
-							"sid": 450109437524810,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 641016440707710,
-									"parameters": {
-										"first-value": "Bkg_Tab_List2.ImagePointY(\"Top\")",
-										"comparison": 4,
-										"second-value": "Contorno_fake.ImagePointY(\"Top_Limit\")"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Bkg_Tab_List2",
-									"sid": 169510089610212,
-									"parameters": {
-										"y": "Contorno_fake.ImagePointY(\"Top_Limit\")"
-									}
-								},
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_2",
-									"sid": 524136650861125,
-									"disabled": true,
-									"parameters": {
-										"y": "Bkg_Tab_List2.Y + 256"
-									}
-								}
-							],
-							"sid": 111117332037699,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 961016910155381,
-									"parameters": {
-										"first-value": "Bkg_Tab_List2.ImagePointY(\"Bottom\")",
-										"comparison": 2,
-										"second-value": "Contorno_fake.ImagePointY(\"Bottom_Limit\")"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Bkg_Tab_List2",
-									"sid": 828340444865778,
-									"parameters": {
-										"y": "Contorno_fake.ImagePointY(\"Bottom_Limit\") - Bkg_Tab_List2.Height"
-									}
-								},
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_2",
-									"sid": 428674638663164,
-									"disabled": true,
-									"parameters": {
-										"y": "Bkg_Tab_List2.Y + 256"
-									}
-								}
-							],
-							"sid": 439951349325377,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 332746075486516,
-									"parameters": {
-										"first-value": "Scroll_1.Y",
-										"comparison": 2,
-										"second-value": "202"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_1",
-									"sid": 668373638905306,
-									"parameters": {
-										"y": "202"
-									}
-								}
-							],
-							"sid": 742831427415957,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 168282075535911,
-									"parameters": {
-										"first-value": "Scroll_1.Y",
-										"comparison": 4,
-										"second-value": "446"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_1",
-									"sid": 655405897196884,
-									"parameters": {
-										"y": "446"
-									}
-								}
-							],
-							"sid": 830369104515461,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 729147061858250,
-									"parameters": {
-										"first-value": "Scroll_2.Y",
-										"comparison": 2,
-										"second-value": "202"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_2",
-									"sid": 240665243100201,
-									"parameters": {
-										"y": "202"
-									}
-								}
-							],
-							"sid": 399708967357642,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 115301429184535,
-									"parameters": {
-										"first-value": "Scroll_2.Y",
-										"comparison": 4,
-										"second-value": "446"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Scroll_2",
-									"sid": 349550643145890,
-									"parameters": {
-										"y": "446"
-									}
-								}
-							],
-							"sid": 825549503278282,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "is-dragging",
 									"objectClass": "Scroll_1",
 									"sid": 393972406935944,
@@ -9325,6 +9109,10 @@
 									"sid": 302355172622993
 								},
 								{
+									"eventType": "comment",
+									"text": "Está em cima do slot"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -9358,6 +9146,10 @@
 									],
 									"sid": 487372298345598,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "E está free"
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -9404,6 +9196,10 @@
 													"sid": 221986985973933
 												}
 											]
+										},
+										{
+											"eventType": "comment",
+											"text": "E está free"
 										},
 										{
 											"eventType": "block",
@@ -9477,6 +9273,10 @@
 									]
 								},
 								{
+									"eventType": "comment",
+									"text": "Se não estiver em cima, e for uma cópia recente, destrói a tal cópia"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -9501,6 +9301,10 @@
 										}
 									],
 									"sid": 492820372326346
+								},
+								{
+									"eventType": "comment",
+									"text": "Atualiza os Hab_Slots pra ficarem disponíveis após a destruição do ícone clone"
 								},
 								{
 									"eventType": "block",
@@ -9536,6 +9340,40 @@
 										}
 									],
 									"sid": 568701194403769
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 307171299675641,
+											"parameters": {
+												"object": "icon_list_habilities_clone"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 461752094413740,
+											"parameters": {
+												"object": "icon_list_weapon_clone"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Hab_Slot",
+											"sid": 515168460148284,
+											"parameters": {
+												"instance-variable": "Free",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 289249493516281,
+									"isOrBlock": true
 								}
 							]
 						},
@@ -9824,6 +9662,40 @@
 										}
 									],
 									"sid": 269713688129149
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 522059501788601,
+											"parameters": {
+												"object": "icon_list_habilities_clone"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot",
+											"sid": 664751865399371,
+											"parameters": {
+												"object": "icon_list_weapon_clone"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Hab_Slot",
+											"sid": 971424198210213,
+											"parameters": {
+												"instance-variable": "Free",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 234975631582223,
+									"isOrBlock": true
 								}
 							]
 						},
@@ -10073,6 +9945,15 @@
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 384580052931136,
+													"behaviorType": "DragDrop",
+													"parameters": {
+														"state": "disabled"
 													}
 												},
 												{
@@ -15363,9 +15244,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Upg_Info",
-															"sid": 720719795617664,
+															"sid": 958167803271710,
 															"parameters": {
-																"text": "\"Apply a \" & A_Habilities.At( 2, 10, counter ) & \"% defense buff for \" & A_Habilities.At( 4, 10, counter ) & \" turns. \" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
+																"text": "\"Instantly regenerate \" & A_Habilities.At( 2, 10, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
 															}
 														}
 													],
@@ -16557,29 +16438,6 @@
 								}
 							],
 							"sid": 841840011494746
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-key-pressed",
-									"objectClass": "Keyboard",
-									"sid": 198667578334400,
-									"parameters": {
-										"key": 65
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "PopulateList",
-									"sid": 420814899732019,
-									"parameters": [
-										"\"Armor\""
-									]
-								}
-							],
-							"sid": 909920208318903
 						}
 					],
 					"sid": 645810540906633
@@ -16897,12 +16755,69 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 926106341856964
+						}
+					],
+					"actions": [],
+					"sid": 385563842587371,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 261292908657624,
+									"parameters": {
+										"object": "Icon_check_batalhas"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Icon_check_batalhas",
+									"sid": 668887892516254,
+									"parameters": {
+										"instance-variable": "Lvl_ID_Check",
+										"comparison": 3,
+										"value": "Dict_Save_File.Get(\"LVL\")"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Icon_check_batalhas",
+									"sid": 739911154586851,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 869450086153167
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-touched-object",
 							"objectClass": "Touch",
 							"sid": 460852486714939,
 							"parameters": {
 								"object": "icon_zombie",
 								"type": "start"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "icon_zombie",
+							"sid": 691048951458963,
+							"parameters": {
+								"comparison": 1,
+								"number": "0"
 							}
 						},
 						{
@@ -17188,16 +17103,34 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 959769826479145,
+							"sid": 771770326589858,
 							"parameters": {
-								"variable": "HP",
-								"value": "A_Armor.At(2,3,0)"
+								"variable": "HP_Max",
+								"value": "A_Armor.At(2, Dict_Save_File.Get(\"ARM_\" &  str(int(Armor_ID) - 1)), int(Armor_ID) - 1)"
 							}
 						},
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 968044121324897,
+							"sid": 831508177887750,
+							"parameters": {
+								"variable": "HP",
+								"value": "HP_Max"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 203655977349605,
+							"parameters": {
+								"variable": "Shield_Max",
+								"value": "A_Armor.At( 3, Dict_Save_File.Get(\"ARM_\" &  str(int(Armor_ID) - 1)), int(Armor_ID) - 1)"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 777285877799994,
 							"parameters": {
 								"variable": "Shield",
 								"value": "Shield_Max"
@@ -17319,6 +17252,15 @@
 									"parameters": {
 										"layer": "\"Tutorial\"",
 										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 333941602046617,
+									"parameters": {
+										"group-name": "\"Vapor Prod\"",
+										"state": "deactivated"
 									}
 								},
 								{
@@ -17524,6 +17466,24 @@
 									"sid": 338710675989501,
 									"parameters": {
 										"tag": "\"dialogue\""
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 646971028665867,
+									"parameters": {
+										"group-name": "\"Vapor Prod\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 548391781621342,
+									"parameters": {
+										"group-name": "\"Outros Prods\"",
+										"state": "activated"
 									}
 								}
 							],
@@ -17851,6 +17811,15 @@
 												{
 													"callFunction": "Save_Local_Storage",
 													"sid": 236793301399481
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 662411169883684,
+													"parameters": {
+														"group-name": "\"Vapor Prod\"",
+														"state": "activated"
+													}
 												}
 											],
 											"sid": 516713703169097,
@@ -18628,6 +18597,34 @@
 													]
 												}
 											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 287607672229736,
+													"parameters": {
+														"variable": "Tutorial",
+														"comparison": 0,
+														"value": "9"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 980055403377629,
+													"parameters": {
+														"group-name": "\"Vapor Prod\"",
+														"state": "activated"
+													}
+												}
+											],
+											"sid": 772120649789704,
+											"isOrBlock": true
 										},
 										{
 											"eventType": "comment",
@@ -19822,6 +19819,18 @@
 							"parameters": {
 								"json": "AJAX.LastData"
 							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 220324246768327
+						},
+						{
+							"callFunction": "PopulateList",
+							"sid": 279441752999534,
+							"parameters": [
+								"\"Weapons\""
+							]
 						}
 					],
 					"sid": 229189962508476
@@ -19846,6 +19855,18 @@
 							"parameters": {
 								"json": "AJAX.LastData"
 							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 665458649923335
+						},
+						{
+							"callFunction": "PopulateList",
+							"sid": 805057953480773,
+							"parameters": [
+								"\"Armor\""
+							]
 						}
 					],
 					"sid": 380451718260023

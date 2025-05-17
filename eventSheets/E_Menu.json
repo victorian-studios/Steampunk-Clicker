@@ -287,6 +287,22 @@
 						"object": "Btn_Start_Menu",
 						"type": "start"
 					}
+				},
+				{
+					"id": "is-playing",
+					"objectClass": "menu_engrenagem",
+					"sid": 295405590070986,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"rotate\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "TimelineController",
+					"sid": 685122862734276,
+					"isInverted": true
 				}
 			],
 			"actions": [
