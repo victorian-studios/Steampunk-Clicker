@@ -547,7 +547,8 @@
 									}
 								}
 							],
-							"sid": 204595544968861
+							"sid": 204595544968861,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -583,6 +584,24 @@
 									"sid": 894625179089261,
 									"parameters": {
 										"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\" ) ) + 1"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "icon_list_weapon_clone",
+									"sid": 569196891222675,
+									"parameters": {
+										"instance-variable": "Recent_Copy",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "icon_list_weapon_clone",
+									"sid": 529831585352204,
+									"parameters": {
+										"instance-variable": "Pin_Obj_ID",
+										"value": "1"
 									}
 								}
 							],
@@ -623,6 +642,24 @@
 									"parameters": {
 										"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\" ) ) + 1"
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 860678973309962,
+									"parameters": {
+										"instance-variable": "Recent_Copy",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 762565499995836,
+									"parameters": {
+										"instance-variable": "Pin_Obj_ID",
+										"value": "1"
+									}
 								}
 							],
 							"sid": 552688015073711
@@ -659,16 +696,6 @@
 										"comparison": 0,
 										"value": "1"
 									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 578747012436331,
-									"parameters": {
-										"variable": "hab_1_x",
-										"comparison": 0,
-										"value": "0"
-									}
 								}
 							],
 							"actions": [
@@ -691,7 +718,8 @@
 									}
 								}
 							],
-							"sid": 826918921365355
+							"sid": 826918921365355,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -705,16 +733,6 @@
 										"expression": "Hab_Slot.ID",
 										"comparison": 0,
 										"value": "2"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 815030238101061,
-									"parameters": {
-										"variable": "hab_2_x",
-										"comparison": 0,
-										"value": "0"
 									}
 								}
 							],
@@ -784,6 +802,24 @@
 									"parameters": {
 										"frame-number": "int( tokenat( Weapon_ID_2, 1, \"_\" ) ) + 1"
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "icon_list_weapon_clone",
+									"sid": 542912773059072,
+									"parameters": {
+										"instance-variable": "Recent_Copy",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "icon_list_weapon_clone",
+									"sid": 316605657050439,
+									"parameters": {
+										"instance-variable": "Pin_Obj_ID",
+										"value": "2"
+									}
 								}
 							],
 							"sid": 639565440713707
@@ -823,6 +859,24 @@
 									"parameters": {
 										"frame-number": "int( tokenat( Weapon_ID_2, 1, \"_\" ) ) + 1"
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 854358202347342,
+									"parameters": {
+										"instance-variable": "Recent_Copy",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 889143509997996,
+									"parameters": {
+										"instance-variable": "Pin_Obj_ID",
+										"value": "2"
+									}
 								}
 							],
 							"sid": 199597775713703
@@ -860,7 +914,7 @@
 						{
 							"id": "set-animation-frame",
 							"objectClass": "icon_list_armor_clone",
-							"sid": 304960451878154,
+							"sid": 349119848330242,
 							"parameters": {
 								"frame-number": "int( Armor_ID )"
 							}
@@ -868,10 +922,19 @@
 						{
 							"id": "set-enabled",
 							"objectClass": "icon_list_armor_clone",
-							"sid": 828797751064673,
-							"behaviorType": "DragDrop",
+							"sid": 231082724159187,
+							"behaviorType": "DragandDrop",
 							"parameters": {
 								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "icon_list_armor_clone",
+							"sid": 791222066612737,
+							"parameters": {
+								"instance-variable": "Recent_Copy",
+								"value": "false"
 							}
 						},
 						{
@@ -904,6 +967,14 @@
 							"parameters": {
 								"layer": "\"Primary_Icons\""
 							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "Icon_prod",
+							"sid": 620438261569336,
+							"parameters": {
+								"layer": "\"Bkg_Upg\""
+							}
 						}
 					],
 					"actions": [
@@ -917,7 +988,8 @@
 							}
 						}
 					],
-					"sid": 264275605624889
+					"sid": 264275605624889,
+					"isOrBlock": true
 				}
 			]
 		},
@@ -1327,7 +1399,11 @@
 								false,
 								false,
 								false,
-								true
+								false,
+								true,
+								false,
+								false,
+								false
 							]
 						}
 					],
@@ -1439,14 +1515,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 699077175582229,
-							"parameters": {
-								"layer": "\"Work Info\""
-							}
-						},
-						{
 							"id": "is-animation-playing",
 							"objectClass": "Btn_screens",
 							"sid": 877933648762560,
@@ -1476,6 +1544,15 @@
 							}
 						},
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 608016459273229,
+							"parameters": {
+								"layer": "\"Work Upg\"",
+								"visibility": "invisible"
+							}
+						},
+						{
 							"id": "set-layer-interactive",
 							"objectClass": "System",
 							"sid": 230640745226472,
@@ -1486,6 +1563,17 @@
 						}
 					],
 					"sid": 117611103847525
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Save_Local_Storage",
+							"sid": 675067673523873
+						}
+					],
+					"sid": 432621090631377
 				}
 			]
 		},
@@ -1848,6 +1936,27 @@
 								}
 							],
 							"sid": 747849280514389
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Play_Audio",
+									"sid": 834802026846315,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								}
+							],
+							"sid": 842753482794035
 						}
 					]
 				},
@@ -2235,7 +2344,30 @@
 									}
 								}
 							],
-							"sid": 335572673070040
+							"sid": 335572673070040,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Play_Audio",
+											"sid": 624002337136021,
+											"parameters": [
+												false,
+												true,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false
+											]
+										}
+									],
+									"sid": 247891732987307
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -2309,7 +2441,30 @@
 											}
 										}
 									],
-									"sid": 367059494127774
+									"sid": 367059494127774,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Play_Audio",
+													"sid": 874448498783494,
+													"parameters": [
+														false,
+														true,
+														false,
+														false,
+														false,
+														false,
+														false,
+														false
+													]
+												}
+											],
+											"sid": 920172624175486
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -2652,7 +2807,30 @@
 											}
 										}
 									],
-									"sid": 289177073885129
+									"sid": 289177073885129,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Play_Audio",
+													"sid": 328464678083914,
+													"parameters": [
+														false,
+														true,
+														false,
+														false,
+														false,
+														false,
+														false,
+														false
+													]
+												}
+											],
+											"sid": 462608986924717
+										}
+									]
 								}
 							]
 						}
@@ -3766,6 +3944,16 @@
 								"layer": "\"Options\""
 							},
 							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 619366744917586,
+							"parameters": {
+								"variable": "Tutorial_Name",
+								"comparison": 0,
+								"value": "\"\""
+							}
 						}
 					],
 					"actions": [],
@@ -3817,7 +4005,11 @@
 									"parameters": [
 										false,
 										false,
+										false,
 										true,
+										false,
+										false,
+										false,
 										false
 									]
 								},
@@ -3962,7 +4154,11 @@
 											"parameters": [
 												false,
 												false,
+												false,
 												true,
+												false,
+												false,
+												false,
 												false
 											]
 										},
@@ -5368,10 +5564,10 @@
 										{
 											"id": "compare-current-value",
 											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 349129689975556,
+											"sid": 271945382033741,
 											"parameters": {
-												"comparison": 1,
-												"value": "-1"
+												"comparison": 5,
+												"value": "0"
 											}
 										}
 									],
@@ -5475,7 +5671,7 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 469379045492809
+											"sid": 328233956540402
 										}
 									],
 									"actions": [],
@@ -5588,6 +5784,15 @@
 							}
 						},
 						{
+							"id": "is-animation-playing",
+							"objectClass": "Icon_Upg",
+							"sid": 948242077308667,
+							"parameters": {
+								"animation": "\"Locked\""
+							},
+							"isInverted": true
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Icon_Upg",
 							"sid": 564032601783066,
@@ -5623,11 +5828,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 214170413666090,
+									"sid": 279416143755271,
 									"parameters": {
 										"first-value": "Mouse.Y",
 										"comparison": 3,
-										"second-value": "352"
+										"second-value": "362"
 									}
 								}
 							],
@@ -5660,11 +5865,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 362394958174085,
+									"sid": 180406945082290,
 									"parameters": {
 										"first-value": "Mouse.Y",
 										"comparison": 4,
-										"second-value": "352"
+										"second-value": "362"
 									}
 								}
 							],
@@ -5697,11 +5902,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 236205759071796,
+									"sid": 287524512920092,
 									"parameters": {
 										"first-value": "Mouse.Y",
 										"comparison": 3,
-										"second-value": "352"
+										"second-value": "362"
 									}
 								}
 							],
@@ -5734,11 +5939,11 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 337157958732023,
+									"sid": 531000529857389,
 									"parameters": {
 										"first-value": "Mouse.Y",
 										"comparison": 4,
-										"second-value": "352"
+										"second-value": "362"
 									}
 								}
 							],
@@ -6118,15 +6323,6 @@
 							}
 						},
 						{
-							"id": "compare-animation-frame-tag",
-							"objectClass": "Icon_prod",
-							"sid": 929156550205361,
-							"parameters": {
-								"comparison": 1,
-								"tag": "\"locked\""
-							}
-						},
-						{
 							"id": "is-on-layer",
 							"objectClass": "Icon_prod",
 							"sid": 183098081592056,
@@ -6135,127 +6331,257 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Selector",
-							"sid": 183746144330020,
-							"parameters": {
-								"x": "Icon_prod.X",
-								"y": "Icon_prod.Y"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 844850840482453,
-							"parameters": {
-								"layer": "\"Steam\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-interactive",
-							"objectClass": "System",
-							"sid": 997710142045123,
-							"parameters": {
-								"layer": "\"Steam\"",
-								"interactive": false
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 186993224544794,
-							"parameters": {
-								"layer": "\"Wood\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-interactive",
-							"objectClass": "System",
-							"sid": 791529807411258,
-							"parameters": {
-								"layer": "\"Wood\"",
-								"interactive": false
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 361194736236423,
-							"parameters": {
-								"layer": "\"Copper\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-interactive",
-							"objectClass": "System",
-							"sid": 183143174512931,
-							"parameters": {
-								"layer": "\"Copper\"",
-								"interactive": false
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 399492248693321,
-							"parameters": {
-								"layer": "Icon_prod.AnimationFrameTag",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-layer-interactive",
-							"objectClass": "System",
-							"sid": 930508293164254,
-							"parameters": {
-								"layer": "Icon_prod.AnimationFrameTag",
-								"interactive": true
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 425050649285240,
-							"parameters": {
-								"variable": "ActiveLayer",
-								"value": "Icon_prod.AnimationFrameTag"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "Icon_prod",
-							"sid": 962016825585606,
-							"parameters": {
-								"width": "32",
-								"height": "32"
-							}
-						},
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Icon_prod",
-							"sid": 775673484072031,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"bounce\"",
-								"property": "size",
-								"end-x": "114",
-								"end-y": "114",
-								"time": "0.2",
-								"ease": "easeinoutbounce",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 589161514220957,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame-tag",
+									"objectClass": "Icon_prod",
+									"sid": 622643067950273,
+									"parameters": {
+										"comparison": 1,
+										"tag": "\"locked\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Selector",
+									"sid": 271031474119664,
+									"parameters": {
+										"x": "Icon_prod.X",
+										"y": "Icon_prod.Y"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 876859145039137,
+									"parameters": {
+										"layer": "\"Steam\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 649245267439958,
+									"parameters": {
+										"layer": "\"Steam\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 597213981016483,
+									"parameters": {
+										"layer": "\"Wood\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 798761401482230,
+									"parameters": {
+										"layer": "\"Wood\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 123742993796027,
+									"parameters": {
+										"layer": "\"Copper\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 456617158796998,
+									"parameters": {
+										"layer": "\"Copper\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 499008356014802,
+									"parameters": {
+										"layer": "Icon_prod.AnimationFrameTag",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 445868898944346,
+									"parameters": {
+										"layer": "Icon_prod.AnimationFrameTag",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 781176014310229,
+									"parameters": {
+										"variable": "ActiveLayer",
+										"value": "Icon_prod.AnimationFrameTag"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Icon_prod",
+									"sid": 933688198762332,
+									"parameters": {
+										"width": "32",
+										"height": "32"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Icon_prod",
+									"sid": 928472423766022,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"bounce\"",
+										"property": "size",
+										"end-x": "114",
+										"end-y": "114",
+										"time": "0.2",
+										"ease": "easeinoutbounce",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 470905959430666
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 279193286014369
+								},
+								{
+									"id": "is-playing",
+									"objectClass": "Icon_prod",
+									"sid": 714321381923644,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Play_Audio",
+									"sid": 645573365790154,
+									"parameters": [
+										false,
+										false,
+										false,
+										true,
+										false,
+										false,
+										false,
+										false
+									]
+								},
+								{
+									"id": "set-x",
+									"objectClass": "Icon_prod",
+									"sid": 404759415649923,
+									"parameters": {
+										"x": "Self.Self_X"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Icon_prod",
+									"sid": 254808469646968,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\"",
+										"property": "offsetX",
+										"end-value": "Self.X + 7",
+										"time": "0.05",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 563781607492504,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Icon_prod",
+									"sid": 978685959478120,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\"",
+										"property": "offsetX",
+										"end-value": "Self.X - 14",
+										"time": "0.05",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 654401160005110,
+									"parameters": {
+										"seconds": "0.05",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Icon_prod",
+									"sid": 792364915946700,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"shake\"",
+										"property": "offsetX",
+										"end-value": "Self.X + 7",
+										"time": "0.05",
+										"ease": "easeinsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 834982127852286
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -7277,7 +7603,11 @@
 							"sid": 707604665632911,
 							"parameters": [
 								false,
+								false,
 								true,
+								false,
+								false,
+								false,
 								false,
 								false
 							]
@@ -7598,7 +7928,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Scroll Dialog Interaction",
+					"title": "Scroll and Items Interaction",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -8802,51 +9132,14 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 221058576953893,
-									"behaviorType": "DragDrop",
+									"sid": 495896494435932,
+									"behaviorType": "DragandDrop",
 									"parameters": {
 										"state": "enabled"
 									}
 								}
 							],
-							"sid": 428753163417857,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
-											"sid": 980795538309898,
-											"parameters": {
-												"object": "icon_list_weapon_clone"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
-											"sid": 467944311347362,
-											"parameters": {
-												"object": "icon_list_habilities_clone"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot",
-											"sid": 115743401507544,
-											"parameters": {
-												"instance-variable": "Free",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 286909301834937
-								}
-							]
+							"sid": 428753163417857
 						},
 						{
 							"eventType": "block",
@@ -8900,51 +9193,14 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 318865076138731,
-									"behaviorType": "DragDrop",
+									"sid": 141960033339971,
+									"behaviorType": "DragandDrop",
 									"parameters": {
 										"state": "enabled"
 									}
 								}
 							],
-							"sid": 990933597274654,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
-											"sid": 253938930119790,
-											"parameters": {
-												"object": "icon_list_habilities_clone"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
-											"sid": 293848809915192,
-											"parameters": {
-												"object": "icon_list_weapon_clone"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot",
-											"sid": 109921252253388,
-											"parameters": {
-												"instance-variable": "Free",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 629597522418550
-								}
-							]
+							"sid": 990933597274654
 						},
 						{
 							"eventType": "block",
@@ -8998,42 +9254,14 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "icon_list_armor_clone",
-									"sid": 332036135107618,
-									"behaviorType": "DragDrop",
+									"sid": 154948378057987,
+									"behaviorType": "DragandDrop",
 									"parameters": {
 										"state": "enabled"
 									}
 								}
 							],
-							"sid": 760761475409724,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot_Special",
-											"sid": 290981482278291,
-											"parameters": {
-												"object": "icon_list_armor_clone"
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot_Special",
-											"sid": 653224085245774,
-											"parameters": {
-												"instance-variable": "Free",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 448344059447150
-								}
-							]
+							"sid": 760761475409724
 						},
 						{
 							"eventType": "block",
@@ -9041,8 +9269,8 @@
 								{
 									"id": "is-dragging",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 235363098531715,
-									"behaviorType": "DragDrop"
+									"sid": 203880687673212,
+									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
@@ -9058,7 +9286,7 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 741149650576133,
+									"sid": 377219568770086,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "true"
@@ -9073,8 +9301,8 @@
 								{
 									"id": "on-drop",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 258052702938557,
-									"behaviorType": "DragDrop"
+									"sid": 217041225905486,
+									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
@@ -9142,13 +9370,21 @@
 												"variable": "SlotAtual",
 												"value": "Hab_Slot.ID"
 											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "icon_list_weapon",
+											"sid": 661861930869977,
+											"parameters": {
+												"opacity": "99"
+											}
 										}
 									],
 									"sid": 487372298345598,
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "E está free"
+											"text": "E não está free"
 										},
 										{
 											"eventType": "block",
@@ -9172,9 +9408,18 @@
 														{
 															"id": "is-boolean-instance-variable-set",
 															"objectClass": "icon_list_weapon_clone",
-															"sid": 262019353518228,
+															"sid": 495158659160234,
 															"parameters": {
 																"instance-variable": "Recent_Copy"
+															}
+														},
+														{
+															"id": "compare-opacity",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 565090154434649,
+															"parameters": {
+																"comparison": 0,
+																"opacity": "99"
 															}
 														}
 													],
@@ -9193,7 +9438,8 @@
 															]
 														}
 													],
-													"sid": 221986985973933
+													"sid": 221986985973933,
+													"isOrBlock": true
 												}
 											]
 										},
@@ -9243,7 +9489,7 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "icon_list_weapon_clone",
-													"sid": 147399966406377,
+													"sid": 735940158305817,
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
@@ -9287,7 +9533,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "icon_list_weapon_clone",
-											"sid": 790813473478676,
+											"sid": 863627974445683,
 											"parameters": {
 												"instance-variable": "Recent_Copy"
 											}
@@ -9383,8 +9629,8 @@
 								{
 									"id": "is-dragging",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 751750498854825,
-									"behaviorType": "DragDrop"
+									"sid": 632733395231613,
+									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
@@ -9400,7 +9646,7 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 472507195433181,
+									"sid": 332541500385267,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "true"
@@ -9415,8 +9661,8 @@
 								{
 									"id": "on-drop",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 448490057373626,
-									"behaviorType": "DragDrop"
+									"sid": 123237143312703,
+									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
@@ -9506,7 +9752,7 @@
 														{
 															"id": "is-boolean-instance-variable-set",
 															"objectClass": "icon_list_habilities_clone",
-															"sid": 568663663463132,
+															"sid": 979897249116458,
 															"parameters": {
 																"instance-variable": "Recent_Copy"
 															}
@@ -9573,7 +9819,7 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "icon_list_habilities_clone",
-													"sid": 677132381875964,
+													"sid": 377228891796123,
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
@@ -9613,7 +9859,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "icon_list_habilities_clone",
-											"sid": 452929136068071,
+											"sid": 187566085710458,
 											"parameters": {
 												"instance-variable": "Recent_Copy"
 											}
@@ -9705,8 +9951,8 @@
 								{
 									"id": "is-dragging",
 									"objectClass": "icon_list_armor_clone",
-									"sid": 415690495281043,
-									"behaviorType": "DragDrop"
+									"sid": 173189680787463,
+									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
@@ -9722,7 +9968,7 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_armor_clone",
-									"sid": 970195355026056,
+									"sid": 421378441736140,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "true"
@@ -9737,8 +9983,8 @@
 								{
 									"id": "on-drop",
 									"objectClass": "icon_list_armor_clone",
-									"sid": 717030194850383,
-									"behaviorType": "DragDrop"
+									"sid": 617406135135152,
+									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
@@ -9828,7 +10074,7 @@
 														{
 															"id": "is-boolean-instance-variable-set",
 															"objectClass": "icon_list_armor_clone",
-															"sid": 609820525522477,
+															"sid": 448730505424606,
 															"parameters": {
 																"instance-variable": "Recent_Copy"
 															}
@@ -9849,7 +10095,7 @@
 														{
 															"id": "pick-by-comparison",
 															"objectClass": "System",
-															"sid": 643746675808191,
+															"sid": 834668671771037,
 															"parameters": {
 																"object": "icon_list_armor_clone",
 																"expression": "icon_list_armor_clone.Recent_Copy",
@@ -9941,7 +10187,7 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "icon_list_armor_clone",
-													"sid": 353043498386113,
+													"sid": 149542260832723,
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
@@ -9950,8 +10196,8 @@
 												{
 													"id": "set-enabled",
 													"objectClass": "icon_list_armor_clone",
-													"sid": 384580052931136,
-													"behaviorType": "DragDrop",
+													"sid": 597632789019530,
+													"behaviorType": "DragandDrop",
 													"parameters": {
 														"state": "disabled"
 													}
@@ -10008,7 +10254,7 @@
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "icon_list_armor_clone",
-											"sid": 973892800059835,
+											"sid": 386674205743237,
 											"parameters": {
 												"instance-variable": "Recent_Copy"
 											}
@@ -10122,7 +10368,20 @@
 							],
 							"eventType": "function-block",
 							"conditions": [],
-							"actions": [],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 289545400256628,
+									"parameters": {
+										"audio-file": "click_1",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
 							"sid": 331768237687179,
 							"children": [
 								{
@@ -10142,6 +10401,10 @@
 									"actions": [],
 									"sid": 293097233313213,
 									"children": [
+										{
+											"eventType": "comment",
+											"text": "Se houver outro ícone igual ao que foi chamado pela função, destroi o ícone antigo, pois não é permitido equipar a mesma arma/hab em slots diferentes"
+										},
 										{
 											"eventType": "block",
 											"conditions": [
@@ -10167,7 +10430,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "icon_list_weapon_clone",
-													"sid": 504204563832561,
+													"sid": 563307539835868,
 													"parameters": {
 														"instance-variable": "Recent_Copy"
 													},
@@ -10191,6 +10454,10 @@
 												}
 											],
 											"sid": 846619813312259
+										},
+										{
+											"eventType": "comment",
+											"text": "Se houver uma arma diferente no slot atual, então muda o seu frame de acordo com o que foi chamado pela função"
 										},
 										{
 											"eventType": "block",
@@ -10218,7 +10485,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "icon_list_weapon_clone",
-													"sid": 289067104602603,
+													"sid": 204371115492320,
 													"parameters": {
 														"instance-variable": "Recent_Copy"
 													},
@@ -10254,6 +10521,107 @@
 												}
 											],
 											"sid": 507681436591421
+										},
+										{
+											"eventType": "comment",
+											"text": "Se houver uma hab no slot atual, então destroi e spawna a arma no slot"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 321967841911713,
+													"parameters": {
+														"object": "icon_list_habilities_clone",
+														"expression": "icon_list_habilities_clone.Pin_Obj_ID",
+														"comparison": 0,
+														"value": "SlotAtual"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "icon_list_habilities_clone",
+													"sid": 233376174056872,
+													"parameters": {
+														"object": "Hab_Slot"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "icon_list_habilities_clone",
+													"sid": 876807252629833,
+													"parameters": {
+														"instance-variable": "Recent_Copy"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "icon_list_habilities_clone",
+													"sid": 217540441267363
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 555440141460512,
+													"parameters": {
+														"object": "icon_list_weapon_clone",
+														"layer": "\"Frg List\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "icon_list_weapon_clone",
+													"sid": 944244096876181,
+													"behaviorType": "DragandDrop",
+													"parameters": {
+														"state": "enabled"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "icon_list_weapon_clone",
+													"sid": 723157249456286,
+													"parameters": {
+														"frame-number": "frame"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "icon_list_weapon_clone",
+													"sid": 824415234650668,
+													"parameters": {
+														"instance-variable": "Pin_Obj_ID",
+														"value": "SlotAtual"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "icon_list_weapon_clone",
+													"sid": 228528220040739,
+													"parameters": {
+														"instance-variable": "Recent_Copy",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 617559220530609,
+													"parameters": {
+														"variable": "SlotAtual",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 556276824634830
 										},
 										{
 											"eventType": "block",
@@ -10310,6 +10678,10 @@
 									"sid": 720861214057079,
 									"children": [
 										{
+											"eventType": "comment",
+											"text": "Se houver outro ícone igual ao que foi chamado pela função, destroi o ícone antigo, pois não é permitido equipar a mesma arma/hab em slots diferentes"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -10334,7 +10706,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "icon_list_habilities_clone",
-													"sid": 946097745162404,
+													"sid": 709778720682769,
 													"parameters": {
 														"instance-variable": "Recent_Copy"
 													},
@@ -10358,6 +10730,10 @@
 												}
 											],
 											"sid": 442425911952767
+										},
+										{
+											"eventType": "comment",
+											"text": "Se houver uma hab diferente no slot atual, então muda o seu frame de acordo com o que foi chamado pela função"
 										},
 										{
 											"eventType": "block",
@@ -10385,7 +10761,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "icon_list_habilities_clone",
-													"sid": 876962703592380,
+													"sid": 742021768011714,
 													"parameters": {
 														"instance-variable": "Recent_Copy"
 													},
@@ -10421,6 +10797,107 @@
 												}
 											],
 											"sid": 219524372447958
+										},
+										{
+											"eventType": "comment",
+											"text": "Se houver uma arma no slot atual, então destroi e spawna a hab no slot"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 491481943811795,
+													"parameters": {
+														"object": "icon_list_weapon_clone",
+														"expression": "icon_list_weapon_clone.Pin_Obj_ID",
+														"comparison": 0,
+														"value": "SlotAtual"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "icon_list_weapon_clone",
+													"sid": 335525341563858,
+													"parameters": {
+														"object": "Hab_Slot"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "icon_list_weapon_clone",
+													"sid": 244862865795307,
+													"parameters": {
+														"instance-variable": "Recent_Copy"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "icon_list_weapon_clone",
+													"sid": 812805338114653
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "Hab_Slot",
+													"sid": 467918879097441,
+													"parameters": {
+														"object": "icon_list_habilities_clone",
+														"layer": "\"Frg List\"",
+														"image-point": "0",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "icon_list_habilities_clone",
+													"sid": 860882914787706,
+													"behaviorType": "DragandDrop",
+													"parameters": {
+														"state": "enabled"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "icon_list_habilities_clone",
+													"sid": 995637891220321,
+													"parameters": {
+														"frame-number": "frame"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "icon_list_habilities_clone",
+													"sid": 936829168426898,
+													"parameters": {
+														"instance-variable": "Pin_Obj_ID",
+														"value": "SlotAtual"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "icon_list_habilities_clone",
+													"sid": 489475513537952,
+													"parameters": {
+														"instance-variable": "Recent_Copy",
+														"value": "false"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 555049099387368,
+													"parameters": {
+														"variable": "SlotAtual",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 973153234605428
 										},
 										{
 											"eventType": "block",
@@ -10465,149 +10942,287 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 283763900648716,
-									"parameters": {
-										"object": "icon_list_weapon_clone"
-									}
+									"id": "on-any-touch-start",
+									"objectClass": "Touch",
+									"sid": 206411463436645
 								},
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Hab_Slot",
-									"sid": 599207864912315,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "1"
-									}
+									"id": "on-any-touch-end",
+									"objectClass": "Touch",
+									"sid": 421312108987470
 								}
 							],
 							"actions": [],
-							"sid": 482489794379856,
+							"sid": 954621525045089,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "pick-by-comparison",
+											"id": "for-each",
 											"objectClass": "System",
-											"sid": 786267889894606,
+											"sid": 948936107382511,
 											"parameters": {
-												"object": "icon_list_weapon_clone",
-												"expression": "icon_list_weapon_clone.Pin_Obj_ID",
-												"comparison": 0,
-												"value": "1"
+												"object": "Hab_Slot"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 457028032399792,
+									"children": [
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 352310107161865,
-											"parameters": {
-												"variable": "Weapon_ID_1",
-												"value": "\"WP_\" & icon_list_weapon_clone.AnimationFrame - 1"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 428022595359482,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 355031265233267,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 897732178611874,
+															"parameters": {
+																"object": "icon_list_habilities_clone"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 255729875761301,
+															"parameters": {
+																"object": "icon_list_weapon_clone"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 168274103758889,
+															"parameters": {
+																"variable": "Weapon_ID_1",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 843841611454612
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 413361502297453,
+															"parameters": {
+																"object": "icon_list_weapon_clone"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 857815230375956,
+															"parameters": {
+																"variable": "Weapon_ID_1",
+																"value": "\"WP_\" & icon_list_weapon_clone.AnimationFrame - 1"
+															}
+														}
+													],
+													"sid": 885452591968726
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 105714417446792,
+															"parameters": {
+																"object": "icon_list_habilities_clone"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 184038441556864,
+															"parameters": {
+																"variable": "Weapon_ID_1",
+																"value": "\"HAB_\" & icon_list_habilities_clone.AnimationFrame - 1"
+															}
+														}
+													],
+													"sid": 162308247619799
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 346348779293019,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 613924567608003,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 462749506406726,
+															"parameters": {
+																"object": "icon_list_habilities_clone"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 852734140033014,
+															"parameters": {
+																"object": "icon_list_weapon_clone"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 704643856058911,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 955458120690052
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 420266423475453,
+															"parameters": {
+																"object": "icon_list_weapon_clone"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 804329396786659,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"WP_\" & icon_list_weapon_clone.AnimationFrame - 1"
+															}
+														}
+													],
+													"sid": 718395228843312
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 203027357170539,
+															"parameters": {
+																"object": "icon_list_habilities_clone"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 126717771424740,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"HAB_\" & icon_list_habilities_clone.AnimationFrame - 1"
+															}
+														}
+													],
+													"sid": 372798701857778
+												}
+											]
 										}
-									],
-									"sid": 674740145919313
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 958033892683174,
-									"parameters": {
-										"object": "icon_list_weapon_clone"
-									}
+									]
 								},
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Hab_Slot",
-									"sid": 924295172659309,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 170512286602536,
-							"children": [
-								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 600528929257284,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot_Special",
+											"sid": 195434087810916,
 											"parameters": {
-												"object": "icon_list_weapon_clone",
-												"expression": "icon_list_weapon_clone.Pin_Obj_ID",
-												"comparison": 0,
-												"value": "2"
-											}
+												"object": "icon_list_armor_clone"
+											},
+											"isInverted": true
 										}
 									],
 									"actions": [
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 861366295169735,
+											"sid": 459157701066536,
 											"parameters": {
-												"variable": "Weapon_ID_2",
-												"value": "\"WP_\" & icon_list_weapon_clone.AnimationFrame - 1"
+												"variable": "Armor_ID",
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "armadura_madeira",
+											"sid": 161647108113387,
+											"parameters": {
+												"frame-number": "0"
 											}
 										}
 									],
-									"sid": 731200133563934
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 877637232348935,
-									"parameters": {
-										"object": "icon_list_habilities_clone"
-									}
+									"sid": 292434049955292
 								},
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Hab_Slot",
-									"sid": 465139742685613,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 157277372856645,
-							"children": [
-								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 438387895964400,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Hab_Slot_Special",
+											"sid": 544023325720514,
 											"parameters": {
-												"object": "icon_list_habilities_clone",
-												"expression": "icon_list_habilities_clone.Pin_Obj_ID",
-												"comparison": 0,
-												"value": "1"
+												"object": "icon_list_armor_clone"
 											}
 										}
 									],
@@ -10615,247 +11230,17 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 751533769588117,
-											"parameters": {
-												"variable": "Weapon_ID_1",
-												"value": "\"HAB_\" & icon_list_habilities_clone.AnimationFrame - 1"
-											}
-										}
-									],
-									"sid": 669342046053215
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 961887465958720,
-									"parameters": {
-										"object": "icon_list_habilities_clone"
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Hab_Slot",
-									"sid": 572124145051027,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 325726302956576,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 631867629173119,
-											"parameters": {
-												"object": "icon_list_habilities_clone",
-												"expression": "icon_list_habilities_clone.Pin_Obj_ID",
-												"comparison": 0,
-												"value": "2"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 340205953435332,
-											"parameters": {
-												"variable": "Weapon_ID_2",
-												"value": "\"HAB_\" & icon_list_habilities_clone.AnimationFrame - 1"
-											}
-										}
-									],
-									"sid": 383206976646150
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot_Special",
-									"sid": 195978592418246,
-									"parameters": {
-										"object": "icon_list_armor_clone"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 212471694968558,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 604783372922915,
-											"parameters": {
-												"object": "icon_list_armor_clone",
-												"expression": "icon_list_armor_clone.IID",
-												"comparison": 0,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 165834905951031,
+											"sid": 382865679121572,
 											"parameters": {
 												"variable": "Armor_ID",
 												"value": "icon_list_armor_clone.AnimationFrame"
 											}
 										}
 									],
-									"sid": 598153491592374
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-any-touch-start",
-									"objectClass": "Touch",
-									"sid": 206411463436645
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 600583106934717,
-									"parameters": {
-										"object": "icon_list_habilities_clone"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 145789605872904,
-									"parameters": {
-										"object": "icon_list_weapon_clone"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Hab_Slot",
-									"sid": 121743312825471,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "1"
-									}
+									"sid": 297218163093831
 								}
 							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 404308279744520,
-									"parameters": {
-										"variable": "Weapon_ID_1",
-										"value": "\"\""
-									}
-								}
-							],
-							"sid": 954621525045089
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-any-touch-start",
-									"objectClass": "Touch",
-									"sid": 395171486695028
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 290510657015830,
-									"parameters": {
-										"object": "icon_list_habilities_clone"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot",
-									"sid": 778682703617943,
-									"parameters": {
-										"object": "icon_list_weapon_clone"
-									},
-									"isInverted": true
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Hab_Slot",
-									"sid": 171331484806255,
-									"parameters": {
-										"instance-variable": "ID",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 482040566252359,
-									"parameters": {
-										"variable": "Weapon_ID_2",
-										"value": "\"\""
-									}
-								}
-							],
-							"sid": 275463895123048
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-any-touch-start",
-									"objectClass": "Touch",
-									"sid": 743470780850625
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Hab_Slot_Special",
-									"sid": 637973650401535,
-									"parameters": {
-										"object": "icon_list_armor_clone"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 174482733653964,
-									"parameters": {
-										"variable": "Armor_ID",
-										"value": "\"\""
-									}
-								}
-							],
-							"sid": 650148446251444
+							"isOrBlock": true
 						}
 					],
 					"sid": 511046342918322
@@ -13653,7 +14038,7 @@
 									"type": "number",
 									"initialValue": "0",
 									"comment": "",
-									"isStatic": false,
+									"isStatic": true,
 									"isConstant": false,
 									"sid": 569771497827572
 								},
@@ -13784,17 +14169,9 @@
 													],
 													"actions": [
 														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 851684285002114,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
-															}
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
-															"sid": 316741730524907,
+															"sid": 385634366105702,
 															"parameters": {
 																"instance-variable": "Price_1",
 																"value": "A_Weapons.At(6, 1, counter)"
@@ -13803,7 +14180,7 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
-															"sid": 872417766217348,
+															"sid": 258767483727826,
 															"parameters": {
 																"instance-variable": "Price_2",
 																"value": "A_Weapons.At(7, 1, counter)"
@@ -13812,14 +14189,176 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
-															"sid": 171260815866840,
+															"sid": 319138299490417,
 															"parameters": {
 																"instance-variable": "Type",
 																"value": "\"WP_\" & counter"
 															}
 														}
 													],
-													"sid": 158260905454071
+													"sid": 158260905454071,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar por ambos os valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 562730653784586,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 960173344719810,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 243629698099008,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 349834233612853
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 1, mas pode pelo preço 2"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 499403519243210,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 309485566150495,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 847836405598259,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 594417529762196
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 2, mas pode pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 884528318645862,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 457212609767450,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 725033737654274,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 560640976697254
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar por ambos valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 166793478686658,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 954921144730820,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 482757643221211,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 555940086918467
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -13831,14 +14370,6 @@
 														}
 													],
 													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 937774454487392,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"]\""
-															}
-														},
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
@@ -13867,7 +14398,65 @@
 															}
 														}
 													],
-													"sid": 203207823811609
+													"sid": 203207823811609,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 704469510246389,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 154874845744852,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 327453232853143
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 449827992503036,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 715506437682932,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 120210528516674
+														}
+													]
 												},
 												{
 													"eventType": "comment",
@@ -14121,6 +14710,7 @@
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
 															"sid": 610893790219600,
+															"disabled": true,
 															"parameters": {
 																"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter)+1, 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 															}
@@ -14153,7 +14743,169 @@
 															}
 														}
 													],
-													"sid": 847873434389115
+													"sid": 847873434389115,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar por ambos os valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 235002266485238,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 830545274429325,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 194149747401290,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 807936894630383
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 1, mas pode pelo preço 2"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 340761889662444,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 706048219322911,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 482422342088406,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 321510490640980
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 2, mas pode pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 986292333131552,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 899533320687443,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 749325407459674,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 885598945604381
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar por ambos valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 457842231836368,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 559075371142036,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 868641588663367,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 943439563928339
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -14201,7 +14953,65 @@
 															}
 														}
 													],
-													"sid": 824518116841801
+													"sid": 824518116841801,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 287361548031684,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 764705272332003,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 191542421603590
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 247752002082349,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 817726379353956,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 869398509081450
+														}
+													]
 												},
 												{
 													"eventType": "comment",
@@ -14699,6 +15509,7 @@
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
 															"sid": 587218462131236,
+															"disabled": true,
 															"parameters": {
 																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
 															}
@@ -14731,7 +15542,169 @@
 															}
 														}
 													],
-													"sid": 523567621558868
+													"sid": 523567621558868,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar por ambos os valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 113918653988181,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 884398420114240,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 708603379614395,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 175954999866379
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 1, mas pode pelo preço 2"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 993052060209299,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 825508792458953,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 749045333860782,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 489110467777538
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 2, mas pode pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 716006347688849,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 663519577248472,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 993828689758502,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 401633072353447
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar por ambos valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 393994967074989,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 534128792001832,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 616921068901687,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 136120065160834
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -14747,6 +15720,7 @@
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
 															"sid": 764422147204162,
+															"disabled": true,
 															"parameters": {
 																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
 															}
@@ -14779,7 +15753,65 @@
 															}
 														}
 													],
-													"sid": 408402997054163
+													"sid": 408402997054163,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 466937125870332,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 921474072860732,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 991910723287774
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 119749925414160,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 753282685667265,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 276493659808885
+														}
+													]
 												},
 												{
 													"eventType": "comment",
@@ -14978,6 +16010,7 @@
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
 															"sid": 950511653966711,
+															"disabled": true,
 															"parameters": {
 																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter)+1, 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 															}
@@ -14985,19 +16018,19 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
-															"sid": 269737454604943,
+															"sid": 265022059691037,
 															"parameters": {
 																"instance-variable": "Price_1",
-																"value": "A_Habilities.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter)"
+																"value": "A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter)"
 															}
 														},
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
-															"sid": 586469548838946,
+															"sid": 678105207196424,
 															"parameters": {
 																"instance-variable": "Price_2",
-																"value": "A_Habilities.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter)"
+																"value": "A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter)"
 															}
 														},
 														{
@@ -15010,7 +16043,169 @@
 															}
 														}
 													],
-													"sid": 892717660639361
+													"sid": 892717660639361,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar por ambos os valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 115162449744626,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 128958296061666,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 627684227452128,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 922343141263613
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 1, mas pode pelo preço 2"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 950708285562948,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 190486231397168,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 400246785482506,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 483694758633950
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 2, mas pode pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 453218136138103,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 967951924044444,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 540973399096690,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 300149672103373
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar por ambos valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 318964952034870,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 279270315553534,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 745597715905637,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 113944302584043
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -15026,6 +16221,7 @@
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
 															"sid": 734042315579872,
+															"disabled": true,
 															"parameters": {
 																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 															}
@@ -15033,10 +16229,10 @@
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
-															"sid": 530728095233838,
+															"sid": 769924506477845,
 															"parameters": {
 																"instance-variable": "Price_1",
-																"value": "A_Habilities.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter)"
+																"value": "A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter)"
 															}
 														},
 														{
@@ -15058,7 +16254,65 @@
 															}
 														}
 													],
-													"sid": 319965411781195
+													"sid": 319965411781195,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 759280316130381,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 132840143787396,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 314823959448786
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 808997746050637,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 902622562053318,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 281303231931813
+														}
+													]
 												},
 												{
 													"eventType": "comment",
@@ -15082,9 +16336,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Upg_Info",
-															"sid": 320520884654512,
+															"sid": 392602488550060,
 															"parameters": {
-																"text": "\"Apply a \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \"% defense buff for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns. \" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns.\""
+																"text": "\"Instantly regenerate \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns.\""
 															}
 														}
 													],
@@ -15376,7 +16630,7 @@
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "Verifica se a arma não foi desbloqueada"
+											"text": "Verifica se a armadura não foi desbloqueada"
 										},
 										{
 											"eventType": "block",
@@ -15561,7 +16815,169 @@
 															}
 														}
 													],
-													"sid": 118094037936567
+													"sid": 118094037936567,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar por ambos os valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 304421403385822,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 181054944066054,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 600433385825022,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 461326007160343
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 1, mas pode pelo preço 2"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 791749615565632,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 106441187429932,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 950149690547173,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 420674532519695
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 2, mas pode pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 135998761318283,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 833275932398314,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 970281933480301,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 897539350298900
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar por ambos valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 944158486588201,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 907862273796459,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 153200177916918,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 209115237356248
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -15609,13 +17025,71 @@
 															}
 														}
 													],
-													"sid": 388887788993397
+													"sid": 388887788993397,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 215165914073800,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, 1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 133879404026856,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 750182786817057
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 752577676825539,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, 1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 325651982801454,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 548925650141764
+														}
+													]
 												}
 											]
 										},
 										{
 											"eventType": "comment",
-											"text": "Verifica o nível da arma"
+											"text": "Verifica o nível da armadura"
 										},
 										{
 											"eventType": "block",
@@ -15778,6 +17252,7 @@
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
 															"sid": 933589639661424,
+															"disabled": true,
 															"parameters": {
 																"text": "\"Materials: \" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter)+1, 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
 															}
@@ -15810,7 +17285,169 @@
 															}
 														}
 													],
-													"sid": 768027170673190
+													"sid": 768027170673190,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar por ambos os valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 352937444626029,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 874339993752991,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 210949255854780,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 221416803421229
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 1, mas pode pelo preço 2"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 435252068760026,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 347104606589327,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 892973636582441,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 969810022086461
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar pelo preço 2, mas pode pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 709969570000057,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 772124892403083,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 904257094613620,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 915614214725497
+														},
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador não pode pagar por ambos valores"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 971792114757793,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																},
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 421430107534615,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 249019737319053,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 473146050599863
+														}
+													]
 												},
 												{
 													"eventType": "block",
@@ -15826,6 +17463,7 @@
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
 															"sid": 151627509966665,
+															"disabled": true,
 															"parameters": {
 																"text": "\"Materials: \" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
 															}
@@ -15858,13 +17496,71 @@
 															}
 														}
 													],
-													"sid": 330215778707699
+													"sid": 330215778707699,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Verifica se o jogador pode pagar pelo preço 1"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 216792066750798,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 3,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 858941022153809,
+																	"parameters": {
+																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 537021332300142
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 519800675793424,
+																	"parameters": {
+																		"first-value": "int(tokenat(A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\") )",
+																		"comparison": 4,
+																		"second-value": "Dict_Temp_Prod_Data.Get(tokenat(A_Armor.At(5, 1, counter), 0, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Work_Upg_Price",
+																	"sid": 991493823555599,
+																	"parameters": {
+																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																	}
+																}
+															],
+															"sid": 200058977706289
+														}
+													]
 												}
 											]
 										},
 										{
 											"eventType": "comment",
-											"text": "Verifica se a arma está no máximo"
+											"text": "Verifica se a armadura está no máximo"
 										},
 										{
 											"eventType": "block",
@@ -16059,7 +17755,11 @@
 													"sid": 326124611938665,
 													"parameters": [
 														false,
+														false,
 														true,
+														false,
+														false,
+														false,
 														false,
 														false
 													]
@@ -16241,7 +17941,11 @@
 													"sid": 107567662218094,
 													"parameters": [
 														false,
+														false,
 														true,
+														false,
+														false,
+														false,
 														false,
 														false
 													]
@@ -19300,6 +21004,10 @@
 										true,
 										false,
 										false,
+										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -19359,7 +21067,44 @@
 							"sid": 269836108703873
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 964819643627486,
+							"parameters": {
+								"tag": "\"weapon_data\"",
+								"file": "weapons.json"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 444358229183055,
+							"parameters": {
+								"tag": "\"habilities_data\"",
+								"file": "habilities.json"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 249228127060348,
+							"parameters": {
+								"tag": "\"armour_data\"",
+								"file": "armor.json"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 869113000849851,
+							"parameters": {
+								"variable": "ActiveItemType",
+								"value": "\"Weapons\""
+							}
+						}
+					],
 					"sid": 971932301531214,
 					"children": [
 						{
@@ -19418,47 +21163,6 @@
 									}
 								},
 								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 929031838873102,
-									"parameters": {
-										"tag": "\"weapon_data\"",
-										"file": "weapons.json"
-									}
-								},
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 790811282458493,
-									"parameters": {
-										"tag": "\"habilities_data\"",
-										"file": "habilities.json"
-									}
-								},
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 356600215132231,
-									"parameters": {
-										"tag": "\"armour_data\"",
-										"file": "armor.json"
-									}
-								},
-								{
-									"callFunction": "PopulateList",
-									"sid": 275951379641544,
-									"parameters": [
-										"\"Weapons\""
-									]
-								},
-								{
-									"callFunction": "PopulateList",
-									"sid": 645878483655685,
-									"parameters": [
-										"\"Armor\""
-									]
-								},
-								{
 									"id": "wait",
 									"objectClass": "System",
 									"sid": 768073074017636,
@@ -19499,47 +21203,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 286662609749814,
-									"parameters": {
-										"tag": "\"weapon_data\"",
-										"file": "weapons.json"
-									}
-								},
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 112905749105618,
-									"parameters": {
-										"tag": "\"habilities_data\"",
-										"file": "habilities.json"
-									}
-								},
-								{
-									"id": "request-project-file",
-									"objectClass": "AJAX",
-									"sid": 990163524611751,
-									"parameters": {
-										"tag": "\"armour_data\"",
-										"file": "armor.json"
-									}
-								},
-								{
-									"callFunction": "PopulateList",
-									"sid": 198951426759550,
-									"parameters": [
-										"\"Weapons\""
-									]
-								},
-								{
-									"callFunction": "PopulateList",
-									"sid": 770618979466574,
-									"parameters": [
-										"\"Armor\""
-									]
-								},
 								{
 									"id": "wait",
 									"objectClass": "System",
@@ -20092,6 +21755,13 @@
 							"sid": 243670574654878
 						},
 						{
+							"name": "Click",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 995178307456932
+						},
+						{
 							"name": "Confirm",
 							"type": "boolean",
 							"initialValue": "false",
@@ -20111,6 +21781,27 @@
 							"initialValue": "false",
 							"comment": "",
 							"sid": 986589418274104
+						},
+						{
+							"name": "Punch",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 619319996273182
+						},
+						{
+							"name": "Cut",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 964103366989122
+						},
+						{
+							"name": "Shot",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 906720311358930
 						}
 					],
 					"eventType": "function-block",
@@ -20311,7 +22002,124 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 883963861896081,
+									"sid": 969391213371499,
+									"parameters": {
+										"variable": "Click"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 648491452012345,
+									"parameters": {
+										"variable": "rng_sound",
+										"value": "choose ( 1,2,3)"
+									}
+								}
+							],
+							"sid": 974441521457011,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 933239677603269,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 200999542550586,
+											"parameters": {
+												"audio-file": "click_1",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 885406730150964
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 184941190754906,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 357668847934545,
+											"parameters": {
+												"audio-file": "click_2",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 565375036480031
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 759998041427370,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 390820833610153,
+											"parameters": {
+												"audio-file": "click_3",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 579160381999156
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 601180728543942,
 									"parameters": {
 										"variable": "Confirm"
 									}
@@ -20321,17 +22129,17 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 788235994849399,
+									"sid": 264522240129840,
 									"parameters": {
 										"audio-file": "Confirm_by_Ana_Caldeira",
 										"loop": "not-looping",
-										"volume": "-30 + ( VOLUME * 0.3 )",
+										"volume": "-10 + ( VOLUME * 0.1 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
 								}
 							],
-							"sid": 974441521457011
+							"sid": 286970589398686
 						},
 						{
 							"eventType": "block",
@@ -20349,11 +22157,11 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 223225989830472,
+									"sid": 517149195196882,
 									"parameters": {
 										"audio-file": "free_locked",
 										"loop": "not-looping",
-										"volume": "-12",
+										"volume": "-20 + ( VOLUME * 0.2 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -20405,11 +22213,403 @@
 								}
 							],
 							"sid": 226121548605067
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 712483093237734,
+									"parameters": {
+										"variable": "Punch"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 735405567682128,
+									"parameters": {
+										"variable": "rng_sound",
+										"value": "choose ( 1,2,3)"
+									}
+								}
+							],
+							"sid": 167600349592790,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 808411692256213,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 280568560503840,
+											"parameters": {
+												"audio-file": "hitting-in-a-face 1",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 359812085032451
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 958348455698859,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 196021230468610,
+											"parameters": {
+												"audio-file": "hitting-in-a-face 2",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 169390000468246
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 170710202882408,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 313970992596549,
+											"parameters": {
+												"audio-file": "hitting-in-a-face 3",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 405553925790553
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 326836858174895,
+									"parameters": {
+										"variable": "Cut"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 411498554377326,
+									"parameters": {
+										"variable": "rng_sound",
+										"value": "choose ( 1,2,3)"
+									}
+								}
+							],
+							"sid": 580560454545575,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 322844425721673,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 797988304563469,
+											"parameters": {
+												"audio-file": "atk_stab_1",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 625952705563720
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 951182943865800,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 636822692017533,
+											"parameters": {
+												"audio-file": "atk_stab_2",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 463301227303033
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 766551719524535,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 103329137446531,
+											"parameters": {
+												"audio-file": "atk_stab_3",
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 434707411959683
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 786213213625902,
+									"parameters": {
+										"variable": "Shot"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 162989834716922,
+									"parameters": {
+										"audio-file": "gun_shot",
+										"loop": "not-looping",
+										"volume": "-40 + ( VOLUME * 0.4 )",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 299238706061598
 						}
 					]
 				}
 			],
 			"sid": 648895342167898
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Anti Bugs",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-timer",
+							"objectClass": "Icons_Clones",
+							"sid": 716753571142471,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"bye\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Icons_Clones",
+							"sid": 805300008786936,
+							"parameters": {
+								"instance-variable": "Recent_Copy"
+							}
+						},
+						{
+							"id": "is-dragging",
+							"objectClass": "Icons_Clones",
+							"sid": 692207087591458,
+							"behaviorType": "DragandDrop",
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 224852720966127,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Icons_Clones",
+									"sid": 507125751100583,
+									"parameters": {
+										"object": "Hab_Slot"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Icons_Clones",
+									"sid": 290992854077138,
+									"parameters": {
+										"object": "Hab_Slot_Special"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Icons_Clones",
+									"sid": 382825650102684
+								}
+							],
+							"sid": 618235695901565,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Icons_Clones",
+							"sid": 559643259457208
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "Icons_Clones",
+							"sid": 288741190132464,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.1",
+								"type": "once",
+								"tag": "\"bye\""
+							}
+						}
+					],
+					"sid": 608094658987565
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 710336303335674,
+							"parameters": {
+								"key": 81
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Play_Audio",
+							"sid": 157645976912882,
+							"parameters": [
+								false,
+								false,
+								true,
+								false,
+								false,
+								false,
+								false,
+								false
+							]
+						}
+					],
+					"sid": 436728943531897,
+					"disabled": true
+				}
+			],
+			"sid": 429822142499843
 		}
 	],
 	"sid": 739369905008436

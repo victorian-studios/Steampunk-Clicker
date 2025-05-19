@@ -707,6 +707,60 @@
 						}
 					],
 					"sid": 852205907838256
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 370765700817608,
+							"parameters": {
+								"object": "TextoAiDaVida",
+								"expression": "TextoAiDaVida.UID",
+								"comparison": 0,
+								"value": "393"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextoAiDaVida",
+							"sid": 842629743014668,
+							"parameters": {
+								"text": "Internationalization.Lookup(\"fight.exit.name\")"
+							}
+						}
+					],
+					"sid": 441760560523888
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 553534873041005,
+							"parameters": {
+								"object": "TextoAiDaVida",
+								"expression": "TextoAiDaVida.UID",
+								"comparison": 0,
+								"value": "394"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TextoAiDaVida",
+							"sid": 971111757982262,
+							"parameters": {
+								"text": "Internationalization.Lookup(\"fight.exit.desc\")"
+							}
+						}
+					],
+					"sid": 893821882369594
 				}
 			]
 		},
@@ -850,50 +904,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-touched-object",
-					"objectClass": "Touch",
-					"sid": 596370513062971,
-					"parameters": {
-						"object": "Btn_Exit",
-						"type": "start"
-					}
-				},
-				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 884649404687528,
-					"parameters": {
-						"variable": "Tutorial_Name",
-						"comparison": 0,
-						"value": "\"\""
-					}
-				},
-				{
-					"id": "compare-y",
-					"objectClass": "Bkg_options",
-					"sid": 614194260908930,
-					"parameters": {
-						"comparison": 1,
-						"y-co-ordinate": "540"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 513812859761443,
-					"parameters": {
-						"layout": "Game"
-					}
-				}
-			],
-			"sid": 279140177838667
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
 					"sid": 123104288296142,
@@ -1024,6 +1034,218 @@
 				}
 			],
 			"sid": 688901669532321
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 501869449774768,
+					"parameters": {
+						"object": "Btn_Exit",
+						"type": "end"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 487670048984245,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 782742367023621,
+					"parameters": {
+						"layer": "\"Options\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 384988587137816,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 320774890800706,
+							"parameters": {
+								"layer": "\"Exit\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 282177642234697,
+							"parameters": {
+								"layer": "\"Exit\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 523568057707564
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 852913747509694
+						}
+					],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 896909427193334,
+							"parameters": {
+								"time-scale": "1"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 280516052224816,
+							"parameters": {
+								"time-scale": "0"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 178848526371617,
+							"parameters": {
+								"layer": "\"Exit\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 156043444047396
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 245854279982247,
+					"parameters": {
+						"object": "Btn_Confirm_Exit",
+						"type": "end"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 621504234034755,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 272262815262166,
+					"parameters": {
+						"layer": "\"Options\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 230483343533218,
+					"parameters": {
+						"layer": "\"Exit\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 255971049370716,
+					"parameters": {
+						"time-scale": "1"
+					}
+				}
+			],
+			"sid": 906717271374744,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Btn_Confirm_Exit",
+							"sid": 391221164079374,
+							"parameters": {
+								"animation": "\"Confirm\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 487035483950872,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 597751997622348,
+							"parameters": {
+								"layout": "Game"
+							}
+						}
+					],
+					"sid": 717204694326823
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Btn_Confirm_Exit",
+							"sid": 887307229398690,
+							"parameters": {
+								"animation": "\"Deny\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 551460278355397,
+							"parameters": {
+								"layer": "\"Exit\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 675490785609335
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -3500,6 +3722,126 @@
 															"sid": 669367701928861
 														}
 													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "SOUND"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 527560471550496,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Club"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 774918331360590,
+															"parameters": {
+																"variable": "Hab_ID",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 382354654707796,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false
+															]
+														}
+													],
+													"sid": 440025006119652
+												},
+												{
+													"eventType": "comment",
+													"text": "Knife"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 370276317842550,
+															"parameters": {
+																"variable": "Hab_ID",
+																"comparison": 0,
+																"value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 985425093055756,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false
+															]
+														}
+													],
+													"sid": 752946237418454
+												},
+												{
+													"eventType": "comment",
+													"text": "Pistol"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 588993479960662,
+															"parameters": {
+																"variable": "Hab_ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 686736874375784,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true
+															]
+														}
+													],
+													"sid": 693623159899387
 												}
 											]
 										},
@@ -6250,16 +6592,6 @@
 					"sid": 283186161048970,
 					"children": [
 						{
-							"eventType": "variable",
-							"name": "sfx_rng",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 372779602149079
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -6281,15 +6613,6 @@
 									"parameters": {
 										"animation": "\"Attack\"",
 										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 744550725431125,
-									"parameters": {
-										"variable": "sfx_rng",
-										"value": "choose ( 1, 2, 3 )"
 									}
 								}
 							],
@@ -6317,6 +6640,20 @@
 												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
 												false
 											]
+										},
+										{
+											"callFunction": "Play_Audio",
+											"sid": 224556699081053,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												true,
+												false,
+												false
+											]
 										}
 									],
 									"sid": 533843402641907
@@ -6327,42 +6664,85 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 796649058862536,
+											"sid": 991210777994880,
 											"parameters": {
 												"first-value": "tokenat ( Name, 1, \"_\" ) ",
 												"comparison": 0,
-												"second-value": "\"pierce\""
+												"second-value": "\"halfpierce\""
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 275800050148497,
+									"children": [
 										{
-											"callFunction": "Change_Health_Player",
-											"sid": 834395176092399,
-											"parameters": [
-												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
-												true
-											]
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "Change_Health_Player",
+													"sid": 514706480409554,
+													"parameters": [
+														"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
+														true
+													]
+												},
+												{
+													"callFunction": "Play_Audio",
+													"sid": 654140250128211,
+													"parameters": [
+														false,
+														false,
+														false,
+														false,
+														false,
+														true,
+														false,
+														false
+													]
+												}
+											],
+											"sid": 441894290827825
 										},
 										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 208038629615139,
-											"parameters": {
-												"seconds": "0.2",
-												"use-timescale": true
-											}
-										},
-										{
-											"callFunction": "Change_Health_Player",
-											"sid": 579579922187295,
-											"parameters": [
-												"-1 * ( int ( tokenat ( Name, 3, \"_\") ) )",
-												false
-											]
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 528179632037756,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
+													}
+												},
+												{
+													"callFunction": "Change_Health_Player",
+													"sid": 631132291606670,
+													"parameters": [
+														"-1 * ( int ( tokenat ( Name, 3, \"_\") ) )",
+														false
+													]
+												},
+												{
+													"callFunction": "Play_Audio",
+													"sid": 153133863158187,
+													"parameters": [
+														false,
+														false,
+														false,
+														false,
+														false,
+														false,
+														true,
+														false
+													]
+												}
+											],
+											"sid": 481286713358045
 										}
-									],
-									"sid": 275800050148497
+									]
 								},
 								{
 									"eventType": "block",
@@ -6385,6 +6765,20 @@
 											"parameters": [
 												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
 												true
+											]
+										},
+										{
+											"callFunction": "Play_Audio",
+											"sid": 949677413916717,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true,
+												false
 											]
 										}
 									],
@@ -6414,96 +6808,6 @@
 										}
 									],
 									"sid": 193060086460406
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 965166249170001,
-											"parameters": {
-												"variable": "sfx_rng",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "play",
-											"objectClass": "Audio",
-											"sid": 898407848724142,
-											"parameters": {
-												"audio-file": "atk_stab_1",
-												"loop": "not-looping",
-												"volume": "-5",
-												"stereo-pan": "0",
-												"tag-optional": "\"\""
-											}
-										}
-									],
-									"sid": 620668941565739
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 496661798434187,
-											"parameters": {
-												"variable": "sfx_rng",
-												"comparison": 0,
-												"value": "2"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "play",
-											"objectClass": "Audio",
-											"sid": 265897337193142,
-											"parameters": {
-												"audio-file": "atk_stab_2",
-												"loop": "not-looping",
-												"volume": "-5",
-												"stereo-pan": "0",
-												"tag-optional": "\"\""
-											}
-										}
-									],
-									"sid": 363528749682336
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 999617503958725,
-											"parameters": {
-												"variable": "sfx_rng",
-												"comparison": 0,
-												"value": "3"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "play",
-											"objectClass": "Audio",
-											"sid": 142390501780572,
-											"parameters": {
-												"audio-file": "atk_stab_3",
-												"loop": "not-looping",
-												"volume": "-5",
-												"stereo-pan": "0",
-												"tag-optional": "\"\""
-											}
-										}
-									],
-									"sid": 169749005393617
 								}
 							]
 						}
@@ -8303,6 +8607,56 @@
 								}
 							],
 							"sid": 242203057285980
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-running-typewriter-text",
+							"objectClass": "Text_Tutorial",
+							"sid": 622102760490642
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Text_Tutorial",
+							"sid": 206684146773472
+						}
+					],
+					"actions": [],
+					"sid": 330687601806583,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 981087180518710,
+									"parameters": {
+										"tag": "\"dialogue\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Play_Audio",
+									"sid": 488847821313530,
+									"parameters": [
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								}
+							],
+							"sid": 652267456305446
 						}
 					]
 				},

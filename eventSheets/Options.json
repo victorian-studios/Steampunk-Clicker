@@ -60,6 +60,15 @@
 						"comparison": 0,
 						"value": "\"\""
 					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 293319934019199,
+					"parameters": {
+						"layer": "\"Exit\""
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [],
@@ -76,6 +85,13 @@
 								"comparison": 0,
 								"y-co-ordinate": "540"
 							}
+						},
+						{
+							"id": "is-any-playing",
+							"objectClass": "Bkg_options",
+							"sid": 301578581016603,
+							"behaviorType": "Tween",
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -197,6 +213,24 @@
 								"ping-pong": "no",
 								"repeat-count": "1"
 							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 227447788195626,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 319923244952898,
+							"parameters": {
+								"layer": "\"Options\"",
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 667722915807141
@@ -212,9 +246,25 @@
 								"comparison": 0,
 								"y-co-ordinate": "-310"
 							}
+						},
+						{
+							"id": "is-any-playing",
+							"objectClass": "Bkg_options",
+							"sid": 471846878047125,
+							"behaviorType": "Tween",
+							"isInverted": true
 						}
 					],
 					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 604058446753240,
+							"parameters": {
+								"layer": "\"Options\"",
+								"visibility": "visible"
+							}
+						},
 						{
 							"id": "set-group-active",
 							"objectClass": "System",

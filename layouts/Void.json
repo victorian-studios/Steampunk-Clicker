@@ -678,21 +678,24 @@
 					"sid": 344877089141007,
 					"tags": "",
 					"instanceVariables": {
+						"Recent_Copy": true,
 						"Origin_X": 0,
 						"Origin_Y": 0,
-						"Pin_Obj_ID": 0,
-						"Recent_Copy": true
+						"Pin_Obj_ID": 0
 					},
 					"behaviors": {
-						"Pin": {
-							"properties": {
-								"destroy": true
-							}
-						},
-						"DragDrop": {
+						"DragandDrop": {
 							"properties": {
 								"axes": "both",
 								"enabled": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": true
 							}
 						}
 					},
@@ -1504,21 +1507,24 @@
 					"sid": 847222239769485,
 					"tags": "",
 					"instanceVariables": {
+						"Recent_Copy": true,
 						"Origin_X": 0,
 						"Origin_Y": 0,
-						"Pin_Obj_ID": 0,
-						"Recent_Copy": true
+						"Pin_Obj_ID": 0
 					},
 					"behaviors": {
+						"DragandDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
 						"Pin": {
 							"properties": {
 								"destroy": true
-							}
-						},
-						"DragDrop": {
-							"properties": {
-								"axes": "both",
-								"enabled": false
 							}
 						}
 					},
@@ -1666,21 +1672,24 @@
 					"sid": 619202045064324,
 					"tags": "",
 					"instanceVariables": {
+						"Recent_Copy": true,
 						"Origin_X": 0,
 						"Origin_Y": 0,
-						"Pin_Obj_ID": 0,
-						"Recent_Copy": true
+						"Pin_Obj_ID": 0
 					},
 					"behaviors": {
-						"Pin": {
-							"properties": {
-								"destroy": false
-							}
-						},
-						"DragDrop": {
+						"DragandDrop": {
 							"properties": {
 								"axes": "both",
 								"enabled": true
+							}
+						},
+						"Timer": {
+							"properties": {}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
 							}
 						}
 					},

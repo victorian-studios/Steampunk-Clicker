@@ -3593,7 +3593,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 3,
+								"initial-frame": 4,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -4501,7 +4501,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "1",
-								"Description": "Desbloqueia a produção de Cobre.",
 								"Price_1": "Wood_30",
 								"Price_2": "",
 								"Upgrade_ID": "unlock_Copper",
@@ -4870,7 +4869,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "3",
-								"Description": "Aumenta a capacidade de armazenamento em 10.",
 								"Price_1": "Wood_10",
 								"Price_2": "Copper_5",
 								"Upgrade_ID": "prodcapup_Copper_10",
@@ -4919,7 +4917,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "2",
-								"Description": "Reduz o tempo de produção em 1 s.",
 								"Price_1": "Steam_15",
 								"Price_2": "Wood_20",
 								"Upgrade_ID": "prodspeedup_Copper_1",
@@ -4968,7 +4965,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "5",
-								"Description": "Aumenta a capacidade de armazenamento em mais 15.",
 								"Price_1": "Wood_15",
 								"Price_2": "Copper_15",
 								"Upgrade_ID": "prodcapup_Copper_15",
@@ -5017,7 +5013,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "4",
-								"Description": "Reduz o tempo de produção em mais 1 s.",
 								"Price_1": "Steam_20",
 								"Price_2": "Wood_30",
 								"Upgrade_ID": "prodspeedup_Copper_1.2",
@@ -5066,7 +5061,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "6",
-								"Description": "Reduz o tempo de produção em mais 2 s.",
 								"Price_1": "Copper_25",
 								"Price_2": "Iron_4",
 								"Upgrade_ID": "prodspeedup_Copper_2",
@@ -5115,7 +5109,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "7",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -5164,7 +5157,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "8",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -5213,7 +5205,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "9",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -5614,7 +5605,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -5703,7 +5693,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -5792,7 +5781,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -5881,7 +5869,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -5970,7 +5957,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -6059,7 +6045,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -6148,7 +6133,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -6896,7 +6880,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "1",
-								"Description": "Unlock the wood production.",
 								"Price_1": "Steam_20",
 								"Price_2": "",
 								"Upgrade_ID": "unlock_Wood",
@@ -7265,7 +7248,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "3",
-								"Description": "Raises the storage capacity by 12.",
 								"Price_1": "Wood_8",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Wood_12",
@@ -7314,7 +7296,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "2",
-								"Description": "Reduce the production time by 0.45 s.",
 								"Price_1": "Steam_3",
 								"Price_2": "Wood_3",
 								"Upgrade_ID": "prodspeedup_Wood_0.45",
@@ -7363,7 +7344,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "5",
-								"Description": "Raises the storage capacity by 26.",
 								"Price_1": "Wood_15",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Wood_26",
@@ -7412,9 +7392,8 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "4",
-								"Description": "Reduce the production time by 0.45 s.",
-								"Price_1": "Wood_10",
-								"Price_2": "",
+								"Price_1": "Steam_5",
+								"Price_2": "Wood_13",
 								"Upgrade_ID": "prodspeedup_Wood_0.6",
 								"Unlocked": false,
 								"Sold": false,
@@ -7461,7 +7440,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "7",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -7510,7 +7488,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "6",
-								"Description": "Reduce the production time by 0.9 s.",
 								"Price_1": "Wood_20",
 								"Price_2": "Copper_5",
 								"Upgrade_ID": "prodspeedup_Wood_0.9",
@@ -7559,7 +7536,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "8",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -7608,7 +7584,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "9",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -8009,7 +7984,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -8098,7 +8072,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -8187,7 +8160,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -8276,7 +8248,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -8365,7 +8336,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -8454,7 +8424,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -8543,7 +8512,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -9603,10 +9571,9 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "1",
-								"Description": "",
 								"Price_1": "Steam_8",
 								"Price_2": "",
-								"Upgrade_ID": "prodspeedup_Steam_0.2",
+								"Upgrade_ID": "prodspeedup_Steam_0.3",
 								"Unlocked": true,
 								"Sold": false,
 								"LayerActive": false
@@ -9972,7 +9939,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "3",
-								"Description": "Aumenta a capacidade de armazenamento em 10.",
 								"Price_1": "Steam_10",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Steam_10",
@@ -10021,10 +9987,9 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "2",
-								"Description": "Reduz o tempo de produção em mais 0.2 s.",
 								"Price_1": "Steam_15",
 								"Price_2": "",
-								"Upgrade_ID": "prodspeedup_Steam_0.3",
+								"Upgrade_ID": "prodspeedup_Steam_0.4",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10070,7 +10035,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "5",
-								"Description": "Aumenta a capacidade de armazenamento em mais 20.",
 								"Price_1": "Steam_20",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Steam_20",
@@ -10119,10 +10083,9 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "4",
-								"Description": "Reduz o tempo de produção em mais 0.2 s.",
 								"Price_1": "Steam_25",
 								"Price_2": "",
-								"Upgrade_ID": "prodspeedup_Steam_0.4",
+								"Upgrade_ID": "prodspeedup_Steam_0.5",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10168,10 +10131,9 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "6",
-								"Description": "Acelera a velocidade de produção em mais 0.3 s.",
 								"Price_1": "Steam_30",
 								"Price_2": "Wood_10",
-								"Upgrade_ID": "prodspeedup_Steam_0.5",
+								"Upgrade_ID": "prodspeedup_Steam_0.6",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10217,7 +10179,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "7",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10266,7 +10227,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "8",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10315,7 +10275,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "9",
-								"Description": "Unknown",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10404,7 +10363,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10493,7 +10451,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10582,7 +10539,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10671,7 +10627,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10760,7 +10715,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10849,7 +10803,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -10938,7 +10891,6 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "Locked",
-								"Description": "Unknown",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
@@ -13796,8 +13748,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 920,
-								"y": 504,
+								"x": 955,
+								"y": 482,
 								"width": 738,
 								"height": 500,
 								"originX": 0.5,
@@ -13846,8 +13798,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 672,
-								"y": 512,
+								"x": 707,
+								"y": 490,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -13896,8 +13848,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 672,
-								"y": 624,
+								"x": 707,
+								"y": 602,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -13946,8 +13898,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 976,
-								"y": 512,
+								"x": 1011,
+								"y": 490,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -13996,8 +13948,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 976,
-								"y": 624,
+								"x": 1011,
+								"y": 602,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -14052,8 +14004,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 608,
-								"y": 336,
+								"x": 643,
+								"y": 314,
 								"width": 624,
 								"height": 96,
 								"originX": 0,
@@ -14108,8 +14060,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 720,
-								"y": 464,
+								"x": 755,
+								"y": 442,
 								"width": 208,
 								"height": 96,
 								"originX": 0,
@@ -14164,8 +14116,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 720,
-								"y": 576,
+								"x": 755,
+								"y": 554,
 								"width": 208,
 								"height": 96,
 								"originX": 0,
@@ -14220,8 +14172,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1008,
-								"y": 464,
+								"x": 1043,
+								"y": 442,
 								"width": 208,
 								"height": 96,
 								"originX": 0,
@@ -14276,8 +14228,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1008,
-								"y": 576,
+								"x": 1043,
+								"y": 554,
 								"width": 208,
 								"height": 96,
 								"originX": 0,
@@ -14834,7 +14786,7 @@
 			"instances": [],
 			"sid": 866822444743478,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
+			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
 			"color": [
