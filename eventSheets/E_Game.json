@@ -315,6 +315,14 @@
 						"tag": "\"en-US\"",
 						"file": "en-US.json"
 					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Bkg_Work_Info",
+					"sid": 105883987006110,
+					"parameters": {
+						"y": "-310"
+					}
 				}
 			],
 			"sid": 535886495439238,
@@ -1058,6 +1066,15 @@
 						"comparison": 0,
 						"value": "\"\""
 					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 600721615640393,
+					"parameters": {
+						"layer": "\"Options\""
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [],
@@ -1208,6 +1225,15 @@
 						"comparison": 0,
 						"value": "\"\""
 					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 111247750287061,
+					"parameters": {
+						"layer": "\"Options\""
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [
@@ -6008,64 +6034,83 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-value",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 252117620699412,
+											"id": "compare-instance-variable",
+											"objectClass": "Icon_Upg",
+											"sid": 620870931861231,
 											"parameters": {
-												"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
-												"comparison": 5,
-												"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
+												"instance-variable": "Price_2",
+												"comparison": 0,
+												"value": "\"\""
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 111283851367246,
+									"children": [
 										{
-											"id": "set-text",
-											"objectClass": "Text_Upg_Price",
-											"sid": 867332690581406,
-											"parameters": {
-												"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 810657621408350,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
+														"comparison": 5,
+														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 193863515831812,
+													"parameters": {
+														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 175987889294406,
+													"parameters": {
+														"color": "rgbEx(0, 0, 0)"
+													}
+												}
+											],
+											"sid": 214333456113496
 										},
 										{
-											"id": "set-font-color",
-											"objectClass": "Text_Upg_Price",
-											"sid": 598848864346841,
-											"parameters": {
-												"color": "rgbEx(0, 0, 0)"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 160340808199530
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 859867233089183,
+													"parameters": {
+														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 284693455537646,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												}
+											],
+											"sid": 121737078666465
 										}
-									],
-									"sid": 835950319523254
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 715240402844605
-										}
-									],
-									"actions": [
-										{
-											"id": "set-text",
-											"objectClass": "Text_Upg_Price",
-											"sid": 899992242383335,
-											"parameters": {
-												"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
-											}
-										},
-										{
-											"id": "set-font-color",
-											"objectClass": "Text_Upg_Price",
-											"sid": 695562650904267,
-											"parameters": {
-												"color": "rgbEx(255, 0, 0)"
-											}
-										}
-									],
-									"sid": 912144693344617
+									]
 								},
 								{
 									"eventType": "block",
@@ -6085,12 +6130,16 @@
 									"sid": 621005098095643,
 									"children": [
 										{
+											"eventType": "comment",
+											"text": "Pode pagar por ambos valores"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "compare-value",
 													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 562564744159674,
+													"sid": 872363341195139,
 													"parameters": {
 														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
 														"comparison": 5,
@@ -6127,6 +6176,10 @@
 												}
 											],
 											"sid": 967036143366240
+										},
+										{
+											"eventType": "comment",
+											"text": "Pode pagar pelo preço 1, mas não pelo preço 2"
 										},
 										{
 											"eventType": "block",
@@ -6173,6 +6226,10 @@
 											"sid": 537370596986389
 										},
 										{
+											"eventType": "comment",
+											"text": "Não pode pagar pelo preço 1, mas pode pelo preço 2"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
@@ -6215,6 +6272,10 @@
 												}
 											],
 											"sid": 946847505403640
+										},
+										{
+											"eventType": "comment",
+											"text": "Não consegue pagar ambos valores"
 										},
 										{
 											"eventType": "block",
@@ -11018,6 +11079,15 @@
 																"variable": "Weapon_ID_1",
 																"value": "\"\""
 															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Hab_Slot",
+															"sid": 286290479860174,
+															"parameters": {
+																"instance-variable": "Free",
+																"value": "true"
+															}
 														}
 													],
 													"sid": 843841611454612
@@ -11121,6 +11191,15 @@
 															"parameters": {
 																"variable": "Weapon_ID_2",
 																"value": "\"\""
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Hab_Slot",
+															"sid": 513082985415178,
+															"parameters": {
+																"instance-variable": "Free",
+																"value": "true"
 															}
 														}
 													],
@@ -18354,21 +18433,73 @@
 											}
 										},
 										{
-											"id": "set-layer-visible",
-											"objectClass": "System",
-											"sid": 648712640962930,
-											"parameters": {
-												"layer": "\"Work Info\"",
-												"visibility": "invisible"
-											}
-										},
-										{
 											"id": "set-layer-interactive",
 											"objectClass": "System",
 											"sid": 836055594207860,
 											"parameters": {
 												"layer": "\"Workshop\"",
 												"interactive": true
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Bkg_Work_Info",
+											"sid": 864460105471128,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"options_down\"",
+												"property": "offsetY",
+												"end-value": "560",
+												"time": "0.1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 704193360962510,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Bkg_Work_Info",
+											"sid": 361915221943747,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"options_up\"",
+												"property": "offsetY",
+												"end-value": "-310",
+												"time": "0.2",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 468319233238445,
+											"parameters": {
+												"seconds": "0.2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 254915299093094,
+											"parameters": {
+												"layer": "\"Work Info\"",
+												"visibility": "invisible"
 											}
 										}
 									],
@@ -18436,11 +18567,62 @@
 												"x": "970",
 												"y": "540"
 											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Bkg_Work_Info",
+											"sid": 290341740971747,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"options_down_hi\"",
+												"property": "offsetY",
+												"end-value": "560",
+												"time": "0.5",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
 										}
 									],
 									"sid": 865869638185871
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "Bkg_Work_Info",
+									"sid": 381227372230139,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down_hi\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_Work_Info",
+									"sid": 848908745404423,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_up\"",
+										"property": "offsetY",
+										"end-value": "540",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 202020275747038
 						}
 					],
 					"sid": 407132002670254
@@ -18531,6 +18713,15 @@
 							"parameters": {
 								"layer": "\"Fight\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 853876735200569,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						},
 						{
 							"id": "compare-eventvar",
@@ -21225,6 +21416,15 @@
 									"parameters": [
 										"\"Armor\""
 									]
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 813357089405246,
+									"parameters": {
+										"layer": "\"Production\"",
+										"interactive": true
+									}
 								}
 							],
 							"sid": 615860340227453,

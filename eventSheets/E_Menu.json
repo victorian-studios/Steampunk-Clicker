@@ -788,6 +788,32 @@
 				}
 			],
 			"sid": 985946591960150
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 267097501419532,
+					"parameters": {
+						"object": "Btn_Discord",
+						"type": "start"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-url",
+					"objectClass": "Browser",
+					"sid": 428991540219163,
+					"parameters": {
+						"url": "\"https://discord.gg//cvsVYSJuDf\"",
+						"target": "self"
+					}
+				}
+			],
+			"sid": 482536710490302
 		}
 	],
 	"sid": 603429320980167

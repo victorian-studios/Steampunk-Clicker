@@ -114,6 +114,15 @@
 					}
 				},
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 350913084995742,
+					"parameters": {
+						"layer": "\"Exit\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 726347224971335,
@@ -223,6 +232,22 @@
 					"parameters": {
 						"x": "-100",
 						"y": "-1000"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Bkg_options",
+					"sid": 460040329861734,
+					"parameters": {
+						"y": "-310"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Bkg_Exit",
+					"sid": 173538361378529,
+					"parameters": {
+						"y": "-310"
 					}
 				}
 			],
@@ -1080,9 +1105,78 @@
 							"parameters": {
 								"layer": "\"Exit\""
 							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Bkg_Exit",
+							"sid": 789256708708168,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "540"
+							}
 						}
 					],
 					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 211925176510466,
+							"parameters": {
+								"time-scale": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 623853474057539,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 462954016969329,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 929252905257733,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_up\"",
+								"property": "offsetY",
+								"end-value": "-310",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 380060340399482,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
@@ -1108,14 +1202,6 @@
 						{
 							"id": "set-time-scale",
 							"objectClass": "System",
-							"sid": 896909427193334,
-							"parameters": {
-								"time-scale": "1"
-							}
-						},
-						{
-							"id": "set-time-scale",
-							"objectClass": "System",
 							"sid": 280516052224816,
 							"parameters": {
 								"time-scale": "0"
@@ -1129,11 +1215,89 @@
 								"layer": "\"Exit\"",
 								"visibility": "visible"
 							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 493168125559375,
+							"parameters": {
+								"object": "Bkg_Exit",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 945632356221225,
+							"parameters": {
+								"object": "Btn_Confirm_Exit",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 413010923317408,
+							"parameters": {
+								"object": "Btn_Exit",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 713033485584190,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down_hi\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
 						}
 					],
 					"sid": 156043444047396
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Bkg_Exit",
+					"sid": 547027742032394,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"options_down_hi\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Bkg_Exit",
+					"sid": 365713796610716,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"options_up\"",
+						"property": "offsetY",
+						"end-value": "540",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 376938897637017
 		},
 		{
 			"eventType": "block",
@@ -1230,13 +1394,82 @@
 							"parameters": {
 								"animation": "\"Deny\""
 							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Bkg_Exit",
+							"sid": 260112156119561,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "540"
+							}
 						}
 					],
 					"actions": [
 						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 892490445679064,
+							"parameters": {
+								"time-scale": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 462899419085844,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 781377137840687,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 137284806490017,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_up\"",
+								"property": "offsetY",
+								"end-value": "-310",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 695635753311831,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 551460278355397,
+							"sid": 791218269137599,
 							"parameters": {
 								"layer": "\"Exit\"",
 								"visibility": "invisible"
@@ -2503,6 +2736,14 @@
 												"comparison": 3,
 												"value": "0"
 											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Cooldown",
+											"sid": 872234214091801,
+											"parameters": {
+												"object": "Text_CD"
+											}
 										}
 									],
 									"actions": [
@@ -2514,6 +2755,11 @@
 												"instance-variable": "Ready",
 												"value": "true"
 											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Text_CD",
+											"sid": 902420986061039
 										},
 										{
 											"id": "destroy",
@@ -2724,6 +2970,21 @@
 								"image-point": "0",
 								"create-hierarchy": true,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Text_CD",
+							"sid": 700764298615220,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Cooldown",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
 							}
 						}
 					],

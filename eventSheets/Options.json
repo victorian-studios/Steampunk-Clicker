@@ -69,6 +69,13 @@
 						"layer": "\"Exit\""
 					},
 					"isInverted": true
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Bkg_options",
+					"sid": 333314998686571,
+					"behaviorType": "Tween",
+					"isInverted": true
 				}
 			],
 			"actions": [],
@@ -78,27 +85,37 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 796451011673608,
+							"parameters": {
+								"layer": "\"Options\""
+							}
+						},
+						{
 							"id": "compare-y",
 							"objectClass": "Bkg_options",
-							"sid": 848160716988222,
+							"sid": 598171612401459,
 							"parameters": {
 								"comparison": 0,
 								"y-co-ordinate": "540"
 							}
-						},
-						{
-							"id": "is-any-playing",
-							"objectClass": "Bkg_options",
-							"sid": 301578581016603,
-							"behaviorType": "Tween",
-							"isInverted": true
 						}
 					],
 					"actions": [
 						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 344035193554132,
+							"parameters": {
+								"time-scale": "1"
+							}
+						},
+						{
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 775797442765665,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Player Habs\"",
 								"state": "activated"
@@ -108,6 +125,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 493159767507265,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Vapor Prod\"",
 								"state": "activated"
@@ -117,6 +135,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 780781788627006,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Outros Prods\"",
 								"state": "activated"
@@ -126,6 +145,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 171313121998372,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Upgrades\"",
 								"state": "activated"
@@ -135,6 +155,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 638224112792188,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Workshop\"",
 								"state": "activated"
@@ -144,6 +165,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 541142072854725,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Fight Map\"",
 								"state": "activated"
@@ -174,10 +196,10 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Bkg_options",
-							"sid": 573546289343444,
+							"sid": 337238808340236,
 							"behaviorType": "Tween",
 							"parameters": {
-								"tags": "\"options_up\"",
+								"tags": "\"options_down\"",
 								"property": "offsetY",
 								"end-value": "560",
 								"time": "0.1",
@@ -200,10 +222,10 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Bkg_options",
-							"sid": 173089683523951,
+							"sid": 765272323364835,
 							"behaviorType": "Tween",
 							"parameters": {
-								"tags": "\"options_down\"",
+								"tags": "\"options_up\"",
 								"property": "offsetY",
 								"end-value": "-310",
 								"time": "0.5",
@@ -239,36 +261,79 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-y",
-							"objectClass": "Bkg_options",
-							"sid": 177940692263456,
-							"parameters": {
-								"comparison": 0,
-								"y-co-ordinate": "-310"
-							}
-						},
-						{
-							"id": "is-any-playing",
-							"objectClass": "Bkg_options",
-							"sid": 471846878047125,
-							"behaviorType": "Tween",
-							"isInverted": true
+							"id": "else",
+							"objectClass": "System",
+							"sid": 481706155696365
 						}
 					],
 					"actions": [
 						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 158467833528189,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 604058446753240,
+							"sid": 294145691048164,
 							"parameters": {
 								"layer": "\"Options\"",
 								"visibility": "visible"
 							}
 						},
 						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 136754062227238,
+							"parameters": {
+								"time-scale": "0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 116294675623089,
+							"parameters": {
+								"object": "Btn_Config",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 367368499071655,
+							"parameters": {
+								"object": "Bkg_options",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 811624807022824,
+							"parameters": {
+								"object": "Progbar_volume",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 365728035055298,
+							"parameters": {
+								"object": "Progbar_volume",
+								"time-scale": "1.0"
+							}
+						},
+						{
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 282139119912996,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Player Habs\"",
 								"state": "deactivated"
@@ -278,6 +343,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 496578579034025,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Vapor Prod\"",
 								"state": "deactivated"
@@ -287,6 +353,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 718236260943695,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Outros Prods\"",
 								"state": "deactivated"
@@ -296,6 +363,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 771371504378125,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Upgrades\"",
 								"state": "deactivated"
@@ -305,6 +373,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 162209782851951,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Workshop\"",
 								"state": "deactivated"
@@ -314,6 +383,7 @@
 							"id": "set-group-active",
 							"objectClass": "System",
 							"sid": 689143613111429,
+							"disabled": true,
 							"parameters": {
 								"group-name": "\"Fight Map\"",
 								"state": "deactivated"
@@ -344,39 +414,13 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Bkg_options",
-							"sid": 204412744475339,
+							"sid": 633326482795495,
 							"behaviorType": "Tween",
 							"parameters": {
-								"tags": "\"options_down\"",
+								"tags": "\"options_down_hi\"",
 								"property": "offsetY",
 								"end-value": "560",
 								"time": "0.5",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 135121712479002,
-							"parameters": {
-								"seconds": "0.5",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Bkg_options",
-							"sid": 601284037027747,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"options_down\"",
-								"property": "offsetY",
-								"end-value": "540",
-								"time": "0.1",
 								"ease": "default",
 								"destroy-on-complete": "no",
 								"loop": "no",
@@ -442,6 +486,40 @@
 					"sid": 610755930406822
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Bkg_options",
+					"sid": 961416794989839,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"options_down_hi\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Bkg_options",
+					"sid": 841359353569341,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"options_up\"",
+						"property": "offsetY",
+						"end-value": "540",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 575084342950307
 		},
 		{
 			"eventType": "block",
