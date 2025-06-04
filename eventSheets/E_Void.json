@@ -18,7 +18,7 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Comic_Page",
+							"objectClass": "Comic_Page1",
 							"sid": 987234749572860,
 							"parameters": {
 								"unique-id": "401"
@@ -37,7 +37,7 @@
 						},
 						{
 							"id": "set-visible",
-							"objectClass": "Comic_Page",
+							"objectClass": "Comic_Page1",
 							"sid": 475455706825206,
 							"parameters": {
 								"visibility": "visible"
@@ -45,9 +45,20 @@
 						},
 						{
 							"id": "start-fade",
-							"objectClass": "Comic_Page",
+							"objectClass": "Comic_Page1",
 							"sid": 537485305505910,
 							"behaviorType": "Fade"
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Comic_Manager",
+							"sid": 470716675947174,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "1",
+								"type": "once",
+								"tag": "\"prevent_comic\""
+							}
 						}
 					],
 					"sid": 308426936737594
@@ -71,7 +82,7 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Comic_Page",
+							"objectClass": "Comic_Page1",
 							"sid": 781173107706294,
 							"parameters": {
 								"unique-id": "401"
@@ -81,11 +92,11 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Comic_Timer",
+							"objectClass": "Comic_Manager",
 							"sid": 253011106232469,
 							"parameters": {
 								"instance-variable": "FrontPage_1",
-								"value": "Comic_Page.Opacity"
+								"value": "Comic_Page1.Opacity"
 							}
 						}
 					],
@@ -96,7 +107,7 @@
 					"conditions": [
 						{
 							"id": "compare-animation-frame",
-							"objectClass": "Comic_Page",
+							"objectClass": "Comic_Page1",
 							"sid": 718752216511643,
 							"parameters": {
 								"comparison": 0,
@@ -107,7 +118,7 @@
 					"actions": [
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "Comic_Timer",
+							"objectClass": "Comic_Manager",
 							"sid": 820644704411422,
 							"parameters": {
 								"instance-variable": "Page_1_Completed",
@@ -132,7 +143,7 @@
 					"actions": [
 						{
 							"id": "set-instvar-value",
-							"objectClass": "Comic_Timer",
+							"objectClass": "Comic_Manager",
 							"sid": 268846435035270,
 							"parameters": {
 								"instance-variable": "FrontPage_2",
@@ -154,12 +165,12 @@
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
-						"object-clicked": "Comic_Page"
+						"object-clicked": "Comic_Page1"
 					}
 				},
 				{
 					"id": "is-timer-running",
-					"objectClass": "Comic_Timer",
+					"objectClass": "Comic_Manager",
 					"sid": 898616987966119,
 					"behaviorType": "Timer",
 					"parameters": {
@@ -171,7 +182,7 @@
 			"actions": [
 				{
 					"id": "start-timer",
-					"objectClass": "Comic_Timer",
+					"objectClass": "Comic_Manager",
 					"sid": 814595051221859,
 					"behaviorType": "Timer",
 					"parameters": {
@@ -188,7 +199,7 @@
 					"conditions": [
 						{
 							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Comic_Timer",
+							"objectClass": "Comic_Manager",
 							"sid": 978510369938881,
 							"parameters": {
 								"instance-variable": "Page_1_Completed"
@@ -203,7 +214,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "Comic_Timer",
+									"objectClass": "Comic_Manager",
 									"sid": 233388801784840,
 									"parameters": {
 										"instance-variable": "FrontPage_2",
@@ -421,7 +432,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "Comic_Timer",
+									"objectClass": "Comic_Manager",
 									"sid": 401272319502758,
 									"parameters": {
 										"instance-variable": "FrontPage_1",
@@ -438,7 +449,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 355525543131908,
 											"parameters": {
 												"unique-id": "401"
@@ -448,7 +459,7 @@
 									"actions": [
 										{
 											"id": "set-animation-frame",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 922518119171005,
 											"parameters": {
 												"frame-number": "Self.AnimationFrame + 2"
@@ -456,7 +467,7 @@
 										},
 										{
 											"id": "set-fade-in-time",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 659521306842274,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -465,7 +476,7 @@
 										},
 										{
 											"id": "set-fade-out-time",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 444097117929495,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -474,7 +485,7 @@
 										},
 										{
 											"id": "restart-fade",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 472638400503476,
 											"behaviorType": "Fade"
 										}
@@ -500,7 +511,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 538997700012527,
 											"parameters": {
 												"unique-id": "400"
@@ -510,7 +521,7 @@
 									"actions": [
 										{
 											"id": "set-animation-frame",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 375476836663077,
 											"parameters": {
 												"frame-number": "Self.AnimationFrame + 2"
@@ -524,7 +535,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 269917078020922,
 											"parameters": {
 												"unique-id": "401"
@@ -534,7 +545,7 @@
 									"actions": [
 										{
 											"id": "set-fade-in-time",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 466374619191964,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -543,7 +554,7 @@
 										},
 										{
 											"id": "set-fade-out-time",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 432789901076220,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -552,7 +563,7 @@
 										},
 										{
 											"id": "restart-fade",
-											"objectClass": "Comic_Page",
+											"objectClass": "Comic_Page1",
 											"sid": 895368966740026,
 											"behaviorType": "Fade"
 										}
@@ -564,22 +575,6 @@
 					]
 				}
 			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-timer",
-					"objectClass": "Comic_Timer",
-					"sid": 747711122638578,
-					"behaviorType": "Timer",
-					"parameters": {
-						"tag": "\"Next\""
-					}
-				}
-			],
-			"actions": [],
-			"sid": 637368715339818
 		}
 	],
 	"sid": 668903503354586

@@ -1832,51 +1832,6 @@
 						"angle": 0,
 						"zElevation": 0
 					}
-				},
-				{
-					"type": "Comic_Timer",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 402,
-					"sid": 747665232231651,
-					"tags": "",
-					"instanceVariables": {
-						"FrontPage_1": 0,
-						"FrontPage_2": 0,
-						"Page_1_Completed": false
-					},
-					"behaviors": {
-						"Timer": {
-							"properties": {}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 747665232231651,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 965,
-						"y": -193,
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
 				}
 			],
 			"sid": 250077146265599,
@@ -1914,7 +1869,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Comic_Page",
+					"type": "Comic_Page1",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -1947,8 +1902,8 @@
 					"world": {
 						"x": 597,
 						"y": 543,
-						"width": 700.0000000000001,
-						"height": 991.9999999999999,
+						"width": 701,
+						"height": 992,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -1962,7 +1917,7 @@
 					}
 				},
 				{
-					"type": "Comic_Page",
+					"type": "Comic_Page1",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Animation 1",
@@ -1995,8 +1950,8 @@
 					"world": {
 						"x": 597,
 						"y": 543,
-						"width": 700.0000000000001,
-						"height": 991.9999999999999,
+						"width": 701,
+						"height": 992,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -2043,7 +1998,7 @@
 					"world": {
 						"x": 1348,
 						"y": 541,
-						"width": 700.0000000000001,
+						"width": 701,
 						"height": 991.9999999999999,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -2091,7 +2046,7 @@
 					"world": {
 						"x": 1348,
 						"y": 541,
-						"width": 700.0000000000001,
+						"width": 701,
 						"height": 991.9999999999999,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -2102,6 +2057,51 @@
 							0
 						],
 						"angle": 6.283171640563031,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Comic_Manager",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 402,
+					"sid": 747665232231651,
+					"tags": "",
+					"instanceVariables": {
+						"FrontPage_1": 0,
+						"FrontPage_2": 0,
+						"Page_1_Completed": false
+					},
+					"behaviors": {
+						"Timer": {
+							"properties": {}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 747665232231651,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 965,
+						"y": -193,
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
 						"zElevation": 0
 					}
 				}
