@@ -1,0 +1,68 @@
+{
+	"name": "Comic_Timer",
+	"plugin-id": "Sprite",
+	"sid": 798235183483495,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "FrontPage_1",
+			"type": "number",
+			"desc": "opacidade da pagina 1 (frente)",
+			"show": true,
+			"sid": 400626951965441
+		},
+		{
+			"name": "FrontPage_2",
+			"type": "number",
+			"desc": "opacidade da pagina 2 (frente)",
+			"show": true,
+			"sid": 603130304631790
+		},
+		{
+			"name": "Page_1_Completed",
+			"type": "boolean",
+			"desc": "se a primeira pagina mostrou todas as cenas",
+			"show": true,
+			"sid": 311917940252738
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 460567208072638
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5981790,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 893832803348263,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

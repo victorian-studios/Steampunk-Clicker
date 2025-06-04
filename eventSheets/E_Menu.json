@@ -101,6 +101,22 @@
 						"ping-pong": "no",
 						"repeat-count": "1"
 					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 782816964465847,
+					"parameters": {
+						"audio-file": "Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 749670841476858,
+					"parameters": {
+						"audio-file": "Steampunk_Victorian_Orchestra_by_Humanoide_Media"
+					}
 				}
 			],
 			"sid": 652930984059956,
@@ -761,6 +777,28 @@
 					"id": "clear-storage",
 					"objectClass": "LocalStorage",
 					"sid": 961672310193042
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 124020553514594,
+					"parameters": {
+						"reset-static": true
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 734630344123366,
+					"parameters": {
+						"seconds": "1",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 729538186449388
 				}
 			],
 			"sid": 187214141249157
@@ -804,16 +842,145 @@
 			],
 			"actions": [
 				{
-					"id": "go-to-url",
+					"id": "open-url-in-new-window",
 					"objectClass": "Browser",
-					"sid": 428991540219163,
+					"sid": 287674009000527,
 					"parameters": {
 						"url": "\"https://discord.gg//cvsVYSJuDf\"",
-						"target": "self"
+						"tag": "\"NewWindow\""
 					}
 				}
 			],
 			"sid": 482536710490302
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 452883067637018,
+					"parameters": {
+						"object": "Btn_Discord"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style2",
+					"objectClass": "Mouse",
+					"sid": 794142520450735,
+					"parameters": {
+						"cursor-style": "pointer"
+					}
+				}
+			],
+			"sid": 770978767493924
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 844508079211131
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style2",
+					"objectClass": "Mouse",
+					"sid": 402616074228862,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				}
+			],
+			"sid": 856604377584214
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 556588260867030,
+					"parameters": {
+						"object": "Btn_Discord"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 328265537869418,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 554215493326316
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Btn_Discord",
+							"sid": 207749635248785,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"grow_disc\"",
+								"property": "size",
+								"end-x": "153.6",
+								"end-y": "153.6",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 693882327497261
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 837401284955687
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 383493289673570
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-two-properties",
+					"objectClass": "Btn_Discord",
+					"sid": 844490784967788,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"grow_disc\"",
+						"property": "size",
+						"end-x": "128",
+						"end-y": "128",
+						"time": "0.2",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 698740564099630
 		}
 	],
 	"sid": 603429320980167

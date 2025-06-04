@@ -661,7 +661,7 @@
 				{
 					"type": "TextoAiDaVida",
 					"properties": {
-						"text": "v. 1.0",
+						"text": "v. 1.1.D",
 						"enable-bbcode": true,
 						"font": "monospace",
 						"size": 20,
@@ -724,7 +724,13 @@
 					"sid": 689975847562063,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
 					"instanceFolderItem": {
 						"sid": 689975847562063,
 						"expanded": true
@@ -732,10 +738,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": -168,
-						"y": 404,
-						"width": 250,
-						"height": 250,
+						"x": 81.39698979833307,
+						"y": 998.0115864301041,
+						"width": 127.99999999999999,
+						"height": 127.99999999999999,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

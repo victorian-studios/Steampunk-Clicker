@@ -1759,7 +1759,7 @@
 			"disabled": false,
 			"title": "Vapor Prod",
 			"description": "",
-			"isActiveOnStart": true,
+			"isActiveOnStart": false,
 			"children": [
 				{
 					"eventType": "block",
@@ -1983,6 +1983,12 @@
 								}
 							],
 							"sid": 842753482794035
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 421972187331352
 						}
 					]
 				},
@@ -6725,6 +6731,23 @@
 							"sid": 466650332891471,
 							"parameters": {
 								"layer": "\"Upgrades\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Icon_Upg",
+							"sid": 450612082974208,
+							"parameters": {
+								"instance-variable": "Sold"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Icon_Upg",
+							"sid": 459943098181964,
+							"parameters": {
+								"instance-variable": "Unlocked"
 							}
 						}
 					],
@@ -19123,7 +19146,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 550907505956112,
+									"sid": 306014760694938,
 									"parameters": {
 										"variable": "Tutorial",
 										"comparison": 0,
@@ -19134,7 +19157,7 @@
 							"actions": [
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 883587054249446,
+									"sid": 248860298778718,
 									"parameters": [
 										"\"\"",
 										"0"
@@ -19143,7 +19166,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 890175268172640,
+									"sid": 451226871868736,
 									"parameters": {
 										"layer": "\"Tutorial\"",
 										"visibility": "visible"
@@ -19152,7 +19175,7 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 333941602046617,
+									"sid": 528370079488562,
 									"parameters": {
 										"group-name": "\"Vapor Prod\"",
 										"state": "deactivated"
@@ -19161,7 +19184,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 197380518071160,
+									"sid": 382043096082174,
 									"parameters": {
 										"seconds": "0.65",
 										"use-timescale": true
@@ -19170,7 +19193,7 @@
 								{
 									"id": "typewriter-text",
 									"objectClass": "Text_Tutorial",
-									"sid": 990416518397657,
+									"sid": 390948561791015,
 									"parameters": {
 										"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
 										"duration": "3"
@@ -19268,7 +19291,8 @@
 									}
 								}
 							],
-							"sid": 155823297580506
+							"sid": 155823297580506,
+							"disabled": true
 						}
 					]
 				},
@@ -19639,87 +19663,6 @@
 									"actions": [],
 									"sid": 995416568483202,
 									"children": [
-										{
-											"eventType": "comment",
-											"text": "Se for o final do tutorial, fecha o diálogo"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 754294280442179,
-													"parameters": {
-														"variable": "Tutorial",
-														"comparison": 0,
-														"value": "4"
-													}
-												},
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 556429777056562,
-													"parameters": {
-														"variable": "Tutorial",
-														"comparison": 0,
-														"value": "34"
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "Pop_up_Tutorial",
-													"sid": 774728522340519,
-													"parameters": [
-														"\"\"",
-														"0"
-													]
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 481866455376304,
-													"parameters": {
-														"variable": "Tutorial_Name",
-														"value": "\"\""
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 468983056583652,
-													"parameters": {
-														"variable": "Tutorial",
-														"value": "0"
-													}
-												},
-												{
-													"id": "set-key",
-													"objectClass": "Dict_Save_File",
-													"sid": 328258874836942,
-													"parameters": {
-														"key": "\"TUT\"",
-														"value": "\"\""
-													}
-												},
-												{
-													"callFunction": "Save_Local_Storage",
-													"sid": 236793301399481
-												},
-												{
-													"id": "set-group-active",
-													"objectClass": "System",
-													"sid": 662411169883684,
-													"parameters": {
-														"group-name": "\"Vapor Prod\"",
-														"state": "activated"
-													}
-												}
-											],
-											"sid": 516713703169097,
-											"isOrBlock": true
-										},
 										{
 											"eventType": "comment",
 											"text": "Se não for um momento de escolha ou fim do tutorial, continua o texto"
@@ -20701,6 +20644,87 @@
 													]
 												}
 											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Se for o final do tutorial, fecha o diálogo"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 993485874383874,
+													"parameters": {
+														"variable": "Tutorial",
+														"comparison": 0,
+														"value": "4"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 111263716472260,
+													"parameters": {
+														"variable": "Tutorial",
+														"comparison": 0,
+														"value": "34"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Pop_up_Tutorial",
+													"sid": 963757478288433,
+													"parameters": [
+														"\"\"",
+														"0"
+													]
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 724041981096990,
+													"parameters": {
+														"variable": "Tutorial_Name",
+														"value": "\"\""
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 515632401307273,
+													"parameters": {
+														"variable": "Tutorial",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-key",
+													"objectClass": "Dict_Save_File",
+													"sid": 935892672593443,
+													"parameters": {
+														"key": "\"TUT\"",
+														"value": "\"\""
+													}
+												},
+												{
+													"callFunction": "Save_Local_Storage",
+													"sid": 541104918910528
+												},
+												{
+													"id": "set-group-active",
+													"objectClass": "System",
+													"sid": 321945430824354,
+													"parameters": {
+														"group-name": "\"Vapor Prod\"",
+														"state": "activated"
+													}
+												}
+											],
+											"sid": 182844468361925,
+											"isOrBlock": true
 										}
 									]
 								},
@@ -21103,7 +21127,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 839817670758686,
+									"parameters": {
+										"group-name": "\"Vapor Prod\"",
+										"state": "activated"
+									}
+								}
+							],
 							"sid": 747164259040879,
 							"children": [
 								{
@@ -21424,6 +21458,15 @@
 									"parameters": {
 										"layer": "\"Production\"",
 										"interactive": true
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 317034969454876,
+									"parameters": {
+										"group-name": "\"Vapor Prod\"",
+										"state": "activated"
 									}
 								}
 							],
