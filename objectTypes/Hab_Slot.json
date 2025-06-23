@@ -1,58 +1,30 @@
 {
 	"name": "Hab_Slot",
 	"plugin-id": "Sprite",
-	"sid": 442342296636912,
+	"sid": 332031547156914,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
 	"instanceVariables": [
-		{
-			"name": "ID",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 592161286616335
-		},
-		{
-			"name": "CD_Max",
-			"type": "number",
-			"desc": "Cooldown que essa habilidade possui",
-			"show": true,
-			"sid": 336739183252714
-		},
-		{
-			"name": "Ammo_Max",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 936340847681946
-		},
-		{
-			"name": "Ammo",
-			"type": "number",
-			"desc": "munição restante",
-			"show": true,
-			"sid": 365214536036104
-		},
 		{
 			"name": "Free",
 			"type": "boolean",
 			"desc": "",
 			"show": true,
-			"sid": 377190122848721
+			"sid": 419199514836255
+		},
+		{
+			"name": "CD_Max",
+			"type": "number",
+			"desc": "Cooldown que essa hab possui",
+			"show": true,
+			"sid": 526455878310279
 		},
 		{
 			"name": "Ready",
 			"type": "boolean",
 			"desc": "pronta pra ser usada em batalha",
 			"show": true,
-			"sid": 303779254101529
-		},
-		{
-			"name": "Reload",
-			"type": "boolean",
-			"desc": "esta carregando?",
-			"show": true,
-			"sid": 834267624830204
+			"sid": 558110766135689
 		}
 	],
 	"behaviorTypes": [],
@@ -70,33 +42,7 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 4294898,
-						"collisionPoly": {
-							"points": [
-								1,
-								0.9905660377358491,
-								0.009433962264150941,
-								1,
-								0,
-								0.009433962264150943,
-								0.9905660377358491,
-								0
-							]
-						},
-						"useCollisionPoly": true,
-						"duration": 1,
-						"tag": ""
-					},
-					{
-						"width": 106,
-						"height": 106,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "lossless",
-						"exportQuality": 0.8,
-						"fileType": "image/png",
-						"imageSpriteId": 3838539,
+						"imageSpriteId": 3947615,
 						"collisionPoly": {
 							"points": [
 								0.009433962264150943,
@@ -114,7 +60,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 693035437922606,
+				"sid": 662218552542823,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

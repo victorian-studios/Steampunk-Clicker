@@ -14,6 +14,20 @@
 					{
 						"width": 500,
 						"height": 120,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5456659,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 500,
+						"height": 120,
 						"originX": 0,
 						"originY": 0.5,
 						"originalSource": "",
@@ -173,29 +187,29 @@
 			{
 				"frames": [
 					{
-						"width": 500,
-						"height": 120,
-						"originX": 0.5,
+						"width": 306,
+						"height": 64,
+						"originX": 0.5011061946902655,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 570308,
+						"imageSpriteId": 2019543,
 						"collisionPoly": {
 							"points": [
-								0.102,
-								0,
+								0.03530530973451327,
+								0.00819672131147541,
 								1,
-								0.09166666666666666,
-								0.992,
-								0.9416666666666667,
-								0.078,
-								0.975,
-								0.058,
-								0.9333333333333333,
-								0.058,
-								0.06666666666666667
+								0.09836065573770492,
+								1,
+								0.9344262295081968,
+								0.007216814159292036,
+								0.9672131147540983,
+								0,
+								0.9262295081967213,
+								0,
+								0.07377049180327869
 							]
 						},
 						"useCollisionPoly": true,
@@ -203,15 +217,15 @@
 						"tag": ""
 					},
 					{
-						"width": 393,
-						"height": 90,
+						"width": 306,
+						"height": 64,
 						"originX": 0,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 297039,
+						"imageSpriteId": 2131491,
 						"collisionPoly": {
 							"points": [
 								0,
@@ -234,7 +248,52 @@
 					}
 				],
 				"sid": 569216248358520,
-				"name": "Animation 2",
+				"name": "Shield",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 452,
+						"height": 122,
+						"originX": 0.5873893805309734,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9285261,
+						"collisionPoly": {
+							"points": [
+								0.15486725663716813,
+								0.00819672131147541,
+								1,
+								0.20491803278688525,
+								1,
+								0.47540983606557374,
+								1,
+								0.5409836065573771,
+								1,
+								0.7950819672131147,
+								0.08849557522123894,
+								0.9672131147540983,
+								0.06637168141592921,
+								0.9262295081967213,
+								0.06637168141592921,
+								0.07377049180327869
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 147419030261927,
+				"name": "NoShield",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

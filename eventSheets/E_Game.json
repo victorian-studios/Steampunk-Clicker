@@ -482,8 +482,8 @@
 									"objectClass": "System",
 									"sid": 719472590801212,
 									"parameters": {
-										"object": "Hab_Slot",
-										"expression": "Hab_Slot.ID",
+										"object": "Wp_Slot",
+										"expression": "Wp_Slot.ID",
 										"comparison": 0,
 										"value": "1"
 									}
@@ -496,7 +496,7 @@
 									"sid": 320082172390791,
 									"parameters": {
 										"variable": "hab_1_x",
-										"value": "Hab_Slot.X"
+										"value": "Wp_Slot.X"
 									}
 								},
 								{
@@ -505,12 +505,12 @@
 									"sid": 516216139474012,
 									"parameters": {
 										"variable": "hab_1_y",
-										"value": "Hab_Slot.Y"
+										"value": "Wp_Slot.Y"
 									}
 								},
 								{
 									"id": "set-boolean-instvar",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 980038599956668,
 									"parameters": {
 										"instance-variable": "Free",
@@ -528,8 +528,8 @@
 									"objectClass": "System",
 									"sid": 364593553444564,
 									"parameters": {
-										"object": "Hab_Slot",
-										"expression": "Hab_Slot.ID",
+										"object": "Wp_Slot",
+										"expression": "Wp_Slot.ID",
 										"comparison": 0,
 										"value": "2"
 									}
@@ -542,7 +542,7 @@
 									"sid": 453117111049444,
 									"parameters": {
 										"variable": "hab_2_x",
-										"value": "Hab_Slot.X"
+										"value": "Wp_Slot.X"
 									}
 								},
 								{
@@ -551,7 +551,7 @@
 									"sid": 784850870070860,
 									"parameters": {
 										"variable": "hab_2_y",
-										"value": "Hab_Slot.Y"
+										"value": "Wp_Slot.Y"
 									}
 								}
 							],
@@ -699,8 +699,8 @@
 									"objectClass": "System",
 									"sid": 648346311675515,
 									"parameters": {
-										"object": "Hab_Slot",
-										"expression": "Hab_Slot.ID",
+										"object": "Wp_Slot",
+										"expression": "Wp_Slot.ID",
 										"comparison": 0,
 										"value": "1"
 									}
@@ -713,7 +713,7 @@
 									"sid": 676833966592977,
 									"parameters": {
 										"variable": "hab_1_x",
-										"value": "Hab_Slot.X"
+										"value": "Wp_Slot.X"
 									}
 								},
 								{
@@ -722,7 +722,7 @@
 									"sid": 647800207010590,
 									"parameters": {
 										"variable": "hab_1_y",
-										"value": "Hab_Slot.Y"
+										"value": "Wp_Slot.Y"
 									}
 								}
 							],
@@ -737,8 +737,8 @@
 									"objectClass": "System",
 									"sid": 263608636374035,
 									"parameters": {
-										"object": "Hab_Slot",
-										"expression": "Hab_Slot.ID",
+										"object": "Wp_Slot",
+										"expression": "Wp_Slot.ID",
 										"comparison": 0,
 										"value": "2"
 									}
@@ -751,7 +751,7 @@
 									"sid": 422119090587171,
 									"parameters": {
 										"variable": "hab_2_x",
-										"value": "Hab_Slot.X"
+										"value": "Wp_Slot.X"
 									}
 								},
 								{
@@ -760,12 +760,12 @@
 									"sid": 261310097329819,
 									"parameters": {
 										"variable": "hab_2_y",
-										"value": "Hab_Slot.Y"
+										"value": "Wp_Slot.Y"
 									}
 								},
 								{
 									"id": "set-boolean-instvar",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 405116177579618,
 									"parameters": {
 										"instance-variable": "Free",
@@ -913,8 +913,8 @@
 							"parameters": {
 								"object-to-create": "icon_list_armor_clone",
 								"layer": "\"Frg List\"",
-								"x": "Hab_Slot_Special.X",
-								"y": "Hab_Slot_Special.Y",
+								"x": "Armor_Slot.X",
+								"y": "Armor_Slot.Y",
 								"create-hierarchy": false,
 								"template-name": "\"\""
 							}
@@ -955,7 +955,7 @@
 						},
 						{
 							"id": "set-boolean-instvar",
-							"objectClass": "Hab_Slot_Special",
+							"objectClass": "Armor_Slot",
 							"sid": 239052509746973,
 							"parameters": {
 								"instance-variable": "Free",
@@ -9360,7 +9360,7 @@
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 584637950391537,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -9392,7 +9392,7 @@
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 797524556922384,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -9401,7 +9401,7 @@
 								},
 								{
 									"id": "set-scale",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 523232519067733,
 									"parameters": {
 										"scale": "1"
@@ -9432,7 +9432,7 @@
 											"objectClass": "icon_list_weapon_clone",
 											"sid": 622778559487724,
 											"parameters": {
-												"object": "Hab_Slot"
+												"object": "Wp_Slot"
 											}
 										}
 									],
@@ -9452,7 +9452,7 @@
 											"sid": 456460715752433,
 											"parameters": {
 												"variable": "SlotAtual",
-												"value": "Hab_Slot.ID"
+												"value": "Wp_Slot.ID"
 											}
 										},
 										{
@@ -9475,7 +9475,7 @@
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 480349879392857,
 													"parameters": {
 														"instance-variable": "Free"
@@ -9536,7 +9536,7 @@
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 156099732720172,
 													"parameters": {
 														"instance-variable": "Free"
@@ -9566,8 +9566,8 @@
 													"objectClass": "icon_list_weapon_clone",
 													"sid": 385047471419022,
 													"parameters": {
-														"x": "Hab_Slot.X",
-														"y": "Hab_Slot.Y"
+														"x": "Wp_Slot.X",
+														"y": "Wp_Slot.Y"
 													}
 												},
 												{
@@ -9585,12 +9585,12 @@
 													"sid": 578550812842956,
 													"parameters": {
 														"instance-variable": "Pin_Obj_ID",
-														"value": "Hab_Slot.ID"
+														"value": "Wp_Slot.ID"
 													}
 												},
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 903980912347950,
 													"parameters": {
 														"instance-variable": "Free",
@@ -9641,7 +9641,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 499405867746014,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
@@ -9650,7 +9650,7 @@
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 455145051529952,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
@@ -9661,7 +9661,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 890958714602141,
 											"parameters": {
 												"instance-variable": "Free",
@@ -9676,7 +9676,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 307171299675641,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
@@ -9684,7 +9684,7 @@
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 461752094413740,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
@@ -9694,7 +9694,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 515168460148284,
 											"parameters": {
 												"instance-variable": "Free",
@@ -9720,7 +9720,7 @@
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 842149749977066,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -9752,7 +9752,7 @@
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 938295653172125,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -9761,7 +9761,7 @@
 								},
 								{
 									"id": "set-scale",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 328837341283312,
 									"parameters": {
 										"scale": "1"
@@ -9788,7 +9788,7 @@
 											"objectClass": "icon_list_habilities_clone",
 											"sid": 607545392968621,
 											"parameters": {
-												"object": "Hab_Slot"
+												"object": "Wp_Slot"
 											}
 										}
 									],
@@ -9808,7 +9808,7 @@
 											"sid": 420409294235011,
 											"parameters": {
 												"variable": "SlotAtual",
-												"value": "Hab_Slot.ID"
+												"value": "Wp_Slot.ID"
 											}
 										}
 									],
@@ -9819,7 +9819,7 @@
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 103915035101344,
 													"parameters": {
 														"instance-variable": "Free"
@@ -9866,7 +9866,7 @@
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 530045156374172,
 													"parameters": {
 														"instance-variable": "Free"
@@ -9896,8 +9896,8 @@
 													"objectClass": "icon_list_habilities_clone",
 													"sid": 566062257690397,
 													"parameters": {
-														"x": "Hab_Slot.X",
-														"y": "Hab_Slot.Y"
+														"x": "Wp_Slot.X",
+														"y": "Wp_Slot.Y"
 													}
 												},
 												{
@@ -9915,12 +9915,12 @@
 													"sid": 781044854046619,
 													"parameters": {
 														"instance-variable": "Pin_Obj_ID",
-														"value": "Hab_Slot.ID"
+														"value": "Wp_Slot.ID"
 													}
 												},
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 426370692243917,
 													"parameters": {
 														"instance-variable": "Free",
@@ -9963,7 +9963,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 125960358614392,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
@@ -9972,7 +9972,7 @@
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 364199116257812,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
@@ -9983,7 +9983,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 296294580456850,
 											"parameters": {
 												"instance-variable": "Free",
@@ -9998,7 +9998,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 522059501788601,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
@@ -10006,7 +10006,7 @@
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 664751865399371,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
@@ -10016,7 +10016,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 971424198210213,
 											"parameters": {
 												"instance-variable": "Free",
@@ -10042,7 +10042,7 @@
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Hab_Slot_Special",
+									"objectClass": "Armor_Slot",
 									"sid": 413184182410910,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -10074,7 +10074,7 @@
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Hab_Slot_Special",
+									"objectClass": "Armor_Slot",
 									"sid": 670025589123592,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -10083,7 +10083,7 @@
 								},
 								{
 									"id": "set-scale",
-									"objectClass": "Hab_Slot_Special",
+									"objectClass": "Armor_Slot",
 									"sid": 740660683744945,
 									"parameters": {
 										"scale": "1"
@@ -10110,7 +10110,7 @@
 											"objectClass": "icon_list_armor_clone",
 											"sid": 515971971385875,
 											"parameters": {
-												"object": "Hab_Slot_Special"
+												"object": "Armor_Slot"
 											}
 										}
 									],
@@ -10130,7 +10130,7 @@
 											"sid": 315976194188436,
 											"parameters": {
 												"variable": "SlotAtual",
-												"value": "Hab_Slot.ID"
+												"value": "Wp_Slot.ID"
 											}
 										}
 									],
@@ -10141,7 +10141,7 @@
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Hab_Slot_Special",
+													"objectClass": "Armor_Slot",
 													"sid": 348734291780384,
 													"parameters": {
 														"instance-variable": "Free"
@@ -10224,7 +10224,7 @@
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Hab_Slot_Special",
+													"objectClass": "Armor_Slot",
 													"sid": 945353415432253,
 													"parameters": {
 														"instance-variable": "Free"
@@ -10246,8 +10246,8 @@
 													"objectClass": "icon_list_armor_clone",
 													"sid": 447231138954125,
 													"parameters": {
-														"x": "Hab_Slot_Special.X",
-														"y": "Hab_Slot_Special.Y"
+														"x": "Armor_Slot.X",
+														"y": "Armor_Slot.Y"
 													}
 												},
 												{
@@ -10293,12 +10293,12 @@
 													"disabled": true,
 													"parameters": {
 														"instance-variable": "Pin_Obj_ID",
-														"value": "Hab_Slot.ID"
+														"value": "Wp_Slot.ID"
 													}
 												},
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Hab_Slot_Special",
+													"objectClass": "Armor_Slot",
 													"sid": 162237607256163,
 													"parameters": {
 														"instance-variable": "Free",
@@ -10404,7 +10404,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot_Special",
+											"objectClass": "Armor_Slot",
 											"sid": 850125884287961,
 											"parameters": {
 												"object": "icon_list_armor_clone"
@@ -10415,7 +10415,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot_Special",
+											"objectClass": "Armor_Slot",
 											"sid": 993817415820492,
 											"parameters": {
 												"instance-variable": "Free",
@@ -10508,7 +10508,7 @@
 													"objectClass": "icon_list_weapon_clone",
 													"sid": 863393072659048,
 													"parameters": {
-														"object": "Hab_Slot"
+														"object": "Wp_Slot"
 													}
 												},
 												{
@@ -10524,7 +10524,7 @@
 											"actions": [
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 150548704574436,
 													"parameters": {
 														"instance-variable": "Free",
@@ -10629,7 +10629,7 @@
 													"objectClass": "icon_list_habilities_clone",
 													"sid": 233376174056872,
 													"parameters": {
-														"object": "Hab_Slot"
+														"object": "Wp_Slot"
 													}
 												},
 												{
@@ -10650,7 +10650,7 @@
 												},
 												{
 													"id": "spawn-another-object",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 555440141460512,
 													"parameters": {
 														"object": "icon_list_weapon_clone",
@@ -10712,7 +10712,7 @@
 											"conditions": [
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 630807378681622,
 													"parameters": {
 														"object": "icon_list_weapon_clone"
@@ -10721,7 +10721,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 225786382376873,
 													"parameters": {
 														"object": "icon_list_habilities_clone"
@@ -10732,7 +10732,7 @@
 											"actions": [
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 718574312214640,
 													"parameters": {
 														"instance-variable": "Free",
@@ -10784,7 +10784,7 @@
 													"objectClass": "icon_list_habilities_clone",
 													"sid": 805298379148422,
 													"parameters": {
-														"object": "Hab_Slot"
+														"object": "Wp_Slot"
 													}
 												},
 												{
@@ -10800,7 +10800,7 @@
 											"actions": [
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 900787547992775,
 													"parameters": {
 														"instance-variable": "Free",
@@ -10905,7 +10905,7 @@
 													"objectClass": "icon_list_weapon_clone",
 													"sid": 335525341563858,
 													"parameters": {
-														"object": "Hab_Slot"
+														"object": "Wp_Slot"
 													}
 												},
 												{
@@ -10926,7 +10926,7 @@
 												},
 												{
 													"id": "spawn-another-object",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 467918879097441,
 													"parameters": {
 														"object": "icon_list_habilities_clone",
@@ -10988,7 +10988,7 @@
 											"conditions": [
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 521315709730778,
 													"parameters": {
 														"object": "icon_list_habilities_clone"
@@ -10997,7 +10997,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 348763658075957,
 													"parameters": {
 														"object": "icon_list_weapon_clone"
@@ -11008,7 +11008,7 @@
 											"actions": [
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 106929389429927,
 													"parameters": {
 														"instance-variable": "Free",
@@ -11047,7 +11047,7 @@
 											"objectClass": "System",
 											"sid": 948936107382511,
 											"parameters": {
-												"object": "Hab_Slot"
+												"object": "Wp_Slot"
 											}
 										}
 									],
@@ -11059,7 +11059,7 @@
 											"conditions": [
 												{
 													"id": "compare-instance-variable",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 428022595359482,
 													"parameters": {
 														"instance-variable": "ID",
@@ -11076,7 +11076,7 @@
 													"conditions": [
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 897732178611874,
 															"parameters": {
 																"object": "icon_list_habilities_clone"
@@ -11085,7 +11085,7 @@
 														},
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 255729875761301,
 															"parameters": {
 																"object": "icon_list_weapon_clone"
@@ -11105,7 +11105,7 @@
 														},
 														{
 															"id": "set-boolean-instvar",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 286290479860174,
 															"parameters": {
 																"instance-variable": "Free",
@@ -11120,7 +11120,7 @@
 													"conditions": [
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 413361502297453,
 															"parameters": {
 																"object": "icon_list_weapon_clone"
@@ -11145,7 +11145,7 @@
 													"conditions": [
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 105714417446792,
 															"parameters": {
 																"object": "icon_list_habilities_clone"
@@ -11172,7 +11172,7 @@
 											"conditions": [
 												{
 													"id": "compare-instance-variable",
-													"objectClass": "Hab_Slot",
+													"objectClass": "Wp_Slot",
 													"sid": 346348779293019,
 													"parameters": {
 														"instance-variable": "ID",
@@ -11189,7 +11189,7 @@
 													"conditions": [
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 462749506406726,
 															"parameters": {
 																"object": "icon_list_habilities_clone"
@@ -11198,7 +11198,7 @@
 														},
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 852734140033014,
 															"parameters": {
 																"object": "icon_list_weapon_clone"
@@ -11218,7 +11218,7 @@
 														},
 														{
 															"id": "set-boolean-instvar",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 513082985415178,
 															"parameters": {
 																"instance-variable": "Free",
@@ -11233,7 +11233,7 @@
 													"conditions": [
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 420266423475453,
 															"parameters": {
 																"object": "icon_list_weapon_clone"
@@ -11258,7 +11258,7 @@
 													"conditions": [
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 203027357170539,
 															"parameters": {
 																"object": "icon_list_habilities_clone"
@@ -11287,7 +11287,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot_Special",
+											"objectClass": "Armor_Slot",
 											"sid": 195434087810916,
 											"parameters": {
 												"object": "icon_list_armor_clone"
@@ -11321,7 +11321,7 @@
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Hab_Slot_Special",
+											"objectClass": "Armor_Slot",
 											"sid": 544023325720514,
 											"parameters": {
 												"object": "icon_list_armor_clone"
@@ -22770,7 +22770,7 @@
 									"objectClass": "Icons_Clones",
 									"sid": 507125751100583,
 									"parameters": {
-										"object": "Hab_Slot"
+										"object": "Wp_Slot"
 									},
 									"isInverted": true
 								},
@@ -22779,7 +22779,7 @@
 									"objectClass": "Icons_Clones",
 									"sid": 290992854077138,
 									"parameters": {
-										"object": "Hab_Slot_Special"
+										"object": "Armor_Slot"
 									},
 									"isInverted": true
 								}

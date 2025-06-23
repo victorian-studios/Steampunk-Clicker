@@ -301,8 +301,8 @@
 							"objectClass": "System",
 							"sid": 396055247168362,
 							"parameters": {
-								"object": "Hab_Slot",
-								"expression": "Hab_Slot.ID",
+								"object": "Wp_Slot",
+								"expression": "Wp_Slot.ID",
 								"comparison": 0,
 								"value": "1"
 							}
@@ -315,7 +315,7 @@
 							"sid": 127940397315027,
 							"parameters": {
 								"variable": "hab_1_x",
-								"value": "Hab_Slot.X"
+								"value": "Wp_Slot.X"
 							}
 						},
 						{
@@ -324,7 +324,7 @@
 							"sid": 547359660431361,
 							"parameters": {
 								"variable": "hab_1_y",
-								"value": "Hab_Slot.Y"
+								"value": "Wp_Slot.Y"
 							}
 						}
 					],
@@ -338,8 +338,8 @@
 							"objectClass": "System",
 							"sid": 878406195067014,
 							"parameters": {
-								"object": "Hab_Slot",
-								"expression": "Hab_Slot.ID",
+								"object": "Wp_Slot",
+								"expression": "Wp_Slot.ID",
 								"comparison": 0,
 								"value": "2"
 							}
@@ -352,7 +352,7 @@
 							"sid": 500655161665643,
 							"parameters": {
 								"variable": "hab_2_x",
-								"value": "Hab_Slot.X"
+								"value": "Wp_Slot.X"
 							}
 						},
 						{
@@ -361,7 +361,7 @@
 							"sid": 599581679393455,
 							"parameters": {
 								"variable": "hab_2_y",
-								"value": "Hab_Slot.Y"
+								"value": "Wp_Slot.Y"
 							}
 						}
 					],
@@ -431,8 +431,8 @@
 											"objectClass": "System",
 											"sid": 962500577322192,
 											"parameters": {
-												"object": "Hab_Slot",
-												"expression": "Hab_Slot.X",
+												"object": "Wp_Slot",
+												"expression": "Wp_Slot.X",
 												"comparison": 0,
 												"value": "hab_1_x"
 											}
@@ -441,7 +441,7 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 841813027030358,
 											"parameters": {
 												"instance-variable": "Ammo_Max",
@@ -450,7 +450,7 @@
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 767663739123613,
 											"parameters": {
 												"instance-variable": "Ammo",
@@ -509,8 +509,8 @@
 											"objectClass": "System",
 											"sid": 337770674295834,
 											"parameters": {
-												"object": "Hab_Slot",
-												"expression": "Hab_Slot.X",
+												"object": "Wp_Slot",
+												"expression": "Wp_Slot.X",
 												"comparison": 0,
 												"value": "hab_1_x"
 											}
@@ -519,7 +519,7 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 522822055220376,
 											"parameters": {
 												"instance-variable": "CD_Max",
@@ -597,8 +597,8 @@
 											"objectClass": "System",
 											"sid": 831003344050749,
 											"parameters": {
-												"object": "Hab_Slot",
-												"expression": "Hab_Slot.X",
+												"object": "Wp_Slot",
+												"expression": "Wp_Slot.X",
 												"comparison": 0,
 												"value": "hab_2_x"
 											}
@@ -607,7 +607,7 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 624840070691452,
 											"parameters": {
 												"instance-variable": "Ammo_Max",
@@ -616,7 +616,7 @@
 										},
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 112837934293444,
 											"parameters": {
 												"instance-variable": "Ammo",
@@ -675,8 +675,8 @@
 											"objectClass": "System",
 											"sid": 233985659590833,
 											"parameters": {
-												"object": "Hab_Slot",
-												"expression": "Hab_Slot.X",
+												"object": "Wp_Slot",
+												"expression": "Wp_Slot.X",
 												"comparison": 0,
 												"value": "hab_2_x"
 											}
@@ -685,7 +685,7 @@
 									"actions": [
 										{
 											"id": "set-instvar-value",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 300124747943768,
 											"parameters": {
 												"instance-variable": "CD_Max",
@@ -845,9 +845,9 @@
 						{
 							"id": "set-width",
 							"objectClass": "ProgBar_HP_Player",
-							"sid": 112131185324906,
+							"sid": 832963495499952,
 							"parameters": {
-								"width": "HP * ( 500 / HP_Max )"
+								"width": "HP * ( 448/ HP_Max )"
 							}
 						}
 					],
@@ -2681,7 +2681,7 @@
 									"objectClass": "Cooldown",
 									"sid": 524257947476255,
 									"parameters": {
-										"object": "Hab_Slot"
+										"object": "Wp_Slot"
 									}
 								},
 								{
@@ -2749,7 +2749,7 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 583008872628757,
 											"parameters": {
 												"instance-variable": "Ready",
@@ -2776,7 +2776,7 @@
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 238247499837755,
 									"parameters": {
 										"instance-variable": "Ammo",
@@ -2789,7 +2789,7 @@
 									"objectClass": "Cooldown",
 									"sid": 677494974556084,
 									"parameters": {
-										"object": "Hab_Slot"
+										"object": "Wp_Slot"
 									}
 								},
 								{
@@ -2805,7 +2805,7 @@
 							"actions": [
 								{
 									"id": "set-boolean-instvar",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 351912664236691,
 									"parameters": {
 										"instance-variable": "Ready",
@@ -4617,7 +4617,7 @@
 															"objectClass": "icon_list_weapon",
 															"sid": 361970988562296,
 															"parameters": {
-																"object": "Hab_Slot"
+																"object": "Wp_Slot"
 															}
 														}
 													],
@@ -4627,7 +4627,7 @@
 															"objectClass": "Text_Item_Info",
 															"sid": 640896179661649,
 															"parameters": {
-																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Hab_Slot.Ammo & \"/\" &Hab_Slot.Ammo_Max  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Wp_Slot.Ammo & \"/\" &Wp_Slot.Ammo_Max  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 															}
 														}
 													],
@@ -4711,7 +4711,7 @@
 															"objectClass": "icon_list_weapon",
 															"sid": 520484968058596,
 															"parameters": {
-																"object": "Hab_Slot"
+																"object": "Wp_Slot"
 															}
 														}
 													],
@@ -4721,7 +4721,7 @@
 															"objectClass": "Text_Item_Info",
 															"sid": 185488377992003,
 															"parameters": {
-																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Hab_Slot.Ammo & \"/\" &Hab_Slot.Ammo_Max  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Wp_Slot.Ammo & \"/\" &Wp_Slot.Ammo_Max  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 															}
 														}
 													],
@@ -5180,7 +5180,7 @@
 									"objectClass": "Touch",
 									"sid": 549914053503352,
 									"parameters": {
-										"object": "Hab_Slot_Special"
+										"object": "Armor_Slot"
 									}
 								},
 								{
@@ -5220,12 +5220,12 @@
 									"objectClass": "Touch",
 									"sid": 447140243369093,
 									"parameters": {
-										"object": "Hab_Slot"
+										"object": "Wp_Slot"
 									}
 								},
 								{
 									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Hab_Slot",
+									"objectClass": "Wp_Slot",
 									"sid": 551252073108800,
 									"parameters": {
 										"instance-variable": "Ready"
@@ -5262,8 +5262,8 @@
 									"objectClass": "Select_Hab",
 									"sid": 638290775330160,
 									"parameters": {
-										"x": "Hab_Slot.X",
-										"y": "Hab_Slot.Y"
+										"x": "Wp_Slot.X",
+										"y": "Wp_Slot.Y"
 									}
 								}
 							],
@@ -5274,7 +5274,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 219461059146728,
 											"parameters": {
 												"instance-variable": "ID",
@@ -5288,7 +5288,7 @@
 											"callFunction": "Get_Targets",
 											"sid": 926060577617695,
 											"parameters": [
-												"Hab_Slot.ID",
+												"Wp_Slot.ID",
 												"tokenat( Weapon_ID_1, 0, \"_\" )",
 												"Dict_Save_File.Get(Weapon_ID_1 )"
 											]
@@ -5301,7 +5301,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "Hab_Slot",
+											"objectClass": "Wp_Slot",
 											"sid": 404747817115428,
 											"parameters": {
 												"instance-variable": "ID",
@@ -5315,7 +5315,7 @@
 											"callFunction": "Get_Targets",
 											"sid": 818410080463347,
 											"parameters": [
-												"Hab_Slot.ID",
+												"Wp_Slot.ID",
 												"tokenat( Weapon_ID_2, 0, \"_\" )",
 												"Dict_Save_File.Get(Weapon_ID_2 )"
 											]
@@ -5652,7 +5652,7 @@
 													"objectClass": "Select_Hab",
 													"sid": 414836221729092,
 													"parameters": {
-														"object": "Hab_Slot"
+														"object": "Wp_Slot"
 													}
 												}
 											],
@@ -5664,7 +5664,7 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 398560176374510,
 															"parameters": {
 																"instance-variable": "ID",
@@ -5708,7 +5708,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 434334986543995,
 																	"parameters": {
 																		"instance-variable": "CD_Max",
@@ -5720,7 +5720,7 @@
 															"actions": [
 																{
 																	"id": "spawn-another-object",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 690395065700958,
 																	"parameters": {
 																		"object": "Cooldown",
@@ -5736,12 +5736,12 @@
 																	"sid": 206813234812088,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
-																		"value": "Hab_Slot.CD_Max"
+																		"value": "Wp_Slot.CD_Max"
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 585715507410747,
 																	"parameters": {
 																		"instance-variable": "Ready",
@@ -5756,7 +5756,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 397658000500949,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -5768,7 +5768,7 @@
 															"actions": [
 																{
 																	"id": "subtract-from-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 768901888293453,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -5783,7 +5783,7 @@
 																	"conditions": [
 																		{
 																			"id": "compare-instance-variable",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 689257531594150,
 																			"parameters": {
 																				"instance-variable": "Ammo",
@@ -5795,7 +5795,7 @@
 																	"actions": [
 																		{
 																			"id": "set-boolean-instvar",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 427707865566216,
 																			"parameters": {
 																				"instance-variable": "Ready",
@@ -5804,7 +5804,7 @@
 																		},
 																		{
 																			"id": "spawn-another-object",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 449318291153825,
 																			"parameters": {
 																				"object": "Cooldown",
@@ -5834,7 +5834,7 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 200709740633219,
 															"parameters": {
 																"instance-variable": "ID",
@@ -5878,7 +5878,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 320346907619070,
 																	"parameters": {
 																		"instance-variable": "CD_Max",
@@ -5890,7 +5890,7 @@
 															"actions": [
 																{
 																	"id": "spawn-another-object",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 752358745003429,
 																	"parameters": {
 																		"object": "Cooldown",
@@ -5906,12 +5906,12 @@
 																	"sid": 652890848148650,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
-																		"value": "Hab_Slot.CD_Max"
+																		"value": "Wp_Slot.CD_Max"
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 208373443461109,
 																	"parameters": {
 																		"instance-variable": "Ready",
@@ -5926,7 +5926,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 239114484031206,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -5938,7 +5938,7 @@
 															"actions": [
 																{
 																	"id": "subtract-from-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 573050005056002,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -5953,7 +5953,7 @@
 																	"conditions": [
 																		{
 																			"id": "compare-instance-variable",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 708839532788409,
 																			"parameters": {
 																				"instance-variable": "Ammo",
@@ -5965,7 +5965,7 @@
 																	"actions": [
 																		{
 																			"id": "set-boolean-instvar",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 984538982545485,
 																			"parameters": {
 																				"instance-variable": "Ready",
@@ -5974,7 +5974,7 @@
 																		},
 																		{
 																			"id": "spawn-another-object",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 393954346361362,
 																			"parameters": {
 																				"object": "Cooldown",
@@ -6026,7 +6026,7 @@
 													"objectClass": "Select_Hab",
 													"sid": 365606070275034,
 													"parameters": {
-														"object": "Hab_Slot"
+														"object": "Wp_Slot"
 													}
 												}
 											],
@@ -6038,7 +6038,7 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 727190524591791,
 															"parameters": {
 																"instance-variable": "ID",
@@ -6082,7 +6082,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 598751984494719,
 																	"parameters": {
 																		"instance-variable": "CD_Max",
@@ -6094,7 +6094,7 @@
 															"actions": [
 																{
 																	"id": "spawn-another-object",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 386319883785666,
 																	"parameters": {
 																		"object": "Cooldown",
@@ -6110,12 +6110,12 @@
 																	"sid": 273994753171413,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
-																		"value": "Hab_Slot.CD_Max"
+																		"value": "Wp_Slot.CD_Max"
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 123732932733615,
 																	"parameters": {
 																		"instance-variable": "Ready",
@@ -6130,7 +6130,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 281401610162050,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6142,7 +6142,7 @@
 															"actions": [
 																{
 																	"id": "subtract-from-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 997016409199422,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6157,7 +6157,7 @@
 																	"conditions": [
 																		{
 																			"id": "compare-instance-variable",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 707871442231666,
 																			"parameters": {
 																				"instance-variable": "Ammo",
@@ -6169,7 +6169,7 @@
 																	"actions": [
 																		{
 																			"id": "set-boolean-instvar",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 242343027946387,
 																			"parameters": {
 																				"instance-variable": "Ready",
@@ -6178,7 +6178,7 @@
 																		},
 																		{
 																			"id": "spawn-another-object",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 500300359600731,
 																			"parameters": {
 																				"object": "Cooldown",
@@ -6208,7 +6208,7 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 140250280732235,
 															"parameters": {
 																"instance-variable": "ID",
@@ -6252,7 +6252,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 363034085729654,
 																	"parameters": {
 																		"instance-variable": "CD_Max",
@@ -6264,7 +6264,7 @@
 															"actions": [
 																{
 																	"id": "spawn-another-object",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 824602284897726,
 																	"parameters": {
 																		"object": "Cooldown",
@@ -6280,12 +6280,12 @@
 																	"sid": 606034529651606,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
-																		"value": "Hab_Slot.CD_Max"
+																		"value": "Wp_Slot.CD_Max"
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 765017196721838,
 																	"parameters": {
 																		"instance-variable": "Ready",
@@ -6300,7 +6300,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 202250767096767,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6312,7 +6312,7 @@
 															"actions": [
 																{
 																	"id": "subtract-from-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 162191667990649,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6327,7 +6327,7 @@
 																	"conditions": [
 																		{
 																			"id": "compare-instance-variable",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 745592975594091,
 																			"parameters": {
 																				"instance-variable": "Ammo",
@@ -6339,7 +6339,7 @@
 																	"actions": [
 																		{
 																			"id": "set-boolean-instvar",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 859235982044501,
 																			"parameters": {
 																				"instance-variable": "Ready",
@@ -6348,7 +6348,7 @@
 																		},
 																		{
 																			"id": "spawn-another-object",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 249166327028431,
 																			"parameters": {
 																				"object": "Cooldown",
@@ -6420,7 +6420,7 @@
 													"objectClass": "Select_Hab",
 													"sid": 537169544463867,
 													"parameters": {
-														"object": "Hab_Slot"
+														"object": "Wp_Slot"
 													}
 												}
 											],
@@ -6432,7 +6432,7 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 602132356832365,
 															"parameters": {
 																"instance-variable": "ID",
@@ -6476,7 +6476,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 115638694449003,
 																	"parameters": {
 																		"instance-variable": "CD_Max",
@@ -6488,7 +6488,7 @@
 															"actions": [
 																{
 																	"id": "spawn-another-object",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 131966963266594,
 																	"parameters": {
 																		"object": "Cooldown",
@@ -6504,12 +6504,12 @@
 																	"sid": 816083611003593,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
-																		"value": "Hab_Slot.CD_Max"
+																		"value": "Wp_Slot.CD_Max"
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 732456348871820,
 																	"parameters": {
 																		"instance-variable": "Ready",
@@ -6524,7 +6524,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 805822424031439,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6536,7 +6536,7 @@
 															"actions": [
 																{
 																	"id": "subtract-from-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 966079114708514,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6551,7 +6551,7 @@
 																	"conditions": [
 																		{
 																			"id": "compare-instance-variable",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 566413636182019,
 																			"parameters": {
 																				"instance-variable": "Ammo",
@@ -6563,7 +6563,7 @@
 																	"actions": [
 																		{
 																			"id": "set-boolean-instvar",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 236614463961041,
 																			"parameters": {
 																				"instance-variable": "Ready",
@@ -6572,7 +6572,7 @@
 																		},
 																		{
 																			"id": "spawn-another-object",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 141680249214708,
 																			"parameters": {
 																				"object": "Cooldown",
@@ -6602,7 +6602,7 @@
 													"conditions": [
 														{
 															"id": "compare-instance-variable",
-															"objectClass": "Hab_Slot",
+															"objectClass": "Wp_Slot",
 															"sid": 824916736815165,
 															"parameters": {
 																"instance-variable": "ID",
@@ -6646,7 +6646,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 974336246367788,
 																	"parameters": {
 																		"instance-variable": "CD_Max",
@@ -6658,7 +6658,7 @@
 															"actions": [
 																{
 																	"id": "spawn-another-object",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 982965643152934,
 																	"parameters": {
 																		"object": "Cooldown",
@@ -6674,12 +6674,12 @@
 																	"sid": 249099166462117,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
-																		"value": "Hab_Slot.CD_Max"
+																		"value": "Wp_Slot.CD_Max"
 																	}
 																},
 																{
 																	"id": "set-boolean-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 373806209654965,
 																	"parameters": {
 																		"instance-variable": "Ready",
@@ -6694,7 +6694,7 @@
 															"conditions": [
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 819121011324415,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6706,7 +6706,7 @@
 															"actions": [
 																{
 																	"id": "subtract-from-instvar",
-																	"objectClass": "Hab_Slot",
+																	"objectClass": "Wp_Slot",
 																	"sid": 167564561488423,
 																	"parameters": {
 																		"instance-variable": "Ammo",
@@ -6721,7 +6721,7 @@
 																	"conditions": [
 																		{
 																			"id": "compare-instance-variable",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 762452802668464,
 																			"parameters": {
 																				"instance-variable": "Ammo",
@@ -6733,7 +6733,7 @@
 																	"actions": [
 																		{
 																			"id": "set-boolean-instvar",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 356568651744014,
 																			"parameters": {
 																				"instance-variable": "Ready",
@@ -6742,7 +6742,7 @@
 																		},
 																		{
 																			"id": "spawn-another-object",
-																			"objectClass": "Hab_Slot",
+																			"objectClass": "Wp_Slot",
 																			"sid": 437398201185820,
 																			"parameters": {
 																				"object": "Cooldown",
