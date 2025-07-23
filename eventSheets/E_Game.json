@@ -7700,6 +7700,10 @@
 					"sid": 698524508351873,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Aumentar a velocidade de produção (Steam & Others)"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -7808,6 +7812,10 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Aumentar a capacidade de produção (Steam & Others)"
 						},
 						{
 							"eventType": "block",
@@ -7920,6 +7928,267 @@
 							]
 						},
 						{
+							"eventType": "comment",
+							"text": "Automatizar produção (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 140144133621456,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"autoprod\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 633464153137461,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 592717416522100,
+											"parameters": {
+												"first-value": "tokenat ( Upgrade_id, 1, \"_\" ) ",
+												"comparison": 0,
+												"second-value": "\"Steam\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production_Vapor",
+											"sid": 562697699517891,
+											"parameters": {
+												"instance-variable": "Autoprod",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 108049147235332
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 815369324351171
+										}
+									],
+									"actions": [],
+									"sid": 835605040726809,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 642319920845468,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.material_id",
+														"comparison": 0,
+														"value": "tokenat ( Upgrade_id, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production",
+													"sid": 251167610058281,
+													"parameters": {
+														"instance-variable": "Autoprod",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 712153348959114
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Reduzir custo de produção (Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 105950982826957,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodcost\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 439342187241720,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 236416565650516,
+											"parameters": {
+												"object": "Production",
+												"expression": "Production.material_id",
+												"comparison": 0,
+												"value": "tokenat ( Upgrade_id, 1, \"_\" )"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Production",
+											"sid": 106874694650338,
+											"parameters": {
+												"instance-variable": "prod_usage",
+												"value": "int ( tokenat ( Upgrade_id, 2, \"_\" ) )"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 158437525530417,
+											"parameters": {
+												"x": "2",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "Production.prod_cap"
+											}
+										}
+									],
+									"sid": 926503501080566
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Dobrar produção (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 633856899031893,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"doubleprod\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 979198279487595,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 485361995186233,
+											"parameters": {
+												"first-value": "tokenat ( Upgrade_id, 1, \"_\" ) ",
+												"comparison": 0,
+												"second-value": "\"Steam\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 291927354812613,
+											"parameters": {
+												"instance-variable": "prod_quant",
+												"value": "Self.prod_quant * 2"
+											}
+										}
+									],
+									"sid": 443492200264458
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 358457168807556
+										}
+									],
+									"actions": [],
+									"sid": 467037514440029,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 444124443528313,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.material_id",
+														"comparison": 0,
+														"value": "tokenat ( Upgrade_id, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Production",
+													"sid": 450202228885825,
+													"parameters": {
+														"instance-variable": "prod_quant",
+														"value": "Self.prod_quant * 2"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 706175661345349,
+													"parameters": {
+														"x": "2",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_quant"
+													}
+												}
+											],
+											"sid": 955718625479199
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Desbloquear a produção (Others)"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -7996,6 +8265,34 @@
 								}
 							],
 							"sid": 969018912233262
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 474394031613694,
+									"parameters": {
+										"object": "valvula_upgrades",
+										"expression": "valvula_upgrades.LayerName",
+										"comparison": 0,
+										"value": "ActiveLayer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "valvula_upgrades",
+									"sid": 608717039740889,
+									"parameters": {
+										"animation": "\"Default\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 547933706510558
 						}
 					]
 				}
