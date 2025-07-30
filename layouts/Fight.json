@@ -219,7 +219,7 @@
 					"type": "Enemy",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Z1_Idle",
+						"initial-animation": "Z2_Attack",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -235,7 +235,8 @@
 						"Hab_2": "Atk_fullpierce_10",
 						"My_ID": 1,
 						"Block": 0,
-						"OnFire": ""
+						"OnFire": "",
+						"ID": "Z1"
 					},
 					"behaviors": {
 						"Tween": {
@@ -272,12 +273,12 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1620,
-						"y": 399,
-						"width": 359,
-						"height": 737,
-						"originX": 0.5,
-						"originY": 0.5,
+						"x": 1576,
+						"y": 856,
+						"width": 461,
+						"height": 688,
+						"originX": 1,
+						"originY": 1,
 						"color": [
 							1,
 							1,

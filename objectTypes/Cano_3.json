@@ -1,5 +1,5 @@
 {
-	"name": "Sprite3",
+	"name": "Cano_3",
 	"plugin-id": "Sprite",
 	"sid": 871942725839891,
 	"isGlobal": false,
@@ -97,7 +97,102 @@
 					}
 				],
 				"sid": 609519000902271,
-				"name": "Animation 1",
+				"name": "Empty",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 170,
+						"height": 153,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 88241,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								1,
+								0.0196078431372549,
+								1,
+								1,
+								0.5235294117647059,
+								1,
+								0,
+								0.5294117647058824
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 170,
+						"height": 153,
+						"originX": 1,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9248841,
+						"collisionPoly": {
+							"points": [
+								1,
+								0.5294117647058824,
+								0.4764705882352941,
+								1,
+								0,
+								1,
+								0,
+								0.0196078431372549,
+								1,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 170,
+						"height": 153,
+						"originX": 1,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 412605,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0,
+								0.9803921568627451,
+								0,
+								0,
+								0.4764705882352941,
+								0,
+								1,
+								0.47058823529411764
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 677493988038988,
+				"name": "Water",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

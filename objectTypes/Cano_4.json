@@ -1,5 +1,5 @@
 {
-	"name": "Sprite4",
+	"name": "Cano_4",
 	"plugin-id": "Sprite",
 	"sid": 890988953948338,
 	"isGlobal": false,
@@ -43,7 +43,48 @@
 					}
 				],
 				"sid": 458529689286684,
-				"name": "Animation 1",
+				"name": "Empty",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 170,
+						"height": 153,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9334116,
+						"collisionPoly": {
+							"points": [
+								0.37058823529411766,
+								0,
+								0.8470588235294118,
+								0,
+								0.8470588235294118,
+								1,
+								0.37058823529411766,
+								1,
+								0,
+								0.7647058823529411,
+								0,
+								0.23529411764705882
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 306390655034550,
+				"name": "Water",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

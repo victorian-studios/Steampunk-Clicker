@@ -8295,6 +8295,22 @@
 							"sid": 547933706510558
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 498565421011863,
+							"parameters": {
+								"object": "Icon_Upg",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 709144343325367
 				}
 			],
 			"sid": 955653302142717
@@ -21805,7 +21821,15 @@
 											}
 										}
 									],
-									"sid": 671927704283725
+									"sid": 671927704283725,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 915551000779891
+										}
+									]
 								},
 								{
 									"eventType": "comment",
