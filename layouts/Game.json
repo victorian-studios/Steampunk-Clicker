@@ -138,7 +138,6 @@
 								"Array_ID": 1,
 								"prod_quant": 1,
 								"prod_cap": 12,
-								"prod_usage": 0,
 								"prod_time": 3,
 								"cond_material_quant_1": "Steam_2",
 								"cond_material_quant_2": "",
@@ -228,7 +227,6 @@
 								"Array_ID": 3,
 								"prod_quant": 3,
 								"prod_cap": 0,
-								"prod_usage": 0,
 								"prod_time": 6.5,
 								"cond_material_quant_1": "Wood_3",
 								"cond_material_quant_2": "Copper_2",
@@ -314,13 +312,12 @@
 							"sid": 992902320456149,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Tungstein",
+								"material_id": "Tungsten",
 								"Array_ID": 5,
 								"prod_quant": 0,
 								"prod_cap": 0,
-								"prod_usage": 0,
 								"prod_time": 10,
-								"cond_material_quant_1": "Wood_3",
+								"cond_material_quant_1": "Wood_4",
 								"cond_material_quant_2": "Titanium_2",
 								"Producing": false,
 								"Autoprod": false,
@@ -408,7 +405,6 @@
 								"Array_ID": 2,
 								"prod_quant": 1,
 								"prod_cap": 10,
-								"prod_usage": 0,
 								"prod_time": 5,
 								"cond_material_quant_1": "Steam_3",
 								"cond_material_quant_2": "Wood_2",
@@ -498,7 +494,6 @@
 								"Array_ID": 4,
 								"prod_quant": 0,
 								"prod_cap": 0,
-								"prod_usage": 0,
 								"prod_time": 8,
 								"cond_material_quant_1": "Steam_4",
 								"cond_material_quant_2": "Iron_2",
@@ -588,10 +583,9 @@
 								"Array_ID": 6,
 								"prod_quant": 0,
 								"prod_cap": 0,
-								"prod_usage": 0,
 								"prod_time": 13,
 								"cond_material_quant_1": "Steam_5",
-								"cond_material_quant_2": "Tungstein_2",
+								"cond_material_quant_2": "Tungsten_2",
 								"Producing": false,
 								"Autoprod": false,
 								"Unlocked": false
@@ -677,7 +671,6 @@
 								"material_id": "Steam",
 								"prod_quant": 1,
 								"prod_cap": 15,
-								"prod_usage": 0,
 								"prod_time": 2.45,
 								"Producing": false,
 								"Autoprod": false
@@ -2820,7 +2813,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -2867,7 +2860,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -2914,7 +2907,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -2922,7 +2915,7 @@
 							"sid": 727383566506058,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Copper",
+								"material_id": "Titanium",
 								"upg_icon_frame": 0,
 								"Self_X": 0
 							},
@@ -2961,7 +2954,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -2969,7 +2962,7 @@
 							"sid": 189702371684166,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Copper",
+								"material_id": "Vaporium",
 								"upg_icon_frame": 0,
 								"Self_X": 0
 							},
@@ -3008,7 +3001,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3016,7 +3009,7 @@
 							"sid": 702819264851031,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Copper",
+								"material_id": "Tungsten",
 								"upg_icon_frame": 0,
 								"Self_X": 0
 							},
@@ -3055,7 +3048,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3063,7 +3056,7 @@
 							"sid": 658984386262687,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Copper",
+								"material_id": "Iron",
 								"upg_icon_frame": 0,
 								"Self_X": 0
 							},
@@ -3293,7 +3286,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 1,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3321,8 +3314,8 @@
 							"world": {
 								"x": 1771,
 								"y": 283,
-								"width": 85,
-								"height": 85,
+								"width": 89.47368421052632,
+								"height": 89.47368421052632,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3340,7 +3333,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 2,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3368,8 +3361,8 @@
 							"world": {
 								"x": 1770,
 								"y": 397,
-								"width": 85,
-								"height": 85,
+								"width": 89.47368421052632,
+								"height": 89.47368421052632,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -3387,7 +3380,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3434,7 +3427,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3442,7 +3435,7 @@
 							"sid": 121938130291375,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Iron",
+								"material_id": "Btn_Titanium",
 								"upg_icon_frame": 4,
 								"Self_X": 0
 							},
@@ -3481,7 +3474,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3489,7 +3482,7 @@
 							"sid": 793031214320718,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Iron",
+								"material_id": "Btn_Tungsten",
 								"upg_icon_frame": 5,
 								"Self_X": 0
 							},
@@ -3528,7 +3521,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Materials",
-								"initial-frame": 4,
+								"initial-frame": 7,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -3536,7 +3529,7 @@
 							"sid": 606870908927872,
 							"tags": "",
 							"instanceVariables": {
-								"material_id": "Iron",
+								"material_id": "Btn_Vaporium",
 								"upg_icon_frame": 6,
 								"Self_X": 0
 							},
@@ -3742,595 +3735,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 358,
-							"sid": 710253486721851,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 710253486721851,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1166,
-								"y": 496,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 359,
-							"sid": 175466513655645,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 175466513655645,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1168,
-								"y": 688,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 360,
-							"sid": 506313837058368,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 506313837058368,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1168,
-								"y": 306,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 155,
-							"sid": 912357230693947,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 912357230693947,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 778,
-								"y": 454,
-								"width": 169.1889456468666,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.462880558742252,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 156,
-							"sid": 336089900865563,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 336089900865563,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 818,
-								"y": 502,
-								"width": 161.33095244168786,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.7853981633974483,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 157,
-							"sid": 417252148665776,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 417252148665776,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 234,
-								"y": 510,
-								"width": 224,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.7853981633974483,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 158,
-							"sid": 324287535253367,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 324287535253367,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 186,
-								"y": 462,
-								"width": 232,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.462880558742252,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 159,
-							"sid": 495662198413656,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 495662198413656,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 402,
-								"y": 270,
-								"width": 152,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 160,
-							"sid": 322865774297657,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 322865774297657,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 402,
-								"y": 662,
-								"width": 152,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 161,
-							"sid": 457123005792270,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 457123005792270,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 794,
-								"y": 462,
-								"width": 104,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 162,
-							"sid": 157892027813675,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 157892027813675,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 636,
-								"y": 290,
-								"width": 232,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.9599310885968813,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 163,
-							"sid": 169491651336225,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 169491651336225,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 586,
-								"y": 662,
-								"width": 208,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.358160803622591,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4383,6 +3788,7 @@
 								"Price_1": "Wood_30",
 								"Price_2": "",
 								"Upgrade_ID": "unlock_Copper",
+								"Upg_Connections": "2_4_0",
 								"Unlocked": true,
 								"Sold": false,
 								"LayerActive": false
@@ -4412,7 +3818,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4449,7 +3855,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4486,7 +3892,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4523,7 +3929,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4560,7 +3966,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4597,7 +4003,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4634,7 +4040,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4654,7 +4060,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 946,
+								"x": 1047,
 								"y": 498,
 								"width": 125,
 								"height": 125,
@@ -4671,7 +4077,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -4720,10 +4126,11 @@
 							"sid": 818858957018831,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "3",
+								"Name": "4",
 								"Price_1": "Wood_10",
 								"Price_2": "Copper_5",
 								"Upgrade_ID": "prodcapup_Copper_10",
+								"Upg_Connections": "5_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -4746,7 +4153,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -4769,6 +4176,7 @@
 								"Price_1": "Steam_15",
 								"Price_2": "Wood_20",
 								"Upgrade_ID": "prodspeedup_Copper_1",
+								"Upg_Connections": "3_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -4791,7 +4199,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -4814,6 +4222,7 @@
 								"Price_1": "Wood_15",
 								"Price_2": "Copper_15",
 								"Upgrade_ID": "prodcapup_Copper_15",
+								"Upg_Connections": "6_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -4836,7 +4245,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -4855,10 +4264,11 @@
 							"sid": 505842284416557,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "4",
+								"Name": "3",
 								"Price_1": "Steam_20",
 								"Price_2": "Wood_30",
 								"Upgrade_ID": "prodspeedup_Copper_1.2",
+								"Upg_Connections": "6_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -4881,7 +4291,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -4904,6 +4314,7 @@
 								"Price_1": "Copper_25",
 								"Price_2": "Iron_4",
 								"Upgrade_ID": "prodspeedup_Copper_2",
+								"Upg_Connections": "7_10_12",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -4926,7 +4337,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -4949,6 +4360,7 @@
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "8_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -4990,10 +4402,11 @@
 							"sid": 687378689906746,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "8",
+								"Name": "10",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "11_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5006,7 +4419,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 954,
+								"x": 1055,
 								"y": 497,
 								"width": 83,
 								"height": 96,
@@ -5035,10 +4448,11 @@
 							"sid": 563832537516008,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "9",
+								"Name": "12",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "13_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5068,301 +4482,7 @@
 							}
 						},
 						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 352,
-							"sid": 640524807808931,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 640524807808931,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1612,
-								"y": 524,
-								"width": 258,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.462880558742252,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 353,
-							"sid": 353833432829308,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 353833432829308,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1612,
-								"y": 494,
-								"width": 258,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.7853981633974483,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 354,
-							"sid": 377951087519335,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 377951087519335,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1578,
-								"y": 498,
-								"width": 146,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 355,
-							"sid": 370057087082981,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 370057087082981,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1392,
-								"y": 504,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 356,
-							"sid": 432789070942841,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 432789070942841,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1394,
-								"y": 696,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 357,
-							"sid": 855010071577866,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 855010071577866,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1394,
-								"y": 304,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -5411,10 +4531,11 @@
 							"sid": 519369179710767,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "13",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "14_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5444,7 +4565,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -5464,7 +4585,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1178,
+								"x": 1279,
 								"y": 500,
 								"width": 125,
 								"height": 125,
@@ -5493,10 +4614,11 @@
 							"sid": 768345768638006,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "11",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "15_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5509,7 +4631,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1184,
+								"x": 1285,
 								"y": 500,
 								"width": 83,
 								"height": 96,
@@ -5526,7 +4648,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -5575,10 +4697,11 @@
 							"sid": 948779206708682,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "8",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "9_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5608,7 +4731,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -5657,10 +4780,11 @@
 							"sid": 273865007298340,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "14",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "15_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5690,7 +4814,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -5710,7 +4834,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1410,
+								"x": 1451,
 								"y": 500,
 								"width": 125,
 								"height": 125,
@@ -5739,10 +4863,11 @@
 							"sid": 222658444232319,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "15",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "16_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5755,7 +4880,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1416,
+								"x": 1457,
 								"y": 500,
 								"width": 83,
 								"height": 96,
@@ -5772,7 +4897,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -5821,10 +4946,11 @@
 							"sid": 719942142488062,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "9",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "15_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5854,7 +4980,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -5903,10 +5029,11 @@
 							"sid": 681131392707288,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "16",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -5971,595 +5098,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 335,
-							"sid": 286418763278418,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 286418763278418,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1166,
-								"y": 496,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 336,
-							"sid": 969277716288434,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 969277716288434,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1168,
-								"y": 688,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 337,
-							"sid": 133338290155420,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 133338290155420,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1168,
-								"y": 306,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 131,
-							"sid": 428815550136511,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 428815550136511,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 778,
-								"y": 446,
-								"width": 183.3537658041432,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.462880558742252,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 132,
-							"sid": 280656255351903,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 280656255351903,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 826,
-								"y": 502,
-								"width": 163.6740981921955,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.7853981633974483,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 133,
-							"sid": 734059558033029,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 734059558033029,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 226,
-								"y": 518,
-								"width": 232,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.7853981633974483,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 134,
-							"sid": 710924392069544,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 710924392069544,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 194,
-								"y": 470,
-								"width": 232,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.462880558742252,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 135,
-							"sid": 612794652126204,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 612794652126204,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 398.56411455435915,
-								"y": 278,
-								"width": 196.98268658087017,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 136,
-							"sid": 386306853487554,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 386306853487554,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 408.1109156895886,
-								"y": 662,
-								"width": 169.88908431041142,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 137,
-							"sid": 657336615200795,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 657336615200795,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 750,
-								"y": 462,
-								"width": 155,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 138,
-							"sid": 921283283915142,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 921283283915142,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 650,
-								"y": 302,
-								"width": 198,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.9599310885968813,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "top-left",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 139,
-							"sid": 768655713974103,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 768655713974103,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 594,
-								"y": 670,
-								"width": 220,
-								"height": 76,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.358160803622591,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6612,6 +5151,7 @@
 								"Price_1": "Steam_20",
 								"Price_2": "",
 								"Upgrade_ID": "unlock_Wood",
+								"Upg_Connections": "2_4_0",
 								"Unlocked": true,
 								"Sold": false,
 								"LayerActive": false
@@ -6641,7 +5181,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6678,7 +5218,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6715,7 +5255,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6752,7 +5292,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6789,7 +5329,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6826,7 +5366,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6863,7 +5403,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6883,7 +5423,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 946,
+								"x": 1053,
 								"y": 498,
 								"width": 125,
 								"height": 125,
@@ -6900,7 +5440,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -6949,10 +5489,11 @@
 							"sid": 694791051469539,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "3",
+								"Name": "4",
 								"Price_1": "Wood_8",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Wood_12",
+								"Upg_Connections": "5_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -6975,7 +5516,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -6998,6 +5539,7 @@
 								"Price_1": "Steam_3",
 								"Price_2": "Wood_3",
 								"Upgrade_ID": "prodspeedup_Wood_0.45",
+								"Upg_Connections": "3_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7020,7 +5562,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -7043,6 +5585,7 @@
 								"Price_1": "Wood_15",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Wood_26",
+								"Upg_Connections": "6_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7065,7 +5608,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -7084,10 +5627,11 @@
 							"sid": 299327380697550,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "4",
+								"Name": "3",
 								"Price_1": "Steam_5",
 								"Price_2": "Wood_13",
 								"Upgrade_ID": "prodspeedup_Wood_0.6",
+								"Upg_Connections": "6_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7110,7 +5654,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -7133,6 +5677,7 @@
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "8_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7178,6 +5723,7 @@
 								"Price_1": "Wood_20",
 								"Price_2": "Copper_5",
 								"Upgrade_ID": "prodspeedup_Wood_0.9",
+								"Upg_Connections": "7_10_12",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7200,7 +5746,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -7219,10 +5765,11 @@
 							"sid": 527418291669164,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "8",
+								"Name": "10",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "11_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7235,7 +5782,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 953,
+								"x": 1060,
 								"y": 497,
 								"width": 83,
 								"height": 96,
@@ -7264,10 +5811,11 @@
 							"sid": 125379053181531,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "9",
+								"Name": "12",
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "13_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7297,301 +5845,7 @@
 							}
 						},
 						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 329,
-							"sid": 780213391463606,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 780213391463606,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1612,
-								"y": 524,
-								"width": 258,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.462880558742252,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 330,
-							"sid": 157209038431461,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 157209038431461,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1612,
-								"y": 494,
-								"width": 258,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0.7853981633974483,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 331,
-							"sid": 638109347184802,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 638109347184802,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1578,
-								"y": 498,
-								"width": 146,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 332,
-							"sid": 679828658571899,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 679828658571899,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1392,
-								"y": 504,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 333,
-							"sid": 134501227761188,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 134501227761188,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1394,
-								"y": 696,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 334,
-							"sid": 729211082237970,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 729211082237970,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1394,
-								"y": 304,
-								"width": 172,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 6.278116755406019,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -7640,10 +5894,11 @@
 							"sid": 617883746343343,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "13",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "14_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7673,7 +5928,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -7693,7 +5948,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1178,
+								"x": 1285,
 								"y": 500,
 								"width": 125,
 								"height": 125,
@@ -7722,10 +5977,11 @@
 							"sid": 868390279684483,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "11",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "16_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7738,7 +5994,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1184,
+								"x": 1291,
 								"y": 500,
 								"width": 83,
 								"height": 96,
@@ -7755,7 +6011,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -7804,10 +6060,11 @@
 							"sid": 547470264344610,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "8",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "9_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7837,7 +6094,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -7886,10 +6143,11 @@
 							"sid": 249810116075151,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "14",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "15_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7919,7 +6177,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -7939,7 +6197,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1410,
+								"x": 1456,
 								"y": 500,
 								"width": 125,
 								"height": 125,
@@ -7968,10 +6226,11 @@
 							"sid": 321638637869599,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "15",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "16_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -7984,7 +6243,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1416,
+								"x": 1462,
 								"y": 500,
 								"width": 83,
 								"height": 96,
@@ -8001,7 +6260,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -8050,10 +6309,11 @@
 							"sid": 747992145961949,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "9",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -8083,7 +6343,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -8132,10 +6392,11 @@
 							"sid": 916990079644671,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "Locked",
+								"Name": "16",
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9125,7 +7386,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9178,6 +7439,7 @@
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "16_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9207,7 +7469,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9260,6 +7522,7 @@
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9289,56 +7552,7 @@
 							}
 						},
 						{
-							"type": "TileBkg_Connect",
-							"properties": {
-								"initially-visible": true,
-								"origin": "right",
-								"wrap-horizontal": "repeat",
-								"wrap-vertical": "repeat",
-								"image-offset-x": 0,
-								"image-offset-y": 0,
-								"image-scale-x": 0.5,
-								"image-scale-y": 0.5,
-								"image-angle": 0,
-								"enable-tile-randomization": false,
-								"x-random": 1.25,
-								"y-random": 0.5,
-								"angle-random": 1,
-								"blend-margin-x": 0.1,
-								"blend-margin-y": 0.1
-							},
-							"uid": 96,
-							"sid": 787182615918924,
-							"tags": "",
-							"instanceVariables": {
-								"Unlocked": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 787182615918924,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 881,
-								"y": -290,
-								"width": 232,
-								"height": 76,
-								"originX": 1,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 5.462880558742252,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9375,7 +7589,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9412,7 +7626,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9449,7 +7663,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9486,7 +7700,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9523,7 +7737,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9560,7 +7774,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9597,7 +7811,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -9646,10 +7860,11 @@
 							"sid": 767383041761056,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "3",
+								"Name": "4",
 								"Price_1": "Steam_10",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Steam_10",
+								"Upg_Connections": "5_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9672,7 +7887,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -9695,6 +7910,7 @@
 								"Price_1": "Steam_15",
 								"Price_2": "",
 								"Upgrade_ID": "prodspeedup_Steam_0.4",
+								"Upg_Connections": "3_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9717,7 +7933,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -9740,6 +7956,7 @@
 								"Price_1": "Steam_20",
 								"Price_2": "",
 								"Upgrade_ID": "prodcapup_Steam_20",
+								"Upg_Connections": "6_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9762,7 +7979,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -9781,10 +7998,11 @@
 							"sid": 568102530085598,
 							"tags": "",
 							"instanceVariables": {
-								"Name": "4",
+								"Name": "3",
 								"Price_1": "Steam_25",
 								"Price_2": "",
 								"Upgrade_ID": "prodspeedup_Steam_0.5",
+								"Upg_Connections": "6_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9807,7 +8025,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -9830,6 +8048,7 @@
 								"Price_1": "Steam_30",
 								"Price_2": "Wood_10",
 								"Upgrade_ID": "prodspeedup_Steam_0.6",
+								"Upg_Connections": "7_10_12",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9852,7 +8071,7 @@
 									1,
 									1,
 									1,
-									1
+									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -9875,6 +8094,7 @@
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "autoprod",
+								"Upg_Connections": "8_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9920,6 +8140,7 @@
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "11_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9965,6 +8186,7 @@
 								"Price_1": "Steam_999",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "13_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -9994,7 +8216,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -10047,6 +8269,7 @@
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "14_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10076,7 +8299,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -10129,6 +8352,7 @@
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "15_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10158,7 +8382,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -10211,6 +8435,7 @@
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "9_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10240,7 +8465,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -10293,6 +8518,7 @@
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "15_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10322,7 +8548,7 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
@@ -10375,6 +8601,7 @@
 								"Price_1": "",
 								"Price_2": "",
 								"Upgrade_ID": "",
+								"Upg_Connections": "15_0_0",
 								"Unlocked": false,
 								"Sold": false,
 								"LayerActive": false
@@ -10404,11 +8631,11 @@
 							}
 						},
 						{
-							"type": "Icon_Gear",
+							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
-								"initial-frame": 1,
+								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -10457,6 +8684,7 @@
 								"Price_1": "Steam_8",
 								"Price_2": "",
 								"Upgrade_ID": "prodspeedup_Steam_0.3",
+								"Upg_Connections": "2_4_0",
 								"Unlocked": true,
 								"Sold": false,
 								"LayerActive": false
@@ -11020,7 +9248,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Materials",
-						"initial-frame": 2,
+						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -11122,7 +9350,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Materials",
-						"initial-frame": 2,
+						"initial-frame": 4,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -11224,7 +9452,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Materials",
-						"initial-frame": 2,
+						"initial-frame": 5,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -11326,7 +9554,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Materials",
-						"initial-frame": 2,
+						"initial-frame": 6,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -12456,7 +10684,7 @@
 								"x": 591,
 								"y": 206,
 								"width": 24,
-								"height": 368,
+								"height": 290,
 								"originX": 0.5,
 								"originY": 0,
 								"color": [
@@ -13253,7 +11481,7 @@
 						"x": 1808,
 						"y": 206,
 						"width": 24,
-						"height": 368,
+						"height": 290,
 						"originX": 0.5,
 						"originY": 0,
 						"color": [
@@ -15126,7 +13354,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Default",
-								"initial-frame": 1,
+								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -15414,8 +13642,8 @@
 			"type": "A_Upg_Data",
 			"properties": {
 				"width": 17,
-				"height": 8,
-				"depth": 1
+				"height": 3,
+				"depth": 7
 			},
 			"uid": 391,
 			"sid": 267614794119945,

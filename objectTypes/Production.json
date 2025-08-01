@@ -8,7 +8,7 @@
 		{
 			"name": "material_id",
 			"type": "string",
-			"desc": "",
+			"desc": "id do material",
 			"show": true,
 			"sid": 743468717164700
 		},
@@ -22,63 +22,56 @@
 		{
 			"name": "prod_quant",
 			"type": "number",
-			"desc": "",
+			"desc": "quant produzida por ciclo",
 			"show": true,
 			"sid": 902032510757421
 		},
 		{
 			"name": "prod_cap",
 			"type": "number",
-			"desc": "",
+			"desc": "capacidade maxima de material",
 			"show": true,
 			"sid": 323588632432687
 		},
 		{
-			"name": "prod_usage",
-			"type": "number",
-			"desc": "",
-			"show": true,
-			"sid": 683709739662464
-		},
-		{
 			"name": "prod_time",
 			"type": "number",
-			"desc": "",
+			"desc": "tempo entre ciclos",
 			"show": true,
 			"sid": 595235914855075
 		},
 		{
 			"name": "cond_material_quant_1",
 			"type": "string",
-			"desc": "",
+			"desc": "material condicional 1",
 			"show": true,
 			"sid": 713327372068066
 		},
 		{
 			"name": "cond_material_quant_2",
 			"type": "string",
-			"desc": "",
+			"desc": "material condicional 2",
 			"show": true,
 			"sid": 876221829751955
 		},
 		{
 			"name": "Producing",
 			"type": "boolean",
-			"desc": "",
+			"desc": "produção em andamento",
 			"show": true,
 			"sid": 818290570315030
 		},
 		{
 			"name": "Autoprod",
 			"type": "boolean",
-			"desc": "",
+			"desc": "produz automaticamente",
 			"show": true,
 			"sid": 182057944748780
 		},
 		{
 			"name": "Unlocked",
 			"type": "boolean",
-			"desc": "",
+			"desc": "esta desbloqueado",
 			"show": true,
 			"sid": 175098981469268
 		}

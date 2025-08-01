@@ -8428,7 +8428,8 @@
 							"sid": 367317870258953,
 							"parameters": [
 								"\"\"",
-								"0"
+								"0",
+								"\"\""
 							]
 						}
 					],
@@ -8535,7 +8536,8 @@
 													"sid": 932383107036145,
 													"parameters": [
 														"\"\"",
-														"0"
+														"0",
+														"\"\""
 													]
 												},
 												{
@@ -8637,11 +8639,12 @@
 													}
 												},
 												{
-													"id": "set-animation-frame",
+													"id": "set-animation",
 													"objectClass": "t_personagem",
-													"sid": 898104058464946,
+													"sid": 939690950202940,
 													"parameters": {
-														"frame-number": "0"
+														"animation": "\"Default\"",
+														"from": "beginning"
 													}
 												}
 											],
@@ -8716,11 +8719,12 @@
 													],
 													"actions": [
 														{
-															"id": "set-animation-frame",
+															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 716791654561200,
+															"sid": 243574941344922,
 															"parameters": {
-																"frame-number": "1"
+																"animation": "\"Happy\"",
+																"from": "beginning"
 															}
 														}
 													],
@@ -8835,11 +8839,12 @@
 															"sid": 631065488561389
 														},
 														{
-															"id": "set-animation-frame",
+															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 593704920949382,
+															"sid": 598799271719838,
 															"parameters": {
-																"frame-number": "1"
+																"animation": "\"Happy\"",
+																"from": "beginning"
 															}
 														}
 													],
@@ -8874,6 +8879,15 @@
 									"id": "typewriter-finish",
 									"objectClass": "Text_Tutorial",
 									"sid": 209951110998248
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "t_personagem",
+									"sid": 380578300112296,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
 								}
 							],
 							"sid": 242203057285980
@@ -9005,11 +9019,12 @@
 							],
 							"actions": [
 								{
-									"id": "set-animation-frame",
+									"id": "set-animation",
 									"objectClass": "t_personagem",
-									"sid": 408930450513481,
+									"sid": 135133762208800,
 									"parameters": {
-										"frame-number": "1"
+										"animation": "\"Happy\"",
+										"from": "beginning"
 									}
 								},
 								{
@@ -9105,11 +9120,12 @@
 							}
 						},
 						{
-							"id": "set-animation-frame",
+							"id": "set-animation",
 							"objectClass": "t_personagem",
-							"sid": 793909078747844,
+							"sid": 269793128988644,
 							"parameters": {
-								"frame-number": "0"
+								"animation": "\"Default\"",
+								"from": "beginning"
 							}
 						}
 					],

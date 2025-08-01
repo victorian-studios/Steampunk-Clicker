@@ -43,6 +43,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "FileSystem",
+			"name": "File system",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Internationalization",
 			"name": "Internationalization",
 			"author": "Scirra",
@@ -225,8 +232,7 @@
 			"Bkg_Upg_Desc",
 			"Text_Upg_Description",
 			"Text_Upg_Price",
-			"Icon_Gear",
-			"TileBkg_Connect",
+			"Bkg_Icon_Upg",
 			"Main_Gear",
 			"Selector",
 			"ProgBar_HP_Player",
@@ -336,7 +342,8 @@
 			"Cano_3",
 			"Cano_4",
 			"Cano_5",
-			"valvula_upgrades"
+			"valvula_upgrades",
+			"FileSystem"
 		],
 		"subfolders": []
 	},
