@@ -6277,6 +6277,79 @@
 								}
 							],
 							"sid": 736502164363727
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "A_Upg_Data",
+									"sid": 554580728153753,
+									"parameters": {
+										"axes": "xyz"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 467359080846229,
+									"parameters": {
+										"variable": "Full_Scan"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 156347207231333,
+									"parameters": {
+										"first-value": "A_Upg_Data.CurX",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 989019367118768,
+									"parameters": {
+										"first-value": "A_Upg_Data.CurY",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 734337634869572,
+									"parameters": {
+										"first-value": "A_Upg_Data.CurValue",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								},
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 500899253885068,
+									"parameters": {
+										"object": "water_anim",
+										"expression": "water_anim.ID",
+										"comparison": 0,
+										"value": "A_Upg_Data.CurX"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "water_anim",
+									"sid": 131575374905773,
+									"parameters": {
+										"frame-number": "Self.AnimationFrameCount - 1"
+									}
+								}
+							],
+							"sid": 106857060166983
 						}
 					]
 				},
@@ -8138,9 +8211,10 @@
 										},
 										{
 											"callFunction": "Upgrade_Production",
-											"sid": 956366785011474,
+											"sid": 662095864021184,
 											"parameters": [
-												"A_Upg_Data.At( int(Icon_Upg.Name), 2, Layer_Z_Array - 1)"
+												"A_Upg_Data.At( int(Icon_Upg.Name), 2, Layer_Z_Array - 1)",
+												"int(Icon_Upg.Name)"
 											]
 										},
 										{
@@ -8260,9 +8334,10 @@
 										},
 										{
 											"callFunction": "Upgrade_Production",
-											"sid": 737595065718441,
+											"sid": 350657353145690,
 											"parameters": [
-												"A_Upg_Data.At( int(Icon_Upg.Name), 2, Layer_Z_Array - 1)"
+												"A_Upg_Data.At( int(Icon_Upg.Name), 2, Layer_Z_Array - 1)",
+												"int(Icon_Upg.Name)"
 											]
 										},
 										{
@@ -8301,11 +8376,18 @@
 					"functionIsAsync": false,
 					"functionParameters": [
 						{
-							"name": "Upgrade_id",
+							"name": "Upgrade_name",
 							"type": "string",
 							"initialValue": "",
-							"comment": "",
+							"comment": "nome do upgrade para comparar do array",
 							"sid": 832406278845880
+						},
+						{
+							"name": "Upgrade_ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "id numérico do upgrade",
+							"sid": 958734397235436
 						}
 					],
 					"eventType": "function-block",
@@ -8340,7 +8422,7 @@
 									"objectClass": "System",
 									"sid": 529959542555011,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"prodspeedup\""
 									}
@@ -8370,7 +8452,7 @@
 											"sid": 246016945810639,
 											"parameters": {
 												"instance-variable": "prod_time",
-												"value": "float ( tokenat ( Upgrade_id, 1, \"_\" ) )"
+												"value": "float ( tokenat ( Upgrade_name, 1, \"_\" ) )"
 											}
 										},
 										{
@@ -8422,7 +8504,7 @@
 													"sid": 271370954629652,
 													"parameters": {
 														"instance-variable": "prod_time",
-														"value": "float ( tokenat ( Upgrade_id, 1, \"_\" ) )"
+														"value": "float ( tokenat ( Upgrade_name, 1, \"_\" ) )"
 													}
 												},
 												{
@@ -8456,7 +8538,7 @@
 									"objectClass": "System",
 									"sid": 812264623792058,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"prodcapup\""
 									}
@@ -8486,7 +8568,7 @@
 											"sid": 638378869901725,
 											"parameters": {
 												"instance-variable": "prod_cap",
-												"value": "int ( tokenat ( Upgrade_id, 1, \"_\" ) )"
+												"value": "int ( tokenat ( Upgrade_name, 1, \"_\" ) )"
 											}
 										},
 										{
@@ -8538,7 +8620,7 @@
 													"sid": 481867576047170,
 													"parameters": {
 														"instance-variable": "prod_cap",
-														"value": "int ( tokenat ( Upgrade_id, 1, \"_\" ) )"
+														"value": "int ( tokenat ( Upgrade_name, 1, \"_\" ) )"
 													}
 												},
 												{
@@ -8572,7 +8654,7 @@
 									"objectClass": "System",
 									"sid": 140144133621456,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"autoprod\""
 									}
@@ -8664,7 +8746,7 @@
 									"objectClass": "System",
 									"sid": 363806526875623,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"-\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"-\" )",
 										"comparison": 0,
 										"second-value": "\"costred\""
 									}
@@ -8707,7 +8789,7 @@
 											"sid": 310496230823606,
 											"parameters": {
 												"instance-variable": "cond_material_quant_1",
-												"value": "tokenat( Upgrade_id, 1, \"-\" )"
+												"value": "tokenat( Upgrade_name, 1, \"-\" )"
 											}
 										}
 									],
@@ -8727,7 +8809,7 @@
 									"objectClass": "System",
 									"sid": 633856899031893,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"doubleprod\""
 									}
@@ -8831,7 +8913,7 @@
 									"objectClass": "System",
 									"sid": 648971810435978,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"prodcombo\""
 									}
@@ -8903,7 +8985,7 @@
 									"objectClass": "System",
 									"sid": 898542038182585,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"refine\""
 									}
@@ -8975,7 +9057,7 @@
 									"objectClass": "System",
 									"sid": 588174530451833,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"premium\""
 									}
@@ -9047,7 +9129,7 @@
 									"objectClass": "System",
 									"sid": 627196485322113,
 									"parameters": {
-										"first-value": "tokenat ( Upgrade_id, 0, \"_\" )",
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
 										"comparison": 0,
 										"second-value": "\"unlock\""
 									}
@@ -9148,6 +9230,42 @@
 								}
 							],
 							"sid": 547933706510558
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 815293752863667,
+									"parameters": {
+										"object": "water_anim",
+										"expression": "water_anim.ID",
+										"comparison": 0,
+										"value": "Upgrade_ID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "water_anim",
+									"sid": 740812051706156,
+									"parameters": {
+										"animation": "Self.My_Anim_ID",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "water_anim",
+									"sid": 783250892565139,
+									"parameters": {
+										"speed": "15"
+									}
+								}
+							],
+							"sid": 534748374319649
 						}
 					]
 				}

@@ -343,7 +343,9 @@
 			"Cano_4",
 			"Cano_5",
 			"valvula_upgrades",
-			"FileSystem"
+			"FileSystem",
+			"cano",
+			"water_anim"
 		],
 		"subfolders": []
 	},
@@ -1157,7 +1159,7 @@
 		"gpuPreference": "high-performance",
 		"scriptsType": "module",
 		"framerateMode": "vsync",
-		"sampling": "trilinear",
+		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "auto",
 		"anisotropicFiltering": "auto",

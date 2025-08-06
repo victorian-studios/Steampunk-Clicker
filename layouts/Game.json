@@ -6461,32 +6461,72 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "Cano_2",
+							"type": "cano",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Empty",
+								"initial-animation": "Default",
 								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
 							},
 							"uid": 114,
-							"sid": 261520782216162,
+							"sid": 294943806024582,
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 261520782216162,
+								"sid": 294943806024582,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1386,
-								"y": 487.5,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
+								"x": 899,
+								"y": 515.5,
+								"width": 1604,
+								"height": 629,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_7",
+								"initial-frame": 98,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 131,
+							"sid": 900097395556099,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 900097395556099,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1166,
+								"y": 363,
+								"width": 560,
+								"height": 274,
+								"originX": 0.5,
+								"originY": 0.5,
 								"color": [
 									1,
 									1,
@@ -6535,32 +6575,35 @@
 							}
 						},
 						{
-							"type": "Cano_2",
+							"type": "water_anim",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
+								"initial-animation": "Anim_4",
+								"initial-frame": 4,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 436,
-							"sid": 171742346064746,
+							"uid": 133,
+							"sid": 789672947657083,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 171742346064746,
+								"sid": 789672947657083,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1064,
-								"y": 487.5,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
+								"x": 903,
+								"y": 515.5,
+								"width": 34,
+								"height": 37,
+								"originX": 0.5,
+								"originY": 0.5,
 								"color": [
 									1,
 									1,
@@ -6572,30 +6615,33 @@
 							}
 						},
 						{
-							"type": "Cano_1",
+							"type": "water_anim",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
+								"initial-animation": "Anim_7",
+								"initial-frame": 98,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 432,
-							"sid": 482041175584055,
+							"uid": 134,
+							"sid": 908972396633963,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 482041175584055,
+								"sid": 908972396633963,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1616,
-								"y": 528,
-								"width": 170,
-								"height": 153,
+								"x": 1166,
+								"y": 668,
+								"width": -560,
+								"height": 274,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -6609,30 +6655,33 @@
 							}
 						},
 						{
-							"type": "Cano_1",
+							"type": "water_anim",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Water",
-								"initial-frame": 0,
+								"initial-animation": "Anim_5_1",
+								"initial-frame": 9,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 415,
-							"sid": 997163051203068,
+							"uid": 124,
+							"sid": 988218234088222,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 997163051203068,
+								"sid": 988218234088222,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 182,
-								"y": 528,
-								"width": 170,
-								"height": 153,
+								"x": 1149,
+								"y": 515.5,
+								"width": 526,
+								"height": 37,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -6646,104 +6695,33 @@
 							}
 						},
 						{
-							"type": "Cano_2",
+							"type": "water_anim",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
+								"initial-animation": "Anim_6",
+								"initial-frame": 21,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 416,
-							"sid": 713513043905642,
+							"uid": 135,
+							"sid": 152977029391627,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 713513043905642,
+								"sid": 152977029391627,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 420,
-								"y": 282,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_3",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 417,
-							"sid": 645046968198420,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 645046968198420,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 267,
-								"y": 452,
-								"width": 170,
-								"height": 153,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 4.71238898038469,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_4",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 418,
-							"sid": 404635842895345,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 404635842895345,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 289,
-								"y": 528,
-								"width": 170,
-								"height": 153,
+								"x": 1140,
+								"y": 516,
+								"width": 234,
+								"height": 31,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -6757,30 +6735,33 @@
 							}
 						},
 						{
-							"type": "Cano_5",
+							"type": "water_anim",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
+								"initial-animation": "Anim_4",
+								"initial-frame": 4,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 419,
-							"sid": 694209694899259,
+							"uid": 123,
+							"sid": 990152701107031,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 694209694899259,
+								"sid": 990152701107031,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 825,
-								"y": 528,
-								"width": 170,
-								"height": 153,
+								"x": 1429,
+								"y": 515.5,
+								"width": 34,
+								"height": 37,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -6794,363 +6775,33 @@
 							}
 						},
 						{
-							"type": "Cano_3",
+							"type": "water_anim",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 1,
+								"initial-animation": "Anim_6",
+								"initial-frame": 21,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 420,
-							"sid": 672615719534878,
+							"uid": 125,
+							"sid": 909240951019014,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 672615719534878,
+								"sid": 909240951019014,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 267,
-								"y": 604,
-								"width": 170,
-								"height": 153,
-								"originX": 1,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 4.71238898038469,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_2",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 421,
-							"sid": 351051005815730,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 351051005815730,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 419,
-								"y": 693,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_2",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 422,
-							"sid": 436385186956387,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 436385186956387,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 895,
-								"y": 487.5,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_3",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 1,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 423,
-							"sid": 992379127456370,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 992379127456370,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 742,
-								"y": 452,
-								"width": 170,
-								"height": 153,
-								"originX": 1,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 1.5707963267948966,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_3",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 2,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 424,
-							"sid": 500354502830593,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 500354502830593,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 742,
-								"y": 604,
-								"width": 170,
-								"height": 153,
-								"originX": 1,
-								"originY": 1,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 4.71238898038469,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_4",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 425,
-							"sid": 716871656053505,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 716871656053505,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 720,
-								"y": 528,
-								"width": 170,
-								"height": 153,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 3.141592653589793,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_3",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 1,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 426,
-							"sid": 939054371837148,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 939054371837148,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 803,
-								"y": 604,
-								"width": 170,
-								"height": 153,
-								"originX": 1,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 4.71238898038469,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_3",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 427,
-							"sid": 293981646887137,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 293981646887137,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 803,
-								"y": 452,
-								"width": 170,
-								"height": 153,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 4.71238898038469,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_2",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 428,
-							"sid": 891088970036030,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 891088970036030,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 956,
-								"y": 282,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_5",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 429,
-							"sid": 473159444449358,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 473159444449358,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1390,
-								"y": 528,
-								"width": 170,
-								"height": 153,
+								"x": 1563,
+								"y": 515.5,
+								"width": 234,
+								"height": 31,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -7160,228 +6811,6 @@
 									1
 								],
 								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_2",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 430,
-							"sid": 372662311194873,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 372662311194873,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1126,
-								"y": 282,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_3",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 1,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 431,
-							"sid": 760741755547702,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 760741755547702,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1449,
-								"y": 452,
-								"width": 170,
-								"height": 153,
-								"originX": 1,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 1.5707963267948966,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_2",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 433,
-							"sid": 454393143434975,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 454393143434975,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 956,
-								"y": 693,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_2",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 434,
-							"sid": 242155224514079,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 242155224514079,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1126,
-								"y": 693,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_2",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 435,
-							"sid": 728421183513446,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 728421183513446,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1155,
-								"y": 487.5,
-								"width": 170,
-								"height": 81,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Cano_3",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Empty",
-								"initial-frame": 2,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 437,
-							"sid": 267881977886848,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 267881977886848,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1449,
-								"y": 604,
-								"width": 170,
-								"height": 153,
-								"originX": 1,
-								"originY": 1,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 4.71238898038469,
 								"zElevation": 0
 							}
 						},
@@ -7406,8 +6835,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1402,
-								"y": 530,
+								"x": 1423,
+								"y": 516,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7452,8 +6881,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1409,
-								"y": 528,
+								"x": 1430,
+								"y": 514,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -7490,7 +6919,7 @@
 							"locked": false,
 							"world": {
 								"x": 1585,
-								"y": 530,
+								"y": 516,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7536,7 +6965,7 @@
 							"locked": false,
 							"world": {
 								"x": 1592,
-								"y": 528,
+								"y": 514,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -7572,8 +7001,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 946,
-								"y": 736,
+								"x": 1002,
+								"y": 791,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7589,32 +7018,35 @@
 							}
 						},
 						{
-							"type": "Bkg_Icon_Upg",
+							"type": "water_anim",
 							"properties": {
 								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
+								"initial-animation": "Anim_3",
+								"initial-frame": 15,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 97,
-							"sid": 722401745630593,
+							"uid": 122,
+							"sid": 891883802116850,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 722401745630593,
+								"sid": 891883802116850,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 414,
-								"y": 324,
-								"width": 125,
-								"height": 125,
-								"originX": 0.4418604651162791,
-								"originY": 0.5111111111111111,
+								"x": 799.5,
+								"y": 515.5,
+								"width": 173,
+								"height": 37,
+								"originX": 0.5,
+								"originY": 0.5,
 								"color": [
 									1,
 									1,
@@ -7646,119 +7078,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 767,
-								"y": 530,
-								"width": 125,
-								"height": 125,
-								"originX": 0.4418604651162791,
-								"originY": 0.5111111111111111,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Bkg_Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 92,
-							"sid": 524709187792677,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 524709187792677,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 414,
-								"y": 736,
-								"width": 125,
-								"height": 125,
-								"originX": 0.4418604651162791,
-								"originY": 0.5111111111111111,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Bkg_Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 109,
-							"sid": 608176214837865,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 608176214837865,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 584,
-								"y": 736,
-								"width": 125,
-								"height": 125,
-								"originX": 0.4418604651162791,
-								"originY": 0.5111111111111111,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Bkg_Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 39,
-							"sid": 386248415792215,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 386248415792215,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 584,
-								"y": 324,
+								"x": 791,
+								"y": 514,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7794,8 +7115,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1029,
-								"y": 530,
+								"x": 1073,
+								"y": 516,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7831,8 +7152,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 946,
-								"y": 324,
+								"x": 1002,
+								"y": 244,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7842,190 +7163,6 @@
 									1,
 									1,
 									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Steam",
-								"initial-frame": 3,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 126,
-							"sid": 767383041761056,
-							"tags": "",
-							"instanceVariables": {
-								"Name": "4",
-								"Price_1": "Steam_10",
-								"Price_2": "",
-								"Upgrade_ID": "prodcapup_Steam_10",
-								"Upg_Connections": "5_0_0",
-								"Unlocked": false,
-								"Sold": false,
-								"LayerActive": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 767383041761056,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 421,
-								"y": 734,
-								"width": 97,
-								"height": 97,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									0.3
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Steam",
-								"initial-frame": 1,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 127,
-							"sid": 630359748458129,
-							"tags": "",
-							"instanceVariables": {
-								"Name": "2",
-								"Price_1": "Steam_15",
-								"Price_2": "",
-								"Upgrade_ID": "prodspeedup_Steam_0.4",
-								"Upg_Connections": "3_0_0",
-								"Unlocked": false,
-								"Sold": false,
-								"LayerActive": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 630359748458129,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 421,
-								"y": 323,
-								"width": 97,
-								"height": 97,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									0.3
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Steam",
-								"initial-frame": 4,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 128,
-							"sid": 892783987183484,
-							"tags": "",
-							"instanceVariables": {
-								"Name": "5",
-								"Price_1": "Steam_20",
-								"Price_2": "",
-								"Upgrade_ID": "prodcapup_Steam_20",
-								"Upg_Connections": "6_0_0",
-								"Unlocked": false,
-								"Sold": false,
-								"LayerActive": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 892783987183484,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 591,
-								"y": 735,
-								"width": 97,
-								"height": 97,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									0.3
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Steam",
-								"initial-frame": 2,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 129,
-							"sid": 568102530085598,
-							"tags": "",
-							"instanceVariables": {
-								"Name": "3",
-								"Price_1": "Steam_25",
-								"Price_2": "",
-								"Upgrade_ID": "prodspeedup_Steam_0.5",
-								"Upg_Connections": "6_0_0",
-								"Unlocked": false,
-								"Sold": false,
-								"LayerActive": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 568102530085598,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 591,
-								"y": 323,
-								"width": 97,
-								"height": 97,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									0.3
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -8061,8 +7198,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 774,
-								"y": 529,
+								"x": 798,
+								"y": 513,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -8107,8 +7244,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 954,
-								"y": 323,
+								"x": 1010,
+								"y": 243,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -8153,8 +7290,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1037,
-								"y": 529,
+								"x": 1081,
+								"y": 515,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -8199,8 +7336,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 953,
-								"y": 735,
+								"x": 1009,
+								"y": 790,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -8236,8 +7373,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1120,
-								"y": 736,
+								"x": 1158,
+								"y": 791,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -8282,8 +7419,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1128,
-								"y": 735,
+								"x": 1166,
+								"y": 790,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -8319,8 +7456,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1203,
-								"y": 530,
+								"x": 1235,
+								"y": 516,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -8365,8 +7502,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1210,
-								"y": 529,
+								"x": 1242,
+								"y": 515,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -8402,8 +7539,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1120,
-								"y": 324,
+								"x": 1158,
+								"y": 244,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -8448,8 +7585,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1126,
-								"y": 323,
+								"x": 1164,
+								"y": 243,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -8485,8 +7622,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1290,
-								"y": 736,
+								"x": 1312,
+								"y": 791,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -8531,8 +7668,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1297,
-								"y": 735,
+								"x": 1319,
+								"y": 790,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -8568,8 +7705,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1290,
-								"y": 324,
+								"x": 1312,
+								"y": 244,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -8614,10 +7751,462 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1297,
-								"y": 323,
+								"x": 1319,
+								"y": 243,
 								"width": 83,
 								"height": 96,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_2",
+								"initial-frame": 30,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 132,
+							"sid": 337771679772483,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 5,
+								"My_Anim_ID": "Anim_2"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 337771679772483,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 498.5,
+								"y": 617,
+								"width": -429,
+								"height": 240,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 3.141592653589793,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Bkg_Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 109,
+							"sid": 608176214837865,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 608176214837865,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 580,
+								"y": 722,
+								"width": 125,
+								"height": 125,
+								"originX": 0.4418604651162791,
+								"originY": 0.5111111111111111,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Steam",
+								"initial-frame": 4,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 128,
+							"sid": 892783987183484,
+							"tags": "",
+							"instanceVariables": {
+								"Name": "5",
+								"Price_1": "Steam_20",
+								"Price_2": "",
+								"Upgrade_ID": "prodcapup_Steam_20",
+								"Upg_Connections": "6_0_0",
+								"Unlocked": false,
+								"Sold": false,
+								"LayerActive": false
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 892783987183484,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 587,
+								"y": 721,
+								"width": 97,
+								"height": 97,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Bkg_Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 92,
+							"sid": 524709187792677,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 524709187792677,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 404,
+								"y": 722,
+								"width": 125,
+								"height": 125,
+								"originX": 0.4418604651162791,
+								"originY": 0.5111111111111111,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Steam",
+								"initial-frame": 3,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 126,
+							"sid": 767383041761056,
+							"tags": "",
+							"instanceVariables": {
+								"Name": "4",
+								"Price_1": "Steam_10",
+								"Price_2": "",
+								"Upgrade_ID": "prodcapup_Steam_10",
+								"Upg_Connections": "5_0_0",
+								"Unlocked": false,
+								"Sold": false,
+								"LayerActive": false
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 767383041761056,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 411,
+								"y": 720,
+								"width": 97,
+								"height": 97,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_2",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 116,
+							"sid": 684288850037523,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 3,
+								"My_Anim_ID": "Anim_2"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 684288850037523,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 498.5,
+								"y": 414,
+								"width": 429,
+								"height": 240,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Bkg_Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 97,
+							"sid": 722401745630593,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 722401745630593,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 404,
+								"y": 312,
+								"width": 125,
+								"height": 125,
+								"originX": 0.4418604651162791,
+								"originY": 0.5111111111111111,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Steam",
+								"initial-frame": 1,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 127,
+							"sid": 630359748458129,
+							"tags": "",
+							"instanceVariables": {
+								"Name": "2",
+								"Price_1": "Steam_15",
+								"Price_2": "",
+								"Upgrade_ID": "prodspeedup_Steam_0.4",
+								"Upg_Connections": "3_0_0",
+								"Unlocked": false,
+								"Sold": false,
+								"LayerActive": false
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 630359748458129,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 411,
+								"y": 311,
+								"width": 97,
+								"height": 97,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Bkg_Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 39,
+							"sid": 386248415792215,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 386248415792215,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 580,
+								"y": 312,
+								"width": 125,
+								"height": 125,
+								"originX": 0.4418604651162791,
+								"originY": 0.5111111111111111,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Icon_Upg",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Steam",
+								"initial-frame": 2,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 129,
+							"sid": 568102530085598,
+							"tags": "",
+							"instanceVariables": {
+								"Name": "3",
+								"Price_1": "Steam_25",
+								"Price_2": "",
+								"Upgrade_ID": "prodspeedup_Steam_0.5",
+								"Upg_Connections": "6_0_0",
+								"Unlocked": false,
+								"Sold": false,
+								"LayerActive": false
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 568102530085598,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 587,
+								"y": 311,
+								"width": 97,
+								"height": 97,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.3
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_1",
+								"initial-frame": 13,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 115,
+							"sid": 960563504961510,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 1,
+								"My_Anim_ID": "Anim_1"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 960563504961510,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 201,
+								"y": 515,
+								"width": 166,
+								"height": 38,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -8652,7 +8241,7 @@
 							"locked": false,
 							"world": {
 								"x": 186,
-								"y": 530,
+								"y": 515,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -8698,7 +8287,7 @@
 							"locked": false,
 							"world": {
 								"x": 192,
-								"y": 529,
+								"y": 514,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
