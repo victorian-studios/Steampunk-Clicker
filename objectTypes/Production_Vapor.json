@@ -27,11 +27,25 @@
 			"sid": 139844796060250
 		},
 		{
+			"name": "base_prodcap",
+			"type": "number",
+			"desc": "valor base da capacidade, usado por upgrades",
+			"show": true,
+			"sid": 868178158384071
+		},
+		{
 			"name": "prod_time",
 			"type": "number",
 			"desc": "",
 			"show": true,
 			"sid": 578183742073201
+		},
+		{
+			"name": "base_prodtime",
+			"type": "number",
+			"desc": "valor base do tempo de produção, usado por upgrades",
+			"show": true,
+			"sid": 529709938682612
 		},
 		{
 			"name": "Producing",

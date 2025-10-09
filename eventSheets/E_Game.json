@@ -4360,21 +4360,21 @@
 							"name": "Upgrade_ID",
 							"type": "string",
 							"initialValue": "",
-							"comment": "",
+							"comment": "o tipo e valor do upgrade referente ao Upg_Data",
 							"sid": 741117591182192
 						},
 						{
-							"name": "Upgrade_Name",
+							"name": "Upgrade_Order",
 							"type": "string",
 							"initialValue": "",
-							"comment": "",
+							"comment": "infelizmente recebe uma string mas usamos como número :(",
 							"sid": 993011936618015
 						},
 						{
 							"name": "Upgrade_Layer",
 							"type": "string",
 							"initialValue": "",
-							"comment": "",
+							"comment": "camada pertencente ao upgrade, AKA, o nome do material",
 							"sid": 945843340112353
 						}
 					],
@@ -4383,6 +4383,16 @@
 					"actions": [],
 					"sid": 970481525808667,
 					"children": [
+						{
+							"eventType": "variable",
+							"name": "upgrade_value",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "referente a % envolvida na matemática feita pelo código para mostrar ao usuário o valor que será aumentado ",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 876292420957967
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -4403,7 +4413,7 @@
 									"objectClass": "Text_Upg_Description",
 									"sid": 244727145134430,
 									"parameters": {
-										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.unlock\", tokenat (Upgrade_ID, 1, \"_\") )"
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.unlock\", tokenat (Upgrade_ID, 1, \"_\") )"
 									}
 								}
 							],
@@ -4423,17 +4433,52 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 290430458411333,
+							"children": [
 								{
-									"id": "set-text",
-									"objectClass": "Text_Upg_Description",
-									"sid": 120082727593219,
-									"parameters": {
-										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", tokenat (Upgrade_ID, 2, \"_\") )"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "A_Prod_Data",
+											"sid": 162951014155258,
+											"parameters": {
+												"axes": "xyz"
+											}
+										},
+										{
+											"id": "compare-current-value",
+											"objectClass": "A_Prod_Data",
+											"sid": 574188877385712,
+											"parameters": {
+												"comparison": 0,
+												"value": "Upgrade_Layer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 399653379509475,
+											"parameters": {
+												"variable": "upgrade_value",
+												"value": "int(A_Prod_Data.At( 7,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Upg_Description",
+											"sid": 760774689508735,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", upgrade_value )"
+											}
+										}
+									],
+									"sid": 485559709737809
 								}
-							],
-							"sid": 290430458411333
+							]
 						},
 						{
 							"eventType": "block",
@@ -4449,17 +4494,243 @@
 									}
 								}
 							],
+							"actions": [],
+							"sid": 694091531790344,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "A_Prod_Data",
+											"sid": 370399839395389,
+											"parameters": {
+												"axes": "xyz"
+											}
+										},
+										{
+											"id": "compare-current-value",
+											"objectClass": "A_Prod_Data",
+											"sid": 525176350937690,
+											"parameters": {
+												"comparison": 0,
+												"value": "Upgrade_Layer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 323462552040338,
+											"parameters": {
+												"variable": "upgrade_value",
+												"value": "(A_Prod_Data.At(8,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Upg_Description",
+											"sid": 239282871057243,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodspeedup\", float(tokenat(Upgrade_ID, 1, \"_\")) )"
+											}
+										}
+									],
+									"sid": 276956966220291
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 469575290289568,
+									"parameters": {
+										"first-value": "Upgrade_ID",
+										"comparison": 0,
+										"second-value": "\"autoprod\""
+									}
+								}
+							],
 							"actions": [
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 591242768543845,
+									"sid": 422582660791255,
 									"parameters": {
-										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Name ) & newline & newline & Internationalization.Lookup(\"game.upg.prodspeedup\", tokenat (Upgrade_ID, 2, \"_\") )"
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.autoprod\")"
 									}
 								}
 							],
-							"sid": 694091531790344
+							"sid": 634706123643592
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 546410463954381,
+									"parameters": {
+										"first-value": "Upgrade_ID",
+										"comparison": 0,
+										"second-value": "\"costred\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 298189025908687,
+									"parameters": {
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.costred\")"
+									}
+								}
+							],
+							"sid": 101927731560988
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 257255448009917,
+									"parameters": {
+										"first-value": "Upgrade_ID",
+										"comparison": 0,
+										"second-value": "\"doubleprod\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 445871622851191,
+									"parameters": {
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.doubleprod\")"
+									}
+								}
+							],
+							"sid": 568381483787485
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 921751896865685,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodcombo\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 524933325192009,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "A_Prod_Data",
+											"sid": 337468897122137,
+											"parameters": {
+												"axes": "xyz"
+											}
+										},
+										{
+											"id": "compare-current-value",
+											"objectClass": "A_Prod_Data",
+											"sid": 691957446769802,
+											"parameters": {
+												"comparison": 0,
+												"value": "tokenat(Upgrade_ID, 1, \"_\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 281723542750664,
+											"parameters": {
+												"variable": "upgrade_value",
+												"value": "(A_Prod_Data.At(8,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Upg_Description",
+											"sid": 902493352683904,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcombo\") & Internationalization.Lookup(\"game.upg.\" & tokenat(Upgrade_ID, 1, \"_\") & \".name\" ) & Internationalization.Lookup(\"game.upg.prodcombo2\",  float(tokenat(Upgrade_ID, 2, \"_\"))*100 )"
+											}
+										}
+									],
+									"sid": 720459331370009
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 926710152438011,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"refine\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 973572787723414,
+									"parameters": {
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.refine\")"
+									}
+								}
+							],
+							"sid": 720043182333507
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 159486204518796,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"premium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 713421989644372,
+									"parameters": {
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.premium\")"
+									}
+								}
+							],
+							"sid": 607495287119365
 						}
 					]
 				},
@@ -7537,9 +7808,9 @@
 							"actions": [
 								{
 									"callFunction": "Get_Upg_Desc",
-									"sid": 571487467274397,
+									"sid": 750536547775357,
 									"parameters": [
-										"Icon_Upg.Upgrade_ID",
+										"A_Upg_Data.At(int(Icon_Upg.Name),2)",
 										"Icon_Upg.Name",
 										"Icon_Upg.LayerName"
 									]
@@ -8412,6 +8683,72 @@
 					"children": [
 						{
 							"eventType": "comment",
+							"text": "Desbloquear a produção (Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 147727637169139,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"unlock\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 511247520365367,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 961375744617918,
+											"parameters": {
+												"object": "Production",
+												"expression": "Production.Array_ID",
+												"comparison": 0,
+												"value": "Layer_Z_Array - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 311448387733561,
+											"parameters": {
+												"instance-variable": "Unlocked",
+												"value": "true"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "O Prod_Data é responsável por salvar boa parte dos atributos atuais de cada produtor. "
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 769217313879498,
+											"parameters": {
+												"x": "0",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 304016207194982
+								}
+							]
+						},
+						{
+							"eventType": "comment",
 							"text": "Aumentar a velocidade de produção (Steam & Others)"
 						},
 						{
@@ -8447,19 +8784,18 @@
 									],
 									"actions": [
 										{
-											"id": "subtract-from-instvar",
+											"id": "set-instvar-value",
 											"objectClass": "Production_Vapor",
-											"sid": 246016945810639,
+											"sid": 368853827844432,
 											"parameters": {
 												"instance-variable": "prod_time",
-												"value": "float ( tokenat ( Upgrade_name, 1, \"_\" ) )"
+												"value": "A_Prod_Data.At( 8,1, 0) - A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 1, \"_\") )"
 											}
 										},
 										{
 											"id": "set-at-xyz",
 											"objectClass": "A_Prod_Data",
 											"sid": 669748619452835,
-											"disabled": true,
 											"parameters": {
 												"x": "3",
 												"y": "1",
@@ -8511,7 +8847,6 @@
 													"id": "set-at-xyz",
 													"objectClass": "A_Prod_Data",
 													"sid": 662155661139620,
-													"disabled": true,
 													"parameters": {
 														"x": "3",
 														"y": "1",
@@ -8575,7 +8910,6 @@
 											"id": "set-at-xyz",
 											"objectClass": "A_Prod_Data",
 											"sid": 194998752442102,
-											"disabled": true,
 											"parameters": {
 												"x": "2",
 												"y": "1",
@@ -8627,7 +8961,6 @@
 													"id": "set-at-xyz",
 													"objectClass": "A_Prod_Data",
 													"sid": 999862329136676,
-													"disabled": true,
 													"parameters": {
 														"x": "2",
 														"y": "1",
@@ -9114,72 +9447,6 @@
 											"sid": 665682011512005
 										}
 									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Desbloquear a produção (Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 627196485322113,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"unlock\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 635137906880556,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 856912574695352,
-											"parameters": {
-												"object": "Production",
-												"expression": "Production.Array_ID",
-												"comparison": 0,
-												"value": "Layer_Z_Array - 1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production",
-											"sid": 739616752249939,
-											"parameters": {
-												"instance-variable": "Unlocked",
-												"value": "true"
-											}
-										},
-										{
-											"type": "comment",
-											"text": "Na versão da demo o A_Prod_Data era usado para gerenciar tudo, e no fim, acabei deixando ele ser usado para desbloquear produtores."
-										},
-										{
-											"id": "set-at-xyz",
-											"objectClass": "A_Prod_Data",
-											"sid": 873614475026768,
-											"parameters": {
-												"x": "0",
-												"y": "1",
-												"z": "Production.Array_ID",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 594441154290343
 								}
 							]
 						},
@@ -22674,6 +22941,16 @@
 							],
 							"actions": [
 								{
+									"type": "comment",
+									"text": "O Prod_Data é responsável por salvar boa parte dos atributos atuais de cada produtor. ",
+									"text-color": [
+										0.43529411764705883,
+										0.5254901960784314,
+										0.984313725490196,
+										1
+									]
+								},
+								{
 									"id": "request-project-file",
 									"objectClass": "AJAX",
 									"sid": 901060570815865,
@@ -22733,7 +23010,143 @@
 									]
 								}
 							],
-							"sid": 615556493925646
+							"sid": 615556493925646,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Steam"
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 298008689524710,
+											"parameters": {
+												"instance-variable": "prod_quant",
+												"value": "A_Prod_Data.At(1,1,0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 323231080508600,
+											"parameters": {
+												"instance-variable": "prod_cap",
+												"value": "A_Prod_Data.At(2,1,0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 414595976444048,
+											"parameters": {
+												"instance-variable": "prod_time",
+												"value": "A_Prod_Data.At(3,1,0)"
+											}
+										}
+									],
+									"sid": 248696073967093
+								},
+								{
+									"eventType": "comment",
+									"text": "Others"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 254036706156253,
+											"parameters": {
+												"object": "Production"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 641412417627734,
+											"parameters": {
+												"instance-variable": "prod_quant",
+												"value": "A_Prod_Data.At(1,1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 561868364652383,
+											"parameters": {
+												"instance-variable": "prod_cap",
+												"value": "A_Prod_Data.At(2,1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 447864014290316,
+											"parameters": {
+												"instance-variable": "prod_time",
+												"value": "A_Prod_Data.At(3,1,Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 443609431419054,
+											"parameters": {
+												"instance-variable": "cond_material_quant_1",
+												"value": "A_Prod_Data.At(5, 1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 511228466420859,
+											"parameters": {
+												"instance-variable": "cond_material_quant_2",
+												"value": "A_Prod_Data.At(6, 1, Production.Array_ID)"
+											}
+										}
+									],
+									"sid": 346316554920743,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 147591961681181,
+													"parameters": {
+														"x": "0",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production",
+													"sid": 172641719578685,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 438058729163439
+										}
+									]
+								}
+							]
 						},
 						{
 							"eventType": "comment",
@@ -22882,6 +23295,7 @@
 												}
 											],
 											"sid": 915551000779891,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -22908,7 +23322,8 @@
 															}
 														}
 													],
-													"sid": 602457221833007
+													"sid": 602457221833007,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -22935,7 +23350,8 @@
 															}
 														}
 													],
-													"sid": 611577731816584
+													"sid": 611577731816584,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -22962,7 +23378,8 @@
 															}
 														}
 													],
-													"sid": 698905387372099
+													"sid": 698905387372099,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -22989,7 +23406,8 @@
 															}
 														}
 													],
-													"sid": 367592957907811
+													"sid": 367592957907811,
+													"disabled": true
 												},
 												{
 													"eventType": "comment",
@@ -23016,7 +23434,8 @@
 														}
 													],
 													"actions": [],
-													"sid": 397829421791060
+													"sid": 397829421791060,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23033,7 +23452,8 @@
 														}
 													],
 													"actions": [],
-													"sid": 781850333171968
+													"sid": 781850333171968,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23050,7 +23470,8 @@
 														}
 													],
 													"actions": [],
-													"sid": 708572095456402
+													"sid": 708572095456402,
+													"disabled": true
 												}
 											]
 										}
@@ -23196,6 +23617,7 @@
 												}
 											],
 											"sid": 887240990121004,
+											"disabled": true,
 											"children": [
 												{
 													"eventType": "block",
@@ -23222,7 +23644,8 @@
 															}
 														}
 													],
-													"sid": 325304888353345
+													"sid": 325304888353345,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23249,7 +23672,8 @@
 															}
 														}
 													],
-													"sid": 289741285214301
+													"sid": 289741285214301,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23276,7 +23700,8 @@
 															}
 														}
 													],
-													"sid": 555290407936750
+													"sid": 555290407936750,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23303,7 +23728,8 @@
 															}
 														}
 													],
-													"sid": 102375026658265
+													"sid": 102375026658265,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23330,7 +23756,8 @@
 															}
 														}
 													],
-													"sid": 663503728082535
+													"sid": 663503728082535,
+													"disabled": true
 												},
 												{
 													"eventType": "comment",
@@ -23357,7 +23784,8 @@
 														}
 													],
 													"actions": [],
-													"sid": 122152847299895
+													"sid": 122152847299895,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23374,7 +23802,8 @@
 														}
 													],
 													"actions": [],
-													"sid": 137401628883318
+													"sid": 137401628883318,
+													"disabled": true
 												},
 												{
 													"eventType": "block",
@@ -23391,7 +23820,8 @@
 														}
 													],
 													"actions": [],
-													"sid": 491647078401341
+													"sid": 491647078401341,
+													"disabled": true
 												}
 											]
 										}
@@ -24540,6 +24970,27 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 357283025362104
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "water_anim",
+							"sid": 451433436358173,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 465476629052193
+				},
 				{
 					"eventType": "block",
 					"conditions": [

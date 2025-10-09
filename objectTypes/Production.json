@@ -34,11 +34,25 @@
 			"sid": 323588632432687
 		},
 		{
+			"name": "base_prodcap",
+			"type": "number",
+			"desc": "valor base da capacidade, usado pelos upgrades",
+			"show": true,
+			"sid": 990645307350107
+		},
+		{
 			"name": "prod_time",
 			"type": "number",
 			"desc": "tempo entre ciclos",
 			"show": true,
 			"sid": 595235914855075
+		},
+		{
+			"name": "base_prodtime",
+			"type": "number",
+			"desc": "valor base do tempo de produção, usado pelos upgrades",
+			"show": true,
+			"sid": 315396460156677
 		},
 		{
 			"name": "cond_material_quant_1",

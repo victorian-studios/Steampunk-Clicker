@@ -138,7 +138,9 @@
 								"Array_ID": 1,
 								"prod_quant": 1,
 								"prod_cap": 12,
+								"base_prodcap": 12,
 								"prod_time": 3,
+								"base_prodtime": 3,
 								"cond_material_quant_1": "Steam_2",
 								"cond_material_quant_2": "",
 								"Producing": false,
@@ -225,9 +227,11 @@
 							"instanceVariables": {
 								"material_id": "Iron",
 								"Array_ID": 3,
-								"prod_quant": 3,
-								"prod_cap": 0,
+								"prod_quant": 1,
+								"prod_cap": 20,
+								"base_prodcap": 20,
 								"prod_time": 6.5,
+								"base_prodtime": 6.5,
 								"cond_material_quant_1": "Wood_3",
 								"cond_material_quant_2": "Copper_2",
 								"Producing": false,
@@ -314,9 +318,11 @@
 							"instanceVariables": {
 								"material_id": "Tungsten",
 								"Array_ID": 5,
-								"prod_quant": 0,
-								"prod_cap": 0,
+								"prod_quant": 1,
+								"prod_cap": 15,
+								"base_prodcap": 15,
 								"prod_time": 10,
+								"base_prodtime": 10,
 								"cond_material_quant_1": "Wood_4",
 								"cond_material_quant_2": "Titanium_2",
 								"Producing": false,
@@ -405,7 +411,9 @@
 								"Array_ID": 2,
 								"prod_quant": 1,
 								"prod_cap": 10,
+								"base_prodcap": 10,
 								"prod_time": 5,
+								"base_prodtime": 5,
 								"cond_material_quant_1": "Steam_3",
 								"cond_material_quant_2": "Wood_2",
 								"Producing": false,
@@ -492,9 +500,11 @@
 							"instanceVariables": {
 								"material_id": "Titanium",
 								"Array_ID": 4,
-								"prod_quant": 0,
-								"prod_cap": 0,
+								"prod_quant": 1,
+								"prod_cap": 15,
+								"base_prodcap": 15,
 								"prod_time": 8,
+								"base_prodtime": 8,
 								"cond_material_quant_1": "Steam_4",
 								"cond_material_quant_2": "Iron_2",
 								"Producing": false,
@@ -581,9 +591,11 @@
 							"instanceVariables": {
 								"material_id": "Vaporium",
 								"Array_ID": 6,
-								"prod_quant": 0,
-								"prod_cap": 0,
+								"prod_quant": 1,
+								"prod_cap": 9,
+								"base_prodcap": 9,
 								"prod_time": 13,
+								"base_prodtime": 13,
 								"cond_material_quant_1": "Steam_5",
 								"cond_material_quant_2": "Tungsten_2",
 								"Producing": false,
@@ -671,7 +683,9 @@
 								"material_id": "Steam",
 								"prod_quant": 1,
 								"prod_cap": 15,
+								"base_prodcap": 15,
 								"prod_time": 2.45,
+								"base_prodtime": 2.45,
 								"Producing": false,
 								"Autoprod": false
 							},
@@ -3560,6 +3574,403 @@
 									1
 								],
 								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Bkg_Cano",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Default",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 114,
+							"sid": 294943806024582,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 294943806024582,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 899,
+								"y": 515,
+								"width": 1604,
+								"height": 629,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_4",
+								"initial-frame": 38,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 135,
+							"sid": 637920505573550,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 3,
+								"My_Anim_ID": "Anim_2"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 637920505573550,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 476.5,
+								"y": 413.5,
+								"width": 621,
+								"height": 240,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_4",
+								"initial-frame": 38,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 133,
+							"sid": 789672947657083,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 789672947657083,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 922,
+								"y": -194,
+								"width": 621,
+								"height": 240,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_7",
+								"initial-frame": 17,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 123,
+							"sid": 990152701107031,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 990152701107031,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1147,
+								"y": 515,
+								"width": 526,
+								"height": 37,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_3",
+								"initial-frame": 15,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 122,
+							"sid": 891883802116850,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 891883802116850,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 799.5,
+								"y": 515,
+								"width": 173,
+								"height": 37,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_2",
+								"initial-frame": 38,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 132,
+							"sid": 337771679772483,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 1,
+								"My_Anim_ID": "Anim_2"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 337771679772483,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 311.5,
+								"y": 616.5,
+								"width": -291,
+								"height": 240,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 3.141592653589793,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_2",
+								"initial-frame": 38,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 116,
+							"sid": 684288850037523,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 1,
+								"My_Anim_ID": "Anim_2"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 684288850037523,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 311.5,
+								"y": 413.5,
+								"width": 291,
+								"height": 240,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 115,
+							"sid": 960563504961510,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 0,
+								"My_Anim_ID": "Anim_1"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 960563504961510,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 175,
+								"y": 515,
+								"width": 114,
+								"height": 31,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_3",
+								"initial-frame": 15,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 124,
+							"sid": 225343694873577,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 2,
+								"My_Anim_ID": "Anim_2"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 225343694873577,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 506,
+								"y": 309,
+								"width": 173,
+								"height": 37,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "water_anim",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Anim_4",
+								"initial-frame": 38,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 136,
+							"sid": 678461640822237,
+							"tags": "",
+							"instanceVariables": {
+								"ID": 3,
+								"My_Anim_ID": "Anim_2"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 678461640822237,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 476.5,
+								"y": 616.5,
+								"width": -621,
+								"height": 240,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 3.141592653589793,
 								"zElevation": 0
 							}
 						}
@@ -6461,43 +6872,6 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "cano",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Default",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 114,
-							"sid": 294943806024582,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 294943806024582,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 899,
-								"y": 515,
-								"width": 1604,
-								"height": 629,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
 							"type": "valvula_upgrades",
 							"properties": {
 								"initially-visible": true,
@@ -6535,86 +6909,6 @@
 							}
 						},
 						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_4",
-								"initial-frame": 38,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 133,
-							"sid": 789672947657083,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 0,
-								"My_Anim_ID": "Anim_1"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 789672947657083,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 922,
-								"y": -194,
-								"width": 621,
-								"height": 240,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_7",
-								"initial-frame": 17,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 123,
-							"sid": 990152701107031,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 0,
-								"My_Anim_ID": "Anim_1"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 990152701107031,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1027,
-								"y": 359,
-								"width": 526,
-								"height": 37,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
 							"type": "Bkg_Icon_Upg",
 							"properties": {
 								"initially-visible": true,
@@ -6635,7 +6929,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1423,
+								"x": 1570,
 								"y": 516,
 								"width": 125,
 								"height": 125,
@@ -6681,90 +6975,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1430,
-								"y": 514,
-								"width": 83,
-								"height": 96,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Bkg_Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 325,
-							"sid": 961251956553763,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 961251956553763,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1585,
-								"y": 516,
-								"width": 125,
-								"height": 125,
-								"originX": 0.4418604651162791,
-								"originY": 0.5111111111111111,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Locked",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 326,
-							"sid": 886681474712489,
-							"tags": "",
-							"instanceVariables": {
-								"Name": "16",
-								"Price_1": "",
-								"Price_2": "",
-								"Upgrade_ID": "",
-								"Upg_Connections": "",
-								"Unlocked": false,
-								"Sold": false,
-								"LayerActive": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 886681474712489,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1592,
+								"x": 1577,
 								"y": 514,
 								"width": 83,
 								"height": 96,
@@ -6802,7 +7013,7 @@
 							"locked": false,
 							"world": {
 								"x": 1002,
-								"y": 791,
+								"y": 514,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -6875,8 +7086,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1073,
-								"y": 516,
+								"x": 1072,
+								"y": 790,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -6912,7 +7123,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1002,
+								"x": 1072,
 								"y": 244,
 								"width": 125,
 								"height": 125,
@@ -6975,46 +7186,6 @@
 							}
 						},
 						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_3",
-								"initial-frame": 15,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 122,
-							"sid": 891883802116850,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 0,
-								"My_Anim_ID": "Anim_1"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 891883802116850,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 799.5,
-								"y": 515,
-								"width": 173,
-								"height": 37,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
 							"type": "Icon_Upg",
 							"properties": {
 								"initially-visible": true,
@@ -7044,7 +7215,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1010,
+								"x": 1080,
 								"y": 243,
 								"width": 83,
 								"height": 96,
@@ -7090,8 +7261,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1081,
-								"y": 515,
+								"x": 1080,
+								"y": 789,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -7137,7 +7308,7 @@
 							"locked": false,
 							"world": {
 								"x": 1009,
-								"y": 790,
+								"y": 513,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -7174,7 +7345,7 @@
 							"locked": false,
 							"world": {
 								"x": 1158,
-								"y": 791,
+								"y": 514,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7220,7 +7391,7 @@
 							"locked": false,
 							"world": {
 								"x": 1166,
-								"y": 790,
+								"y": 513,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -7257,7 +7428,7 @@
 							"locked": false,
 							"world": {
 								"x": 1235,
-								"y": 516,
+								"y": 790,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7303,7 +7474,7 @@
 							"locked": false,
 							"world": {
 								"x": 1242,
-								"y": 515,
+								"y": 789,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -7339,7 +7510,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1158,
+								"x": 1235,
 								"y": 244,
 								"width": 125,
 								"height": 125,
@@ -7385,7 +7556,7 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1164,
+								"x": 1241,
 								"y": 243,
 								"width": 83,
 								"height": 96,
@@ -7423,7 +7594,7 @@
 							"locked": false,
 							"world": {
 								"x": 1312,
-								"y": 791,
+								"y": 514,
 								"width": 125,
 								"height": 125,
 								"originX": 0.4418604651162791,
@@ -7469,7 +7640,7 @@
 							"locked": false,
 							"world": {
 								"x": 1319,
-								"y": 790,
+								"y": 513,
 								"width": 83,
 								"height": 96,
 								"originX": 0.5,
@@ -7481,129 +7652,6 @@
 									1
 								],
 								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Bkg_Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 322,
-							"sid": 321933514646957,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 321933514646957,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1312,
-								"y": 244,
-								"width": 125,
-								"height": 125,
-								"originX": 0.4418604651162791,
-								"originY": 0.5111111111111111,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Icon_Upg",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Locked",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 323,
-							"sid": 539431869460830,
-							"tags": "",
-							"instanceVariables": {
-								"Name": "9",
-								"Price_1": "",
-								"Price_2": "",
-								"Upgrade_ID": "",
-								"Upg_Connections": "15_0_0",
-								"Unlocked": false,
-								"Sold": false,
-								"LayerActive": false
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 539431869460830,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1319,
-								"y": 243,
-								"width": 83,
-								"height": 96,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_2",
-								"initial-frame": 38,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 132,
-							"sid": 337771679772483,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 1,
-								"My_Anim_ID": "Anim_2"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 337771679772483,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 311.5,
-								"y": 616.5,
-								"width": -291,
-								"height": 240,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 3.141592653589793,
 								"zElevation": 0
 							}
 						},
@@ -7768,46 +7816,6 @@
 									1,
 									1,
 									0.3
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_2",
-								"initial-frame": 38,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 116,
-							"sid": 684288850037523,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 1,
-								"My_Anim_ID": "Anim_2"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 684288850037523,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 311.5,
-								"y": 413.5,
-								"width": 291,
-								"height": 240,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
 								],
 								"angle": 0,
 								"zElevation": 0
@@ -8059,166 +8067,6 @@
 									1
 								],
 								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 115,
-							"sid": 960563504961510,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 0,
-								"My_Anim_ID": "Anim_1"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 960563504961510,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 175,
-								"y": 515,
-								"width": 114,
-								"height": 31,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_3",
-								"initial-frame": 15,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 124,
-							"sid": 225343694873577,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 2,
-								"My_Anim_ID": "Anim_2"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 225343694873577,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 506,
-								"y": 309,
-								"width": 173,
-								"height": 37,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_4",
-								"initial-frame": 38,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 135,
-							"sid": 637920505573550,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 3,
-								"My_Anim_ID": "Anim_2"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 637920505573550,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 476.5,
-								"y": 413.5,
-								"width": 621,
-								"height": 240,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "water_anim",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Anim_4",
-								"initial-frame": 38,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 136,
-							"sid": 678461640822237,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 3,
-								"My_Anim_ID": "Anim_2"
-							},
-							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 678461640822237,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 476.5,
-								"y": 616.5,
-								"width": -621,
-								"height": 240,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 3.141592653589793,
 								"zElevation": 0
 							}
 						}
@@ -13645,9 +13493,9 @@
 		{
 			"type": "A_Prod_Data",
 			"properties": {
-				"width": 7,
+				"width": 9,
 				"height": 2,
-				"depth": 3
+				"depth": 7
 			},
 			"uid": 301,
 			"sid": 809267160528582,
