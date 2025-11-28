@@ -892,9 +892,9 @@
 						{
 							"id": "set-width",
 							"objectClass": "ProgBar_HP_Enemy",
-							"sid": 160434937180353,
+							"sid": 285296913212694,
 							"parameters": {
-								"width": "Enemy.HP * ( 500 / Enemy.MAX_HP )"
+								"width": "Enemy.HP * ( 250/ Enemy.MAX_HP )"
 							}
 						},
 						{
@@ -1551,6 +1551,154 @@
 				}
 			],
 			"isOrBlock": true
+		},
+		{
+			"functionName": "Spawn_Enemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 486619609483778,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 689775154722839,
+							"parameters": {
+								"name": "\"spawn_enemy_loop\"",
+								"start-index": "1",
+								"end-index": "3"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 959307236912978,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 281330283798370,
+									"parameters": {
+										"object": "Spawner",
+										"expression": "Spawner.my_ID",
+										"comparison": 0,
+										"value": "loopindex"
+									}
+								},
+								{
+									"id": "compare-at-xy",
+									"objectClass": "A_Level_Data",
+									"sid": 244425600393765,
+									"parameters": {
+										"x": "loopindex",
+										"y": "Level",
+										"comparison": 1,
+										"value": "\"-\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Spawner",
+									"sid": 726074610348026,
+									"parameters": {
+										"object": "Enemy",
+										"layer": "\"Fight\"",
+										"image-point": "0",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 840936368026486,
+									"parameters": {
+										"animation": "A_Level_Data.At(loopindex, Level) & \"_Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Enemy",
+									"sid": 748080517927221,
+									"parameters": {
+										"width": "loopindex = 1 ? 461 : 384",
+										"height": "loopindex = 1 ? 688 : 568"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 329573435277811,
+									"parameters": {
+										"instance-variable": "MAX_HP",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 710183553214835,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "Self.MAX_HP"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 699011491010565,
+									"parameters": {
+										"instance-variable": "Hab_1_Chance",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 675891288819898,
+									"parameters": {
+										"instance-variable": "Hab_1",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 749639146958098,
+									"parameters": {
+										"instance-variable": "Hab_2",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 984610149759169,
+									"parameters": {
+										"instance-variable": "Block",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 571039674967240
+						}
+					]
+				}
+			]
 		},
 		{
 			"eventType": "group",

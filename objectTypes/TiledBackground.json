@@ -4,7 +4,22 @@
 	"sid": 548319144774864,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 106923303753257
+		},
+		{
+			"name": "Grow",
+			"type": "number",
+			"desc": "tamanho final após animação de revelação",
+			"show": true,
+			"sid": 313350641543180
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"image": {

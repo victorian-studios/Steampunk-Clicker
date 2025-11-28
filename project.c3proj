@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 44902,
+	"savedWithRelease": 45802,
 	"name": "Steampunk Clicker",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -345,7 +345,15 @@
 			"valvula_upgrades",
 			"FileSystem",
 			"Bkg_Cano",
-			"water_anim"
+			"water_anim",
+			"mapa_fase_desc",
+			"Spawn_1",
+			"Spawn_2",
+			"Spawn_3",
+			"Icon_Map_Pointer",
+			"Btn_Start_Level",
+			"Text_Map_Desc",
+			"A_Level_Data"
 		],
 		"subfolders": []
 	},
@@ -357,7 +365,8 @@
 			"Buttons",
 			"EquipSlots",
 			"Tutorial_F",
-			"Icons_Clones"
+			"Icons_Clones",
+			"Spawner"
 		],
 		"subfolders": []
 	},
@@ -1100,6 +1109,14 @@
 					"file-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "Levels.json",
+					"type": "application/json",
+					"sid": 907885349558785,
+					"file-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": []
@@ -1156,8 +1173,8 @@
 		],
 		"orientations": "landscape",
 		"webgpu": "auto",
+		"multitexturing": "auto",
 		"gpuPreference": "high-performance",
-		"scriptsType": "module",
 		"framerateMode": "vsync",
 		"sampling": "nearest",
 		"downscaling": "medium",
@@ -1168,10 +1185,11 @@
 		"maxSpriteSheetSize": 2048,
 		"loaderStyle": "splash",
 		"preloadSounds": true,
+		"uidAllocationMode": "increment",
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",
 		"exportFileStructure": "folders",
-		"uidAllocationMode": "increment"
+		"scriptsType": "module"
 	},
 	"viewportWidth": 1920,
 	"viewportHeight": 1080,

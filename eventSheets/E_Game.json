@@ -191,9 +191,9 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 399784315723164,
+					"sid": 929355803823564,
 					"parameters": {
-						"layer": "\"Fight\"",
+						"layer": "\"Map\"",
 						"visibility": "invisible"
 					}
 				},
@@ -1208,13 +1208,12 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 696485519598392,
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 270085563298336,
 					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "Btn_screens"
+						"object": "Btn_screens",
+						"type": "start"
 					}
 				},
 				{
@@ -1241,18 +1240,27 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
-					"sid": 479634637158614,
+					"sid": 790783729461849,
 					"parameters": {
-						"layer": "\"Fight\"",
+						"layer": "\"Map\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 283079198812140,
+					"parameters": {
+						"layer": "\"Levels\"",
 						"visibility": "invisible"
 					}
 				},
 				{
 					"id": "set-layer-interactive",
 					"objectClass": "System",
-					"sid": 138188680062468,
+					"sid": 565948173049903,
 					"parameters": {
-						"layer": "\"Fight\"",
+						"layer": "\"Map\"",
 						"interactive": false
 					}
 				},
@@ -20193,7 +20201,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Fight Map",
+			"title": "Map",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -20206,7 +20214,21 @@
 							"sid": 926106341856964
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "pop-context",
+							"objectClass": "Internationalization",
+							"sid": 129747354138644
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Map_Desc",
+							"sid": 505523762610063,
+							"parameters": {
+								"text": "Internationalization.Lookup(\"game.map.None\")"
+							}
+						}
+					],
 					"sid": 385563842587371,
 					"children": [
 						{
@@ -20215,17 +20237,17 @@
 								{
 									"id": "for-each",
 									"objectClass": "System",
-									"sid": 261292908657624,
+									"sid": 493400519188120,
 									"parameters": {
-										"object": "Icon_check_batalhas"
+										"object": "Icon_Map_Pointer"
 									}
 								},
 								{
 									"id": "compare-instance-variable",
-									"objectClass": "Icon_check_batalhas",
-									"sid": 668887892516254,
+									"objectClass": "Icon_Map_Pointer",
+									"sid": 518392613165196,
 									"parameters": {
-										"instance-variable": "Lvl_ID_Check",
+										"instance-variable": "ID",
 										"comparison": 3,
 										"value": "Dict_Save_File.Get(\"LVL\")"
 									}
@@ -20234,16 +20256,243 @@
 							"actions": [
 								{
 									"id": "set-visible",
-									"objectClass": "Icon_check_batalhas",
-									"sid": 739911154586851,
+									"objectClass": "Icon_Map_Pointer",
+									"sid": 395170934173426,
 									"parameters": {
 										"visibility": "visible"
 									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "Icon_Map_Pointer",
+									"sid": 860763341145891,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
 								}
 							],
-							"sid": 869450086153167
+							"sid": 775526874435742
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 886751456808091,
+							"parameters": {
+								"object": "Icon_Map_Pointer",
+								"type": "start"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "pop-context",
+							"objectClass": "Internationalization",
+							"sid": 441004516861016
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Map_Desc",
+							"sid": 906586981383089,
+							"parameters": {
+								"text": "Internationalization.Lookup(\"game.map.None\")"
+							}
+						}
+					],
+					"sid": 733450566811177,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 810894780125108,
+									"parameters": {
+										"layer": "\"Levels\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 178373607556509,
+									"parameters": {
+										"seconds": "0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 354020337160489,
+									"parameters": {
+										"layer": "\"Levels\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "Icon_Map_Pointer",
+									"sid": 214362112972839,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"layer_opacity\"",
+										"start-value": "0",
+										"end-value": "100",
+										"time": "0.4",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 943828158290662,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 533498325442487,
+											"parameters": {
+												"object": "icon_zombie"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "icon_zombie",
+											"sid": 720204919689126,
+											"parameters": {
+												"instance-variable": "Level_ID",
+												"comparison": 3,
+												"value": "Dict_Save_File.Get(\"LVL\")"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Icon_check_batalhas",
+											"sid": 838318462112358,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "icon_zombie",
+											"sid": 289830269504989,
+											"parameters": {
+												"object": "Icon_check_batalhas",
+												"layer": "\"Levels\"",
+												"image-point": "1",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										}
+									],
+									"sid": 974240268818432
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 115058859623216,
+									"parameters": {
+										"layer": "\"Levels\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 193355274177079,
+									"parameters": {
+										"seconds": "0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "Icon_Map_Pointer",
+									"sid": 532745526357187,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"layer_opacity\"",
+										"start-value": "100",
+										"end-value": "0",
+										"time": "0.4",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 420098132953415,
+									"parameters": {
+										"seconds": "0.4",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 738023189308444,
+									"parameters": {
+										"layer": "\"Levels\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 403504267950530
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Icon_Map_Pointer",
+							"sid": 602356187665041,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"layer_opacity\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 480844688776299,
+							"parameters": {
+								"layer": "\"Levels\"",
+								"opacity": "Icon_Map_Pointer.Tween.Value(\"layer_opacity\")"
+							}
+						}
+					],
+					"sid": 363073915970476
 				},
 				{
 					"eventType": "block",
@@ -20269,9 +20518,9 @@
 						{
 							"id": "layer-is-visible",
 							"objectClass": "System",
-							"sid": 780253691247705,
+							"sid": 308729962768145,
 							"parameters": {
-								"layer": "\"Fight\""
+								"layer": "\"Map\""
 							}
 						},
 						{
@@ -20294,16 +20543,85 @@
 							}
 						}
 					],
+					"actions": [
+						{
+							"id": "pop-context",
+							"objectClass": "Internationalization",
+							"sid": 548357234873769
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Map_Desc",
+							"sid": 766798514862695,
+							"parameters": {
+								"text": "Internationalization.Lookup(\"game.map.City-\"&icon_zombie.Level_ID)"
+							}
+						}
+					],
+					"sid": 768665804726247
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 535347421523465,
+							"parameters": {
+								"object": "Btn_Start_Level",
+								"type": "start"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 745130686310682,
+							"parameters": {
+								"layer": "\"Map\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 182049952342571,
+							"parameters": {
+								"layer": "\"Levels\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 214591490226980,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-text",
+							"objectClass": "Text_Map_Desc",
+							"sid": 688086240403208,
+							"parameters": {
+								"text-to-compare": "Internationalization.Lookup(\"game.map.None\")",
+								"case-sensitivity": "ignore-case"
+							},
+							"isInverted": true
+						}
+					],
 					"actions": [],
-					"sid": 768665804726247,
+					"sid": 439877964539303,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Se o jogador tiver qualquer armadura e arma equipadas, pode ir pra fase"
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 895372689352193,
+									"sid": 332272495901571,
 									"parameters": {
 										"variable": "Armor_ID",
 										"comparison": 1,
@@ -20312,7 +20630,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 912401266356968,
+							"sid": 737263601644267,
 							"children": [
 								{
 									"eventType": "block",
@@ -20320,7 +20638,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 853175573785793,
+											"sid": 741417985670296,
 											"parameters": {
 												"variable": "Weapon_ID_1",
 												"comparison": 1,
@@ -20330,7 +20648,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 959142408069686,
+											"sid": 761429452000770,
 											"parameters": {
 												"variable": "Weapon_ID_2",
 												"comparison": 1,
@@ -20341,16 +20659,20 @@
 									"actions": [
 										{
 											"callFunction": "Go_To_Fight_Level",
-											"sid": 864535998009659,
+											"sid": 438739269502186,
 											"parameters": [
 												"icon_zombie.Level_ID"
 											]
 										}
 									],
-									"sid": 546369077121662,
+									"sid": 985310894553119,
 									"isOrBlock": true
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Aviso de que o jogador não tem armadura"
 						},
 						{
 							"eventType": "block",
@@ -20358,7 +20680,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 450743174172220,
+									"sid": 108801818587562,
 									"parameters": {
 										"variable": "Armor_ID",
 										"comparison": 0,
@@ -20368,7 +20690,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 121002379416210,
+									"sid": 977748115656476,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"comparison": 0,
@@ -20379,7 +20701,7 @@
 							"actions": [
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 734435811171473,
+									"sid": 441990775804952,
 									"parameters": [
 										"Internationalization.Lookup(\"tutorial.error.no_armor_fight\")",
 										"3",
@@ -20389,14 +20711,18 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 364121169686045,
+									"sid": 327292948130268,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"error\""
 									}
 								}
 							],
-							"sid": 342116209427840
+							"sid": 201855306848741
+						},
+						{
+							"eventType": "comment",
+							"text": "Aviso de que o jogador não tem arma"
 						},
 						{
 							"eventType": "block",
@@ -20404,7 +20730,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 398592397768088,
+									"sid": 336683480788052,
 									"parameters": {
 										"variable": "Weapon_ID_1",
 										"comparison": 0,
@@ -20414,7 +20740,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 700749368399176,
+									"sid": 371105187664853,
 									"parameters": {
 										"variable": "Weapon_ID_2",
 										"comparison": 0,
@@ -20425,7 +20751,7 @@
 							"actions": [
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 212466096918136,
+									"sid": 751519575930220,
 									"parameters": [
 										"Internationalization.Lookup(\"tutorial.error.no_weapon_fight\")",
 										"3",
@@ -20435,14 +20761,14 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 860659168284403,
+									"sid": 406814826634952,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"error\""
 									}
 								}
 							],
-							"sid": 399996930806072
+							"sid": 835454144678635
 						}
 					]
 				},
@@ -20556,6 +20882,15 @@
 						{
 							"callFunction": "Save_Local_Storage",
 							"sid": 328805249534133
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 813801535652410,
+							"parameters": {
+								"variable": "Level",
+								"value": "Lvl_ID"
+							}
 						},
 						{
 							"id": "set-eventvar-value",
@@ -21549,18 +21884,18 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 821747052763274,
+															"sid": 538545654482832,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"visibility": "invisible"
 															}
 														},
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 820543007216234,
+															"sid": 436464006905550,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"interactive": false
 															}
 														},
@@ -21775,18 +22110,18 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 579867269581407,
+															"sid": 675984796958504,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"visibility": "visible"
 															}
 														},
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 377566475914072,
+															"sid": 477930252589413,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"interactive": true
 															}
 														},
@@ -21943,18 +22278,18 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 975761094313437,
+															"sid": 416991224236035,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"visibility": "invisible"
 															}
 														},
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 835170911656156,
+															"sid": 532277685639170,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"interactive": false
 															}
 														},
@@ -22154,18 +22489,18 @@
 														{
 															"id": "set-layer-visible",
 															"objectClass": "System",
-															"sid": 590985098130908,
+															"sid": 401092376300068,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"visibility": "invisible"
 															}
 														},
 														{
 															"id": "set-layer-interactive",
 															"objectClass": "System",
-															"sid": 381203607537182,
+															"sid": 677836130132653,
 															"parameters": {
-																"layer": "\"Fight\"",
+																"layer": "\"Map\"",
 																"interactive": false
 															}
 														},
@@ -22907,6 +23242,15 @@
 							"parameters": {
 								"tag": "\"armour_data\"",
 								"file": "armor.json"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 777633322786282,
+							"parameters": {
+								"tag": "\"level_data\"",
+								"file": "Levels.json"
 							}
 						},
 						{
@@ -23926,7 +24270,7 @@
 						{
 							"id": "on-completed",
 							"objectClass": "AJAX",
-							"sid": 438823384462821,
+							"sid": 584371209198045,
 							"parameters": {
 								"tag": "\"weapon_data\""
 							}
@@ -23936,13 +24280,13 @@
 						{
 							"id": "load",
 							"objectClass": "A_Weapons",
-							"sid": 123152762515522,
+							"sid": 209331578994458,
 							"parameters": {
 								"json": "AJAX.LastData"
 							}
 						}
 					],
-					"sid": 782663126942988
+					"sid": 657248823522867
 				},
 				{
 					"eventType": "block",
@@ -23950,7 +24294,7 @@
 						{
 							"id": "on-completed",
 							"objectClass": "AJAX",
-							"sid": 255504477791187,
+							"sid": 187808446965957,
 							"parameters": {
 								"tag": "\"habilities_data\""
 							}
@@ -23960,7 +24304,7 @@
 						{
 							"id": "load",
 							"objectClass": "A_Habilities",
-							"sid": 265344253662120,
+							"sid": 752889346713817,
 							"parameters": {
 								"json": "AJAX.LastData"
 							}
@@ -23968,17 +24312,17 @@
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 220324246768327
+							"sid": 705602975983547
 						},
 						{
 							"callFunction": "PopulateList",
-							"sid": 279441752999534,
+							"sid": 437222457456355,
 							"parameters": [
 								"\"Weapons\""
 							]
 						}
 					],
-					"sid": 229189962508476
+					"sid": 331488328769312
 				},
 				{
 					"eventType": "block",
@@ -24039,6 +24383,30 @@
 						}
 					],
 					"sid": 699951240682011
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 358487848111048,
+							"parameters": {
+								"tag": "\"level_data\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "A_Level_Data",
+							"sid": 147656786979222,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 395077851274701
 				},
 				{
 					"eventType": "block",
