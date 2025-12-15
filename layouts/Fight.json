@@ -286,7 +286,7 @@
 				{
 					"type": "Spawn_1",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -325,7 +325,7 @@
 				{
 					"type": "Spawn_2",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -345,8 +345,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1088,
-						"y": 592,
+						"x": 1072,
+						"y": 595,
 						"width": 136,
 						"height": 72,
 						"originX": 0.5,
@@ -364,7 +364,7 @@
 				{
 					"type": "Spawn_3",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -384,8 +384,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1832,
-						"y": 672,
+						"x": 1849,
+						"y": 679,
 						"width": 136,
 						"height": 72,
 						"originX": 0.5,
@@ -404,7 +404,7 @@
 					"type": "Enemy",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Z2_Attack",
+						"initial-animation": "Z2_Idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -458,10 +458,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1832,
-						"y": 672,
-						"width": 384,
-						"height": 568,
+						"x": 1849,
+						"y": 679,
+						"width": 300,
+						"height": 567,
 						"originX": 1,
 						"originY": 1,
 						"color": [
@@ -478,7 +478,7 @@
 					"type": "Enemy",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Z2_Attack",
+						"initial-animation": "Z2_Idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -532,10 +532,10 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1088,
-						"y": 584,
-						"width": 384,
-						"height": 568,
+						"x": 1072,
+						"y": 588,
+						"width": 300,
+						"height": 567,
 						"originX": 1,
 						"originY": 1,
 						"color": [
@@ -552,7 +552,7 @@
 					"type": "Enemy",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Z2_Attack",
+						"initial-animation": "Z2_Idle",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -608,8 +608,8 @@
 					"world": {
 						"x": 1480,
 						"y": 760,
-						"width": 461,
-						"height": 688,
+						"width": 359,
+						"height": 686,
 						"originX": 1,
 						"originY": 1,
 						"color": [
@@ -673,7 +673,11 @@
 							"uid": 197,
 							"sid": 201991703004044,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"my_ID": 3,
+								"max_hp": 0,
+								"hp": 0
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
 								"sid": 201991703004044,
@@ -682,10 +686,10 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1552,
-								"y": 672,
+								"x": 1569,
+								"y": 679,
 								"width": 256,
-								"height": 56,
+								"height": 56.00000000000001,
 								"originX": 0,
 								"originY": 0.5,
 								"color": [
@@ -699,30 +703,30 @@
 							}
 						},
 						{
-							"type": "ProgBar_HP_Enemy",
+							"type": "ProgBar_Fill",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
-								"initial-frame": 1,
+								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 221,
-							"sid": 308114339394328,
+							"uid": 420,
+							"sid": 150529018906753,
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 308114339394328,
+								"sid": 150529018906753,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1555,
-								"y": 672,
-								"width": 250,
-								"height": 50,
+								"x": 1572,
+								"y": 679,
+								"width": 249.99999999999997,
+								"height": 50.00000000000001,
 								"originX": 0,
 								"originY": 0.5,
 								"color": [
@@ -772,8 +776,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1632,
-								"y": 664,
+								"x": 1649,
+								"y": 671,
 								"width": 103.56157588603989,
 								"height": 23.898825204470743,
 								"originX": 0,
@@ -824,8 +828,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1584,
-								"y": 704,
+								"x": 1601,
+								"y": 711,
 								"width": 55,
 								"height": 55,
 								"originX": 0.5,
@@ -1120,7 +1124,11 @@
 							"uid": 317,
 							"sid": 257763088096871,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"my_ID": 1,
+								"max_hp": 0,
+								"hp": 0
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
 								"sid": 257763088096871,
@@ -1146,21 +1154,21 @@
 							}
 						},
 						{
-							"type": "ProgBar_HP_Enemy",
+							"type": "ProgBar_Fill",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
-								"initial-frame": 1,
+								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 322,
-							"sid": 423286695889737,
+							"uid": 326,
+							"sid": 393721759141808,
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 423286695889737,
+								"sid": 393721759141808,
 								"expanded": true
 							},
 							"showing": true,
@@ -1299,7 +1307,11 @@
 							"uid": 325,
 							"sid": 619127185784976,
 							"tags": "",
-							"instanceVariables": {},
+							"instanceVariables": {
+								"my_ID": 2,
+								"max_hp": 0,
+								"hp": 0
+							},
 							"behaviors": {},
 							"instanceFolderItem": {
 								"sid": 619127185784976,
@@ -1308,8 +1320,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 784,
-								"y": 584,
+								"x": 768,
+								"y": 588,
 								"width": 256,
 								"height": 56.00000000000001,
 								"originX": 0,
@@ -1325,28 +1337,28 @@
 							}
 						},
 						{
-							"type": "ProgBar_HP_Enemy",
+							"type": "ProgBar_Fill",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Animation 1",
-								"initial-frame": 1,
+								"initial-frame": 0,
 								"enable-collisions": true,
 								"live-preview": false
 							},
-							"uid": 326,
-							"sid": 972188276554636,
+							"uid": 419,
+							"sid": 656732135309139,
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
 							"instanceFolderItem": {
-								"sid": 972188276554636,
+								"sid": 656732135309139,
 								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 787,
-								"y": 584,
+								"x": 771,
+								"y": 588,
 								"width": 249.99999999999997,
 								"height": 50.00000000000001,
 								"originX": 0,
@@ -1398,8 +1410,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 864,
-								"y": 576,
+								"x": 848,
+								"y": 580,
 								"width": 103.56157588603989,
 								"height": 23.898825204470743,
 								"originX": 0,
@@ -1450,8 +1462,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 816,
-								"y": 616,
+								"x": 800,
+								"y": 620,
 								"width": 55,
 								"height": 55,
 								"originX": 0.5,

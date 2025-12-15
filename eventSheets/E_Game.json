@@ -97,6 +97,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "Armor_Name_ID",
+			"type": "string",
+			"initialValue": "",
+			"comment": "para alterar a armadura durante a batalha",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 771998188636382
+		},
+		{
+			"eventType": "variable",
 			"name": "Armor_Special_ID",
 			"type": "string",
 			"initialValue": "",
@@ -11752,6 +11762,15 @@
 															}
 														},
 														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 743908823539117,
+															"parameters": {
+																"variable": "Armor_Name_ID",
+																"value": "icon_list_armor_clone.AnimationFrameTag"
+															}
+														},
+														{
 															"id": "set-animation-frame",
 															"objectClass": "armadura_madeira",
 															"sid": 189758578049078,
@@ -11857,6 +11876,15 @@
 													"parameters": {
 														"variable": "Armor_ID",
 														"value": "icon_list_armor_clone.AnimationFrame"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 212310832779893,
+													"parameters": {
+														"variable": "Armor_Name_ID",
+														"value": "icon_list_armor_clone.AnimationFrameTag"
 													}
 												},
 												{
@@ -12851,6 +12879,15 @@
 											}
 										},
 										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 317431462186405,
+											"parameters": {
+												"variable": "Armor_Name_ID",
+												"value": "\"\""
+											}
+										},
+										{
 											"id": "set-animation-frame",
 											"objectClass": "armadura_madeira",
 											"sid": 161647108113387,
@@ -12881,6 +12918,15 @@
 											"parameters": {
 												"variable": "Armor_ID",
 												"value": "icon_list_armor_clone.AnimationFrame"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 229106537749591,
+											"parameters": {
+												"variable": "Armor_Name_ID",
+												"value": "icon_list_armor_clone.AnimationFrameTag"
 											}
 										}
 									],
@@ -20287,6 +20333,11 @@
 								"object": "Icon_Map_Pointer",
 								"type": "start"
 							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Icon_Map_Pointer",
+							"sid": 582243425478287
 						}
 					],
 					"actions": [
@@ -20472,6 +20523,74 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 205177646893592,
+							"parameters": {
+								"object": "Btn_Confirm_Exit",
+								"type": "start"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 527065651705749,
+							"parameters": {
+								"layer": "\"Levels\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 184606391938159,
+							"parameters": {
+								"layer": "\"Map\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-value",
+							"objectClass": "Icon_Map_Pointer",
+							"sid": 524709639881219,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"layer_opacity\"",
+								"start-value": "100",
+								"end-value": "0",
+								"time": "0.4",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 235277309144119,
+							"parameters": {
+								"seconds": "0.4",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 494021338391282,
+							"parameters": {
+								"layer": "\"Levels\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 883240506287316
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-playing",
 							"objectClass": "Icon_Map_Pointer",
 							"sid": 602356187665041,
@@ -20558,7 +20677,77 @@
 							}
 						}
 					],
-					"sid": 768665804726247
+					"sid": 768665804726247,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 121642158504068,
+									"parameters": {
+										"object": "icon_zombie"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "icon_zombie",
+									"sid": 103202214102088,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "icon_zombie",
+									"sid": 259618616208158,
+									"parameters": {
+										"width": "125",
+										"height": "125"
+									}
+								}
+							],
+							"sid": 645105153074838
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 561724231197140,
+									"parameters": {
+										"seconds": "0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-cycle-position",
+									"objectClass": "icon_zombie",
+									"sid": 270738823134050,
+									"behaviorType": "Sine",
+									"parameters": {
+										"cycle-position": "0"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "icon_zombie",
+									"sid": 221434711987059,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
+								}
+							],
+							"sid": 623241335571935
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -20656,16 +20845,40 @@
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 985310894553119,
+									"children": [
 										{
-											"callFunction": "Go_To_Fight_Level",
-											"sid": 438739269502186,
-											"parameters": [
-												"icon_zombie.Level_ID"
-											]
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-active",
+													"objectClass": "icon_zombie",
+													"sid": 679404578546336,
+													"behaviorType": "Sine"
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Go_To_Fight_Level",
+													"sid": 501024431416239,
+													"parameters": [
+														"icon_zombie.Level_ID"
+													]
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 364323490922104,
+													"parameters": {
+														"type": "log",
+														"message": "icon_zombie.Level_ID"
+													}
+												}
+											],
+											"sid": 217179165672700
 										}
 									],
-									"sid": 985310894553119,
 									"isOrBlock": true
 								}
 							]
@@ -20771,94 +20984,6 @@
 							"sid": 835454144678635
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 681939704773089,
-							"parameters": {
-								"object": "icon_zombie"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 618902514537135,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-animation-frame",
-									"objectClass": "icon_zombie",
-									"sid": 906416631862999,
-									"parameters": {
-										"comparison": 1,
-										"number": "0"
-									}
-								},
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 592079454207772
-								}
-							],
-							"actions": [
-								{
-									"id": "set-cycle-position",
-									"objectClass": "icon_zombie",
-									"sid": 513144996638694,
-									"behaviorType": "Sine",
-									"parameters": {
-										"cycle-position": "0"
-									}
-								},
-								{
-									"id": "set-active",
-									"objectClass": "icon_zombie",
-									"sid": 728149242147895,
-									"behaviorType": "Sine",
-									"parameters": {
-										"state": "active"
-									}
-								}
-							],
-							"sid": 572173095489883
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 665186403401473
-						}
-					],
-					"actions": [
-						{
-							"id": "set-active",
-							"objectClass": "icon_zombie",
-							"sid": 723213044778916,
-							"behaviorType": "Sine",
-							"parameters": {
-								"state": "inactive"
-							}
-						},
-						{
-							"id": "set-size",
-							"objectClass": "icon_zombie",
-							"sid": 539128758382092,
-							"parameters": {
-								"width": "125",
-								"height": "125"
-							}
-						}
-					],
-					"sid": 689985155124059
 				},
 				{
 					"functionName": "Go_To_Fight_Level",

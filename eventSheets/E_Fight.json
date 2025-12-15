@@ -37,6 +37,16 @@
 		},
 		{
 			"eventType": "variable",
+			"name": "Battle_Started",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 694067066661439
+		},
+		{
+			"eventType": "variable",
 			"name": "Battle_Ended",
 			"type": "boolean",
 			"initialValue": "false",
@@ -76,12 +86,26 @@
 			],
 			"actions": [
 				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 226546820012772,
+					"parameters": {
+						"variable": "Battle_Started",
+						"value": "true"
+					}
+				},
+				{
 					"id": "stop",
 					"objectClass": "Audio",
 					"sid": 369405679482554,
 					"parameters": {
 						"tag": "\"Main\""
 					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Enemy",
+					"sid": 575624260009986
 				},
 				{
 					"id": "play",
@@ -138,6 +162,15 @@
 					"parameters": {
 						"variable": "TURN",
 						"value": "0"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Player",
+					"sid": 661170930255202,
+					"parameters": {
+						"animation": "Armor_Name_ID & \"_Idle\"",
+						"from": "beginning"
 					}
 				},
 				{
@@ -208,6 +241,14 @@
 					}
 				},
 				{
+					"id": "set-width",
+					"objectClass": "ProgBar_Fill",
+					"sid": 562716569502592,
+					"parameters": {
+						"width": "250"
+					}
+				},
+				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 788295677628439,
@@ -251,13 +292,12 @@
 					}
 				},
 				{
-					"id": "set-animation",
-					"objectClass": "Player",
-					"sid": 622126661954395,
-					"parameters": {
-						"animation": "\"\"",
-						"from": "beginning"
-					}
+					"callFunction": "Spawn_Enemy",
+					"sid": 499192513428116,
+					"parameters": [
+						"\"\"",
+						"0"
+					]
 				}
 			],
 			"sid": 141394572375646,
@@ -866,47 +906,83 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 366154059629342,
+							"id": "is-overlapping-another-object",
+							"objectClass": "Enemy",
+							"sid": 629729966066243,
 							"parameters": {
-								"object": "ProgBar_HP_Enemy",
-								"expression": "ProgBar_HP_Enemy.AnimationFrame",
-								"comparison": 0,
-								"value": "1"
+								"object": "ProgBar_HP_Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "ProgBar_HP_Enemy",
+							"sid": 813217159505349,
+							"parameters": {
+								"instance-variable": "hp",
+								"value": "Enemy.HP"
 							}
 						},
 						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 198968985986127,
+							"id": "set-instvar-value",
+							"objectClass": "ProgBar_HP_Enemy",
+							"sid": 984812504887100,
 							"parameters": {
-								"object": "Enemy",
-								"expression": "Enemy.My_ID",
-								"comparison": 0,
-								"value": "1"
+								"instance-variable": "max_hp",
+								"value": "Enemy.MAX_HP"
+							}
+						}
+					],
+					"sid": 774845687419829
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "ProgBar_Fill",
+							"sid": 962497388019956,
+							"parameters": {
+								"object": "ProgBar_HP_Enemy"
 							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-width",
-							"objectClass": "ProgBar_HP_Enemy",
-							"sid": 285296913212694,
+							"objectClass": "ProgBar_Fill",
+							"sid": 435415987129101,
 							"parameters": {
-								"width": "Enemy.HP * ( 250/ Enemy.MAX_HP )"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "Text_HP_Enemy",
-							"sid": 352035089310380,
-							"parameters": {
-								"text": "Enemy.HP & \" / \" & Enemy.MAX_HP"
+								"width": "ProgBar_HP_Enemy.hp * ( 250 / ProgBar_HP_Enemy.max_hp )"
 							}
 						}
 					],
-					"sid": 895280481754822
+					"sid": 184137271131818
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "ProgBar_HP_Enemy",
+							"sid": 244167307043026,
+							"parameters": {
+								"object": "Text_HP_Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_HP_Enemy",
+							"sid": 795023392693682,
+							"parameters": {
+								"text": "ProgBar_HP_Enemy.hp & \" / \" & ProgBar_HP_Enemy.max_hp"
+							}
+						}
+					],
+					"sid": 754209169272273
 				},
 				{
 					"eventType": "block",
@@ -1559,7 +1635,22 @@
 			"functionReturnType": "none",
 			"functionCopyPicked": false,
 			"functionIsAsync": false,
-			"functionParameters": [],
+			"functionParameters": [
+				{
+					"name": "Specific",
+					"type": "string",
+					"initialValue": "",
+					"comment": "para spawnar um inimigo especifico",
+					"sid": 552616601941491
+				},
+				{
+					"name": "Spawner",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "qual spawner o zumbi deverá aparecer",
+					"sid": 414411824862549
+				}
+			],
 			"eventType": "function-block",
 			"conditions": [],
 			"actions": [],
@@ -1569,134 +1660,137 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "for",
+							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 689775154722839,
+							"sid": 152156116759887,
 							"parameters": {
-								"name": "\"spawn_enemy_loop\"",
-								"start-index": "1",
-								"end-index": "3"
+								"variable": "Specific",
+								"comparison": 0,
+								"value": "\"\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 959307236912978,
+					"sid": 675646043997890,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-comparison",
+									"id": "for",
 									"objectClass": "System",
-									"sid": 281330283798370,
+									"sid": 882795368550481,
 									"parameters": {
-										"object": "Spawner",
-										"expression": "Spawner.my_ID",
-										"comparison": 0,
-										"value": "loopindex"
-									}
-								},
-								{
-									"id": "compare-at-xy",
-									"objectClass": "A_Level_Data",
-									"sid": 244425600393765,
-									"parameters": {
-										"x": "loopindex",
-										"y": "Level",
-										"comparison": 1,
-										"value": "\"-\""
+										"name": "\"spawn_enemy_loop\"",
+										"start-index": "1",
+										"end-index": "3"
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 126912311958623,
+							"children": [
 								{
-									"id": "spawn-another-object",
-									"objectClass": "Spawner",
-									"sid": 726074610348026,
-									"parameters": {
-										"object": "Enemy",
-										"layer": "\"Fight\"",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "Enemy",
-									"sid": 840936368026486,
-									"parameters": {
-										"animation": "A_Level_Data.At(loopindex, Level) & \"_Idle\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-size",
-									"objectClass": "Enemy",
-									"sid": 748080517927221,
-									"parameters": {
-										"width": "loopindex = 1 ? 461 : 384",
-										"height": "loopindex = 1 ? 688 : 568"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Enemy",
-									"sid": 329573435277811,
-									"parameters": {
-										"instance-variable": "MAX_HP",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Enemy",
-									"sid": 710183553214835,
-									"parameters": {
-										"instance-variable": "HP",
-										"value": "Self.MAX_HP"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Enemy",
-									"sid": 699011491010565,
-									"parameters": {
-										"instance-variable": "Hab_1_Chance",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Enemy",
-									"sid": 675891288819898,
-									"parameters": {
-										"instance-variable": "Hab_1",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Enemy",
-									"sid": 749639146958098,
-									"parameters": {
-										"instance-variable": "Hab_2",
-										"value": "0"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "Enemy",
-									"sid": 984610149759169,
-									"parameters": {
-										"instance-variable": "Block",
-										"value": "0"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 501944754654832,
+											"parameters": {
+												"object": "Spawner",
+												"expression": "Spawner.my_ID",
+												"comparison": 0,
+												"value": "loopindex"
+											}
+										},
+										{
+											"id": "compare-at-xy",
+											"objectClass": "A_Level_Data",
+											"sid": 613370296658671,
+											"parameters": {
+												"x": "loopindex",
+												"y": "Level",
+												"comparison": 1,
+												"value": "\"-\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Spawner",
+											"sid": 820394936900646,
+											"parameters": {
+												"object": "Enemy",
+												"layer": "\"Fight\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "A_Level_Data.At(loopindex, Level)"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy",
+											"sid": 196146380242577,
+											"parameters": {
+												"animation": "A_Level_Data.At(loopindex, Level) & \"_Idle\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-scale",
+											"objectClass": "Enemy",
+											"sid": 111159268607546,
+											"parameters": {
+												"scale": "loopindex = 1 ? 1 : 0.83"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 322734917088730,
+											"parameters": {
+												"instance-variable": "My_ID",
+												"value": "loopindex"
+											}
+										}
+									],
+									"sid": 600899688248724,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 158156425933278,
+													"parameters": {
+														"variable": "Battle_Started",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 873076716758967
+										}
+									]
 								}
-							],
-							"sid": 571039674967240
+							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 809087887459737
+						}
+					],
+					"actions": [],
+					"sid": 679495188080520
 				}
 			]
 		},
@@ -7902,6 +7996,15 @@
 							}
 						},
 						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 327657037462233,
+							"parameters": {
+								"variable": "Battle_Started"
+							},
+							"isInverted": true
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
 							"sid": 539742857607717
@@ -8144,6 +8247,15 @@
 								"comparison": 3,
 								"second-value": "0"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 719401712045452,
+							"parameters": {
+								"variable": "Battle_Started"
+							},
+							"isInverted": true
 						},
 						{
 							"id": "trigger-once-while-true",
