@@ -11682,15 +11682,6 @@
 												"variable": "frame",
 												"value": "icon_list_armor_clone.AnimationFrame"
 											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 315976194188436,
-											"parameters": {
-												"variable": "SlotAtual",
-												"value": "Wp_Slot.ID"
-											}
 										}
 									],
 									"sid": 673219630126991,
@@ -11728,6 +11719,14 @@
 															"id": "destroy",
 															"objectClass": "icon_list_armor_clone",
 															"sid": 573420124772208
+														},
+														{
+															"callFunction": "Change Equipped Hab",
+															"sid": 345066363951317,
+															"parameters": [
+																"frame",
+																"\"ARM\""
+															]
 														}
 													],
 													"sid": 767900436191581
@@ -11781,6 +11780,15 @@
 															"parameters": {
 																"frame-number": "Armor_ID"
 															}
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 205798735011913,
+															"parameters": {
+																"type": "log",
+																"message": "\"e aqui\""
+															}
 														}
 													],
 													"sid": 474475932176934
@@ -11819,49 +11827,12 @@
 													}
 												},
 												{
-													"id": "set-instvar-value",
-													"objectClass": "icon_list_armor_clone",
-													"sid": 808251500551462,
-													"parameters": {
-														"instance-variable": "Origin_X",
-														"value": "Self.X"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "icon_list_armor_clone",
-													"sid": 121989685198715,
-													"parameters": {
-														"instance-variable": "Origin_Y",
-														"value": "Self.Y"
-													}
-												},
-												{
 													"id": "set-boolean-instvar",
 													"objectClass": "icon_list_armor_clone",
 													"sid": 149542260832723,
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
-													}
-												},
-												{
-													"id": "set-enabled",
-													"objectClass": "icon_list_armor_clone",
-													"sid": 597632789019530,
-													"behaviorType": "DragandDrop",
-													"parameters": {
-														"state": "disabled"
-													}
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "icon_list_armor_clone",
-													"sid": 190865568423994,
-													"disabled": true,
-													"parameters": {
-														"instance-variable": "Pin_Obj_ID",
-														"value": "Wp_Slot.ID"
 													}
 												},
 												{
@@ -12596,6 +12567,100 @@
 												}
 											],
 											"sid": 604581589905714
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 196687332716785,
+											"parameters": {
+												"variable": "type",
+												"comparison": 0,
+												"value": "\"ARM\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 557656287427456,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Se houver uma armadura diferente no slot atual, então muda o seu frame de acordo com o que foi chamado pela função"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 279552104361413,
+													"parameters": {
+														"object": "icon_list_armor_clone",
+														"expression": "icon_list_armor_clone.Recent_Copy",
+														"comparison": 0,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-animation-frame",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 452044454749660,
+													"parameters": {
+														"comparison": 1,
+														"number": "frame"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 553622743711300,
+													"parameters": {
+														"seconds": "0.01",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 819450919637477,
+													"parameters": {
+														"frame-number": "frame"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 691813565877795,
+													"parameters": {
+														"variable": "Armor_ID",
+														"value": "icon_list_armor_clone.AnimationFrame"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 280408526916338,
+													"parameters": {
+														"variable": "Armor_Name_ID",
+														"value": "icon_list_armor_clone.AnimationFrameTag"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "armadura_madeira",
+													"sid": 885373240905262,
+													"parameters": {
+														"frame-number": "Armor_ID"
+													}
+												}
+											],
+											"sid": 834339754027849
 										}
 									]
 								}
@@ -22312,9 +22377,9 @@
 																{
 																	"id": "set-animation",
 																	"objectClass": "Bkg_tela_fundo",
-																	"sid": 597501611037696,
+																	"sid": 649958686790172,
 																	"parameters": {
-																		"animation": "\"Fight\"",
+																		"animation": "\"Map\"",
 																		"from": "beginning"
 																	}
 																}
