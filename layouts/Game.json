@@ -11040,7 +11040,8 @@
 							"sid": 429963546811717,
 							"tags": "",
 							"instanceVariables": {
-								"ID": 0
+								"ID": 0,
+								"place_id": "City_Title"
 							},
 							"behaviors": {
 								"Sine": {
@@ -11099,7 +11100,8 @@
 							"sid": 816197344038817,
 							"tags": "",
 							"instanceVariables": {
-								"ID": 3
+								"ID": 3,
+								"place_id": "Graveyard_Title"
 							},
 							"behaviors": {
 								"Sine": {
@@ -11158,7 +11160,8 @@
 							"sid": 952667525724455,
 							"tags": "",
 							"instanceVariables": {
-								"ID": 6
+								"ID": 6,
+								"place_id": "Mountain_Title"
 							},
 							"behaviors": {
 								"Sine": {
@@ -11217,7 +11220,8 @@
 							"sid": 180399895365041,
 							"tags": "",
 							"instanceVariables": {
-								"ID": 9
+								"ID": 9,
+								"place_id": "Castle_Title"
 							},
 							"behaviors": {
 								"Sine": {
@@ -12061,6 +12065,61 @@
 								"height": 85,
 								"originX": 0.5,
 								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"angle": 0,
+								"zElevation": 0
+							}
+						},
+						{
+							"type": "Text_Fixed",
+							"properties": {
+								"text": "City_Name",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 30,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 221,
+							"sid": 334255479724177,
+							"tags": "",
+							"instanceVariables": {
+								"my_Txt": "game.map"
+							},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 334255479724177,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 803,
+								"y": 192,
+								"width": 317,
+								"height": 65,
+								"originX": 0,
+								"originY": 0,
 								"color": [
 									1,
 									1,

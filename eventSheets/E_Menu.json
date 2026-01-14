@@ -69,7 +69,9 @@
 					"objectClass": "Audio",
 					"sid": 401793048327794,
 					"parameters": {
-						"audio-file": "Cinematic_Violin_Uplifting_Music_by_Humanoide_Media",
+						"audio-file": {
+							"path": "Menu/Cinematic_Violin_Uplifting_Music_by_Humanoide_Media"
+						},
 						"loop": "looping",
 						"volume": "-10",
 						"stereo-pan": "0",
@@ -107,7 +109,9 @@
 					"objectClass": "Audio",
 					"sid": 782816964465847,
 					"parameters": {
-						"audio-file": "Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
+						"audio-file": {
+							"path": "Battles/Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
+						}
 					}
 				},
 				{
@@ -115,7 +119,9 @@
 					"objectClass": "Audio",
 					"sid": 749670841476858,
 					"parameters": {
-						"audio-file": "Steampunk_Victorian_Orchestra_by_Humanoide_Media"
+						"audio-file": {
+							"path": "Main Game/Steampunk_Victorian_Orchestra_by_Humanoide_Media"
+						}
 					}
 				}
 			],
@@ -360,7 +366,9 @@
 					"objectClass": "Audio",
 					"sid": 625781754228663,
 					"parameters": {
-						"audio-file": "rotating_metal_cog",
+						"audio-file": {
+							"path": "Menu/rotating_metal_cog"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -436,7 +444,9 @@
 					"objectClass": "Audio",
 					"sid": 398180538773067,
 					"parameters": {
-						"audio-file": "442382__hisoul__bmx-rotating-chain-and-wheels-mechanical-mono",
+						"audio-file": {
+							"path": "Menu/442382__hisoul__bmx-rotating-chain-and-wheels-mechanical-mono"
+						},
 						"loop": "not-looping",
 						"volume": "0",
 						"stereo-pan": "0",
@@ -664,7 +674,9 @@
 					"sid": 567400453938066,
 					"parameters": {
 						"tag": "\"upg_data\"",
-						"file": "Upg_Data.json"
+						"file": {
+							"path": "Upg_Data.json"
+						}
 					}
 				}
 			],
