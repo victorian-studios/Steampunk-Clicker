@@ -9803,66 +9803,6 @@
 							}
 						},
 						{
-							"type": "Wp_Slot",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 241,
-							"sid": 796271097207409,
-							"tags": "",
-							"instanceVariables": {
-								"ID": 2,
-								"CD_Max": 0,
-								"Ammo_Max": 0,
-								"Ammo": 0,
-								"Free": true,
-								"Ready": false,
-								"Reload": false
-							},
-							"behaviors": {
-								"Sine": {
-									"properties": {
-										"movement": "size",
-										"wave": "sine",
-										"period": 2,
-										"period-random": 0,
-										"period-offset": 0,
-										"period-offset-random": 0,
-										"magnitude": 25,
-										"magnitude-random": 0,
-										"enabled": false,
-										"live-preview": false
-									}
-								}
-							},
-							"instanceFolderItem": {
-								"sid": 796271097207409,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1128,
-								"y": 498,
-								"width": 106,
-								"height": 106,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
 							"type": "Armor_Slot",
 							"properties": {
 								"initially-visible": true,
@@ -9902,10 +9842,10 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 956,
-								"y": 282,
-								"width": 90,
-								"height": 90,
+								"x": 958,
+								"y": 317,
+								"width": 106,
+								"height": 106,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [
@@ -10067,8 +10007,9 @@
 							"sid": 798045323640595,
 							"tags": "",
 							"instanceVariables": {
-								"Free": true,
+								"ID": 1,
 								"CD_Max": 0,
+								"Free": true,
 								"Ready": false
 							},
 							"behaviors": {
@@ -10096,64 +10037,8 @@
 							"world": {
 								"x": 752,
 								"y": 176,
-								"width": 90,
-								"height": 90,
-								"originX": 0.5,
-								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"angle": 0,
-								"zElevation": 0
-							}
-						},
-						{
-							"type": "Hab_Slot",
-							"properties": {
-								"initially-visible": true,
-								"initial-animation": "Animation 1",
-								"initial-frame": 0,
-								"enable-collisions": true,
-								"live-preview": false
-							},
-							"uid": 414,
-							"sid": 370914826522508,
-							"tags": "",
-							"instanceVariables": {
-								"Free": true,
-								"CD_Max": 0,
-								"Ready": false
-							},
-							"behaviors": {
-								"Sine": {
-									"properties": {
-										"movement": "size",
-										"wave": "sine",
-										"period": 2,
-										"period-random": 0,
-										"period-offset": 0,
-										"period-offset-random": 0,
-										"magnitude": 25,
-										"magnitude-random": 0,
-										"enabled": false,
-										"live-preview": false
-									}
-								}
-							},
-							"instanceFolderItem": {
-								"sid": 370914826522508,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 1168,
-								"y": 176,
-								"width": 90,
-								"height": 90,
+								"width": 106,
+								"height": 106,
 								"originX": 0.5,
 								"originY": 0.5,
 								"color": [

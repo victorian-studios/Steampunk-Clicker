@@ -169,6 +169,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Rotate",
+			"name": "Rotate",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Sin",
 			"name": "Sine",
 			"author": "Scirra",
@@ -355,7 +362,8 @@
 			"Text_Map_Desc",
 			"A_Level_Data",
 			"ProgBar_Fill",
-			"Text_Fixed"
+			"Text_Fixed",
+			"victorianstudio"
 		],
 		"subfolders": []
 	},
@@ -377,7 +385,8 @@
 			"Game",
 			"Fight",
 			"Menu",
-			"Void"
+			"Void",
+			"Loading"
 		],
 		"subfolders": []
 	},
@@ -387,7 +396,8 @@
 			"E_Fight",
 			"E_Menu",
 			"Options",
-			"E_Void"
+			"E_Void",
+			"E_Loading"
 		],
 		"subfolders": []
 	},
@@ -1195,5 +1205,5 @@
 	},
 	"viewportWidth": 1920,
 	"viewportHeight": 1080,
-	"firstLayout": "Menu"
+	"firstLayout": "Loading"
 }

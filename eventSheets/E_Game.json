@@ -321,17 +321,6 @@
 					}
 				},
 				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 416912179201740,
-					"parameters": {
-						"tag": "\"en-US\"",
-						"file": {
-							"path": "en-US.json"
-						}
-					}
-				},
-				{
 					"id": "set-y",
 					"objectClass": "Bkg_Work_Info",
 					"sid": 105883987006110,
@@ -10724,6 +10713,16 @@
 							"isOrBlock": true
 						},
 						{
+							"eventType": "comment",
+							"text": "Weapon",
+							"text-color": [
+								1,
+								0,
+								0,
+								1
+							]
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -10788,131 +10787,9 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "on-touched-object",
-									"objectClass": "Touch",
-									"sid": 203692019723940,
-									"parameters": {
-										"object": "icon_list_habilities",
-										"type": "start"
-									}
-								},
-								{
-									"id": "is-visible",
-									"objectClass": "icon_list_habilities",
-									"sid": 690306672836312
-								},
-								{
-									"id": "compare-animation-frame",
-									"objectClass": "icon_list_habilities",
-									"sid": 318345077491478,
-									"parameters": {
-										"comparison": 1,
-										"number": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 997866355791220,
-									"parameters": {
-										"object-to-create": "icon_list_habilities_clone",
-										"layer": "\"Frg List\"",
-										"x": "Mouse.X",
-										"y": "Mouse.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "icon_list_habilities_clone",
-									"sid": 618332592490880,
-									"parameters": {
-										"frame-number": "icon_list_habilities.AnimationFrame"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "icon_list_habilities_clone",
-									"sid": 141960033339971,
-									"behaviorType": "DragandDrop",
-									"parameters": {
-										"state": "enabled"
-									}
-								}
-							],
-							"sid": 990933597274654
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "on-touched-object",
-									"objectClass": "Touch",
-									"sid": 811500693630558,
-									"parameters": {
-										"object": "icon_list_armor",
-										"type": "start"
-									}
-								},
-								{
-									"id": "is-visible",
-									"objectClass": "icon_list_armor",
-									"sid": 209772980568936
-								},
-								{
-									"id": "compare-animation-frame",
-									"objectClass": "icon_list_armor",
-									"sid": 719617733322845,
-									"parameters": {
-										"comparison": 1,
-										"number": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 914261693232611,
-									"parameters": {
-										"object-to-create": "icon_list_armor_clone",
-										"layer": "\"Frg List\"",
-										"x": "Mouse.X",
-										"y": "Mouse.Y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "icon_list_armor_clone",
-									"sid": 791949273457793,
-									"parameters": {
-										"frame-number": "icon_list_armor.AnimationFrame"
-									}
-								},
-								{
-									"id": "set-enabled",
-									"objectClass": "icon_list_armor_clone",
-									"sid": 154948378057987,
-									"behaviorType": "DragandDrop",
-									"parameters": {
-										"state": "enabled"
-									}
-								}
-							],
-							"sid": 760761475409724
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
 									"id": "is-dragging",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 203880687673212,
+									"sid": 269509508131304,
 									"behaviorType": "DragandDrop"
 								}
 							],
@@ -10920,7 +10797,7 @@
 								{
 									"id": "set-active",
 									"objectClass": "Wp_Slot",
-									"sid": 584637950391537,
+									"sid": 865375298376217,
 									"behaviorType": "Sine",
 									"parameters": {
 										"state": "active"
@@ -10929,14 +10806,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 377219568770086,
+									"sid": 298191186360609,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 182925019052697
+							"sid": 316719024183161
 						},
 						{
 							"eventType": "block",
@@ -10944,7 +10821,7 @@
 								{
 									"id": "on-drop",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 217041225905486,
+									"sid": 132860760028493,
 									"behaviorType": "DragandDrop"
 								}
 							],
@@ -10952,7 +10829,7 @@
 								{
 									"id": "set-active",
 									"objectClass": "Wp_Slot",
-									"sid": 797524556922384,
+									"sid": 240357431268123,
 									"behaviorType": "Sine",
 									"parameters": {
 										"state": "inactive"
@@ -10961,13 +10838,13 @@
 								{
 									"id": "set-scale",
 									"objectClass": "Wp_Slot",
-									"sid": 523232519067733,
+									"sid": 706940282029439,
 									"parameters": {
 										"scale": "1"
 									}
 								}
 							],
-							"sid": 608756428756610,
+							"sid": 198081351012602,
 							"children": [
 								{
 									"eventType": "variable",
@@ -10977,7 +10854,7 @@
 									"comment": "",
 									"isStatic": false,
 									"isConstant": false,
-									"sid": 302355172622993
+									"sid": 890017549602198
 								},
 								{
 									"eventType": "comment",
@@ -10989,7 +10866,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "icon_list_weapon_clone",
-											"sid": 622778559487724,
+											"sid": 942908090865635,
 											"parameters": {
 												"object": "Wp_Slot"
 											}
@@ -10999,7 +10876,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 383493472052953,
+											"sid": 258856646228148,
 											"parameters": {
 												"variable": "frame",
 												"value": "icon_list_weapon_clone.AnimationFrame"
@@ -11008,7 +10885,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 456460715752433,
+											"sid": 746299837846125,
 											"parameters": {
 												"variable": "SlotAtual",
 												"value": "Wp_Slot.ID"
@@ -11017,13 +10894,13 @@
 										{
 											"id": "set-opacity",
 											"objectClass": "icon_list_weapon",
-											"sid": 661861930869977,
+											"sid": 693878690831787,
 											"parameters": {
 												"opacity": "99"
 											}
 										}
 									],
-									"sid": 487372298345598,
+									"sid": 493257497055573,
 									"children": [
 										{
 											"eventType": "comment",
@@ -11035,7 +10912,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "Wp_Slot",
-													"sid": 480349879392857,
+													"sid": 346559142974512,
 													"parameters": {
 														"instance-variable": "Free"
 													},
@@ -11043,7 +10920,7 @@
 												}
 											],
 											"actions": [],
-											"sid": 580654474718107,
+											"sid": 274495424962969,
 											"children": [
 												{
 													"eventType": "block",
@@ -11051,7 +10928,7 @@
 														{
 															"id": "is-boolean-instance-variable-set",
 															"objectClass": "icon_list_weapon_clone",
-															"sid": 495158659160234,
+															"sid": 190921204895670,
 															"parameters": {
 																"instance-variable": "Recent_Copy"
 															}
@@ -11059,7 +10936,7 @@
 														{
 															"id": "compare-opacity",
 															"objectClass": "icon_list_weapon_clone",
-															"sid": 565090154434649,
+															"sid": 518703041953361,
 															"parameters": {
 																"comparison": 0,
 																"opacity": "99"
@@ -11070,18 +10947,18 @@
 														{
 															"id": "destroy",
 															"objectClass": "icon_list_weapon_clone",
-															"sid": 498294736976670
+															"sid": 685291815840467
 														},
 														{
 															"callFunction": "Change Equipped Hab",
-															"sid": 674337961475447,
+															"sid": 770056192115363,
 															"parameters": [
 																"frame",
 																"\"WP\""
 															]
 														}
 													],
-													"sid": 221986985973933,
+													"sid": 646298322679657,
 													"isOrBlock": true
 												}
 											]
@@ -11096,7 +10973,7 @@
 												{
 													"id": "is-boolean-instance-variable-set",
 													"objectClass": "Wp_Slot",
-													"sid": 156099732720172,
+													"sid": 157965965968178,
 													"parameters": {
 														"instance-variable": "Free"
 													}
@@ -11105,7 +10982,7 @@
 											"actions": [
 												{
 													"callFunction": "Change Equipped Hab",
-													"sid": 771434047645690,
+													"sid": 215558430801441,
 													"parameters": [
 														"frame",
 														"\"WP\""
@@ -11114,7 +10991,7 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 375546015289787,
+													"sid": 183473669652867,
 													"parameters": {
 														"seconds": "0.01",
 														"use-timescale": true
@@ -11123,7 +11000,7 @@
 												{
 													"id": "set-position",
 													"objectClass": "icon_list_weapon_clone",
-													"sid": 385047471419022,
+													"sid": 188487291934994,
 													"parameters": {
 														"x": "Wp_Slot.X",
 														"y": "Wp_Slot.Y"
@@ -11132,7 +11009,7 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "icon_list_weapon_clone",
-													"sid": 735940158305817,
+													"sid": 243756425880504,
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
@@ -11141,7 +11018,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "icon_list_weapon_clone",
-													"sid": 578550812842956,
+													"sid": 337872100788499,
 													"parameters": {
 														"instance-variable": "Pin_Obj_ID",
 														"value": "Wp_Slot.ID"
@@ -11150,14 +11027,14 @@
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "Wp_Slot",
-													"sid": 903980912347950,
+													"sid": 633770250113606,
 													"parameters": {
 														"instance-variable": "Free",
 														"value": "false"
 													}
 												}
 											],
-											"sid": 322904811301709
+											"sid": 331078686882324
 										}
 									]
 								},
@@ -11171,12 +11048,12 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 853983843007160
+											"sid": 542550651485461
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "icon_list_weapon_clone",
-											"sid": 863627974445683,
+											"sid": 685079261506906,
 											"parameters": {
 												"instance-variable": "Recent_Copy"
 											}
@@ -11186,10 +11063,10 @@
 										{
 											"id": "destroy",
 											"objectClass": "icon_list_weapon_clone",
-											"sid": 267318062002145
+											"sid": 633944647691827
 										}
 									],
-									"sid": 492820372326346
+									"sid": 801634690876235
 								},
 								{
 									"eventType": "comment",
@@ -11201,7 +11078,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Wp_Slot",
-											"sid": 499405867746014,
+											"sid": 515351543382845,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
 											},
@@ -11210,7 +11087,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Wp_Slot",
-											"sid": 455145051529952,
+											"sid": 215804729452818,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
 											},
@@ -11221,14 +11098,14 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Wp_Slot",
-											"sid": 890958714602141,
+											"sid": 141567311678235,
 											"parameters": {
 												"instance-variable": "Free",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 568701194403769
+									"sid": 383660456131290
 								},
 								{
 									"eventType": "block",
@@ -11236,7 +11113,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Wp_Slot",
-											"sid": 307171299675641,
+											"sid": 638871807413325,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
 											}
@@ -11244,7 +11121,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Wp_Slot",
-											"sid": 461752094413740,
+											"sid": 717263386244542,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
 											}
@@ -11254,17 +11131,88 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "Wp_Slot",
-											"sid": 515168460148284,
+											"sid": 970301718583873,
 											"parameters": {
 												"instance-variable": "Free",
 												"value": "false"
 											}
 										}
 									],
-									"sid": 289249493516281,
+									"sid": 175968060907529,
 									"isOrBlock": true
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Skill",
+							"text-color": [
+								0,
+								0.8,
+								1,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 923449326271831,
+									"parameters": {
+										"object": "icon_list_habilities",
+										"type": "start"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "icon_list_habilities",
+									"sid": 846879593781650
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "icon_list_habilities",
+									"sid": 412677335408303,
+									"parameters": {
+										"comparison": 1,
+										"number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 136083420829162,
+									"parameters": {
+										"object-to-create": "icon_list_habilities_clone",
+										"layer": "\"Frg List\"",
+										"x": "Mouse.X",
+										"y": "Mouse.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 639696803356154,
+									"parameters": {
+										"frame-number": "icon_list_habilities.AnimationFrame"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 567790560747951,
+									"behaviorType": "DragandDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 934537847102361
 						},
 						{
 							"eventType": "block",
@@ -11272,15 +11220,15 @@
 								{
 									"id": "is-dragging",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 632733395231613,
+									"sid": 579001834755194,
 									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Wp_Slot",
-									"sid": 842149749977066,
+									"objectClass": "Hab_Slot",
+									"sid": 673626477310909,
 									"behaviorType": "Sine",
 									"parameters": {
 										"state": "active"
@@ -11289,14 +11237,14 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 332541500385267,
+									"sid": 179213516982948,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 699613532641481
+							"sid": 362164713892036
 						},
 						{
 							"eventType": "block",
@@ -11304,15 +11252,15 @@
 								{
 									"id": "on-drop",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 123237143312703,
+									"sid": 711847020276122,
 									"behaviorType": "DragandDrop"
 								}
 							],
 							"actions": [
 								{
 									"id": "set-active",
-									"objectClass": "Wp_Slot",
-									"sid": 938295653172125,
+									"objectClass": "Hab_Slot",
+									"sid": 372104851805220,
 									"behaviorType": "Sine",
 									"parameters": {
 										"state": "inactive"
@@ -11320,14 +11268,14 @@
 								},
 								{
 									"id": "set-scale",
-									"objectClass": "Wp_Slot",
-									"sid": 328837341283312,
+									"objectClass": "Hab_Slot",
+									"sid": 324859268739398,
 									"parameters": {
 										"scale": "1"
 									}
 								}
 							],
-							"sid": 974411119327133,
+							"sid": 216069320602052,
 							"children": [
 								{
 									"eventType": "variable",
@@ -11337,7 +11285,7 @@
 									"comment": "",
 									"isStatic": false,
 									"isConstant": false,
-									"sid": 216545614624781
+									"sid": 970851725238188
 								},
 								{
 									"eventType": "block",
@@ -11345,9 +11293,9 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "icon_list_habilities_clone",
-											"sid": 607545392968621,
+											"sid": 885305316284846,
 											"parameters": {
-												"object": "Wp_Slot"
+												"object": "Hab_Slot"
 											}
 										}
 									],
@@ -11355,7 +11303,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 329783425883555,
+											"sid": 988821583338037,
 											"parameters": {
 												"variable": "frame",
 												"value": "icon_list_habilities_clone.AnimationFrame"
@@ -11364,22 +11312,22 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 420409294235011,
+											"sid": 757945953897960,
 											"parameters": {
 												"variable": "SlotAtual",
-												"value": "Wp_Slot.ID"
+												"value": "Hab_Slot.ID"
 											}
 										}
 									],
-									"sid": 239808463668354,
+									"sid": 548687455686296,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Wp_Slot",
-													"sid": 103915035101344,
+													"objectClass": "Hab_Slot",
+													"sid": 291416332086373,
 													"parameters": {
 														"instance-variable": "Free"
 													},
@@ -11387,7 +11335,7 @@
 												}
 											],
 											"actions": [],
-											"sid": 203419077574284,
+											"sid": 993200673727451,
 											"children": [
 												{
 													"eventType": "block",
@@ -11395,7 +11343,7 @@
 														{
 															"id": "is-boolean-instance-variable-set",
 															"objectClass": "icon_list_habilities_clone",
-															"sid": 979897249116458,
+															"sid": 110798506960272,
 															"parameters": {
 																"instance-variable": "Recent_Copy"
 															}
@@ -11405,18 +11353,18 @@
 														{
 															"id": "destroy",
 															"objectClass": "icon_list_habilities_clone",
-															"sid": 835334274136455
+															"sid": 495013111236885
 														},
 														{
 															"callFunction": "Change Equipped Hab",
-															"sid": 577302039020299,
+															"sid": 133241844898977,
 															"parameters": [
 																"frame",
 																"\"HAB\""
 															]
 														}
 													],
-													"sid": 552994570211533
+													"sid": 188687540620664
 												}
 											]
 										},
@@ -11425,8 +11373,8 @@
 											"conditions": [
 												{
 													"id": "is-boolean-instance-variable-set",
-													"objectClass": "Wp_Slot",
-													"sid": 530045156374172,
+													"objectClass": "Hab_Slot",
+													"sid": 631035861983846,
 													"parameters": {
 														"instance-variable": "Free"
 													}
@@ -11435,7 +11383,7 @@
 											"actions": [
 												{
 													"callFunction": "Change Equipped Hab",
-													"sid": 626024484025753,
+													"sid": 380573123471579,
 													"parameters": [
 														"frame",
 														"\"HAB\""
@@ -11444,7 +11392,7 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 523246190466848,
+													"sid": 689836130348175,
 													"parameters": {
 														"seconds": "0.01",
 														"use-timescale": true
@@ -11453,16 +11401,16 @@
 												{
 													"id": "set-position",
 													"objectClass": "icon_list_habilities_clone",
-													"sid": 566062257690397,
+													"sid": 861731054715005,
 													"parameters": {
-														"x": "Wp_Slot.X",
-														"y": "Wp_Slot.Y"
+														"x": "Hab_Slot.X",
+														"y": "Hab_Slot.Y"
 													}
 												},
 												{
 													"id": "set-boolean-instvar",
 													"objectClass": "icon_list_habilities_clone",
-													"sid": 377228891796123,
+													"sid": 511092846772135,
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
@@ -11471,23 +11419,23 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "icon_list_habilities_clone",
-													"sid": 781044854046619,
+													"sid": 863313630033709,
 													"parameters": {
 														"instance-variable": "Pin_Obj_ID",
-														"value": "Wp_Slot.ID"
+														"value": "Hab_Slot.ID"
 													}
 												},
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Wp_Slot",
-													"sid": 426370692243917,
+													"objectClass": "Hab_Slot",
+													"sid": 316775774917473,
 													"parameters": {
 														"instance-variable": "Free",
 														"value": "false"
 													}
 												}
 											],
-											"sid": 389422221138632
+											"sid": 781277563730547
 										}
 									]
 								},
@@ -11497,12 +11445,12 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 873136944615631
+											"sid": 772005532160369
 										},
 										{
 											"id": "is-boolean-instance-variable-set",
 											"objectClass": "icon_list_habilities_clone",
-											"sid": 187566085710458,
+											"sid": 954649046246444,
 											"parameters": {
 												"instance-variable": "Recent_Copy"
 											}
@@ -11512,18 +11460,18 @@
 										{
 											"id": "destroy",
 											"objectClass": "icon_list_habilities_clone",
-											"sid": 117328712108794
+											"sid": 611713381215248
 										}
 									],
-									"sid": 664382866942996
+									"sid": 962695267852990
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Wp_Slot",
-											"sid": 125960358614392,
+											"objectClass": "Hab_Slot",
+											"sid": 480921607047154,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
 											},
@@ -11531,8 +11479,8 @@
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Wp_Slot",
-											"sid": 364199116257812,
+											"objectClass": "Hab_Slot",
+											"sid": 424368479334557,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
 											},
@@ -11542,31 +11490,31 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Wp_Slot",
-											"sid": 296294580456850,
+											"objectClass": "Hab_Slot",
+											"sid": 622427095527357,
 											"parameters": {
 												"instance-variable": "Free",
 												"value": "true"
 											}
 										}
 									],
-									"sid": 269713688129149
+									"sid": 710012821020766
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Wp_Slot",
-											"sid": 522059501788601,
+											"objectClass": "Hab_Slot",
+											"sid": 910736865908333,
 											"parameters": {
 												"object": "icon_list_habilities_clone"
 											}
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Wp_Slot",
-											"sid": 664751865399371,
+											"objectClass": "Hab_Slot",
+											"sid": 945880914876223,
 											"parameters": {
 												"object": "icon_list_weapon_clone"
 											}
@@ -11575,18 +11523,89 @@
 									"actions": [
 										{
 											"id": "set-boolean-instvar",
-											"objectClass": "Wp_Slot",
-											"sid": 971424198210213,
+											"objectClass": "Hab_Slot",
+											"sid": 342342837944548,
 											"parameters": {
 												"instance-variable": "Free",
 												"value": "false"
 											}
 										}
 									],
-									"sid": 234975631582223,
+									"sid": 775170904266686,
 									"isOrBlock": true
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Armor",
+							"text-color": [
+								1,
+								0.9176470588235294,
+								0,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 570279406434484,
+									"parameters": {
+										"object": "icon_list_armor",
+										"type": "start"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "icon_list_armor",
+									"sid": 137258914545691
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "icon_list_armor",
+									"sid": 999432028092749,
+									"parameters": {
+										"comparison": 1,
+										"number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 430994964273067,
+									"parameters": {
+										"object-to-create": "icon_list_armor_clone",
+										"layer": "\"Frg List\"",
+										"x": "Mouse.X",
+										"y": "Mouse.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 263268129073620,
+									"parameters": {
+										"frame-number": "icon_list_armor.AnimationFrame"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 469834495042822,
+									"behaviorType": "DragandDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 617923164016699
 						},
 						{
 							"eventType": "block",
@@ -11780,15 +11799,6 @@
 															"parameters": {
 																"frame-number": "Armor_ID"
 															}
-														},
-														{
-															"id": "log",
-															"objectClass": "Browser",
-															"sid": 205798735011913,
-															"parameters": {
-																"type": "log",
-																"message": "\"e aqui\""
-															}
 														}
 													],
 													"sid": 474475932176934
@@ -11869,6 +11879,14 @@
 													"parameters": {
 														"frame-number": "Armor_ID"
 													}
+												},
+												{
+													"callFunction": "Change Equipped Hab",
+													"sid": 311665097735887,
+													"parameters": [
+														"frame",
+														"\"ARM-SLOTS\""
+													]
 												}
 											],
 											"sid": 157254583194468
@@ -12313,7 +12331,7 @@
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "Se houver outro ícone igual ao que foi chamado pela função, destroi o ícone antigo, pois não é permitido equipar a mesma arma/hab em slots diferentes"
+											"text": "Se houver outro ícone igual ao que foi chamado pela função, destroi o ícone antigo, pois não é permitido equipar a mesma hab em slots diferentes"
 										},
 										{
 											"eventType": "block",
@@ -12334,7 +12352,7 @@
 													"objectClass": "icon_list_habilities_clone",
 													"sid": 805298379148422,
 													"parameters": {
-														"object": "Wp_Slot"
+														"object": "Hab_Slot"
 													}
 												},
 												{
@@ -12350,7 +12368,7 @@
 											"actions": [
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Wp_Slot",
+													"objectClass": "Hab_Slot",
 													"sid": 900787547992775,
 													"parameters": {
 														"instance-variable": "Free",
@@ -12434,7 +12452,7 @@
 										},
 										{
 											"eventType": "comment",
-											"text": "Se houver uma arma no slot atual, então destroi e spawna a hab no slot"
+											"text": "Se houver uma hab no slot atual, então destroi e spawna a hab no slot"
 										},
 										{
 											"eventType": "block",
@@ -12455,7 +12473,7 @@
 													"objectClass": "icon_list_weapon_clone",
 													"sid": 335525341563858,
 													"parameters": {
-														"object": "Wp_Slot"
+														"object": "Hab_Slot"
 													}
 												},
 												{
@@ -12476,7 +12494,7 @@
 												},
 												{
 													"id": "spawn-another-object",
-													"objectClass": "Wp_Slot",
+													"objectClass": "Hab_Slot",
 													"sid": 467918879097441,
 													"parameters": {
 														"object": "icon_list_habilities_clone",
@@ -12538,7 +12556,7 @@
 											"conditions": [
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "Wp_Slot",
+													"objectClass": "Hab_Slot",
 													"sid": 521315709730778,
 													"parameters": {
 														"object": "icon_list_habilities_clone"
@@ -12547,7 +12565,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "Wp_Slot",
+													"objectClass": "Hab_Slot",
 													"sid": 348763658075957,
 													"parameters": {
 														"object": "icon_list_weapon_clone"
@@ -12558,7 +12576,7 @@
 											"actions": [
 												{
 													"id": "set-boolean-instvar",
-													"objectClass": "Wp_Slot",
+													"objectClass": "Hab_Slot",
 													"sid": 106929389429927,
 													"parameters": {
 														"instance-variable": "Free",
@@ -12658,9 +12676,724 @@
 													"parameters": {
 														"frame-number": "Armor_ID"
 													}
+												},
+												{
+													"callFunction": "Change Equipped Hab",
+													"sid": 202609545772908,
+													"parameters": [
+														"int(Armor_ID)",
+														"\"ARM-SLOTS\""
+													]
 												}
 											],
 											"sid": 834339754027849
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Altara os slots dependendo da quantidade da Armadura"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 149316002409130,
+											"parameters": {
+												"variable": "type",
+												"comparison": 0,
+												"value": "\"ARM-SLOTS\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 518326297521122,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Wood"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 648177356822852,
+													"parameters": {
+														"variable": "frame",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 298670943510688,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 805090771112865,
+															"parameters": {
+																"object": "Wp_Slot",
+																"expression": "Wp_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Wp_Slot",
+															"sid": 115419422105931
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 138695900567232,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 797120509251336
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 147506458756499,
+															"parameters": {
+																"object": "Hab_Slot",
+																"expression": "Hab_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Hab_Slot",
+															"sid": 814137273085385
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 628515443800989,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 131171539106273
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Copper"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 325723620655232,
+													"parameters": {
+														"variable": "frame",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 440807946341193,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 704875469967400,
+															"parameters": {
+																"object": "Wp_Slot",
+																"expression": "Wp_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Wp_Slot",
+															"sid": 877089026078502
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 172791826977306,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 842478446414844
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 498676230516230,
+															"parameters": {
+																"object": "Hab_Slot",
+																"expression": "Hab_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 581858893175533
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 221614969134898,
+															"parameters": {
+																"object-to-create": "Hab_Slot",
+																"layer": "\"Frg List\"",
+																"x": " 1160",
+																"y": "176",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hab_Slot",
+															"sid": 997871341049711,
+															"parameters": {
+																"instance-variable": "ID",
+																"value": "2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 722745168108402,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 477582987995542
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Iron"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 864065703733834,
+													"parameters": {
+														"variable": "frame",
+														"comparison": 0,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 283662091672786,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 335308921491983,
+															"parameters": {
+																"object": "Wp_Slot",
+																"expression": "Wp_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 244703347263057
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 782317262839023,
+															"parameters": {
+																"object-to-create": "Wp_Slot",
+																"layer": "\"Frg List\"",
+																"x": " 1130",
+																"y": "106",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Wp_Slot",
+															"sid": 848492708669883,
+															"parameters": {
+																"instance-variable": "ID",
+																"value": "2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 942849740958439,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 385990114224670
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 150711383444191,
+															"parameters": {
+																"object": "Hab_Slot",
+																"expression": "Hab_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Hab_Slot",
+															"sid": 407893912030527
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 508552257431202,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 776699388473341
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Titanium"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 910977983931914,
+													"parameters": {
+														"variable": "frame",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 606400847269910,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 536272937914237,
+															"parameters": {
+																"object": "Wp_Slot",
+																"expression": "Wp_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 331250562784365
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 660617479799490
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 747594059332949,
+															"parameters": {
+																"object-to-create": "Wp_Slot",
+																"layer": "\"Frg List\"",
+																"x": " 1130",
+																"y": "106",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Wp_Slot",
+															"sid": 737424223436124,
+															"parameters": {
+																"instance-variable": "ID",
+																"value": "2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 409842355303696,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 562528828030358
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 597168629504436,
+															"parameters": {
+																"object": "Hab_Slot",
+																"expression": "Hab_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Hab_Slot",
+															"sid": 160580928473113
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 523726167428898,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 717180064922780
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Tungsten"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 844114074292604,
+													"parameters": {
+														"variable": "frame",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 414645143635427,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 750888234255526,
+															"parameters": {
+																"object": "Wp_Slot",
+																"expression": "Wp_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Wp_Slot",
+															"sid": 579800361713587
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 851817982785806,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 702692233485908
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 194998646472152,
+															"parameters": {
+																"object": "Hab_Slot",
+																"expression": "Hab_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 402462613237322
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 494619913267445,
+															"parameters": {
+																"object-to-create": "Hab_Slot",
+																"layer": "\"Frg List\"",
+																"x": " 1160",
+																"y": "176",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hab_Slot",
+															"sid": 204988109583700,
+															"parameters": {
+																"instance-variable": "ID",
+																"value": "2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 387939853386299,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 312387313429832
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Vaporium"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 903591944758022,
+													"parameters": {
+														"variable": "frame",
+														"comparison": 0,
+														"value": "6"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 932605380783102,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 401163295999222,
+															"parameters": {
+																"object": "Wp_Slot",
+																"expression": "Wp_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 734313553998183
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 929034748867650
+														}
+													],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 955633147000081,
+															"parameters": {
+																"object-to-create": "Wp_Slot",
+																"layer": "\"Frg List\"",
+																"x": " 1130",
+																"y": "106",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Wp_Slot",
+															"sid": 171757606952046,
+															"parameters": {
+																"instance-variable": "ID",
+																"value": "2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 731536587736997,
+															"parameters": {
+																"variable": "Weapon_ID_2",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 495942480033468
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 128486656627248,
+															"parameters": {
+																"object": "Hab_Slot",
+																"expression": "Hab_Slot.ID",
+																"comparison": 0,
+																"value": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 813118326530903
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 149920779396083,
+															"parameters": {
+																"object-to-create": "Hab_Slot",
+																"layer": "\"Frg List\"",
+																"x": " 1160",
+																"y": "176",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Hab_Slot",
+															"sid": 820078667638724,
+															"parameters": {
+																"instance-variable": "ID",
+																"value": "2"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 693724831769979,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "0"
+															}
+														}
+													],
+													"sid": 985962841136630
+												}
+											]
 										}
 									]
 								}
@@ -12721,15 +13454,6 @@
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "Wp_Slot",
-															"sid": 897732178611874,
-															"parameters": {
-																"object": "icon_list_habilities_clone"
-															},
-															"isInverted": true
-														},
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Wp_Slot",
 															"sid": 255729875761301,
 															"parameters": {
 																"object": "icon_list_weapon_clone"
@@ -12783,31 +13507,6 @@
 														}
 													],
 													"sid": 885452591968726
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Wp_Slot",
-															"sid": 105714417446792,
-															"parameters": {
-																"object": "icon_list_habilities_clone"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 184038441556864,
-															"parameters": {
-																"variable": "Weapon_ID_1",
-																"value": "\"HAB_\" & icon_list_habilities_clone.AnimationFrame - 1"
-															}
-														}
-													],
-													"sid": 162308247619799
 												}
 											]
 										},
@@ -12831,15 +13530,6 @@
 												{
 													"eventType": "block",
 													"conditions": [
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "Wp_Slot",
-															"sid": 462749506406726,
-															"parameters": {
-																"object": "icon_list_habilities_clone"
-															},
-															"isInverted": true
-														},
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "Wp_Slot",
@@ -12896,14 +13586,85 @@
 														}
 													],
 													"sid": 718395228843312
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 285705654213808,
+											"parameters": {
+												"object": "Hab_Slot"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 256279338004979,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 898494214524834,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 119145670648574,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 413023058833296,
+															"parameters": {
+																"object": "icon_list_habilities_clone"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 135183148759519,
+															"parameters": {
+																"variable": "HAB_ID_1",
+																"value": "-1"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Hab_Slot",
+															"sid": 665192695942085,
+															"parameters": {
+																"instance-variable": "Free",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 149478029991562
 												},
 												{
 													"eventType": "block",
 													"conditions": [
 														{
 															"id": "is-overlapping-another-object",
-															"objectClass": "Wp_Slot",
-															"sid": 203027357170539,
+															"objectClass": "Hab_Slot",
+															"sid": 798564367057954,
 															"parameters": {
 																"object": "icon_list_habilities_clone"
 															}
@@ -12913,14 +13674,93 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 126717771424740,
+															"sid": 940603849725921,
 															"parameters": {
-																"variable": "Weapon_ID_2",
-																"value": "\"HAB_\" & icon_list_habilities_clone.AnimationFrame - 1"
+																"variable": "HAB_ID_1",
+																"value": "icon_list_habilities_clone.AnimationFrame - 1"
 															}
 														}
 													],
-													"sid": 372798701857778
+													"sid": 951211613437820
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Hab_Slot",
+													"sid": 681457106921216,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 716851038643770,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 369252315104335,
+															"parameters": {
+																"object": "icon_list_habilities_clone"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 411148159169439,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "-1"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Hab_Slot",
+															"sid": 110360605522173,
+															"parameters": {
+																"instance-variable": "Free",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 159064824170131
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Hab_Slot",
+															"sid": 205169799647344,
+															"parameters": {
+																"object": "icon_list_habilities_clone"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 337161285609113,
+															"parameters": {
+																"variable": "HAB_ID_2",
+																"value": "icon_list_habilities_clone.AnimationFrame - 1"
+															}
+														}
+													],
+													"sid": 626769951189475
 												}
 											]
 										}
@@ -21179,11 +22019,20 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 854582650937118,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"value": "\"Fight\""
+							}
+						},
+						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 613191101940894,
+							"sid": 741595243125434,
 							"parameters": {
-								"layout": "Fight"
+								"layout": "Loading"
 							}
 						}
 					],
@@ -24646,48 +25495,6 @@
 						}
 					],
 					"sid": 395077851274701
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-completed",
-							"objectClass": "AJAX",
-							"sid": 650791794057901,
-							"parameters": {
-								"tag": "\"en-US\""
-							}
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 213749533688418,
-							"parameters": {
-								"variable": "Language",
-								"comparison": 0,
-								"value": "\"en-US\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "load-from-json",
-							"objectClass": "Internationalization",
-							"sid": 761862116784441,
-							"parameters": {
-								"json": "AJAX.LastData"
-							}
-						},
-						{
-							"id": "set-locale",
-							"objectClass": "Internationalization",
-							"sid": 650770067782786,
-							"parameters": {
-								"locale": "Language"
-							}
-						}
-					],
-					"sid": 289634029343314
 				},
 				{
 					"functionName": "Save_Local_Storage",

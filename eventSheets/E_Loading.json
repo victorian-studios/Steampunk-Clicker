@@ -1,0 +1,361 @@
+{
+	"name": "E_Loading",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Layout_To_Load",
+			"type": "string",
+			"initialValue": "First_Time_Menu",
+			"comment": "Nome do layout que o jogador está sendo redirecionado",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 236125231992550
+		},
+		{
+			"eventType": "variable",
+			"name": "Ready_To_Start",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "Permite o jogador clicar na tela para começar o jogo",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 280677508225478
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 687497093113179
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 893694551091590,
+					"parameters": {
+						"variable": "Ready_To_Start",
+						"value": "false"
+					}
+				}
+			],
+			"sid": 976111311952275,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 803908798244455,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 0,
+								"value": "\"Fight\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "typewriter-text",
+							"objectClass": "Text_Fixed",
+							"sid": 414500983736056,
+							"parameters": {
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"duration": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 358381022842590,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "load-object-images",
+							"objectClass": "System",
+							"sid": 800017990517019,
+							"parameters": {
+								"object": "Player"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 574513710738877,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "load-object-images",
+							"objectClass": "System",
+							"sid": 399732621582715,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"sid": 146434813301445
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 640175931693135,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 0,
+								"value": "\"Game\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "typewriter-text",
+							"objectClass": "Text_Fixed",
+							"sid": 412019622229923,
+							"parameters": {
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"duration": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 518726165128140,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "load-layout-images",
+							"objectClass": "System",
+							"sid": 319403483512844,
+							"parameters": {
+								"layout": "Game"
+							}
+						}
+					],
+					"sid": 948278020847972
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 146118300119194,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 0,
+								"value": "\"First_Time_Menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "victorianstudio",
+							"sid": 462403121024087,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 416912179201740,
+							"parameters": {
+								"tag": "\"en-US\"",
+								"file": {
+									"path": "en-US.json"
+								}
+							}
+						}
+					],
+					"sid": 445197504795340
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 595509555573025,
+					"parameters": {
+						"interval-seconds": "7"
+					}
+				},
+				{
+					"id": "is-loading-images",
+					"objectClass": "System",
+					"sid": 697533621371108
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 701261606072321,
+					"parameters": {
+						"variable": "Ready_To_Start"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "typewriter-text",
+					"objectClass": "Text_Fixed",
+					"sid": 956902977269005,
+					"parameters": {
+						"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+						"duration": "1"
+					}
+				}
+			],
+			"sid": 214035510307008
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-image-loading-complete",
+					"objectClass": "System",
+					"sid": 783350389815410
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 368986257191466,
+					"parameters": {
+						"layout": "Layout_To_Load"
+					}
+				}
+			],
+			"sid": 707303925888895
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 747665807193014
+				},
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 296422811046691
+				}
+			],
+			"actions": [],
+			"sid": 652397729391929,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 449533850330817,
+							"parameters": {
+								"variable": "Ready_To_Start"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 135636355035311,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 757101389369916
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 991873368658133,
+					"parameters": {
+						"tag": "\"en-US\""
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 273288923725398,
+					"parameters": {
+						"variable": "Language",
+						"comparison": 0,
+						"value": "\"en-US\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load-from-json",
+					"objectClass": "Internationalization",
+					"sid": 933399696817393,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-locale",
+					"objectClass": "Internationalization",
+					"sid": 214878104495647,
+					"parameters": {
+						"locale": "Language"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 674129084151979,
+					"parameters": {
+						"variable": "Ready_To_Start",
+						"value": "true"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 860008799214343
+				},
+				{
+					"id": "typewriter-text",
+					"objectClass": "Text_Fixed",
+					"sid": 585131350765614,
+					"parameters": {
+						"text": "Internationalization.Lookup( Self.my_Txt & \".ready\" )",
+						"duration": "1"
+					}
+				}
+			],
+			"sid": 251050673486792
+		}
+	],
+	"sid": 203567447080996
+}
