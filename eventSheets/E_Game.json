@@ -4360,6 +4360,1969 @@
 					"sid": 425942267749677
 				},
 				{
+					"functionName": "Update_Upgrades",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Full_Scan",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 991392561686512
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 570137247264579,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "\"update upgrades chamado\""
+							}
+						}
+					],
+					"sid": 571827528293224,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Verifica da ícone existe APENAS da camada atual para atualizar suas variáveis internas"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 844621486026176,
+									"parameters": {
+										"object": "Icon_Upg"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 705248617242912,
+									"parameters": {
+										"layer": "ActiveLayer"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 897006184990346,
+									"parameters": {
+										"variable": "Full_Scan"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 999573231902824,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Icon_Upg",
+											"sid": 770098353453545,
+											"parameters": {
+												"instance-variable": "Sold"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Icon_Upg",
+											"sid": 519618177999568,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 680136646693438,
+											"parameters": [
+												"int( tokenat( Icon_Upg.Upg_Connections, 0, \"_\" ) )"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 325164928800359,
+											"parameters": [
+												"int( tokenat( Icon_Upg.Upg_Connections, 1, \"_\" ) )"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 418191728588893,
+											"parameters": [
+												"int( tokenat( Icon_Upg.Upg_Connections, 2, \"_\" ) )"
+											]
+										}
+									],
+									"sid": 370882575923663
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Icon_Upg",
+											"sid": 831860886003196,
+											"parameters": {
+												"instance-variable": "Unlocked"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Icon_Upg",
+											"sid": 223072388943254,
+											"parameters": {
+												"opacity": "100"
+											}
+										}
+									],
+									"sid": 196983100140464
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Icon_Upg",
+											"sid": 603968491714996,
+											"parameters": {
+												"instance-variable": "Unlocked"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Icon_Upg",
+											"sid": 845730400990953,
+											"parameters": {
+												"animation": "\"Locked\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Icon_Upg",
+											"sid": 967821032159596,
+											"parameters": {
+												"opacity": "30"
+											}
+										}
+									],
+									"sid": 899958345280669
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 810619724501725,
+									"parameters": {
+										"object": "Icon_Upg"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 498547483181649,
+									"parameters": {
+										"variable": "Full_Scan"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 353915327818382,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Se o valor salvo no A_Upg_Data for:\n\n-1 = Trancado totalmente\n0 = Liberado visualmente, mas ainda inacessível\n1 = Desbloqueado para compra\n2 = Comprado"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 556385290369158,
+											"parameters": {
+												"layer": "\"Steam\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 482026384055420,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 322191971390088,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "0",
+														"comparison": 0,
+														"value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 486866364709432,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 317228555681194,
+													"parameters": {
+														"animation": "\"Locked\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 820540987821702
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 909259021270246,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "0",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 162168052337148,
+													"parameters": {
+														"opacity": "30"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 338292919862009,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 681516094541638,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 831261629532098
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 235738408017014,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "0",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 138350115876904,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 130995857003448,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 405884988357775,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 867608935505637,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 916993481290110
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 550607680674525,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "0",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 468649389975766,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 714620572629752,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 832797453658844,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 218628639939530,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 322979670554803,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 426830545144939
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 459739939046996,
+											"parameters": {
+												"layer": "\"Wood\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 197950202715391,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 348021061827404,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "1",
+														"comparison": 0,
+														"value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 832190130403941,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 136378958408083,
+													"parameters": {
+														"animation": "\"Locked\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 922889587301947
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 199806167221318,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "1",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 660066305450950,
+													"parameters": {
+														"opacity": "30"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 211128076091438,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 722889224175223,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 895704966350911
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 154239009297395,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "1",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 324879954455795,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 805963343804597,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 792391900872318,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 532193933031185
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 145031818968409,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "1",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 686098559708780,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 597644828795391,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 663419552425910,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 935716256537442,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 323294575268971,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 176611796194195
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 777671875339515,
+											"parameters": {
+												"layer": "\"Copper\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 683153432843951,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 718942544285807,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "2",
+														"comparison": 0,
+														"value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 736099532967678,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 255884956511271,
+													"parameters": {
+														"animation": "\"Locked\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 968743758209029
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 711849184469776,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "2",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 155635260158607,
+													"parameters": {
+														"opacity": "30"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 161481620745745,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 939894192459669,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 214796562864104
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 765036173309505,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "2",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 874093906038200,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 907016102352799,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 104860654860063,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 452900693373453
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 647593941873015,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "2",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 319754941208367,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 284049037467920,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 458508693237049,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 958542177716850,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 327224395547385,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 144545204080775
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 613233916607469,
+											"parameters": {
+												"layer": "\"Iron\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 458942962241761,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 842478274064172,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "3",
+														"comparison": 0,
+														"value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 405912831022803,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 709472708300641,
+													"parameters": {
+														"animation": "\"Locked\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 626946967145948
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 169988250131629,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "3",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 165592497761942,
+													"parameters": {
+														"opacity": "30"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 900689432309431,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 835654508632766,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 570649096354191
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 777891638184350,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "3",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 220029035698976,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 985508715917132,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 902276276833814,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 900780971274009
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 104351275328224,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "3",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 319927477890289,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 353585593458958,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 790286227988128,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 842429735671100,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 300250949646616,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 808951240549939
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 878593502577149,
+											"parameters": {
+												"layer": "\"Titanium\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 703170606995856,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 223308393470539,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "4",
+														"comparison": 0,
+														"value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 300316399855443,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 577472183221009,
+													"parameters": {
+														"animation": "\"Locked\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 499767195331539
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 288002293975081,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "4",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 328593359904007,
+													"parameters": {
+														"opacity": "30"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 693368777391993,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 869279712215308,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 458045775112149
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 789740813290146,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "4",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 522460458641513,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 536354137749374,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 955246661686888,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 983650379295438
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 722298297220733,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "4",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 667213465135205,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 575712570740959,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 297472263800028,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 114153095297052,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 609091116184943,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 776110174379855
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 394779425806385,
+											"parameters": {
+												"layer": "\"Tungsten\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 547470116395856,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 532186975687140,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "5",
+														"comparison": 0,
+														"value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 794615252752987,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 793048816229888,
+													"parameters": {
+														"animation": "\"Locked\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 588006891772203
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 698569177566860,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "5",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 750235822716169,
+													"parameters": {
+														"opacity": "30"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 520493881199729,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 783343782389229,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 580997281802026
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 401125768343569,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "5",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 413287992756331,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 851843550276711,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 364247571354223,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 430890710599454
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 316933756661391,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "5",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 876259063240819,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 293078133611223,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 905543043972345,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 109466374573011,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 399808092762278,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 437231137187054
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "Icon_Upg",
+											"sid": 180731959893828,
+											"parameters": {
+												"layer": "\"Vaporium\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 878361044040046,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 813437904292308,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "6",
+														"comparison": 0,
+														"value": "-1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 597893459974997,
+													"parameters": {
+														"opacity": "100"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 291994205493798,
+													"parameters": {
+														"animation": "\"Locked\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 367522025132342
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 618546407726066,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "1",
+														"z": "6",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 351526054113818,
+													"parameters": {
+														"opacity": "30"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 979099149325424,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 529234189113197,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 615546087324977
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 136364100917146,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "6",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 251242705397633,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 432304176563508,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 617345936764919,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												}
+											],
+											"sid": 711092809071254
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Upg_Data",
+													"sid": 488398258189680,
+													"parameters": {
+														"x": "int(Icon_Upg.Name)",
+														"y": "2",
+														"z": "6",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 493048020447991,
+													"parameters": {
+														"instance-variable": "Unlocked",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Icon_Upg",
+													"sid": 570339871801429,
+													"parameters": {
+														"instance-variable": "Sold",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Icon_Upg",
+													"sid": 867289060665268,
+													"parameters": {
+														"animation": "Self.LayerName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Upg",
+													"sid": 295165180195964,
+													"parameters": {
+														"frame-number": "int( Self.Name ) - 1"
+													}
+												},
+												{
+													"id": "set-opacity",
+													"objectClass": "Icon_Upg",
+													"sid": 879278853477660,
+													"parameters": {
+														"opacity": "100"
+													}
+												}
+											],
+											"sid": 204485156859321
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Icon_Upg",
+											"sid": 842496444193416,
+											"parameters": {
+												"instance-variable": "Sold"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Icon_Upg",
+											"sid": 949595853630371,
+											"parameters": {
+												"instance-variable": "Name",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 652467946974327,
+											"parameters": [
+												"int( tokenat( Icon_Upg.Upg_Connections, 0, \"_\" ) )"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 796336660085150,
+											"parameters": [
+												"int( tokenat( Icon_Upg.Upg_Connections, 1, \"_\" ) )"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 874796579048366,
+											"parameters": [
+												"int( tokenat( Icon_Upg.Upg_Connections, 2, \"_\" ) )"
+											]
+										}
+									],
+									"sid": 956025206695237
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Icon_Upg",
+											"sid": 727288153583353,
+											"parameters": {
+												"instance-variable": "Unlocked"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 585746021638196
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Icon_Upg",
+											"sid": 193420258780998,
+											"parameters": {
+												"instance-variable": "Unlocked"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Icon_Upg",
+											"sid": 946437944976315,
+											"parameters": {
+												"animation": "\"Locked\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 358642692858565
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Bkgs de upgrade devem acender (frame 1) quando o seu ícone em cima estiver com SOLD = TRUE"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 810650352809524,
+									"parameters": {
+										"object": "Bkg_Icon_Upg"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Bkg_Icon_Upg",
+									"sid": 855786228154809,
+									"parameters": {
+										"layer": "ActiveLayer"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Bkg_Icon_Upg",
+									"sid": 554542421477123,
+									"parameters": {
+										"object": "Icon_Upg"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Upg",
+									"sid": 180735796129259,
+									"parameters": {
+										"instance-variable": "Sold"
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Icon_Upg",
+									"sid": 298361719301992,
+									"parameters": {
+										"layer": "ActiveLayer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Bkg_Icon_Upg",
+									"sid": 203075271004384,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 757135763333961
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "A_Upg_Data",
+									"sid": 404319159246938,
+									"parameters": {
+										"axes": "xyz"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 322266625337410,
+									"parameters": {
+										"variable": "Full_Scan"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 108215630671362,
+									"parameters": {
+										"first-value": "A_Upg_Data.CurX",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 284750014803063,
+									"parameters": {
+										"first-value": "A_Upg_Data.CurY",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 282118683396360,
+									"parameters": {
+										"first-value": "A_Upg_Data.CurValue",
+										"comparison": 0,
+										"second-value": "2"
+									}
+								},
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 517387387368403,
+									"parameters": {
+										"object": "water_anim",
+										"expression": "water_anim.ID",
+										"comparison": 0,
+										"value": "A_Upg_Data.CurX"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "water_anim",
+									"sid": 153304001372712,
+									"parameters": {
+										"frame-number": "Self.AnimationFrameCount - 1"
+									}
+								}
+							],
+							"sid": 680527268647858
+						}
+					]
+				},
+				{
+					"functionName": "Unlock_Upgrade",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "upgrade_id",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 629063158886049
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 771532057072111,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 436434299864900,
+									"parameters": {
+										"object": "Icon_Upg",
+										"expression": "Icon_Upg.Name",
+										"comparison": 0,
+										"value": "str( upgrade_id )"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 864494912016613,
+									"parameters": {
+										"variable": "upgrade_id",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Icon_Upg",
+									"sid": 698561764146893,
+									"parameters": {
+										"instance-variable": "Unlocked",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "Icon_Upg",
+									"sid": 695430378095064,
+									"parameters": {
+										"opacity": "100"
+									}
+								},
+								{
+									"callFunction": "Save_Local_Storage",
+									"sid": 238126469063595
+								}
+							],
+							"sid": 450466628011802
+						}
+					]
+				},
+				{
 					"functionName": "Get_Upg_Desc",
 					"functionDescription": "",
 					"functionCategory": "",
@@ -4392,7 +6355,7 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [],
-					"sid": 970481525808667,
+					"sid": 439714647780526,
 					"children": [
 						{
 							"eventType": "variable",
@@ -4402,7 +6365,7 @@
 							"comment": "referente a % envolvida na matemática feita pelo código para mostrar ao usuário o valor que será aumentado ",
 							"isStatic": false,
 							"isConstant": false,
-							"sid": 876292420957967
+							"sid": 999439227836413
 						},
 						{
 							"eventType": "block",
@@ -4410,7 +6373,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 495213543768271,
+									"sid": 272973739605622,
 									"parameters": {
 										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
@@ -4422,13 +6385,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 244727145134430,
+									"sid": 316131471170043,
 									"parameters": {
 										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.unlock\", tokenat (Upgrade_ID, 1, \"_\") )"
 									}
 								}
 							],
-							"sid": 665311839325409
+							"sid": 825898391386170
 						},
 						{
 							"eventType": "block",
@@ -4436,68 +6399,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 306333803340927,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"prodcapup\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 290430458411333,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "for-each-element",
-											"objectClass": "A_Prod_Data",
-											"sid": 162951014155258,
-											"parameters": {
-												"axes": "xyz"
-											}
-										},
-										{
-											"id": "compare-current-value",
-											"objectClass": "A_Prod_Data",
-											"sid": 574188877385712,
-											"parameters": {
-												"comparison": 0,
-												"value": "Upgrade_Layer"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 399653379509475,
-											"parameters": {
-												"variable": "upgrade_value",
-												"value": "int(A_Prod_Data.At( 7,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Text_Upg_Description",
-											"sid": 760774689508735,
-											"parameters": {
-												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", upgrade_value )"
-											}
-										}
-									],
-									"sid": 485559709737809
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 861945903395620,
+									"sid": 639947685619076,
 									"parameters": {
 										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
@@ -4506,7 +6408,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 694091531790344,
+							"sid": 448892611953711,
 							"children": [
 								{
 									"eventType": "block",
@@ -4514,7 +6416,7 @@
 										{
 											"id": "for-each-element",
 											"objectClass": "A_Prod_Data",
-											"sid": 370399839395389,
+											"sid": 908313984637965,
 											"parameters": {
 												"axes": "xyz"
 											}
@@ -4522,7 +6424,7 @@
 										{
 											"id": "compare-current-value",
 											"objectClass": "A_Prod_Data",
-											"sid": 525176350937690,
+											"sid": 611578073172173,
 											"parameters": {
 												"comparison": 0,
 												"value": "Upgrade_Layer"
@@ -4533,7 +6435,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 323462552040338,
+											"sid": 318398510154459,
 											"parameters": {
 												"variable": "upgrade_value",
 												"value": "(A_Prod_Data.At(8,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
@@ -4542,13 +6444,13 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Upg_Description",
-											"sid": 239282871057243,
+											"sid": 268687657024963,
 											"parameters": {
-												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodspeedup\", float(tokenat(Upgrade_ID, 1, \"_\")) )"
+												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodspeedup\", 100*(float(tokenat(Upgrade_ID, 1, \"_\"))) )"
 											}
 										}
 									],
-									"sid": 276956966220291
+									"sid": 152194933416357
 								}
 							]
 						},
@@ -4558,7 +6460,68 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 469575290289568,
+									"sid": 918060269287952,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodcapup\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 172391155191620,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-element",
+											"objectClass": "A_Prod_Data",
+											"sid": 393003390414446,
+											"parameters": {
+												"axes": "xyz"
+											}
+										},
+										{
+											"id": "compare-current-value",
+											"objectClass": "A_Prod_Data",
+											"sid": 458046072827661,
+											"parameters": {
+												"comparison": 0,
+												"value": "Upgrade_Layer"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 453434802022166,
+											"parameters": {
+												"variable": "upgrade_value",
+												"value": "float(A_Prod_Data.At( 7,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) ) * 100"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text_Upg_Description",
+											"sid": 154502144936789,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", upgrade_value )"
+											}
+										}
+									],
+									"sid": 217365042127771
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 283758491569341,
 									"parameters": {
 										"first-value": "Upgrade_ID",
 										"comparison": 0,
@@ -4570,13 +6533,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 422582660791255,
+									"sid": 567883669781821,
 									"parameters": {
 										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.autoprod\")"
 									}
 								}
 							],
-							"sid": 634706123643592
+							"sid": 550976618833558
 						},
 						{
 							"eventType": "block",
@@ -4584,7 +6547,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 546410463954381,
+									"sid": 285590916893893,
 									"parameters": {
 										"first-value": "Upgrade_ID",
 										"comparison": 0,
@@ -4596,13 +6559,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 298189025908687,
+									"sid": 239312607588436,
 									"parameters": {
 										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.costred\")"
 									}
 								}
 							],
-							"sid": 101927731560988
+							"sid": 767918272081617
 						},
 						{
 							"eventType": "block",
@@ -4610,7 +6573,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 257255448009917,
+									"sid": 162914086813397,
 									"parameters": {
 										"first-value": "Upgrade_ID",
 										"comparison": 0,
@@ -4622,13 +6585,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 445871622851191,
+									"sid": 449526983690214,
 									"parameters": {
 										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.doubleprod\")"
 									}
 								}
 							],
-							"sid": 568381483787485
+							"sid": 560265342549101
 						},
 						{
 							"eventType": "block",
@@ -4636,7 +6599,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 921751896865685,
+									"sid": 648400048257577,
 									"parameters": {
 										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
@@ -4645,7 +6608,7 @@
 								}
 							],
 							"actions": [],
-							"sid": 524933325192009,
+							"sid": 144663443028629,
 							"children": [
 								{
 									"eventType": "block",
@@ -4653,7 +6616,7 @@
 										{
 											"id": "for-each-element",
 											"objectClass": "A_Prod_Data",
-											"sid": 337468897122137,
+											"sid": 181582293989505,
 											"parameters": {
 												"axes": "xyz"
 											}
@@ -4661,7 +6624,7 @@
 										{
 											"id": "compare-current-value",
 											"objectClass": "A_Prod_Data",
-											"sid": 691957446769802,
+											"sid": 569850503074736,
 											"parameters": {
 												"comparison": 0,
 												"value": "tokenat(Upgrade_ID, 1, \"_\")"
@@ -4672,7 +6635,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 281723542750664,
+											"sid": 519778766487885,
 											"parameters": {
 												"variable": "upgrade_value",
 												"value": "(A_Prod_Data.At(8,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
@@ -4681,13 +6644,13 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Upg_Description",
-											"sid": 902493352683904,
+											"sid": 898959046113380,
 											"parameters": {
 												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcombo\") & Internationalization.Lookup(\"game.upg.\" & tokenat(Upgrade_ID, 1, \"_\") & \".name\" ) & Internationalization.Lookup(\"game.upg.prodcombo2\",  float(tokenat(Upgrade_ID, 2, \"_\"))*100 )"
 											}
 										}
 									],
-									"sid": 720459331370009
+									"sid": 195114573490886
 								}
 							]
 						},
@@ -4697,7 +6660,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 926710152438011,
+									"sid": 194211875381708,
 									"parameters": {
 										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
@@ -4709,13 +6672,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 973572787723414,
+									"sid": 285423403365405,
 									"parameters": {
 										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.refine\")"
 									}
 								}
 							],
-							"sid": 720043182333507
+							"sid": 452144667314922
 						},
 						{
 							"eventType": "block",
@@ -4723,7 +6686,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 159486204518796,
+									"sid": 754911949783628,
 									"parameters": {
 										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
 										"comparison": 0,
@@ -4735,1976 +6698,39 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_Upg_Description",
-									"sid": 713421989644372,
+									"sid": 938578615222646,
 									"parameters": {
 										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.premium\")"
 									}
 								}
 							],
-							"sid": 607495287119365
-						}
-					]
-				},
-				{
-					"functionName": "Update_Upgrades",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "Full_Scan",
-							"type": "boolean",
-							"initialValue": "false",
-							"comment": "",
-							"sid": 991392561686512
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 698262403114970,
-							"disabled": true,
-							"parameters": {
-								"type": "log",
-								"message": "\"update upgrades chamado\""
-							}
-						}
-					],
-					"sid": 107922638528406,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Verifica da ícone existe APENAS da camada atual para atualizar suas variáveis internas"
+							"sid": 611582276625687
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "for-each",
+									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 199153293458163,
+									"sid": 741777985342414,
 									"parameters": {
-										"object": "Icon_Upg"
-									}
-								},
-								{
-									"id": "is-on-layer",
-									"objectClass": "Icon_Upg",
-									"sid": 797117279167658,
-									"parameters": {
-										"layer": "ActiveLayer"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 174297123954795,
-									"parameters": {
-										"variable": "Full_Scan"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 104167259579209,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Icon_Upg",
-											"sid": 488902149074127,
-											"parameters": {
-												"instance-variable": "Sold"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Icon_Upg",
-											"sid": 490994211426187,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 1,
-												"value": "\"\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 738153192834190,
-											"parameters": [
-												"int( tokenat( Icon_Upg.Upg_Connections, 0, \"_\" ) )"
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 224605319707526,
-											"parameters": [
-												"int( tokenat( Icon_Upg.Upg_Connections, 1, \"_\" ) )"
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 458825982088636,
-											"parameters": [
-												"int( tokenat( Icon_Upg.Upg_Connections, 2, \"_\" ) )"
-											]
-										}
-									],
-									"sid": 933812974449102
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Icon_Upg",
-											"sid": 301168972767955,
-											"parameters": {
-												"instance-variable": "Unlocked"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-opacity",
-											"objectClass": "Icon_Upg",
-											"sid": 787735694388223,
-											"parameters": {
-												"opacity": "100"
-											}
-										}
-									],
-									"sid": 218444967726572
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Icon_Upg",
-											"sid": 763877483282783,
-											"parameters": {
-												"instance-variable": "Unlocked"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Icon_Upg",
-											"sid": 577619862448343,
-											"parameters": {
-												"animation": "\"Locked\""
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-opacity",
-											"objectClass": "Icon_Upg",
-											"sid": 503963814012211,
-											"parameters": {
-												"opacity": "30"
-											}
-										}
-									],
-									"sid": 611275379781358
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 269806589316644,
-									"parameters": {
-										"object": "Icon_Upg"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 827019663113979,
-									"parameters": {
-										"variable": "Full_Scan"
-									}
-								}
-							],
-							"actions": [],
-							"sid": 313248366773777,
-							"children": [
-								{
-									"eventType": "comment",
-									"text": "Se o valor salvo no A_Upg_Data for:\n\n-1 = Trancado totalmente\n0 = Liberado visualmente, mas ainda inacessível\n1 = Desbloqueado para compra\n2 = Comprado"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-on-layer",
-											"objectClass": "Icon_Upg",
-											"sid": 692189710683301,
-											"parameters": {
-												"layer": "\"Steam\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 540969410649027,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 374755291815475,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "0",
-														"comparison": 0,
-														"value": "-1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 819501918317763,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 648296939485049,
-													"parameters": {
-														"animation": "\"Locked\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 640680496461908
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 209113465711526,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "0",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 492115040576311,
-													"parameters": {
-														"opacity": "30"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 920935572603599,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 593522932992003,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 831451111503716
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 459657227653880,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "0",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 849610204331802,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 826106011815092,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 447957558746741,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 708035391844677,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 581781797910465
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 983707207991668,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "0",
-														"comparison": 0,
-														"value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 175077660091048,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 814456833679109,
-													"parameters": {
-														"instance-variable": "Sold",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 265229981814221,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 197523688914616,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 784659414819732,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 504403287179980
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-on-layer",
-											"objectClass": "Icon_Upg",
-											"sid": 379845656140695,
-											"parameters": {
-												"layer": "\"Wood\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 235075737667403,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 700457830642740,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "1",
-														"comparison": 0,
-														"value": "-1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 984175938329101,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 359270731804490,
-													"parameters": {
-														"animation": "\"Locked\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 849601208833057
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 337027551521979,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "1",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 422228176996590,
-													"parameters": {
-														"opacity": "30"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 183483887728725,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 227806538124583,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 791221306486483
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 229783891695856,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "1",
-														"comparison": 0,
-														"value": "1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 716575264193402,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 410460447633589,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 958350444411625,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 497312496944639
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 653575244762993,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "1",
-														"comparison": 0,
-														"value": "2"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 509841061541467,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 401249393533490,
-													"parameters": {
-														"instance-variable": "Sold",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 736515828559873,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 358165329969304,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 130056893028503,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 100690391870605
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-on-layer",
-											"objectClass": "Icon_Upg",
-											"sid": 685249001433817,
-											"parameters": {
-												"layer": "\"Copper\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 847111296624750,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 134932670710342,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "2",
-														"comparison": 0,
-														"value": "-1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 879285765696292,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 693146832506967,
-													"parameters": {
-														"animation": "\"Locked\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 528620478922664
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 253925062586276,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "2",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 740402126722615,
-													"parameters": {
-														"opacity": "30"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 839122616833199,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 182174777408552,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 809540790819970
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 221038561078042,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "2",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 829936036113466,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 347502659969323,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 138000073176086,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 114187217079966
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 419998515764788,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "2",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 710470279462052,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 823396944028198,
-													"parameters": {
-														"instance-variable": "Sold",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 447433407346362,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 902622449002851,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 353237081694396,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 483807280488514
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-on-layer",
-											"objectClass": "Icon_Upg",
-											"sid": 448494197974560,
-											"parameters": {
-												"layer": "\"Iron\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 465845737438896,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 115283471745881,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "3",
-														"comparison": 0,
-														"value": "-1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 693753486060009,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 591010226470900,
-													"parameters": {
-														"animation": "\"Locked\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 770252154397503
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 933930976051868,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "3",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 897445924721548,
-													"parameters": {
-														"opacity": "30"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 975288850198136,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 227457116467232,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 410018357086255
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 165554268488681,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "3",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 581562670492262,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 294844908233385,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 593044914857138,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 789421197416918
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 241601759884882,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "3",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 461082580813943,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 569084798630020,
-													"parameters": {
-														"instance-variable": "Sold",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 936838630006161,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 176546064768048,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 512637503489787,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 911715325946154
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-on-layer",
-											"objectClass": "Icon_Upg",
-											"sid": 209206348132317,
-											"parameters": {
-												"layer": "\"Titanium\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 421317205162564,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 148609120303140,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "4",
-														"comparison": 0,
-														"value": "-1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 187015659159041,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 316250364951930,
-													"parameters": {
-														"animation": "\"Locked\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 737917467438232
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 652833188462883,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "4",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 978887364101898,
-													"parameters": {
-														"opacity": "30"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 240530927966402,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 509127944933555,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 421050097511071
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 985030385647199,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "4",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 366383373424690,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 250554178524941,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 486423800253990,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 723961245054351
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 609866240688997,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "4",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 426822687805070,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 828843634339584,
-													"parameters": {
-														"instance-variable": "Sold",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 374629167693356,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 503553639389651,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 865114252667578,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 463984171105339
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-on-layer",
-											"objectClass": "Icon_Upg",
-											"sid": 588303557700572,
-											"parameters": {
-												"layer": "\"Tungsten\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 634905839540659,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 796510773545406,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "5",
-														"comparison": 0,
-														"value": "-1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 710705762808032,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 258579336678799,
-													"parameters": {
-														"animation": "\"Locked\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 407418916558621
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 319877667122165,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "5",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 780171720005978,
-													"parameters": {
-														"opacity": "30"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 673790501758707,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 914489628778904,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 173689010044353
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 679292447007514,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "5",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 942889331332319,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 180934290148238,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 488568421377025,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 967934754900106
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 316220265503289,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "5",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 271841827261738,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 654374711433229,
-													"parameters": {
-														"instance-variable": "Sold",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 610555834348901,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 488693847216743,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 507233164479582,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 992857430594768
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-on-layer",
-											"objectClass": "Icon_Upg",
-											"sid": 502943760859089,
-											"parameters": {
-												"layer": "\"Vaporium\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 326023310946048,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 715146509276313,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "6",
-														"comparison": 0,
-														"value": "-1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 957918370542159,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 926667308304796,
-													"parameters": {
-														"animation": "\"Locked\"",
-														"from": "beginning"
-													}
-												}
-											],
-											"sid": 293628502204475
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 493928612874773,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "1",
-														"z": "6",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 417385931851421,
-													"parameters": {
-														"opacity": "30"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 689751221584089,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 665421812593911,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 505555315299103
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 867337777351496,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "6",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 567873229891175,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 883308994234249,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 320151062044638,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												}
-											],
-											"sid": 629325204627422
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Upg_Data",
-													"sid": 356683242778708,
-													"parameters": {
-														"x": "int(Icon_Upg.Name)",
-														"y": "2",
-														"z": "6",
-														"comparison": 0,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 789874882245648,
-													"parameters": {
-														"instance-variable": "Unlocked",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Icon_Upg",
-													"sid": 114113607314392,
-													"parameters": {
-														"instance-variable": "Sold",
-														"value": "true"
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Icon_Upg",
-													"sid": 874265791418429,
-													"parameters": {
-														"animation": "Self.LayerName",
-														"from": "beginning"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Upg",
-													"sid": 743766107966737,
-													"parameters": {
-														"frame-number": "int( Self.Name ) - 1"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Icon_Upg",
-													"sid": 450773103230087,
-													"parameters": {
-														"opacity": "100"
-													}
-												}
-											],
-											"sid": 334192217243767
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Icon_Upg",
-											"sid": 609644182851390,
-											"parameters": {
-												"instance-variable": "Sold"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Icon_Upg",
-											"sid": 631472009737318,
-											"parameters": {
-												"instance-variable": "Name",
-												"comparison": 1,
-												"value": "\"\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 586885389254630,
-											"parameters": [
-												"int( tokenat( Icon_Upg.Upg_Connections, 0, \"_\" ) )"
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 782371918668030,
-											"parameters": [
-												"int( tokenat( Icon_Upg.Upg_Connections, 1, \"_\" ) )"
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 760123520407304,
-											"parameters": [
-												"int( tokenat( Icon_Upg.Upg_Connections, 2, \"_\" ) )"
-											]
-										}
-									],
-									"sid": 512805765391494
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Icon_Upg",
-											"sid": 748838062613387,
-											"parameters": {
-												"instance-variable": "Unlocked"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 215674635010114
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-boolean-instance-variable-set",
-											"objectClass": "Icon_Upg",
-											"sid": 250118711380685,
-											"parameters": {
-												"instance-variable": "Unlocked"
-											},
-											"isInverted": true
-										},
-										{
-											"id": "is-animation-playing",
-											"objectClass": "Icon_Upg",
-											"sid": 999434999924852,
-											"parameters": {
-												"animation": "\"Locked\""
-											},
-											"isInverted": true
-										}
-									],
-									"actions": [],
-									"sid": 318217952303277
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Bkgs de upgrade devem acender (frame 1) quando o seu ícone em cima estiver com SOLD = TRUE"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each",
-									"objectClass": "System",
-									"sid": 185900335206763,
-									"parameters": {
-										"object": "Bkg_Icon_Upg"
-									}
-								},
-								{
-									"id": "is-on-layer",
-									"objectClass": "Bkg_Icon_Upg",
-									"sid": 493405645382737,
-									"parameters": {
-										"layer": "ActiveLayer"
-									}
-								},
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Bkg_Icon_Upg",
-									"sid": 676569172625861,
-									"parameters": {
-										"object": "Icon_Upg"
-									}
-								},
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Icon_Upg",
-									"sid": 979770304913303,
-									"parameters": {
-										"instance-variable": "Sold"
-									}
-								},
-								{
-									"id": "is-on-layer",
-									"objectClass": "Icon_Upg",
-									"sid": 918308431839389,
-									"parameters": {
-										"layer": "ActiveLayer"
+										"first-value": "tokenat ( Upgrade_ID, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"steam_premium\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation-frame",
-									"objectClass": "Bkg_Icon_Upg",
-									"sid": 804479939928665,
+									"id": "set-text",
+									"objectClass": "Text_Upg_Description",
+									"sid": 348157458826508,
 									"parameters": {
-										"frame-number": "1"
+										"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.steam_premium\")"
 									}
 								}
 							],
-							"sid": 736502164363727
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "for-each-element",
-									"objectClass": "A_Upg_Data",
-									"sid": 554580728153753,
-									"parameters": {
-										"axes": "xyz"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 467359080846229,
-									"parameters": {
-										"variable": "Full_Scan"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 156347207231333,
-									"parameters": {
-										"first-value": "A_Upg_Data.CurX",
-										"comparison": 4,
-										"second-value": "0"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 989019367118768,
-									"parameters": {
-										"first-value": "A_Upg_Data.CurY",
-										"comparison": 0,
-										"second-value": "1"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 734337634869572,
-									"parameters": {
-										"first-value": "A_Upg_Data.CurValue",
-										"comparison": 0,
-										"second-value": "2"
-									}
-								},
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 500899253885068,
-									"parameters": {
-										"object": "water_anim",
-										"expression": "water_anim.ID",
-										"comparison": 0,
-										"value": "A_Upg_Data.CurX"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation-frame",
-									"objectClass": "water_anim",
-									"sid": 131575374905773,
-									"parameters": {
-										"frame-number": "Self.AnimationFrameCount - 1"
-									}
-								}
-							],
-							"sid": 106857060166983
-						}
-					]
-				},
-				{
-					"functionName": "Unlock_Upgrade",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "upgrade_id",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 629063158886049
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [],
-					"sid": 629901400515230,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 763949686472035,
-									"parameters": {
-										"object": "Icon_Upg",
-										"expression": "Icon_Upg.Name",
-										"comparison": 0,
-										"value": "str( upgrade_id )"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 293075058109726,
-									"parameters": {
-										"variable": "upgrade_id",
-										"comparison": 4,
-										"value": "0"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Icon_Upg",
-									"sid": 193709902530360,
-									"parameters": {
-										"instance-variable": "Unlocked",
-										"value": "true"
-									}
-								},
-								{
-									"id": "set-opacity",
-									"objectClass": "Icon_Upg",
-									"sid": 419572534686036,
-									"parameters": {
-										"opacity": "100"
-									}
-								},
-								{
-									"callFunction": "Save_Local_Storage",
-									"sid": 377442745683928
-								}
-							],
-							"sid": 492085401830481
+							"sid": 445380599629340
 						}
 					]
 				},
@@ -7281,577 +7307,8 @@
 					]
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "cursor-is-over-object",
-							"objectClass": "Mouse",
-							"sid": 548255016211163,
-							"parameters": {
-								"object": "Icon_Upg"
-							}
-						},
-						{
-							"id": "is-animation-playing",
-							"objectClass": "Icon_Upg",
-							"sid": 948242077308667,
-							"parameters": {
-								"animation": "\"Locked\""
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Icon_Upg",
-							"sid": 564032601783066,
-							"parameters": {
-								"instance-variable": "Unlocked"
-							}
-						},
-						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 451878970716884,
-							"parameters": {
-								"layer": "\"Upgrades\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 516951630579224,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 351036347892851,
-									"parameters": {
-										"first-value": "Mouse.X",
-										"comparison": 3,
-										"second-value": "1576"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 279416143755271,
-									"parameters": {
-										"first-value": "Mouse.Y",
-										"comparison": 3,
-										"second-value": "362"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Bkg_Upg_Desc",
-									"sid": 543764177966179,
-									"parameters": {
-										"x": "Mouse.X + 240",
-										"y": "Mouse.Y + 192"
-									}
-								}
-							],
-							"sid": 983236180555636
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 631966132145880,
-									"parameters": {
-										"first-value": "Mouse.X",
-										"comparison": 3,
-										"second-value": "1576"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 180406945082290,
-									"parameters": {
-										"first-value": "Mouse.Y",
-										"comparison": 4,
-										"second-value": "362"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Bkg_Upg_Desc",
-									"sid": 283241217331798,
-									"parameters": {
-										"x": "Mouse.X + 240",
-										"y": "Mouse.Y - 192"
-									}
-								}
-							],
-							"sid": 972670192744781
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 870554829936060,
-									"parameters": {
-										"first-value": "Mouse.X",
-										"comparison": 4,
-										"second-value": "1576"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 287524512920092,
-									"parameters": {
-										"first-value": "Mouse.Y",
-										"comparison": 3,
-										"second-value": "362"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Bkg_Upg_Desc",
-									"sid": 145257653290476,
-									"parameters": {
-										"x": "Mouse.X - 240",
-										"y": "Mouse.Y + 192"
-									}
-								}
-							],
-							"sid": 503580730030968
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 720710099103690,
-									"parameters": {
-										"first-value": "Mouse.X",
-										"comparison": 4,
-										"second-value": "1576"
-									}
-								},
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 531000529857389,
-									"parameters": {
-										"first-value": "Mouse.Y",
-										"comparison": 4,
-										"second-value": "362"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Bkg_Upg_Desc",
-									"sid": 499113822215409,
-									"parameters": {
-										"x": "Mouse.X - 240",
-										"y": "Mouse.Y - 192"
-									}
-								}
-							],
-							"sid": 971533713180394
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-boolean-instance-variable-set",
-									"objectClass": "Icon_Upg",
-									"sid": 345266673865653,
-									"parameters": {
-										"instance-variable": "Sold"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-text",
-									"objectClass": "Text_Upg_Price",
-									"sid": 131722851081909,
-									"parameters": {
-										"text": "\"Sold out!\""
-									}
-								},
-								{
-									"id": "set-font-color",
-									"objectClass": "Text_Upg_Price",
-									"sid": 586378338484505,
-									"parameters": {
-										"color": "rgbEx(0, 0, 0)"
-									}
-								}
-							],
-							"sid": 194678923981721
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "else",
-									"objectClass": "System",
-									"sid": 639725921268761
-								}
-							],
-							"actions": [],
-							"sid": 212904563273194,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Icon_Upg",
-											"sid": 620870931861231,
-											"parameters": {
-												"instance-variable": "Price_2",
-												"comparison": 0,
-												"value": "\"\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 111283851367246,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 810657621408350,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
-														"comparison": 5,
-														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Text_Upg_Price",
-													"sid": 193863515831812,
-													"parameters": {
-														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
-													}
-												},
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Upg_Price",
-													"sid": 175987889294406,
-													"parameters": {
-														"color": "rgbEx(0, 0, 0)"
-													}
-												}
-											],
-											"sid": 214333456113496
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 160340808199530
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Text_Upg_Price",
-													"sid": 859867233089183,
-													"parameters": {
-														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
-													}
-												},
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Upg_Price",
-													"sid": 284693455537646,
-													"parameters": {
-														"color": "rgbEx(255, 0, 0)"
-													}
-												}
-											],
-											"sid": 121737078666465
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Icon_Upg",
-											"sid": 462798437627220,
-											"parameters": {
-												"instance-variable": "Price_2",
-												"comparison": 1,
-												"value": "\"\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 621005098095643,
-									"children": [
-										{
-											"eventType": "comment",
-											"text": "Pode pagar por ambos valores"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 872363341195139,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
-														"comparison": 5,
-														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
-													}
-												},
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 478662919250877,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
-														"comparison": 5,
-														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Text_Upg_Price",
-													"sid": 282987145825208,
-													"parameters": {
-														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / \" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
-													}
-												},
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Upg_Price",
-													"sid": 441575171537187,
-													"parameters": {
-														"color": "rgbEx(0, 0, 0)"
-													}
-												}
-											],
-											"sid": 967036143366240
-										},
-										{
-											"eventType": "comment",
-											"text": "Pode pagar pelo preço 1, mas não pelo preço 2"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 910819507931746,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
-														"comparison": 5,
-														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
-													}
-												},
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 831918941118216,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
-														"comparison": 2,
-														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Upg_Price",
-													"sid": 522121133701609,
-													"parameters": {
-														"color": "rgbEx(0, 0, 0)"
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "Text_Upg_Price",
-													"sid": 369901104566775,
-													"parameters": {
-														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \"[/color] [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
-													}
-												}
-											],
-											"sid": 537370596986389
-										},
-										{
-											"eventType": "comment",
-											"text": "Não pode pagar pelo preço 1, mas pode pelo preço 2"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 844148468149150,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
-														"comparison": 2,
-														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
-													}
-												},
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 774320807513094,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
-														"comparison": 5,
-														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Upg_Price",
-													"sid": 582886470912659,
-													"parameters": {
-														"color": "rgbEx(0, 0, 0)"
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "Text_Upg_Price",
-													"sid": 187617488608455,
-													"parameters": {
-														"text": "\"[color=rgb(255,0,0)]\" & tokenat( Icon_Upg.Price_1, 1, \"_\")  & \"[/color] [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / \" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
-													}
-												}
-											],
-											"sid": 946847505403640
-										},
-										{
-											"eventType": "comment",
-											"text": "Não consegue pagar ambos valores"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 645455794944802,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
-														"comparison": 2,
-														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
-													}
-												},
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 745378889687254,
-													"parameters": {
-														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
-														"comparison": 2,
-														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Text_Upg_Price",
-													"sid": 596979871737595,
-													"parameters": {
-														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / \" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
-													}
-												},
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Upg_Price",
-													"sid": 895936607948863,
-													"parameters": {
-														"color": "rgbEx(255, 0, 0)"
-													}
-												}
-											],
-											"sid": 935410623650042
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 450622131311083
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "Get_Upg_Desc",
-									"sid": 750536547775357,
-									"parameters": [
-										"A_Upg_Data.At(int(Icon_Upg.Name),2)",
-										"Icon_Upg.Name",
-										"Icon_Upg.LayerName"
-									]
-								}
-							],
-							"sid": 820940142766348
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 782839708742734
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "Bkg_Upg_Desc",
-							"sid": 680780677105357,
-							"parameters": {
-								"x": "-1000",
-								"y": "-1000"
-							}
-						}
-					],
-					"sid": 352406090675990
+					"eventType": "comment",
+					"text": "Troca de aba de upgrade"
 				},
 				{
 					"eventType": "block",
@@ -7859,7 +7316,7 @@
 						{
 							"id": "on-touched-object",
 							"objectClass": "Touch",
-							"sid": 260089487771307,
+							"sid": 973142207944109,
 							"parameters": {
 								"object": "Icon_prod",
 								"type": "start"
@@ -7868,14 +7325,14 @@
 						{
 							"id": "is-on-layer",
 							"objectClass": "Icon_prod",
-							"sid": 183098081592056,
+							"sid": 465361226351559,
 							"parameters": {
 								"layer": "\"Bkg_Upg\""
 							}
 						}
 					],
 					"actions": [],
-					"sid": 589161514220957,
+					"sid": 311091066498960,
 					"children": [
 						{
 							"eventType": "block",
@@ -7883,7 +7340,7 @@
 								{
 									"id": "compare-animation-frame-tag",
 									"objectClass": "Icon_prod",
-									"sid": 622643067950273,
+									"sid": 468166586359654,
 									"parameters": {
 										"comparison": 1,
 										"tag": "\"locked\""
@@ -7894,7 +7351,7 @@
 								{
 									"id": "set-position",
 									"objectClass": "Selector",
-									"sid": 271031474119664,
+									"sid": 317167564138866,
 									"parameters": {
 										"x": "Icon_prod.X",
 										"y": "Icon_prod.Y"
@@ -7903,7 +7360,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 876859145039137,
+									"sid": 462297155683277,
 									"parameters": {
 										"layer": "\"Steam\"",
 										"visibility": "invisible"
@@ -7912,7 +7369,7 @@
 								{
 									"id": "set-layer-interactive",
 									"objectClass": "System",
-									"sid": 649245267439958,
+									"sid": 691407216832494,
 									"parameters": {
 										"layer": "\"Steam\"",
 										"interactive": false
@@ -7921,7 +7378,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 597213981016483,
+									"sid": 907825143160727,
 									"parameters": {
 										"layer": "\"Wood\"",
 										"visibility": "invisible"
@@ -7930,7 +7387,7 @@
 								{
 									"id": "set-layer-interactive",
 									"objectClass": "System",
-									"sid": 798761401482230,
+									"sid": 692425014027880,
 									"parameters": {
 										"layer": "\"Wood\"",
 										"interactive": false
@@ -7939,7 +7396,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 123742993796027,
+									"sid": 948761160068583,
 									"parameters": {
 										"layer": "\"Copper\"",
 										"visibility": "invisible"
@@ -7948,7 +7405,7 @@
 								{
 									"id": "set-layer-interactive",
 									"objectClass": "System",
-									"sid": 456617158796998,
+									"sid": 389900662269867,
 									"parameters": {
 										"layer": "\"Copper\"",
 										"interactive": false
@@ -7957,7 +7414,79 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 499008356014802,
+									"sid": 334463458728689,
+									"parameters": {
+										"layer": "\"Iron\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 731979498248103,
+									"parameters": {
+										"layer": "\"Iron\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 630576312568506,
+									"parameters": {
+										"layer": "\"Titanium\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 928384436085559,
+									"parameters": {
+										"layer": "\"Titanium\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 616449698515843,
+									"parameters": {
+										"layer": "\"Tungsten\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 111843470927648,
+									"parameters": {
+										"layer": "\"Tungsten\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 409588428840389,
+									"parameters": {
+										"layer": "\"Vaporium\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 543169850126215,
+									"parameters": {
+										"layer": "\"Vaporium\"",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 407800758249868,
 									"parameters": {
 										"layer": "Icon_prod.AnimationFrameTag",
 										"visibility": "visible"
@@ -7966,7 +7495,7 @@
 								{
 									"id": "set-layer-interactive",
 									"objectClass": "System",
-									"sid": 445868898944346,
+									"sid": 111296401705386,
 									"parameters": {
 										"layer": "Icon_prod.AnimationFrameTag",
 										"interactive": true
@@ -7975,7 +7504,7 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 781176014310229,
+									"sid": 354058455649879,
 									"parameters": {
 										"variable": "ActiveLayer",
 										"value": "Icon_prod.AnimationFrameTag"
@@ -7983,7 +7512,7 @@
 								},
 								{
 									"callFunction": "Update_Upgrades",
-									"sid": 375346748218182,
+									"sid": 647581428095749,
 									"parameters": [
 										false
 									]
@@ -7991,7 +7520,7 @@
 								{
 									"id": "set-size",
 									"objectClass": "Icon_prod",
-									"sid": 933688198762332,
+									"sid": 235476910009583,
 									"parameters": {
 										"width": "32",
 										"height": "32"
@@ -8000,7 +7529,7 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Icon_prod",
-									"sid": 928472423766022,
+									"sid": 938153954224054,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"bounce\"",
@@ -8016,7 +7545,7 @@
 									}
 								}
 							],
-							"sid": 470905959430666
+							"sid": 894768286742417
 						},
 						{
 							"eventType": "comment",
@@ -8028,12 +7557,12 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 279193286014369
+									"sid": 666560691820514
 								},
 								{
 									"id": "is-playing",
 									"objectClass": "Icon_prod",
-									"sid": 714321381923644,
+									"sid": 723342091192809,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\""
@@ -8044,7 +7573,7 @@
 							"actions": [
 								{
 									"callFunction": "Play_Audio",
-									"sid": 645573365790154,
+									"sid": 629270807174040,
 									"parameters": [
 										false,
 										false,
@@ -8059,7 +7588,7 @@
 								{
 									"id": "set-x",
 									"objectClass": "Icon_prod",
-									"sid": 404759415649923,
+									"sid": 761495857521097,
 									"parameters": {
 										"x": "Self.Self_X"
 									}
@@ -8067,7 +7596,7 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Icon_prod",
-									"sid": 254808469646968,
+									"sid": 594872619283595,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\"",
@@ -8084,7 +7613,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 563781607492504,
+									"sid": 565681929696169,
 									"parameters": {
 										"seconds": "0.05",
 										"use-timescale": true
@@ -8093,7 +7622,7 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Icon_prod",
-									"sid": 978685959478120,
+									"sid": 507417989815528,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\"",
@@ -8110,7 +7639,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 654401160005110,
+									"sid": 635756299880071,
 									"parameters": {
 										"seconds": "0.05",
 										"use-timescale": true
@@ -8119,7 +7648,7 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Icon_prod",
-									"sid": 792364915946700,
+									"sid": 195090136601086,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\"",
@@ -8134,7 +7663,7 @@
 									}
 								}
 							],
-							"sid": 834982127852286
+							"sid": 746006787121133
 						},
 						{
 							"eventType": "block",
@@ -8142,7 +7671,7 @@
 								{
 									"id": "pick-by-comparison",
 									"objectClass": "System",
-									"sid": 160087524072343,
+									"sid": 244114275065281,
 									"parameters": {
 										"object": "Bkg_tela_upgrades",
 										"expression": "Bkg_tela_upgrades.LayerName",
@@ -8155,14 +7684,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Bkg_tela_upgrades",
-									"sid": 786583462152577,
+									"sid": 891084832001931,
 									"parameters": {
 										"animation": "ActiveLayer",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 106037707892345
+							"sid": 984756137280214
 						},
 						{
 							"eventType": "block",
@@ -8171,7 +7700,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 939071130606021,
+									"sid": 442435069297579,
 									"parameters": {
 										"seconds": "0.2",
 										"use-timescale": true
@@ -8180,7 +7709,7 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Icon_prod",
-									"sid": 170853838919830,
+									"sid": 451266909596177,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"bounce\"",
@@ -8196,9 +7725,586 @@
 									}
 								}
 							],
-							"sid": 808603452198917
+							"sid": 783604107988459
 						}
 					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Descrição de upgrades"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 159398215910413,
+							"parameters": {
+								"object": "Icon_Upg"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Icon_Upg",
+							"sid": 629126042575398,
+							"parameters": {
+								"animation": "\"Locked\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Icon_Upg",
+							"sid": 576293075334476,
+							"parameters": {
+								"instance-variable": "Unlocked"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 112192495245275,
+							"parameters": {
+								"layer": "\"Upgrades\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 229042180835560,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 748420086128658,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 3,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 955101928107064,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 3,
+										"second-value": "362"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 822042296836803,
+									"parameters": {
+										"x": "Mouse.X + 240",
+										"y": "Mouse.Y + 192"
+									}
+								}
+							],
+							"sid": 413836728414437
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 903759238240437,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 3,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 182195988590311,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 4,
+										"second-value": "362"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 497102387279885,
+									"parameters": {
+										"x": "Mouse.X + 240",
+										"y": "Mouse.Y - 192"
+									}
+								}
+							],
+							"sid": 645132971369842
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 336162586475412,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 4,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 428127661217982,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 3,
+										"second-value": "362"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 516900050093922,
+									"parameters": {
+										"x": "Mouse.X - 240",
+										"y": "Mouse.Y + 192"
+									}
+								}
+							],
+							"sid": 470677448927062
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 744611858950740,
+									"parameters": {
+										"first-value": "Mouse.X",
+										"comparison": 4,
+										"second-value": "1576"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 450498971277223,
+									"parameters": {
+										"first-value": "Mouse.Y",
+										"comparison": 4,
+										"second-value": "362"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_Upg_Desc",
+									"sid": 608661013003863,
+									"parameters": {
+										"x": "Mouse.X - 240",
+										"y": "Mouse.Y - 192"
+									}
+								}
+							],
+							"sid": 332325842132162
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Icon_Upg",
+									"sid": 238612564324521,
+									"parameters": {
+										"instance-variable": "Sold"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text_Upg_Price",
+									"sid": 540921252180833,
+									"parameters": {
+										"text": "\"Sold out!\""
+									}
+								},
+								{
+									"id": "set-font-color",
+									"objectClass": "Text_Upg_Price",
+									"sid": 635511507964833,
+									"parameters": {
+										"color": "rgbEx(0, 0, 0)"
+									}
+								}
+							],
+							"sid": 615420694363927
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 280674669014195
+								}
+							],
+							"actions": [],
+							"sid": 816115427041791,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Icon_Upg",
+											"sid": 259242280609974,
+											"parameters": {
+												"instance-variable": "Price_2",
+												"comparison": 0,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 542363290016755,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 673931432995226,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
+														"comparison": 5,
+														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 761547839661198,
+													"parameters": {
+														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 186211076797428,
+													"parameters": {
+														"color": "rgbEx(0, 0, 0)"
+													}
+												}
+											],
+											"sid": 896580130269530
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 427655809476924
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 462893533298636,
+													"parameters": {
+														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"]\""
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 504856054624457,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												}
+											],
+											"sid": 948939192667262
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Icon_Upg",
+											"sid": 723612898042127,
+											"parameters": {
+												"instance-variable": "Price_2",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 545884417710164,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Pode pagar por ambos valores"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 958856778025194,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
+														"comparison": 5,
+														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
+													}
+												},
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 580531394675809,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
+														"comparison": 5,
+														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 735272448976474,
+													"parameters": {
+														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / \" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 456253634290519,
+													"parameters": {
+														"color": "rgbEx(0, 0, 0)"
+													}
+												}
+											],
+											"sid": 286090452937594
+										},
+										{
+											"eventType": "comment",
+											"text": "Pode pagar pelo preço 1, mas não pelo preço 2"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 233907708421549,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
+														"comparison": 5,
+														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
+													}
+												},
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 277985709335995,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
+														"comparison": 2,
+														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 862809501437261,
+													"parameters": {
+														"color": "rgbEx(0, 0, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 110826321658574,
+													"parameters": {
+														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \"[/color] [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
+													}
+												}
+											],
+											"sid": 521854088510068
+										},
+										{
+											"eventType": "comment",
+											"text": "Não pode pagar pelo preço 1, mas pode pelo preço 2"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 728475235667181,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
+														"comparison": 2,
+														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
+													}
+												},
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 434575074256819,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
+														"comparison": 5,
+														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 182145372798471,
+													"parameters": {
+														"color": "rgbEx(0, 0, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 954803171929512,
+													"parameters": {
+														"text": "\"[color=rgb(255,0,0)]\" & tokenat( Icon_Upg.Price_1, 1, \"_\")  & \"[/color] [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / \" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
+													}
+												}
+											],
+											"sid": 390165987004141
+										},
+										{
+											"eventType": "comment",
+											"text": "Não consegue pagar ambos valores"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 444048155099315,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_1, 0, \"_\" )",
+														"comparison": 2,
+														"value": "tokenat ( Icon_Upg.Price_1, 1, \"_\" )"
+													}
+												},
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 916455431492036,
+													"parameters": {
+														"key": "tokenat ( Icon_Upg.Price_2, 0, \"_\" )",
+														"comparison": 2,
+														"value": "tokenat ( Icon_Upg.Price_2, 1, \"_\" )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Text_Upg_Price",
+													"sid": 282372541140864,
+													"parameters": {
+														"text": "tokenat( Icon_Upg.Price_1, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_1, 0, \"_\") & \"] / \" & tokenat( Icon_Upg.Price_2, 1, \"_\")  & \" [icon=\" & tokenat ( Icon_Upg.Price_2, 0, \"_\") & \"]\""
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Upg_Price",
+													"sid": 860658502284685,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												}
+											],
+											"sid": 268185924388454
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 620897091751802
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Get_Upg_Desc",
+									"sid": 463396101807488,
+									"parameters": [
+										"A_Upg_Data.At(int(Icon_Upg.Name),2)",
+										"Icon_Upg.Name",
+										"Icon_Upg.LayerName"
+									]
+								}
+							],
+							"sid": 483165411465326
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 322523882298953
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Bkg_Upg_Desc",
+							"sid": 561602625844632,
+							"parameters": {
+								"x": "-1000",
+								"y": "-1000"
+							}
+						}
+					],
+					"sid": 336637221117226
 				},
 				{
 					"eventType": "comment",
@@ -8795,12 +8901,12 @@
 									],
 									"actions": [
 										{
-											"id": "set-instvar-value",
+											"id": "subtract-from-instvar",
 											"objectClass": "Production_Vapor",
-											"sid": 368853827844432,
+											"sid": 436208912375547,
 											"parameters": {
 												"instance-variable": "prod_time",
-												"value": "A_Prod_Data.At( 8,1, 0) - A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 1, \"_\") )"
+												"value": "A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 1, \"_\") )"
 											}
 										},
 										{
@@ -8848,10 +8954,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Production",
-													"sid": 271370954629652,
+													"sid": 457473491096680,
 													"parameters": {
 														"instance-variable": "prod_time",
-														"value": "float ( tokenat ( Upgrade_name, 1, \"_\" ) )"
+														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 1, \"_\" ) )"
 													}
 												},
 												{
@@ -8911,10 +9017,10 @@
 										{
 											"id": "add-to-instvar",
 											"objectClass": "Production_Vapor",
-											"sid": 638378869901725,
+											"sid": 673778845335182,
 											"parameters": {
 												"instance-variable": "prod_cap",
-												"value": "int ( tokenat ( Upgrade_name, 1, \"_\" ) )"
+												"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
 											}
 										},
 										{
@@ -8962,10 +9068,10 @@
 												{
 													"id": "add-to-instvar",
 													"objectClass": "Production",
-													"sid": 481867576047170,
+													"sid": 258067681961842,
 													"parameters": {
 														"instance-variable": "prod_cap",
-														"value": "int ( tokenat ( Upgrade_name, 1, \"_\" ) )"
+														"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
 													}
 												},
 												{
@@ -9270,18 +9376,39 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
+											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 410597726938468,
+											"sid": 983491512533365,
 											"parameters": {
-												"variable": "Layer_Z_Array",
+												"first-value": "tokenat(Upgrade_name, 1, \"_\")",
 												"comparison": 0,
-												"value": "1"
+												"second-value": "\"Steam\""
 											}
 										}
 									],
-									"actions": [],
-									"sid": 927390582232510
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Production_Vapor",
+											"sid": 206962284754583,
+											"parameters": {
+												"instance-variable": "prod_time",
+												"value": "A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 2, \"_\") )"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 441112423378040,
+											"parameters": {
+												"x": "3",
+												"y": "1",
+												"z": "0",
+												"value": "Production_Vapor.prod_time"
+											}
+										}
+									],
+									"sid": 718107808760048
 								},
 								{
 									"eventType": "block",
@@ -9289,11 +9416,11 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 346318860083056
+											"sid": 254821280043676
 										}
 									],
 									"actions": [],
-									"sid": 209990267039913,
+									"sid": 291260041901123,
 									"children": [
 										{
 											"eventType": "block",
@@ -9301,17 +9428,38 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 894044563390014,
+													"sid": 933086538757290,
 													"parameters": {
 														"object": "Production",
-														"expression": "Production.Array_ID",
+														"expression": "Production.material_id",
 														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
+														"value": "tokenat(Upgrade_name, 1, \"_\")"
 													}
 												}
 											],
-											"actions": [],
-											"sid": 704170207258832
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Production",
+													"sid": 657935503125522,
+													"parameters": {
+														"instance-variable": "prod_time",
+														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 2, \"_\" ) )"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 647690953690077,
+													"parameters": {
+														"x": "3",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_time"
+													}
+												}
+											],
+											"sid": 748294575622945
 										}
 									]
 								}
@@ -25620,6 +25768,42 @@
 							"parameters": {
 								"key": "\"Copper\"",
 								"value": "A_Prod_Data.At(4,1,2)"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 571460903216634,
+							"parameters": {
+								"key": "\"Iron\"",
+								"value": "A_Prod_Data.At(4,1,3)"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 551801537535381,
+							"parameters": {
+								"key": "\"Titanium\"",
+								"value": "A_Prod_Data.At(4,1,4)"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 547762101527164,
+							"parameters": {
+								"key": "\"Tungsten\"",
+								"value": "A_Prod_Data.At(4,1,5)"
+							}
+						},
+						{
+							"id": "add-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 168945704394960,
+							"parameters": {
+								"key": "\"Vaporium\"",
+								"value": "A_Prod_Data.At(4,1,6)"
 							}
 						}
 					],
