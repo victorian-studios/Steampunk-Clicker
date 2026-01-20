@@ -2,6 +2,16 @@
 	"name": "E_Void",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "Comic_State",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 734613332471862
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -18,7 +28,31 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Comic_Page1",
+							"objectClass": "Comic_Side1",
+							"sid": 656728588742580,
+							"parameters": {
+								"unique-id": "400"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Comic_Side1",
+							"sid": 266381215356196,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 754231293177416
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Comic_Side1",
 							"sid": 987234749572860,
 							"parameters": {
 								"unique-id": "401"
@@ -37,7 +71,7 @@
 						},
 						{
 							"id": "set-visible",
-							"objectClass": "Comic_Page1",
+							"objectClass": "Comic_Side1",
 							"sid": 475455706825206,
 							"parameters": {
 								"visibility": "visible"
@@ -45,7 +79,7 @@
 						},
 						{
 							"id": "start-fade",
-							"objectClass": "Comic_Page1",
+							"objectClass": "Comic_Side1",
 							"sid": 537485305505910,
 							"behaviorType": "Fade"
 						},
@@ -82,7 +116,7 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Comic_Page1",
+							"objectClass": "Comic_Side1",
 							"sid": 781173107706294,
 							"parameters": {
 								"unique-id": "401"
@@ -95,8 +129,8 @@
 							"objectClass": "Comic_Manager",
 							"sid": 253011106232469,
 							"parameters": {
-								"instance-variable": "FrontPage_1",
-								"value": "Comic_Page1.Opacity"
+								"instance-variable": "FrontSide_1",
+								"value": "Comic_Side1.Opacity"
 							}
 						}
 					],
@@ -107,7 +141,7 @@
 					"conditions": [
 						{
 							"id": "compare-animation-frame",
-							"objectClass": "Comic_Page1",
+							"objectClass": "Comic_Side1",
 							"sid": 718752216511643,
 							"parameters": {
 								"comparison": 0,
@@ -133,7 +167,7 @@
 					"conditions": [
 						{
 							"id": "pick-by-unique-id",
-							"objectClass": "Comic_Page2",
+							"objectClass": "Comic_Side2",
 							"sid": 929287605938531,
 							"parameters": {
 								"unique-id": "404"
@@ -146,8 +180,8 @@
 							"objectClass": "Comic_Manager",
 							"sid": 268846435035270,
 							"parameters": {
-								"instance-variable": "FrontPage_2",
-								"value": "Comic_Page2.Opacity"
+								"instance-variable": "FrontSide_2",
+								"value": "Comic_Side2.Opacity"
 							}
 						}
 					],
@@ -161,11 +195,11 @@
 				{
 					"id": "on-object-clicked",
 					"objectClass": "Mouse",
-					"sid": 214156214205201,
+					"sid": 985296483737320,
 					"parameters": {
 						"mouse-button": "left",
 						"click-type": "clicked",
-						"object-clicked": "Comic_Page1"
+						"object-clicked": "Comic_Pages"
 					}
 				},
 				{
@@ -210,6 +244,10 @@
 					"sid": 808770660067335,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Se a segunda página estiver com opacidade zero..."
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -217,7 +255,7 @@
 									"objectClass": "Comic_Manager",
 									"sid": 233388801784840,
 									"parameters": {
-										"instance-variable": "FrontPage_2",
+										"instance-variable": "FrontSide_2",
 										"comparison": 0,
 										"value": "0"
 									}
@@ -231,7 +269,7 @@
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page2",
+											"objectClass": "Comic_Side2",
 											"sid": 686172336548416,
 											"parameters": {
 												"unique-id": "404"
@@ -242,18 +280,22 @@
 									"sid": 738802025941161,
 									"children": [
 										{
+											"eventType": "comment",
+											"text": "Se estiver visível, pega a comic da frente, aumenta o frame e prepara o fade-in"
+										},
+										{
 											"eventType": "block",
 											"conditions": [
 												{
 													"id": "is-visible",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 863079474012880
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation-frame",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 369090577115187,
 													"parameters": {
 														"frame-number": "Self.AnimationFrame + 2"
@@ -261,7 +303,7 @@
 												},
 												{
 													"id": "set-fade-in-time",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 157471717582609,
 													"behaviorType": "Fade",
 													"parameters": {
@@ -270,7 +312,7 @@
 												},
 												{
 													"id": "set-fade-out-time",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 730514377329122,
 													"behaviorType": "Fade",
 													"parameters": {
@@ -279,12 +321,16 @@
 												},
 												{
 													"id": "restart-fade",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 200687453522828,
 													"behaviorType": "Fade"
 												}
 											],
 											"sid": 270185640468261
+										},
+										{
+											"eventType": "comment",
+											"text": "Caso contrário, pega a comic da frente, deixa visível e prepara o fade-in"
 										},
 										{
 											"eventType": "block",
@@ -298,7 +344,7 @@
 											"actions": [
 												{
 													"id": "set-visible",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 232514571214760,
 													"parameters": {
 														"visibility": "visible"
@@ -306,7 +352,7 @@
 												},
 												{
 													"id": "set-fade-in-time",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 756218086454441,
 													"behaviorType": "Fade",
 													"parameters": {
@@ -315,7 +361,7 @@
 												},
 												{
 													"id": "set-fade-out-time",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 805831828542871,
 													"behaviorType": "Fade",
 													"parameters": {
@@ -324,7 +370,7 @@
 												},
 												{
 													"id": "start-fade",
-													"objectClass": "Comic_Page2",
+													"objectClass": "Comic_Side2",
 													"sid": 865345909500556,
 													"behaviorType": "Fade"
 												}
@@ -334,6 +380,10 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Se a segunda página estiver com opacidade maior que zero..."
 						},
 						{
 							"eventType": "block",
@@ -348,11 +398,15 @@
 							"sid": 454887723233495,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Pega a comic do fundo e aumenta o frame"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page2",
+											"objectClass": "Comic_Side2",
 											"sid": 160981542561540,
 											"parameters": {
 												"unique-id": "403"
@@ -362,7 +416,7 @@
 									"actions": [
 										{
 											"id": "set-animation-frame",
-											"objectClass": "Comic_Page2",
+											"objectClass": "Comic_Side2",
 											"sid": 564212635726001,
 											"parameters": {
 												"frame-number": "Self.AnimationFrame + 2"
@@ -372,11 +426,15 @@
 									"sid": 516992074252213
 								},
 								{
+									"eventType": "comment",
+									"text": "Pega a comic da frente e prepara o fade-out"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page2",
+											"objectClass": "Comic_Side2",
 											"sid": 928115342604916,
 											"parameters": {
 												"unique-id": "404"
@@ -386,7 +444,7 @@
 									"actions": [
 										{
 											"id": "set-fade-in-time",
-											"objectClass": "Comic_Page2",
+											"objectClass": "Comic_Side2",
 											"sid": 683811533966142,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -395,7 +453,7 @@
 										},
 										{
 											"id": "set-fade-out-time",
-											"objectClass": "Comic_Page2",
+											"objectClass": "Comic_Side2",
 											"sid": 790526715656340,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -404,7 +462,7 @@
 										},
 										{
 											"id": "restart-fade",
-											"objectClass": "Comic_Page2",
+											"objectClass": "Comic_Side2",
 											"sid": 822033578065328,
 											"behaviorType": "Fade"
 										}
@@ -428,6 +486,10 @@
 					"sid": 703291660166593,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Se a primeira página estiver com opacidade zero..."
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -435,7 +497,7 @@
 									"objectClass": "Comic_Manager",
 									"sid": 401272319502758,
 									"parameters": {
-										"instance-variable": "FrontPage_1",
+										"instance-variable": "FrontSide_1",
 										"comparison": 0,
 										"value": "0"
 									}
@@ -445,11 +507,15 @@
 							"sid": 987502096645048,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Pega a comic da frente, aumenta o frame e prepara o fade-in"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 355525543131908,
 											"parameters": {
 												"unique-id": "401"
@@ -459,7 +525,7 @@
 									"actions": [
 										{
 											"id": "set-animation-frame",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 922518119171005,
 											"parameters": {
 												"frame-number": "Self.AnimationFrame + 2"
@@ -467,7 +533,7 @@
 										},
 										{
 											"id": "set-fade-in-time",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 659521306842274,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -476,7 +542,7 @@
 										},
 										{
 											"id": "set-fade-out-time",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 444097117929495,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -485,7 +551,7 @@
 										},
 										{
 											"id": "restart-fade",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 472638400503476,
 											"behaviorType": "Fade"
 										}
@@ -493,6 +559,10 @@
 									"sid": 841958182165993
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Se a primeira página estiver com opacidade maior que zero..."
 						},
 						{
 							"eventType": "block",
@@ -507,11 +577,15 @@
 							"sid": 450501502055727,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Pega a comic do fundo e aumenta o frame"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 538997700012527,
 											"parameters": {
 												"unique-id": "400"
@@ -521,7 +595,7 @@
 									"actions": [
 										{
 											"id": "set-animation-frame",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 375476836663077,
 											"parameters": {
 												"frame-number": "Self.AnimationFrame + 2"
@@ -531,11 +605,15 @@
 									"sid": 728869960645428
 								},
 								{
+									"eventType": "comment",
+									"text": "Pega a comic da frente e prepara o fade-out"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "pick-by-unique-id",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 269917078020922,
 											"parameters": {
 												"unique-id": "401"
@@ -545,7 +623,7 @@
 									"actions": [
 										{
 											"id": "set-fade-in-time",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 466374619191964,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -554,7 +632,7 @@
 										},
 										{
 											"id": "set-fade-out-time",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 432789901076220,
 											"behaviorType": "Fade",
 											"parameters": {
@@ -563,7 +641,7 @@
 										},
 										{
 											"id": "restart-fade",
-											"objectClass": "Comic_Page1",
+											"objectClass": "Comic_Side1",
 											"sid": 895368966740026,
 											"behaviorType": "Fade"
 										}

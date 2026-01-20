@@ -7609,7 +7609,7 @@
 			"subLayers": [],
 			"instances": [
 				{
-					"type": "Comic_Page1",
+					"type": "Comic_Side1",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Page 1",
@@ -7657,9 +7657,9 @@
 					}
 				},
 				{
-					"type": "Comic_Page1",
+					"type": "Comic_Side1",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"initial-animation": "Page 1",
 						"initial-frame": 0,
 						"enable-collisions": true,
@@ -7672,9 +7672,9 @@
 					"behaviors": {
 						"Fade": {
 							"properties": {
-								"fade-in-time": 1,
+								"fade-in-time": 0,
 								"wait-time": 0,
-								"fade-out-time": 0,
+								"fade-out-time": 1,
 								"destroy": false,
 								"enabled": false,
 								"live-preview": false
@@ -7705,7 +7705,7 @@
 					}
 				},
 				{
-					"type": "Comic_Page2",
+					"type": "Comic_Side2",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Page 2",
@@ -7753,10 +7753,10 @@
 					}
 				},
 				{
-					"type": "Comic_Page2",
+					"type": "Comic_Side2",
 					"properties": {
 						"initially-visible": false,
-						"initial-animation": "Page 2",
+						"initial-animation": "Page 4",
 						"initial-frame": 1,
 						"enable-collisions": true,
 						"live-preview": false
@@ -7786,8 +7786,8 @@
 					"world": {
 						"x": 1348,
 						"y": 541,
-						"width": 198.145564516129,
-						"height": 280.5199543899658,
+						"width": 701,
+						"height": 992,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -7813,8 +7813,8 @@
 					"sid": 747665232231651,
 					"tags": "",
 					"instanceVariables": {
-						"FrontPage_1": 0,
-						"FrontPage_2": 0,
+						"FrontSide_1": 0,
+						"FrontSide_2": 0,
 						"Page_1_Completed": false
 					},
 					"behaviors": {
@@ -7873,7 +7873,7 @@
 			"useRenderCells": false,
 			"blendMode": "normal",
 			"zElevation": 0,
-			"global": false
+			"global": true
 		}
 	],
 	"scene-graphs-folder-root": {

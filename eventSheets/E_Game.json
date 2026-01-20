@@ -6358,16 +6358,6 @@
 					"sid": 439714647780526,
 					"children": [
 						{
-							"eventType": "variable",
-							"name": "upgrade_value",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "referente a % envolvida na matemática feita pelo código para mostrar ao usuário o valor que será aumentado ",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 999439227836413
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -6433,15 +6423,6 @@
 									],
 									"actions": [
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 318398510154459,
-											"parameters": {
-												"variable": "upgrade_value",
-												"value": "(A_Prod_Data.At(8,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
-											}
-										},
-										{
 											"id": "set-text",
 											"objectClass": "Text_Upg_Description",
 											"sid": 268687657024963,
@@ -6494,20 +6475,11 @@
 									],
 									"actions": [
 										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 453434802022166,
-											"parameters": {
-												"variable": "upgrade_value",
-												"value": "float(A_Prod_Data.At( 7,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) ) * 100"
-											}
-										},
-										{
 											"id": "set-text",
 											"objectClass": "Text_Upg_Description",
-											"sid": 154502144936789,
+											"sid": 958383717863609,
 											"parameters": {
-												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", upgrade_value )"
+												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", 100 * (float(tokenat(Upgrade_ID, 1, \"_\"))) )"
 											}
 										}
 									],
@@ -6632,15 +6604,6 @@
 										}
 									],
 									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 519778766487885,
-											"parameters": {
-												"variable": "upgrade_value",
-												"value": "(A_Prod_Data.At(8,1, A_Prod_Data.CurZ) * float( tokenat( Upgrade_ID, 1, \"_\") ) )"
-											}
-										},
 										{
 											"id": "set-text",
 											"objectClass": "Text_Upg_Description",
@@ -24626,6 +24589,24 @@
 												"instance-variable": "prod_time",
 												"value": "A_Prod_Data.At(3,1,0)"
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 471652507190018,
+											"parameters": {
+												"instance-variable": "base_prodcap",
+												"value": "A_Prod_Data.At(7,1,0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 597019100664439,
+											"parameters": {
+												"instance-variable": "base_prodtime",
+												"value": "A_Prod_Data.At(8,1,0)"
+											}
 										}
 									],
 									"sid": 248696073967093
@@ -24690,6 +24671,24 @@
 											"parameters": {
 												"instance-variable": "cond_material_quant_2",
 												"value": "A_Prod_Data.At(6, 1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 333269800029385,
+											"parameters": {
+												"instance-variable": "base_prodcap",
+												"value": "A_Prod_Data.At(7, 1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 790110259522753,
+											"parameters": {
+												"instance-variable": "base_prodtime",
+												"value": "A_Prod_Data.At(8, 1, Production.Array_ID)"
 											}
 										}
 									],
@@ -24780,6 +24779,15 @@
 									}
 								},
 								{
+									"id": "set-animation",
+									"objectClass": "Bkg_tela_fundo",
+									"sid": 330007252984219,
+									"parameters": {
+										"animation": "\"Production\"",
+										"from": "beginning"
+									}
+								},
+								{
 									"id": "set-group-active",
 									"objectClass": "System",
 									"sid": 317034969454876,
@@ -24824,6 +24832,24 @@
 											"parameters": {
 												"instance-variable": "prod_time",
 												"value": "A_Prod_Data.At(3,1,0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 592209257812223,
+											"parameters": {
+												"instance-variable": "base_prodcap",
+												"value": "A_Prod_Data.At(7,1,0)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 490414809532649,
+											"parameters": {
+												"instance-variable": "base_prodtime",
+												"value": "A_Prod_Data.At(8,1,0)"
 											}
 										}
 									],
@@ -25117,6 +25143,24 @@
 											"parameters": {
 												"instance-variable": "cond_material_quant_2",
 												"value": "A_Prod_Data.At(6, 1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 159705472717677,
+											"parameters": {
+												"instance-variable": "base_prodcap",
+												"value": "A_Prod_Data.At(7, 1, Production.Array_ID)"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 105326509691716,
+											"parameters": {
+												"instance-variable": "base_prodtime",
+												"value": "A_Prod_Data.At(8, 1, Production.Array_ID)"
 											}
 										}
 									],
