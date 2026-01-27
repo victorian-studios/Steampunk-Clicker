@@ -24779,15 +24779,6 @@
 									}
 								},
 								{
-									"id": "set-animation",
-									"objectClass": "Bkg_tela_fundo",
-									"sid": 330007252984219,
-									"parameters": {
-										"animation": "\"Production\"",
-										"from": "beginning"
-									}
-								},
-								{
 									"id": "set-group-active",
 									"objectClass": "System",
 									"sid": 317034969454876,
@@ -24799,6 +24790,32 @@
 							],
 							"sid": 615860340227453,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Bkg_tela_fundo",
+											"sid": 859524531055430,
+											"parameters": {
+												"instance-variable": "Ignore"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Bkg_tela_fundo",
+											"sid": 634478697065840,
+											"parameters": {
+												"animation": "\"Production\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 314120694735074
+								},
 								{
 									"eventType": "comment",
 									"text": "Steam"
