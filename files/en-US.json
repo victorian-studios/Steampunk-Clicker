@@ -3,14 +3,31 @@
 	"strings": {
 
 		"main_menu": {
-		
-			"btn_start": "COMEÇAR"
-
+			
 		},
 
         "options": {
             "title": "OPTIONS",
-            "music": "SOUND"
+            "lang": {
+                "title": "LANGUAGE",
+                "choose": "CHOOSE YOUR LANGUAGE:"
+            },
+            "sound": {
+                "title": "SOUND",
+                "music": "[u]MASTER VOLUME[/u]"
+            },
+            "video": {
+                "title": "VIDEO",
+                "screen": "Fullscreen",
+                "fps": "Show FPS"
+            }, 
+            
+            "exit": {
+                "title": "SAVE DATA",
+                "warning": "WARNING: this will exclude all your save data and restart the game!",
+                "reset": "RESET ALL SAVE DATA"
+            }
+            
         },
 
         "game": {

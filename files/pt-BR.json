@@ -3,32 +3,309 @@
 	"strings": {
 
 		"main_menu": {
-		
-			"btn_start": "COMEÇAR"
-
+			
 		},
+
+        "options": {
+            "title": "OPÇÕES",
+            "lang": {
+                "title": "IDIOMA",
+                "choose": "ESCOLHA SEU IDIOMA:"
+            },
+            "sound": {
+                "title": "SOM",
+                "music": "[u]VOLUME PRINCIPAL[/u]"
+            },
+            "video": {
+                "title": "VIDEO",
+                "screen": "Tela Cheia",
+                "fps": "Mostrar FPS"
+            }, 
+            
+            "exit": {
+                "title": "SAVE INFO",
+                "warning": "Atenção: isso vai excluir todo o seu progresso e reiniciar o jogo!",
+                "reset": "APAGAR TODO O SAVE"
+            }
+            
+        },
 
         "game": {
             "prod": {},
-            "upg": {},
-            "work": {},
-            "map": {}
+            "upg": {
+                "locked": "[b]Locked[/b]",
+                "unlock": "\nUnlock the {0} production!",
+                "prodcapup": "\nRaises the production capacity by {0}%.",
+                "prodspeedup": "\nReduce the production time in {0}%.",
+                "autoprod": "Makes your production automatic! Just right click the material icon to toggle on/off and let the rest to the robots.",
+                "costred": "\nReduce de production cost of this material.",
+                "doubleprod": "\nDouble the ammont of materials produced of each cycle.",
+                "prodcombo": "\nUse this material to help reduce the production time from ",
+                "prodcombo2": " to {0}%.",
+                "refine": "\nStart producing a refined version of this material to enhance its properties and enable new upgrades for your equipment.",
+                "premium": "After extensive research, your machines are now capable of creating a premium version of this material, making it possible to craft the best version of your armor.",
+                "steam_premium": "Work in progress...",
+                "Steam": {
+                    "name": "Steam",
+                    "unlock_next": "Hey Rose, you've produced sufficient Steam to buy the [b]Wood[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "1": "[b]Coal[/b]/n",
+                    "2": "[b]Coal Sacks[/b]",
+                    "3": "[b]Coal Boxes[/b]",
+                    "4": "[b]Repair Plumbing[/b]",
+                    "5": "[b]Large Pipes[/b]",
+                    "6": "[b]Auto-bot[/b]",
+                    "7": "[b]Charcoal[/b]",
+                    "8": "[b]Cost Reduction[/b]",
+                    "9": "[b]Double Production[/b]",
+                    "10": "[b]Combo: Iron[/b]",
+                    "11": "[b]Combo: Vaporium[/b]",
+                    "12": "[b]Pressure Valve[/b]",
+                    "13": "[b]Steam Tank[/b]",
+                    "14": "[b]Reinforced Tank[/b]",
+                    "15": "[b]???[/b]"
+                },
+                "Wood": {
+                    "name": "Wood",
+                    "unlock_next": "Hey Rose, you've produced sufficient Wood to buy the [b]Copper[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "1": "[b]Produce Wood[/b]",
+                    "2": "[b]Old Saw[/b]",
+                    "3": "[b]Brand New Saw[/b]",
+                    "4": "[b]Rope[/b]",
+                    "5": "[b]Transport Boxes[/b]",
+                    "6": "[b]Auto-bot[/b]",
+                    "7": "[b]Round Saw[/b]",
+                    "8": "[b]Cost Reduction[/b]",
+                    "9": "[b]Double Production[/b]",
+                    "10": "[b]Combo: Steam[/b]",
+                    "11": "[b]Combo: Iron[/b]",
+                    "12": "[b]Sealed Box[/b]",
+                    "13": "[b]Wodden Pallets[/b]",
+                    "14": "[b]Lifting Claw[/b]",
+                    "15": "[b]Refined Material[/b]",
+                    "16": "[b]Final Armour[/b]"
+                },
+                "Copper": {
+                    "name": "Copper",
+                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Iron[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "1": "[b]Produce Copper[/b]",
+                    "2": "[b]Extra Coal[/b]",
+                    "3": "[b]Preheating[/b]",
+                    "4": "[b]Stacking Ingots[/b]",
+                    "5": "[b]Small Box[/b]",
+                    "6": "[b]Bigger Mold[/b]",
+                    "7": "[b]Auto-bot[/b]",
+                    "8": "[b]Cost Reduction[/b]",
+                    "9": "[b]Double Production[/b]",
+                    "10": "[b]Combo: Wood[/b]",
+                    "11": "[b]Combo: Titanium[/b]",
+                    "12": "[b]Reinforced Boxes[/b]",
+                    "13": "[b]Big Shelf[/b]",
+                    "14": "[b]Cargo Crates[/b]",
+                    "15": "[b]Refined Material[/b]",
+                    "16": "[b]Final Armour[/b]"
+                },
+                "Iron": {
+                    "name": "Iron",
+                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Titanium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "1": "[b]Produce Iron[/b]",
+                    "2": "[b]Mine Cart[/b]",
+                    "3": "[b]Sturdy Pickaxes[/b]",
+                    "4": "[b]Metal Bowl[/b]",
+                    "5": "[b]Chest[/b]",
+                    "6": "[b]Conveyor Belt[/b]",
+                    "7": "[b]Auto-bot[/b]",
+                    "8": "[b]Cost Reduction[/b]",
+                    "9": "[b]Double Production[/b]",
+                    "10": "[b]Combo: Wood[/b]",
+                    "11": "[b]Combo: Copper[/b]",
+                    "12": "[b]Metal Shelf[/b]",
+                    "13": "[b]Railroad[/b]",
+                    "14": "[b]Bigger Hopper Car[/b]",
+                    "15": "[b]Refined Material[/b]",
+                    "16": "[b]Final Armour[/b]"
+                },
+                "Titanium": {
+                    "name": "Titanium",
+                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Tungsten[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "1": "[b]Produce Titanium[/b]",
+                    "2": "[b]Hand Truck[/b]",
+                    "3": "[b]Platform truck[/b]",
+                    "4": "[b]Wodden Barrel[/b]",
+                    "5": "[b]Reinforced Barrel[/b]",
+                    "6": "[b]Cargo Bot[/b]",
+                    "7": "[b]Auto-bot[/b]",
+                    "8": "[b]Cost Reduction[/b]",
+                    "9": "[b]Double Production[/b]",
+                    "10": "[b]Combo: Copper[/b]",
+                    "11": "[b]Combo: Iron[/b]",
+                    "12": "[b]Copper Chest[/b]",
+                    "13": "[b]Reinforced Chest[/b]",
+                    "14": "[b]Container[/b]",
+                    "15": "[b]Refined Material[/b]",
+                    "16": "[b]Final Armour[/b]"
+                },
+                "Tungsten": {
+                    "name": "Tungsten",
+                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Vaporium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "1": "[b]Produce Tungstein[/b]",
+                    "2": "[b]Rope Pulley[/b]",
+                    "3": "[b]Chain Pulley[/b]",
+                    "4": "[b]Metal Box[/b]",
+                    "5": "[b]Metal Barrel[/b]",
+                    "6": "[b]Crane[/b]",
+                    "7": "[b]Auto-bot[/b]",
+                    "8": "[b]Cost Reduction[/b]",
+                    "9": "[b]Double Production[/b]",
+                    "10": "[b]Combo: Titanium[/b]",
+                    "11": "[b]Combo: Vaporium[/b]",
+                    "12": "[b]Barrel Stack[/b]",
+                    "13": "[b]Mineral Silo[/b]",
+                    "14": "[b]Reinforced Silo[/b]",
+                    "15": "[b]Refined Material[/b]",
+                    "16": "[b]Final Armour[/b]"
+                },
+                "Vaporium": {
+                    "name": "Vaporium",
+                    "1": "[b]Produce Vaporium[/b]",
+                    "2": "[b][/b]",
+                    "3": "[b][/b]",
+                    "4": "[b][/b]",
+                    "5": "[b][/b]",
+                    "6": "[b][/b]",
+                    "7": "[b]Auto-bot[/b]",
+                    "8": "[b]Cost Reduction[/b]",
+                    "9": "[b]Double Production[/b]",
+                    "10": "[b]Combo: Steam[/b]",
+                    "11": "[b]Combo: Tungsten[/b]",
+                    "12": "[b][/b]",
+                    "13": "[b][/b]",
+                    "14": "[b][/b]",
+                    "15": "[b]Refined Material[/b]",
+                    "16": "[b]Final Armour[/b]"
+                }
+            },
+            "work": {
+                "unlock": "UNLOCK",
+                "upgrade": "UPGRADE",
+                "label": {
+                    "name": "ICONS",
+                    "damage": "Damage",
+                    "p_damage": "Penetrating Damage",
+                    "ammo": "Ammo",
+                    "cooldown": "Cooldown"
+                },
+                "weapons": {
+                
+                },
+                "skills": {
+                
+                },
+                "armors": {
+                
+                }
+            },
+            "map": {
+                "None": "[b]Select a level![/b]",
+                "City_Title": "CITY",
+                "Grave_Title": "GRAVEYARD",
+                "Mount_Title": "MOUNTAIN",
+                "Castle_Title": "CASTLE",
+                "Airshop_Title": "AIRSHIP",
+                "City-1": "[b]LEVEL - 1[/b]\n\nZombie x1",
+                "City-2": "[b]LEVEL - 2[/b]\n\nZombie x2 | Z Woman x1",
+                "City-3": "[b]LEVEL - 3[/b]\n\nZ Woman x1 | Z Dog x2",
+                "Grave-4": "[b]LEVEL - 1[/b]\n\nMummy x1 | Z Woman",
+                "Grave-5": "[b]LEVEL - 2[/b]\n\nDog x1 | Mummy x2",
+                "Grave-6": "[b]LEVEL - 3[/b]\n\nMummy x1 | Z Woman x2",
+                "Mount-7": "[b]LEVEL - 1[/b]\n\nVulture x1 | Mummy x1",
+                "Mount-8": "[b]LEVEL - 2[/b]\n\nZ Woman x1 | Vulture x2",
+                "Mount-9": "[b]LEVEL - 3[/b]\n\nVulture x1 | Zombie x1 | Mummy x1",
+                "Castle-10": "[b]LEVEL - 1[/b]\n\nDog x1 | Strong Zombie x2",
+                "Castle-11": "[b]LEVEL - 2[/b]\n\nStrong Zombie x3",
+                "Airship-12": "[b]BOSS LEVEL[/b]\n\nViktor x1"
+            }
         },
 
         "fight": {
+            "exit": {
+                "name": "EXIT?",
+                "desc": "There's no penalty in doing so."
+            },
+            "skip": "Skip your turn."
+        },
 
+        "loading": {
+            "ready": "Click anywhere to start!",
+            "tip_1": "If a level is too difficult try changing your equipment. There're many combos available in the game!",
+            "tip_2": "Each armor has different amount of equipement slots. Test each one according to your available equipment.",
+            "tip_3": "At level 10, all equipements receive a significant upgrade to their attributes. Prioritize having fewer high-level items instead of many low-level ones."
         },
 
         "tutorial": {
-            "welcome": {
-                "1": "",
-                "2": "",
-                "3": "",
-                "4": "",
-                "5": "",
-                "6": ""
+            "error": {
+                "no_armor_fight": "Calm down, you don't have any armor equipped yet in the workshop. If you don't have any armor, produce some materials to create the level 1 [b]Wood Armor[/b], then you can fight!",
+                "no_weapon_fight": "Hey Rose, be carefull! You don't have a weapon equipped yet. Go to the workshop to see the options, pay their price and then equip it there. I'd recommend the [b]Club[/b] as a cheap first weapon for your first try!"
             },
-            "": ""
+            "welcome": {
+                "1": "Oh Rose, you finally arrived at the factory. Welcome my daughter!",
+                "2": "I know you're a grown woman now, but you don't visit a lot now either... Would you like a quick reminder of how things work around this place?\n[color=rgb(255,255,255)]Press [b](Y)[/b] Yes / [b](N)[/b] No[/color]",
+                "3": "Yeah I presumed that, I knew your time creating contraptions in my old factory would come in hand soon or later.",
+                "4": "Well, in any case, I will keep contat with you from time to time. Take care!",
+                "5": "Perfect! And, don't worry, I'll be quick.",
+                "6": "First lets start with the places around the factory. First of all, we have the [b]Production Area[/b]!",
+                "7": "Here you can find all the machines producing different resources for you. You can see them represented by an icon next to a progress bar, showing how long the process is going to take to finish.",
+                "8" : "At the momment there's only the main producer off them all: [b]The Boiler[/b]!",
+                "9" : "Remember: steam is the main resource off our society. With it, you can make most of the other materials. So prioritize it with upgrades and other expasions for a better performance in general.",
+                "10" : "To produce anything, just [b]click[/b] in the icon and the machine will do the rest for you. For future machines, they'll also show the resources needed to start running. [b]Try it out![/b]",
+                "10.1": "Perfect! It's simple. Now, let's continue...",
+                "11" : "Next, we have the [b]Upgrade Area[/b]!",
+                "12" : "Here you can check, buy and also unlock new upgrades for each producer you have.",
+                "13" : "Later, try checking the tabs in the right, they'll show every producer's specific itens for making them even more efficient.",
+                "14" : "And an important information: for unlocking new producers you just have to wait until their icon become available. Then you can check their price and finally start making new materials in the factory.",
+                "15" : "Don't worry, I will come back again every time you have a new producer to unlock.",
+                "16" : "Okay, now that's my favorite part: [b]The Workshop[/b]!",
+                "17" : "In this place you can start using your materials for your main objective: making your armor and weapons.",
+                "18" : "I'm not gonna lie to you, this monsters out there are pretty dangerous and also seam to be much stronger than we think. So you can't leave this place without finishing your armor completely.",
+                "19" : "In the left part you have the [b]Weapons and Skills[/b] tabs. At the momment they're all locked by default. But it's just a matter of time until you have them all available to you.",
+                "20" : "Each one have different uses and sometimes even an special effect for upgraded versions. Take your time to dedice wich one works better for every enemy. To equip is just drag and drop it in the available slot.",
+                "21" : "Now the part you're waiting for: the [b]Armor[/b] tab in the right.",
+                "22" : "As I said, you need to equip any type of armor to go out and fight the monstrers outside. I suggest start by a wooden version since it's simple, fast to make but not so effective.",
+                "23" : "Just like the weapons/skills, you can also upgrade your armor for better stats and performance in battle. And can also come with a special bonus if you upgrade enough.",
+                "24" : "To equip the armor, is just like the others, drag and drop it but in the slot in the middle.",
+                "25" : "Perfect, now let's head back to the office.",
+                "26" : "To finish, that's the office or, how I prefer say, the [b]Map Area[/b]!",
+                "27" : "I've got an entire map of the city and the exterior part around it. Here you can see all the paths and decide where you want to go next.",
+                "28" : "At the momment I can't see any other path to follow ratter than this one right here.",
+                "29" : "But don't think too much, if you have an armor and a weapon, then you should try to check how strong these enemies are, their attack patterns, resistances and so on.", 
+                "30" : "If you fail, just head back to the factory, upgrade and start over again.",
+                "31" : "It's very probable that after defeating them, another one can come back again, so you can retry beating their faces another time. Just remember that you need to reach the root of the problem to solve all this.",
+                "32" : "Well, I think that's all for now. Don't worry, as I said early, I'll come back again from time to time when there's something important to tell you.",
+                "33" : "I love you Rose. Take care out there, It's dangerous to go alone. Make your armor and weapons to fight them!",
+                "34" : "And most important: don't give up!"
+            },
+            "fight": {
+                "1": "Hey Rose, it's me again!",
+                "2": "I came here as soon as I saw you walking out on the street in your armor! Just be careful, don't draw as much attention next time.",
+                "3": "Anyway, would you mind if I help you recollect your battle skills?\n[color=rgb(255,255,255)]Press [b](Y)[/b] Yes / [b](N)[/b] No[/color]",
+                "3.1": "Okay okay, I'm not going to bother you anymore. Good luck Rose!",
+                "4": "First, when you enconter an enemy you can check their health above them. When it reaches [b]zero[/b], they will finally be defeated. Try to finish this as quickly as possible to avoid damaging the armor greatly.",
+                "5": "Now you can choose wich ability you would like to use first. Check their information any time by moving your mouse over them.",
+                "6": "Then click to select and finally click on your target to execute your move. After that you will finish your turn.",
+                "7": "After you act, it's time for the enemies to attack you. Thankfully your armor was designed to receive an amount of damage and keep you alive. Just remember that you're not invincible.",
+                "8": "Some enemies will have different attack patterns and, obviously, different abilities. You'll never know what they do until you fight them.",
+                "9": "In case you suffer any damage, keep looking at the blue bar bellow. It's your main health bar, just like the enemies, when it reaches [b]zero[/b] you will be defeated.",
+                "10": "But if you have paid attention, notece that there's also another small bar next to it. That ''batery'' represent's your shield power. That's what makes your armor special and versatile.",
+                "11": "The energy remaining wont last forever, since it will absorb most of the damage received from the enemies during the fight. Unless the enemy has some penetrating attack that ignore the energy from the armor.",
+                "12": "Remember: if you're loosing, it's better to retreat and come back to factory for further upgrades. Don't give up so easily! Try different builds and combinations. Every enemy has it's weakness!",
+                "13": "That's all for now, good luck!"
+            },
+            "end_demo": {
+                "1": "Hello again Rose. So you've made it right? Fantastic! Look at you, I barely recognize the little girl you were...",
+                "2": "Oh okay okay. Sorry, lets be serious now. Well done! You've defeated the first threat in your path. But as you can imagine, there's many other enemies in the way.",
+                "3": "Don't worry, things like that take time to resolve. You're in the right path. Now you've learned that most things needed to progress further and further.",
+                "4": "But unfortunantly that's the [b]end of the demo![/b] Fell free to continue by retrying this last battle, producing materials and buying the rest of the remaining upgrades!",
+                "5": "Stay tunned for updates in our discord! (Including this demo version)"
+            }
         }
     }
 }

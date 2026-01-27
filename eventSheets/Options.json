@@ -24,21 +24,144 @@
 				{
 					"id": "set-x",
 					"objectClass": "Slider_Volume",
-					"sid": 366542461463141,
+					"sid": 769350044655516,
 					"parameters": {
-						"x": "1072"
+						"x": "1342"
 					}
 				},
 				{
 					"id": "set-width",
 					"objectClass": "Progbar_volume",
-					"sid": 196290891287303,
+					"sid": 387045271356037,
 					"parameters": {
-						"width": "384"
+						"width": "512"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Fixed",
+					"sid": 777243090475710,
+					"parameters": {
+						"text": "Internationalization.Lookup( Self.my_Txt )"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 957878687898989,
+					"parameters": {
+						"layer": "\"Options\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 465650886540661,
+					"parameters": {
+						"layer": "\"Translation\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 407256499491417,
+					"parameters": {
+						"layer": "\"Sound\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 418318381370923,
+					"parameters": {
+						"layer": "\"Video\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 660515690708545,
+					"parameters": {
+						"layer": "\"SaveData\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 491705079519205,
+					"parameters": {
+						"group-name": "\"Translation\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 974407668813933,
+					"parameters": {
+						"group-name": "\"Sound\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 868131360173282,
+					"parameters": {
+						"group-name": "\"Video\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 245079056747653,
+					"parameters": {
+						"group-name": "\"Save Data\"",
+						"state": "deactivated"
 					}
 				}
 			],
-			"sid": 452432177324698
+			"sid": 452432177324698,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-fullscreen",
+							"objectClass": "Browser",
+							"sid": 220171501100570
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 745455977045766,
+							"parameters": {
+								"object": "Checkbox_Options",
+								"expression": "Checkbox_Options.ID",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Checkbox_Options",
+							"sid": 803790950266618,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 970092825885665
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -52,28 +175,9 @@
 					}
 				},
 				{
-					"id": "compare-eventvar",
-					"objectClass": "System",
-					"sid": 220877296978181,
-					"parameters": {
-						"variable": "Tutorial_Name",
-						"comparison": 0,
-						"value": "\"\""
-					}
-				},
-				{
-					"id": "layer-is-visible",
-					"objectClass": "System",
-					"sid": 293319934019199,
-					"parameters": {
-						"layer": "\"Exit\""
-					},
-					"isInverted": true
-				},
-				{
 					"id": "is-any-playing",
 					"objectClass": "Bkg_options",
-					"sid": 333314998686571,
+					"sid": 183300614352599,
 					"behaviorType": "Tween",
 					"isInverted": true
 				}
@@ -85,405 +189,837 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "layer-is-visible",
+							"id": "pick-all",
 							"objectClass": "System",
-							"sid": 796451011673608,
+							"sid": 426424512768714,
 							"parameters": {
-								"layer": "\"Options\""
-							}
-						},
-						{
-							"id": "compare-y",
-							"objectClass": "Bkg_options",
-							"sid": 598171612401459,
-							"parameters": {
-								"comparison": 0,
-								"y-co-ordinate": "540"
+								"object": "Btn_Config_Options"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-time-scale",
-							"objectClass": "System",
-							"sid": 344035193554132,
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 297902993767659,
 							"parameters": {
-								"time-scale": "1"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 775797442765665,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Player Habs\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 493159767507265,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Vapor Prod\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 780781788627006,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Outros Prods\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 171313121998372,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Upgrades\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 638224112792188,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Workshop\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 541142072854725,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Fight Map\"",
-								"state": "activated"
-							}
-						},
-						{
-							"id": "move-to-layer",
-							"objectClass": "Bkg_black_Options",
-							"sid": 836364424113033,
-							"parameters": {
-								"layer": "\"Options\""
-							}
-						},
-						{
-							"id": "move-to-bottom",
-							"objectClass": "Bkg_black_Options",
-							"sid": 246332254317537
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Bkg_black_Options",
-							"sid": 860011469267688,
-							"parameters": {
-								"x": "970",
-								"y": "-1000"
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Bkg_options",
-							"sid": 337238808340236,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"options_down\"",
-								"property": "offsetY",
-								"end-value": "560",
-								"time": "0.1",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 927316605692110,
-							"parameters": {
-								"seconds": "0.1",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Bkg_options",
-							"sid": 765272323364835,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"options_up\"",
-								"property": "offsetY",
-								"end-value": "-310",
-								"time": "0.5",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 227447788195626,
-							"parameters": {
-								"seconds": "0.5",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 319923244952898,
-							"parameters": {
-								"layer": "\"Options\"",
-								"visibility": "invisible"
+								"frame-number": "0"
 							}
 						}
 					],
-					"sid": 667722915807141
+					"sid": 360364676804994
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "else",
+							"id": "pick-by-comparison",
 							"objectClass": "System",
-							"sid": 481706155696365
+							"sid": 896323873625605,
+							"parameters": {
+								"object": "Btn_Config_Options",
+								"expression": "Btn_Config_Options.ID",
+								"comparison": 0,
+								"value": "1"
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 158467833528189,
+							"sid": 319068112495885,
 							"parameters": {
 								"seconds": "0.01",
 								"use-timescale": true
 							}
 						},
 						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 294145691048164,
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 179716049009994,
 							"parameters": {
-								"layer": "\"Options\"",
-								"visibility": "visible"
-							}
-						},
-						{
-							"id": "set-time-scale",
-							"objectClass": "System",
-							"sid": 136754062227238,
-							"parameters": {
-								"time-scale": "0"
-							}
-						},
-						{
-							"id": "set-object-time-scale",
-							"objectClass": "System",
-							"sid": 116294675623089,
-							"parameters": {
-								"object": "Btn_Config",
-								"time-scale": "1.0"
-							}
-						},
-						{
-							"id": "set-object-time-scale",
-							"objectClass": "System",
-							"sid": 367368499071655,
-							"parameters": {
-								"object": "Bkg_options",
-								"time-scale": "1.0"
-							}
-						},
-						{
-							"id": "set-object-time-scale",
-							"objectClass": "System",
-							"sid": 811624807022824,
-							"parameters": {
-								"object": "Progbar_volume",
-								"time-scale": "1.0"
-							}
-						},
-						{
-							"id": "set-object-time-scale",
-							"objectClass": "System",
-							"sid": 365728035055298,
-							"parameters": {
-								"object": "Progbar_volume",
-								"time-scale": "1.0"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 282139119912996,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Player Habs\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 496578579034025,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Vapor Prod\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 718236260943695,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Outros Prods\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 771371504378125,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Upgrades\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 162209782851951,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Workshop\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "set-group-active",
-							"objectClass": "System",
-							"sid": 689143613111429,
-							"disabled": true,
-							"parameters": {
-								"group-name": "\"Fight Map\"",
-								"state": "deactivated"
-							}
-						},
-						{
-							"id": "move-to-layer",
-							"objectClass": "Bkg_black_Options",
-							"sid": 196703928171147,
-							"parameters": {
-								"layer": "\"Options\""
-							}
-						},
-						{
-							"id": "move-to-bottom",
-							"objectClass": "Bkg_black_Options",
-							"sid": 651569312191230
-						},
-						{
-							"id": "set-position",
-							"objectClass": "Bkg_black_Options",
-							"sid": 873830612383070,
-							"parameters": {
-								"x": "970",
-								"y": "540"
-							}
-						},
-						{
-							"id": "tween-one-property",
-							"objectClass": "Bkg_options",
-							"sid": 633326482795495,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"options_down_hi\"",
-								"property": "offsetY",
-								"end-value": "560",
-								"time": "0.5",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no",
-								"repeat-count": "1"
+								"frame-number": "1"
 							}
 						}
 					],
-					"sid": 456299175790139
+					"sid": 895461983324315
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-by-comparison",
+							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 455795777619139,
+							"sid": 197643674547514,
 							"parameters": {
-								"object": "TextoAiDaVida",
-								"expression": "TextoAiDaVida.UID",
+								"first-value": "LayoutName",
 								"comparison": 0,
-								"value": "376"
+								"second-value": "\"Game\""
 							}
-						}
-					],
-					"actions": [
+						},
 						{
-							"id": "set-text",
-							"objectClass": "TextoAiDaVida",
-							"sid": 469699202731784,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 892842460239188,
 							"parameters": {
-								"text": "Internationalization.Lookup(\"options.title\")"
+								"variable": "Tutorial_Name",
+								"comparison": 0,
+								"value": "\"\""
 							}
 						}
 					],
-					"sid": 768143520821877
+					"actions": [],
+					"sid": 942816833281957,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 629243043940082,
+									"parameters": {
+										"layer": "\"Options\""
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Bkg_options",
+									"sid": 511239998966184,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "540"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 797373727572926,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 811628031290684,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 773223650869578
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 722130042159709,
+									"parameters": {
+										"x": "970",
+										"y": "-1000"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 486183004184122,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 318816133351677,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 893289264756844,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_up\"",
+										"property": "offsetY",
+										"end-value": "-310",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 494958190789934,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 270048959006254,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 798086994879401
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 406808149817680
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 538806339698482,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 815328691786055,
+									"parameters": {
+										"layer": "\"Bkg_Options\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 138586095683245,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 260803219339704,
+									"parameters": {
+										"time-scale": "0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 566481980749061,
+									"parameters": {
+										"object": "Btn_Config",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 583099068174543,
+									"parameters": {
+										"object": "Bkg_options",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 918508807626975,
+									"parameters": {
+										"object": "Progbar_volume",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 897392769891003,
+									"parameters": {
+										"object": "Progbar_volume",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 242134509958454
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 200057500996440,
+									"parameters": {
+										"x": "970",
+										"y": "540"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 721373071654956,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down_hi\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 420620556880020
+						}
+					]
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "pick-by-comparison",
+							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 152570695880598,
+							"sid": 535949790688110,
 							"parameters": {
-								"object": "TextoAiDaVida",
-								"expression": "TextoAiDaVida.UID",
+								"first-value": "LayoutName",
 								"comparison": 0,
-								"value": "377"
+								"second-value": "\"Fight\""
 							}
-						}
-					],
-					"actions": [
+						},
 						{
-							"id": "set-text",
-							"objectClass": "TextoAiDaVida",
-							"sid": 433278504971651,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 192283433500291,
 							"parameters": {
-								"text": "Internationalization.Lookup(\"options.music\")"
+								"variable": "Tutorial_Name",
+								"comparison": 0,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 555213077067858,
+							"parameters": {
+								"layer": "\"Exit\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 750804344578050,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 336640640672129,
+									"parameters": {
+										"layer": "\"Options\""
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Bkg_options",
+									"sid": 899568683000956,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "540"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 908387267499145,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 441190753945499,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 752848003362244
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 260569058973812,
+									"parameters": {
+										"x": "970",
+										"y": "-1000"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 867726457343762,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 337576806177011,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 610995907639192,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_up\"",
+										"property": "offsetY",
+										"end-value": "-310",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 900233695363392,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 999127990366365,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 767398221933766
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 873419280705166
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 927425396452877,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 908000415063789,
+									"parameters": {
+										"layer": "\"Bkg_Options\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 346258141371243,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 492828373664410,
+									"parameters": {
+										"time-scale": "0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 519329797138103,
+									"parameters": {
+										"object": "Btn_Config",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 991824436498983,
+									"parameters": {
+										"object": "Bkg_options",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 795233337261909,
+									"parameters": {
+										"object": "Progbar_volume",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 483896278337638,
+									"parameters": {
+										"object": "Progbar_volume",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 956893619729830
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 887933844173254,
+									"parameters": {
+										"x": "970",
+										"y": "540"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 763938519736493,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down_hi\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 708362133520380
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 289751796872040,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Menu\""
 							}
 						}
 					],
-					"sid": 610755930406822
+					"actions": [],
+					"sid": 272987596131126,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 775560747060277,
+									"parameters": {
+										"layer": "\"Options\""
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Bkg_options",
+									"sid": 384770376261331,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "540"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 533644811117964,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 200982182431264,
+									"parameters": {
+										"layer": "\"Bkg\""
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 823381705832808
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 909351713190233,
+									"parameters": {
+										"x": "970",
+										"y": "-1000"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 868957244336033,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 273080111761453,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 561354218021328,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_up\"",
+										"property": "offsetY",
+										"end-value": "-310",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 831552696322197,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 574325375019296,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 631532677351293
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 789775717646392
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 950819939293185,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 427522995506178,
+									"parameters": {
+										"layer": "\"Bkg_Options\""
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 954042479346822,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 313608740561030,
+									"parameters": {
+										"time-scale": "0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 734892809185644,
+									"parameters": {
+										"object": "Btn_Config",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 677936115738403,
+									"parameters": {
+										"object": "Bkg_options",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 865017501090559,
+									"parameters": {
+										"object": "Progbar_volume",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "set-object-time-scale",
+									"objectClass": "System",
+									"sid": 504668839485405,
+									"parameters": {
+										"object": "Progbar_volume",
+										"time-scale": "1.0"
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 834181040494521
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 439706160261800,
+									"parameters": {
+										"x": "970",
+										"y": "540"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 547617216694684,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down_hi\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 995975903350170
+						}
+					]
 				}
 			]
 		},
@@ -525,163 +1061,385 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "is-dragging",
-					"objectClass": "Slider_Volume",
-					"sid": 343945147639199,
-					"behaviorType": "DragDrop"
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 137220176121596,
+					"parameters": {
+						"object": "Btn_Config_Options"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Btn_Config_Options",
+					"sid": 658426096608646,
+					"parameters": {
+						"instance-variable": "ID",
+						"comparison": 1,
+						"value": "5"
+					}
 				}
 			],
 			"actions": [
 				{
-					"id": "set-width",
-					"objectClass": "Progbar_volume",
-					"sid": 873772576646610,
-					"parameters": {
-						"width": "Slider_Volume.X - 688"
-					}
-				},
-				{
-					"id": "set-eventvar-value",
+					"id": "set-group-active",
 					"objectClass": "System",
-					"sid": 950318001419356,
+					"sid": 241035607745329,
 					"parameters": {
-						"variable": "VOLUME",
-						"value": "int( Progbar_volume.Width / 5.12 )"
+						"group-name": "\"Translation\"",
+						"state": "deactivated"
 					}
 				},
 				{
-					"id": "set-volume",
-					"objectClass": "Audio",
-					"sid": 483244601641183,
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 987642891759082,
 					"parameters": {
-						"tag": "\"Main\"",
-						"db": "-35 + ( VOLUME * 0.35 )"
+						"group-name": "\"Sound\"",
+						"state": "deactivated"
 					}
 				},
 				{
-					"id": "set-volume",
-					"objectClass": "Audio",
-					"sid": 626745719386579,
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 785104938072205,
 					"parameters": {
-						"tag": "\"Fight\"",
-						"db": "-35 + ( VOLUME * 0.35 )"
+						"group-name": "\"Video\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 138387105913862,
+					"parameters": {
+						"group-name": "\"Save Data\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 647456989625590,
+					"parameters": {
+						"layer": "\"Translation\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 266951015894591,
+					"parameters": {
+						"layer": "\"Sound\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 626100360198736,
+					"parameters": {
+						"layer": "\"Video\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 206309320039303,
+					"parameters": {
+						"layer": "\"SaveData\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text_Fixed",
+					"sid": 330347123133878,
+					"parameters": {
+						"color": "rgbEx(0, 0, 0)"
 					}
 				}
 			],
-			"sid": 750533876044155,
+			"sid": 405186167211270,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-x",
-							"objectClass": "Slider_Volume",
-							"sid": 883446234169366,
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 575775006978832,
 							"parameters": {
-								"comparison": 2,
-								"x-co-ordinate": "688"
+								"object": "Btn_Config_Options"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-x",
-							"objectClass": "Slider_Volume",
-							"sid": 580086010418147,
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 722518369799884,
 							"parameters": {
-								"x": "688"
+								"frame-number": "0"
 							}
 						},
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 818521059842344,
+							"id": "set-boolean-instvar",
+							"objectClass": "Btn_Config_Options",
+							"sid": 799880971740873,
 							"parameters": {
-								"variable": "VOLUME",
-								"value": "0"
-							}
-						},
-						{
-							"id": "drop",
-							"objectClass": "Slider_Volume",
-							"sid": 170807566267151,
-							"behaviorType": "DragDrop"
-						},
-						{
-							"id": "set-silent",
-							"objectClass": "Audio",
-							"sid": 200529883064688,
-							"parameters": {
-								"mode": "silent"
+								"instance-variable": "Active",
+								"value": "false"
 							}
 						}
 					],
-					"sid": 514770476678865
+					"sid": 645781124120770
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-x",
-							"objectClass": "Slider_Volume",
-							"sid": 474652383725199,
+							"id": "compare-instance-variable",
+							"objectClass": "Btn_Config_Options",
+							"sid": 159981318302400,
 							"parameters": {
-								"comparison": 4,
-								"x-co-ordinate": "688"
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "1"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-silent",
-							"objectClass": "Audio",
-							"sid": 353446062514900,
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 309630088748113,
 							"parameters": {
-								"mode": "not-silent"
+								"group-name": "\"Translation\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 511507248788705,
+							"parameters": {
+								"layer": "\"Translation\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 383426527328707,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Btn_Config_Options",
+							"sid": 219259920820121,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "true"
 							}
 						}
 					],
-					"sid": 411680860952115
+					"sid": 745479561734156
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-x",
-							"objectClass": "Slider_Volume",
-							"sid": 912320672942803,
+							"id": "compare-instance-variable",
+							"objectClass": "Btn_Config_Options",
+							"sid": 792946960632884,
 							"parameters": {
-								"comparison": 4,
-								"x-co-ordinate": "1200"
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "2"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-x",
-							"objectClass": "Slider_Volume",
-							"sid": 483060257767925,
-							"parameters": {
-								"x": "1200"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
+							"id": "set-group-active",
 							"objectClass": "System",
-							"sid": 667727408605437,
+							"sid": 834863841516221,
 							"parameters": {
-								"variable": "VOLUME",
-								"value": "100"
+								"group-name": "\"Sound\"",
+								"state": "activated"
 							}
 						},
 						{
-							"id": "drop",
-							"objectClass": "Slider_Volume",
-							"sid": 455274954913936,
-							"behaviorType": "DragDrop"
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 540153587523715,
+							"parameters": {
+								"layer": "\"Sound\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 243609474794689,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Btn_Config_Options",
+							"sid": 591984835265997,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "true"
+							}
 						}
 					],
-					"sid": 147314482452236
+					"sid": 443191639515911
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Btn_Config_Options",
+							"sid": 637554750082833,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 776443876797085,
+							"parameters": {
+								"group-name": "\"Video\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 411048591719106,
+							"parameters": {
+								"layer": "\"Video\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 944400433134755,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Btn_Config_Options",
+							"sid": 274314241910254,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 711467749421838
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Btn_Config_Options",
+							"sid": 785157198765729,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 746080538391765,
+							"parameters": {
+								"group-name": "\"Save Data\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 423028239937441,
+							"parameters": {
+								"layer": "\"SaveData\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 105292331534301,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Btn_Config_Options",
+							"sid": 399033170840995,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 578792302421849
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Btn_Config_Options",
+							"sid": 691630177833762,
+							"parameters": {
+								"object": "Text_Fixed"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 614544547574945,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-font-color",
+							"objectClass": "Text_Fixed",
+							"sid": 940621640651274,
+							"parameters": {
+								"color": "rgbEx(255, 255, 255)"
+							}
+						}
+					],
+					"sid": 223578387926672
 				}
 			]
 		},
@@ -689,66 +1447,828 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-drop",
-					"objectClass": "Slider_Volume",
-					"sid": 149166790493686,
-					"behaviorType": "DragDrop"
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 508585172523677,
+					"parameters": {
+						"object": "Btn_Config_Options"
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Btn_Config_Options",
+					"sid": 878829259407614,
+					"parameters": {
+						"instance-variable": "Active"
+					},
+					"isInverted": true
 				}
 			],
 			"actions": [],
-			"sid": 988714708891147,
+			"sid": 698915107409057,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-x",
-							"objectClass": "Slider_Volume",
-							"sid": 211724445256380,
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 425656151988956
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 935064375855621,
 							"parameters": {
-								"comparison": 2,
-								"x-co-ordinate": "688"
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 243861556554973
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 946972346898433
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Btn_Config_Options",
+					"sid": 457109931470112,
+					"parameters": {
+						"instance-variable": "Active"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 413610712985159
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_Config_Options",
+					"sid": 137275029253225,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 406418302339675
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Translation",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 744785846192588,
+							"parameters": {
+								"object": "Icon_Flag"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-x",
-							"objectClass": "Slider_Volume",
-							"sid": 112213843873264,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 909115772916836,
 							"parameters": {
-								"x": "688"
+								"variable": "Language",
+								"value": "Icon_Flag.AnimationName"
 							}
 						}
 					],
-					"sid": 629027653782683
+					"sid": 157808312720586,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Icon_Flag",
+									"sid": 856275674768508,
+									"parameters": {
+										"animation": "\"en-US\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 269245183009535,
+									"parameters": {
+										"tag": "\"Translation\"",
+										"file": {
+											"path": "en-US.json"
+										}
+									}
+								}
+							],
+							"sid": 971225751299831
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Icon_Flag",
+									"sid": 685156744043565,
+									"parameters": {
+										"animation": "\"pt-BR\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 162197075057536,
+									"parameters": {
+										"tag": "\"Translation\"",
+										"file": {
+											"path": "pt-BR.json"
+										}
+									}
+								}
+							],
+							"sid": 447045351330650
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-all",
+									"objectClass": "System",
+									"sid": 333779455830797,
+									"parameters": {
+										"object": "Icon_Flag"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Icon_Flag",
+									"sid": 196660494203984,
+									"parameters": {
+										"width": "200",
+										"height": "120"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Icon_Flag",
+									"sid": 733220752384061,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 524481718915834
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Icon_Flag",
+									"sid": 666221725166718,
+									"parameters": {
+										"width": "250",
+										"height": "150"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Icon_Flag",
+									"sid": 576019046284883,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 686281252457099
+						}
+					]
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-x",
-							"objectClass": "Slider_Volume",
-							"sid": 393757313521148,
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 971464268003269,
 							"parameters": {
-								"comparison": 4,
-								"x-co-ordinate": "1200"
+								"tag": "\"Translation\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-x",
-							"objectClass": "Slider_Volume",
-							"sid": 158165397405243,
+							"id": "load-from-json",
+							"objectClass": "Internationalization",
+							"sid": 860500179992555,
 							"parameters": {
-								"x": "1200"
+								"json": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-locale",
+							"objectClass": "Internationalization",
+							"sid": 210882506324937,
+							"parameters": {
+								"locale": "Language"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 299208019637551
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Fixed",
+							"sid": 534559419946838,
+							"parameters": {
+								"text": "Internationalization.Lookup( Self.my_Txt )"
 							}
 						}
 					],
-					"sid": 520678141762383
+					"sid": 238856495934875
 				}
-			]
+			],
+			"sid": 206372623497167
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Sound",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "Slider_Volume",
+							"sid": 867338218776996,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "Progbar_volume",
+							"sid": 131052681294961,
+							"parameters": {
+								"width": "Slider_Volume.X - 830"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 557031628550610,
+							"parameters": {
+								"variable": "VOLUME",
+								"value": "int( Progbar_volume.Width / 5.12 )"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 497131015790301,
+							"parameters": {
+								"tag": "\"Main\"",
+								"db": "-35 + ( VOLUME * 0.35 )"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 467643859419977,
+							"parameters": {
+								"tag": "\"Fight\"",
+								"db": "-35 + ( VOLUME * 0.35 )"
+							}
+						}
+					],
+					"sid": 106735847736593,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Slider_Volume",
+									"sid": 865150080646537,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "838"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Slider_Volume",
+									"sid": 543289510315563,
+									"parameters": {
+										"x": "838"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 883769249479666,
+									"parameters": {
+										"variable": "VOLUME",
+										"value": "0"
+									}
+								},
+								{
+									"id": "drop",
+									"objectClass": "Slider_Volume",
+									"sid": 884704965052855,
+									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "set-silent",
+									"objectClass": "Audio",
+									"sid": 336602625048684,
+									"parameters": {
+										"mode": "silent"
+									}
+								}
+							],
+							"sid": 313856412669833
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Slider_Volume",
+									"sid": 654726310035433,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "838"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-silent",
+									"objectClass": "Audio",
+									"sid": 548918969328230,
+									"parameters": {
+										"mode": "not-silent"
+									}
+								}
+							],
+							"sid": 110403062399677
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Slider_Volume",
+									"sid": 682809014937719,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "1342"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Slider_Volume",
+									"sid": 158459547962546,
+									"parameters": {
+										"x": "1342"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 999126900479042,
+									"parameters": {
+										"variable": "VOLUME",
+										"value": "100"
+									}
+								},
+								{
+									"id": "drop",
+									"objectClass": "Slider_Volume",
+									"sid": 401995511656485,
+									"behaviorType": "DragDrop"
+								}
+							],
+							"sid": 253396947606554
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "Slider_Volume",
+							"sid": 893786133285454,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [],
+					"sid": 798048698382877,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Slider_Volume",
+									"sid": 256866976643907,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "838"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Slider_Volume",
+									"sid": 869021377567356,
+									"parameters": {
+										"x": "838"
+									}
+								}
+							],
+							"sid": 286036282641330
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "Slider_Volume",
+									"sid": 675142784960621,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "1342"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Slider_Volume",
+									"sid": 229110001440360,
+									"parameters": {
+										"x": "1342"
+									}
+								}
+							],
+							"sid": 907325454693205
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 622635208545152,
+							"parameters": {
+								"object": "barra_volume"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Slider_Volume",
+							"sid": 103740330515066,
+							"parameters": {
+								"x": "Touch.X",
+								"y": "Self.Y"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "Progbar_volume",
+							"sid": 481242432010455,
+							"parameters": {
+								"width": "Slider_Volume.X - 830"
+							}
+						}
+					],
+					"sid": 794180132657441
+				}
+			],
+			"sid": 944793332328665
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Video",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 950206635533355,
+							"parameters": {
+								"object": "Checkbox_Options"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 726111457417177,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Fullscreen"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Checkbox_Options",
+									"sid": 526968824079696,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 752618952811322,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 562690836755504,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "request-fullscreen",
+											"objectClass": "Browser",
+											"sid": 531883622143502,
+											"parameters": {
+												"mode": "stretch-letterbox-scale",
+												"navigation-ui": "auto"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 693962731593134,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 442985801257286
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 279702056942711
+										}
+									],
+									"actions": [
+										{
+											"id": "cancel-fullscreen",
+											"objectClass": "Browser",
+											"sid": 217603088298704
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 776859056523864,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 216323976579173
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Show FPS / A FAZER...",
+							"text-color": [
+								1,
+								0,
+								0,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Checkbox_Options",
+									"sid": 630445021050426,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 883008202838547,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 155469223883450,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 730616033155996,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 510053220262206
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 334410920462779
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 400804960327182,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 461505978665827
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 804843523097015
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Save Data",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 926123066378132,
+							"parameters": {
+								"object": "Btn_Config_Options"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 847922868581787,
+							"parameters": {
+								"layer": "\"SaveData\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Btn_Config_Options",
+							"sid": 796751949443142,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 0,
+								"value": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "clear-storage",
+							"objectClass": "LocalStorage",
+							"sid": 504592975577652
+						}
+					],
+					"sid": 620499289203040
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-storage-cleared",
+							"objectClass": "LocalStorage",
+							"sid": 842977766734164
+						}
+					],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 126361673890421,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 513689448113569,
+							"parameters": {
+								"reset-static": true
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 270521272848955,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 823591893417290,
+							"parameters": {
+								"layout": "Loading"
+							}
+						}
+					],
+					"sid": 138669370211029
+				}
+			],
+			"sid": 873610843861573
 		}
 	],
 	"sid": 564593724783545

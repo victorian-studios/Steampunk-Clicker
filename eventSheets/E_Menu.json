@@ -2,6 +2,10 @@
 	"name": "E_Menu",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "Options"
+		},
+		{
 			"eventType": "variable",
 			"name": "LayoutZoom",
 			"type": "number",
@@ -311,6 +315,15 @@
 					}
 				},
 				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 654880759914410,
+					"parameters": {
+						"layer": "\"Options\""
+					},
+					"isInverted": true
+				},
+				{
 					"id": "is-playing",
 					"objectClass": "menu_engrenagem",
 					"sid": 295405590070986,
@@ -558,6 +571,10 @@
 			"sid": 936425541911076
 		},
 		{
+			"eventType": "comment",
+			"text": "Quando a animação terminar, vai pra outra cena"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -571,17 +588,65 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 896395620394577,
+			"children": [
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 195601158478569,
-					"parameters": {
-						"layout": "Game"
-					}
+					"eventType": "comment",
+					"text": "Se a variável tutorial_name estiver com \"welcome\", signfica que o jogador está entrando pela primeira vez (ou que o Local Storage está vazio)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 580430805548753,
+							"parameters": {
+								"variable": "Tutorial_Name",
+								"comparison": 0,
+								"value": "\"welcome\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 976105412912338,
+							"parameters": {
+								"layout": "Void"
+							}
+						}
+					],
+					"sid": 743167870885823
+				},
+				{
+					"eventType": "comment",
+					"text": "Caso contrário, significa que o jogador está retornando ao jogo (ou que o Local Storage carregou alguma coisa)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 858543948697554
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 811181552966427,
+							"parameters": {
+								"layout": "Game"
+							}
+						}
+					],
+					"sid": 953593201068772
 				}
-			],
-			"sid": 896395620394577
+			]
 		},
 		{
 			"eventType": "block",
@@ -776,49 +841,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 941117730536411,
-					"parameters": {
-						"key": 81
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "clear-storage",
-					"objectClass": "LocalStorage",
-					"sid": 961672310193042
-				},
-				{
-					"id": "reset-global-variables",
-					"objectClass": "System",
-					"sid": 124020553514594,
-					"parameters": {
-						"reset-static": true
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 734630344123366,
-					"parameters": {
-						"seconds": "1",
-						"use-timescale": true
-					}
-				},
-				{
-					"id": "restart-layout",
-					"objectClass": "System",
-					"sid": 729538186449388
-				}
-			],
-			"sid": 187214141249157
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-completed",
 					"objectClass": "AJAX",
 					"sid": 204418126918842,
@@ -843,51 +865,25 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-touched-object",
-					"objectClass": "Touch",
-					"sid": 267097501419532,
-					"parameters": {
-						"object": "Btn_Discord",
-						"type": "start"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "open-url-in-new-window",
-					"objectClass": "Browser",
-					"sid": 287674009000527,
-					"parameters": {
-						"url": "\"https://discord.gg//cvsVYSJuDf\"",
-						"tag": "\"NewWindow\""
-					}
-				}
-			],
-			"sid": 482536710490302
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "cursor-is-over-object",
 					"objectClass": "Mouse",
-					"sid": 452883067637018,
+					"sid": 596433282671028,
 					"parameters": {
-						"object": "Btn_Discord"
+						"object": "Buttons"
 					}
 				}
 			],
 			"actions": [
 				{
-					"id": "set-cursor-style2",
-					"objectClass": "Mouse",
-					"sid": 794142520450735,
+					"id": "set-animation-frame",
+					"objectClass": "Buttons",
+					"sid": 442412864791388,
 					"parameters": {
-						"cursor-style": "pointer"
+						"frame-number": "1"
 					}
 				}
 			],
-			"sid": 770978767493924
+			"sid": 198912585854402
 		},
 		{
 			"eventType": "block",
@@ -895,56 +891,190 @@
 				{
 					"id": "else",
 					"objectClass": "System",
-					"sid": 844508079211131
+					"sid": 667779314630246
 				}
 			],
 			"actions": [
 				{
-					"id": "set-cursor-style2",
-					"objectClass": "Mouse",
-					"sid": 402616074228862,
+					"id": "set-animation-frame",
+					"objectClass": "Buttons",
+					"sid": 363949173253855,
 					"parameters": {
-						"cursor-style": "normal"
+						"frame-number": "0"
 					}
 				}
 			],
-			"sid": 856604377584214
+			"sid": 295880103518834
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 556588260867030,
-					"parameters": {
-						"object": "Btn_Discord"
-					}
-				}
-			],
-			"actions": [],
-			"sid": 328265537869418,
+			"eventType": "group",
+			"disabled": false,
+			"title": "Social Media",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 727686293025025,
+							"parameters": {
+								"object": "Btn_Discord",
+								"type": "start"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 903212254228895,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "open-url-in-new-window",
+							"objectClass": "Browser",
+							"sid": 331615104299625,
+							"parameters": {
+								"url": "\"https://discord.gg//cvsVYSJuDf\"",
+								"tag": "\"NewWindow\""
+							}
+						}
+					],
+					"sid": 327013172146919
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 636206014254191,
+							"parameters": {
+								"object": "Btn_Discord"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 801451698692890,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 961923909817661,
+							"parameters": {
+								"cursor-style": "pointer"
+							}
+						}
+					],
+					"sid": 422415467481361
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 940714424176457
+						}
+					],
+					"actions": [
+						{
+							"id": "set-cursor-style2",
+							"objectClass": "Mouse",
+							"sid": 524420226765756,
+							"parameters": {
+								"cursor-style": "normal"
+							}
+						}
+					],
+					"sid": 517538439663291
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 535051116518953,
+							"parameters": {
+								"object": "Btn_Discord"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 459090947809100,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 589468591396428
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Btn_Discord",
+									"sid": 619909473610903,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"grow_disc\"",
+										"property": "size",
+										"end-x": "153.6",
+										"end-y": "153.6",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 252776098076878
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 568691199061989
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 554215493326316
+							"sid": 196866288097272
 						}
 					],
 					"actions": [
 						{
 							"id": "tween-two-properties",
 							"objectClass": "Btn_Discord",
-							"sid": 207749635248785,
+							"sid": 278393023955998,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"grow_disc\"",
 								"property": "size",
-								"end-x": "153.6",
-								"end-y": "153.6",
+								"end-x": "128",
+								"end-y": "128",
 								"time": "0.2",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -954,45 +1084,63 @@
 							}
 						}
 					],
-					"sid": 693882327497261
+					"sid": 645122688708010
 				}
-			]
+			],
+			"sid": 567662526159708
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "else",
-					"objectClass": "System",
-					"sid": 837401284955687
-				},
-				{
-					"id": "trigger-once-while-true",
-					"objectClass": "System",
-					"sid": 383493289673570
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 855117643209492,
+							"parameters": {
+								"key": 81
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "clear-storage",
+							"objectClass": "LocalStorage",
+							"sid": 646393013142443
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 510146578584444,
+							"parameters": {
+								"reset-static": true
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 219037804658401,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 697469039718432
+						}
+					],
+					"sid": 343059510350176
 				}
 			],
-			"actions": [
-				{
-					"id": "tween-two-properties",
-					"objectClass": "Btn_Discord",
-					"sid": 844490784967788,
-					"behaviorType": "Tween",
-					"parameters": {
-						"tags": "\"grow_disc\"",
-						"property": "size",
-						"end-x": "128",
-						"end-y": "128",
-						"time": "0.2",
-						"ease": "default",
-						"destroy-on-complete": "no",
-						"loop": "no",
-						"ping-pong": "no",
-						"repeat-count": "1"
-					}
-				}
-			],
-			"sid": 698740564099630
+			"sid": 752763972054751
 		}
 	],
 	"sid": 603429320980167

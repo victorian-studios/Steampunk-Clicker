@@ -39,6 +39,15 @@
 						"variable": "Ready_To_Start",
 						"value": "false"
 					}
+				},
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 518246493862480,
+					"parameters": {
+						"mode": "stretch-letterbox-scale",
+						"navigation-ui": "auto"
+					}
 				}
 			],
 			"sid": 976111311952275,
@@ -261,7 +270,17 @@
 					"sid": 296422811046691
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 217007018011704,
+					"parameters": {
+						"mode": "stretch-letterbox-scale",
+						"navigation-ui": "auto"
+					}
+				}
+			],
 			"sid": 652397729391929,
 			"children": [
 				{

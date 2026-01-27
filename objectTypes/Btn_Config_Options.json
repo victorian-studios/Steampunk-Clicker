@@ -1,18 +1,39 @@
 {
-	"name": "barra_volume",
+	"name": "Btn_Config_Options",
 	"plugin-id": "Sprite",
-	"sid": 226920177046783,
+	"sid": 688232898320091,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 720107280809557
+		},
+		{
+			"name": "Active",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 915475372086574
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 500595868771609
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 522,
+						"width": 235,
 						"height": 61,
 						"originX": 0.5,
 						"originY": 0.5,
@@ -20,51 +41,27 @@
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 9965219,
-						"collisionPoly": {
-							"points": [
-								0.04597701149425287,
-								0,
-								0.9616858237547893,
-								0.01639344262295082,
-								0.9540229885057471,
-								1,
-								0.038314176245210725,
-								0.9836065573770492
-							]
-						},
+						"imageSpriteId": 2461985,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
-						"width": 524,
-						"height": 63,
+						"width": 235,
+						"height": 61,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6492599,
-						"collisionPoly": {
-							"points": [
-								0.0019083969465648854,
-								0.015873015873015872,
-								0.9980916030534351,
-								0.015873015873015872,
-								0.9980916030534351,
-								0.9841269841269841,
-								0.0019083969465648854,
-								0.9841269841269841
-							]
-						},
+						"imageSpriteId": 9930325,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 489619278061850,
+				"sid": 909445594483543,
 				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,

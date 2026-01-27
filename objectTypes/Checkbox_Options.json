@@ -1,10 +1,18 @@
 {
-	"name": "barra_volume",
+	"name": "Checkbox_Options",
 	"plugin-id": "Sprite",
-	"sid": 226920177046783,
+	"sid": 650782122131827,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 172329199962534
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -12,59 +20,35 @@
 			{
 				"frames": [
 					{
-						"width": 522,
-						"height": 61,
+						"width": 97,
+						"height": 97,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 9965219,
-						"collisionPoly": {
-							"points": [
-								0.04597701149425287,
-								0,
-								0.9616858237547893,
-								0.01639344262295082,
-								0.9540229885057471,
-								1,
-								0.038314176245210725,
-								0.9836065573770492
-							]
-						},
+						"imageSpriteId": 3074223,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					},
 					{
-						"width": 524,
-						"height": 63,
+						"width": 97,
+						"height": 97,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
 						"fileType": "image/png",
-						"imageSpriteId": 6492599,
-						"collisionPoly": {
-							"points": [
-								0.0019083969465648854,
-								0.015873015873015872,
-								0.9980916030534351,
-								0.015873015873015872,
-								0.9980916030534351,
-								0.9841269841269841,
-								0.0019083969465648854,
-								0.9841269841269841
-							]
-						},
+						"imageSpriteId": 5651428,
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 489619278061850,
+				"sid": 882011643534344,
 				"name": "Default",
 				"isLooping": false,
 				"isPingPong": false,

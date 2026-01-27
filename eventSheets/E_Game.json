@@ -4880,10 +4880,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 154239009297395,
+													"sid": 177634851543059,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "1",
 														"comparison": 0,
 														"value": "1"
@@ -4926,10 +4926,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 145031818968409,
+													"sid": 592188950937458,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "1",
 														"comparison": 0,
 														"value": "2"
@@ -5088,10 +5088,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 765036173309505,
+													"sid": 729418304393476,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "2",
 														"comparison": 0,
 														"value": "0"
@@ -5134,10 +5134,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 647593941873015,
+													"sid": 143461539251576,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "2",
 														"comparison": 0,
 														"value": "0"
@@ -5296,10 +5296,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 777891638184350,
+													"sid": 796401421140127,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "3",
 														"comparison": 0,
 														"value": "0"
@@ -5342,10 +5342,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 104351275328224,
+													"sid": 826428867405137,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "3",
 														"comparison": 0,
 														"value": "0"
@@ -5504,10 +5504,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 789740813290146,
+													"sid": 526168414711692,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "4",
 														"comparison": 0,
 														"value": "0"
@@ -5550,10 +5550,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 722298297220733,
+													"sid": 681339996291591,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "4",
 														"comparison": 0,
 														"value": "0"
@@ -5712,10 +5712,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 401125768343569,
+													"sid": 615246810301443,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "5",
 														"comparison": 0,
 														"value": "0"
@@ -5758,10 +5758,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 316933756661391,
+													"sid": 810853424687011,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "5",
 														"comparison": 0,
 														"value": "0"
@@ -5920,10 +5920,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 136364100917146,
+													"sid": 584637464262015,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "6",
 														"comparison": 0,
 														"value": "0"
@@ -5966,10 +5966,10 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Upg_Data",
-													"sid": 488398258189680,
+													"sid": 991875349001940,
 													"parameters": {
 														"x": "int(Icon_Upg.Name)",
-														"y": "2",
+														"y": "1",
 														"z": "6",
 														"comparison": 0,
 														"value": "0"
@@ -25772,9 +25772,57 @@
 								"z": "2",
 								"value": "Dict_Temp_Prod_Data.Get(\"Copper\")"
 							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 565944014505037,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "2",
+								"value": "Dict_Temp_Prod_Data.Get(\"Iron\")"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 999030518498538,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "2",
+								"value": "Dict_Temp_Prod_Data.Get(\"Titanium\")"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 127250171273277,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "2",
+								"value": "Dict_Temp_Prod_Data.Get(\"Tungsten\")"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 252317833022421,
+							"parameters": {
+								"x": "4",
+								"y": "1",
+								"z": "2",
+								"value": "Dict_Temp_Prod_Data.Get(\"Vaporium\")"
+							}
 						}
 					],
 					"sid": 470741161082892
+				},
+				{
+					"eventType": "comment",
+					"text": "Normalmente usado no menu principal para pegar as informações do Local Storage (Array) e passar para o dicionário"
 				},
 				{
 					"functionName": "Array_To_Dictionary",
