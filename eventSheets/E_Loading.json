@@ -44,6 +44,7 @@
 					"id": "request-fullscreen",
 					"objectClass": "Browser",
 					"sid": 518246493862480,
+					"disabled": true,
 					"parameters": {
 						"mode": "stretch-letterbox-scale",
 						"navigation-ui": "auto"
@@ -275,6 +276,7 @@
 					"id": "request-fullscreen",
 					"objectClass": "Browser",
 					"sid": 217007018011704,
+					"disabled": true,
 					"parameters": {
 						"mode": "stretch-letterbox-scale",
 						"navigation-ui": "auto"
@@ -366,10 +368,10 @@
 				{
 					"id": "typewriter-text",
 					"objectClass": "Text_Fixed",
-					"sid": 585131350765614,
+					"sid": 365573477639736,
 					"parameters": {
 						"text": "Internationalization.Lookup( Self.my_Txt & \".ready\" )",
-						"duration": "1"
+						"duration": "0.5"
 					}
 				}
 			],

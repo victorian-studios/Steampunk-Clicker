@@ -19,7 +19,7 @@
 			"eventType": "variable",
 			"name": "Weapon_ID_1",
 			"type": "string",
-			"initialValue": "\"\"",
+			"initialValue": "none",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -29,7 +29,7 @@
 			"eventType": "variable",
 			"name": "Weapon_ID_2",
 			"type": "string",
-			"initialValue": "\"\"",
+			"initialValue": "none",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -740,11 +740,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 645244450671461,
+							"sid": 873890647557455,
 							"parameters": {
 								"variable": "Weapon_ID_1",
 								"comparison": 1,
-								"value": "\"\""
+								"value": "\"none\""
 							}
 						}
 					],
@@ -816,11 +816,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 558529902877807,
+							"sid": 909341651774745,
 							"parameters": {
 								"variable": "Weapon_ID_2",
 								"comparison": 1,
-								"value": "\"\""
+								"value": "\"none\""
 							}
 						}
 					],
@@ -1139,6 +1139,14 @@
 					"parameters": {
 						"height": "Shield * ( 86.5 / Shield_Max )"
 					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "TiledBkg_Shield",
+					"sid": 971004823056868,
+					"parameters": {
+						"width": "Shield * ( 132 / Shield_Max )"
+					}
 				}
 			],
 			"sid": 575714370838546,
@@ -1257,7 +1265,7 @@
 					"conditions": [
 						{
 							"id": "is-overlapping-another-object",
-							"objectClass": "Cooldown",
+							"objectClass": "Bkg_CD",
 							"sid": 607806407545593,
 							"parameters": {
 								"object": "Text_CD"
@@ -1270,7 +1278,7 @@
 							"objectClass": "Text_CD",
 							"sid": 375107294034702,
 							"parameters": {
-								"text": "Cooldown.CD_Time"
+								"text": "Bkg_CD.CD_Time"
 							}
 						}
 					],
@@ -2201,7 +2209,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Player Fight",
+			"title": "Player",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
@@ -2260,11 +2268,15 @@
 							"sid": 408899233211133,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Cooldowns"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Cooldown",
+											"objectClass": "Bkg_CD",
 											"sid": 977709873323720,
 											"parameters": {
 												"object": "Wp_Slot"
@@ -2272,7 +2284,7 @@
 										},
 										{
 											"id": "compare-animation-frame",
-											"objectClass": "Cooldown",
+											"objectClass": "Bkg_CD",
 											"sid": 351020427381720,
 											"parameters": {
 												"comparison": 0,
@@ -2288,7 +2300,7 @@
 											"conditions": [
 												{
 													"id": "compare-instance-variable",
-													"objectClass": "Cooldown",
+													"objectClass": "Bkg_CD",
 													"sid": 467757708449992,
 													"parameters": {
 														"instance-variable": "CD_Time",
@@ -2300,7 +2312,7 @@
 											"actions": [
 												{
 													"id": "subtract-from-instvar",
-													"objectClass": "Cooldown",
+													"objectClass": "Bkg_CD",
 													"sid": 938711202068219,
 													"parameters": {
 														"instance-variable": "CD_Time",
@@ -2315,7 +2327,7 @@
 											"conditions": [
 												{
 													"id": "compare-instance-variable",
-													"objectClass": "Cooldown",
+													"objectClass": "Bkg_CD",
 													"sid": 933862027062613,
 													"parameters": {
 														"instance-variable": "CD_Time",
@@ -2325,7 +2337,7 @@
 												},
 												{
 													"id": "is-overlapping-another-object",
-													"objectClass": "Cooldown",
+													"objectClass": "Bkg_CD",
 													"sid": 443293840789401,
 													"parameters": {
 														"object": "Text_CD"
@@ -2349,7 +2361,7 @@
 												},
 												{
 													"id": "destroy",
-													"objectClass": "Cooldown",
+													"objectClass": "Bkg_CD",
 													"sid": 395152584947834
 												}
 											],
@@ -2372,7 +2384,7 @@
 										},
 										{
 											"id": "is-overlapping-another-object",
-											"objectClass": "Cooldown",
+											"objectClass": "Bkg_CD",
 											"sid": 349605675843766,
 											"parameters": {
 												"object": "Wp_Slot"
@@ -2380,7 +2392,7 @@
 										},
 										{
 											"id": "compare-animation-frame",
-											"objectClass": "Cooldown",
+											"objectClass": "Bkg_CD",
 											"sid": 613941105476499,
 											"parameters": {
 												"comparison": 0,
@@ -2400,11 +2412,207 @@
 										},
 										{
 											"id": "destroy",
-											"objectClass": "Cooldown",
+											"objectClass": "Bkg_CD",
 											"sid": 365448165923913
 										}
 									],
 									"sid": 234395733223428
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bkg_CD",
+											"sid": 404219916481934,
+											"parameters": {
+												"object": "Hab_Slot"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Bkg_CD",
+											"sid": 460516082985781,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 560739780961991,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Bkg_CD",
+													"sid": 698005752781312,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Bkg_CD",
+													"sid": 693079377713739,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 769955385686168
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Bkg_CD",
+													"sid": 343931567158745,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Bkg_CD",
+													"sid": 904406871562175,
+													"parameters": {
+														"object": "Text_CD"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Hab_Slot",
+													"sid": 342879459820412,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "true"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Text_CD",
+													"sid": 841869379331991
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Bkg_CD",
+													"sid": 206354918177365
+												}
+											],
+											"sid": 691779366622937
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Bkg_CD",
+											"sid": 159831813565976,
+											"parameters": {
+												"object": "Armor_Slot"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Bkg_CD",
+											"sid": 487983250706541,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 344002468132882,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Bkg_CD",
+													"sid": 292432153769320,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Bkg_CD",
+													"sid": 680958436490667,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 411528366383118
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Bkg_CD",
+													"sid": 220119293466432,
+													"parameters": {
+														"instance-variable": "CD_Time",
+														"comparison": 3,
+														"value": "0"
+													}
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Bkg_CD",
+													"sid": 115045839581314,
+													"parameters": {
+														"object": "Text_CD"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Armor_Slot",
+													"sid": 713795114392469,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "true"
+													}
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Text_CD",
+													"sid": 537475396941670
+												},
+												{
+													"id": "destroy",
+													"objectClass": "Bkg_CD",
+													"sid": 833092127027298
+												}
+											],
+											"sid": 146750608083719
+										}
+									]
 								}
 							]
 						}
@@ -2431,6 +2639,13 @@
 							"initialValue": "false",
 							"comment": "",
 							"sid": 291472757928363
+						},
+						{
+							"name": "IsShield",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "para spawnar um txt para o escudo",
+							"sid": 504366975512703
 						}
 					],
 					"eventType": "function-block",
@@ -2448,10 +2663,10 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 983256344491660,
+									"sid": 508914565752800,
 									"parameters": {
 										"variable": "Amount",
-										"comparison": 4,
+										"comparison": 5,
 										"value": "0"
 									}
 								}
@@ -2463,35 +2678,35 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-two-values",
+											"id": "compare-boolean-eventvar",
 											"objectClass": "System",
-											"sid": 960221278484798,
+											"sid": 372997417015865,
 											"parameters": {
-												"first-value": "HP + Amount",
-												"comparison": 3,
-												"second-value": "HP_Max"
+												"variable": "IsShield"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 113736477913505,
+											"id": "flash",
+											"objectClass": "TiledBkg_Shield",
+											"sid": 274405258220887,
+											"behaviorType": "Flash",
 											"parameters": {
-												"variable": "HP",
-												"value": "Amount"
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.4"
 											}
 										},
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 247448153309443,
+											"sid": 423385624270647,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
 												"layer": "\"HUD\"",
-												"x": "301",
-												"y": "814",
+												"x": "738",
+												"y": "954",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -2499,16 +2714,16 @@
 										{
 											"id": "set-gravity",
 											"objectClass": "Text_Dmg_Numb",
-											"sid": 883963806445454,
+											"sid": 130239463514653,
 											"behaviorType": "Bullet",
 											"parameters": {
-												"gravity": "0"
+												"gravity": "300"
 											}
 										},
 										{
 											"id": "set-angle-of-motion",
 											"objectClass": "Text_Dmg_Numb",
-											"sid": 604660981109552,
+											"sid": 835807826828129,
 											"behaviorType": "Bullet",
 											"parameters": {
 												"angle": "270"
@@ -2517,21 +2732,27 @@
 										{
 											"id": "set-font-color",
 											"objectClass": "Text_Dmg_Numb",
-											"sid": 970150010413652,
+											"sid": 285441691513611,
 											"parameters": {
-												"color": "rgbEx(0, 255, 0)"
+												"color": "rgbEx(19, 250, 242)"
 											}
 										},
 										{
 											"id": "set-text",
 											"objectClass": "Text_Dmg_Numb",
-											"sid": 798233771254473,
+											"sid": 997323161051910,
 											"parameters": {
 												"text": "abs ( Amount )"
 											}
+										},
+										{
+											"id": "start-fade",
+											"objectClass": "Text_Dmg_Numb",
+											"sid": 895088197888825,
+											"behaviorType": "Fade"
 										}
 									],
-									"sid": 306016064745271
+									"sid": 568981088285733
 								},
 								{
 									"eventType": "block",
@@ -2539,68 +2760,156 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 632543069525989
+											"sid": 495777073367387
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 442333654624208,
+									"children": [
 										{
-											"id": "create-object",
-											"objectClass": "System",
-											"sid": 478057408052995,
-											"parameters": {
-												"object-to-create": "Text_Dmg_Numb",
-												"layer": "\"HUD\"",
-												"x": "301",
-												"y": "814",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 661958761159427,
+													"parameters": {
+														"first-value": "HP + Amount",
+														"comparison": 3,
+														"second-value": "HP_Max"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 188047188912714,
+													"parameters": {
+														"variable": "HP",
+														"value": "Amount"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 159928709225583,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "324",
+														"y": "720",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-gravity",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 212011910911539,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"gravity": "300"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 794676892012548,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "270"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 450692812482315,
+													"parameters": {
+														"color": "rgbEx(0, 255, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 497146145947356,
+													"parameters": {
+														"text": "abs ( Amount )"
+													}
+												}
+											],
+											"sid": 898425353525452
 										},
 										{
-											"id": "set-gravity",
-											"objectClass": "Text_Dmg_Numb",
-											"sid": 907214019926197,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"gravity": "0"
-											}
-										},
-										{
-											"id": "set-angle-of-motion",
-											"objectClass": "Text_Dmg_Numb",
-											"sid": 171274063211661,
-											"behaviorType": "Bullet",
-											"parameters": {
-												"angle": "270"
-											}
-										},
-										{
-											"id": "set-font-color",
-											"objectClass": "Text_Dmg_Numb",
-											"sid": 193808480088213,
-											"parameters": {
-												"color": "rgbEx(0, 255, 0)"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Text_Dmg_Numb",
-											"sid": 421118197108845,
-											"parameters": {
-												"text": "HP - HP_Max"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 748618087210258,
-											"parameters": {
-												"variable": "HP",
-												"value": "HP_Max"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 339749412300847
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 383495980833868,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "324",
+														"y": "720",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-gravity",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 954253671917047,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"gravity": "300"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 196214216374093,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "270"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 593037509654201,
+													"parameters": {
+														"color": "rgbEx(0, 255, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 882268525220057,
+													"parameters": {
+														"text": "HP - HP_Max"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 546067811914943,
+													"parameters": {
+														"variable": "HP",
+														"value": "HP_Max"
+													}
+												}
+											],
+											"sid": 649346504041908
 										}
-									],
-									"sid": 237513722324777
+									]
 								}
 							]
 						},
@@ -2650,12 +2959,12 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 111416762841341,
+											"sid": 152765370347422,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
 												"layer": "\"HUD\"",
-												"x": "301",
-												"y": "814",
+												"x": "324",
+												"y": "720",
 												"create-hierarchy": false,
 												"template-name": "\"\""
 											}
@@ -2757,6 +3066,17 @@
 													"objectClass": "Text_SP_Player",
 													"sid": 531442857361092,
 													"behaviorType": "Fade"
+												},
+												{
+													"id": "flash",
+													"objectClass": "TiledBkg_Shield",
+													"sid": 355742661920189,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "0.4"
+													}
 												}
 											],
 											"sid": 397752719224843
@@ -3175,14 +3495,14 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "Cooldown",
+							"objectClass": "Bkg_CD",
 							"sid": 853009778900573
 						}
 					],
 					"actions": [
 						{
 							"id": "spawn-another-object",
-							"objectClass": "Cooldown",
+							"objectClass": "Bkg_CD",
 							"sid": 507032687884032,
 							"parameters": {
 								"object": "Text_CD",
@@ -3193,12 +3513,21 @@
 							}
 						},
 						{
+							"id": "set-position",
+							"objectClass": "Text_CD",
+							"sid": 147726618910268,
+							"parameters": {
+								"x": "Self.X",
+								"y": "Self.Y + 6"
+							}
+						},
+						{
 							"id": "pin-to-object-properties",
 							"objectClass": "Text_CD",
 							"sid": 700764298615220,
 							"behaviorType": "Pin",
 							"parameters": {
-								"pin-to": "Cooldown",
+								"pin-to": "Bkg_CD",
 								"x": true,
 								"y": true,
 								"angle": true,
@@ -3953,7 +4282,17 @@
 							],
 							"eventType": "function-block",
 							"conditions": [],
-							"actions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 287326761801939,
+									"parameters": {
+										"type": "log",
+										"message": "\"Player Action: \"&Action_Type&\" | \"& Action_ID & \" - Lvl \"&Action_Lvl & \" > tar \"&Target_ID& \" [ All: \"&All_Targets&\" / Fri: \"&Friendly&\" ]\""
+									}
+								}
+							],
 							"sid": 190627502530956,
 							"children": [
 								{
@@ -4414,9 +4753,9 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 728858467041446,
+											"sid": 168346237308613,
 											"parameters": {
-												"seconds": "5",
+												"seconds": "0.4",
 												"use-timescale": true
 											}
 										}
@@ -4606,6 +4945,15 @@
 																		"variable": "Shield",
 																		"value": "int(A_Habilities.At(2, Action_Lvl, Action_ID))"
 																	}
+																},
+																{
+																	"callFunction": "Change_Health_Player",
+																	"sid": 412129818587511,
+																	"parameters": [
+																		"int(A_Habilities.At(2, Action_Lvl, Action_ID))",
+																		false,
+																		true
+																	]
 																}
 															],
 															"sid": 518940546002092
@@ -4620,6 +4968,15 @@
 																}
 															],
 															"actions": [
+																{
+																	"callFunction": "Change_Health_Player",
+																	"sid": 948814122782177,
+																	"parameters": [
+																		"Shield_Max - Shield",
+																		false,
+																		true
+																	]
+																},
 																{
 																	"id": "set-eventvar-value",
 																	"objectClass": "System",
@@ -4745,6 +5102,15 @@
 													"parameters": {
 														"variable": "TURN",
 														"value": "1"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 999919002098237,
+													"parameters": {
+														"seconds": "0.5",
+														"use-timescale": true
 													}
 												},
 												{
@@ -6144,7 +6510,7 @@
 																	"objectClass": "Wp_Slot",
 																	"sid": 690395065700958,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -6153,7 +6519,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 206813234812088,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -6228,7 +6594,7 @@
 																			"objectClass": "Wp_Slot",
 																			"sid": 449318291153825,
 																			"parameters": {
-																				"object": "Cooldown",
+																				"object": "Bkg_CD",
 																				"layer": "\"Habs\"",
 																				"image-point": "0",
 																				"create-hierarchy": false,
@@ -6237,7 +6603,7 @@
 																		},
 																		{
 																			"id": "set-animation-frame",
-																			"objectClass": "Cooldown",
+																			"objectClass": "Bkg_CD",
 																			"sid": 809791274164058,
 																			"parameters": {
 																				"frame-number": "1"
@@ -6314,7 +6680,7 @@
 																	"objectClass": "Wp_Slot",
 																	"sid": 752358745003429,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -6323,7 +6689,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 652890848148650,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -6398,7 +6764,7 @@
 																			"objectClass": "Wp_Slot",
 																			"sid": 393954346361362,
 																			"parameters": {
-																				"object": "Cooldown",
+																				"object": "Bkg_CD",
 																				"layer": "\"Habs\"",
 																				"image-point": "0",
 																				"create-hierarchy": false,
@@ -6407,7 +6773,7 @@
 																		},
 																		{
 																			"id": "set-animation-frame",
-																			"objectClass": "Cooldown",
+																			"objectClass": "Bkg_CD",
 																			"sid": 504290690890773,
 																			"parameters": {
 																				"frame-number": "1"
@@ -6501,7 +6867,7 @@
 																	"objectClass": "Hab_Slot",
 																	"sid": 944529675177128,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -6510,7 +6876,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 869558558111291,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -6595,7 +6961,7 @@
 																	"objectClass": "Hab_Slot",
 																	"sid": 109097839643946,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -6604,7 +6970,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 729043030624933,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -6723,7 +7089,7 @@
 																	"objectClass": "Wp_Slot",
 																	"sid": 386319883785666,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -6732,7 +7098,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 273994753171413,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -6807,7 +7173,7 @@
 																			"objectClass": "Wp_Slot",
 																			"sid": 500300359600731,
 																			"parameters": {
-																				"object": "Cooldown",
+																				"object": "Bkg_CD",
 																				"layer": "\"Habs\"",
 																				"image-point": "0",
 																				"create-hierarchy": false,
@@ -6816,7 +7182,7 @@
 																		},
 																		{
 																			"id": "set-animation-frame",
-																			"objectClass": "Cooldown",
+																			"objectClass": "Bkg_CD",
 																			"sid": 598806471026831,
 																			"parameters": {
 																				"frame-number": "1"
@@ -6893,7 +7259,7 @@
 																	"objectClass": "Wp_Slot",
 																	"sid": 824602284897726,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -6902,7 +7268,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 606034529651606,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -6977,7 +7343,7 @@
 																			"objectClass": "Wp_Slot",
 																			"sid": 249166327028431,
 																			"parameters": {
-																				"object": "Cooldown",
+																				"object": "Bkg_CD",
 																				"layer": "\"Habs\"",
 																				"image-point": "0",
 																				"create-hierarchy": false,
@@ -6986,7 +7352,7 @@
 																		},
 																		{
 																			"id": "set-animation-frame",
-																			"objectClass": "Cooldown",
+																			"objectClass": "Bkg_CD",
 																			"sid": 756384846134545,
 																			"parameters": {
 																				"frame-number": "1"
@@ -7080,7 +7446,7 @@
 																	"objectClass": "Hab_Slot",
 																	"sid": 461508744493179,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -7089,7 +7455,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 659585053206472,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -7174,7 +7540,7 @@
 																	"objectClass": "Hab_Slot",
 																	"sid": 237298679701137,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -7183,7 +7549,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 277341346969553,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -7322,7 +7688,7 @@
 																	"objectClass": "Wp_Slot",
 																	"sid": 131966963266594,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -7331,7 +7697,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 816083611003593,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -7406,7 +7772,7 @@
 																			"objectClass": "Wp_Slot",
 																			"sid": 141680249214708,
 																			"parameters": {
-																				"object": "Cooldown",
+																				"object": "Bkg_CD",
 																				"layer": "\"Habs\"",
 																				"image-point": "0",
 																				"create-hierarchy": false,
@@ -7415,7 +7781,7 @@
 																		},
 																		{
 																			"id": "set-animation-frame",
-																			"objectClass": "Cooldown",
+																			"objectClass": "Bkg_CD",
 																			"sid": 876737583422342,
 																			"parameters": {
 																				"frame-number": "1"
@@ -7492,7 +7858,7 @@
 																	"objectClass": "Wp_Slot",
 																	"sid": 982965643152934,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -7501,7 +7867,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 249099166462117,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -7576,7 +7942,7 @@
 																			"objectClass": "Wp_Slot",
 																			"sid": 437398201185820,
 																			"parameters": {
-																				"object": "Cooldown",
+																				"object": "Bkg_CD",
 																				"layer": "\"Habs\"",
 																				"image-point": "0",
 																				"create-hierarchy": false,
@@ -7585,7 +7951,7 @@
 																		},
 																		{
 																			"id": "set-animation-frame",
-																			"objectClass": "Cooldown",
+																			"objectClass": "Bkg_CD",
 																			"sid": 231422942450456,
 																			"parameters": {
 																				"frame-number": "1"
@@ -7679,7 +8045,7 @@
 																	"objectClass": "Hab_Slot",
 																	"sid": 629730857216849,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -7688,7 +8054,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 468246840200379,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -7773,7 +8139,7 @@
 																	"objectClass": "Hab_Slot",
 																	"sid": 198500669999217,
 																	"parameters": {
-																		"object": "Cooldown",
+																		"object": "Bkg_CD",
 																		"layer": "\"Habs\"",
 																		"image-point": "0",
 																		"create-hierarchy": false,
@@ -7782,7 +8148,7 @@
 																},
 																{
 																	"id": "set-instvar-value",
-																	"objectClass": "Cooldown",
+																	"objectClass": "Bkg_CD",
 																	"sid": 179937312978055,
 																	"parameters": {
 																		"instance-variable": "CD_Time",
@@ -7846,10 +8212,15 @@
 									"id": "set-eventvar-value",
 									"objectClass": "System",
 									"sid": 236778979291507,
+									"disabled": true,
 									"parameters": {
 										"variable": "TURN",
 										"value": "1"
 									}
+								},
+								{
+									"callFunction": "Enemy_Turn",
+									"sid": 475450779355137
 								}
 							],
 							"sid": 103369778803088
@@ -7867,6 +8238,502 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"functionName": "Enemy_Turn",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 860838825963630,
+							"parameters": {
+								"variable": "TURN",
+								"value": "1"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 762898956986109,
+							"parameters": {
+								"type": "log",
+								"message": "\"Enemy turn: \"& TURN"
+							}
+						}
+					],
+					"sid": 468213353155486,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Se o turno for pra 4 ou mais, significa que é a vez do player jogar"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 278249275872454,
+									"parameters": {
+										"variable": "TURN",
+										"comparison": 5,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 477911506700716,
+									"parameters": {
+										"type": "log",
+										"message": "\"No more enemies, player turn!\""
+									}
+								},
+								{
+									"callFunction": "Player_Turn",
+									"sid": 345559784023511
+								}
+							],
+							"sid": 363539661979072
+						},
+						{
+							"eventType": "comment",
+							"text": "Se o turno for de 1 a 3, significa que é a vez de um inimigo jogar"
+						},
+						{
+							"bookmark": true,
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 893788431325398,
+									"parameters": {
+										"variable": "TURN",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 114368313233151,
+									"parameters": {
+										"variable": "TURN",
+										"comparison": 2,
+										"value": "4"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 352120639506931,
+									"parameters": {
+										"variable": "Battle_Ended"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 587600294310332,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 945591225379689,
+											"parameters": {
+												"object": "Enemy",
+												"expression": "Enemy.My_ID",
+												"comparison": 0,
+												"value": "TURN"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy",
+											"sid": 290317678616057,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 418113585081326,
+											"parameters": {
+												"type": "log",
+												"message": "\"Enemy found\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Icon_Mira",
+											"sid": 563022799060590
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Select_Hab",
+											"sid": 423664575959927,
+											"parameters": {
+												"x": "-100",
+												"y": "-1000"
+											}
+										},
+										{
+											"id": "set-layer-opacity",
+											"objectClass": "System",
+											"sid": 871832379418667,
+											"parameters": {
+												"layer": "\"Habs\"",
+												"opacity": "50"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 875656063857964,
+											"parameters": {
+												"seconds": "2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 295236982315209,
+											"parameters": {
+												"variable": "rng",
+												"value": "random(1, 101)"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 545920763224000,
+											"parameters": {
+												"type": "log",
+												"message": "\"RNG: \"& rng"
+											}
+										}
+									],
+									"sid": 179305282667224,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 976189849274002,
+													"parameters": {
+														"instance-variable": "OnFire",
+														"comparison": 1,
+														"value": "\"\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Change_Health_Enemy",
+													"sid": 447596882461870,
+													"parameters": [
+														"-1 * int( (tokenat(Enemy.OnFire, 0, \"_\" ) ) )",
+														true,
+														"Enemy.UID"
+													]
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Enemy",
+													"sid": 148699675296209,
+													"parameters": {
+														"instance-variable": "OnFire",
+														"value": "tokenat( Self.OnFire, 0, \"_\" ) & \"_\" & str( int( tokenat( Self.OnFire, 1, \"_\" ) ) - 1 )"
+													}
+												}
+											],
+											"sid": 305402703691550,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 934637257389562,
+															"parameters": {
+																"object": "Buff_debuff",
+																"expression": "Buff_debuff.AnimationFrame",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "Buff_debuff",
+															"sid": 250823758767560,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-size",
+															"objectClass": "Buff_debuff",
+															"sid": 179000119142949,
+															"parameters": {
+																"width": "55",
+																"height": "55"
+															}
+														},
+														{
+															"id": "set-active",
+															"objectClass": "Buff_debuff",
+															"sid": 945305954703974,
+															"behaviorType": "Sine",
+															"parameters": {
+																"state": "active"
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 741025570166156,
+															"parameters": {
+																"seconds": "0.25",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "set-active",
+															"objectClass": "Buff_debuff",
+															"sid": 851769846530224,
+															"behaviorType": "Sine",
+															"parameters": {
+																"state": "inactive"
+															}
+														},
+														{
+															"id": "set-size",
+															"objectClass": "Buff_debuff",
+															"sid": 126869458019967,
+															"parameters": {
+																"width": "55",
+																"height": "55"
+															}
+														}
+													],
+													"sid": 799820585313521
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 168747407739054,
+															"parameters": {
+																"first-value": "int ( tokenat( Enemy.OnFire, 1, \"_\") )",
+																"comparison": 0,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Enemy",
+															"sid": 809536331596987,
+															"parameters": {
+																"instance-variable": "OnFire",
+																"value": "\"\""
+															}
+														}
+													],
+													"sid": 249407512574714,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 262428384445246,
+																	"parameters": {
+																		"object": "Buff_debuff",
+																		"expression": "Buff_debuff.AnimationFrame",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 151793353342342,
+																	"parameters": {
+																		"seconds": "0.25",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Buff_debuff",
+																	"sid": 903273250806629,
+																	"parameters": {
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 297503735941251
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Usar habilidade 1"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 714634384365442,
+													"parameters": {
+														"variable": "rng",
+														"comparison": 3,
+														"value": "Enemy.Hab_1_Chance"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 305342842496186,
+													"parameters": {
+														"seconds": "1.0",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Enemy",
+													"sid": 730631600135520,
+													"parameters": {
+														"animation": "Self.ID & \"_Attack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"callFunction": "Use_Hab_Enemy",
+													"sid": 562407992072706,
+													"parameters": [
+														"Enemy.Hab_1"
+													]
+												}
+											],
+											"sid": 721948828244613
+										},
+										{
+											"eventType": "comment",
+											"text": "Usar habilidade 2"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 473400407179470
+												}
+											],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 762396858120794,
+													"parameters": {
+														"seconds": "1.0",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Enemy",
+													"sid": 728703609279258,
+													"parameters": {
+														"animation": "Self.ID & \"_Attack\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"callFunction": "Use_Hab_Enemy",
+													"sid": 963598599555243,
+													"parameters": [
+														"Enemy.Hab_2"
+													]
+												}
+											],
+											"sid": 564783370426154
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Se o inimigo já estiver morto, então passa a vez pro próximo"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 681885169287847
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 582735572116213,
+											"parameters": {
+												"variable": "TURN",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "Enemy_Turn",
+											"sid": 133188415604187
+										}
+									],
+									"sid": 899879227269748
+								}
+							]
+						}
+					]
+				},
 				{
 					"functionName": "Change_Health_Enemy",
 					"functionDescription": "",
@@ -8475,6 +9342,7 @@
 											"sid": 323509305794987,
 											"parameters": [
 												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
+												false,
 												false
 											]
 										},
@@ -8521,7 +9389,8 @@
 													"sid": 514706480409554,
 													"parameters": [
 														"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
-														true
+														true,
+														false
 													]
 												},
 												{
@@ -8559,6 +9428,7 @@
 													"sid": 631132291606670,
 													"parameters": [
 														"-1 * ( int ( tokenat ( Name, 3, \"_\") ) )",
+														false,
 														false
 													]
 												},
@@ -8601,7 +9471,8 @@
 											"sid": 978613039006182,
 											"parameters": [
 												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
-												true
+												true,
+												false
 											]
 										},
 										{
@@ -8676,502 +9547,6 @@
 					"isStatic": false,
 					"isConstant": false,
 					"sid": 971462061578880
-				},
-				{
-					"functionName": "Enemy_Turn",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 806921772972216,
-							"parameters": {
-								"variable": "TURN",
-								"value": "1"
-							}
-						},
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 888363162661980,
-							"parameters": {
-								"type": "log",
-								"message": "\"Enemy turn: \"& TURN"
-							}
-						}
-					],
-					"sid": 365889958893912,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Se o turno for pra 4 ou mais, significa que é a vez do player jogar"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 971349722149187,
-									"parameters": {
-										"variable": "TURN",
-										"comparison": 5,
-										"value": "4"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 950831488900792,
-									"parameters": {
-										"type": "log",
-										"message": "\"No more enemies, player turn!\""
-									}
-								},
-								{
-									"callFunction": "Player_Turn",
-									"sid": 876807623121498
-								}
-							],
-							"sid": 210997524756776
-						},
-						{
-							"eventType": "comment",
-							"text": "Se o turno for de 1 a 3, significa que é a vez de um inimigo jogar"
-						},
-						{
-							"bookmark": true,
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 511599008454635,
-									"parameters": {
-										"variable": "TURN",
-										"comparison": 4,
-										"value": "0"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 905383038209588,
-									"parameters": {
-										"variable": "TURN",
-										"comparison": 2,
-										"value": "4"
-									}
-								},
-								{
-									"id": "compare-boolean-eventvar",
-									"objectClass": "System",
-									"sid": 254834342952285,
-									"parameters": {
-										"variable": "Battle_Ended"
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [],
-							"sid": 853903734173287,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 530838826756211,
-											"parameters": {
-												"object": "Enemy",
-												"expression": "Enemy.My_ID",
-												"comparison": 0,
-												"value": "TURN"
-											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Enemy",
-											"sid": 326184138822056,
-											"parameters": {
-												"instance-variable": "HP",
-												"comparison": 4,
-												"value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 633735634218610,
-											"parameters": {
-												"type": "log",
-												"message": "\"Enemy found\""
-											}
-										},
-										{
-											"id": "destroy",
-											"objectClass": "Icon_Mira",
-											"sid": 622145096178181
-										},
-										{
-											"id": "set-position",
-											"objectClass": "Select_Hab",
-											"sid": 765794734493310,
-											"parameters": {
-												"x": "-100",
-												"y": "-1000"
-											}
-										},
-										{
-											"id": "set-layer-opacity",
-											"objectClass": "System",
-											"sid": 601216861028754,
-											"parameters": {
-												"layer": "\"Habs\"",
-												"opacity": "50"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 897430169324154,
-											"parameters": {
-												"seconds": "2",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 651985648113014,
-											"parameters": {
-												"variable": "rng",
-												"value": "random(1, 101)"
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 426542939543046,
-											"parameters": {
-												"type": "log",
-												"message": "\"RNG: \"& rng"
-											}
-										}
-									],
-									"sid": 947561551863113,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-instance-variable",
-													"objectClass": "Enemy",
-													"sid": 138750250325094,
-													"parameters": {
-														"instance-variable": "OnFire",
-														"comparison": 1,
-														"value": "\"\""
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "Change_Health_Enemy",
-													"sid": 510736413231507,
-													"parameters": [
-														"-1 * int( (tokenat(Enemy.OnFire, 0, \"_\" ) ) )",
-														true,
-														"Enemy.UID"
-													]
-												},
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Enemy",
-													"sid": 335869598171580,
-													"parameters": {
-														"instance-variable": "OnFire",
-														"value": "tokenat( Self.OnFire, 0, \"_\" ) & \"_\" & str( int( tokenat( Self.OnFire, 1, \"_\" ) ) - 1 )"
-													}
-												}
-											],
-											"sid": 757818415523547,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 134261000672464,
-															"parameters": {
-																"object": "Buff_debuff",
-																"expression": "Buff_debuff.AnimationFrame",
-																"comparison": 0,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-visible",
-															"objectClass": "Buff_debuff",
-															"sid": 399398382418365,
-															"parameters": {
-																"visibility": "visible"
-															}
-														},
-														{
-															"id": "set-size",
-															"objectClass": "Buff_debuff",
-															"sid": 918884833103917,
-															"parameters": {
-																"width": "55",
-																"height": "55"
-															}
-														},
-														{
-															"id": "set-active",
-															"objectClass": "Buff_debuff",
-															"sid": 652039496290809,
-															"behaviorType": "Sine",
-															"parameters": {
-																"state": "active"
-															}
-														},
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 170067897733137,
-															"parameters": {
-																"seconds": "0.25",
-																"use-timescale": true
-															}
-														},
-														{
-															"id": "set-active",
-															"objectClass": "Buff_debuff",
-															"sid": 133312072124601,
-															"behaviorType": "Sine",
-															"parameters": {
-																"state": "inactive"
-															}
-														},
-														{
-															"id": "set-size",
-															"objectClass": "Buff_debuff",
-															"sid": 929630285545092,
-															"parameters": {
-																"width": "55",
-																"height": "55"
-															}
-														}
-													],
-													"sid": 541224795688761
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 648749359862935,
-															"parameters": {
-																"first-value": "int ( tokenat( Enemy.OnFire, 1, \"_\") )",
-																"comparison": 0,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Enemy",
-															"sid": 545588319826632,
-															"parameters": {
-																"instance-variable": "OnFire",
-																"value": "\"\""
-															}
-														}
-													],
-													"sid": 859671925517037,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "pick-by-comparison",
-																	"objectClass": "System",
-																	"sid": 637485618049180,
-																	"parameters": {
-																		"object": "Buff_debuff",
-																		"expression": "Buff_debuff.AnimationFrame",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "wait",
-																	"objectClass": "System",
-																	"sid": 445806975978759,
-																	"parameters": {
-																		"seconds": "0.25",
-																		"use-timescale": true
-																	}
-																},
-																{
-																	"id": "set-visible",
-																	"objectClass": "Buff_debuff",
-																	"sid": 620268439072398,
-																	"parameters": {
-																		"visibility": "invisible"
-																	}
-																}
-															],
-															"sid": 518409360612252
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Usar habilidade 1"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 866314569611633,
-													"parameters": {
-														"variable": "rng",
-														"comparison": 3,
-														"value": "Enemy.Hab_1_Chance"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 578449908332977,
-													"parameters": {
-														"seconds": "1.0",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Enemy",
-													"sid": 520227362276058,
-													"parameters": {
-														"animation": "Self.ID & \"_Attack\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"callFunction": "Use_Hab_Enemy",
-													"sid": 330507988090186,
-													"parameters": [
-														"Enemy.Hab_1"
-													]
-												}
-											],
-											"sid": 786609444776228
-										},
-										{
-											"eventType": "comment",
-											"text": "Usar habilidade 2"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 469508266262402
-												}
-											],
-											"actions": [
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 660102102964001,
-													"parameters": {
-														"seconds": "1.0",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "set-animation",
-													"objectClass": "Enemy",
-													"sid": 601012885801717,
-													"parameters": {
-														"animation": "Self.ID & \"_Attack\"",
-														"from": "beginning"
-													}
-												},
-												{
-													"callFunction": "Use_Hab_Enemy",
-													"sid": 353009590994346,
-													"parameters": [
-														"Enemy.Hab_2"
-													]
-												}
-											],
-											"sid": 819214974239106
-										}
-									]
-								},
-								{
-									"eventType": "comment",
-									"text": "Se o inimigo já estiver morto, então passa a vez pro próximo"
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 540073106979933
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 873759447438977,
-											"parameters": {
-												"variable": "TURN",
-												"value": "1"
-											}
-										},
-										{
-											"callFunction": "Enemy_Turn",
-											"sid": 181936275396704
-										}
-									],
-									"sid": 456515194238180
-								}
-							]
-						}
-					]
 				},
 				{
 					"eventType": "block",
@@ -10454,12 +10829,12 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 227995607057178,
+															"sid": 609488225684105,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
-																"x": "1615",
-																"y": "756",
+																"x": "1654",
+																"y": "796",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -10483,6 +10858,29 @@
 														}
 													],
 													"sid": 442216167503000
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 796016179856540,
+															"parameters": {
+																"variable": "Tutorial",
+																"comparison": 0,
+																"value": "6"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "Icon_Seta",
+															"sid": 887132428175025
+														}
+													],
+													"sid": 906086566447360
 												},
 												{
 													"eventType": "block",
@@ -10534,12 +10932,12 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 521262039016448,
+															"sid": 622702611328012,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
-																"x": "1485",
-																"y": "961",
+																"x": "1366",
+																"y": "982",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -10578,12 +10976,12 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 875894818927307,
+															"sid": 642148199626848,
 															"parameters": {
 																"object-to-create": "Icon_Seta",
 																"layer": "\"HUD\"",
-																"x": "1116",
-																"y": "961",
+																"x": "904",
+																"y": "982",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -10726,6 +11124,47 @@
 					]
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-typewriter-text-finished",
+							"objectClass": "Text_Tutorial",
+							"sid": 470948882853340
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "Text_Tutorial",
+							"sid": 813397830810958,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.25",
+								"type": "once",
+								"tag": "\"prevent_skip\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 739573919618044,
+							"parameters": {
+								"tag": "\"dialogue\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "t_personagem",
+							"sid": 919272955520178,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 532244418862725
+				},
+				{
 					"eventType": "comment",
 					"text": "Se for o momento de escolha, aguarda o imput"
 				},
@@ -10844,7 +11283,8 @@
 									}
 								}
 							],
-							"sid": 184283446420577
+							"sid": 184283446420577,
+							"disabled": true
 						}
 					]
 				},

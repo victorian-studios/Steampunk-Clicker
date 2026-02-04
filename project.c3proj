@@ -321,7 +321,7 @@
 			"Text_Tutorial",
 			"Scroll_1",
 			"Scroll_2",
-			"Cooldown",
+			"Bkg_CD",
 			"Text_CD",
 			"LocalStorage",
 			"A_Prod_Data",
@@ -367,7 +367,8 @@
 			"Icon_Airship_Map",
 			"Btn_Config_Options",
 			"Icon_Flag",
-			"Checkbox_Options"
+			"Checkbox_Options",
+			"TiledBkg_Shield"
 		],
 		"subfolders": []
 	},
@@ -593,6 +594,14 @@
 							"file-info": {
 								"purpose": "none"
 							}
+						},
+						{
+							"name": "IMPACT Heavy Thump Ascending 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 956950652323643,
+							"file-info": {
+								"purpose": "none"
+							}
 						}
 					],
 					"subfolders": [],
@@ -628,6 +637,22 @@
 							"name": "Bonus_Points_by_Liecio.mp3",
 							"type": "audio/mpeg",
 							"sid": 935681438522144,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "IMPACT Hit Short Clink 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 557690840123751,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "IMPACT Hit Short Clink 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 381925410193109,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -787,6 +812,196 @@
 					],
 					"subfolders": [],
 					"name": "Misc"
+				},
+				{
+					"items": [
+						{
+							"name": "IMPACT Metal Blade Chink 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 209935537863878,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "IMPACT Thump Thud 03.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 196279035198121,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SWIPE Blade Chop Clang 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 769111049808687,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SWIPE Blade Chop Clang 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 148093836895178,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SWIPE Blade Slash Short Stab 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 849850895826984,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SWIPE Blade Chop Clang 03.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 694377685982066,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit AHHH 03.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 860669124780395,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit AHHH 06.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 836116254378374,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit Slash 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 800416466021778,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "WEAPON GUNSHOT Bullet Hit 04.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 774104420476663,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit Slash 07.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 265775748794208,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit Slash 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 731615229456076,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "WEAPON GUNSHOT Rocket Launcher 03.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 583881154137958,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "WEAPON GUNSHOT ShotGun 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 709993370373178,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "WEAPON GUNSHOT ShotGun 04.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 827642103191991,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit AHHH 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 880084558065753,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit AHHH 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 159878257033469,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Impact Hit OOOF 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 420678725443611,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SWIPE Blade Slash Clang 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 585823617500870,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "IMPACT Metal Blade Chink 01.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 917026681359193,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "WEAPON GUNSHOT Bullet Hit 06.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 979490499580110,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "SWIPE Blade Slash Short Stab 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 965691573566053,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "VOCAL EVIL Breath Deep 02.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 131868300358727,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Battle"
 				}
 			]
 		},
