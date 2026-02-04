@@ -467,11 +467,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 120235249457232,
+							"sid": 337245086045891,
 							"parameters": {
 								"variable": "Weapon_ID_1",
 								"comparison": 1,
-								"value": "\"\""
+								"value": "\"none\""
 							}
 						}
 					],
@@ -520,67 +520,11 @@
 										"instance-variable": "Free",
 										"value": "false"
 									}
-								}
-							],
-							"sid": 730643083005777
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 364593553444564,
-									"parameters": {
-										"object": "Wp_Slot",
-										"expression": "Wp_Slot.ID",
-										"comparison": 0,
-										"value": "2"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 453117111049444,
-									"parameters": {
-										"variable": "hab_2_x",
-										"value": "Wp_Slot.X"
-									}
 								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 784850870070860,
-									"parameters": {
-										"variable": "hab_2_y",
-										"value": "Wp_Slot.Y"
-									}
-								}
-							],
-							"sid": 204595544968861,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 614294788043048,
-									"parameters": {
-										"first-value": "tokenat ( Weapon_ID_1, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"WP\""
-									}
-								}
-							],
-							"actions": [
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 232495466486593,
+									"sid": 570560922203151,
 									"parameters": {
 										"object-to-create": "icon_list_weapon_clone",
 										"layer": "\"Frg List\"",
@@ -593,7 +537,7 @@
 								{
 									"id": "set-animation-frame",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 894625179089261,
+									"sid": 396413313958345,
 									"parameters": {
 										"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\" ) ) + 1"
 									}
@@ -601,7 +545,7 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 569196891222675,
+									"sid": 405951639911876,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "false"
@@ -610,71 +554,14 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 529831585352204,
+									"sid": 805648500090376,
 									"parameters": {
 										"instance-variable": "Pin_Obj_ID",
 										"value": "1"
 									}
 								}
 							],
-							"sid": 857351305685810
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 347944080733946,
-									"parameters": {
-										"first-value": "tokenat ( Weapon_ID_1, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"HAB\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "create-object",
-									"objectClass": "System",
-									"sid": 925500789804541,
-									"parameters": {
-										"object-to-create": "icon_list_habilities_clone",
-										"layer": "\"Frg List\"",
-										"x": "hab_1_x",
-										"y": "hab_1_y",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "icon_list_habilities_clone",
-									"sid": 710383726038950,
-									"parameters": {
-										"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\" ) ) + 1"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "icon_list_habilities_clone",
-									"sid": 860678973309962,
-									"parameters": {
-										"instance-variable": "Recent_Copy",
-										"value": "false"
-									}
-								},
-								{
-									"id": "set-instvar-value",
-									"objectClass": "icon_list_habilities_clone",
-									"sid": 762565499995836,
-									"parameters": {
-										"instance-variable": "Pin_Obj_ID",
-										"value": "1"
-									}
-								}
-							],
-							"sid": 552688015073711
+							"sid": 730643083005777
 						}
 					]
 				},
@@ -684,55 +571,27 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 989314403125117,
+							"sid": 544188374511528,
 							"parameters": {
 								"variable": "Weapon_ID_2",
 								"comparison": 1,
-								"value": "\"\""
+								"value": "\"none\""
 							}
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 659554666930903,
+							"parameters": {
+								"type": "error",
+								"message": "\"OUOUOU\""
+							}
+						}
+					],
 					"sid": 592910184939967,
 					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 648346311675515,
-									"parameters": {
-										"object": "Wp_Slot",
-										"expression": "Wp_Slot.ID",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 676833966592977,
-									"parameters": {
-										"variable": "hab_1_x",
-										"value": "Wp_Slot.X"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 647800207010590,
-									"parameters": {
-										"variable": "hab_1_y",
-										"value": "Wp_Slot.Y"
-									}
-								}
-							],
-							"sid": 826918921365355,
-							"disabled": true
-						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -775,29 +634,11 @@
 										"instance-variable": "Free",
 										"value": "false"
 									}
-								}
-							],
-							"sid": 864159544296419
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 979508574972647,
-									"parameters": {
-										"first-value": "tokenat ( Weapon_ID_2, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"WP\""
-									}
-								}
-							],
-							"actions": [
+								},
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 886704472385522,
+									"sid": 546552964760617,
 									"parameters": {
 										"object-to-create": "icon_list_weapon_clone",
 										"layer": "\"Frg List\"",
@@ -810,7 +651,7 @@
 								{
 									"id": "set-animation-frame",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 375469423925990,
+									"sid": 631948524849751,
 									"parameters": {
 										"frame-number": "int( tokenat( Weapon_ID_2, 1, \"_\" ) ) + 1"
 									}
@@ -818,7 +659,7 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 542912773059072,
+									"sid": 832013486619659,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "false"
@@ -827,39 +668,68 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "icon_list_weapon_clone",
-									"sid": 316605657050439,
+									"sid": 494641265962401,
 									"parameters": {
 										"instance-variable": "Pin_Obj_ID",
 										"value": "2"
 									}
 								}
 							],
-							"sid": 639565440713707
-						},
+							"sid": 864159544296419
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 846178813178428,
+							"parameters": {
+								"variable": "HAB_ID_1",
+								"comparison": 1,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 633739988852853,
+					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
+									"id": "pick-by-comparison",
 									"objectClass": "System",
-									"sid": 887840644859822,
+									"sid": 611795756959663,
 									"parameters": {
-										"first-value": "tokenat ( Weapon_ID_2, 0, \"_\" )",
+										"object": "Hab_Slot",
+										"expression": "Hab_Slot.ID",
 										"comparison": 0,
-										"second-value": "\"HAB\""
+										"value": "1"
 									}
 								}
 							],
 							"actions": [
 								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Hab_Slot",
+									"sid": 205865853752323,
+									"parameters": {
+										"instance-variable": "Free",
+										"value": "false"
+									}
+								},
+								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 284822391359678,
+									"sid": 903275691050855,
 									"parameters": {
 										"object-to-create": "icon_list_habilities_clone",
 										"layer": "\"Frg List\"",
-										"x": "hab_2_x",
-										"y": "hab_2_y",
+										"x": "Hab_Slot.X",
+										"y": "Hab_Slot.Y",
 										"create-hierarchy": false,
 										"template-name": "\"\""
 									}
@@ -867,15 +737,15 @@
 								{
 									"id": "set-animation-frame",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 883587394041768,
+									"sid": 680548751200887,
 									"parameters": {
-										"frame-number": "int( tokenat( Weapon_ID_2, 1, \"_\" ) ) + 1"
+										"frame-number": "HAB_ID_1 + 1"
 									}
 								},
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 854358202347342,
+									"sid": 709056955150104,
 									"parameters": {
 										"instance-variable": "Recent_Copy",
 										"value": "false"
@@ -884,14 +754,100 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "icon_list_habilities_clone",
-									"sid": 889143509997996,
+									"sid": 976350246514912,
 									"parameters": {
 										"instance-variable": "Pin_Obj_ID",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 411607778326778
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 362823439886899,
+							"parameters": {
+								"variable": "HAB_ID_2",
+								"comparison": 1,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 547376005521550,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 919565063491151,
+									"parameters": {
+										"object": "Hab_Slot",
+										"expression": "Hab_Slot.ID",
+										"comparison": 0,
 										"value": "2"
 									}
 								}
 							],
-							"sid": 199597775713703
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Hab_Slot",
+									"sid": 841215621190281,
+									"parameters": {
+										"instance-variable": "Free",
+										"value": "false"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 619526818117182,
+									"parameters": {
+										"object-to-create": "icon_list_habilities_clone",
+										"layer": "\"Frg List\"",
+										"x": "Hab_Slot.X",
+										"y": "Hab_Slot.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 622785388578964,
+									"parameters": {
+										"frame-number": "HAB_ID_2 + 1"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 331796963548994,
+									"parameters": {
+										"instance-variable": "Recent_Copy",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 378536490522403,
+									"parameters": {
+										"instance-variable": "Pin_Obj_ID",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 866518789147290
 						}
 					]
 				},
@@ -12867,10 +12823,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 138695900567232,
+															"sid": 800771782718734,
 															"parameters": {
 																"variable": "Weapon_ID_2",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														}
 													],
@@ -12956,10 +12912,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 172791826977306,
+															"sid": 420214023569759,
 															"parameters": {
 																"variable": "Weapon_ID_2",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														}
 													],
@@ -13091,10 +13047,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 942849740958439,
+															"sid": 567086126815419,
 															"parameters": {
 																"variable": "Weapon_ID_2",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														}
 													],
@@ -13209,10 +13165,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 409842355303696,
+															"sid": 216963641771007,
 															"parameters": {
 																"variable": "Weapon_ID_2",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														}
 													],
@@ -13298,10 +13254,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 851817982785806,
+															"sid": 905524602991599,
 															"parameters": {
 																"variable": "Weapon_ID_2",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														}
 													],
@@ -13439,10 +13395,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 731536587736997,
+															"sid": 617994196538213,
 															"parameters": {
 																"variable": "Weapon_ID_2",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														}
 													],
@@ -20864,7 +20820,7 @@
 				{
 					"eventType": "group",
 					"disabled": false,
-					"title": "Label Screen",
+					"title": "Info Screen",
 					"description": "",
 					"isActiveOnStart": true,
 					"children": [
@@ -21876,21 +21832,21 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 741417985670296,
+											"sid": 877017469100632,
 											"parameters": {
 												"variable": "Weapon_ID_1",
 												"comparison": 1,
-												"value": "\"\""
+												"value": "\"none\""
 											}
 										},
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 761429452000770,
+											"sid": 156997799789164,
 											"parameters": {
 												"variable": "Weapon_ID_2",
 												"comparison": 1,
-												"value": "\"\""
+												"value": "\"none\""
 											}
 										}
 									],
@@ -21992,21 +21948,21 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 336683480788052,
+									"sid": 418373719416764,
 									"parameters": {
 										"variable": "Weapon_ID_1",
 										"comparison": 0,
-										"value": "\"\""
+										"value": "\"none\""
 									}
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 371105187664853,
+									"sid": 486381911051629,
 									"parameters": {
 										"variable": "Weapon_ID_2",
 										"comparison": 0,
-										"value": "\"\""
+										"value": "\"none\""
 									}
 								}
 							],
