@@ -80,7 +80,7 @@
 			"name": "ActiveLayer",
 			"type": "string",
 			"initialValue": "Steam",
-			"comment": "",
+			"comment": "apenas para a área de Upgrades",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 825918351132026
@@ -1597,6 +1597,10 @@
 			]
 		},
 		{
+			"eventType": "comment",
+			"text": "Redireciona a setinha da HUD para voltar para o botão ativo do momento"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -1607,6 +1611,26 @@
 						"first-value": "Mouse.Y",
 						"comparison": 3,
 						"second-value": "890"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 734712072743005,
+					"parameters": {
+						"first-value": "Mouse.X",
+						"comparison": 3,
+						"second-value": "690"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 383303441547045,
+					"parameters": {
+						"first-value": "Mouse.X",
+						"comparison": 4,
+						"second-value": "1225"
 					}
 				}
 			],
@@ -1700,7 +1724,8 @@
 						}
 					]
 				}
-			]
+			],
+			"isOrBlock": true
 		},
 		{
 			"eventType": "block",
@@ -1746,6 +1771,338 @@
 				}
 			],
 			"sid": 122369912731733
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 312434913006730,
+					"parameters": {
+						"object": "Btn_Bkg"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 806219141195035,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 819696392472305,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 493609721362891,
+							"parameters": {
+								"object": "Btn_screens",
+								"expression": "btn_screens.AnimationFrame",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 663357165191066,
+							"parameters": {
+								"type": "log",
+								"message": "Btn_screens.AnimationName"
+							}
+						}
+					],
+					"sid": 342387892278130,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 877478498137961,
+									"parameters": {
+										"layer": "Btn_screens.AnimationName"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 761867075349053,
+									"parameters": {
+										"layer": "Btn_screens.AnimationName",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 117864510152936,
+									"parameters": {
+										"layer": "Btn_screens.AnimationName",
+										"interactive": false
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Btn_Bkg",
+									"sid": 282681846752769,
+									"parameters": {
+										"animation": "\"Off\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 384400325860387,
+									"parameters": {
+										"type": "log",
+										"message": "\"Bye\""
+									}
+								}
+							],
+							"sid": 778918978930894
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 842027387690674
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 453877912193653,
+									"parameters": {
+										"layer": "Btn_screens.AnimationName",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-interactive",
+									"objectClass": "System",
+									"sid": 980258835175412,
+									"parameters": {
+										"layer": "Btn_screens.AnimationName",
+										"interactive": true
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Btn_Bkg",
+									"sid": 770955844727594,
+									"parameters": {
+										"animation": "\"On\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 903888525944040,
+									"parameters": {
+										"type": "log",
+										"message": "\"Hi\""
+									}
+								}
+							],
+							"sid": 520325785287564
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Notification"
+		},
+		{
+			"functionName": "Notification_Warning",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Station_Btn_ID",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 507890589424727
+				},
+				{
+					"name": "Upgrade_Icon_ID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 191974431923522
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 840100146010080,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 420880043219502,
+							"parameters": {
+								"variable": "Station_Btn_ID",
+								"comparison": 1,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 796541232651095,
+							"parameters": {
+								"object": "Btn_screens",
+								"expression": "Btn_screens.AnimationName",
+								"comparison": 0,
+								"value": "Station_Btn_ID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Btn_screens",
+							"sid": 481757202727824,
+							"parameters": {
+								"object": "Icon_Notification",
+								"layer": "\"HUD\"",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 253337761126044
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 922568408801118,
+							"parameters": {
+								"variable": "Upgrade_Icon_ID",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 613404124644163,
+							"parameters": {
+								"object": "Icon_prod",
+								"expression": "Icon_prod.UID",
+								"comparison": 0,
+								"value": "Upgrade_Icon_ID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Icon_prod",
+							"sid": 756304494137957,
+							"parameters": {
+								"object": "Icon_Notification",
+								"layer": "Icon_prod.LayerName",
+								"image-point": "1",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 181764786507873
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 826659260573818,
+					"parameters": {
+						"object": "Btn_screens"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Btn_screens",
+					"sid": 626816688365201,
+					"parameters": {
+						"object": "Icon_Notification"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Icon_Notification",
+					"sid": 921848537228206
+				}
+			],
+			"sid": 883765597712192
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 451448653451921,
+					"parameters": {
+						"object": "Icon_prod"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Icon_prod",
+					"sid": 647669757895419,
+					"parameters": {
+						"object": "Icon_Notification"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Icon_Notification",
+					"sid": 728738600384543
+				}
+			],
+			"sid": 941728857334546
 		},
 		{
 			"eventType": "group",
@@ -6654,8 +7011,960 @@
 					]
 				},
 				{
+					"functionName": "Upgrade_Production",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Upgrade_name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "nome do upgrade para comparar do array",
+							"sid": 832406278845880
+						},
+						{
+							"name": "Upgrade_ID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "id numérico do upgrade",
+							"sid": 958734397235436
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Play_Audio",
+							"sid": 487714627205570,
+							"parameters": [
+								false,
+								false,
+								true,
+								false,
+								false,
+								false,
+								false,
+								false
+							]
+						}
+					],
+					"sid": 266523896169152,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Desbloquear a produção (Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 742393001244099,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"unlock\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 575523867708533,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 253592387358375,
+											"parameters": {
+												"object": "Production",
+												"expression": "Production.Array_ID",
+												"comparison": 0,
+												"value": "Layer_Z_Array - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 162341159636375,
+											"parameters": {
+												"instance-variable": "Unlocked",
+												"value": "true"
+											}
+										},
+										{
+											"type": "comment",
+											"text": "O Prod_Data é responsável por salvar boa parte dos atributos atuais de cada produtor. "
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 365010131932374,
+											"parameters": {
+												"x": "0",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 996346842171101
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Aumentar a velocidade de produção (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 637996031753954,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodspeedup\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 704015825568758,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 935904084264419,
+											"parameters": {
+												"variable": "Layer_Z_Array",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Production_Vapor",
+											"sid": 519010686098945,
+											"parameters": {
+												"instance-variable": "prod_time",
+												"value": "A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 1, \"_\") )"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 423958844345977,
+											"parameters": {
+												"x": "3",
+												"y": "1",
+												"z": "0",
+												"value": "Production_Vapor.prod_time"
+											}
+										}
+									],
+									"sid": 538997563614728
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 292424532835258
+										}
+									],
+									"actions": [],
+									"sid": 740476516416573,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 671768645429808,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.Array_ID",
+														"comparison": 0,
+														"value": "Layer_Z_Array - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Production",
+													"sid": 239592046571134,
+													"parameters": {
+														"instance-variable": "prod_time",
+														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 1, \"_\" ) )"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 861707938538434,
+													"parameters": {
+														"x": "3",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_time"
+													}
+												}
+											],
+											"sid": 543980784239123
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Aumentar a capacidade de produção (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 837296144559859,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodcapup\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 548901768849724,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 540252457507469,
+											"parameters": {
+												"variable": "Layer_Z_Array",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-instvar",
+											"objectClass": "Production_Vapor",
+											"sid": 674526620206599,
+											"parameters": {
+												"instance-variable": "prod_cap",
+												"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 367853022545101,
+											"parameters": {
+												"x": "2",
+												"y": "1",
+												"z": "0",
+												"value": "Production_Vapor.prod_cap"
+											}
+										}
+									],
+									"sid": 965593452104570
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 178407420935305
+										}
+									],
+									"actions": [],
+									"sid": 760365126966339,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 903073276887863,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.Array_ID",
+														"comparison": 0,
+														"value": "Layer_Z_Array - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Production",
+													"sid": 973005240702485,
+													"parameters": {
+														"instance-variable": "prod_cap",
+														"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 561747413109579,
+													"parameters": {
+														"x": "2",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_cap"
+													}
+												}
+											],
+											"sid": 743967921693101
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Automatizar produção (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 238507646183996,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"autoprod\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 802539086019663,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 255787717965272,
+											"parameters": {
+												"variable": "Layer_Z_Array",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production_Vapor",
+											"sid": 928280630247298,
+											"parameters": {
+												"instance-variable": "Autoprod",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 460292584304170
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 491099714317271
+										}
+									],
+									"actions": [],
+									"sid": 812444318842262,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 748315151564831,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.Array_ID",
+														"comparison": 0,
+														"value": "Layer_Z_Array - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production",
+													"sid": 479008834554144,
+													"parameters": {
+														"instance-variable": "Autoprod",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 418352840910757
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Reduzir custo de produção (Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 669777820845969,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"-\" )",
+										"comparison": 0,
+										"second-value": "\"costred\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 802897916146173,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 147166218628871,
+											"parameters": {
+												"object": "Production",
+												"expression": "Production.Array_ID",
+												"comparison": 0,
+												"value": "Layer_Z_Array - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 419438193760050,
+											"disabled": true,
+											"parameters": {
+												"x": "2",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "Production.prod_cap"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 731659915865944,
+											"parameters": {
+												"instance-variable": "cond_material_quant_1",
+												"value": "tokenat( Upgrade_name, 1, \"-\" )"
+											}
+										}
+									],
+									"sid": 135913154427658
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Dobrar produção (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 670487428552589,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"doubleprod\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 624607002020161,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 272635144677992,
+											"parameters": {
+												"variable": "Layer_Z_Array",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production_Vapor",
+											"sid": 559221376138434,
+											"parameters": {
+												"instance-variable": "prod_quant",
+												"value": "2"
+											}
+										}
+									],
+									"sid": 605263330132005
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 559237661995697
+										}
+									],
+									"actions": [],
+									"sid": 819840522081761,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 755304228192683,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.Array_ID",
+														"comparison": 0,
+														"value": "Layer_Z_Array - 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Production",
+													"sid": 266815153816311,
+													"parameters": {
+														"instance-variable": "prod_quant",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 823799010526494,
+													"disabled": true,
+													"parameters": {
+														"x": "2",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_quant"
+													}
+												}
+											],
+											"sid": 222422154136248
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Aumentar a velocidade de outro produtor (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 163654212004351,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"prodcombo\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 220887771182474,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 703481061721606,
+											"parameters": {
+												"first-value": "tokenat(Upgrade_name, 1, \"_\")",
+												"comparison": 0,
+												"second-value": "\"Steam\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Production_Vapor",
+											"sid": 465445792282275,
+											"parameters": {
+												"instance-variable": "prod_time",
+												"value": "A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 2, \"_\") )"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 716536404463548,
+											"parameters": {
+												"x": "3",
+												"y": "1",
+												"z": "0",
+												"value": "Production_Vapor.prod_time"
+											}
+										}
+									],
+									"sid": 124930583409338
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 880217041567354
+										}
+									],
+									"actions": [],
+									"sid": 279840143003317,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 756397851088296,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.material_id",
+														"comparison": 0,
+														"value": "tokenat(Upgrade_name, 1, \"_\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Production",
+													"sid": 900074491206197,
+													"parameters": {
+														"instance-variable": "prod_time",
+														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 2, \"_\" ) )"
+													}
+												},
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 505166860171173,
+													"parameters": {
+														"x": "3",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"value": "Production.prod_time"
+													}
+												}
+											],
+											"sid": 657233769249064
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Aumentar a qualidade do material (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 754827690317223,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"refine\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 951677588342023,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 905245059358685,
+											"parameters": {
+												"variable": "Layer_Z_Array",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 321972577513618
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 327425734384470
+										}
+									],
+									"actions": [],
+									"sid": 230436476637624,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 253862119337895,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.Array_ID",
+														"comparison": 0,
+														"value": "Layer_Z_Array - 1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 284549259375191
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Tornar em material prmium (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 294593785344757,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"premium\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 275077975674456,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 253788003923810,
+											"parameters": {
+												"variable": "Layer_Z_Array",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 890497870111312
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 438212229384576
+										}
+									],
+									"actions": [],
+									"sid": 975918396006182,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 836889895213687,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.Array_ID",
+														"comparison": 0,
+														"value": "Layer_Z_Array - 1"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 378947206767527
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 405171712662476,
+									"parameters": {
+										"seconds": "0.01",
+										"use-timescale": true
+									}
+								},
+								{
+									"callFunction": "Save_Local_Storage",
+									"sid": 990675300471133
+								}
+							],
+							"sid": 357750160041850
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 711726969817125,
+									"parameters": {
+										"object": "valvula_upgrades",
+										"expression": "valvula_upgrades.LayerName",
+										"comparison": 0,
+										"value": "ActiveLayer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "valvula_upgrades",
+									"sid": 100230254865018,
+									"parameters": {
+										"animation": "\"Default\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 663736509412273
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 925222066465441,
+									"parameters": {
+										"object": "water_anim",
+										"expression": "water_anim.ID",
+										"comparison": 0,
+										"value": "Upgrade_ID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "water_anim",
+									"sid": 684002503946473,
+									"parameters": {
+										"animation": "Self.My_Anim_ID",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "water_anim",
+									"sid": 514725988729348,
+									"parameters": {
+										"speed": "15"
+									}
+								}
+							],
+							"sid": 824068991203106
+						}
+					]
+				},
+				{
 					"eventType": "comment",
-					"text": "Desbloquear novos produtores de material"
+					"text": "Desbloquear novos produtores de material",
+					"text-color": [
+						0,
+						0,
+						0,
+						0
+					],
+					"background-color": [
+						1,
+						0.9686274509803922,
+						0,
+						1
+					]
 				},
 				{
 					"eventType": "block",
@@ -6663,11 +7972,11 @@
 						{
 							"id": "on-any-click",
 							"objectClass": "Mouse",
-							"sid": 746087235125080
+							"sid": 309540755795846
 						}
 					],
 					"actions": [],
-					"sid": 525203832589349,
+					"sid": 529784429356426,
 					"children": [
 						{
 							"eventType": "block",
@@ -6675,7 +7984,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 806160083787898,
+									"sid": 468128318898909,
 									"parameters": {
 										"key": "\"Steam\"",
 										"comparison": 5,
@@ -6685,7 +7994,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 782276160199609,
+									"sid": 935130362590206,
 									"parameters": {
 										"key": "\"Wood\"",
 										"comparison": 0,
@@ -6697,7 +8006,7 @@
 								{
 									"id": "set-key",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 391572219303788,
+									"sid": 679914188481595,
 									"parameters": {
 										"key": "\"Wood\"",
 										"value": "0"
@@ -6705,7 +8014,7 @@
 								},
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 843270238014200,
+									"sid": 502520254149096,
 									"parameters": [
 										"Internationalization.Lookup(\"game.upg.Steam.unlock_next\")",
 										"2",
@@ -6713,16 +8022,32 @@
 									]
 								},
 								{
+									"callFunction": "Notification_Warning",
+									"sid": 339497027667828,
+									"parameters": [
+										"\"Upgrades\"",
+										"0"
+									]
+								},
+								{
+									"callFunction": "Notification_Warning",
+									"sid": 469674293115561,
+									"parameters": [
+										"\"\"",
+										"103"
+									]
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 698815750003887,
+									"sid": 748298765158163,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"unlock_next\""
 									}
 								}
 							],
-							"sid": 609801307856984
+							"sid": 951992707872536
 						},
 						{
 							"eventType": "block",
@@ -6730,7 +8055,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 875657511740557,
+									"sid": 635141197439382,
 									"parameters": {
 										"key": "\"Wood\"",
 										"comparison": 5,
@@ -6740,7 +8065,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 102284824941519,
+									"sid": 871479877624928,
 									"parameters": {
 										"key": "\"Copper\"",
 										"comparison": 0,
@@ -6752,7 +8077,7 @@
 								{
 									"id": "set-key",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 116689115643828,
+									"sid": 658014134596317,
 									"parameters": {
 										"key": "\"Copper\"",
 										"value": "0"
@@ -6760,7 +8085,7 @@
 								},
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 265244861088691,
+									"sid": 326449193818348,
 									"parameters": [
 										"Internationalization.Lookup(\"game.upg.Wood.unlock_next\")",
 										"2",
@@ -6768,16 +8093,32 @@
 									]
 								},
 								{
+									"callFunction": "Notification_Warning",
+									"sid": 791580216564690,
+									"parameters": [
+										"\"Upgrades\"",
+										"0"
+									]
+								},
+								{
+									"callFunction": "Notification_Warning",
+									"sid": 628985796653674,
+									"parameters": [
+										"\"\"",
+										"104"
+									]
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 611613099445425,
+									"sid": 371983953151294,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"unlock_next\""
 									}
 								}
 							],
-							"sid": 741098893043482
+							"sid": 589441017408067
 						},
 						{
 							"eventType": "block",
@@ -6785,7 +8126,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 521368709175586,
+									"sid": 967314120580648,
 									"parameters": {
 										"key": "\"Copper\"",
 										"comparison": 5,
@@ -6795,7 +8136,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 768371705703820,
+									"sid": 144261287569317,
 									"parameters": {
 										"key": "\"Iron\"",
 										"comparison": 0,
@@ -6807,7 +8148,7 @@
 								{
 									"id": "set-key",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 444594324531159,
+									"sid": 376712887436676,
 									"parameters": {
 										"key": "\"Iron\"",
 										"value": "0"
@@ -6815,7 +8156,7 @@
 								},
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 715583185487531,
+									"sid": 329189122607194,
 									"parameters": [
 										"Internationalization.Lookup(\"game.upg.Copper.unlock_next\")",
 										"2",
@@ -6823,16 +8164,32 @@
 									]
 								},
 								{
+									"callFunction": "Notification_Warning",
+									"sid": 117432825132417,
+									"parameters": [
+										"\"Upgrades\"",
+										"0"
+									]
+								},
+								{
+									"callFunction": "Notification_Warning",
+									"sid": 152601055032823,
+									"parameters": [
+										"\"\"",
+										"105"
+									]
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 712057762046762,
+									"sid": 439150624600151,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"unlock_next\""
 									}
 								}
 							],
-							"sid": 107532169113235
+							"sid": 642125943934803
 						},
 						{
 							"eventType": "block",
@@ -6840,7 +8197,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 217953764635268,
+									"sid": 792210188748819,
 									"parameters": {
 										"key": "\"Iron\"",
 										"comparison": 5,
@@ -6850,7 +8207,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 124831684753626,
+									"sid": 316624531796414,
 									"parameters": {
 										"key": "\"Titanium\"",
 										"comparison": 0,
@@ -6862,7 +8219,7 @@
 								{
 									"id": "set-key",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 419714794535626,
+									"sid": 288503687791142,
 									"parameters": {
 										"key": "\"Titanium\"",
 										"value": "0"
@@ -6870,7 +8227,7 @@
 								},
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 855142179329540,
+									"sid": 316383142928074,
 									"parameters": [
 										"Internationalization.Lookup(\"game.upg.Titanium.unlock_next\")",
 										"2",
@@ -6878,16 +8235,32 @@
 									]
 								},
 								{
+									"callFunction": "Notification_Warning",
+									"sid": 745594786462007,
+									"parameters": [
+										"\"Upgrades\"",
+										"0"
+									]
+								},
+								{
+									"callFunction": "Notification_Warning",
+									"sid": 539524945492513,
+									"parameters": [
+										"\"\"",
+										"106"
+									]
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 434112452601602,
+									"sid": 182478595475000,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"unlock_next\""
 									}
 								}
 							],
-							"sid": 203620380549272
+							"sid": 194910001021089
 						},
 						{
 							"eventType": "block",
@@ -6895,7 +8268,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 108506782588738,
+									"sid": 196433514601656,
 									"parameters": {
 										"key": "\"Titanium\"",
 										"comparison": 5,
@@ -6905,7 +8278,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 705818768925196,
+									"sid": 953135248980436,
 									"parameters": {
 										"key": "\"Tungsten\"",
 										"comparison": 0,
@@ -6917,7 +8290,7 @@
 								{
 									"id": "set-key",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 674927572321767,
+									"sid": 944852936796513,
 									"parameters": {
 										"key": "\"Tungsten\"",
 										"value": "0"
@@ -6925,7 +8298,7 @@
 								},
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 823086599607836,
+									"sid": 528654722248948,
 									"parameters": [
 										"Internationalization.Lookup(\"game.upg.Tungsten.unlock_next\")",
 										"2",
@@ -6933,16 +8306,32 @@
 									]
 								},
 								{
+									"callFunction": "Notification_Warning",
+									"sid": 395649225841457,
+									"parameters": [
+										"\"Upgrades\"",
+										"0"
+									]
+								},
+								{
+									"callFunction": "Notification_Warning",
+									"sid": 899589169063242,
+									"parameters": [
+										"\"\"",
+										"107"
+									]
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 705797960611902,
+									"sid": 555442287266880,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"unlock_next\""
 									}
 								}
 							],
-							"sid": 415858176282451
+							"sid": 420034125122515
 						},
 						{
 							"eventType": "block",
@@ -6950,7 +8339,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 410467017024185,
+									"sid": 620306689422645,
 									"parameters": {
 										"key": "\"Tungsten\"",
 										"comparison": 5,
@@ -6960,7 +8349,7 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 419304133906350,
+									"sid": 887286992808774,
 									"parameters": {
 										"key": "\"Vaporium\"",
 										"comparison": 0,
@@ -6972,7 +8361,7 @@
 								{
 									"id": "set-key",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 692892993143329,
+									"sid": 455614579509620,
 									"parameters": {
 										"key": "\"Vaporium\"",
 										"value": "0"
@@ -6980,7 +8369,7 @@
 								},
 								{
 									"callFunction": "Pop_up_Tutorial",
-									"sid": 674620941147050,
+									"sid": 844212503912057,
 									"parameters": [
 										"Internationalization.Lookup(\"game.upg.Vaporium.unlock_next\")",
 										"2",
@@ -6988,16 +8377,32 @@
 									]
 								},
 								{
+									"callFunction": "Notification_Warning",
+									"sid": 814587472026615,
+									"parameters": [
+										"\"Upgrades\"",
+										"0"
+									]
+								},
+								{
+									"callFunction": "Notification_Warning",
+									"sid": 812185305168036,
+									"parameters": [
+										"\"\"",
+										"108"
+									]
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 659775996511159,
+									"sid": 777896925608939,
 									"parameters": {
 										"variable": "Tutorial_Name",
 										"value": "\"unlock_next\""
 									}
 								}
 							],
-							"sid": 603737391748565
+							"sid": 232089109814212
 						},
 						{
 							"eventType": "block",
@@ -7005,19 +8410,23 @@
 								{
 									"id": "for-each-key",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 955433577634454
+									"sid": 987433549117995
 								}
 							],
 							"actions": [],
-							"sid": 921860435791595,
+							"sid": 967300705718906,
 							"children": [
+								{
+									"eventType": "comment",
+									"text": "Se o valor for maior que zero, remove o cadeado e revela o ícone correto"
+								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "compare-current-value",
 											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 271945382033741,
+											"sid": 452718028167076,
 											"parameters": {
 												"comparison": 5,
 												"value": "0"
@@ -7025,7 +8434,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 436611917035024,
+									"sid": 774953448353712,
 									"children": [
 										{
 											"eventType": "block",
@@ -7033,7 +8442,7 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 453026886505883,
+													"sid": 268134515969024,
 													"parameters": {
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 1, \"_\" )",
@@ -7046,7 +8455,7 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "Icon_prod",
-													"sid": 335042469714180,
+													"sid": 357365098359126,
 													"parameters": {
 														"frame-number": "Self.upg_icon_frame"
 													}
@@ -7054,14 +8463,14 @@
 												{
 													"id": "set-size",
 													"objectClass": "Icon_prod",
-													"sid": 888374105986990,
+													"sid": 670923649940459,
 													"parameters": {
 														"width": "85",
 														"height": "85"
 													}
 												}
 											],
-											"sid": 441768076627130
+											"sid": 242481750592954
 										},
 										{
 											"eventType": "block",
@@ -7069,7 +8478,7 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 982369123960350,
+													"sid": 734230074120839,
 													"parameters": {
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 2, \"_\" )",
@@ -7082,13 +8491,13 @@
 												{
 													"id": "set-visible",
 													"objectClass": "Icon_prod",
-													"sid": 355701209315318,
+													"sid": 284675519399635,
 													"parameters": {
 														"visibility": "visible"
 													}
 												}
 											],
-											"sid": 223056628871271,
+											"sid": 805191012118558,
 											"children": [
 												{
 													"eventType": "block",
@@ -7096,7 +8505,7 @@
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "Icon_prod",
-															"sid": 781029627635895,
+															"sid": 524477206378231,
 															"parameters": {
 																"object": "Text_Material_Quant"
 															}
@@ -7106,17 +8515,21 @@
 														{
 															"id": "set-visible",
 															"objectClass": "Text_Material_Quant",
-															"sid": 655069825164913,
+															"sid": 103812343213185,
 															"parameters": {
 																"visibility": "visible"
 															}
 														}
 													],
-													"sid": 409632758674973
+													"sid": 120350781753080
 												}
 											]
 										}
 									]
+								},
+								{
+									"eventType": "comment",
+									"text": "Caso contrário, mantém trancado"
 								},
 								{
 									"eventType": "block",
@@ -7124,11 +8537,11 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 328233956540402
+											"sid": 366441437449969
 										}
 									],
 									"actions": [],
-									"sid": 964112458806647,
+									"sid": 466304533841843,
 									"children": [
 										{
 											"eventType": "block",
@@ -7136,7 +8549,7 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 783623705759793,
+													"sid": 102822049243579,
 													"parameters": {
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 1, \"_\" )",
@@ -7149,7 +8562,7 @@
 												{
 													"id": "set-animation-frame",
 													"objectClass": "Icon_prod",
-													"sid": 760270613457779,
+													"sid": 245801963696618,
 													"parameters": {
 														"frame-number": "7"
 													}
@@ -7157,14 +8570,14 @@
 												{
 													"id": "set-size",
 													"objectClass": "Icon_prod",
-													"sid": 290388110322477,
+													"sid": 548533756213832,
 													"parameters": {
 														"width": "85",
 														"height": "85"
 													}
 												}
 											],
-											"sid": 544506343862457
+											"sid": 625984420429482
 										},
 										{
 											"eventType": "block",
@@ -7172,7 +8585,7 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 442635723758780,
+													"sid": 820014999218590,
 													"parameters": {
 														"object": "Icon_prod",
 														"expression": "tokenat ( Icon_prod.material_id, 2, \"_\" )",
@@ -7185,13 +8598,13 @@
 												{
 													"id": "set-visible",
 													"objectClass": "Icon_prod",
-													"sid": 211865581006330,
+													"sid": 268687983784479,
 													"parameters": {
 														"visibility": "invisible"
 													}
 												}
 											],
-											"sid": 915239950132818,
+											"sid": 452499690320647,
 											"children": [
 												{
 													"eventType": "block",
@@ -7199,7 +8612,7 @@
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "Icon_prod",
-															"sid": 672082745808360,
+															"sid": 511013688963598,
 															"parameters": {
 																"object": "Text_Material_Quant"
 															}
@@ -7209,13 +8622,13 @@
 														{
 															"id": "set-visible",
 															"objectClass": "Text_Material_Quant",
-															"sid": 560971267336550,
+															"sid": 286243114413411,
 															"parameters": {
 																"visibility": "invisible"
 															}
 														}
 													],
-													"sid": 417400678932106
+													"sid": 248038863348675
 												}
 											]
 										}
@@ -8671,946 +10084,6 @@
 									"sid": 832365582065899
 								}
 							]
-						}
-					]
-				},
-				{
-					"functionName": "Upgrade_Production",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionCopyPicked": false,
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "Upgrade_name",
-							"type": "string",
-							"initialValue": "",
-							"comment": "nome do upgrade para comparar do array",
-							"sid": 832406278845880
-						},
-						{
-							"name": "Upgrade_ID",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "id numérico do upgrade",
-							"sid": 958734397235436
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"callFunction": "Play_Audio",
-							"sid": 707604665632911,
-							"parameters": [
-								false,
-								false,
-								true,
-								false,
-								false,
-								false,
-								false,
-								false
-							]
-						}
-					],
-					"sid": 698524508351873,
-					"children": [
-						{
-							"eventType": "comment",
-							"text": "Desbloquear a produção (Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 147727637169139,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"unlock\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 511247520365367,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 961375744617918,
-											"parameters": {
-												"object": "Production",
-												"expression": "Production.Array_ID",
-												"comparison": 0,
-												"value": "Layer_Z_Array - 1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production",
-											"sid": 311448387733561,
-											"parameters": {
-												"instance-variable": "Unlocked",
-												"value": "true"
-											}
-										},
-										{
-											"type": "comment",
-											"text": "O Prod_Data é responsável por salvar boa parte dos atributos atuais de cada produtor. "
-										},
-										{
-											"id": "set-at-xyz",
-											"objectClass": "A_Prod_Data",
-											"sid": 769217313879498,
-											"parameters": {
-												"x": "0",
-												"y": "1",
-												"z": "Production.Array_ID",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 304016207194982
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Aumentar a velocidade de produção (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 529959542555011,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"prodspeedup\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 974320651613853,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 550826252219382,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Production_Vapor",
-											"sid": 436208912375547,
-											"parameters": {
-												"instance-variable": "prod_time",
-												"value": "A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 1, \"_\") )"
-											}
-										},
-										{
-											"id": "set-at-xyz",
-											"objectClass": "A_Prod_Data",
-											"sid": 669748619452835,
-											"parameters": {
-												"x": "3",
-												"y": "1",
-												"z": "0",
-												"value": "Production_Vapor.prod_time"
-											}
-										}
-									],
-									"sid": 229290580930035
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 208231523068973
-										}
-									],
-									"actions": [],
-									"sid": 377768717871192,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 600446780057573,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Production",
-													"sid": 457473491096680,
-													"parameters": {
-														"instance-variable": "prod_time",
-														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 1, \"_\" ) )"
-													}
-												},
-												{
-													"id": "set-at-xyz",
-													"objectClass": "A_Prod_Data",
-													"sid": 662155661139620,
-													"parameters": {
-														"x": "3",
-														"y": "1",
-														"z": "Production.Array_ID",
-														"value": "Production.prod_time"
-													}
-												}
-											],
-											"sid": 787304010117301
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Aumentar a capacidade de produção (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 812264623792058,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"prodcapup\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 377690943794775,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 698643346916943,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "add-to-instvar",
-											"objectClass": "Production_Vapor",
-											"sid": 673778845335182,
-											"parameters": {
-												"instance-variable": "prod_cap",
-												"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
-											}
-										},
-										{
-											"id": "set-at-xyz",
-											"objectClass": "A_Prod_Data",
-											"sid": 194998752442102,
-											"parameters": {
-												"x": "2",
-												"y": "1",
-												"z": "0",
-												"value": "Production_Vapor.prod_cap"
-											}
-										}
-									],
-									"sid": 404967026634611
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 339844416430366
-										}
-									],
-									"actions": [],
-									"sid": 540376479723317,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 175680189489943,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "add-to-instvar",
-													"objectClass": "Production",
-													"sid": 258067681961842,
-													"parameters": {
-														"instance-variable": "prod_cap",
-														"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
-													}
-												},
-												{
-													"id": "set-at-xyz",
-													"objectClass": "A_Prod_Data",
-													"sid": 999862329136676,
-													"parameters": {
-														"x": "2",
-														"y": "1",
-														"z": "Production.Array_ID",
-														"value": "Production.prod_cap"
-													}
-												}
-											],
-											"sid": 397670784951882
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Automatizar produção (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 140144133621456,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"autoprod\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 633464153137461,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 118370034632370,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production_Vapor",
-											"sid": 562697699517891,
-											"parameters": {
-												"instance-variable": "Autoprod",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 108049147235332
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 815369324351171
-										}
-									],
-									"actions": [],
-									"sid": 835605040726809,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 974549974468214,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Production",
-													"sid": 251167610058281,
-													"parameters": {
-														"instance-variable": "Autoprod",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 712153348959114
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Reduzir custo de produção (Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 363806526875623,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"-\" )",
-										"comparison": 0,
-										"second-value": "\"costred\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 439342187241720,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-comparison",
-											"objectClass": "System",
-											"sid": 670612967569562,
-											"parameters": {
-												"object": "Production",
-												"expression": "Production.Array_ID",
-												"comparison": 0,
-												"value": "Layer_Z_Array - 1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-at-xyz",
-											"objectClass": "A_Prod_Data",
-											"sid": 158437525530417,
-											"disabled": true,
-											"parameters": {
-												"x": "2",
-												"y": "1",
-												"z": "Production.Array_ID",
-												"value": "Production.prod_cap"
-											}
-										},
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Production",
-											"sid": 310496230823606,
-											"parameters": {
-												"instance-variable": "cond_material_quant_1",
-												"value": "tokenat( Upgrade_name, 1, \"-\" )"
-											}
-										}
-									],
-									"sid": 926503501080566
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Dobrar produção (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 633856899031893,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"doubleprod\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 979198279487595,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 335844838525265,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "Production_Vapor",
-											"sid": 425163233176679,
-											"parameters": {
-												"instance-variable": "prod_quant",
-												"value": "2"
-											}
-										}
-									],
-									"sid": 443492200264458
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 358457168807556
-										}
-									],
-									"actions": [],
-									"sid": 467037514440029,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 610305442129707,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-instvar-value",
-													"objectClass": "Production",
-													"sid": 368643728877832,
-													"parameters": {
-														"instance-variable": "prod_quant",
-														"value": "2"
-													}
-												},
-												{
-													"id": "set-at-xyz",
-													"objectClass": "A_Prod_Data",
-													"sid": 706175661345349,
-													"disabled": true,
-													"parameters": {
-														"x": "2",
-														"y": "1",
-														"z": "Production.Array_ID",
-														"value": "Production.prod_quant"
-													}
-												}
-											],
-											"sid": 955718625479199
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Aumentar a velocidade de outro produtor (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 648971810435978,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"prodcombo\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 261803080396477,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 983491512533365,
-											"parameters": {
-												"first-value": "tokenat(Upgrade_name, 1, \"_\")",
-												"comparison": 0,
-												"second-value": "\"Steam\""
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Production_Vapor",
-											"sid": 206962284754583,
-											"parameters": {
-												"instance-variable": "prod_time",
-												"value": "A_Prod_Data.At( 8,1, 0) * float( tokenat( Upgrade_name, 2, \"_\") )"
-											}
-										},
-										{
-											"id": "set-at-xyz",
-											"objectClass": "A_Prod_Data",
-											"sid": 441112423378040,
-											"parameters": {
-												"x": "3",
-												"y": "1",
-												"z": "0",
-												"value": "Production_Vapor.prod_time"
-											}
-										}
-									],
-									"sid": 718107808760048
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 254821280043676
-										}
-									],
-									"actions": [],
-									"sid": 291260041901123,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 933086538757290,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.material_id",
-														"comparison": 0,
-														"value": "tokenat(Upgrade_name, 1, \"_\")"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Production",
-													"sid": 657935503125522,
-													"parameters": {
-														"instance-variable": "prod_time",
-														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 2, \"_\" ) )"
-													}
-												},
-												{
-													"id": "set-at-xyz",
-													"objectClass": "A_Prod_Data",
-													"sid": 647690953690077,
-													"parameters": {
-														"x": "3",
-														"y": "1",
-														"z": "Production.Array_ID",
-														"value": "Production.prod_time"
-													}
-												}
-											],
-											"sid": 748294575622945
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Aumentar a qualidade do material (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 898542038182585,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"refine\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 765877873509332,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 310882793083165,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 245775352375152
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 874065911439056
-										}
-									],
-									"actions": [],
-									"sid": 605432804015051,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 991466601449975,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 628568442880315
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Tornar em material prmium (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 588174530451833,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"premium\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 528968813958165,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 444018485627292,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 560847103120666
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 559065113247797
-										}
-									],
-									"actions": [],
-									"sid": 596799041223093,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 580968049410841,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 665682011512005
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 478714417583267,
-									"parameters": {
-										"seconds": "0.01",
-										"use-timescale": true
-									}
-								},
-								{
-									"callFunction": "Save_Local_Storage",
-									"sid": 313990190486899
-								}
-							],
-							"sid": 969018912233262
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 474394031613694,
-									"parameters": {
-										"object": "valvula_upgrades",
-										"expression": "valvula_upgrades.LayerName",
-										"comparison": 0,
-										"value": "ActiveLayer"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "valvula_upgrades",
-									"sid": 608717039740889,
-									"parameters": {
-										"animation": "\"Default\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 547933706510558
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 815293752863667,
-									"parameters": {
-										"object": "water_anim",
-										"expression": "water_anim.ID",
-										"comparison": 0,
-										"value": "Upgrade_ID"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "water_anim",
-									"sid": 740812051706156,
-									"parameters": {
-										"animation": "Self.My_Anim_ID",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "set-animation-speed",
-									"objectClass": "water_anim",
-									"sid": 783250892565139,
-									"parameters": {
-										"speed": "15"
-									}
-								}
-							],
-							"sid": 534748374319649
 						}
 					]
 				}
@@ -20851,16 +21324,6 @@
 									"sid": 163900000113996,
 									"parameters": {
 										"layer": "\"Workshop\""
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 563733083557406,
-									"parameters": {
-										"variable": "Tutorial_Name",
-										"comparison": 0,
-										"value": "\"\""
 									}
 								}
 							],

@@ -10,7 +10,7 @@
 					"type": "Bkg_tela_fundo",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Upgrades",
+						"initial-animation": "Production",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -3678,8 +3678,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 922,
-								"y": -194,
+								"x": 1007,
+								"y": -205,
 								"width": 621,
 								"height": 240,
 								"originX": 0.5,
@@ -13837,8 +13837,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 896,
-						"y": 48,
+						"x": 907,
+						"y": 50,
 						"width": 97,
 						"height": 97,
 						"originX": 0.5,
@@ -13939,8 +13939,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1168,
-						"y": 48,
+						"x": 1178,
+						"y": 50,
 						"width": 97,
 						"height": 97,
 						"originX": 0.5,
@@ -13994,7 +13994,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1184,
+						"x": 1194,
 						"y": 16,
 						"width": 192,
 						"height": 81,
@@ -14041,8 +14041,8 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1440,
-						"y": 48,
+						"x": 1450,
+						"y": 50,
 						"width": 97,
 						"height": 97,
 						"originX": 0.5,
@@ -14096,7 +14096,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 1456,
+						"x": 1466,
 						"y": 16,
 						"width": 192,
 						"height": 81,
@@ -14144,7 +14144,7 @@
 					"locked": false,
 					"world": {
 						"x": 1712,
-						"y": 48,
+						"y": 50,
 						"width": 97,
 						"height": 97,
 						"originX": 0.5,
@@ -14217,7 +14217,7 @@
 			],
 			"sid": 919239883303039,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
+			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
 			"color": [
@@ -15946,7 +15946,7 @@
 			],
 			"sid": 703473544311262,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
+			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
 			"color": [
@@ -17558,7 +17558,7 @@
 			],
 			"sid": 368142349705544,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
+			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
 			"color": [
@@ -18958,6 +18958,105 @@
 					"behaviors": {},
 					"instanceFolderItem": {
 						"sid": 987274749468471,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 240,
+						"y": 1002,
+						"width": 120,
+						"height": 120,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Icon_Notification",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 574,
+					"sid": 150634818199297,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "angle",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 15,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 0.3,
+								"destroy": true,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 150634818199297,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 651,
+						"y": -155,
+						"width": 47,
+						"height": 47,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Btn_Bkg",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "On",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 575,
+					"sid": 101062022902767,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 101062022902767,
 						"expanded": true
 					},
 					"showing": true,
