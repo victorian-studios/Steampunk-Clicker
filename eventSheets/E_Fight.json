@@ -1289,7 +1289,7 @@
 		{
 			"functionName": "Spawn_Enemy",
 			"functionDescription": "",
-			"functionCategory": "",
+			"functionCategory": "Fight",
 			"functionReturnType": "none",
 			"functionCopyPicked": false,
 			"functionIsAsync": false,
@@ -2216,7 +2216,7 @@
 				{
 					"functionName": "Player_Turn",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Fight",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
 					"functionIsAsync": false,
@@ -3286,6 +3286,283 @@
 										}
 									],
 									"sid": 699336257008302
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Apply_Effect_Player",
+					"functionDescription": "",
+					"functionCategory": "Fight",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "BUFF",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 984465469019538
+						},
+						{
+							"name": "DEBUFF",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 128097941622820
+						},
+						{
+							"name": "DOT",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 720668747406971
+						},
+						{
+							"name": "ID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 615004977176308
+						},
+						{
+							"name": "Potency",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 601361863698789
+						},
+						{
+							"name": "Duration",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 328344427688494
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 659726014793541,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 217316249427591,
+									"parameters": {
+										"variable": "DOT"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 302746253007617,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 636448189596417,
+											"parameters": {
+												"variable": "ID",
+												"comparison": 0,
+												"value": "\"Poison\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 727656103959938,
+											"parameters": {
+												"x": "1",
+												"y": "0",
+												"value": "ID & \"_\" & Potency & \"_\" & Duration"
+											}
+										}
+									],
+									"sid": 406845510020258
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 842308618754904,
+									"parameters": {
+										"variable": "BUFF"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 214168613266665,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 711758062827034,
+											"parameters": {
+												"variable": "ID",
+												"comparison": 0,
+												"value": "\"zap\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 564290569030090,
+											"parameters": {
+												"x": "2",
+												"y": "0",
+												"value": "ID & \"_\" & Potency & \"_\" & Duration"
+											}
+										}
+									],
+									"sid": 422379930419612
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 928651416737923,
+											"parameters": {
+												"variable": "ID",
+												"comparison": 0,
+												"value": "\"power\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 170423349324056,
+											"parameters": {
+												"x": "3",
+												"y": "0",
+												"value": "ID & \"_\" & Potency & \"_\" & Duration"
+											}
+										}
+									],
+									"sid": 530576373437439
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 109288897274145,
+											"parameters": {
+												"variable": "ID",
+												"comparison": 0,
+												"value": "\"dodge\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 830451511065907,
+											"parameters": {
+												"x": "4",
+												"y": "0",
+												"value": "ID & \"_\" & Potency & \"_\" & Duration"
+											}
+										}
+									],
+									"sid": 249455520207992
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 717876567732471,
+									"parameters": {
+										"variable": "DEBUFF"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 885452004175037,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 939874277134482,
+											"parameters": {
+												"variable": "ID",
+												"comparison": 0,
+												"value": "\"weak\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 847684283729078,
+											"parameters": {
+												"x": "5",
+												"y": "0",
+												"value": "ID & \"_\" & Potency & \"_\" & Duration"
+											}
+										}
+									],
+									"sid": 423012054545745
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 835996224184290,
+											"parameters": {
+												"variable": "ID",
+												"comparison": 0,
+												"value": "\"vulnerable\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 492223912644958,
+											"parameters": {
+												"x": "6",
+												"y": "0",
+												"value": "ID & \"_\" & Potency & \"_\" & Duration"
+											}
+										}
+									],
+									"sid": 744117666543462
 								}
 							]
 						}
@@ -4461,6 +4738,7 @@
 																			"sid": 828760529990468,
 																			"parameters": [
 																				"-1 * ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )",
+																				"0",
 																				true,
 																				"Target_ID"
 																			]
@@ -4479,6 +4757,7 @@
 																			"sid": 761782265588767,
 																			"parameters": [
 																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) : 0",
+																				"0",
 																				false,
 																				"Target_ID"
 																			]
@@ -4505,6 +4784,7 @@
 																			"sid": 228361477056818,
 																			"parameters": [
 																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) ) : -1 * ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )",
+																				"0",
 																				false,
 																				"Target_ID"
 																			]
@@ -4553,6 +4833,7 @@
 																	"sid": 334006692129321,
 																	"parameters": [
 																		"-1 * ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )",
+																		"0",
 																		false,
 																		"Target_ID"
 																	]
@@ -4816,8 +5097,22 @@
 																	"sid": 100475184555893,
 																	"parameters": [
 																		"-1 * ( A_Habilities.At ( 2, Action_Lvl, Action_ID ) )",
+																		"0",
 																		false,
 																		"Enemy.UID"
+																	]
+																},
+																{
+																	"callFunction": "Apply_Effect_Enemy",
+																	"sid": 706370430084931,
+																	"parameters": [
+																		false,
+																		false,
+																		true,
+																		"\"fire\"",
+																		"0",
+																		"0",
+																		"0"
 																	]
 																}
 															],
@@ -8454,6 +8749,7 @@
 													"sid": 447596882461870,
 													"parameters": [
 														"-1 * int( (tokenat(Enemy.OnFire, 0, \"_\" ) ) )",
+														"0",
 														true,
 														"Enemy.UID"
 													]
@@ -8478,8 +8774,8 @@
 															"objectClass": "System",
 															"sid": 934637257389562,
 															"parameters": {
-																"object": "Buff_debuff",
-																"expression": "Buff_debuff.AnimationFrame",
+																"object": "Icon_Effect_Enemy",
+																"expression": "Icon_Effect_Enemy.AnimationFrame",
 																"comparison": 0,
 																"value": "0"
 															}
@@ -8488,7 +8784,7 @@
 													"actions": [
 														{
 															"id": "set-visible",
-															"objectClass": "Buff_debuff",
+															"objectClass": "Icon_Effect_Enemy",
 															"sid": 250823758767560,
 															"parameters": {
 																"visibility": "visible"
@@ -8496,7 +8792,7 @@
 														},
 														{
 															"id": "set-size",
-															"objectClass": "Buff_debuff",
+															"objectClass": "Icon_Effect_Enemy",
 															"sid": 179000119142949,
 															"parameters": {
 																"width": "55",
@@ -8505,7 +8801,7 @@
 														},
 														{
 															"id": "set-active",
-															"objectClass": "Buff_debuff",
+															"objectClass": "Icon_Effect_Enemy",
 															"sid": 945305954703974,
 															"behaviorType": "Sine",
 															"parameters": {
@@ -8523,7 +8819,7 @@
 														},
 														{
 															"id": "set-active",
-															"objectClass": "Buff_debuff",
+															"objectClass": "Icon_Effect_Enemy",
 															"sid": 851769846530224,
 															"behaviorType": "Sine",
 															"parameters": {
@@ -8532,7 +8828,7 @@
 														},
 														{
 															"id": "set-size",
-															"objectClass": "Buff_debuff",
+															"objectClass": "Icon_Effect_Enemy",
 															"sid": 126869458019967,
 															"parameters": {
 																"width": "55",
@@ -8577,8 +8873,8 @@
 																	"objectClass": "System",
 																	"sid": 262428384445246,
 																	"parameters": {
-																		"object": "Buff_debuff",
-																		"expression": "Buff_debuff.AnimationFrame",
+																		"object": "Icon_Effect_Enemy",
+																		"expression": "Icon_Effect_Enemy.AnimationFrame",
 																		"comparison": 0,
 																		"value": "0"
 																	}
@@ -8596,7 +8892,7 @@
 																},
 																{
 																	"id": "set-visible",
-																	"objectClass": "Buff_debuff",
+																	"objectClass": "Icon_Effect_Enemy",
 																	"sid": 903273250806629,
 																	"parameters": {
 																		"visibility": "invisible"
@@ -8750,6 +9046,13 @@
 							"sid": 752191375034297
 						},
 						{
+							"name": "Percentage",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 620604631171104
+						},
+						{
 							"name": "Piercing",
 							"type": "boolean",
 							"initialValue": "false",
@@ -8807,7 +9110,182 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 148441483409369,
+											"sid": 405005648337626,
+											"parameters": {
+												"variable": "Percentage",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 599536224466778,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Se a vida atual do inimigo + a porcentagem de cura arredondada pra cima for MENOR OU IGUAL a vida máxima, então apenas soma o valor da cura"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 619700079870417,
+													"parameters": {
+														"first-value": "Enemy.HP + ceil( ( Percentage / 100 ) * Enemy.MAX_HP )",
+														"comparison": 3,
+														"second-value": "Enemy.MAX_HP"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Enemy",
+													"sid": 347031665801761,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "ceil( ( Percentage / 100 ) * Enemy.MAX_HP )"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 923537651403687,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "Enemy.ImagePointX(1)",
+														"y": "Enemy.ImagePointY(1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-gravity",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 295355430243334,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"gravity": "0"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 234591139995142,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "270"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 939355659241041,
+													"parameters": {
+														"color": "rgbEx(0, 255, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 176511005441462,
+													"parameters": {
+														"text": "Amount"
+													}
+												}
+											],
+											"sid": 887200400737478
+										},
+										{
+											"eventType": "comment",
+											"text": "Se a vida atual do inimigo + a porcentagem de cura arredondada pra cima for MAIOR que a vida máxima, então altera para o valor da vida máxima"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 897712240432176
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 286904984108993,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "Enemy.ImagePointX(1)",
+														"y": "Enemy.ImagePointY(1)",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-gravity",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 639207911623866,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"gravity": "0"
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 598764828151510,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "270"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 710051438560273,
+													"parameters": {
+														"color": "rgbEx(0, 255, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 474501959190667,
+													"parameters": {
+														"text": "Enemy.MAX_HP - Enemy.HP"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Enemy",
+													"sid": 771762435541411,
+													"parameters": {
+														"instance-variable": "HP",
+														"value": "Enemy.MAX_HP"
+													}
+												}
+											],
+											"sid": 769319131399959
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 502093194168497
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 962072702208612,
 											"parameters": {
 												"variable": "Amount",
 												"comparison": 4,
@@ -9265,6 +9743,1000 @@
 					]
 				},
 				{
+					"functionName": "Apply_Effect_Enemy",
+					"functionDescription": "",
+					"functionCategory": "Fight",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "BUFF",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 389546594438263
+						},
+						{
+							"name": "DEBUFF",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 150875250896454
+						},
+						{
+							"name": "DOT",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 160697953299661
+						},
+						{
+							"name": "ID",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 803995638375725
+						},
+						{
+							"name": "Potency",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 175239257589283
+						},
+						{
+							"name": "Duration",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 909569987887473
+						},
+						{
+							"name": "Target",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 771458271558359
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 789262515063843,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 463212512542776,
+									"parameters": {
+										"object": "Enemy",
+										"expression": "Enemy.My_ID",
+										"comparison": 0,
+										"value": "Target"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 309750598626786,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 575601107998451,
+											"parameters": {
+												"variable": "DOT"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 339004584981703,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 522491237874321,
+													"parameters": {
+														"variable": "ID",
+														"comparison": 0,
+														"value": "\"poison\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 444601718870447,
+													"parameters": {
+														"x": "1",
+														"y": "Enemy.My_ID",
+														"value": "ID & \"_\" & Potency & \"_\" & Duration"
+													}
+												}
+											],
+											"sid": 856187357258731,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Se o efeito está zerado, cria um ícone para ele"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 432282598613427,
+															"parameters": {
+																"first-value": "tokenat ( A_Fight_Effects.At(1, Enemy.My_ID), 2, \"_\" )",
+																"comparison": 1,
+																"second-value": "\"0\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 392668231089530,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 494906366706520,
+																	"parameters": {
+																		"object": "Icon_Effect_Enemy"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 646675380550439,
+																	"parameters": {
+																		"instance-variable": "My_Z",
+																		"comparison": 0,
+																		"value": "Enemy.My_ID"
+																	}
+																},
+																{
+																	"id": "is-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 235037465019271,
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 415540457808212
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 859126719939711,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 368260346434248,
+																	"parameters": {
+																		"animation": "ID",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-size",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 937508468129365,
+																	"parameters": {
+																		"width": "55",
+																		"height": "55"
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 565643530482368,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "active"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 138600865085070,
+																	"parameters": {
+																		"seconds": "0.25",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 800817241651917,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "inactive"
+																	}
+																}
+															],
+															"sid": 943905316614798
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 450287851753314,
+													"parameters": {
+														"variable": "ID",
+														"comparison": 0,
+														"value": "\"fire\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 546514586377733,
+													"parameters": {
+														"x": "2",
+														"y": "Enemy.My_ID",
+														"value": "ID & \"_\" & Potency & \"_\" & Duration"
+													}
+												}
+											],
+											"sid": 679498843084560,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Se o efeito está zerado, cria um ícone para ele"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 769274993347867,
+															"parameters": {
+																"first-value": "tokenat ( A_Fight_Effects.At(2, Enemy.My_ID), 2, \"_\" )",
+																"comparison": 1,
+																"second-value": "\"0\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 260271426013391,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 954650819098249,
+																	"parameters": {
+																		"object": "Icon_Effect_Enemy"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 289199464125264,
+																	"parameters": {
+																		"instance-variable": "My_Z",
+																		"comparison": 0,
+																		"value": "Enemy.My_ID"
+																	}
+																},
+																{
+																	"id": "is-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 345995041988882,
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 915103416559204
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 316404338696585,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 905530231144462,
+																	"parameters": {
+																		"animation": "ID",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-size",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 848122715362760,
+																	"parameters": {
+																		"width": "55",
+																		"height": "55"
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 206974563418750,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "active"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 582855493955858,
+																	"parameters": {
+																		"seconds": "0.25",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 421333954491230,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "inactive"
+																	}
+																}
+															],
+															"sid": 615902317830649
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 494909734472629,
+											"parameters": {
+												"variable": "BUFF"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 800245563542797,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 538195385565261,
+													"parameters": {
+														"variable": "ID",
+														"comparison": 0,
+														"value": "\"power\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 860224111182159,
+													"parameters": {
+														"x": "3",
+														"y": "Enemy.My_ID",
+														"value": "ID & \"_\" & Potency & \"_\" & Duration"
+													}
+												}
+											],
+											"sid": 634187065938955,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Se o efeito está zerado, cria um ícone para ele"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 734933555425163,
+															"parameters": {
+																"first-value": "tokenat ( A_Fight_Effects.At(3, Enemy.My_ID), 2, \"_\" )",
+																"comparison": 1,
+																"second-value": "\"0\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 799454506081951,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 241852782842552,
+																	"parameters": {
+																		"object": "Icon_Effect_Enemy"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 498446053303361,
+																	"parameters": {
+																		"instance-variable": "My_Z",
+																		"comparison": 0,
+																		"value": "Enemy.My_ID"
+																	}
+																},
+																{
+																	"id": "is-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 547395988015166,
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 410015066464968
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 423898711671826,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 359134728137164,
+																	"parameters": {
+																		"animation": "ID",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-size",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 518410819799672,
+																	"parameters": {
+																		"width": "55",
+																		"height": "55"
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 408731028443710,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "active"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 769738577419095,
+																	"parameters": {
+																		"seconds": "0.25",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 981805339399393,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "inactive"
+																	}
+																}
+															],
+															"sid": 276624781716175
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 197482239369534,
+													"parameters": {
+														"variable": "ID",
+														"comparison": 0,
+														"value": "\"dodge\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 584127090676144,
+													"parameters": {
+														"x": "4",
+														"y": "Enemy.My_ID",
+														"value": "ID & \"_\" & Potency & \"_\" & Duration"
+													}
+												}
+											],
+											"sid": 909289591710878,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Se o efeito está zerado, cria um ícone para ele"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 635317649287879,
+															"parameters": {
+																"first-value": "tokenat ( A_Fight_Effects.At(4, Enemy.My_ID), 2, \"_\" )",
+																"comparison": 1,
+																"second-value": "\"0\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 695287457600652,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 833034642932196,
+																	"parameters": {
+																		"object": "Icon_Effect_Enemy"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 318278556902670,
+																	"parameters": {
+																		"instance-variable": "My_Z",
+																		"comparison": 0,
+																		"value": "Enemy.My_ID"
+																	}
+																},
+																{
+																	"id": "is-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 911155119335574,
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 865568884225132
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 348978151070369,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 333906313441313,
+																	"parameters": {
+																		"animation": "ID",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-size",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 864536123586237,
+																	"parameters": {
+																		"width": "55",
+																		"height": "55"
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 425128328450486,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "active"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 237783095649442,
+																	"parameters": {
+																		"seconds": "0.25",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 474638515543600,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "inactive"
+																	}
+																}
+															],
+															"sid": 372458467127550
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 269730823915013,
+											"parameters": {
+												"variable": "DEBUFF"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 774169923469525,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 801695990992413,
+													"parameters": {
+														"variable": "ID",
+														"comparison": 0,
+														"value": "\"weak\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 581249406235767,
+													"parameters": {
+														"x": "5",
+														"y": "Enemy.My_ID",
+														"value": "ID & \"_\" & Potency & \"_\" & Duration"
+													}
+												}
+											],
+											"sid": 852738055182039,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Se o efeito está zerado, cria um ícone para ele"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 200418798295813,
+															"parameters": {
+																"first-value": "tokenat ( A_Fight_Effects.At(5, Enemy.My_ID), 2, \"_\" )",
+																"comparison": 1,
+																"second-value": "\"0\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 668431486785953,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 254199939373756,
+																	"parameters": {
+																		"object": "Icon_Effect_Enemy"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 887505301958443,
+																	"parameters": {
+																		"instance-variable": "My_Z",
+																		"comparison": 0,
+																		"value": "Enemy.My_ID"
+																	}
+																},
+																{
+																	"id": "is-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 167044398775714,
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 168686699851368
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 657924919207309,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 675917497579554,
+																	"parameters": {
+																		"animation": "ID",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-size",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 306010841104666,
+																	"parameters": {
+																		"width": "55",
+																		"height": "55"
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 865514884502494,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "active"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 863448227445591,
+																	"parameters": {
+																		"seconds": "0.25",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 821075074574597,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "inactive"
+																	}
+																}
+															],
+															"sid": 407761295900519
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 795678552600427,
+													"parameters": {
+														"variable": "ID",
+														"comparison": 0,
+														"value": "\"mark\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 624572453217084,
+													"parameters": {
+														"x": "6",
+														"y": "Enemy.My_ID",
+														"value": "ID & \"_\" & Potency & \"_\" & Duration"
+													}
+												}
+											],
+											"sid": 875721804633106,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Se o efeito está zerado, cria um ícone para ele"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 647249401330724,
+															"parameters": {
+																"first-value": "tokenat ( A_Fight_Effects.At(6, Enemy.My_ID), 2, \"_\" )",
+																"comparison": 1,
+																"second-value": "\"0\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 153314736859495,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 254678906534215,
+																	"parameters": {
+																		"object": "Icon_Effect_Enemy"
+																	}
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 710354454197413,
+																	"parameters": {
+																		"instance-variable": "My_Z",
+																		"comparison": 0,
+																		"value": "Enemy.My_ID"
+																	}
+																},
+																{
+																	"id": "is-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 496290431459696,
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "stop-loop",
+																	"objectClass": "System",
+																	"sid": 491997253382157
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 610401031024960,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 551739736511897,
+																	"parameters": {
+																		"animation": "ID",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-size",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 944808700167049,
+																	"parameters": {
+																		"width": "55",
+																		"height": "55"
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 529668296685679,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "active"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 933214195867772,
+																	"parameters": {
+																		"seconds": "0.25",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"id": "set-active",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 484267137110362,
+																	"behaviorType": "Sine",
+																	"parameters": {
+																		"state": "inactive"
+																	}
+																}
+															],
+															"sid": 279541405608918
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
 					"functionName": "Use_Hab_Enemy",
 					"functionDescription": "",
 					"functionCategory": "Fight",
@@ -9291,17 +10763,30 @@
 								"type": "log",
 								"message": "\"Enemy \"& TURN & \" hab: \" & Name"
 							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Enemy",
+							"sid": 681326267312546,
+							"parameters": {
+								"animation": "Self.ID & \"_Attack\"",
+								"from": "beginning"
+							}
 						}
 					],
 					"sid": 283186161048970,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Atk - Attack"
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 467705117925235,
+									"sid": 791680153144588,
 									"parameters": {
 										"first-value": "tokenat ( Name, 0, \"_\" ) ",
 										"comparison": 0,
@@ -9309,26 +10794,20 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "set-animation",
-									"objectClass": "Enemy",
-									"sid": 351510015848021,
-									"parameters": {
-										"animation": "Self.ID & \"_Attack\"",
-										"from": "beginning"
-									}
-								}
-							],
-							"sid": 541005209522465,
+							"actions": [],
+							"sid": 823431478338564,
 							"children": [
+								{
+									"eventType": "comment",
+									"text": "Não atravessa armadura"
+								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 606154815152974,
+											"sid": 179438117432797,
 											"parameters": {
 												"first-value": "tokenat ( Name, 1, \"_\" ) ",
 												"comparison": 0,
@@ -9339,7 +10818,7 @@
 									"actions": [
 										{
 											"callFunction": "Change_Health_Player",
-											"sid": 323509305794987,
+											"sid": 559455443789980,
 											"parameters": [
 												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
 												false,
@@ -9348,7 +10827,7 @@
 										},
 										{
 											"callFunction": "Play_Audio",
-											"sid": 224556699081053,
+											"sid": 923631449712074,
 											"parameters": [
 												false,
 												false,
@@ -9361,7 +10840,11 @@
 											]
 										}
 									],
-									"sid": 533843402641907
+									"sid": 585557713739638
+								},
+								{
+									"eventType": "comment",
+									"text": "Atravessa armadura"
 								},
 								{
 									"eventType": "block",
@@ -9369,106 +10852,18 @@
 										{
 											"id": "compare-two-values",
 											"objectClass": "System",
-											"sid": 991210777994880,
+											"sid": 105096043468414,
 											"parameters": {
 												"first-value": "tokenat ( Name, 1, \"_\" ) ",
 												"comparison": 0,
-												"second-value": "\"halfpierce\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 275800050148497,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"callFunction": "Change_Health_Player",
-													"sid": 514706480409554,
-													"parameters": [
-														"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
-														true,
-														false
-													]
-												},
-												{
-													"callFunction": "Play_Audio",
-													"sid": 654140250128211,
-													"parameters": [
-														false,
-														false,
-														false,
-														false,
-														false,
-														true,
-														false,
-														false
-													]
-												}
-											],
-											"sid": 441894290827825
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 528179632037756,
-													"parameters": {
-														"seconds": "0.2",
-														"use-timescale": true
-													}
-												},
-												{
-													"callFunction": "Change_Health_Player",
-													"sid": 631132291606670,
-													"parameters": [
-														"-1 * ( int ( tokenat ( Name, 3, \"_\") ) )",
-														false,
-														false
-													]
-												},
-												{
-													"callFunction": "Play_Audio",
-													"sid": 153133863158187,
-													"parameters": [
-														false,
-														false,
-														false,
-														false,
-														false,
-														false,
-														true,
-														false
-													]
-												}
-											],
-											"sid": 481286713358045
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 168175598799294,
-											"parameters": {
-												"first-value": "tokenat ( Name, 1, \"_\" ) ",
-												"comparison": 0,
-												"second-value": "\"fullpierce\""
+												"second-value": "\"pierce\""
 											}
 										}
 									],
 									"actions": [
 										{
 											"callFunction": "Change_Health_Player",
-											"sid": 978613039006182,
+											"sid": 185910049765857,
 											"parameters": [
 												"-1 * ( int ( tokenat ( Name, 2, \"_\") ) )",
 												true,
@@ -9477,7 +10872,7 @@
 										},
 										{
 											"callFunction": "Play_Audio",
-											"sid": 949677413916717,
+											"sid": 146079859451461,
 											"parameters": [
 												false,
 												false,
@@ -9490,51 +10885,329 @@
 											]
 										}
 									],
-									"sid": 272342601287506
-								},
-								{
-									"eventType": "comment",
-									"text": "Após terminar de usar sua habilidade, o jogo espera um pouquinho e o turno para o próximo inimigo"
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 100328266387105,
-											"parameters": {
-												"seconds": "1.25",
-												"use-timescale": true
-											}
-										},
-										{
-											"id": "log",
-											"objectClass": "Browser",
-											"sid": 926173849551838,
-											"parameters": {
-												"type": "log",
-												"message": "\"Next enemy...\""
-											}
-										},
-										{
-											"id": "add-to-eventvar",
-											"objectClass": "System",
-											"sid": 161742080113349,
-											"parameters": {
-												"variable": "TURN",
-												"value": "1"
-											}
-										},
-										{
-											"callFunction": "Enemy_Turn",
-											"sid": 598617632806109
-										}
-									],
-									"sid": 193060086460406
+									"sid": 471724870317864
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "DOT - Damage Over Time"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 364261299496118,
+									"parameters": {
+										"first-value": "tokenat ( Name, 0, \"_\" ) ",
+										"comparison": 0,
+										"second-value": "\"DOT\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Ainda não temos animações diferentes para cada habilidade especial"
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 535264484497502,
+									"disabled": true,
+									"parameters": {
+										"animation": "Self.ID & \"_Attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"callFunction": "Apply_Effect_Player",
+									"sid": 106742799858518,
+									"parameters": [
+										false,
+										false,
+										true,
+										"tokenat ( Name, 1, \"_\" )",
+										"int( tokenat ( Name, 2, \"_\" ) )",
+										"int( tokenat ( Name, 3, \"_\" ) )"
+									]
+								},
+								{
+									"callFunction": "Play_Audio",
+									"sid": 498592557456609,
+									"parameters": [
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								}
+							],
+							"sid": 482321284513621
+						},
+						{
+							"eventType": "comment",
+							"text": "BFF - Buff"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 833557847274489,
+									"parameters": {
+										"first-value": "tokenat ( Name, 0, \"_\" ) ",
+										"comparison": 0,
+										"second-value": "\"BFF\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Ainda não temos animações diferentes para cada habilidade especial"
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 575451151379457,
+									"disabled": true,
+									"parameters": {
+										"animation": "Self.ID & \"_Attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"callFunction": "Apply_Effect_Enemy",
+									"sid": 441741040279479,
+									"parameters": [
+										true,
+										false,
+										false,
+										"tokenat ( Name, 1, \"_\" )",
+										"int( tokenat ( Name, 2, \"_\" ) )",
+										"int( tokenat ( Name, 3, \"_\" ) )",
+										"TURN"
+									]
+								},
+								{
+									"callFunction": "Play_Audio",
+									"sid": 117247353547843,
+									"parameters": [
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								}
+							],
+							"sid": 647536837938052
+						},
+						{
+							"eventType": "comment",
+							"text": "DFF - Debuff"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 857770164011915,
+									"parameters": {
+										"first-value": "tokenat ( Name, 0, \"_\" ) ",
+										"comparison": 0,
+										"second-value": "\"DFF\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Ainda não temos animações diferentes para cada habilidade especial"
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 649050763672778,
+									"disabled": true,
+									"parameters": {
+										"animation": "Self.ID & \"_Attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"callFunction": "Apply_Effect_Enemy",
+									"sid": 893547886622483,
+									"parameters": [
+										false,
+										true,
+										false,
+										"tokenat ( Name, 1, \"_\" )",
+										"int( tokenat ( Name, 2, \"_\" ) )",
+										"int( tokenat ( Name, 3, \"_\" ) )",
+										"TURN"
+									]
+								},
+								{
+									"callFunction": "Play_Audio",
+									"sid": 410263461761632,
+									"parameters": [
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								}
+							],
+							"sid": 587514031388473
+						},
+						{
+							"eventType": "comment",
+							"text": "Heal"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 255496178470550,
+									"parameters": {
+										"first-value": "tokenat ( Name, 0, \"_\" ) ",
+										"comparison": 0,
+										"second-value": "\"Heal\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Ainda não temos animações diferentes para cada habilidade especial"
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 867334983446243,
+									"disabled": true,
+									"parameters": {
+										"animation": "Self.ID & \"_Attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"callFunction": "Play_Audio",
+									"sid": 801317584375035,
+									"parameters": [
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								}
+							],
+							"sid": 334023467267289,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 573949975438670,
+											"parameters": {
+												"first-value": "tokenat ( Name, 1, \"_\" ) ",
+												"comparison": 0,
+												"second-value": "\"Team\""
+											}
+										},
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 302962864429104,
+											"parameters": {
+												"object": "Enemy",
+												"expression": "Enemy.UID",
+												"order": "ascending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Change_Health_Enemy",
+											"sid": 633524232046087,
+											"parameters": [
+												"0",
+												"int( tokenat ( Name, 0, \"_\" ) )",
+												false,
+												"Enemy.UID"
+											]
+										}
+									],
+									"sid": 185324712652941
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Após terminar de usar sua habilidade, o jogo espera um pouquinho e o turno para o próximo inimigo"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 381737028650939,
+									"parameters": {
+										"seconds": "1.25",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 551442536381581,
+									"parameters": {
+										"type": "log",
+										"message": "\"Next enemy...\""
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 176681334631835,
+									"parameters": {
+										"variable": "TURN",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "Enemy_Turn",
+									"sid": 411909308247279
+								}
+							],
+							"sid": 384594604377934
 						}
 					]
 				},
@@ -9573,15 +11246,15 @@
 									"objectClass": "System",
 									"sid": 633024437056281,
 									"parameters": {
-										"object": "Buff_debuff",
-										"expression": "Buff_debuff.AnimationFrame",
+										"object": "Icon_Effect_Enemy",
+										"expression": "Icon_Effect_Enemy.AnimationFrame",
 										"comparison": 0,
 										"value": "0"
 									}
 								},
 								{
 									"id": "is-visible",
-									"objectClass": "Buff_debuff",
+									"objectClass": "Icon_Effect_Enemy",
 									"sid": 623199136725972,
 									"isInverted": true
 								},
@@ -9594,7 +11267,7 @@
 							"actions": [
 								{
 									"id": "set-visible",
-									"objectClass": "Buff_debuff",
+									"objectClass": "Icon_Effect_Enemy",
 									"sid": 414099896919301,
 									"parameters": {
 										"visibility": "visible"
@@ -9602,7 +11275,7 @@
 								},
 								{
 									"id": "set-size",
-									"objectClass": "Buff_debuff",
+									"objectClass": "Icon_Effect_Enemy",
 									"sid": 917892468242640,
 									"parameters": {
 										"width": "55",
@@ -9611,7 +11284,7 @@
 								},
 								{
 									"id": "set-active",
-									"objectClass": "Buff_debuff",
+									"objectClass": "Icon_Effect_Enemy",
 									"sid": 875687844978352,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -9629,7 +11302,7 @@
 								},
 								{
 									"id": "set-active",
-									"objectClass": "Buff_debuff",
+									"objectClass": "Icon_Effect_Enemy",
 									"sid": 533735727722305,
 									"behaviorType": "Sine",
 									"parameters": {
@@ -9638,7 +11311,7 @@
 								},
 								{
 									"id": "set-size",
-									"objectClass": "Buff_debuff",
+									"objectClass": "Icon_Effect_Enemy",
 									"sid": 189232188674564,
 									"parameters": {
 										"width": "55",
@@ -9758,7 +11431,7 @@
 						},
 						{
 							"id": "destroy",
-							"objectClass": "Buff_debuff",
+							"objectClass": "Icon_Effect_Enemy",
 							"sid": 355302124465533
 						}
 					],

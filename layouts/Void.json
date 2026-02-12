@@ -1850,7 +1850,8 @@
 						"MAX_HP": 150,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_2": "Atk_pierce_10",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -1933,6 +1934,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -2137,7 +2142,8 @@
 						"MAX_HP": 150,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_2": "Atk_pierce_10",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -2220,6 +2226,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -2422,11 +2432,12 @@
 					"instanceVariables": {
 						"HP": 120,
 						"MAX_HP": 120,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_pierce_10",
+						"Hab_2": "Dbf_weak_25_2",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 10,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -2507,6 +2518,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -2709,11 +2724,12 @@
 					"instanceVariables": {
 						"HP": 120,
 						"MAX_HP": 120,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_pierce_10",
+						"Hab_2": "Dbf_weak_25_2",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 10,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -2794,6 +2810,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -2996,9 +3016,10 @@
 					"instanceVariables": {
 						"HP": 90,
 						"MAX_HP": 90,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_default_20",
+						"Hab_2": "Atk_pierce_20",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -3081,6 +3102,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -3285,7 +3310,8 @@
 						"MAX_HP": 100,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_2": "DOT_Poison_5_3",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -3368,6 +3394,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -3572,7 +3602,8 @@
 						"MAX_HP": 100,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_2": "DOT_Poison_5_3",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -3655,6 +3686,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -3857,11 +3892,12 @@
 					"instanceVariables": {
 						"HP": 130,
 						"MAX_HP": 130,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_default_10",
+						"Hab_2": "Heal_Team_15",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 20,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -3942,6 +3978,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -4144,9 +4184,10 @@
 					"instanceVariables": {
 						"HP": 90,
 						"MAX_HP": 90,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_default_20",
+						"Hab_2": "Atk_pierce_20",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -4229,6 +4270,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -4431,11 +4476,12 @@
 					"instanceVariables": {
 						"HP": 130,
 						"MAX_HP": 130,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_default_10",
+						"Hab_2": "Heal_Team_15",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 20,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -4516,6 +4562,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -4718,9 +4768,10 @@
 					"instanceVariables": {
 						"HP": 50,
 						"MAX_HP": 50,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_pierce_15",
+						"Hab_2": "Bff_dodge_30_2",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -4803,6 +4854,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -5005,11 +5060,12 @@
 					"instanceVariables": {
 						"HP": 165,
 						"MAX_HP": 165,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_pierce_15",
+						"Hab_2": "Dbf_vulnerable_25",
+						"Special_Hab": "Death_Vulture",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 25,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -5090,6 +5146,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -5294,9 +5354,10 @@
 						"MAX_HP": 100,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_2": "DOT_Poison_5_5",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 15,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -5377,6 +5438,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -5581,9 +5646,10 @@
 						"MAX_HP": 100,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_2": "DOT_Poison_5_5",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 15,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -5664,6 +5730,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -5866,11 +5936,12 @@
 					"instanceVariables": {
 						"HP": 165,
 						"MAX_HP": 165,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_pierce_15",
+						"Hab_2": "Dbf_vulnerable_25",
+						"Special_Hab": "Death_Vulture",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 25,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -5951,6 +6022,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -6153,9 +6228,10 @@
 					"instanceVariables": {
 						"HP": 50,
 						"MAX_HP": 50,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_pierce_15",
+						"Hab_2": "Bff_dodge_30_2",
+						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
 						"OnFire": "",
@@ -6238,6 +6314,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -6441,10 +6521,11 @@
 						"HP": 200,
 						"MAX_HP": 200,
 						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"Hab_1": "Atk_default_35",
+						"Hab_2": "Atk_default_50",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 30,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -6525,6 +6606,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -6730,8 +6815,9 @@
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
 						"Hab_2": "Atk_fullpierce_10",
+						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 30,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -6812,6 +6898,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -7012,13 +7102,14 @@
 					"sid": 915688657114422,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 175,
-						"MAX_HP": 175,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"HP": 150,
+						"MAX_HP": 150,
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_default_20",
+						"Hab_2": "Atk_pierce_15",
+						"Special_Hab": "Bff_dodge_30_2",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 25,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -7099,6 +7190,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]
@@ -7299,13 +7394,14 @@
 					"sid": 567186829000509,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 350,
-						"MAX_HP": 350,
-						"Hab_1_Chance": 65,
-						"Hab_1": "Atk_default_15",
-						"Hab_2": "Atk_fullpierce_10",
+						"HP": 300,
+						"MAX_HP": 300,
+						"Hab_1_Chance": 50,
+						"Hab_1": "Atk_default_40",
+						"Hab_2": "Dbf_weak_25_2",
+						"Special_Hab": "Bff_power_25_2",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 50,
 						"OnFire": "",
 						"ID": "Z1"
 					},
@@ -7386,6 +7482,10 @@
 											},
 											{
 												"iv": "ID",
+												"state": true
+											},
+											{
+												"iv": "Special_Hab",
 												"state": true
 											}
 										]

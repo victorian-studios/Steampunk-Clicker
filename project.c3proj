@@ -332,7 +332,7 @@
 			"Btn_Info",
 			"Bkg_Work_Info",
 			"SliderBar",
-			"Buff_debuff",
+			"Icon_Effect_Enemy",
 			"Btn_Turn_Skip",
 			"A_Upg_Data",
 			"Bkg_Exit",
@@ -370,7 +370,9 @@
 			"Checkbox_Options",
 			"TiledBkg_Shield",
 			"Icon_Notification",
-			"Btn_Bkg"
+			"Btn_Bkg",
+			"A_Fight_Effects",
+			"Icon_Effect_Player"
 		],
 		"subfolders": []
 	},
@@ -1348,6 +1350,14 @@
 					"name": "Levels.json",
 					"type": "application/json",
 					"sid": 907885349558785,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Temp_Effects.json",
+					"type": "application/json",
+					"sid": 135390726892552,
 					"file-info": {
 						"purpose": "none"
 					}

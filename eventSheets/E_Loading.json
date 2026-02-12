@@ -78,6 +78,17 @@
 							}
 						},
 						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 793219263490108,
+							"parameters": {
+								"tag": "\"Temp_Effect\"",
+								"file": {
+									"path": "Temp_Effects.json"
+								}
+							}
+						},
+						{
 							"id": "wait",
 							"objectClass": "System",
 							"sid": 358381022842590,
@@ -376,6 +387,34 @@
 				}
 			],
 			"sid": 251050673486792
+		},
+		{
+			"eventType": "comment",
+			"text": "Para resetar todos os efeitos da batalha"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 487511833053593,
+					"parameters": {
+						"tag": "\"Temp_Effect\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Fight_Effects",
+					"sid": 279909613749660,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 461701118620088
 		}
 	],
 	"sid": 203567447080996
