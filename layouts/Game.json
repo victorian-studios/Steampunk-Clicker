@@ -16362,7 +16362,7 @@
 						{
 							"type": "TiledBackground",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"origin": "top-left",
 								"wrap-horizontal": "repeat",
 								"wrap-vertical": "repeat",
@@ -16412,7 +16412,7 @@
 						{
 							"type": "TiledBackground",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"origin": "top-left",
 								"wrap-horizontal": "repeat",
 								"wrap-vertical": "repeat",
@@ -16462,7 +16462,7 @@
 						{
 							"type": "TiledBackground",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"origin": "top-left",
 								"wrap-horizontal": "repeat",
 								"wrap-vertical": "repeat",
@@ -16512,7 +16512,7 @@
 						{
 							"type": "TiledBackground",
 							"properties": {
-								"initially-visible": true,
+								"initially-visible": false,
 								"origin": "top-left",
 								"wrap-horizontal": "repeat",
 								"wrap-vertical": "repeat",
@@ -18963,7 +18963,7 @@
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 240,
+						"x": 377,
 						"y": 1002,
 						"width": 120,
 						"height": 120,
@@ -19063,6 +19063,43 @@
 					"locked": false,
 					"world": {
 						"x": 102,
+						"y": 1002,
+						"width": 120,
+						"height": 120,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Btn_Tut",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 590,
+					"sid": 521095214957688,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 521095214957688,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 240,
 						"y": 1002,
 						"width": 120,
 						"height": 120,

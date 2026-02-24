@@ -231,7 +231,15 @@
                 "name": "EXIT?",
                 "desc": "There's no penalty in doing so."
             },
-            "skip": "Skip your turn."
+            "skip": "Skip your turn.",
+            "poison": "{0} Poison ({1} turns)",
+            "fire": "{0} Fire ({1} turns)",
+            "zap": "Deal {0} damage back to attackers when hit ({1} turns)",
+            "power": "Attacks deal {0}% more damage ({1} turns)",
+            "dodge": "{0}% chance to ignore attacks ({1} turns)",
+            "weak": "Attacks deal {0}% less damage ({1} turns)",
+            "vulnerable": "Receive {0}% more damage from attacks ({1} turns)",
+            "mark": "Receive {0}% more damage from attacks ({1} turns)"
         },
 
         "loading": {

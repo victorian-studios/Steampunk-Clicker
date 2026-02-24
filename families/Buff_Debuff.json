@@ -1,0 +1,34 @@
+{
+	"name": "Buff_Debuff",
+	"plugin-id": "Sprite",
+	"sid": 798452052130225,
+	"instanceVariables": [
+		{
+			"name": "Duration",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 975418352514873
+		},
+		{
+			"name": "Potency",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 761417815184108
+		},
+		{
+			"name": "Effect_Index",
+			"type": "number",
+			"desc": "pos X (A_Fight_Effects)",
+			"show": true,
+			"sid": 213925651585687
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Icon_Effect_Enemy",
+		"Icon_Effect_Player"
+	]
+}
