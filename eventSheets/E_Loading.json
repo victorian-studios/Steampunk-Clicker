@@ -175,6 +175,59 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
+							"sid": 313133110008162,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 0,
+								"value": "\"Comic\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "typewriter-text",
+							"objectClass": "Text_Fixed",
+							"sid": 244337769702038,
+							"parameters": {
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"duration": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 212150088292056,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 360407390807651,
+							"parameters": {
+								"variable": "Story_Comic",
+								"value": "5"
+							}
+						},
+						{
+							"id": "load-layout-images",
+							"objectClass": "System",
+							"sid": 791074681567729,
+							"parameters": {
+								"layout": "Void"
+							}
+						}
+					],
+					"sid": 318643508740165
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
 							"sid": 146118300119194,
 							"parameters": {
 								"variable": "Layout_To_Load",

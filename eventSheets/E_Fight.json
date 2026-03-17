@@ -187,6 +187,14 @@
 					}
 				},
 				{
+					"id": "set-animation-frame",
+					"objectClass": "Bkg_Fight",
+					"sid": 656077578143202,
+					"parameters": {
+						"frame-number": "Level - 1"
+					}
+				},
+				{
 					"id": "set-animation",
 					"objectClass": "Player",
 					"sid": 661170930255202,
@@ -337,6 +345,36 @@
 			],
 			"sid": 141394572375646,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Bkg_Fight",
+							"sid": 355493068886736,
+							"parameters": {
+								"comparison": 0,
+								"number": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 342569647119688,
+							"parameters": {
+								"object-to-create": "Icon_Dirigivel",
+								"layer": "\"Bkg\"",
+								"x": "2054",
+								"y": "33",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 796489266342912
+				},
 				{
 					"eventType": "comment",
 					"text": "Armor",
@@ -1768,6 +1806,23 @@
 					"parameters": {
 						"angle": "180"
 					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 317695283836887,
+					"parameters": {
+						"angle": "352"
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 775735507268994,
+					"parameters": {
+						"where": "behind",
+						"object": "Bkg_Fight"
+					}
 				}
 			],
 			"sid": 554297306720855
@@ -1835,6 +1890,14 @@
 					"sid": 615710666267517,
 					"parameters": {
 						"state": "not-mirrored"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Icon_Dirigivel",
+					"sid": 855695968169074,
+					"parameters": {
+						"angle": "352"
 					}
 				}
 			],
@@ -16114,90 +16177,27 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 275756238392762,
+									"sid": 263263998442868,
 									"parameters": {
 										"first-value": "Dict_Save_File.Get(\"LVL\")",
-										"comparison": 2,
-										"second-value": "Level"
+										"comparison": 0,
+										"second-value": "12"
 									}
 								}
 							],
 							"actions": [
-								{
-									"id": "set-key",
-									"objectClass": "Dict_Save_File",
-									"sid": 945232972675231,
-									"parameters": {
-										"key": "\"LVL\"",
-										"value": "Level"
-									}
-								},
 								{
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
 									"sid": 170302620051420
 								},
 								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 933386092753571,
-									"parameters": {
-										"group-name": "\"Player Habs\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 544557075683546,
-									"parameters": {
-										"group-name": "\"Vapor Prod\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 510664434497317,
-									"parameters": {
-										"group-name": "\"Outros Prods\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 198167182421491,
-									"parameters": {
-										"group-name": "\"Upgrades\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 606564059445001,
-									"parameters": {
-										"group-name": "\"Workshop\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 547991071374459,
-									"parameters": {
-										"group-name": "\"Fight Map\"",
-										"state": "activated"
-									}
-								},
-								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 552344908207513,
+									"sid": 194409129361873,
 									"parameters": {
 										"variable": "Layout_To_Load",
-										"value": "\"Game\""
+										"value": "\"Comic\""
 									}
 								},
 								{
@@ -16217,83 +16217,200 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 508318762407572
+									"sid": 966654790173255
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 480579338873772,
+							"children": [
 								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 150224447232957,
-									"parameters": {
-										"group-name": "\"Player Habs\"",
-										"state": "activated"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 249672917102815,
+											"parameters": {
+												"first-value": "Dict_Save_File.Get(\"LVL\")",
+												"comparison": 2,
+												"second-value": "Level"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Save_File",
+											"sid": 590500607465280,
+											"parameters": {
+												"key": "\"LVL\"",
+												"value": "Level"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 467871818559324
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 983515995774786,
+											"parameters": {
+												"group-name": "\"Player Habs\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 478391235341580,
+											"parameters": {
+												"group-name": "\"Vapor Prod\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 162924780042462,
+											"parameters": {
+												"group-name": "\"Outros Prods\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 414619738452105,
+											"parameters": {
+												"group-name": "\"Upgrades\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 928450819044704,
+											"parameters": {
+												"group-name": "\"Workshop\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 852632940913741,
+											"parameters": {
+												"group-name": "\"Fight Map\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 782017152622936,
+											"parameters": {
+												"variable": "Layout_To_Load",
+												"value": "\"Game\""
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 184611228230002,
+											"parameters": {
+												"layout": "Loading"
+											}
+										}
+									],
+									"sid": 960755404049332
 								},
 								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 422625070523115,
-									"parameters": {
-										"group-name": "\"Vapor Prod\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 444954861900596,
-									"parameters": {
-										"group-name": "\"Outros Prods\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 165496924053452,
-									"parameters": {
-										"group-name": "\"Upgrades\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 248546978429890,
-									"parameters": {
-										"group-name": "\"Workshop\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
-									"sid": 739531292475600,
-									"parameters": {
-										"group-name": "\"Fight Map\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 779624454224891,
-									"parameters": {
-										"variable": "Layout_To_Load",
-										"value": "\"Game\""
-									}
-								},
-								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 920497589231279,
-									"parameters": {
-										"layout": "Loading"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 567753834613632
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 587566306802726,
+											"parameters": {
+												"group-name": "\"Player Habs\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 177557148232696,
+											"parameters": {
+												"group-name": "\"Vapor Prod\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 899274593265415,
+											"parameters": {
+												"group-name": "\"Outros Prods\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 565657314576740,
+											"parameters": {
+												"group-name": "\"Upgrades\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 216273672100509,
+											"parameters": {
+												"group-name": "\"Workshop\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 359146859988025,
+											"parameters": {
+												"group-name": "\"Fight Map\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 756599562126426,
+											"parameters": {
+												"variable": "Layout_To_Load",
+												"value": "\"Game\""
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 384988556098814,
+											"parameters": {
+												"layout": "Loading"
+											}
+										}
+									],
+									"sid": 166045149752273
 								}
-							],
-							"sid": 333491431890580
+							]
 						}
 					]
 				}
@@ -16609,9 +16726,9 @@
 												{
 													"id": "set-animation",
 													"objectClass": "t_personagem",
-													"sid": 939690950202940,
+													"sid": 819313049752364,
 													"parameters": {
-														"animation": "\"Default\"",
+														"animation": "\"Dad_Default\"",
 														"from": "beginning"
 													}
 												}
@@ -16874,9 +16991,9 @@
 								{
 									"id": "set-animation",
 									"objectClass": "t_personagem",
-									"sid": 380578300112296,
+									"sid": 337094594969835,
 									"parameters": {
-										"animation": "\"Idle\"",
+										"animation": "\"Dad_Idle\"",
 										"from": "beginning"
 									}
 								}
@@ -16967,9 +17084,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "t_personagem",
-							"sid": 919272955520178,
+							"sid": 759525745450343,
 							"parameters": {
-								"animation": "\"Idle\"",
+								"animation": "\"Dad_Idle\"",
 								"from": "beginning"
 							}
 						}
@@ -17155,9 +17272,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "t_personagem",
-							"sid": 269793128988644,
+							"sid": 503312042114965,
 							"parameters": {
-								"animation": "\"Default\"",
+								"animation": "\"Dad_Default\"",
 								"from": "beginning"
 							}
 						}

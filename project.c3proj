@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 46602,
+	"savedWithRelease": 47602,
 	"name": "Steampunk Clicker",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -271,7 +271,7 @@
 			"btn_zumbi",
 			"Icon_Dirigivel",
 			"Bkg_Fight_Buttons",
-			"tela_batalha_turno_",
+			"Bkg_Fight",
 			"Btn_Exit",
 			"tala_upgrades_base",
 			"tela_batalhas",
@@ -373,7 +373,10 @@
 			"Btn_Bkg",
 			"A_Fight_Effects",
 			"Icon_Effect_Player",
-			"Btn_Tut"
+			"Btn_Tut",
+			"Bkg_Obj",
+			"Obj_country_select",
+			"Bkg_Object"
 		],
 		"subfolders": []
 	},
@@ -1383,6 +1386,10 @@
 		"items": [],
 		"subfolders": []
 	},
+	"models3d": {
+		"items": [],
+		"subfolders": []
+	},
 	"properties": {
 		"description": "",
 		"version": "1.0.0",
@@ -1422,6 +1429,7 @@
 		"multitexturing": "auto",
 		"gpuPreference": "high-performance",
 		"framerateMode": "vsync",
+		"fixedFramerate": 30,
 		"sampling": "nearest",
 		"downscaling": "medium",
 		"renderingMode": "auto",

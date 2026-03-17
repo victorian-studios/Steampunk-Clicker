@@ -23,7 +23,7 @@
 			"actions": [
 				{
 					"callFunction": "Comic Page",
-					"sid": 729301566112108,
+					"sid": 543444179176158,
 					"parameters": [
 						"Story_Comic",
 						false
@@ -1238,6 +1238,10 @@
 					"sid": 847859735156637,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Intro Comic"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -1391,6 +1395,167 @@
 										}
 									],
 									"sid": 590166555532958
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Final Boss 2 phase"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Comic_Side2",
+									"sid": 710302538477189,
+									"parameters": {
+										"animation": "\"Page 6\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 645074279559128,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 209529901701114,
+											"parameters": {
+												"object": "Comic_Side1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 955590108627072,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "Comic_Side1",
+													"sid": 420495783766414,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-in-time",
+													"objectClass": "Comic_Side1",
+													"sid": 591866785919146,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-in-time": "0"
+													}
+												},
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "Comic_Side1",
+													"sid": 511130448393871,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "1"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "Comic_Side1",
+													"sid": 692281940295822,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 707108394453023
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 717482384029798,
+											"parameters": {
+												"object": "Comic_Side2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 827032696480801,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "Comic_Side2",
+													"sid": 882904852094073,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-in-time",
+													"objectClass": "Comic_Side2",
+													"sid": 480776440943232,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-in-time": "0"
+													}
+												},
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "Comic_Side2",
+													"sid": 887902384256022,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "1"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "Comic_Side2",
+													"sid": 382522601274953,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 739735727302911
+										}
+									]
+								},
+								{
+									"bookmark": true,
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 102762902239046,
+											"parameters": {
+												"seconds": "1",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "Go_To_Fight_Level",
+											"sid": 319665010221417,
+											"parameters": [
+												"13"
+											]
+										}
+									],
+									"sid": 808947411634681
 								}
 							]
 						}

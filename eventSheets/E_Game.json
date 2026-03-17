@@ -1294,6 +1294,15 @@
 						"layer": "btn_screens.AnimationName",
 						"interactive": true
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Btn_Bkg",
+					"sid": 243611761911089,
+					"parameters": {
+						"animation": "\"On\"",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 580049461119616,
@@ -23078,9 +23087,9 @@
 										{
 											"id": "set-animation",
 											"objectClass": "t_personagem",
-											"sid": 115997038529007,
+											"sid": 294223379868033,
 											"parameters": {
-												"animation": "Expression",
+												"animation": "\"Dad_\"&Expression",
 												"from": "beginning"
 											}
 										}
@@ -23249,9 +23258,9 @@
 												{
 													"id": "set-animation",
 													"objectClass": "t_personagem",
-													"sid": 556896952055167,
+													"sid": 702185540157828,
 													"parameters": {
-														"animation": "\"Default\"",
+														"animation": "\"Dad_Default\"",
 														"from": "beginning"
 													}
 												}
@@ -23276,9 +23285,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 549544951620072,
+															"sid": 455590848122187,
 															"parameters": {
-																"animation": "\"Happy\"",
+																"animation": "\"Dad_Happy\"",
 																"from": "beginning"
 															}
 														}
@@ -23303,9 +23312,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 351495935796350,
+															"sid": 547358043221010,
 															"parameters": {
-																"animation": "\"Happy\"",
+																"animation": "\"Dad_Happy\"",
 																"from": "beginning"
 															}
 														},
@@ -23504,9 +23513,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 943214666101776,
+															"sid": 647918779159165,
 															"parameters": {
-																"animation": "\"Happy\"",
+																"animation": "\"Dad_Happy\"",
 																"from": "beginning"
 															}
 														},
@@ -23730,9 +23739,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 911339733309513,
+															"sid": 872323522596277,
 															"parameters": {
-																"animation": "\"Happy\"",
+																"animation": "\"Dad_Happy\"",
 																"from": "beginning"
 															}
 														}
@@ -23898,9 +23907,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 132992304300955,
+															"sid": 407527272184291,
 															"parameters": {
-																"animation": "\"Happy\"",
+																"animation": "\"Dad_Happy\"",
 																"from": "beginning"
 															}
 														}
@@ -24005,9 +24014,9 @@
 												{
 													"id": "set-animation",
 													"objectClass": "t_personagem",
-													"sid": 683449968510533,
+													"sid": 695722799523951,
 													"parameters": {
-														"animation": "\"Default\"",
+														"animation": "\"Dad_Default\"",
 														"from": "beginning"
 													}
 												}
@@ -24109,9 +24118,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 954527314501265,
+															"sid": 119120207441819,
 															"parameters": {
-																"animation": "\"Happy\"",
+																"animation": "\"Dad_Happy\"",
 																"from": "beginning"
 															}
 														}
@@ -24376,9 +24385,9 @@
 												{
 													"id": "set-animation",
 													"objectClass": "t_personagem",
-													"sid": 897359144043791,
+													"sid": 627942017942625,
 													"parameters": {
-														"animation": "\"Default\"",
+														"animation": "\"Dad_Default\"",
 														"from": "beginning"
 													}
 												}
@@ -24423,9 +24432,9 @@
 														{
 															"id": "set-animation",
 															"objectClass": "t_personagem",
-															"sid": 509433671851498,
+															"sid": 870766534647425,
 															"parameters": {
-																"animation": "\"Happy\"",
+																"animation": "\"Dad_Happy\"",
 																"from": "beginning"
 															}
 														}
@@ -24602,9 +24611,9 @@
 										{
 											"id": "set-animation",
 											"objectClass": "t_personagem",
-											"sid": 450101872766074,
+											"sid": 200167080631091,
 											"parameters": {
-												"animation": "\"Happy\"",
+												"animation": "\"Dad_Happy\"",
 												"from": "beginning"
 											}
 										}
@@ -24790,9 +24799,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "t_personagem",
-							"sid": 836592377814348,
+							"sid": 652491561814152,
 							"parameters": {
-								"animation": "\"Idle\"",
+								"animation": "\"Dad_Idle\"",
 								"from": "beginning"
 							}
 						}

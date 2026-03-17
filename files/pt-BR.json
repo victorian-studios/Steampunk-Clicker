@@ -205,41 +205,41 @@
                 }
             },
             "map": {
-                "None": "[b]Select a level![/b]",
-                "City_Title": "CITY",
-                "Grave_Title": "GRAVEYARD",
-                "Mount_Title": "MOUNTAIN",
-                "Castle_Title": "CASTLE",
-                "Airshop_Title": "AIRSHIP",
-                "City-1": "[b]LEVEL - 1[/b]\n\nZombie x1",
-                "City-2": "[b]LEVEL - 2[/b]\n\nZombie x2 | Z Woman x1",
-                "City-3": "[b]LEVEL - 3[/b]\n\nZ Woman x1 | Z Dog x2",
-                "Grave-4": "[b]LEVEL - 1[/b]\n\nMummy x1 | Z Woman",
-                "Grave-5": "[b]LEVEL - 2[/b]\n\nDog x1 | Mummy x2",
-                "Grave-6": "[b]LEVEL - 3[/b]\n\nMummy x1 | Z Woman x2",
-                "Mount-7": "[b]LEVEL - 1[/b]\n\nVulture x1 | Mummy x1",
-                "Mount-8": "[b]LEVEL - 2[/b]\n\nZ Woman x1 | Vulture x2",
-                "Mount-9": "[b]LEVEL - 3[/b]\n\nVulture x1 | Zombie x1 | Mummy x1",
-                "Castle-10": "[b]LEVEL - 1[/b]\n\nDog x1 | Strong Zombie x2",
-                "Castle-11": "[b]LEVEL - 2[/b]\n\nStrong Zombie x3",
-                "Airship-12": "[b]BOSS LEVEL[/b]\n\nViktor x1"
+                "None": "[b]Selecione uma fase![/b]",
+                "City_Title": "CIDADE",
+                "Grave_Title": "CEMITÉRIO",
+                "Mount_Title": "MONTANHA",
+                "Castle_Title": "CASTELO",
+                "Airshop_Title": "DIRIGÍVEL",
+                "City-1": "[b]FASE - 1[/b]\n\nZumbi x1",
+                "City-2": "[b]FASE - 2[/b]\n\nnZumbi x2 | Z Woman x1",
+                "City-3": "[b]FASE - 3[/b]\n\nZ Woman x1 | Cachorro Z x2",
+                "Grave-4": "[b]FASE - 1[/b]\n\nMúmia x1 | Z Woman",
+                "Grave-5": "[b]FASE - 2[/b]\n\nCachorro Z x1 | Múmia x2",
+                "Grave-6": "[b]FASE - 3[/b]\n\nMúmia x1 | Z Woman x2",
+                "Mount-7": "[b]FASE - 1[/b]\n\nUrubu x1 | Múmia x1",
+                "Mount-8": "[b]FASE - 2[/b]\n\nZ Woman x1 | Urubu x2",
+                "Mount-9": "[b]FASE - 3[/b]\n\nUrubu Z x1 | Zumbi x1 | Múmia x1",
+                "Castle-10": "[b]FASE - 1[/b]\n\nCachorro Z x1 | Maromba Z x2",
+                "Castle-11": "[b]FASE - 2[/b]\n\nStrong Zombie x3",
+                "Castle-12": "[b]FASE CHEFE[/b]\n\nViktor x1"
             }
         },
 
         "fight": {
             "exit": {
-                "name": "EXIT?",
-                "desc": "There's no penalty in doing so."
+                "name": "SAIR?",
+                "desc": "Não sofra penalidade ao fazer isso."
             },
-            "skip": "Skip your turn.",
-            "poison": "{0} Poison ({1} turns)",
-            "fire": "{0} Fire ({1} turns)",
-            "zap": "Deal {0} damage back to attackers when hit ({1} turns)",
-            "power": "Attacks deal {0}% more damage ({1} turns)",
-            "dodge": "{0}% chance to ignore attacks ({1} turns)",
-            "weak": "Attacks deal {0}% less damage ({1} turns)",
-            "vulnerable": "Receive {0}% more damage from attacks ({1} turns)",
-            "mark": "Receive {0}% more damage from attacks ({1} turns)"
+            "skip": "Pule seu turno.",
+            "poison": "{0} Veneno ({1} turnos)",
+            "fire": "{0} Fogo ({1} turnos)",
+            "zap": "Cause {0} dano aos atacantes que te acertarem ({1} turnos)",
+            "power": "Ataques causam {0}% mais dano ({1} turnos)",
+            "dodge": "{0}% de chance de ignorar ataques ({1} turnos)",
+            "weak": "Ataques causam {0}% menos dano ({1} turnos)",
+            "vulnerable": "Receba {0}% mais dano de ataques ({1} turnos)",
+            "mark": "Recebe {0}% mais dano de ataques ({1} turnos)"
         },
 
         "loading": {
