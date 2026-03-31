@@ -255,6 +255,30 @@
 									"path": "en-US.json"
 								}
 							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 402487264279678,
+							"parameters": {
+								"key": "\"My_Save\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 529241089283359,
+							"parameters": {
+								"key": "\"Prod_Data\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 305751992379537,
+							"parameters": {
+								"key": "\"Upg_Data\""
+							}
 						}
 					],
 					"sid": 445197504795340
@@ -468,6 +492,223 @@
 				}
 			],
 			"sid": 461701118620088
+		},
+		{
+			"eventType": "comment",
+			"text": "Ao iniciar o jogo"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 578606729623351,
+					"parameters": {
+						"key": "\"My_Save\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 564317179423413,
+					"parameters": {
+						"key": "\"My_Save\""
+					}
+				}
+			],
+			"sid": 358400961246110
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 891160839486620,
+					"parameters": {
+						"key": "\"Prod_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 700895848075008,
+					"parameters": {
+						"key": "\"Prod_Data\""
+					}
+				}
+			],
+			"sid": 220413273828443
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 338402634789930,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 191749053155133,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"sid": 189856012432823
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 934764736230382,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 567400453938066,
+					"parameters": {
+						"tag": "\"upg_data\"",
+						"file": {
+							"path": "Upg_Data.json"
+						}
+					}
+				}
+			],
+			"sid": 875187772597108
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 320999530630631,
+					"parameters": {
+						"tag": "\"upg_data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Upg_Data",
+					"sid": 671321665174148,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 765624236051893
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 959876285880791,
+					"parameters": {
+						"key": "\"My_Save\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "Dict_Save_File",
+					"sid": 545203367434672,
+					"parameters": {
+						"json": "LocalStorage.ItemValue"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 638347706580345
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 206043398953625,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"value": "Dict_Save_File.Get(\"TUT\")"
+					}
+				}
+			],
+			"sid": 929787240410597
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 934201823692337,
+					"parameters": {
+						"key": "\"Prod_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Prod_Data",
+					"sid": 947333393595410,
+					"parameters": {
+						"json": "LocalStorage.ItemValue"
+					}
+				},
+				{
+					"callFunction": "Array_To_Dictionary",
+					"sid": 788373692470223
+				}
+			],
+			"sid": 598769730974610
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 246427360262110,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Upg_Data",
+					"sid": 517821034272829,
+					"parameters": {
+						"json": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 259786559257340
 		}
 	],
 	"sid": 203567447080996

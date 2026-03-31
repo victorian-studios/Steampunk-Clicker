@@ -34,7 +34,12 @@
             "prod": {},
             "upg": {
                 "locked": "[b]Locked[/b]",
-                "unlock": "\nUnlock the {0} production!",
+                "unlock_wood": "\nUnlock the Wood production!",
+                "unlock_copper": "\nUnlock the Copper production!",
+                "unlock_iron": "\nUnlock the Iron production!",
+                "unlock_titanium": "\nUnlock the Titanium production!",
+                "unlock_tungsten": "\nUnlock the Tungsten production!",
+                "unlock_vaporium": "\nUnlock the Vaporium production!",
                 "prodcapup": "\nRaises the production capacity by {0}%.",
                 "prodspeedup": "\nReduce the production time in {0}%.",
                 "autoprod": "Makes your production automatic! Just right click the material icon to toggle on/off and let the rest to the robots.",
@@ -258,7 +263,7 @@
                 "1": "Oh Rose, you finally arrived at the factory. Welcome my daughter!",
                 "2": "I know you're a grown woman now, but you don't visit a lot now either... Would you like a quick reminder of how things work around this place?\n[color=rgb(255,255,255)]Press [b](Y)[/b] Yes / [b](N)[/b] No[/color]",
                 "3": "Yeah I presumed that, I knew your time creating contraptions in my old factory would come in hand soon or later.",
-                "4": "Well, in any case, I will keep contat with you from time to time. Take care!",
+                "4": "Well, in any case, click the '[i]?[/i]' button for any questions. Take care!",
                 "5": "Perfect! And, don't worry, I'll be quick.",
                 "6": "First lets start with the places around the factory. First of all, we have the [b]Production Area[/b]!",
                 "7": "Here you can find all the machines producing different resources for you. You can see them represented by an icon next to a progress bar, showing how long the process is going to take to finish.",
@@ -281,7 +286,7 @@
                 "23" : "Just like the weapons/skills, you can also upgrade your armor for better stats and performance in battle. And can also come with a special bonus if you upgrade enough.",
                 "24" : "To equip the armor, is just like the others, drag and drop it but in the slot in the middle.",
                 "25" : "Perfect, now let's head back to the office.",
-                "26" : "To finish, that's the office or, how I prefer say, the [b]Map Area[/b]!",
+                "26" : "To finish, that's the office or, more specifically, the [b]Map Area[/b]!",
                 "27" : "I've got an entire map of the city and the exterior part around it. Here you can see all the paths and decide where you want to go next.",
                 "28" : "At the momment I can't see any other path to follow ratter than this one right here.",
                 "29" : "But don't think too much, if you have an armor and a weapon, then you should try to check how strong these enemies are, their attack patterns, resistances and so on.", 
@@ -289,7 +294,27 @@
                 "31" : "It's very probable that after defeating them, another one can come back again, so you can retry beating their faces another time. Just remember that you need to reach the root of the problem to solve all this.",
                 "32" : "Well, I think that's all for now. Don't worry, as I said early, I'll come back again from time to time when there's something important to tell you.",
                 "33" : "I love you Rose. Take care out there, It's dangerous to go alone. Make your armor and weapons to fight them!",
-                "34" : "And most important: don't give up!"
+                "34" : "And most important: If you forget anything, I'm always available to talk. [b]Just press the '[i]?[/i]' button in any area![/b]"
+            },
+            "prod": {
+                "1": "This is the [b]Production Area[/b]! \nTo produce anything click in the icon and wait until the progress bar gets full.",
+                "2": "Some machines require specific ammonts of resources to be able to produce a single unit of their material.",
+                "3": "When you buy any auto production upgrade, keep an eye if you have enougth materials to keep the machines working. In any case you can enable/disable it by right clicking in the machine's icon."
+            },
+            "upg": {
+                "1": "This is the [b]Upgrade Area[/b]! \nCheck all the permanent upgrades available for all the machines you currently have unlocked.",
+                "2": "All upgrades cost some of your materials. In the top of the screen you can always check the total of resources that you have right now. The value is update in real time.",
+                "3": "In order to unlock more upgrades you have to finish some areas of the map."
+            },
+            "work": {
+                "1": "This is the [b]Workshop[/b]! \nThis is the palce to choose your equippment and upgrade your armor, weapons and skills.",
+                "2": "Each armor have a different amount of slots to equip weapons and skills. Try different combinations of them to understand what suit you better.",
+                "3": "The 10th and final level of every item only unlocks after you buy the '[i]Refined Material[/i]' or '[i]Final Armor[/i]' upgrade from the [b]Upgrade Area[/b]."
+            },
+            "map": {
+                "1": "This is my office, more specificly, the [b]Map Area[/b]! \nAll level availables can appear here.",
+                "2": "First select region represented by the arrows. Then, click on any available level to see more information. When you're ready to go click the green check button.",
+                "3": "Before you enter any level, make sure that you have all the right equipments. I'm not let you go without an [b]armor and a weapon/skill[/b]."
             },
             "fight": {
                 "1": "Hey Rose, it's me again!",
@@ -306,13 +331,6 @@
                 "11": "The energy remaining won't last forever, since it will absorb most of the damage received from the enemies during the fight. Unless the enemy has some [b]attack that ignore the energy from the armor[/b].",
                 "12": "[b]Remember:[/b] if you're loosing, it's better to retreat and come back to factory for further upgrades. Don't give up so easily! Try different builds and combinations. Every enemy has it's weakness!",
                 "13": "That's all for now, good luck!"
-            },
-            "end_demo": {
-                "1": "Hello again Rose. So you've made it right? Fantastic! Look at you, I barely recognize the little girl you were...",
-                "2": "Oh okay okay. Sorry, lets be serious now. Well done! You've defeated the first threat in your path. But as you can imagine, there's many other enemies in the way.",
-                "3": "Don't worry, things like that take time to resolve. You're in the right path. Now you've learned that most things needed to progress further and further.",
-                "4": "But unfortunantly that's the [b]end of the demo![/b] Fell free to continue by retrying this last battle, producing materials and buying the rest of the remaining upgrades!",
-                "5": "Stay tunned for updates in our discord! (Including this demo version)"
             }
         }
     }
