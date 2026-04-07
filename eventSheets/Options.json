@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "VOLUME",
 			"type": "number",
-			"initialValue": "75",
+			"initialValue": "65",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -24,17 +24,17 @@
 				{
 					"id": "set-x",
 					"objectClass": "Slider_Volume",
-					"sid": 769350044655516,
+					"sid": 680880061664282,
 					"parameters": {
-						"x": "1342"
+						"x": "838 + ( 504 * ( VOLUME / 100 ) )"
 					}
 				},
 				{
 					"id": "set-width",
 					"objectClass": "Progbar_volume",
-					"sid": 387045271356037,
+					"sid": 448507625419046,
 					"parameters": {
-						"width": "512"
+						"width": "Slider_Volume.X - 830"
 					}
 				},
 				{
@@ -1735,6 +1735,10 @@
 			"isActiveOnStart": false,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "Sobre o slider:\n\nEle vai da posição 838 (mute) até 1342 (vol. máx.)\nLogo, 75% de vol. acontece na posição 378"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -1760,24 +1764,6 @@
 							"parameters": {
 								"variable": "VOLUME",
 								"value": "int( Progbar_volume.Width / 5.12 )"
-							}
-						},
-						{
-							"id": "set-volume",
-							"objectClass": "Audio",
-							"sid": 497131015790301,
-							"parameters": {
-								"tag": "\"Main\"",
-								"db": "-35 + ( VOLUME * 0.35 )"
-							}
-						},
-						{
-							"id": "set-volume",
-							"objectClass": "Audio",
-							"sid": 467643859419977,
-							"parameters": {
-								"tag": "\"Fight\"",
-								"db": "-35 + ( VOLUME * 0.35 )"
 							}
 						}
 					],
@@ -1895,6 +1881,40 @@
 								}
 							],
 							"sid": 253396947606554
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 857796336060480,
+									"parameters": {
+										"tag": "\"Menu\"",
+										"db": "-40 + ( VOLUME * 0.4 )"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 423192166833964,
+									"parameters": {
+										"tag": "\"Main\"",
+										"db": "-40 + ( VOLUME * 0.4 )"
+									}
+								},
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 868198681430448,
+									"parameters": {
+										"tag": "\"Fight\"",
+										"db": "-35 + ( VOLUME * 0.35 )"
+									}
+								}
+							],
+							"sid": 145533632886570
 						}
 					]
 				},
@@ -1991,6 +2011,42 @@
 							"sid": 481242432010455,
 							"parameters": {
 								"width": "Slider_Volume.X - 830"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 237942722975574,
+							"parameters": {
+								"variable": "VOLUME",
+								"value": "int( Progbar_volume.Width / 5.12 )"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 144869800550329,
+							"parameters": {
+								"tag": "\"Menu\"",
+								"db": "-40 + ( VOLUME * 0.4 )"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 106554059911281,
+							"parameters": {
+								"tag": "\"Main\"",
+								"db": "-40 + ( VOLUME * 0.4 )"
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 159230998479952,
+							"parameters": {
+								"tag": "\"Fight\"",
+								"db": "-35 + ( VOLUME * 0.35 )"
 							}
 						}
 					],
@@ -2255,6 +2311,11 @@
 							"parameters": {
 								"reset-static": true
 							}
+						},
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 364506358710453
 						},
 						{
 							"id": "wait",

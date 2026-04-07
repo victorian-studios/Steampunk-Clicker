@@ -151,6 +151,15 @@
 					}
 				},
 				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 182034108085950,
+					"parameters": {
+						"layer": "\"Habs\"",
+						"opacity": "100"
+					}
+				},
+				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
 					"sid": 571723876770990,
@@ -15723,6 +15732,16 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "comment",
+					"text": "PLAYER MORREU",
+					"text-color": [
+						1,
+						0,
+						0,
+						1
+					]
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -15987,6 +16006,16 @@
 					]
 				},
 				{
+					"eventType": "comment",
+					"text": "PLAYER VENCEU",
+					"text-color": [
+						0.30196078431372547,
+						1,
+						0,
+						1
+					]
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
@@ -16246,6 +16275,10 @@
 												"key": "\"LVL\"",
 												"value": "Level"
 											}
+										},
+										{
+											"callFunction": "Save_Local_Storage",
+											"sid": 800116987104845
 										},
 										{
 											"id": "wait-for-previous-actions",

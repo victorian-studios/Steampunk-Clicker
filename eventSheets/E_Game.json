@@ -300,6 +300,14 @@
 					]
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "Icon_check_batalhas",
+					"sid": 196913560436160,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "wait",
 					"objectClass": "System",
 					"sid": 344283639055936,
@@ -321,14 +329,6 @@
 					"parameters": [
 						"\"Armor\""
 					]
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "Icon_check_batalhas",
-					"sid": 931603475736857,
-					"parameters": {
-						"visibility": "invisible"
-					}
 				},
 				{
 					"id": "set-y",
@@ -2395,12 +2395,6 @@
 								}
 							],
 							"sid": 842753482794035
-						},
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [],
-							"sid": 421972187331352
 						}
 					]
 				},
@@ -2410,7 +2404,7 @@
 						{
 							"id": "on-timer",
 							"objectClass": "Production_Vapor",
-							"sid": 684091682199480,
+							"sid": 969255935501249,
 							"behaviorType": "Timer",
 							"parameters": {
 								"tag": "\"vapor_prod_time\""
@@ -2421,7 +2415,7 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "Production_Vapor",
-							"sid": 683940251447248,
+							"sid": 692976449838419,
 							"parameters": {
 								"instance-variable": "Producing",
 								"value": "false"
@@ -2430,7 +2424,7 @@
 						{
 							"id": "set-key",
 							"objectClass": "Dict_Temp_Prod_Data",
-							"sid": 690941110521163,
+							"sid": 612906792796885,
 							"parameters": {
 								"key": "\"Steam\"",
 								"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
@@ -2439,7 +2433,7 @@
 						{
 							"id": "set-at-xyz",
 							"objectClass": "A_Prod_Data",
-							"sid": 787099212368863,
+							"sid": 414964475373071,
 							"parameters": {
 								"x": "4",
 								"y": "1",
@@ -2448,7 +2442,7 @@
 							}
 						}
 					],
-					"sid": 928977095445732,
+					"sid": 368789993134456,
 					"children": [
 						{
 							"eventType": "block",
@@ -2456,7 +2450,7 @@
 								{
 									"id": "pick-by-comparison",
 									"objectClass": "System",
-									"sid": 185781341430783,
+									"sid": 284501384066250,
 									"parameters": {
 										"object": "Icon_prod",
 										"expression": "Icon_prod.material_id",
@@ -2467,7 +2461,7 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 901298954257195,
+									"sid": 394136126066488,
 									"parameters": {
 										"first-value": "Icon_prod.LayerName",
 										"comparison": 0,
@@ -2479,7 +2473,7 @@
 								{
 									"id": "set-size",
 									"objectClass": "Icon_prod",
-									"sid": 239738590083239,
+									"sid": 352354412456013,
 									"parameters": {
 										"width": "50",
 										"height": "50"
@@ -2488,7 +2482,7 @@
 								{
 									"id": "tween-two-properties",
 									"objectClass": "Icon_prod",
-									"sid": 554495851965134,
+									"sid": 180000639965390,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"boucers\"",
@@ -2504,7 +2498,278 @@
 									}
 								}
 							],
-							"sid": 996777025682631
+							"sid": 833738404038629
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "AUTOPROD"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 753643829071227,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked",
+								"object-clicked": "Production_Vapor"
+							}
+						},
+						{
+							"id": "compare-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 226595245972048,
+							"parameters": {
+								"x": "9",
+								"y": "1",
+								"z": "0",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 419943225344258,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Production_Vapor",
+									"sid": 203680519091433,
+									"parameters": {
+										"instance-variable": "Autoprod"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production_Vapor",
+									"sid": 969459513557194,
+									"parameters": {
+										"instance-variable": "Autoprod",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 114372680884983,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 448588361205652,
+											"parameters": {
+												"object": "Production_Vapor"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 922435315394836,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 398752676984132
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 334331628307987
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production_Vapor",
+									"sid": 442064387974525,
+									"parameters": {
+										"instance-variable": "Autoprod",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 261662721073442,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 995007675020734,
+											"parameters": {
+												"object": "Production_Vapor"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 446103059184285,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 708140199760208
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production_Vapor",
+							"sid": 520345866690320,
+							"parameters": {
+								"instance-variable": "Autoprod"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 407400509694643,
+							"parameters": {
+								"layer": "\"Production\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production_Vapor",
+							"sid": 352560753996871,
+							"parameters": {
+								"instance-variable": "Producing"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 416643316279403,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production_Vapor",
+									"sid": 738034454255138,
+									"parameters": {
+										"instance-variable": "prod_cap",
+										"comparison": 5,
+										"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "Production_Vapor",
+									"sid": 484929226935133,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "Production_Vapor.prod_time",
+										"type": "once",
+										"tag": "\"vapor_prod_time\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production_Vapor",
+									"sid": 487624341261714,
+									"parameters": {
+										"instance-variable": "Producing",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 741820098381750,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 907329558169071,
+											"parameters": {
+												"object": "Production_Vapor"
+											}
+										},
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 475919967737275
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 400393760873981,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 106023252585254
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 447800579684650
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Icon_Autoprod_Light",
+									"sid": 733153840270689,
+									"parameters": {
+										"object": "Production_Vapor"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 919750696851096
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Icon_Autoprod_Light",
+									"sid": 874061798209301,
+									"parameters": {
+										"frame-number": "2"
+									}
+								}
+							],
+							"sid": 381393442144519
 						}
 					]
 				}
@@ -2736,6 +3001,30 @@
 											"sid": 181441063394287
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 171785433874107,
+											"parameters": {
+												"object": "Production"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 811303446577113,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 210599293580141
 								}
 							]
 						},
@@ -3378,269 +3667,6 @@
 											"sid": 462608986924717
 										}
 									]
-								}
-							]
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Production",
-							"sid": 145986347135172,
-							"parameters": {
-								"instance-variable": "Autoprod"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Production",
-							"sid": 291660006195850,
-							"parameters": {
-								"instance-variable": "Unlocked"
-							}
-						},
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Production",
-							"sid": 155062049761402,
-							"parameters": {
-								"instance-variable": "Producing"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Production",
-							"sid": 687154649562670,
-							"parameters": {
-								"instance-variable": "prod_cap",
-								"comparison": 5,
-								"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
-							}
-						}
-					],
-					"actions": [],
-					"sid": 857994153844385,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 413306999951804,
-									"parameters": {
-										"instance-variable": "cond_material_quant_1",
-										"comparison": 0,
-										"value": "\"\""
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 698581567244514,
-									"parameters": {
-										"instance-variable": "cond_material_quant_2",
-										"comparison": 0,
-										"value": "\"\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "start-timer",
-									"objectClass": "Production",
-									"sid": 972442545016155,
-									"behaviorType": "Timer",
-									"parameters": {
-										"duration": "Production.prod_time",
-										"type": "once",
-										"tag": "\"other_prod_time\""
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "Production",
-									"sid": 610248440087963,
-									"parameters": {
-										"instance-variable": "Producing",
-										"value": "true"
-									}
-								}
-							],
-							"sid": 609988236518169
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 961852686155647,
-									"parameters": {
-										"instance-variable": "cond_material_quant_1",
-										"comparison": 1,
-										"value": "\"\""
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 244530874437512,
-									"parameters": {
-										"instance-variable": "cond_material_quant_2",
-										"comparison": 0,
-										"value": "\"\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 183122725935078,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-value",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 136967351973957,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
-												"comparison": 5,
-												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "start-timer",
-											"objectClass": "Production",
-											"sid": 711072715164910,
-											"behaviorType": "Timer",
-											"parameters": {
-												"duration": "Production.prod_time",
-												"type": "once",
-												"tag": "\"other_prod_time\""
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production",
-											"sid": 327287632805601,
-											"parameters": {
-												"instance-variable": "Producing",
-												"value": "true"
-											}
-										},
-										{
-											"id": "set-key",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 358886125799736,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										}
-									],
-									"sid": 188446028912478
-								}
-							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 536614464426088,
-									"parameters": {
-										"instance-variable": "cond_material_quant_1",
-										"comparison": 1,
-										"value": "\"\""
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 393138627260978,
-									"parameters": {
-										"instance-variable": "cond_material_quant_2",
-										"comparison": 1,
-										"value": "\"\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 529116550882787,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-value",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 306760547622983,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
-												"comparison": 5,
-												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										},
-										{
-											"id": "compare-value",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 991308050954767,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
-												"comparison": 5,
-												"value": "int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "start-timer",
-											"objectClass": "Production",
-											"sid": 123856763674916,
-											"behaviorType": "Timer",
-											"parameters": {
-												"duration": "Production.prod_time",
-												"type": "once",
-												"tag": "\"other_prod_time\""
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production",
-											"sid": 558831775538931,
-											"parameters": {
-												"instance-variable": "Producing",
-												"value": "true"
-											}
-										},
-										{
-											"id": "set-key",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 345706735974883,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										},
-										{
-											"id": "set-key",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 834473530104637,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
-												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
-											}
-										}
-									],
-									"sid": 896805858096080
 								}
 							]
 						}
@@ -4473,12 +4499,12 @@
 						{
 							"id": "on-any-touch-start",
 							"objectClass": "Touch",
-							"sid": 259767678987642
+							"sid": 346245570510586
 						},
 						{
 							"id": "layer-is-visible",
 							"objectClass": "System",
-							"sid": 844857124394612,
+							"sid": 110658256248281,
 							"parameters": {
 								"layer": "\"Production\""
 							}
@@ -4486,7 +4512,7 @@
 						{
 							"id": "layer-is-visible",
 							"objectClass": "System",
-							"sid": 924773236835060,
+							"sid": 881797291232908,
 							"parameters": {
 								"layer": "\"Options\""
 							},
@@ -4495,7 +4521,7 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 619366744917586,
+							"sid": 545615474910062,
 							"parameters": {
 								"variable": "Tutorial_Name",
 								"comparison": 0,
@@ -4504,7 +4530,7 @@
 						}
 					],
 					"actions": [],
-					"sid": 827979498931706,
+					"sid": 541379963167830,
 					"children": [
 						{
 							"eventType": "block",
@@ -4512,7 +4538,7 @@
 								{
 									"id": "is-touching-object",
 									"objectClass": "Touch",
-									"sid": 852508829994036,
+									"sid": 471837628540682,
 									"parameters": {
 										"object": "Icon_prod"
 									}
@@ -4520,7 +4546,7 @@
 								{
 									"id": "is-on-layer",
 									"objectClass": "Icon_prod",
-									"sid": 652786796624866,
+									"sid": 600212067226054,
 									"parameters": {
 										"layer": "\"Primary_Icons\""
 									}
@@ -4528,7 +4554,7 @@
 								{
 									"id": "compare-animation-frame",
 									"objectClass": "Icon_prod",
-									"sid": 169175872739882,
+									"sid": 957325896436953,
 									"parameters": {
 										"comparison": 0,
 										"number": "Icon_prod.AnimationFrameCount - 1"
@@ -4537,7 +4563,7 @@
 								{
 									"id": "is-playing",
 									"objectClass": "Icon_prod",
-									"sid": 387142319770095,
+									"sid": 781375767782812,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\""
@@ -4548,7 +4574,7 @@
 							"actions": [
 								{
 									"callFunction": "Play_Audio",
-									"sid": 711011593418586,
+									"sid": 185697344133390,
 									"parameters": [
 										false,
 										false,
@@ -4563,7 +4589,7 @@
 								{
 									"id": "set-x",
 									"objectClass": "Icon_prod",
-									"sid": 149460393281854,
+									"sid": 778176275665054,
 									"parameters": {
 										"x": "Self.Self_X"
 									}
@@ -4571,7 +4597,7 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Icon_prod",
-									"sid": 916108836019875,
+									"sid": 981676383175991,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\"",
@@ -4588,7 +4614,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 764429279908245,
+									"sid": 937373893705759,
 									"parameters": {
 										"seconds": "0.05",
 										"use-timescale": true
@@ -4597,7 +4623,7 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Icon_prod",
-									"sid": 120421380290066,
+									"sid": 249712024451183,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\"",
@@ -4614,7 +4640,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 178928989794006,
+									"sid": 321145531420767,
 									"parameters": {
 										"seconds": "0.05",
 										"use-timescale": true
@@ -4623,7 +4649,7 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Icon_prod",
-									"sid": 412682051874811,
+									"sid": 488651770948132,
 									"behaviorType": "Tween",
 									"parameters": {
 										"tags": "\"shake\"",
@@ -4638,7 +4664,7 @@
 									}
 								}
 							],
-							"sid": 207506261074194
+							"sid": 971832470002027
 						},
 						{
 							"eventType": "block",
@@ -4646,14 +4672,14 @@
 								{
 									"id": "is-touching-object",
 									"objectClass": "Touch",
-									"sid": 245931278159445,
+									"sid": 718762360578676,
 									"parameters": {
 										"object": "Production"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 492434160236813,
+							"sid": 524477199667879,
 							"children": [
 								{
 									"eventType": "block",
@@ -4661,7 +4687,7 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Production",
-											"sid": 821725628834142,
+											"sid": 929021546797022,
 											"parameters": {
 												"object": "Icon_prod"
 											}
@@ -4669,7 +4695,7 @@
 										{
 											"id": "is-on-layer",
 											"objectClass": "Icon_prod",
-											"sid": 157749153349265,
+											"sid": 289694725228756,
 											"parameters": {
 												"layer": "\"Primary_Icons\""
 											}
@@ -4677,7 +4703,7 @@
 										{
 											"id": "compare-animation-frame",
 											"objectClass": "Icon_prod",
-											"sid": 979160469371265,
+											"sid": 724908600985272,
 											"parameters": {
 												"comparison": 0,
 												"number": "Icon_prod.AnimationFrameCount - 1"
@@ -4686,7 +4712,7 @@
 										{
 											"id": "is-playing",
 											"objectClass": "Icon_prod",
-											"sid": 358355714856516,
+											"sid": 798724359744529,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"shake\""
@@ -4697,7 +4723,7 @@
 									"actions": [
 										{
 											"callFunction": "Play_Audio",
-											"sid": 405745553404581,
+											"sid": 497122458716903,
 											"parameters": [
 												false,
 												false,
@@ -4712,7 +4738,7 @@
 										{
 											"id": "set-x",
 											"objectClass": "Icon_prod",
-											"sid": 964185104539650,
+											"sid": 220742445348125,
 											"parameters": {
 												"x": "Self.Self_X"
 											}
@@ -4720,7 +4746,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "Icon_prod",
-											"sid": 789682270634776,
+											"sid": 537197559060819,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"shake\"",
@@ -4737,7 +4763,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 109008679210375,
+											"sid": 630157198886421,
 											"parameters": {
 												"seconds": "0.05",
 												"use-timescale": true
@@ -4746,7 +4772,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "Icon_prod",
-											"sid": 391356192650550,
+											"sid": 253754255439336,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"shake\"",
@@ -4763,7 +4789,7 @@
 										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 448201929393015,
+											"sid": 947736564394278,
 											"parameters": {
 												"seconds": "0.05",
 												"use-timescale": true
@@ -4772,7 +4798,7 @@
 										{
 											"id": "tween-one-property",
 											"objectClass": "Icon_prod",
-											"sid": 241794152725889,
+											"sid": 452233821486724,
 											"behaviorType": "Tween",
 											"parameters": {
 												"tags": "\"shake\"",
@@ -4787,7 +4813,512 @@
 											}
 										}
 									],
-									"sid": 611491880728220
+									"sid": 915146171235497
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "AUTOPROD"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 459903672979556,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked",
+								"object-clicked": "Production"
+							}
+						},
+						{
+							"id": "compare-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 778267074371430,
+							"parameters": {
+								"x": "9",
+								"y": "1",
+								"z": "Production.Array_ID",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 449933150752015,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Production",
+									"sid": 360671988997385,
+									"parameters": {
+										"instance-variable": "Autoprod"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production",
+									"sid": 608115940201500,
+									"parameters": {
+										"instance-variable": "Autoprod",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 695035321192957,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 453512371925195,
+											"parameters": {
+												"object": "Production"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 592870401554023,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 519750914338386
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 882400908757027
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Production",
+									"sid": 616868321027249,
+									"parameters": {
+										"instance-variable": "Autoprod",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 485062515807288,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 601757919894417,
+											"parameters": {
+												"object": "Production"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 525580034140200,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 140179115829904
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 453662838371485,
+							"parameters": {
+								"instance-variable": "Autoprod"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 121682889902495,
+							"parameters": {
+								"instance-variable": "Unlocked"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Production",
+							"sid": 529922919067442,
+							"parameters": {
+								"instance-variable": "Producing"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 620568580645854,
+							"parameters": {
+								"instance-variable": "prod_cap",
+								"comparison": 5,
+								"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 756135889625200,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Wood prod"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 509038915331337,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 322689063870987,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 317066724081974,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 185003524214801,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Production",
+											"sid": 930665151299605,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Production.prod_time",
+												"type": "once",
+												"tag": "\"other_prod_time\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 131336945326083,
+											"parameters": {
+												"instance-variable": "Producing",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 450012971264278,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										}
+									],
+									"sid": 279711689955781,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 150049428787164
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Production",
+													"sid": 162120915553817,
+													"parameters": {
+														"object": "Icon_Autoprod_Light"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Autoprod_Light",
+													"sid": 193173519651178,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 445213052536615
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 579900011741857
+										}
+									],
+									"actions": [],
+									"sid": 121833182249069,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 354537077238437
+												},
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Production",
+													"sid": 166575013616374,
+													"parameters": {
+														"object": "Icon_Autoprod_Light"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Autoprod_Light",
+													"sid": 501229033193518,
+													"parameters": {
+														"frame-number": "2"
+													}
+												}
+											],
+											"sid": 654690028817140
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "All others"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 711938729726762,
+									"parameters": {
+										"instance-variable": "cond_material_quant_1",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 426098548363659,
+									"parameters": {
+										"instance-variable": "cond_material_quant_2",
+										"comparison": 1,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 501981931934541,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 323858980259659,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										},
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 130423420457940,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
+												"comparison": 5,
+												"value": "int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "Production",
+											"sid": 690444464584436,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "Production.prod_time",
+												"type": "once",
+												"tag": "\"other_prod_time\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production",
+											"sid": 283886016382441,
+											"parameters": {
+												"instance-variable": "Producing",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 910334902123356,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+											}
+										},
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 715238562319108,
+											"parameters": {
+												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
+												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+											}
+										}
+									],
+									"sid": 404743953335643,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Production",
+													"sid": 574614612154994,
+													"parameters": {
+														"object": "Icon_Autoprod_Light"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 931087936803621
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Autoprod_Light",
+													"sid": 408217557725658,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
+											"sid": 708891986078225
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 951659539741878
+										}
+									],
+									"actions": [],
+									"sid": 195068708672100,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-another-object",
+													"objectClass": "Production",
+													"sid": 986870083764912,
+													"parameters": {
+														"object": "Icon_Autoprod_Light"
+													}
+												},
+												{
+													"id": "trigger-once-while-true",
+													"objectClass": "System",
+													"sid": 576807295910325
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Icon_Autoprod_Light",
+													"sid": 784011712582594,
+													"parameters": {
+														"frame-number": "2"
+													}
+												}
+											],
+											"sid": 445570140455160
+										}
+									]
 								}
 							]
 						}
@@ -4803,16 +5334,6 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
-				{
-					"eventType": "variable",
-					"name": "Layer_Z_Array",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"isStatic": true,
-					"isConstant": false,
-					"sid": 378626018519185
-				},
 				{
 					"eventType": "comment",
 					"text": "Verifica cada upgrade, em cada camada, para conferir se o mesmo já foi desbloqueado e/ou comprado. Impacta apenas visualmente nos upgrades, já que o valor aprimorado por cada um é salvo no array do Upg_Data"
@@ -6056,9 +6577,9 @@
 										{
 											"id": "set-text",
 											"objectClass": "Text_Upg_Description",
-											"sid": 958383717863609,
+											"sid": 296698930451842,
 											"parameters": {
-												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", 100 * (float(tokenat(Upgrade_ID, 1, \"_\"))) )"
+												"text": "Internationalization.Lookup(\"game.upg.\" & Upgrade_Layer & \".\" & Upgrade_Order ) & newline & newline & Internationalization.Lookup(\"game.upg.prodcapup\", int(tokenat(Upgrade_ID, 1, \"_\") ) )"
 											}
 										}
 									],
@@ -6346,12 +6867,12 @@
 										{
 											"id": "pick-by-comparison",
 											"objectClass": "System",
-											"sid": 253592387358375,
+											"sid": 740683235375621,
 											"parameters": {
 												"object": "Production",
 												"expression": "Production.Array_ID",
 												"comparison": 0,
-												"value": "Layer_Z_Array - 1"
+												"value": "ActiveLayer_ID"
 											}
 										}
 									],
@@ -6372,11 +6893,11 @@
 										{
 											"id": "set-at-xyz",
 											"objectClass": "A_Prod_Data",
-											"sid": 365010131932374,
+											"sid": 648673788047549,
 											"parameters": {
 												"x": "0",
 												"y": "1",
-												"z": "Production.Array_ID",
+												"z": "ActiveLayer_ID",
 												"value": "1"
 											}
 										}
@@ -6412,11 +6933,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 935904084264419,
+											"sid": 643522800717146,
 											"parameters": {
-												"variable": "Layer_Z_Array",
+												"variable": "ActiveLayer_ID",
 												"comparison": 0,
-												"value": "1"
+												"value": "0"
 											}
 										}
 									],
@@ -6462,12 +6983,12 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 671768645429808,
+													"sid": 254376392809122,
 													"parameters": {
 														"object": "Production",
 														"expression": "Production.Array_ID",
 														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
+														"value": "ActiveLayer_ID"
 													}
 												}
 											],
@@ -6475,20 +6996,20 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Production",
-													"sid": 239592046571134,
+													"sid": 952572915051841,
 													"parameters": {
 														"instance-variable": "prod_time",
-														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 1, \"_\" ) )"
+														"value": "A_Prod_Data.At(8, 1, ActiveLayer_ID) * float( tokenat ( Upgrade_name, 1, \"_\" ) )"
 													}
 												},
 												{
 													"id": "set-at-xyz",
 													"objectClass": "A_Prod_Data",
-													"sid": 861707938538434,
+													"sid": 344338131327634,
 													"parameters": {
 														"x": "3",
 														"y": "1",
-														"z": "Production.Array_ID",
+														"z": "ActiveLayer_ID",
 														"value": "Production.prod_time"
 													}
 												}
@@ -6526,22 +7047,22 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 540252457507469,
+											"sid": 291493367444447,
 											"parameters": {
-												"variable": "Layer_Z_Array",
+												"variable": "ActiveLayer_ID",
 												"comparison": 0,
-												"value": "1"
+												"value": "0"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "add-to-instvar",
+											"id": "set-instvar-value",
 											"objectClass": "Production_Vapor",
-											"sid": 674526620206599,
+											"sid": 609648235776635,
 											"parameters": {
 												"instance-variable": "prod_cap",
-												"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
+												"value": "int( tokenat ( Upgrade_name, 1, \"_\" ) )"
 											}
 										},
 										{
@@ -6576,23 +7097,23 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 903073276887863,
+													"sid": 466096982625480,
 													"parameters": {
 														"object": "Production",
 														"expression": "Production.Array_ID",
 														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
+														"value": "ActiveLayer_ID"
 													}
 												}
 											],
 											"actions": [
 												{
-													"id": "add-to-instvar",
+													"id": "set-instvar-value",
 													"objectClass": "Production",
-													"sid": 973005240702485,
+													"sid": 562210321937254,
 													"parameters": {
 														"instance-variable": "prod_cap",
-														"value": "Self.base_prodcap *  float( tokenat ( Upgrade_name, 1, \"_\" ) )"
+														"value": "int( tokenat ( Upgrade_name, 1, \"_\" ) )"
 													}
 												},
 												{
@@ -6608,98 +7129,6 @@
 												}
 											],
 											"sid": 743967921693101
-										}
-									]
-								}
-							]
-						},
-						{
-							"eventType": "comment",
-							"text": "Automatizar produção (Steam & Others)"
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-two-values",
-									"objectClass": "System",
-									"sid": 238507646183996,
-									"parameters": {
-										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
-										"comparison": 0,
-										"second-value": "\"autoprod\""
-									}
-								}
-							],
-							"actions": [],
-							"sid": 802539086019663,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 255787717965272,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production_Vapor",
-											"sid": 928280630247298,
-											"parameters": {
-												"instance-variable": "Autoprod",
-												"value": "true"
-											}
-										}
-									],
-									"sid": 460292584304170
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 491099714317271
-										}
-									],
-									"actions": [],
-									"sid": 812444318842262,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 748315151564831,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-boolean-instvar",
-													"objectClass": "Production",
-													"sid": 479008834554144,
-													"parameters": {
-														"instance-variable": "Autoprod",
-														"value": "true"
-													}
-												}
-											],
-											"sid": 418352840910757
 										}
 									]
 								}
@@ -6732,28 +7161,16 @@
 										{
 											"id": "pick-by-comparison",
 											"objectClass": "System",
-											"sid": 147166218628871,
+											"sid": 496599164163657,
 											"parameters": {
 												"object": "Production",
 												"expression": "Production.Array_ID",
 												"comparison": 0,
-												"value": "Layer_Z_Array - 1"
+												"value": "ActiveLayer_ID"
 											}
 										}
 									],
 									"actions": [
-										{
-											"id": "set-at-xyz",
-											"objectClass": "A_Prod_Data",
-											"sid": 419438193760050,
-											"disabled": true,
-											"parameters": {
-												"x": "2",
-												"y": "1",
-												"z": "Production.Array_ID",
-												"value": "Production.prod_cap"
-											}
-										},
 										{
 											"id": "set-instvar-value",
 											"objectClass": "Production",
@@ -6761,6 +7178,37 @@
 											"parameters": {
 												"instance-variable": "cond_material_quant_1",
 												"value": "tokenat( Upgrade_name, 1, \"-\" )"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 170923804849258,
+											"parameters": {
+												"instance-variable": "cond_material_quant_2",
+												"value": "tokenat( Upgrade_name, 2, \"-\" ) = \"0\" ? \"\" : tokenat( Upgrade_name, 2, \"-\" )"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 859898704437369,
+											"parameters": {
+												"x": "5",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "Production.cond_material_quant_1"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 369450399755774,
+											"parameters": {
+												"x": "6",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "Production.cond_material_quant_2"
 											}
 										}
 									],
@@ -6795,11 +7243,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 272635144677992,
+											"sid": 378839598084556,
 											"parameters": {
-												"variable": "Layer_Z_Array",
+												"variable": "ActiveLayer_ID",
 												"comparison": 0,
-												"value": "1"
+												"value": "0"
 											}
 										}
 									],
@@ -6811,6 +7259,17 @@
 											"parameters": {
 												"instance-variable": "prod_quant",
 												"value": "2"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 895189513995267,
+											"parameters": {
+												"x": "1",
+												"y": "1",
+												"z": "ActiveLayer_ID",
+												"value": "Production.prod_quant"
 											}
 										}
 									],
@@ -6834,12 +7293,12 @@
 												{
 													"id": "pick-by-comparison",
 													"objectClass": "System",
-													"sid": 755304228192683,
+													"sid": 934389636828090,
 													"parameters": {
 														"object": "Production",
 														"expression": "Production.Array_ID",
 														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
+														"value": "ActiveLayer_ID"
 													}
 												}
 											],
@@ -6856,12 +7315,11 @@
 												{
 													"id": "set-at-xyz",
 													"objectClass": "A_Prod_Data",
-													"sid": 823799010526494,
-													"disabled": true,
+													"sid": 202233378504039,
 													"parameters": {
-														"x": "2",
+														"x": "1",
 														"y": "1",
-														"z": "Production.Array_ID",
+														"z": "ActiveLayer_ID",
 														"value": "Production.prod_quant"
 													}
 												}
@@ -6962,10 +7420,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Production",
-													"sid": 900074491206197,
+													"sid": 881688685792797,
 													"parameters": {
 														"instance-variable": "prod_time",
-														"value": "A_Prod_Data.At(8, 1, Layer_Z_Array) * float( tokenat ( Upgrade_name, 2, \"_\" ) )"
+														"value": "A_Prod_Data.At(8, 1, ActiveLayer_ID) * float( tokenat ( Upgrade_name, 2, \"_\" ) )"
 													}
 												},
 												{
@@ -6981,6 +7439,111 @@
 												}
 											],
 											"sid": 657233769249064
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Automatizar produção (Steam & Others)"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 479735502944829,
+									"parameters": {
+										"first-value": "tokenat ( Upgrade_name, 0, \"_\" )",
+										"comparison": 0,
+										"second-value": "\"autoprod\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 396724648592771,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 585278222187071,
+											"parameters": {
+												"variable": "ActiveLayer_ID",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Production_Vapor",
+											"sid": 231029596225616,
+											"parameters": {
+												"instance-variable": "Autoprod",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 575115043190600,
+											"parameters": {
+												"x": "9",
+												"y": "1",
+												"z": "ActiveLayer_ID",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 360953092517166
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 101408129219271
+										}
+									],
+									"actions": [],
+									"sid": 142098594808290,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 886399805836194,
+													"parameters": {
+														"object": "Production",
+														"expression": "Production.Array_ID",
+														"comparison": 0,
+														"value": "ActiveLayer_ID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 244460291997335,
+													"parameters": {
+														"x": "9",
+														"y": "1",
+														"z": "ActiveLayer_ID",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 806613940761815
 										}
 									]
 								}
@@ -7004,59 +7567,20 @@
 									}
 								}
 							],
-							"actions": [],
-							"sid": 951677588342023,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 905245059358685,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 321972577513618
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 327425734384470
-										}
-									],
-									"actions": [],
-									"sid": 230436476637624,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 253862119337895,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 284549259375191
-										}
-									]
+									"id": "set-at-xyz",
+									"objectClass": "A_Prod_Data",
+									"sid": 354018662427798,
+									"parameters": {
+										"x": "10",
+										"y": "1",
+										"z": "ActiveLayer_ID",
+										"value": "1"
+									}
 								}
-							]
+							],
+							"sid": 951677588342023
 						},
 						{
 							"eventType": "comment",
@@ -7076,59 +7600,20 @@
 									}
 								}
 							],
-							"actions": [],
-							"sid": 275077975674456,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 253788003923810,
-											"parameters": {
-												"variable": "Layer_Z_Array",
-												"comparison": 0,
-												"value": "1"
-											}
-										}
-									],
-									"actions": [],
-									"sid": 890497870111312
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 438212229384576
-										}
-									],
-									"actions": [],
-									"sid": 975918396006182,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "pick-by-comparison",
-													"objectClass": "System",
-													"sid": 836889895213687,
-													"parameters": {
-														"object": "Production",
-														"expression": "Production.Array_ID",
-														"comparison": 0,
-														"value": "Layer_Z_Array - 1"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 378947206767527
-										}
-									]
+									"id": "set-at-xyz",
+									"objectClass": "A_Prod_Data",
+									"sid": 978321253340710,
+									"parameters": {
+										"x": "11",
+										"y": "1",
+										"z": "ActiveLayer_ID",
+										"value": "1"
+									}
 								}
-							]
+							],
+							"sid": 275077975674456
 						},
 						{
 							"eventType": "block",
@@ -7250,11 +7735,11 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 468128318898909,
+									"sid": 176575138537344,
 									"parameters": {
 										"key": "\"Steam\"",
 										"comparison": 5,
-										"value": "16"
+										"value": "38"
 									}
 								},
 								{
@@ -7321,11 +7806,11 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 635141197439382,
+									"sid": 271622220117839,
 									"parameters": {
 										"key": "\"Wood\"",
 										"comparison": 5,
-										"value": "16"
+										"value": "20"
 									}
 								},
 								{
@@ -7392,11 +7877,11 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 967314120580648,
+									"sid": 744303839447432,
 									"parameters": {
 										"key": "\"Copper\"",
 										"comparison": 5,
-										"value": "16"
+										"value": "20"
 									}
 								},
 								{
@@ -7463,11 +7948,11 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 792210188748819,
+									"sid": 935525571316740,
 									"parameters": {
 										"key": "\"Iron\"",
 										"comparison": 5,
-										"value": "16"
+										"value": "18"
 									}
 								},
 								{
@@ -7534,11 +8019,11 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 196433514601656,
+									"sid": 905873100209131,
 									"parameters": {
 										"key": "\"Titanium\"",
 										"comparison": 5,
-										"value": "16"
+										"value": "18"
 									}
 								},
 								{
@@ -7605,11 +8090,11 @@
 								{
 									"id": "compare-value",
 									"objectClass": "Dict_Temp_Prod_Data",
-									"sid": 620306689422645,
+									"sid": 185851899163154,
 									"parameters": {
 										"key": "\"Tungsten\"",
 										"comparison": 5,
-										"value": "16"
+										"value": "10"
 									}
 								},
 								{
@@ -21112,6 +21597,11 @@
 							}
 						},
 						{
+							"id": "is-visible",
+							"objectClass": "Icon_Map_Pointer",
+							"sid": 450934937589025
+						},
+						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 538975522139733,
@@ -21119,8 +21609,7 @@
 								"variable": "Tutorial_Name",
 								"comparison": 0,
 								"value": "\"\""
-							},
-							"isInverted": true
+							}
 						},
 						{
 							"id": "layer-is-visible",
@@ -21130,11 +21619,6 @@
 								"layer": "\"Options\""
 							},
 							"isInverted": true
-						},
-						{
-							"id": "is-visible",
-							"objectClass": "Icon_Map_Pointer",
-							"sid": 582243425478287
 						}
 					],
 					"actions": [
@@ -21234,6 +21718,10 @@
 							"sid": 943828158290662,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Update completed levels"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -21243,41 +21731,137 @@
 											"parameters": {
 												"object": "icon_zombie"
 											}
-										},
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "icon_zombie",
-											"sid": 720204919689126,
-											"parameters": {
-												"instance-variable": "Level_ID",
-												"comparison": 3,
-												"value": "Dict_Save_File.Get(\"LVL\")"
-											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 974240268818432,
+									"children": [
 										{
-											"id": "set-visible",
-											"objectClass": "Icon_check_batalhas",
-											"sid": 838318462112358,
-											"parameters": {
-												"visibility": "visible"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "icon_zombie",
+													"sid": 193729731128117,
+													"parameters": {
+														"instance-variable": "Level_ID",
+														"comparison": 3,
+														"value": "Dict_Save_File.Get(\"LVL\")"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Icon_check_batalhas",
+													"sid": 431083870484620,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "icon_zombie",
+													"sid": 418177730920924,
+													"parameters": {
+														"object": "Icon_check_batalhas",
+														"layer": "\"Levels\"",
+														"image-point": "1",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "icon_zombie",
+													"sid": 651182663864821,
+													"parameters": {
+														"frame-number": "Self.Level_ID"
+													}
+												},
+												{
+													"id": "set-active",
+													"objectClass": "icon_zombie",
+													"sid": 887767238310737,
+													"behaviorType": "Sine",
+													"parameters": {
+														"state": "inactive"
+													}
+												}
+											],
+											"sid": 806910861324492
 										},
 										{
-											"id": "spawn-another-object",
-											"objectClass": "icon_zombie",
-											"sid": 289830269504989,
-											"parameters": {
-												"object": "Icon_check_batalhas",
-												"layer": "\"Levels\"",
-												"image-point": "1",
-												"create-hierarchy": false,
-												"template-name": "\"\""
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "icon_zombie",
+													"sid": 832325759915549,
+													"parameters": {
+														"instance-variable": "Level_ID",
+														"comparison": 0,
+														"value": "Dict_Save_File.Get(\"LVL\") + 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "icon_zombie",
+													"sid": 858491260862941,
+													"parameters": {
+														"frame-number": "Self.Level_ID"
+													}
+												},
+												{
+													"id": "set-active",
+													"objectClass": "icon_zombie",
+													"sid": 924095341033939,
+													"behaviorType": "Sine",
+													"parameters": {
+														"state": "active"
+													}
+												}
+											],
+											"sid": 252533577784303
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "icon_zombie",
+													"sid": 105783127191309,
+													"parameters": {
+														"instance-variable": "Level_ID",
+														"comparison": 4,
+														"value": "Dict_Save_File.Get(\"LVL\") + 1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "icon_zombie",
+													"sid": 858518878205266,
+													"parameters": {
+														"frame-number": "0"
+													}
+												},
+												{
+													"id": "set-active",
+													"objectClass": "icon_zombie",
+													"sid": 738929947378015,
+													"behaviorType": "Sine",
+													"parameters": {
+														"state": "inactive"
+													}
+												}
+											],
+											"sid": 634454876780618
 										}
-									],
-									"sid": 974240268818432
+									]
 								}
 							]
 						},
@@ -21825,6 +22409,7 @@
 							"sid": 586842177922925
 						}
 					],
+					"bookmark": true,
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
@@ -21878,33 +22463,6 @@
 							}
 						},
 						{
-							"id": "set-item",
-							"objectClass": "LocalStorage",
-							"sid": 154012486628431,
-							"parameters": {
-								"key": "\"prod_Steam_quant\"",
-								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
-							}
-						},
-						{
-							"id": "set-item",
-							"objectClass": "LocalStorage",
-							"sid": 650747343951741,
-							"parameters": {
-								"key": "\"prod_Wood_quant\"",
-								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
-							}
-						},
-						{
-							"id": "set-item",
-							"objectClass": "LocalStorage",
-							"sid": 551741736109283,
-							"parameters": {
-								"key": "\"prod_Copper_quant\"",
-								"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
-							}
-						},
-						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
 							"sid": 854582650937118,
@@ -21944,9 +22502,9 @@
 						0
 					],
 					"background-color": [
-						1,
-						1,
-						1,
+						0.7019607843137254,
+						0.7019607843137254,
+						0.7019607843137254,
 						1
 					]
 				},
@@ -25467,6 +26025,35 @@
 											"sid": 745648491190463
 										},
 										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-at-xyz",
+													"objectClass": "A_Prod_Data",
+													"sid": 160536827390507,
+													"parameters": {
+														"x": "9",
+														"y": "1",
+														"z": "Production.Array_ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production",
+													"sid": 780406668089947,
+													"parameters": {
+														"instance-variable": "Autoprod",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 271019554812709
+										},
+										{
 											"eventType": "variable",
 											"name": "index_upg",
 											"type": "string",
@@ -25961,7 +26548,7 @@
 				},
 				{
 					"functionName": "Save_Local_Storage",
-					"functionDescription": "",
+					"functionDescription": "Salva o Save_File + Prod_Data + Upg_Data",
 					"functionCategory": "",
 					"functionReturnType": "none",
 					"functionCopyPicked": false,
