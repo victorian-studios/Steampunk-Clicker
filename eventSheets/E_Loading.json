@@ -59,6 +59,111 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
+							"sid": 480829949181986,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 0,
+								"value": "\"First_Time_Menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "victorianstudio",
+							"sid": 934393373836256,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 503051969346794,
+							"parameters": {
+								"tag": "\"en-US\"",
+								"file": {
+									"path": "en-US.json"
+								}
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 156042379900967,
+							"parameters": {
+								"key": "\"My_Save\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 218297037131525,
+							"parameters": {
+								"key": "\"Prod_Data\""
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 487728618645829,
+							"parameters": {
+								"key": "\"Upg_Data\""
+							}
+						}
+					],
+					"sid": 498714032964598
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 754846859817905,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 0,
+								"value": "\"Menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "typewriter-text",
+							"objectClass": "Text_Fixed",
+							"sid": 584025728628099,
+							"parameters": {
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"duration": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 709695810716815,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "load-layout-images",
+							"objectClass": "System",
+							"sid": 784942748869082,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 808856933421603
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
 							"sid": 803908798244455,
 							"parameters": {
 								"variable": "Layout_To_Load",
@@ -175,11 +280,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 313133110008162,
+							"sid": 578306274542264,
 							"parameters": {
 								"variable": "Layout_To_Load",
 								"comparison": 0,
-								"value": "\"Comic\""
+								"value": "\"Phase2\""
 							}
 						}
 					],
@@ -212,6 +317,24 @@
 							}
 						},
 						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 454394810366012,
+							"parameters": {
+								"variable": "Level",
+								"value": "13"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 153420898625666,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"value": "\"Void\""
+							}
+						},
+						{
 							"id": "load-layout-images",
 							"objectClass": "System",
 							"sid": 791074681567729,
@@ -228,60 +351,61 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 146118300119194,
+							"sid": 926788012097434,
 							"parameters": {
 								"variable": "Layout_To_Load",
 								"comparison": 0,
-								"value": "\"First_Time_Menu\""
+								"value": "\"Ending\""
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-visible",
-							"objectClass": "victorianstudio",
-							"sid": 462403121024087,
+							"id": "typewriter-text",
+							"objectClass": "Text_Fixed",
+							"sid": 459080772615769,
 							"parameters": {
-								"visibility": "visible"
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"duration": "1"
 							}
 						},
 						{
-							"id": "request-project-file",
-							"objectClass": "AJAX",
-							"sid": 416912179201740,
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 633496356455194,
 							"parameters": {
-								"tag": "\"en-US\"",
-								"file": {
-									"path": "en-US.json"
-								}
+								"seconds": "1",
+								"use-timescale": true
 							}
 						},
 						{
-							"id": "check-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 402487264279678,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 937264100785700,
 							"parameters": {
-								"key": "\"My_Save\""
+								"variable": "Story_Comic",
+								"value": "7"
 							}
 						},
 						{
-							"id": "check-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 529241089283359,
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 425566513605732,
 							"parameters": {
-								"key": "\"Prod_Data\""
+								"variable": "Layout_To_Load",
+								"value": "\"Void\""
 							}
 						},
 						{
-							"id": "check-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 305751992379537,
+							"id": "load-layout-images",
+							"objectClass": "System",
+							"sid": 831593873293272,
 							"parameters": {
-								"key": "\"Upg_Data\""
+								"layout": "Void"
 							}
 						}
 					],
-					"sid": 445197504795340
+					"sid": 203896266643160
 				}
 			]
 		},

@@ -12,6 +12,16 @@
 			"sid": 228891296488261
 		},
 		{
+			"eventType": "variable",
+			"name": "Credits",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "permite sair do layout e voltar ao menu principal",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 526807088993748
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -1558,6 +1568,214 @@
 									"sid": 808947411634681
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Credits"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Comic_Side2",
+									"sid": 580411578911155,
+									"parameters": {
+										"animation": "\"Page 8\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 428291079981922,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 579045017551988,
+											"parameters": {
+												"object": "Comic_Side1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 427947178250145,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "Comic_Side1",
+													"sid": 542865355535561,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-in-time",
+													"objectClass": "Comic_Side1",
+													"sid": 390224481084933,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-in-time": "0"
+													}
+												},
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "Comic_Side1",
+													"sid": 238318938369203,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "1"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "Comic_Side1",
+													"sid": 765134713148767,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 109075050533159
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-all",
+											"objectClass": "System",
+											"sid": 539343310693705,
+											"parameters": {
+												"object": "Comic_Side2"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 507314463765350,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-opacity",
+													"objectClass": "Comic_Side2",
+													"sid": 250204087837975,
+													"parameters": {
+														"comparison": 1,
+														"opacity": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-fade-in-time",
+													"objectClass": "Comic_Side2",
+													"sid": 630722008789784,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-in-time": "0"
+													}
+												},
+												{
+													"id": "set-fade-out-time",
+													"objectClass": "Comic_Side2",
+													"sid": 984321394599132,
+													"behaviorType": "Fade",
+													"parameters": {
+														"fade-out-time": "1"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "Comic_Side2",
+													"sid": 553515423447067,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 161255213707417
+										}
+									]
+								},
+								{
+									"bookmark": true,
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 524721669622028,
+											"parameters": {
+												"seconds": "1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 381699737881189,
+											"parameters": {
+												"layer": "\"Credits\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 138576524234330,
+											"parameters": {
+												"layer": "\"Credits\"",
+												"interactive": true
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Txt_Credits",
+											"sid": 992422254105278,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Txt_Credits",
+											"sid": 728182390165763,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "270"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 606550282969291,
+											"parameters": {
+												"seconds": "2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 168033787990485,
+											"parameters": {
+												"variable": "Credits",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 969973535751316
+								}
+							]
 						}
 					]
 				},
@@ -1953,6 +2171,44 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-end",
+					"objectClass": "Touch",
+					"sid": 824628449386493
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 463035645578822,
+					"parameters": {
+						"variable": "Credits"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 957018478672007,
+					"parameters": {
+						"variable": "Layout_To_Load",
+						"value": "\"Menu\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 409303746894203,
+					"parameters": {
+						"layout": "Loading"
+					}
+				}
+			],
+			"sid": 469197625780365
 		}
 	],
 	"sid": 668903503354586

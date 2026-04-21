@@ -385,6 +385,62 @@
 					"sid": 796489266342912
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Bkg_Fight",
+							"sid": 773377115452169,
+							"parameters": {
+								"comparison": 5,
+								"number": "6"
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Bkg_Fight",
+							"sid": 515905403440963,
+							"parameters": {
+								"comparison": 3,
+								"number": "10"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Frg_Extra",
+							"sid": 363969038153367,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Frg_Extra",
+							"sid": 389640722864432,
+							"parameters": {
+								"frame-number": "Bkg_Fight.AnimationFrame - 6"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 343708358679710,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Frg_Extra",
+							"sid": 357493576363830
+						}
+					],
+					"sid": 174078565009254
+				},
+				{
 					"eventType": "comment",
 					"text": "Armor",
 					"text-color": [
@@ -1263,6 +1319,33 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-overlapping-at-offset",
+							"objectClass": "Enemy",
+							"sid": 220923156082959,
+							"parameters": {
+								"object": "Icon_Enemy_Shield",
+								"offset-x": "-326",
+								"offset-y": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Icon_Enemy_Shield",
+							"sid": 685044989331717,
+							"parameters": {
+								"instance-variable": "block",
+								"value": "Enemy.Block"
+							}
+						}
+					],
+					"sid": 647891030273388
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "ProgBar_Fill",
 							"sid": 962497388019956,
@@ -1289,7 +1372,7 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "ProgBar_HP_Enemy",
-							"sid": 244167307043026,
+							"sid": 270991998594319,
 							"parameters": {
 								"object": "Text_HP_Enemy"
 							}
@@ -1299,13 +1382,88 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text_HP_Enemy",
-							"sid": 795023392693682,
+							"sid": 805501642793390,
 							"parameters": {
 								"text": "ProgBar_HP_Enemy.hp & \" / \" & ProgBar_HP_Enemy.max_hp"
 							}
 						}
 					],
-					"sid": 754209169272273
+					"sid": 763867026688957
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Icon_Enemy_Shield",
+							"sid": 654568447883964
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Icon_Enemy_Shield",
+							"sid": 604864758081767,
+							"parameters": {
+								"object": "Text_Shield_Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Shield_Enemy",
+							"sid": 572863468670943,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Shield_Enemy",
+							"sid": 462236323228442,
+							"parameters": {
+								"text": "Icon_Enemy_Shield.block"
+							}
+						}
+					],
+					"sid": 820673145576292
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Icon_Enemy_Shield",
+							"sid": 473664083296542,
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Icon_Enemy_Shield",
+							"sid": 848922554338253,
+							"parameters": {
+								"object": "Text_Shield_Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Text_Shield_Enemy",
+							"sid": 140099641249441,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Shield_Enemy",
+							"sid": 732871325967780,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 905448491919115
 				},
 				{
 					"eventType": "block",
@@ -1474,6 +1632,40 @@
 									"children": [
 										{
 											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Enemy",
+													"sid": 943434857461543,
+													"parameters": {
+														"animation": "\"MVK_Idle\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "Enemy",
+													"sid": 559993437662029,
+													"parameters": {
+														"width": "445",
+														"height": "710"
+													}
+												},
+												{
+													"id": "set-position",
+													"objectClass": "Enemy",
+													"sid": 723012469939475,
+													"parameters": {
+														"x": "Self.X - 100",
+														"y": "Self.Y"
+													}
+												}
+											],
+											"sid": 723737320893679
+										},
+										{
+											"eventType": "block",
 											"conditions": [],
 											"actions": [
 												{
@@ -1637,6 +1829,60 @@
 												}
 											],
 											"sid": 937080260855419
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 985946156636893,
+													"parameters": {
+														"object": "Enemy"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Enemy",
+													"sid": 949998470466676,
+													"parameters": {
+														"instance-variable": "Block",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 291662540094160,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 327071192582090,
+															"parameters": {
+																"object": "Icon_Enemy_Shield",
+																"expression": "Icon_Enemy_Shield.my_ID",
+																"comparison": 0,
+																"value": "Enemy.My_ID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "Icon_Enemy_Shield",
+															"sid": 651092678907790,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 766150088354559
+												}
+											]
 										}
 									]
 								}
@@ -1664,7 +1910,7 @@
 				{
 					"id": "compare-instance-variable",
 					"objectClass": "ProgBar_HP_Enemy",
-					"sid": 215622734438433,
+					"sid": 375985169921446,
 					"parameters": {
 						"instance-variable": "hp",
 						"comparison": 0,
@@ -1674,7 +1920,7 @@
 				{
 					"id": "is-overlapping-another-object",
 					"objectClass": "ProgBar_HP_Enemy",
-					"sid": 121003967532996,
+					"sid": 819562432422587,
 					"parameters": {
 						"object": "ProgBar_Fill"
 					}
@@ -1684,10 +1930,10 @@
 				{
 					"id": "destroy",
 					"objectClass": "ProgBar_Fill",
-					"sid": 606949765372942
+					"sid": 979875236952382
 				}
 			],
-			"sid": 204106441537687
+			"sid": 225445894721046
 		},
 		{
 			"eventType": "block",
@@ -2958,6 +3204,36 @@
 					"sid": 538118369331839,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "dodge",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 580535792079089
+						},
+						{
+							"eventType": "variable",
+							"name": "dodge_check",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 537558389099716
+						},
+						{
+							"eventType": "variable",
+							"name": "p_dmg_mod",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 301316826210149
+						},
+						{
 							"eventType": "comment",
 							"text": "Heal"
 						},
@@ -3218,20 +3494,6 @@
 							]
 						},
 						{
-							"eventType": "comment",
-							"text": "Damage"
-						},
-						{
-							"eventType": "variable",
-							"name": "p_dmg_mod",
-							"type": "number",
-							"initialValue": "1",
-							"comment": "",
-							"isStatic": false,
-							"isConstant": false,
-							"sid": 906025179152323
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -3265,45 +3527,854 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-animation-playing",
+									"objectClass": "Icon_Effect_Player",
+									"sid": 736187403353926,
+									"parameters": {
+										"animation": "\"dodge\""
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Icon_Effect_Player",
+									"sid": 305556161077596
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 110430266293450,
+									"parameters": {
+										"variable": "dodge",
+										"value": "Icon_Effect_Player.Potency"
+									}
+								}
+							],
+							"sid": 402386472607917
+						},
+						{
+							"eventType": "comment",
+							"text": "Damage & Dodge check"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 794017048490435,
+									"sid": 146535011092250,
 									"parameters": {
-										"variable": "Amount",
-										"comparison": 2,
+										"variable": "dodge",
+										"comparison": 0,
 										"value": "0"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 737099543714162,
+							"sid": 109023012367011,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-boolean-eventvar",
+											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 555874644606777,
+											"sid": 206158114763527,
 											"parameters": {
-												"variable": "Piercing"
+												"variable": "Amount",
+												"comparison": 2,
+												"value": "0"
 											}
+										}
+									],
+									"actions": [],
+									"sid": 415064086042056,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 206504780176819,
+													"parameters": {
+														"variable": "Piercing"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 515570240134833,
+													"parameters": {
+														"variable": "HP",
+														"value": "ceil( abs( Amount * p_dmg_mod ) )"
+													}
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 697755767496322,
+													"parameters": {
+														"object-to-create": "Text_Dmg_Numb",
+														"layer": "\"HUD\"",
+														"x": "324",
+														"y": "720",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-angle-of-motion",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 863237943941718,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"angle": "random ( 240, 300 )"
+													}
+												},
+												{
+													"id": "set-font-color",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 716243852061114,
+													"parameters": {
+														"color": "rgbEx(255, 0, 0)"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 928629643745953,
+													"parameters": {
+														"text": "ceil( abs( Amount * p_dmg_mod ) )"
+													}
+												}
+											],
+											"sid": 427932788568885
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 704218468127761
+												}
+											],
+											"actions": [],
+											"sid": 477663142709537,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "remaining_dmg",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 286883947429234
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 478964301368670,
+															"parameters": {
+																"variable": "Shield",
+																"comparison": 4,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "flash",
+															"objectClass": "Text_SP_Player",
+															"sid": 594585629041589,
+															"behaviorType": "Flash",
+															"parameters": {
+																"on-time": "0.1",
+																"off-time": "0.1",
+																"duration": "0.6"
+															}
+														},
+														{
+															"id": "set-visible",
+															"objectClass": "Text_SP_Player",
+															"sid": 553958878756733,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-opacity",
+															"objectClass": "Text_SP_Player",
+															"sid": 195315698507716,
+															"parameters": {
+																"opacity": "100"
+															}
+														},
+														{
+															"id": "restart-fade",
+															"objectClass": "Text_SP_Player",
+															"sid": 894142523409366,
+															"behaviorType": "Fade"
+														},
+														{
+															"id": "flash",
+															"objectClass": "TiledBkg_Shield",
+															"sid": 534784376122496,
+															"behaviorType": "Flash",
+															"parameters": {
+																"on-time": "0.1",
+																"off-time": "0.1",
+																"duration": "0.4"
+															}
+														}
+													],
+													"sid": 796474852735736
+												},
+												{
+													"eventType": "comment",
+													"text": "Tankou"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 843105769541241,
+															"parameters": {
+																"first-value": "Shield - abs( Amount )",
+																"comparison": 5,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 368490353335044,
+															"parameters": {
+																"variable": "Shield",
+																"value": "ceil( abs( Amount * p_dmg_mod ) )"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 685013588138967,
+															"parameters": {
+																"object-to-create": "Text_Dmg_Numb",
+																"layer": "\"HUD\"",
+																"x": "301",
+																"y": "814",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 774465051451536,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random ( 240, 300 )"
+															}
+														},
+														{
+															"id": "set-font-color",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 490635014651188,
+															"parameters": {
+																"color": "rgbEx(0, 0, 0)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 137319641705278,
+															"parameters": {
+																"text": "ceil( abs( Amount * p_dmg_mod ) )"
+															}
+														}
+													],
+													"sid": 748938849128717
+												},
+												{
+													"eventType": "comment",
+													"text": "Não tankou"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 773417410686078
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 856047104079390,
+															"parameters": {
+																"variable": "remaining_dmg",
+																"value": "abs( Shield - ceil (abs( Amount * p_dmg_mod ) ) )"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 319440161252899,
+															"parameters": {
+																"variable": "Shield",
+																"value": "0"
+															}
+														},
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 974393228527379,
+															"parameters": {
+																"variable": "HP",
+																"value": "remaining_dmg"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 634436420401119,
+															"parameters": {
+																"object-to-create": "Text_Dmg_Numb",
+																"layer": "\"HUD\"",
+																"x": "301",
+																"y": "814",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 208624038931824,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random ( 240, 300 )"
+															}
+														},
+														{
+															"id": "set-font-color",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 804862888293230,
+															"parameters": {
+																"color": "rgbEx(255, 0, 0)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 397764551401264,
+															"parameters": {
+																"text": "abs ( remaining_dmg )"
+															}
+														}
+													],
+													"sid": 603681722513267
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-flashing",
+													"objectClass": "Player",
+													"sid": 790562140919035,
+													"behaviorType": "Flash",
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Player",
+													"sid": 565302390489509,
+													"parameters": {
+														"animation": "Armor_Name_ID & \"_Hurt\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-effect-parameter",
+													"objectClass": "Player",
+													"sid": 572562722236106,
+													"parameters": {
+														"effect": "\"Brightness\"",
+														"parameter-index": "0",
+														"value": "180"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Player",
+													"sid": 475459425173707,
+													"parameters": {
+														"frame-number": "1"
+													}
+												},
+												{
+													"id": "flash",
+													"objectClass": "Player",
+													"sid": 760817286747180,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "0.6"
+													}
+												}
+											],
+											"sid": 595344326588513
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 435648347471322
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 973741013172748,
+									"parameters": {
+										"variable": "dodge_check",
+										"value": "int ( random (0, 101) )"
+									}
+								}
+							],
+							"sid": 637466906894646,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 306884625187636,
+											"parameters": {
+												"variable": "dodge_check",
+												"comparison": 4,
+												"value": "dodge"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 269196680734552,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 967121520436160,
+													"parameters": {
+														"variable": "Amount",
+														"comparison": 2,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 795968336279394,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 148516748094856,
+															"parameters": {
+																"variable": "Piercing"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-eventvar",
+															"objectClass": "System",
+															"sid": 578906859817879,
+															"parameters": {
+																"variable": "HP",
+																"value": "ceil( abs( Amount * p_dmg_mod ) )"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 693249818509622,
+															"parameters": {
+																"object-to-create": "Text_Dmg_Numb",
+																"layer": "\"HUD\"",
+																"x": "324",
+																"y": "720",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 729902520658429,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random ( 240, 300 )"
+															}
+														},
+														{
+															"id": "set-font-color",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 987382207319176,
+															"parameters": {
+																"color": "rgbEx(255, 0, 0)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 565016708345749,
+															"parameters": {
+																"text": "ceil( abs( Amount * p_dmg_mod ) )"
+															}
+														}
+													],
+													"sid": 536284435532330
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 697315562967380
+														}
+													],
+													"actions": [],
+													"sid": 220972011354009,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "remaining_dmg",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 475627852225893
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 518222832056387,
+																	"parameters": {
+																		"variable": "Shield",
+																		"comparison": 4,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "flash",
+																	"objectClass": "Text_SP_Player",
+																	"sid": 531800584057309,
+																	"behaviorType": "Flash",
+																	"parameters": {
+																		"on-time": "0.1",
+																		"off-time": "0.1",
+																		"duration": "0.6"
+																	}
+																},
+																{
+																	"id": "set-visible",
+																	"objectClass": "Text_SP_Player",
+																	"sid": 160102407973079,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
+																{
+																	"id": "set-opacity",
+																	"objectClass": "Text_SP_Player",
+																	"sid": 972847310620203,
+																	"parameters": {
+																		"opacity": "100"
+																	}
+																},
+																{
+																	"id": "restart-fade",
+																	"objectClass": "Text_SP_Player",
+																	"sid": 710636212379630,
+																	"behaviorType": "Fade"
+																},
+																{
+																	"id": "flash",
+																	"objectClass": "TiledBkg_Shield",
+																	"sid": 266877975534163,
+																	"behaviorType": "Flash",
+																	"parameters": {
+																		"on-time": "0.1",
+																		"off-time": "0.1",
+																		"duration": "0.4"
+																	}
+																}
+															],
+															"sid": 743441338528669
+														},
+														{
+															"eventType": "comment",
+															"text": "Tankou"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 902304723218745,
+																	"parameters": {
+																		"first-value": "Shield - abs( Amount )",
+																		"comparison": 5,
+																		"second-value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-eventvar",
+																	"objectClass": "System",
+																	"sid": 361590545888926,
+																	"parameters": {
+																		"variable": "Shield",
+																		"value": "ceil( abs( Amount * p_dmg_mod ) )"
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 691930584010144,
+																	"parameters": {
+																		"object-to-create": "Text_Dmg_Numb",
+																		"layer": "\"HUD\"",
+																		"x": "301",
+																		"y": "814",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-angle-of-motion",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 902567623942670,
+																	"behaviorType": "Bullet",
+																	"parameters": {
+																		"angle": "random ( 240, 300 )"
+																	}
+																},
+																{
+																	"id": "set-font-color",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 365445553058980,
+																	"parameters": {
+																		"color": "rgbEx(0, 0, 0)"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 152524517912743,
+																	"parameters": {
+																		"text": "ceil( abs( Amount * p_dmg_mod ) )"
+																	}
+																}
+															],
+															"sid": 622796929819803
+														},
+														{
+															"eventType": "comment",
+															"text": "Não tankou"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 904619775393427
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 447816216069939,
+																	"parameters": {
+																		"variable": "remaining_dmg",
+																		"value": "abs( Shield - ceil (abs( Amount * p_dmg_mod ) ) )"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 922812740687014,
+																	"parameters": {
+																		"variable": "Shield",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "subtract-from-eventvar",
+																	"objectClass": "System",
+																	"sid": 186674880424480,
+																	"parameters": {
+																		"variable": "HP",
+																		"value": "remaining_dmg"
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 237162945846579,
+																	"parameters": {
+																		"object-to-create": "Text_Dmg_Numb",
+																		"layer": "\"HUD\"",
+																		"x": "301",
+																		"y": "814",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-angle-of-motion",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 158313995862381,
+																	"behaviorType": "Bullet",
+																	"parameters": {
+																		"angle": "random ( 240, 300 )"
+																	}
+																},
+																{
+																	"id": "set-font-color",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 455648284335727,
+																	"parameters": {
+																		"color": "rgbEx(255, 0, 0)"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 724187906229541,
+																	"parameters": {
+																		"text": "abs ( remaining_dmg )"
+																	}
+																}
+															],
+															"sid": 478083727676369
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-flashing",
+															"objectClass": "Player",
+															"sid": 637856960776547,
+															"behaviorType": "Flash",
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Player",
+															"sid": 304362155972611,
+															"parameters": {
+																"animation": "Armor_Name_ID & \"_Hurt\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-effect-parameter",
+															"objectClass": "Player",
+															"sid": 985030093378587,
+															"parameters": {
+																"effect": "\"Brightness\"",
+																"parameter-index": "0",
+																"value": "180"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Player",
+															"sid": 978683785934345,
+															"parameters": {
+																"frame-number": "1"
+															}
+														},
+														{
+															"id": "flash",
+															"objectClass": "Player",
+															"sid": 115044618430741,
+															"behaviorType": "Flash",
+															"parameters": {
+																"on-time": "0.1",
+																"off-time": "0.1",
+																"duration": "0.6"
+															}
+														}
+													],
+													"sid": 761244250666263
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 239104444334108
 										}
 									],
 									"actions": [
 										{
-											"id": "subtract-from-eventvar",
-											"objectClass": "System",
-											"sid": 189860456573651,
-											"parameters": {
-												"variable": "HP",
-												"value": "ceil( abs( Amount * p_dmg_mod ) )"
-											}
-										},
-										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 152765370347422,
+											"sid": 827903655517823,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
 												"layer": "\"HUD\"",
@@ -3316,7 +4387,7 @@
 										{
 											"id": "set-angle-of-motion",
 											"objectClass": "Text_Dmg_Numb",
-											"sid": 999937178899238,
+											"sid": 123449153367033,
 											"behaviorType": "Bullet",
 											"parameters": {
 												"angle": "random ( 240, 300 )"
@@ -3325,311 +4396,21 @@
 										{
 											"id": "set-font-color",
 											"objectClass": "Text_Dmg_Numb",
-											"sid": 261217493815825,
+											"sid": 301870824609976,
 											"parameters": {
-												"color": "rgbEx(255, 0, 0)"
+												"color": "rgbEx(19, 250, 242)"
 											}
 										},
 										{
 											"id": "set-text",
 											"objectClass": "Text_Dmg_Numb",
-											"sid": 260026731006894,
+											"sid": 784443601068687,
 											"parameters": {
-												"text": "ceil( abs( Amount * p_dmg_mod ) )"
+												"text": "Internationalization.Lookup(\"fight.dodge_trigger\")"
 											}
 										}
 									],
-									"sid": 102845552324590
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 724977776365770
-										}
-									],
-									"actions": [],
-									"sid": 388950148391408,
-									"children": [
-										{
-											"eventType": "variable",
-											"name": "remaining_dmg",
-											"type": "number",
-											"initialValue": "0",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 402980345839364
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 275797432841989,
-													"parameters": {
-														"variable": "Shield",
-														"comparison": 4,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "flash",
-													"objectClass": "Text_SP_Player",
-													"sid": 868033132244650,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.1",
-														"off-time": "0.1",
-														"duration": "0.6"
-													}
-												},
-												{
-													"id": "set-visible",
-													"objectClass": "Text_SP_Player",
-													"sid": 179365976568138,
-													"parameters": {
-														"visibility": "visible"
-													}
-												},
-												{
-													"id": "set-opacity",
-													"objectClass": "Text_SP_Player",
-													"sid": 546360103416422,
-													"parameters": {
-														"opacity": "100"
-													}
-												},
-												{
-													"id": "restart-fade",
-													"objectClass": "Text_SP_Player",
-													"sid": 531442857361092,
-													"behaviorType": "Fade"
-												},
-												{
-													"id": "flash",
-													"objectClass": "TiledBkg_Shield",
-													"sid": 355742661920189,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.1",
-														"off-time": "0.1",
-														"duration": "0.4"
-													}
-												}
-											],
-											"sid": 397752719224843
-										},
-										{
-											"eventType": "comment",
-											"text": "Tankou"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-two-values",
-													"objectClass": "System",
-													"sid": 917103529217986,
-													"parameters": {
-														"first-value": "Shield - abs( Amount )",
-														"comparison": 5,
-														"second-value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "subtract-from-eventvar",
-													"objectClass": "System",
-													"sid": 481760646320087,
-													"parameters": {
-														"variable": "Shield",
-														"value": "ceil( abs( Amount * p_dmg_mod ) )"
-													}
-												},
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 871677194965314,
-													"parameters": {
-														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
-														"x": "301",
-														"y": "814",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "set-angle-of-motion",
-													"objectClass": "Text_Dmg_Numb",
-													"sid": 447051570764396,
-													"behaviorType": "Bullet",
-													"parameters": {
-														"angle": "random ( 240, 300 )"
-													}
-												},
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Dmg_Numb",
-													"sid": 283966825028089,
-													"parameters": {
-														"color": "rgbEx(0, 0, 0)"
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "Text_Dmg_Numb",
-													"sid": 238485162333472,
-													"parameters": {
-														"text": "ceil( abs( Amount * p_dmg_mod ) )"
-													}
-												}
-											],
-											"sid": 241876129732829
-										},
-										{
-											"eventType": "comment",
-											"text": "Não tankou"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 222760835063098
-												}
-											],
-											"actions": [
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 298069576066001,
-													"parameters": {
-														"variable": "remaining_dmg",
-														"value": "abs( Shield - ceil (abs( Amount * p_dmg_mod ) ) )"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 101426910128512,
-													"parameters": {
-														"variable": "Shield",
-														"value": "0"
-													}
-												},
-												{
-													"id": "subtract-from-eventvar",
-													"objectClass": "System",
-													"sid": 658003703377575,
-													"parameters": {
-														"variable": "HP",
-														"value": "remaining_dmg"
-													}
-												},
-												{
-													"id": "create-object",
-													"objectClass": "System",
-													"sid": 650536779023911,
-													"parameters": {
-														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
-														"x": "301",
-														"y": "814",
-														"create-hierarchy": false,
-														"template-name": "\"\""
-													}
-												},
-												{
-													"id": "set-angle-of-motion",
-													"objectClass": "Text_Dmg_Numb",
-													"sid": 568718142779565,
-													"behaviorType": "Bullet",
-													"parameters": {
-														"angle": "random ( 240, 300 )"
-													}
-												},
-												{
-													"id": "set-font-color",
-													"objectClass": "Text_Dmg_Numb",
-													"sid": 571533877555248,
-													"parameters": {
-														"color": "rgbEx(255, 0, 0)"
-													}
-												},
-												{
-													"id": "set-text",
-													"objectClass": "Text_Dmg_Numb",
-													"sid": 212423564028056,
-													"parameters": {
-														"text": "abs ( remaining_dmg )"
-													}
-												}
-											],
-											"sid": 259126261300986
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "is-flashing",
-											"objectClass": "Player",
-											"sid": 607236029413749,
-											"behaviorType": "Flash",
-											"isInverted": true
-										}
-									],
-									"actions": [
-										{
-											"id": "set-animation",
-											"objectClass": "Player",
-											"sid": 557496190005194,
-											"parameters": {
-												"animation": "Armor_Name_ID & \"_Hurt\"",
-												"from": "beginning"
-											}
-										},
-										{
-											"id": "set-effect-parameter",
-											"objectClass": "Player",
-											"sid": 529467767683098,
-											"parameters": {
-												"effect": "\"Brightness\"",
-												"parameter-index": "0",
-												"value": "180"
-											}
-										},
-										{
-											"id": "set-animation-frame",
-											"objectClass": "Player",
-											"sid": 106179178358134,
-											"parameters": {
-												"frame-number": "1"
-											}
-										},
-										{
-											"id": "flash",
-											"objectClass": "Player",
-											"sid": 557744919101285,
-											"behaviorType": "Flash",
-											"parameters": {
-												"on-time": "0.1",
-												"off-time": "0.1",
-												"duration": "0.6"
-											}
-										}
-									],
-									"sid": 699336257008302
+									"sid": 731125841268919
 								}
 							]
 						}
@@ -11765,9 +12546,9 @@
 															"type": "number",
 															"initialValue": "0",
 															"comment": "",
-															"isStatic": false,
+															"isStatic": true,
 															"isConstant": false,
-															"sid": 733970454688913
+															"sid": 165664639653463
 														},
 														{
 															"eventType": "variable",
@@ -11775,144 +12556,173 @@
 															"type": "number",
 															"initialValue": "1",
 															"comment": "",
-															"isStatic": false,
+															"isStatic": true,
 															"isConstant": false,
-															"sid": 428922354764612
+															"sid": 928947872903862
+														},
+														{
+															"eventType": "comment",
+															"text": "Para demais inimigos, segue o mesmo padrão de animações e escolha aleatória de 2 habilidades possíveis"
 														},
 														{
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "for-each",
-																	"objectClass": "System",
-																	"sid": 934628052052709,
+																	"id": "compare-instance-variable",
+																	"objectClass": "Enemy",
+																	"sid": 677901605281851,
 																	"parameters": {
-																		"object": "Icon_Effect_Enemy"
+																		"instance-variable": "ID",
+																		"comparison": 1,
+																		"value": "\"VK\""
 																	}
 																},
 																{
 																	"id": "compare-instance-variable",
-																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 628460143271787,
+																	"objectClass": "Enemy",
+																	"sid": 814797868448395,
 																	"parameters": {
-																		"instance-variable": "My_Z",
-																		"comparison": 0,
-																		"value": "TURN"
+																		"instance-variable": "ID",
+																		"comparison": 1,
+																		"value": "\"MVK\""
 																	}
 																}
 															],
 															"actions": [
 																{
-																	"id": "add-to-eventvar",
+																	"id": "set-eventvar-value",
 																	"objectClass": "System",
-																	"sid": 735274177105163,
+																	"sid": 781668710774190,
 																	"parameters": {
 																		"variable": "lock",
-																		"value": "1"
+																		"value": "0"
 																	}
 																},
 																{
-																	"id": "log",
-																	"objectClass": "Browser",
-																	"sid": 968633860086356,
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 173945221687419,
 																	"parameters": {
-																		"type": "log",
-																		"message": "\"lock \"&lock"
+																		"variable": "Dmg_mod",
+																		"value": "1"
 																	}
 																}
 															],
-															"sid": 745693313567330,
+															"sid": 424589668199361,
 															"children": [
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "is-animation-playing",
-																			"objectClass": "Icon_Effect_Enemy",
-																			"sid": 176613746703396,
-																			"parameters": {
-																				"animation": "\"weak\""
-																			}
-																		},
-																		{
-																			"id": "is-visible",
-																			"objectClass": "Icon_Effect_Enemy",
-																			"sid": 335671973917478
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "subtract-from-eventvar",
+																			"id": "for-each",
 																			"objectClass": "System",
-																			"sid": 818063167248271,
+																			"sid": 206287497102344,
 																			"parameters": {
-																				"variable": "Dmg_mod",
-																				"value": "Icon_Effect_Enemy.Potency / 100"
-																			}
-																		}
-																	],
-																	"sid": 676998529181684
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "is-animation-playing",
-																			"objectClass": "Icon_Effect_Enemy",
-																			"sid": 339800175381459,
-																			"parameters": {
-																				"animation": "\"power\""
+																				"object": "Icon_Effect_Enemy"
 																			}
 																		},
 																		{
 																			"id": "compare-instance-variable",
 																			"objectClass": "Icon_Effect_Enemy",
-																			"sid": 855949350768577,
+																			"sid": 320461313459961,
 																			"parameters": {
 																				"instance-variable": "My_Z",
 																				"comparison": 0,
 																				"value": "TURN"
 																			}
-																		},
-																		{
-																			"id": "is-visible",
-																			"objectClass": "Icon_Effect_Enemy",
-																			"sid": 607028001822174
 																		}
 																	],
 																	"actions": [
 																		{
 																			"id": "add-to-eventvar",
 																			"objectClass": "System",
-																			"sid": 442102957054524,
-																			"parameters": {
-																				"variable": "Dmg_mod",
-																				"value": "Icon_Effect_Enemy.Potency / 100"
-																			}
-																		}
-																	],
-																	"sid": 442107065093989
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-eventvar",
-																			"objectClass": "System",
-																			"sid": 408220815894556,
+																			"sid": 482142429165541,
 																			"parameters": {
 																				"variable": "lock",
-																				"comparison": 0,
-																				"value": "4"
+																				"value": "1"
+																			}
+																		},
+																		{
+																			"id": "log",
+																			"objectClass": "Browser",
+																			"sid": 408644289852909,
+																			"parameters": {
+																				"type": "log",
+																				"message": "\"lock \"&lock"
 																			}
 																		}
 																	],
-																	"actions": [],
-																	"sid": 820452053249858,
+																	"sid": 877075320338531,
 																	"children": [
 																		{
-																			"eventType": "comment",
-																			"text": "Usar habilidade 1"
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 647074279324512,
+																					"parameters": {
+																						"animation": "\"weak\""
+																					}
+																				},
+																				{
+																					"id": "is-visible",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 891007502856693
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "subtract-from-eventvar",
+																					"objectClass": "System",
+																					"sid": 737515563100051,
+																					"parameters": {
+																						"variable": "Dmg_mod",
+																						"value": "Icon_Effect_Enemy.Potency / 100"
+																					}
+																				}
+																			],
+																			"sid": 428437829662532
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 488383902185668,
+																					"parameters": {
+																						"animation": "\"power\""
+																					}
+																				},
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 758505384960110,
+																					"parameters": {
+																						"instance-variable": "My_Z",
+																						"comparison": 0,
+																						"value": "TURN"
+																					}
+																				},
+																				{
+																					"id": "is-visible",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 710493046744850
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "add-to-eventvar",
+																					"objectClass": "System",
+																					"sid": 872457758663811,
+																					"parameters": {
+																						"variable": "Dmg_mod",
+																						"value": "Icon_Effect_Enemy.Potency / 100"
+																					}
+																				}
+																			],
+																			"sid": 639614617855155
 																		},
 																		{
 																			"eventType": "block",
@@ -11920,110 +12730,921 @@
 																				{
 																					"id": "compare-eventvar",
 																					"objectClass": "System",
-																					"sid": 876838802993260,
+																					"sid": 312309794076973,
 																					"parameters": {
-																						"variable": "rng",
-																						"comparison": 3,
-																						"value": "Enemy.Hab_1_Chance"
+																						"variable": "lock",
+																						"comparison": 0,
+																						"value": "4"
 																					}
 																				}
 																			],
-																			"actions": [
+																			"actions": [],
+																			"sid": 670405739790438,
+																			"children": [
 																				{
-																					"id": "set-animation",
-																					"objectClass": "Enemy",
-																					"sid": 133903282231055,
-																					"parameters": {
-																						"animation": "Self.ID & \"_Attack\"",
-																						"from": "beginning"
-																					}
+																					"eventType": "comment",
+																					"text": "Usar habilidade 1"
 																				},
 																				{
-																					"callFunction": "Use_Hab_Enemy",
-																					"sid": 708631051528407,
-																					"parameters": [
-																						"Enemy.Hab_1",
-																						"Dmg_mod",
-																						"0"
-																					]
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-eventvar",
+																							"objectClass": "System",
+																							"sid": 590837541901066,
+																							"parameters": {
+																								"variable": "rng",
+																								"comparison": 3,
+																								"value": "Enemy.Hab_1_Chance"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-animation",
+																							"objectClass": "Enemy",
+																							"sid": 290398132831277,
+																							"parameters": {
+																								"animation": "Self.ID & \"_Attack\"",
+																								"from": "beginning"
+																							}
+																						},
+																						{
+																							"callFunction": "Use_Hab_Enemy",
+																							"sid": 993659275512978,
+																							"parameters": [
+																								"Enemy.Hab_1",
+																								"Dmg_mod",
+																								"0"
+																							]
+																						}
+																					],
+																					"sid": 608903642340106
+																				},
+																				{
+																					"eventType": "comment",
+																					"text": "Usar habilidade 2"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 268605203957353
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-animation",
+																							"objectClass": "Enemy",
+																							"sid": 926301495514748,
+																							"parameters": {
+																								"animation": "Self.ID & \"_Attack\"",
+																								"from": "beginning"
+																							}
+																						},
+																						{
+																							"callFunction": "Use_Hab_Enemy",
+																							"sid": 435278856202563,
+																							"parameters": [
+																								"Enemy.Hab_2",
+																								"Dmg_mod",
+																								"0"
+																							]
+																						}
+																					],
+																					"sid": 860962739232367
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "is-animation-playing",
+																							"objectClass": "Icon_Effect_Player",
+																							"sid": 759082261045989,
+																							"parameters": {
+																								"animation": "\"zap\""
+																							}
+																						},
+																						{
+																							"id": "is-visible",
+																							"objectClass": "Icon_Effect_Player",
+																							"sid": 233720722104582
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "wait",
+																							"objectClass": "System",
+																							"sid": 252952372497341,
+																							"parameters": {
+																								"seconds": "0.75",
+																								"use-timescale": true
+																							}
+																						},
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 174563556179747,
+																							"parameters": [
+																								"-1 * Icon_Effect_Player.Potency",
+																								"0",
+																								true,
+																								"Enemy.UID"
+																							]
+																						}
+																					],
+																					"sid": 239890340423627
 																				}
-																			],
-																			"sid": 236197360544729
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"eventType": "comment",
+															"text": "Para o boss (fase 1 e 2), as animações e escolha de habilidades não é totalmente aleatória"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 131828506841229
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Enemy",
+																	"sid": 122286848866308,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "\"VK\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 337365975450777,
+																	"parameters": {
+																		"variable": "lock",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 497989196632809,
+																	"parameters": {
+																		"variable": "Dmg_mod",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 625032137964337,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "for-each",
+																			"objectClass": "System",
+																			"sid": 176365355734997,
+																			"parameters": {
+																				"object": "Icon_Effect_Enemy"
+																			}
 																		},
 																		{
-																			"eventType": "comment",
-																			"text": "Usar habilidade 2"
+																			"id": "compare-instance-variable",
+																			"objectClass": "Icon_Effect_Enemy",
+																			"sid": 900371160670096,
+																			"parameters": {
+																				"instance-variable": "My_Z",
+																				"comparison": 0,
+																				"value": "TURN"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 558060773714576,
+																			"parameters": {
+																				"variable": "lock",
+																				"value": "1"
+																			}
 																		},
+																		{
+																			"id": "log",
+																			"objectClass": "Browser",
+																			"sid": 388826801511851,
+																			"parameters": {
+																				"type": "log",
+																				"message": "\"lock \"&lock"
+																			}
+																		}
+																	],
+																	"sid": 695026463714561,
+																	"children": [
 																		{
 																			"eventType": "block",
 																			"conditions": [
 																				{
-																					"id": "else",
-																					"objectClass": "System",
-																					"sid": 496895788130264
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 320560984378126,
+																					"parameters": {
+																						"animation": "\"weak\""
+																					}
+																				},
+																				{
+																					"id": "is-visible",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 353010257594081
 																				}
 																			],
 																			"actions": [
 																				{
-																					"id": "set-animation",
-																					"objectClass": "Enemy",
-																					"sid": 616549390196320,
+																					"id": "subtract-from-eventvar",
+																					"objectClass": "System",
+																					"sid": 187923675413740,
 																					"parameters": {
-																						"animation": "Self.ID & \"_Attack\"",
-																						"from": "beginning"
+																						"variable": "Dmg_mod",
+																						"value": "Icon_Effect_Enemy.Potency / 100"
 																					}
-																				},
-																				{
-																					"callFunction": "Use_Hab_Enemy",
-																					"sid": 429410631075142,
-																					"parameters": [
-																						"Enemy.Hab_2",
-																						"Dmg_mod",
-																						"0"
-																					]
 																				}
 																			],
-																			"sid": 666168009297245
+																			"sid": 886679610753468
 																		},
 																		{
 																			"eventType": "block",
 																			"conditions": [
 																				{
 																					"id": "is-animation-playing",
-																					"objectClass": "Icon_Effect_Player",
-																					"sid": 754258992358917,
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 781961171091705,
 																					"parameters": {
-																						"animation": "\"zap\""
+																						"animation": "\"power\""
+																					}
+																				},
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 254876049639231,
+																					"parameters": {
+																						"instance-variable": "My_Z",
+																						"comparison": 0,
+																						"value": "TURN"
 																					}
 																				},
 																				{
 																					"id": "is-visible",
-																					"objectClass": "Icon_Effect_Player",
-																					"sid": 575329842603435
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 244495267593336
 																				}
 																			],
 																			"actions": [
 																				{
-																					"id": "wait",
+																					"id": "add-to-eventvar",
 																					"objectClass": "System",
-																					"sid": 629481730869751,
+																					"sid": 291757915655380,
 																					"parameters": {
-																						"seconds": "0.75",
-																						"use-timescale": true
+																						"variable": "Dmg_mod",
+																						"value": "Icon_Effect_Enemy.Potency / 100"
+																					}
+																				}
+																			],
+																			"sid": 920454431194835
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 952472130088283,
+																					"parameters": {
+																						"variable": "lock",
+																						"comparison": 0,
+																						"value": "4"
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 511102555785655,
+																			"children": [
+																				{
+																					"eventType": "comment",
+																					"text": "Usar habilidade especial (HP < 50%)"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "is-boolean-instance-variable-set",
+																							"objectClass": "Enemy",
+																							"sid": 199413414727528,
+																							"parameters": {
+																								"instance-variable": "Special_Hab_Used"
+																							},
+																							"isInverted": true
+																						},
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "Enemy",
+																							"sid": 799366046123494,
+																							"parameters": {
+																								"instance-variable": "HP",
+																								"comparison": 3,
+																								"value": "Self.MAX_HP / 2"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "Enemy",
+																							"sid": 556824833256768,
+																							"parameters": {
+																								"instance-variable": "Special_Hab_Used",
+																								"value": "true"
+																							}
+																						},
+																						{
+																							"id": "set-animation",
+																							"objectClass": "Enemy",
+																							"sid": 779487367610322,
+																							"parameters": {
+																								"animation": "\"VK_Smoke\"",
+																								"from": "beginning"
+																							}
+																						},
+																						{
+																							"id": "wait",
+																							"objectClass": "System",
+																							"sid": 592505263681456,
+																							"parameters": {
+																								"seconds": "1.0",
+																								"use-timescale": true
+																							}
+																						},
+																						{
+																							"callFunction": "Use_Hab_Enemy",
+																							"sid": 651524512612577,
+																							"parameters": [
+																								"Enemy.Special_Hab",
+																								"Dmg_mod",
+																								"0"
+																							]
+																						}
+																					],
+																					"sid": 263307826847943
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 624685452732484
+																						}
+																					],
+																					"actions": [],
+																					"sid": 506444468683877,
+																					"children": [
+																						{
+																							"eventType": "comment",
+																							"text": "Usar habilidade 1"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-eventvar",
+																									"objectClass": "System",
+																									"sid": 329480966180462,
+																									"parameters": {
+																										"variable": "rng",
+																										"comparison": 3,
+																										"value": "Enemy.Hab_1_Chance"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "set-animation",
+																									"objectClass": "Enemy",
+																									"sid": 116169425443951,
+																									"parameters": {
+																										"animation": "\"VK_Attack_1\"",
+																										"from": "beginning"
+																									}
+																								},
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 251092899408808,
+																									"parameters": {
+																										"seconds": "1.0",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"callFunction": "Use_Hab_Enemy",
+																									"sid": 539262717916928,
+																									"parameters": [
+																										"Enemy.Hab_1",
+																										"Dmg_mod",
+																										"0"
+																									]
+																								}
+																							],
+																							"sid": 310166800680038
+																						},
+																						{
+																							"eventType": "comment",
+																							"text": "Usar habilidade 2"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "else",
+																									"objectClass": "System",
+																									"sid": 757974308893710
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "set-animation",
+																									"objectClass": "Enemy",
+																									"sid": 530145357959601,
+																									"parameters": {
+																										"animation": "\"VK_Attack_2\"",
+																										"from": "beginning"
+																									}
+																								},
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 938390740237383,
+																									"parameters": {
+																										"seconds": "1.0",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"callFunction": "Use_Hab_Enemy",
+																									"sid": 894740295405524,
+																									"parameters": [
+																										"Enemy.Hab_2",
+																										"Dmg_mod",
+																										"0"
+																									]
+																								}
+																							],
+																							"sid": 916940938514920
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "is-animation-playing",
+																									"objectClass": "Icon_Effect_Player",
+																									"sid": 486527484728111,
+																									"parameters": {
+																										"animation": "\"zap\""
+																									}
+																								},
+																								{
+																									"id": "is-visible",
+																									"objectClass": "Icon_Effect_Player",
+																									"sid": 572409315273709
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 390641992042489,
+																									"parameters": {
+																										"seconds": "0.75",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 131503254867954,
+																									"parameters": [
+																										"-1 * Icon_Effect_Player.Potency",
+																										"0",
+																										true,
+																										"Enemy.UID"
+																									]
+																								}
+																							],
+																							"sid": 944434461424973
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 918896761641880
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Enemy",
+																	"sid": 856508832686822,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"comparison": 0,
+																		"value": "\"MVK\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 352443149719988,
+																	"parameters": {
+																		"variable": "lock",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 650653056796995,
+																	"parameters": {
+																		"variable": "Dmg_mod",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 143068931922540,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "for-each",
+																			"objectClass": "System",
+																			"sid": 738986751453989,
+																			"parameters": {
+																				"object": "Icon_Effect_Enemy"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Icon_Effect_Enemy",
+																			"sid": 142554835684821,
+																			"parameters": {
+																				"instance-variable": "My_Z",
+																				"comparison": 0,
+																				"value": "TURN"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-eventvar",
+																			"objectClass": "System",
+																			"sid": 635024404080940,
+																			"parameters": {
+																				"variable": "lock",
+																				"value": "1"
+																			}
+																		},
+																		{
+																			"id": "log",
+																			"objectClass": "Browser",
+																			"sid": 230404589530089,
+																			"parameters": {
+																				"type": "log",
+																				"message": "\"lock \"&lock"
+																			}
+																		}
+																	],
+																	"sid": 218584946955633,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 843245390462452,
+																					"parameters": {
+																						"animation": "\"weak\""
 																					}
 																				},
 																				{
-																					"callFunction": "Change_Health_Enemy",
-																					"sid": 182458075425312,
-																					"parameters": [
-																						"-1 * Icon_Effect_Player.Potency",
-																						"0",
-																						true,
-																						"Enemy.UID"
-																					]
+																					"id": "is-visible",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 967548985882601
 																				}
 																			],
-																			"sid": 435111264668885
+																			"actions": [
+																				{
+																					"id": "subtract-from-eventvar",
+																					"objectClass": "System",
+																					"sid": 686902790593688,
+																					"parameters": {
+																						"variable": "Dmg_mod",
+																						"value": "Icon_Effect_Enemy.Potency / 100"
+																					}
+																				}
+																			],
+																			"sid": 161911864802796
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 394794074289815,
+																					"parameters": {
+																						"animation": "\"power\""
+																					}
+																				},
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 525299401347002,
+																					"parameters": {
+																						"instance-variable": "My_Z",
+																						"comparison": 0,
+																						"value": "TURN"
+																					}
+																				},
+																				{
+																					"id": "is-visible",
+																					"objectClass": "Icon_Effect_Enemy",
+																					"sid": 500139336744944
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "add-to-eventvar",
+																					"objectClass": "System",
+																					"sid": 771701740203267,
+																					"parameters": {
+																						"variable": "Dmg_mod",
+																						"value": "Icon_Effect_Enemy.Potency / 100"
+																					}
+																				}
+																			],
+																			"sid": 223965868644062
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-eventvar",
+																					"objectClass": "System",
+																					"sid": 876447155264119,
+																					"parameters": {
+																						"variable": "lock",
+																						"comparison": 0,
+																						"value": "4"
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 481914054597737,
+																			"children": [
+																				{
+																					"eventType": "comment",
+																					"text": "Usar habilidade especial (HP < 50%)"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "is-boolean-instance-variable-set",
+																							"objectClass": "Enemy",
+																							"sid": 739839782316709,
+																							"parameters": {
+																								"instance-variable": "Special_Hab_Used"
+																							},
+																							"isInverted": true
+																						},
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "Enemy",
+																							"sid": 315175104533227,
+																							"parameters": {
+																								"instance-variable": "HP",
+																								"comparison": 3,
+																								"value": "Self.MAX_HP / 2"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "Enemy",
+																							"sid": 634076525609101,
+																							"parameters": {
+																								"instance-variable": "Special_Hab_Used",
+																								"value": "true"
+																							}
+																						},
+																						{
+																							"id": "set-animation",
+																							"objectClass": "Enemy",
+																							"sid": 849669121310974,
+																							"parameters": {
+																								"animation": "\"MVK_Power_2\"",
+																								"from": "beginning"
+																							}
+																						},
+																						{
+																							"id": "wait",
+																							"objectClass": "System",
+																							"sid": 104768334021321,
+																							"parameters": {
+																								"seconds": "0.7",
+																								"use-timescale": true
+																							}
+																						},
+																						{
+																							"callFunction": "Use_Hab_Enemy",
+																							"sid": 849585638427764,
+																							"parameters": [
+																								"Enemy.Special_Hab",
+																								"Dmg_mod",
+																								"0"
+																							]
+																						}
+																					],
+																					"sid": 556746072414681
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 132856742072131
+																						}
+																					],
+																					"actions": [],
+																					"sid": 247577901673300,
+																					"children": [
+																						{
+																							"eventType": "comment",
+																							"text": "Usar habilidade 1"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-eventvar",
+																									"objectClass": "System",
+																									"sid": 423632189914188,
+																									"parameters": {
+																										"variable": "rng",
+																										"comparison": 3,
+																										"value": "Enemy.Hab_1_Chance"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "set-animation",
+																									"objectClass": "Enemy",
+																									"sid": 347196739340420,
+																									"parameters": {
+																										"animation": "\"MVK_Attack\"",
+																										"from": "beginning"
+																									}
+																								},
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 370373536349361,
+																									"parameters": {
+																										"seconds": "0.7",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"callFunction": "Use_Hab_Enemy",
+																									"sid": 945848453609086,
+																									"parameters": [
+																										"Enemy.Hab_1",
+																										"Dmg_mod",
+																										"0"
+																									]
+																								}
+																							],
+																							"sid": 192182038350273
+																						},
+																						{
+																							"eventType": "comment",
+																							"text": "Usar habilidade 2"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "else",
+																									"objectClass": "System",
+																									"sid": 984315258241319
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "set-animation",
+																									"objectClass": "Enemy",
+																									"sid": 124070701559339,
+																									"parameters": {
+																										"animation": "\"MVK_Power_1\"",
+																										"from": "beginning"
+																									}
+																								},
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 848087975545558,
+																									"parameters": {
+																										"seconds": "0.7",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"callFunction": "Use_Hab_Enemy",
+																									"sid": 678946894227456,
+																									"parameters": [
+																										"Enemy.Hab_2",
+																										"Dmg_mod",
+																										"0"
+																									]
+																								}
+																							],
+																							"sid": 540453695131750
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "is-animation-playing",
+																									"objectClass": "Icon_Effect_Player",
+																									"sid": 192051771367997,
+																									"parameters": {
+																										"animation": "\"zap\""
+																									}
+																								},
+																								{
+																									"id": "is-visible",
+																									"objectClass": "Icon_Effect_Player",
+																									"sid": 721872565836072
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 953802989029631,
+																									"parameters": {
+																										"seconds": "0.75",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 733032445025914,
+																									"parameters": [
+																										"-1 * Icon_Effect_Player.Potency",
+																										"0",
+																										true,
+																										"Enemy.UID"
+																									]
+																								}
+																							],
+																							"sid": 472006106991450
+																						}
+																					]
+																				}
+																			]
 																		}
 																	]
 																}
@@ -12125,7 +13746,7 @@
 							"sid": 381150073947430
 						},
 						{
-							"name": "Enemy_ID",
+							"name": "Enemy_UID",
 							"type": "number",
 							"initialValue": "0",
 							"comment": "the enemy UID",
@@ -12148,6 +13769,36 @@
 							"sid": 122467703557100
 						},
 						{
+							"eventType": "variable",
+							"name": "dodge",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 919536445431048
+						},
+						{
+							"eventType": "variable",
+							"name": "the_id",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "para achar o icon_enemy_shield",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 790728315937538
+						},
+						{
+							"eventType": "variable",
+							"name": "dodge_check",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 868205019110817
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -12158,7 +13809,7 @@
 										"object": "Enemy",
 										"expression": "Enemy.UID",
 										"comparison": 0,
-										"value": "Enemy_ID"
+										"value": "Enemy_UID"
 									}
 								},
 								{
@@ -12172,7 +13823,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 371997445711400,
+									"parameters": {
+										"variable": "the_id",
+										"value": "Enemy.My_ID"
+									}
+								}
+							],
 							"sid": 712963575762639,
 							"children": [
 								{
@@ -12196,7 +13857,7 @@
 										{
 											"id": "is-animation-playing",
 											"objectClass": "Icon_Effect_Enemy",
-											"sid": 495492336989898,
+											"sid": 987412461104339,
 											"parameters": {
 												"animation": "\"mark\""
 											}
@@ -12206,7 +13867,7 @@
 										{
 											"id": "add-to-eventvar",
 											"objectClass": "System",
-											"sid": 645922484229942,
+											"sid": 276550511344526,
 											"parameters": {
 												"variable": "e_dmg_mod",
 												"value": "Icon_Effect_Enemy.Potency / 100"
@@ -12214,6 +13875,46 @@
 										}
 									],
 									"sid": 846255746426995
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Icon_Effect_Enemy",
+											"sid": 354629524542162,
+											"parameters": {
+												"instance-variable": "My_Z",
+												"comparison": 0,
+												"value": "Enemy.My_ID"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Icon_Effect_Enemy",
+											"sid": 754062545209976
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Icon_Effect_Enemy",
+											"sid": 754677513091772,
+											"parameters": {
+												"animation": "\"dodge\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 764594665835017,
+											"parameters": {
+												"variable": "dodge",
+												"value": "Icon_Effect_Enemy.Potency"
+											}
+										}
+									],
+									"sid": 393511752897096
 								},
 								{
 									"eventType": "comment",
@@ -12558,7 +14259,7 @@
 								},
 								{
 									"eventType": "comment",
-									"text": "Damage"
+									"text": "Damage & Dodge check"
 								},
 								{
 									"eventType": "block",
@@ -12566,43 +14267,792 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 184402533060795,
+											"sid": 691047446425231,
 											"parameters": {
-												"variable": "Amount",
-												"comparison": 2,
+												"variable": "dodge",
+												"comparison": 0,
 												"value": "0"
 											}
 										}
 									],
 									"actions": [],
-									"sid": 798806540592544,
+									"sid": 922367711838498,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-boolean-eventvar",
+													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 520554999599670,
+													"sid": 726933752824232,
 													"parameters": {
-														"variable": "Piercing"
+														"variable": "Amount",
+														"comparison": 2,
+														"value": "0"
 													}
+												}
+											],
+											"actions": [],
+											"sid": 407784693564493,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 855774420918657,
+															"parameters": {
+																"variable": "Piercing"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Enemy",
+															"sid": 165990098201352,
+															"parameters": {
+																"instance-variable": "HP",
+																"value": "ceil( abs( Amount * e_dmg_mod ) )"
+															}
+														},
+														{
+															"id": "create-object",
+															"objectClass": "System",
+															"sid": 354471138422313,
+															"parameters": {
+																"object-to-create": "Text_Dmg_Numb",
+																"layer": "\"HUD\"",
+																"x": "Enemy.ImagePointX(1)",
+																"y": "Enemy.ImagePointY(1)",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-angle-of-motion",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 531707000654613,
+															"behaviorType": "Bullet",
+															"parameters": {
+																"angle": "random ( 240, 300 )"
+															}
+														},
+														{
+															"id": "set-font-color",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 408368412140311,
+															"parameters": {
+																"color": "rgbEx(255, 0, 0)"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Dmg_Numb",
+															"sid": 526334113478761,
+															"parameters": {
+																"text": "ceil( abs( Amount * e_dmg_mod ) )"
+															}
+														}
+													],
+													"sid": 969914936277452
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 867482543699298
+														}
+													],
+													"actions": [],
+													"sid": 149503592938826,
+													"children": [
+														{
+															"eventType": "variable",
+															"name": "remaining_dmg",
+															"type": "number",
+															"initialValue": "0",
+															"comment": "",
+															"isStatic": false,
+															"isConstant": false,
+															"sid": 772640386563870
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 611069062565753,
+																	"parameters": {
+																		"first-value": "Enemy.Block - abs( Amount )",
+																		"comparison": 5,
+																		"second-value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Enemy",
+																	"sid": 344233915215337,
+																	"parameters": {
+																		"instance-variable": "Block",
+																		"value": "ceil( abs( Amount * e_dmg_mod ) )"
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 164895144216569,
+																	"parameters": {
+																		"object-to-create": "Text_Dmg_Numb",
+																		"layer": "\"HUD\"",
+																		"x": "Enemy.ImagePointX(1)",
+																		"y": "Enemy.ImagePointY(1)",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-angle-of-motion",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 747801220412309,
+																	"behaviorType": "Bullet",
+																	"parameters": {
+																		"angle": "random ( 240, 300 )"
+																	}
+																},
+																{
+																	"id": "set-font-color",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 734450539065105,
+																	"parameters": {
+																		"color": "rgbEx(0, 0, 0)"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 412793754305552,
+																	"parameters": {
+																		"text": "ceil( abs( Amount * e_dmg_mod ) )"
+																	}
+																}
+															],
+															"sid": 430375528083732,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-comparison",
+																			"objectClass": "System",
+																			"sid": 332921564457988,
+																			"parameters": {
+																				"object": "Icon_Enemy_Shield",
+																				"expression": "Icon_Enemy_Shield.my_ID",
+																				"comparison": 0,
+																				"value": "the_id"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-cycle-position",
+																			"objectClass": "Icon_Enemy_Shield",
+																			"sid": 640462267833365,
+																			"behaviorType": "Sine",
+																			"parameters": {
+																				"cycle-position": "0"
+																			}
+																		},
+																		{
+																			"id": "set-active",
+																			"objectClass": "Icon_Enemy_Shield",
+																			"sid": 855760579200470,
+																			"behaviorType": "Sine",
+																			"parameters": {
+																				"state": "active"
+																			}
+																		},
+																		{
+																			"id": "wait",
+																			"objectClass": "System",
+																			"sid": 756259845261301,
+																			"parameters": {
+																				"seconds": "0.3",
+																				"use-timescale": true
+																			}
+																		},
+																		{
+																			"id": "set-active",
+																			"objectClass": "Icon_Enemy_Shield",
+																			"sid": 331086654864300,
+																			"behaviorType": "Sine",
+																			"parameters": {
+																				"state": "inactive"
+																			}
+																		},
+																		{
+																			"id": "set-cycle-position",
+																			"objectClass": "Icon_Enemy_Shield",
+																			"sid": 530061230828219,
+																			"behaviorType": "Sine",
+																			"parameters": {
+																				"cycle-position": "0"
+																			}
+																		}
+																	],
+																	"sid": 138765053766653
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 596422946472877
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 960404222143297,
+																	"parameters": {
+																		"variable": "remaining_dmg",
+																		"value": "abs( Enemy.Block - ceil(abs( Amount * e_dmg_mod) ) )"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Enemy",
+																	"sid": 986278705039000,
+																	"parameters": {
+																		"instance-variable": "Block",
+																		"value": "0"
+																	}
+																},
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Enemy",
+																	"sid": 932036082883735,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "remaining_dmg"
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 674456645201816,
+																	"parameters": {
+																		"object-to-create": "Text_Dmg_Numb",
+																		"layer": "\"HUD\"",
+																		"x": "Enemy.ImagePointX(1)",
+																		"y": "Enemy.ImagePointY(1)",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-angle-of-motion",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 192127331258804,
+																	"behaviorType": "Bullet",
+																	"parameters": {
+																		"angle": "random ( 240, 300 )"
+																	}
+																},
+																{
+																	"id": "set-font-color",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 607875458203923,
+																	"parameters": {
+																		"color": "rgbEx(255, 0, 0)"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 319498861449417,
+																	"parameters": {
+																		"text": "remaining_dmg"
+																	}
+																}
+															],
+															"sid": 666800817924249
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-flashing",
+															"objectClass": "Enemy",
+															"sid": 943877834987639,
+															"behaviorType": "Flash",
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-effect-parameter",
+															"objectClass": "Enemy",
+															"sid": 721338452913611,
+															"parameters": {
+																"effect": "\"Brightness\"",
+																"parameter-index": "0",
+																"value": "180"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Enemy",
+															"sid": 138367719383449,
+															"parameters": {
+																"frame-number": "1"
+															}
+														},
+														{
+															"id": "flash",
+															"objectClass": "Enemy",
+															"sid": 695656160284423,
+															"behaviorType": "Flash",
+															"parameters": {
+																"on-time": "0.1",
+																"off-time": "0.1",
+																"duration": "0.4"
+															}
+														}
+													],
+													"sid": 122247973433359
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 241450313579537
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 160844845788320,
+											"parameters": {
+												"variable": "dodge_check",
+												"value": "int ( random (0, 101) )"
+											}
+										}
+									],
+									"sid": 807969639351778,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 265579780678508,
+													"parameters": {
+														"variable": "dodge_check",
+														"comparison": 4,
+														"value": "dodge"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 633333729539520,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 692593661115591,
+															"parameters": {
+																"variable": "Amount",
+																"comparison": 2,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 917963301134609,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-boolean-eventvar",
+																	"objectClass": "System",
+																	"sid": 597006443427651,
+																	"parameters": {
+																		"variable": "Piercing"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "subtract-from-instvar",
+																	"objectClass": "Enemy",
+																	"sid": 390934317381997,
+																	"parameters": {
+																		"instance-variable": "HP",
+																		"value": "ceil( abs( Amount * e_dmg_mod ) )"
+																	}
+																},
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 554126178326404,
+																	"parameters": {
+																		"object-to-create": "Text_Dmg_Numb",
+																		"layer": "\"HUD\"",
+																		"x": "Enemy.ImagePointX(1)",
+																		"y": "Enemy.ImagePointY(1)",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-angle-of-motion",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 332342609221134,
+																	"behaviorType": "Bullet",
+																	"parameters": {
+																		"angle": "random ( 240, 300 )"
+																	}
+																},
+																{
+																	"id": "set-font-color",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 510935540772533,
+																	"parameters": {
+																		"color": "rgbEx(255, 0, 0)"
+																	}
+																},
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Dmg_Numb",
+																	"sid": 314145183337083,
+																	"parameters": {
+																		"text": "ceil( abs( Amount * e_dmg_mod ) )"
+																	}
+																}
+															],
+															"sid": 530394231947015
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 780294297588203
+																}
+															],
+															"actions": [],
+															"sid": 704846890537064,
+															"children": [
+																{
+																	"eventType": "variable",
+																	"name": "remaining_dmg",
+																	"type": "number",
+																	"initialValue": "0",
+																	"comment": "",
+																	"isStatic": false,
+																	"isConstant": false,
+																	"sid": 486890517606712
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 364653564573827,
+																			"parameters": {
+																				"first-value": "Enemy.Block - abs( Amount )",
+																				"comparison": 5,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "subtract-from-instvar",
+																			"objectClass": "Enemy",
+																			"sid": 181185958920300,
+																			"parameters": {
+																				"instance-variable": "Block",
+																				"value": "ceil( abs( Amount * e_dmg_mod ) )"
+																			}
+																		},
+																		{
+																			"id": "create-object",
+																			"objectClass": "System",
+																			"sid": 673078283272506,
+																			"parameters": {
+																				"object-to-create": "Text_Dmg_Numb",
+																				"layer": "\"HUD\"",
+																				"x": "Enemy.ImagePointX(1)",
+																				"y": "Enemy.ImagePointY(1)",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		},
+																		{
+																			"id": "set-angle-of-motion",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 129006484490796,
+																			"behaviorType": "Bullet",
+																			"parameters": {
+																				"angle": "random ( 240, 300 )"
+																			}
+																		},
+																		{
+																			"id": "set-font-color",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 710134350665801,
+																			"parameters": {
+																				"color": "rgbEx(0, 0, 0)"
+																			}
+																		},
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 426072315768686,
+																			"parameters": {
+																				"text": "ceil( abs( Amount * e_dmg_mod ) )"
+																			}
+																		}
+																	],
+																	"sid": 271024871787036,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "pick-by-comparison",
+																					"objectClass": "System",
+																					"sid": 858039871730697,
+																					"parameters": {
+																						"object": "Icon_Enemy_Shield",
+																						"expression": "Icon_Enemy_Shield.my_ID",
+																						"comparison": 0,
+																						"value": "the_id"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-cycle-position",
+																					"objectClass": "Icon_Enemy_Shield",
+																					"sid": 341874909113274,
+																					"behaviorType": "Sine",
+																					"parameters": {
+																						"cycle-position": "0"
+																					}
+																				},
+																				{
+																					"id": "set-active",
+																					"objectClass": "Icon_Enemy_Shield",
+																					"sid": 901082532154315,
+																					"behaviorType": "Sine",
+																					"parameters": {
+																						"state": "active"
+																					}
+																				},
+																				{
+																					"id": "wait",
+																					"objectClass": "System",
+																					"sid": 366369714697064,
+																					"parameters": {
+																						"seconds": "0.3",
+																						"use-timescale": true
+																					}
+																				},
+																				{
+																					"id": "set-active",
+																					"objectClass": "Icon_Enemy_Shield",
+																					"sid": 888069788705715,
+																					"behaviorType": "Sine",
+																					"parameters": {
+																						"state": "inactive"
+																					}
+																				},
+																				{
+																					"id": "set-cycle-position",
+																					"objectClass": "Icon_Enemy_Shield",
+																					"sid": 558026838237265,
+																					"behaviorType": "Sine",
+																					"parameters": {
+																						"cycle-position": "0"
+																					}
+																				}
+																			],
+																			"sid": 736289283313360
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 513226086195397
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-eventvar-value",
+																			"objectClass": "System",
+																			"sid": 940555477917399,
+																			"parameters": {
+																				"variable": "remaining_dmg",
+																				"value": "abs( Enemy.Block - ceil(abs( Amount * e_dmg_mod) ) )"
+																			}
+																		},
+																		{
+																			"id": "set-instvar-value",
+																			"objectClass": "Enemy",
+																			"sid": 307934322765779,
+																			"parameters": {
+																				"instance-variable": "Block",
+																				"value": "0"
+																			}
+																		},
+																		{
+																			"id": "subtract-from-instvar",
+																			"objectClass": "Enemy",
+																			"sid": 494653344315693,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"value": "remaining_dmg"
+																			}
+																		},
+																		{
+																			"id": "create-object",
+																			"objectClass": "System",
+																			"sid": 327125126620636,
+																			"parameters": {
+																				"object-to-create": "Text_Dmg_Numb",
+																				"layer": "\"HUD\"",
+																				"x": "Enemy.ImagePointX(1)",
+																				"y": "Enemy.ImagePointY(1)",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		},
+																		{
+																			"id": "set-angle-of-motion",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 802770517095622,
+																			"behaviorType": "Bullet",
+																			"parameters": {
+																				"angle": "random ( 240, 300 )"
+																			}
+																		},
+																		{
+																			"id": "set-font-color",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 859516821890170,
+																			"parameters": {
+																				"color": "rgbEx(255, 0, 0)"
+																			}
+																		},
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 874766367719467,
+																			"parameters": {
+																				"text": "remaining_dmg"
+																			}
+																		}
+																	],
+																	"sid": 641796704780073
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-flashing",
+																	"objectClass": "Enemy",
+																	"sid": 672235478666218,
+																	"behaviorType": "Flash",
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-effect-parameter",
+																	"objectClass": "Enemy",
+																	"sid": 373675051304350,
+																	"parameters": {
+																		"effect": "\"Brightness\"",
+																		"parameter-index": "0",
+																		"value": "180"
+																	}
+																},
+																{
+																	"id": "set-animation-frame",
+																	"objectClass": "Enemy",
+																	"sid": 187208630516372,
+																	"parameters": {
+																		"frame-number": "1"
+																	}
+																},
+																{
+																	"id": "flash",
+																	"objectClass": "Enemy",
+																	"sid": 243000537351846,
+																	"behaviorType": "Flash",
+																	"parameters": {
+																		"on-time": "0.1",
+																		"off-time": "0.1",
+																		"duration": "0.4"
+																	}
+																}
+															],
+															"sid": 494817608016581
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 921773087265417
 												}
 											],
 											"actions": [
 												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Enemy",
-													"sid": 676307630569065,
-													"parameters": {
-														"instance-variable": "HP",
-														"value": "ceil( abs( Amount * e_dmg_mod ) )"
-													}
-												},
-												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 758227580063144,
+													"sid": 621714496262504,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
 														"layer": "\"HUD\"",
@@ -12615,7 +15065,7 @@
 												{
 													"id": "set-angle-of-motion",
 													"objectClass": "Text_Dmg_Numb",
-													"sid": 205859132465807,
+													"sid": 316733990394977,
 													"behaviorType": "Bullet",
 													"parameters": {
 														"angle": "random ( 240, 300 )"
@@ -12624,232 +15074,21 @@
 												{
 													"id": "set-font-color",
 													"objectClass": "Text_Dmg_Numb",
-													"sid": 744030872529136,
+													"sid": 578580037874390,
 													"parameters": {
-														"color": "rgbEx(255, 0, 0)"
+														"color": "rgbEx(19, 250, 242)"
 													}
 												},
 												{
 													"id": "set-text",
 													"objectClass": "Text_Dmg_Numb",
-													"sid": 637714294083935,
+													"sid": 120567282258776,
 													"parameters": {
-														"text": "ceil( abs( Amount * e_dmg_mod ) )"
+														"text": "Internationalization.Lookup(\"fight.dodge_trigger\")"
 													}
 												}
 											],
-											"sid": 332265370396272
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 881454195744942
-												}
-											],
-											"actions": [],
-											"sid": 419055223640033,
-											"children": [
-												{
-													"eventType": "variable",
-													"name": "remaining_dmg",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 185752022528489
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 821818298602284,
-															"parameters": {
-																"first-value": "Enemy.Block - abs( Amount )",
-																"comparison": 5,
-																"second-value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "subtract-from-instvar",
-															"objectClass": "Enemy",
-															"sid": 833751160078109,
-															"parameters": {
-																"instance-variable": "Block",
-																"value": "ceil( abs( Amount * e_dmg_mod ) )"
-															}
-														},
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 265508698482247,
-															"parameters": {
-																"object-to-create": "Text_Dmg_Numb",
-																"layer": "\"HUD\"",
-																"x": "Enemy.ImagePointX(1)",
-																"y": "Enemy.ImagePointY(1)",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "set-angle-of-motion",
-															"objectClass": "Text_Dmg_Numb",
-															"sid": 387194555406591,
-															"behaviorType": "Bullet",
-															"parameters": {
-																"angle": "random ( 240, 300 )"
-															}
-														},
-														{
-															"id": "set-font-color",
-															"objectClass": "Text_Dmg_Numb",
-															"sid": 371802099054183,
-															"parameters": {
-																"color": "rgbEx(0, 0, 0)"
-															}
-														},
-														{
-															"id": "set-text",
-															"objectClass": "Text_Dmg_Numb",
-															"sid": 646314648761563,
-															"parameters": {
-																"text": "ceil( abs( Amount * e_dmg_mod ) )"
-															}
-														}
-													],
-													"sid": 704367496330697
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 787510141715639
-														}
-													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 679193156049827,
-															"parameters": {
-																"variable": "remaining_dmg",
-																"value": "abs( Enemy.Block - ceil(abs( Amount * e_dmg_mod) ) )"
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Enemy",
-															"sid": 722305508109087,
-															"parameters": {
-																"instance-variable": "Block",
-																"value": "0"
-															}
-														},
-														{
-															"id": "subtract-from-instvar",
-															"objectClass": "Enemy",
-															"sid": 737556311871006,
-															"parameters": {
-																"instance-variable": "HP",
-																"value": "remaining_dmg"
-															}
-														},
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 471271227841533,
-															"parameters": {
-																"object-to-create": "Text_Dmg_Numb",
-																"layer": "\"HUD\"",
-																"x": "Enemy.ImagePointX(1)",
-																"y": "Enemy.ImagePointY(1)",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "set-angle-of-motion",
-															"objectClass": "Text_Dmg_Numb",
-															"sid": 613563318369283,
-															"behaviorType": "Bullet",
-															"parameters": {
-																"angle": "random ( 240, 300 )"
-															}
-														},
-														{
-															"id": "set-font-color",
-															"objectClass": "Text_Dmg_Numb",
-															"sid": 977930617325004,
-															"parameters": {
-																"color": "rgbEx(255, 0, 0)"
-															}
-														},
-														{
-															"id": "set-text",
-															"objectClass": "Text_Dmg_Numb",
-															"sid": 928068857932949,
-															"parameters": {
-																"text": "remaining_dmg"
-															}
-														}
-													],
-													"sid": 202171104643415
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-flashing",
-													"objectClass": "Enemy",
-													"sid": 461058755438735,
-													"behaviorType": "Flash",
-													"isInverted": true
-												}
-											],
-											"actions": [
-												{
-													"id": "set-effect-parameter",
-													"objectClass": "Enemy",
-													"sid": 371754703970405,
-													"parameters": {
-														"effect": "\"Brightness\"",
-														"parameter-index": "0",
-														"value": "180"
-													}
-												},
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Enemy",
-													"sid": 118988255968809,
-													"parameters": {
-														"frame-number": "1"
-													}
-												},
-												{
-													"id": "flash",
-													"objectClass": "Enemy",
-													"sid": 865046359166296,
-													"behaviorType": "Flash",
-													"parameters": {
-														"on-time": "0.1",
-														"off-time": "0.1",
-														"duration": "0.4"
-													}
-												}
-											],
-											"sid": 566229723178879
+											"sid": 109771920078636
 										}
 									]
 								}
@@ -15547,6 +17786,14 @@
 							"parameters": {
 								"animation": "Self.ID & \"_Attack\""
 							}
+						},
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Enemy",
+							"sid": 997363845730737,
+							"parameters": {
+								"animation": "Self.ID & \"_Damage\""
+							}
 						}
 					],
 					"actions": [
@@ -15560,7 +17807,43 @@
 							}
 						}
 					],
-					"sid": 149827371106133
+					"sid": 149827371106133,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "comment",
+					"text": "Para o boss, ele tem mais animações específicas que os outros que se limitam a apenas à animação de ataque e dano"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "Enemy",
+							"sid": 533789863613704
+						},
+						{
+							"id": "compare-animation-frame-tag",
+							"objectClass": "Enemy",
+							"sid": 468771605474303,
+							"parameters": {
+								"comparison": 0,
+								"tag": "\"end\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Enemy",
+							"sid": 346597913372514,
+							"parameters": {
+								"animation": "Self.ID & \"_Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 561449464961661
 				},
 				{
 					"eventType": "block",
@@ -15573,6 +17856,16 @@
 								"instance-variable": "HP",
 								"comparison": 3,
 								"value": "0"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Enemy",
+							"sid": 581115372617673,
+							"parameters": {
+								"instance-variable": "ID",
+								"comparison": 1,
+								"value": "\"VK\""
 							}
 						}
 					],
@@ -15707,19 +18000,555 @@
 							"parameters": {
 								"frame-number": "0"
 							}
-						},
-						{
-							"id": "set-effect-parameter",
-							"objectClass": "Enemy",
-							"sid": 386865798354274,
-							"parameters": {
-								"effect": "\"Brightness\"",
-								"parameter-index": "0",
-								"value": "100"
-							}
 						}
 					],
-					"sid": 386847379290056
+					"sid": 386847379290056,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemy",
+									"sid": 834682468775183,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 1,
+										"value": "\"VK\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "Enemy",
+									"sid": 471135653953587,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 950046422625053
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Boss VK",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemy",
+									"sid": 373681971855008,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 3,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemy",
+									"sid": 684407667603870,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "\"VK\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 605460700989606,
+									"parameters": {
+										"animation": "\"VK_Death\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 181048943945663,
+									"parameters": {
+										"instance-variable": "HP",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 784400182921414,
+									"parameters": {
+										"instance-variable": "Hab_1",
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 701392746003210,
+									"parameters": {
+										"instance-variable": "Hab_2",
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Enemy",
+									"sid": 756191531170604,
+									"parameters": {
+										"instance-variable": "Hab_1_Chance",
+										"value": "\"\""
+									}
+								}
+							],
+							"sid": 359636840455073,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 614057067257430,
+											"parameters": {
+												"object": "Icon_Effect_Enemy",
+												"expression": "Icon_Effect_Enemy.My_Z",
+												"comparison": 0,
+												"value": "Enemy.My_ID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Icon_Effect_Enemy",
+											"sid": 198230211436188
+										}
+									],
+									"sid": 602216147403470
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 204306873567973
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "Enemy",
+											"sid": 236776297760666,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "2"
+											}
+										}
+									],
+									"sid": 870195863526829
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Enemy",
+									"sid": 279290058505179,
+									"parameters": {
+										"animation": "\"VK_Death\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "Enemy",
+									"sid": 708677802706668,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								},
+								{
+									"id": "stop-flashing",
+									"objectClass": "Enemy",
+									"sid": 913849297002890,
+									"behaviorType": "Flash"
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 102310765352347,
+									"parameters": {
+										"animation": "\"VK_Trans1\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 714963476652239
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Enemy",
+									"sid": 164964357963403,
+									"parameters": {
+										"animation": "\"VK_Trans1\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 430499036462239,
+									"parameters": {
+										"animation": "\"VK_Trans2\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 638791861942557
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Enemy",
+									"sid": 669548279037768,
+									"parameters": {
+										"animation": "\"VK_Trans2\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "Enemy",
+									"sid": 819589827376957,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "180"
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "Enemy",
+									"sid": 879677295469962,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "4"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 314487942824001,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "Enemy",
+									"sid": 485118437132682,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"flashwhite\"",
+										"start-value": "0",
+										"end-value": "100",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 625664583706443,
+									"parameters": {
+										"seconds": "1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "Enemy",
+									"sid": 930117909590197,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "Enemy",
+									"sid": 117770526620933,
+									"parameters": {
+										"animation": "\"MVK_Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Enemy",
+									"sid": 124662617151714,
+									"parameters": {
+										"width": "445",
+										"height": "710"
+									}
+								},
+								{
+									"id": "tween-value",
+									"objectClass": "Enemy",
+									"sid": 812097106032705,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"flashwhite\"",
+										"start-value": "100",
+										"end-value": "0",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 495654156897489,
+									"parameters": {
+										"seconds": "1.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 401461430159368,
+									"parameters": {
+										"variable": "Battle_Ended",
+										"value": "true"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 326286028766466,
+									"parameters": {
+										"audio-file": {
+											"path": "Victory/Violin_Win_5_by_Floraphonic"
+										},
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-layer-opacity",
+									"objectClass": "System",
+									"sid": 801676476988919,
+									"parameters": {
+										"layer": "\"Habs\"",
+										"opacity": "0"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 315872138908430,
+									"parameters": {
+										"layer": "\"Habs\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-x",
+									"objectClass": "Text_Info_Battle",
+									"sid": 388253424904025,
+									"parameters": {
+										"x": "-610"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Text_Info_Battle",
+									"sid": 361043176172710,
+									"parameters": {
+										"text": "\"[outline=#000000]\"&Internationalization.Lookup(\"fight.battle_won_vk\")&\"[/outline]\""
+									}
+								},
+								{
+									"id": "set-font-color",
+									"objectClass": "Text_Info_Battle",
+									"sid": 755614871848891,
+									"parameters": {
+										"color": "rgbEx(255, 0, 0)"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Text_Info_Battle",
+									"sid": 571139199506161,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "960",
+										"time": "0.3",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 369814910454395,
+									"parameters": {
+										"seconds": "0.3",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Text_Info_Battle",
+									"sid": 461031267177067,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "930",
+										"time": "0.2",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 384735721310699,
+									"parameters": {
+										"seconds": "1.2",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Text_Info_Battle",
+									"sid": 542304944563453,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "2500",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 273731653964875,
+									"parameters": {
+										"seconds": "0.75",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 476656120893300
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 378143425114800,
+									"parameters": {
+										"variable": "Layout_To_Load",
+										"value": "\"Phase2\""
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 217837323274480,
+									"parameters": {
+										"layout": "Loading"
+									}
+								}
+							],
+							"sid": 388670965776558
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "Enemy",
+									"sid": 332582454290858,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"flashwhite\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-opacity",
+									"objectClass": "System",
+									"sid": 787992425273287,
+									"parameters": {
+										"layer": "\"FlashWhite\"",
+										"opacity": "Enemy.Tween.Value(\"flashwhite\")"
+									}
+								}
+							],
+							"sid": 188217914547925
+						}
+					],
+					"sid": 124166105519943
 				}
 			],
 			"sid": 828992132795308
@@ -15831,9 +18660,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text_Info_Battle",
-							"sid": 653834825853992,
+							"sid": 325168265542036,
 							"parameters": {
-								"text": "\"[outline=#000000]BATTLE LOST![/outline]\""
+								"text": "\"[outline=#000000]\"&Internationalization.Lookup(\"fight.battle_lost\")&\"[/outline]\""
 							}
 						},
 						{
@@ -16045,28 +18874,47 @@
 					],
 					"actions": [
 						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 181603325864071,
+							"parameters": {
+								"seconds": "0.75",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "ProgBar_HP_Enemy",
+							"sid": 731513680164126
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Text_HP_Enemy",
+							"sid": 940106786337291
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Icon_Enemy_Shield",
+							"sid": 603412349573328
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Text_Shield_Enemy",
+							"sid": 535567162947617
+						},
+						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 745396799296423,
+							"sid": 988669385827488,
 							"parameters": {
 								"variable": "Battle_Ended",
 								"value": "true"
 							}
 						},
 						{
-							"id": "destroy",
-							"objectClass": "ProgBar_HP_Enemy",
-							"sid": 386900395509912
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Text_HP_Enemy",
-							"sid": 643220990612362
-						},
-						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 857696680668189,
+							"sid": 545199445723103,
 							"parameters": {
 								"audio-file": {
 									"path": "Victory/Violin_Win_5_by_Floraphonic"
@@ -16080,7 +18928,7 @@
 						{
 							"id": "set-layer-opacity",
 							"objectClass": "System",
-							"sid": 325441895499572,
+							"sid": 693682467694513,
 							"parameters": {
 								"layer": "\"Habs\"",
 								"opacity": "0"
@@ -16089,7 +18937,7 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 827038933005189,
+							"sid": 467001546820689,
 							"parameters": {
 								"layer": "\"Habs\"",
 								"visibility": "invisible"
@@ -16098,7 +18946,7 @@
 						{
 							"id": "set-x",
 							"objectClass": "Text_Info_Battle",
-							"sid": 518445011379484,
+							"sid": 606906878356575,
 							"parameters": {
 								"x": "-610"
 							}
@@ -16106,15 +18954,15 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text_Info_Battle",
-							"sid": 247635231181646,
+							"sid": 576136525278169,
 							"parameters": {
-								"text": "\"[outline=#000000]BATTLE WON![/outline]\""
+								"text": "\"[outline=#000000]\"&Internationalization.Lookup(\"fight.battle_won\")&\"[/outline]\""
 							}
 						},
 						{
 							"id": "set-font-color",
 							"objectClass": "Text_Info_Battle",
-							"sid": 859343017719593,
+							"sid": 391623154774291,
 							"parameters": {
 								"color": "rgbEx(255, 0, 0)"
 							}
@@ -16122,7 +18970,7 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Text_Info_Battle",
-							"sid": 736180562448354,
+							"sid": 389680555275531,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
@@ -16139,7 +18987,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 620352255217159,
+							"sid": 695543677197479,
 							"parameters": {
 								"seconds": "0.3",
 								"use-timescale": true
@@ -16148,7 +18996,7 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Text_Info_Battle",
-							"sid": 932682496369723,
+							"sid": 527319839097222,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
@@ -16165,7 +19013,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 942779731963587,
+							"sid": 289398484371454,
 							"parameters": {
 								"seconds": "1.2",
 								"use-timescale": true
@@ -16174,7 +19022,7 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Text_Info_Battle",
-							"sid": 895234238553001,
+							"sid": 507172686289020,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
@@ -16191,7 +19039,7 @@
 						{
 							"id": "wait",
 							"objectClass": "System",
-							"sid": 942854215724470,
+							"sid": 892847335393214,
 							"parameters": {
 								"seconds": "0.75",
 								"use-timescale": true
@@ -16201,16 +19049,20 @@
 					"sid": 860089130590857,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Se for a batalha contra o boss e ele morrer, vai pra comic."
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-two-values",
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 263263998442868,
+									"sid": 287179530022115,
 									"parameters": {
-										"first-value": "Dict_Save_File.Get(\"LVL\")",
+										"variable": "Level",
 										"comparison": 0,
-										"second-value": "12"
+										"value": "13"
 									}
 								}
 							],
@@ -16221,12 +19073,25 @@
 									"sid": 170302620051420
 								},
 								{
+									"id": "set-key",
+									"objectClass": "Dict_Save_File",
+									"sid": 916696415311648,
+									"parameters": {
+										"key": "\"LVL\"",
+										"value": "Level"
+									}
+								},
+								{
+									"callFunction": "Save_Local_Storage",
+									"sid": 862340596515223
+								},
+								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 194409129361873,
+									"sid": 152004317089885,
 									"parameters": {
 										"variable": "Layout_To_Load",
-										"value": "\"Comic\""
+										"value": "\"Ending\""
 									}
 								},
 								{
@@ -16239,6 +19104,10 @@
 								}
 							],
 							"sid": 848504747604932
+						},
+						{
+							"eventType": "comment",
+							"text": "Se for qualquer outra fase, vai para o jogo principal"
 						},
 						{
 							"eventType": "block",
