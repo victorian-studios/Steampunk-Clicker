@@ -2275,6 +2275,15 @@
 							}
 						},
 						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 378100868538078,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Production_Vapor",
 							"sid": 756064599809816,
@@ -2654,14 +2663,6 @@
 							"sid": 520345866690320,
 							"parameters": {
 								"instance-variable": "Autoprod"
-							}
-						},
-						{
-							"id": "layer-is-visible",
-							"objectClass": "System",
-							"sid": 407400509694643,
-							"parameters": {
-								"layer": "\"Production\""
 							}
 						},
 						{
@@ -3111,6 +3112,15 @@
 							"parameters": {
 								"layer": "\"Production\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 986856326687915,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						},
 						{
 							"id": "is-boolean-instance-variable-set",
@@ -8263,11 +8273,13 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-overlapping-another-object",
+															"id": "is-overlapping-at-offset",
 															"objectClass": "Icon_prod",
-															"sid": 524477206378231,
+															"sid": 905174278209663,
 															"parameters": {
-																"object": "Text_Material_Quant"
+																"object": "Text_Material_Quant",
+																"offset-x": "15",
+																"offset-y": "0"
 															}
 														}
 													],
@@ -8370,11 +8382,13 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-overlapping-another-object",
+															"id": "is-overlapping-at-offset",
 															"objectClass": "Icon_prod",
-															"sid": 511013688963598,
+															"sid": 199996612328919,
 															"parameters": {
-																"object": "Text_Material_Quant"
+																"object": "Text_Material_Quant",
+																"offset-x": "15",
+																"offset-y": "0"
 															}
 														}
 													],
@@ -8421,6 +8435,15 @@
 							"parameters": {
 								"layer": "\"Bkg_Upg\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 367588038452587,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -9614,6 +9637,15 @@
 							}
 						},
 						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 990342565967475,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Icon_Upg",
 							"sid": 450612082974208,
@@ -10684,6 +10716,15 @@
 									"parameters": {
 										"direction": "down"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 109311277787331,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -10783,6 +10824,15 @@
 									"parameters": {
 										"direction": "up"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 652321902393716,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -11117,6 +11167,15 @@
 										"comparison": 1,
 										"number": "0"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 978155427077278,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -11548,6 +11607,15 @@
 										"comparison": 1,
 										"number": "0"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 217166502340671,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -11941,6 +12009,15 @@
 										"comparison": 1,
 										"number": "0"
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 502488224050925,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -14610,156 +14687,17 @@
 																"animation": "\"Buy\"",
 																"from": "beginning"
 															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Item_Info",
+															"sid": 638396282588995,
+															"parameters": {
+																"text": "Internationalization.Lookup( \"game.work.weapons.locked\")"
+															}
 														}
 													],
-													"sid": 273110784341184,
-													"children": [
-														{
-															"eventType": "comment",
-															"text": "Verifica se tem dano penetrante"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-at-xyz",
-																	"objectClass": "A_Weapons",
-																	"sid": 979436679143000,
-																	"parameters": {
-																		"x": "3",
-																		"y": "1",
-																		"z": "counter",
-																		"comparison": 4,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 240919358749664,
-															"children": [
-																{
-																	"eventType": "comment",
-																	"text": "Verifica se tem munição"
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-at-xyz",
-																			"objectClass": "A_Weapons",
-																			"sid": 930340421973168,
-																			"parameters": {
-																				"x": "4",
-																				"y": "1",
-																				"z": "counter",
-																				"comparison": 4,
-																				"value": "0"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-text",
-																			"objectClass": "Text_Item_Info",
-																			"sid": 913818922352734,
-																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
-																			}
-																		}
-																	],
-																	"sid": 876275729925210
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 804615698723869
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-text",
-																			"objectClass": "Text_Item_Info",
-																			"sid": 388538065885351,
-																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
-																			}
-																		}
-																	],
-																	"sid": 905236710438239
-																}
-															]
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "else",
-																	"objectClass": "System",
-																	"sid": 605922607153765
-																}
-															],
-															"actions": [],
-															"sid": 140995152995852,
-															"children": [
-																{
-																	"eventType": "comment",
-																	"text": "Verifica se tem munição"
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-at-xyz",
-																			"objectClass": "A_Weapons",
-																			"sid": 638228775882345,
-																			"parameters": {
-																				"x": "4",
-																				"y": "1",
-																				"z": "counter",
-																				"comparison": 4,
-																				"value": "0"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-text",
-																			"objectClass": "Text_Item_Info",
-																			"sid": 190677670311832,
-																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
-																			}
-																		}
-																	],
-																	"sid": 949922240381767
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "else",
-																			"objectClass": "System",
-																			"sid": 589270657606123
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-text",
-																			"objectClass": "Text_Item_Info",
-																			"sid": 195232981719536,
-																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
-																			}
-																		}
-																	],
-																	"sid": 538133302002655
-																}
-															]
-														}
-													]
+													"sid": 273110784341184
 												},
 												{
 													"eventType": "comment",
@@ -14857,9 +14795,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 876675235253140,
+																			"sid": 339611844892312,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -14878,9 +14816,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 680863721134429,
+																			"sid": 800808517021266,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -14924,9 +14862,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 293795874340473,
+																			"sid": 961306890959112,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -14945,9 +14883,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 215391901428665,
+																			"sid": 167038022209631,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter), counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -15034,9 +14972,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 265798456128892,
+																			"sid": 913712220378048,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"P. [icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"P. [icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -15055,9 +14993,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 266961554081384,
+																			"sid": 716606474242142,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"[icon=pdmg]: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"[icon=pdmg]: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -15101,9 +15039,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 338609551869653,
+																			"sid": 742378638831671,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -15122,9 +15060,9 @@
 																		{
 																			"id": "set-text",
 																			"objectClass": "Text_Item_Info",
-																			"sid": 922359599778481,
+																			"sid": 725465709611302,
 																			"parameters": {
-																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																				"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																			}
 																		}
 																	],
@@ -15513,101 +15451,17 @@
 																"animation": "\"Buy\"",
 																"from": "beginning"
 															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Item_Info",
+															"sid": 765444976524115,
+															"parameters": {
+																"text": "Internationalization.Lookup( \"game.work.weapons.locked\")"
+															}
 														}
 													],
-													"sid": 153640968528657,
-													"children": [
-														{
-															"eventType": "comment",
-															"text": "Defesa"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 429634966430886,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 648231706118482,
-																	"parameters": {
-																		"text": "\"Instantly regenerate \" & A_Habilities.At( 2, 1, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
-																	}
-																}
-															],
-															"sid": 317502133353601
-														},
-														{
-															"eventType": "comment",
-															"text": "Heal"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 841646075476806,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "1"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 851724262357531,
-																	"parameters": {
-																		"text": "\"Active a vitality power, capable of healing \" & A_Habilities.At( 2, 1, counter ) & \" HP.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
-																	}
-																}
-															],
-															"sid": 364873798762399
-														},
-														{
-															"eventType": "comment",
-															"text": "Fire Bomb"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 683080672812488,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "2"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 173736425486394,
-																	"parameters": {
-																		"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, 1, counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, 1, counter ) & \" fire for \" & A_Habilities.At( 4, 1, counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns\""
-																	}
-																}
-															],
-															"sid": 868028933696334
-														}
-													]
+													"sid": 153640968528657
 												},
 												{
 													"eventType": "comment",
@@ -16208,7 +16062,7 @@
 											"children": [
 												{
 													"eventType": "comment",
-													"text": "Verifica se a arma não foi desbloqueada"
+													"text": "Verifica se a armadura não foi desbloqueada"
 												},
 												{
 													"eventType": "block",
@@ -16244,76 +16098,18 @@
 														},
 														{
 															"id": "set-text",
-															"objectClass": "Text_Item_Info_Armor",
-															"sid": 239308190364862,
+															"objectClass": "Text_Item_Info",
+															"sid": 371142782399331,
 															"parameters": {
-																"text": "\"[icon=hp] \" & A_Armor.At( 2,1, counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,1, counter ) & newline & \"[icon=special]\""
+																"text": "Internationalization.Lookup( \"game.work.weapons.locked\")"
 															}
 														}
 													],
-													"sid": 464615697106626,
-													"children": [
-														{
-															"eventType": "comment",
-															"text": "Verifica qual é o ID do bônus especial"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 108487154939716,
-																	"parameters": {
-																		"first-value": "tokenat(A_Armor.At(4,1,counter), 0, \"_\")",
-																		"comparison": 0,
-																		"second-value": "\"dmgup\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "append-text",
-																	"objectClass": "Text_Item_Info_Armor",
-																	"sid": 747748501307031,
-																	"parameters": {
-																		"text": "\"+\" & tokenat(A_Armor.At(4,1, counter), 1, \"_\") & \"% [icon=dmg] bonus\""
-																	}
-																}
-															],
-															"sid": 791132739659587
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-two-values",
-																	"objectClass": "System",
-																	"sid": 367976517435167,
-																	"parameters": {
-																		"first-value": "tokenat(A_Armor.At(4,1,counter), 0, \"_\")",
-																		"comparison": 0,
-																		"second-value": "\"X\""
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "append-text",
-																	"objectClass": "Text_Item_Info_Armor",
-																	"sid": 260700672651915,
-																	"parameters": {
-																		"text": "\" No bonus yet.\""
-																	}
-																}
-															],
-															"sid": 300510016403932
-														}
-													]
+													"sid": 464615697106626
 												},
 												{
 													"eventType": "comment",
-													"text": "Verifica o nível da arma"
+													"text": "Verifica o nível da armadura"
 												},
 												{
 													"eventType": "block",
@@ -16360,9 +16156,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info_Armor",
-															"sid": 365619677539363,
+															"sid": 740458277724071,
 															"parameters": {
-																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\""
+																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armor.\" & tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
 															}
 														}
 													],
@@ -16396,7 +16192,8 @@
 																	}
 																}
 															],
-															"sid": 528234269594943
+															"sid": 528234269594943,
+															"disabled": true
 														},
 														{
 															"eventType": "block",
@@ -16422,13 +16219,14 @@
 																	}
 																}
 															],
-															"sid": 125767068723423
+															"sid": 125767068723423,
+															"disabled": true
 														}
 													]
 												},
 												{
 													"eventType": "comment",
-													"text": "Verifica se a arma está no máximo"
+													"text": "Verifica se a armadura está no máximo"
 												},
 												{
 													"eventType": "block",
@@ -16456,9 +16254,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info_Armor",
-															"sid": 946843703998748,
+															"sid": 506549502828170,
 															"parameters": {
-																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\""
+																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armor.\" & tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
 															}
 														}
 													],
@@ -16492,7 +16290,8 @@
 																	}
 																}
 															],
-															"sid": 130790611754557
+															"sid": 130790611754557,
+															"disabled": true
 														},
 														{
 															"eventType": "block",
@@ -16518,7 +16317,8 @@
 																	}
 																}
 															],
-															"sid": 790591469748927
+															"sid": 790591469748927,
+															"disabled": true
 														}
 													]
 												},
@@ -21963,6 +21763,15 @@
 							"parameters": {
 								"layer": "\"Map\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 580933566008263,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -23131,11 +22940,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 100996255987623,
+													"sid": 541775597341946,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 1,
-														"value": "35"
+														"value": "34"
 													}
 												}
 											],
@@ -23450,6 +23259,31 @@
 													],
 													"sid": 871621965715463,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "layer-is-visible",
+																	"objectClass": "System",
+																	"sid": 363375194184497,
+																	"parameters": {
+																		"layer": "\"Production\""
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "Bkg_Obj",
+																	"sid": 439068830877868,
+																	"parameters": {
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 887560307475195
+														},
 														{
 															"eventType": "block",
 															"conditions": [
@@ -24091,11 +23925,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 212287700872840,
+													"sid": 587915820816591,
 													"parameters": {
 														"variable": "Tutorial",
 														"comparison": 0,
-														"value": "35"
+														"value": "34"
 													}
 												}
 											],

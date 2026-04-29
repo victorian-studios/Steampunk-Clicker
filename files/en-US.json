@@ -199,7 +199,9 @@
                     "ammo": "Ammo",
                     "cooldown": "Cooldown"
                 },
+                "locked": "\nUnknown",
                 "weapons": {
+                    "nospecial": "None",
                     "stunchance": "Aplly Stun ({0}%)",
                     "poison": "Apply {0} [icon=poison] ({1}%)",
                     "extraammo": "Gain +1[icon=ammo] ({0}%)",
@@ -207,15 +209,26 @@
                     "aoeattackchance": "Area Dmg ({0}%)",
                     "fire": "Apply {0} [icon=fire] ({1}%)",
                     "recharge": "Regen {0}[icon=shield]",
-                    "shieldextradmg": "If [icon=shield]>0, deal +{0}[icon=dmg]",
-                    "": "",
-                    "": ""
+                    "shieldextradmg": "If [icon=shield]>0, deal +{0}[icon=dmg]"
                 },
                 "skills": {
-                
+                    "0": "Instatly regenerate {0} energy shield back.\n[icon=cd] {1} turns.",
+                    "1": "Active a vitality power, capable of healing ",
+                    "2": "",
+                    "3": "",
+                    "4": "",
+                    "5": "",
+                    "6": "",
+                    "7": ""
                 },
                 "armors": {
-                
+                    "nospecial": "None",
+                    "dodge": "",
+                    "hpregen": "",
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": ""
                 }
             },
             "map": {
