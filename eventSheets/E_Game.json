@@ -15508,101 +15508,17 @@
 																"animation": "\"Upgrade\"",
 																"from": "beginning"
 															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Item_Info",
+															"sid": 489956269257577,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.skills.\" & counter, A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ), A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter ), counter ), A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ), A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) )"
+															}
 														}
 													],
-													"sid": 596643431637347,
-													"children": [
-														{
-															"eventType": "comment",
-															"text": "Defesa"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 227288512173557,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 453717137583160,
-																	"parameters": {
-																		"text": "\"Instantly regenerate \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns.\""
-																	}
-																}
-															],
-															"sid": 627174340231389
-														},
-														{
-															"eventType": "comment",
-															"text": "Heal"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 328461338528957,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "1"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 836490266728085,
-																	"parameters": {
-																		"text": "\"Active a vitality power, capable of healing \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" HP.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns.\""
-																	}
-																}
-															],
-															"sid": 264803674488131
-														},
-														{
-															"eventType": "comment",
-															"text": "Fire Bomb"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 344316785332626,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "2"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 181969053215241,
-																	"parameters": {
-																		"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \"  fire for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) & \" turns\""
-																	}
-																}
-															],
-															"sid": 407583466467478
-														}
-													]
+													"sid": 596643431637347
 												},
 												{
 													"eventType": "comment",
@@ -15630,101 +15546,17 @@
 															"parameters": {
 																"frame-number": "counter + 1"
 															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "Text_Item_Info",
+															"sid": 823232025452213,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.skills.\" & counter, A_Habilities.At( 2, 10, counter ), A_Habilities.At( 3, 10, counter ), A_Habilities.At( 4, 10, counter ), A_Habilities.At( 5, 10, counter ) )"
+															}
 														}
 													],
-													"sid": 351760006091255,
-													"children": [
-														{
-															"eventType": "comment",
-															"text": "Defesa"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 683939532840696,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 213386731713232,
-																	"parameters": {
-																		"text": "\"Instatly regenerate \" & A_Habilities.At( 2, 10, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
-																	}
-																}
-															],
-															"sid": 781682504961269
-														},
-														{
-															"eventType": "comment",
-															"text": "Heal"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 924534941654668,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "1"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 873368080727887,
-																	"parameters": {
-																		"text": "\"Active a vitality power, capable of healing \" & A_Habilities.At( 2, 10, counter ) & \" HP.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
-																	}
-																}
-															],
-															"sid": 214340631057174
-														},
-														{
-															"eventType": "comment",
-															"text": "Fire Bomb"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-eventvar",
-																	"objectClass": "System",
-																	"sid": 814541526640318,
-																	"parameters": {
-																		"variable": "counter",
-																		"comparison": 0,
-																		"value": "2"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-text",
-																	"objectClass": "Text_Item_Info",
-																	"sid": 177559426824916,
-																	"parameters": {
-																		"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, 10, counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, 10, counter ) & \" fire  for \" & A_Habilities.At( 4, 10, counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns\""
-																	}
-																}
-															],
-															"sid": 120814083652688
-														}
-													]
+													"sid": 351760006091255
 												},
 												{
 													"eventType": "block",

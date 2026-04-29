@@ -212,14 +212,14 @@
                     "shieldextradmg": "If [icon=shield]>0, deal +{0}[icon=dmg]"
                 },
                 "skills": {
-                    "0": "Instatly regenerate {0} energy shield back.\n[icon=cd] {1} turns.",
-                    "1": "Active a vitality power, capable of healing ",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": "",
-                    "6": "",
-                    "7": ""
+                    "0": "Instatly regenerate {0} energy shield back.\n[icon=cd] {3} turns.",
+                    "1": "Active a vitality power, capable of healing {0} HP.\n[icon=cd] {3} turns.",
+                    "2": "Area Attack. [icon=dmg] {0}\n[icon=special] {1} fire  for {2} turns.\n[icon=cd] {3} turns",
+                    "3": "[icon=dmg] {0}\n[icon=special] {1} fire  for {2} turns.\n[icon=cd] {3} turns",
+                    "4": "Increase your damage by {0}% of attacks for {2} turns.\n[icon=cd] {3} turns.",
+                    "5": "Deal {0} damage back to enemies for {2} turns.\n[icon=cd] {3} turns.",
+                    "6": "Reduce target's damage by {0}% for {2} turns.\n[icon=cd] {3} turns.",
+                    "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns.\n[icon=cd] {3} turnos"
                 },
                 "armors": {
                     "nospecial": "None",
