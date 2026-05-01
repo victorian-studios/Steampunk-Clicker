@@ -1315,6 +1315,14 @@
 					}
 				},
 				{
+					"id": "set-visible",
+					"objectClass": "Btn_Bkg",
+					"sid": 958481510499723,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
 					"callFunction": "Dictionary_to_Array",
 					"sid": 881806407431817
 				}
@@ -1369,6 +1377,30 @@
 						}
 					],
 					"sid": 229263964800941
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 916499202433636,
+							"parameters": {
+								"layer": "\"Map\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Btn_Bkg",
+							"sid": 736692971820884,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 897617872709295
 				},
 				{
 					"eventType": "block",
@@ -1846,6 +1878,11 @@
 					}
 				},
 				{
+					"id": "is-visible",
+					"objectClass": "Btn_Bkg",
+					"sid": 897985958150275
+				},
+				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
 					"sid": 806219141195035,
@@ -2246,9 +2283,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text_Vapor",
-							"sid": 428121579274825,
+							"sid": 909749120929170,
 							"parameters": {
-								"text": "\"Steam: \"& Dict_Temp_Prod_Data.Get(\"Steam\") &\" / \"&Production_Vapor.prod_cap"
+								"text": "Internationalization.Lookup(\"game.upg.Steam.name\") & \": \"& Dict_Temp_Prod_Data.Get(\"Steam\") &\" / \"&Production_Vapor.prod_cap"
 							}
 						}
 					],
@@ -10712,9 +10749,9 @@
 								{
 									"id": "on-mouse-wheel",
 									"objectClass": "Mouse",
-									"sid": 339595211450440,
+									"sid": 102777409012221,
 									"parameters": {
-										"direction": "down"
+										"direction": "up"
 									}
 								},
 								{
@@ -10820,9 +10857,9 @@
 								{
 									"id": "on-mouse-wheel",
 									"objectClass": "Mouse",
-									"sid": 486987097032880,
+									"sid": 339595211450440,
 									"parameters": {
-										"direction": "up"
+										"direction": "down"
 									}
 								},
 								{
@@ -14691,9 +14728,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info",
-															"sid": 638396282588995,
+															"sid": 521484388148211,
 															"parameters": {
-																"text": "Internationalization.Lookup( \"game.work.weapons.locked\")"
+																"text": "Internationalization.Lookup( \"game.work.locked\")"
 															}
 														}
 													],
@@ -15455,9 +15492,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info",
-															"sid": 765444976524115,
+															"sid": 524018734477897,
 															"parameters": {
-																"text": "Internationalization.Lookup( \"game.work.weapons.locked\")"
+																"text": "Internationalization.Lookup( \"game.work.locked\")"
 															}
 														}
 													],
@@ -15930,10 +15967,10 @@
 														},
 														{
 															"id": "set-text",
-															"objectClass": "Text_Item_Info",
-															"sid": 371142782399331,
+															"objectClass": "Text_Item_Info_Armor",
+															"sid": 314728354212626,
 															"parameters": {
-																"text": "Internationalization.Lookup( \"game.work.weapons.locked\")"
+																"text": "Internationalization.Lookup( \"game.work.locked\")"
 															}
 														}
 													],
@@ -15988,9 +16025,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info_Armor",
-															"sid": 740458277724071,
+															"sid": 565063714957303,
 															"parameters": {
-																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armor.\" & tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
+																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
 															}
 														}
 													],
@@ -16086,9 +16123,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info_Armor",
-															"sid": 506549502828170,
+															"sid": 357853527751141,
 															"parameters": {
-																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armor.\" & tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 5, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
+																"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
 															}
 														}
 													],
@@ -17111,9 +17148,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 694527624445176,
+																	"sid": 521234596893228,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, 1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, 1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, 1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17132,9 +17169,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 856689610777270,
+																	"sid": 308520237422107,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, 1, counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, 1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, 1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, 1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17178,9 +17215,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 146893163734577,
+																	"sid": 151616796180523,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & \" | \" & \"[icon=ammo] \" & A_Weapons.At( 4, 1, counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, 1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, 1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, 1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17199,9 +17236,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 988921137659719,
+																	"sid": 809068648918784,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, 1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, 1, counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, 1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, 1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, 1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17666,9 +17703,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 929223790937100,
+																	"sid": 415442525994138,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17687,9 +17724,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 762026548575478,
+																	"sid": 207716191558963,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17733,9 +17770,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 393614560521321,
+																	"sid": 405206191887852,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17754,9 +17791,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 884726347284192,
+																	"sid": 263531155645205,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter)+1, counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter)+1, counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter )+1, counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17883,9 +17920,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 473105140306432,
+																	"sid": 845947773455016,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"P. [icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"P. [icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17904,9 +17941,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 695487183803459,
+																	"sid": 590445105059821,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"[icon=pdmg]: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"[icon=pdmg]: \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17950,9 +17987,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 470576137681559,
+																	"sid": 131399822572100,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -17971,9 +18008,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Upg_Info",
-																	"sid": 877725648541769,
+																	"sid": 159814528245183,
 																	"parameters": {
-																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
 																	}
 																}
 															],
@@ -18045,6 +18082,14 @@
 													"sid": 314908241947794,
 													"parameters": {
 														"text": "A_Habilities.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"HAB_\" & counter ) & \" > \" & Dict_Save_File.Get( \"HAB_\" & counter )+1"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Item_Upg_Info",
+													"sid": 105105222296462,
+													"parameters": {
+														"text": "Internationalization.Lookup(\"game.work.skills.\" & counter, A_Habilities.At( 2, 1, counter ), A_Habilities.At( 3, 1, counter ), A_Habilities.At( 4, 1, counter ), A_Habilities.At( 5, 1, counter ) )"
 													}
 												},
 												{
@@ -18420,94 +18465,10 @@
 													]
 												},
 												{
-													"eventType": "comment",
-													"text": "Defense"
-												},
-												{
 													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 774505616378428,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 695088976949127,
-															"parameters": {
-																"text": "\"Instantly regenerate \" & A_Habilities.At( 2, 1, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
-															}
-														}
-													],
+													"conditions": [],
+													"actions": [],
 													"sid": 213150317986684
-												},
-												{
-													"eventType": "comment",
-													"text": "Heal"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 732880858777644,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 179053331632743,
-															"parameters": {
-																"text": "\"Active a vitality power, capable of healing \" & A_Habilities.At( 2, 1, counter ) & \" HP.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns.\""
-															}
-														}
-													],
-													"sid": 285670036599982
-												},
-												{
-													"eventType": "comment",
-													"text": "Fire Bomb"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 325136547912953,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 764566108427652,
-															"parameters": {
-																"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, 1, counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, 1, counter ) & \" fire for \" & A_Habilities.At( 4, 1, counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 1, counter ) & \" turns\""
-															}
-														}
-													],
-													"sid": 618741589292401
 												}
 											]
 										},
@@ -18546,6 +18507,14 @@
 													"sid": 985420994983631,
 													"parameters": {
 														"text": "A_Habilities.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"HAB_\" & counter ) & \" > \" & Dict_Save_File.Get( \"HAB_\" & counter )+1"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Item_Upg_Info",
+													"sid": 725736104327900,
+													"parameters": {
+														"text": "Internationalization.Lookup(\"game.work.skills.\" & counter, A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ), A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter ), counter ), A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ), A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) )"
 													}
 												},
 												{
@@ -18919,96 +18888,6 @@
 															"sid": 281303231931813
 														}
 													]
-												},
-												{
-													"eventType": "comment",
-													"text": "Defesa"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 693758186172143,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 392602488550060,
-															"parameters": {
-																"text": "\"Instantly regenerate \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns.\""
-															}
-														}
-													],
-													"sid": 458896336930880
-												},
-												{
-													"eventType": "comment",
-													"text": "Heal"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 286948024402183,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 398567617443269,
-															"parameters": {
-																"text": "\"Active a vitality power, capable of healing \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" HP.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns.\""
-															}
-														}
-													],
-													"sid": 348768979014953
-												},
-												{
-													"eventType": "comment",
-													"text": "Fire Bomb"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 220675656779995,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 912312342916402,
-															"parameters": {
-																"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \"  fire for \" & A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter )+1, counter ) & \" turns\""
-															}
-														}
-													],
-													"sid": 358384984556329
 												}
 											]
 										},
@@ -19037,6 +18916,14 @@
 													"sid": 155851841405564,
 													"parameters": {
 														"text": "A_Habilities.At( 1, 1, counter ) & newline & \"LVL. 10\""
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Item_Upg_Info",
+													"sid": 985070469314841,
+													"parameters": {
+														"text": "Internationalization.Lookup(\"game.work.skills.\" & counter, A_Habilities.At( 2, Dict_Save_File.Get( \"HAB_\" & counter ), counter ), A_Habilities.At( 3, Dict_Save_File.Get( \"HAB_\" & counter ), counter ), A_Habilities.At( 4, Dict_Save_File.Get( \"HAB_\" & counter ), counter ), A_Habilities.At( 5, Dict_Save_File.Get( \"HAB_\" & counter ), counter ) )"
 													}
 												},
 												{
@@ -19081,96 +18968,6 @@
 														}
 													],
 													"sid": 754553660207379
-												},
-												{
-													"eventType": "comment",
-													"text": "Defesa"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 385919290214457,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 958167803271710,
-															"parameters": {
-																"text": "\"Instantly regenerate \" & A_Habilities.At( 2, 10, counter ) & \" energy shield back.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
-															}
-														}
-													],
-													"sid": 889732728087294
-												},
-												{
-													"eventType": "comment",
-													"text": "Heal"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 535124669097414,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "1"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 956580859939238,
-															"parameters": {
-																"text": "\"Active a vitality power, capable of healing \" & A_Habilities.At( 2, 10, counter ) & \" HP.\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns.\""
-															}
-														}
-													],
-													"sid": 484063457876922
-												},
-												{
-													"eventType": "comment",
-													"text": "Fire Bomb"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-eventvar",
-															"objectClass": "System",
-															"sid": 223363866678338,
-															"parameters": {
-																"variable": "counter",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 215902592336359,
-															"parameters": {
-																"text": "\"Area Attack. [icon=dmg] \" & A_Habilities.At( 2, 10, counter ) & newline & \"[icon=special] \" & A_Habilities.At( 3, 10, counter ) & \" fire  for \" & A_Habilities.At( 4, 10, counter ) & \" turns\" & newline & \"[icon=cd] \" & A_Habilities.At( 5, 10, counter ) & \" turns\""
-															}
-														}
-													],
-													"sid": 823169039150727
 												}
 											]
 										}
@@ -19264,9 +19061,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Upg_Info",
-													"sid": 118494787335192,
+													"sid": 195018494017015,
 													"parameters": {
-														"text": "\"[icon=hp] \" & A_Armor.At( 2,1, counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,1, counter ) & newline & \"[icon=special]\""
+														"text": "\"[icon=hp] \" & A_Armor.At( 2,1, counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,1, counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, 1, counter ), 0, \"_\"), tokenat( A_Armor.At( 4, 1, counter ), 1, \"_\"), tokenat(A_Armor.At( 4, 1, counter ), 2, \"_\"))"
 													}
 												},
 												{
@@ -19280,58 +19077,6 @@
 											],
 											"sid": 391706536624546,
 											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 198874798019339,
-															"parameters": {
-																"first-value": "tokenat(A_Armor.At(4,1,counter), 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"dmgup\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "append-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 630651027323316,
-															"parameters": {
-																"text": "\"+\" & tokenat(A_Armor.At(4,1, counter), 1, \"_\") & \"% [icon=dmg] bonus\""
-															}
-														}
-													],
-													"sid": 785713716740072
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 976009455249666,
-															"parameters": {
-																"first-value": "tokenat(A_Armor.At(4,1,counter), 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"X\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "append-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 917752749558757,
-															"parameters": {
-																"text": "\" No bonus yet.\""
-															}
-														}
-													],
-													"sid": 486815625191432
-												},
 												{
 													"eventType": "block",
 													"conditions": [
@@ -19733,9 +19478,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Upg_Info",
-													"sid": 430155924571567,
+													"sid": 240839678652334,
 													"parameters": {
-														"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter)+1, counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter)+1, counter ) & newline & \"[icon=special]\""
+														"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter)+1, counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter)+1, counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter )+1, counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter )+1, counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter )+1, counter ), 2, \"_\"))"
 													}
 												},
 												{
@@ -19749,58 +19494,6 @@
 											],
 											"sid": 778672557552649,
 											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 991769695805460,
-															"parameters": {
-																"first-value": "tokenat(A_Armor.At(4, Dict_Save_File.Get(\"ARM_\" & counter)+1 ,counter), 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"dmgup\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "append-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 880172055270566,
-															"parameters": {
-																"text": "\"+\" & tokenat(A_Armor.At(4,Dict_Save_File.Get(\"ARM_\" & counter)+1, counter), 1, \"_\") & \"% [icon=dmg] bonus\""
-															}
-														}
-													],
-													"sid": 756473892015100
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 716120662609566,
-															"parameters": {
-																"first-value": "tokenat(A_Armor.At(4, Dict_Save_File.Get(\"ARM_\" & counter)+1 ,counter), 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"X\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "append-text",
-															"objectClass": "Text_Item_Upg_Info",
-															"sid": 864979682962507,
-															"parameters": {
-																"text": "\" No bonus yet.\""
-															}
-														}
-													],
-													"sid": 753707077600845
-												},
 												{
 													"eventType": "block",
 													"conditions": [
@@ -20194,9 +19887,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Upg_Info",
-													"sid": 286438533945483,
+													"sid": 509853573585956,
 													"parameters": {
-														"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\""
+														"text": "\"[icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & newline & \"[icon=special]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
 													}
 												},
 												{
@@ -20926,6 +20619,33 @@
 										}
 									],
 									"sid": 601851641335854
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 641878153023994,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "621"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 799968922649910,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.special\")"
+											}
+										}
+									],
+									"sid": 715091422789072
 								},
 								{
 									"eventType": "block",

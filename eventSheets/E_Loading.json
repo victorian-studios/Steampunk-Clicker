@@ -22,6 +22,16 @@
 			"sid": 280677508225478
 		},
 		{
+			"eventType": "variable",
+			"name": "First_Time",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "leva para a comic",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 237792518869799
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -48,6 +58,14 @@
 					"parameters": {
 						"mode": "stretch-letterbox-scale",
 						"navigation-ui": "auto"
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 786082775943642,
+					"parameters": {
+						"key": "\"First_Time\""
 					}
 				}
 			],
@@ -132,9 +150,9 @@
 						{
 							"id": "typewriter-text",
 							"objectClass": "Text_Fixed",
-							"sid": 584025728628099,
+							"sid": 985810504315201,
 							"parameters": {
-								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 5)) )",
 								"duration": "1"
 							}
 						},
@@ -176,9 +194,9 @@
 						{
 							"id": "typewriter-text",
 							"objectClass": "Text_Fixed",
-							"sid": 414500983736056,
+							"sid": 337693943159954,
 							"parameters": {
-								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 5)) )",
 								"duration": "1"
 							}
 						},
@@ -248,9 +266,9 @@
 						{
 							"id": "typewriter-text",
 							"objectClass": "Text_Fixed",
-							"sid": 412019622229923,
+							"sid": 144524843973997,
 							"parameters": {
-								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 5)) )",
 								"duration": "1"
 							}
 						},
@@ -292,9 +310,9 @@
 						{
 							"id": "typewriter-text",
 							"objectClass": "Text_Fixed",
-							"sid": 244337769702038,
+							"sid": 684790279334515,
 							"parameters": {
-								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 5)) )",
 								"duration": "1"
 							}
 						},
@@ -363,9 +381,9 @@
 						{
 							"id": "typewriter-text",
 							"objectClass": "Text_Fixed",
-							"sid": 459080772615769,
+							"sid": 794928469117229,
 							"parameters": {
-								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+								"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 5)) )",
 								"duration": "1"
 							}
 						},
@@ -439,9 +457,9 @@
 				{
 					"id": "typewriter-text",
 					"objectClass": "Text_Fixed",
-					"sid": 956902977269005,
+					"sid": 563140501300627,
 					"parameters": {
-						"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 4)) )",
+						"text": "Internationalization.Lookup(Self.my_Txt & \".tip_\" & int(random(1, 5)) )",
 						"duration": "1"
 					}
 				}
@@ -468,6 +486,10 @@
 				}
 			],
 			"sid": 707303925888895
+		},
+		{
+			"eventType": "comment",
+			"text": "Vai pra primeira comic"
 		},
 		{
 			"eventType": "block",
@@ -507,19 +529,60 @@
 							"parameters": {
 								"variable": "Ready_To_Start"
 							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 896364535325552,
+							"parameters": {
+								"variable": "First_Time"
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 135636355035311,
+							"sid": 166050900009296,
+							"parameters": {
+								"layout": "Void"
+							}
+						}
+					],
+					"sid": 757101389369916
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 140478044788727,
+							"parameters": {
+								"variable": "Ready_To_Start"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 754501929386476,
+							"parameters": {
+								"variable": "First_Time"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 421396015623611,
 							"parameters": {
 								"layout": "Menu"
 							}
 						}
 					],
-					"sid": 757101389369916
+					"sid": 540524275340661
 				}
 			],
 			"isOrBlock": true
@@ -564,15 +627,6 @@
 					}
 				},
 				{
-					"id": "set-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 674129084151979,
-					"parameters": {
-						"variable": "Ready_To_Start",
-						"value": "true"
-					}
-				},
-				{
 					"id": "wait-for-previous-actions",
 					"objectClass": "System",
 					"sid": 860008799214343
@@ -584,6 +638,15 @@
 					"parameters": {
 						"text": "Internationalization.Lookup( Self.my_Txt & \".ready\" )",
 						"duration": "0.5"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 678583703237236,
+					"parameters": {
+						"variable": "Ready_To_Start",
+						"value": "true"
 					}
 				}
 			],
@@ -619,7 +682,41 @@
 		},
 		{
 			"eventType": "comment",
-			"text": "Ao iniciar o jogo"
+			"text": "Ao iniciar o jogo, se a chave \"First_Time\" não existe no sistema local, então ativa a booleana First_TIme"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 920893255410651,
+					"parameters": {
+						"key": "\"First_Time\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 826008264687493,
+					"parameters": {
+						"variable": "First_Time",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 751520852386445,
+					"parameters": {
+						"key": "\"First_Time\"",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 358400961246110
 		},
 		{
 			"eventType": "block",
@@ -627,7 +724,7 @@
 				{
 					"id": "on-item-exists",
 					"objectClass": "LocalStorage",
-					"sid": 578606729623351,
+					"sid": 119855349392841,
 					"parameters": {
 						"key": "\"My_Save\""
 					}
@@ -637,13 +734,13 @@
 				{
 					"id": "get-item",
 					"objectClass": "LocalStorage",
-					"sid": 564317179423413,
+					"sid": 715531719729654,
 					"parameters": {
 						"key": "\"My_Save\""
 					}
 				}
 			],
-			"sid": 358400961246110
+			"sid": 964206858108067
 		},
 		{
 			"eventType": "block",

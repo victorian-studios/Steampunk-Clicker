@@ -155,40 +155,7 @@
 					}
 				}
 			],
-			"sid": 652930984059956,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "check-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 778888317980024,
-							"parameters": {
-								"key": "\"My_Save\""
-							}
-						},
-						{
-							"id": "check-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 717313917556740,
-							"parameters": {
-								"key": "\"Prod_Data\""
-							}
-						},
-						{
-							"id": "check-item-exists",
-							"objectClass": "LocalStorage",
-							"sid": 518262163395196,
-							"parameters": {
-								"key": "\"Upg_Data\""
-							}
-						}
-					],
-					"sid": 471611278055409
-				}
-			]
+			"sid": 652930984059956
 		},
 		{
 			"eventType": "block",

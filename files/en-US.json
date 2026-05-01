@@ -111,7 +111,7 @@
                 },
                 "Iron": {
                     "name": "Iron",
-                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Titanium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, you've produced sufficient Iron to buy the [b]Titanium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
                     "1": "[b]Produce Iron[/b]",
                     "2": "[b]Mine Cart[/b]",
                     "3": "[b]Sturdy Pickaxes[/b]",
@@ -131,7 +131,7 @@
                 },
                 "Titanium": {
                     "name": "Titanium",
-                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Tungsten[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, you've produced sufficient Titanium to buy the [b]Tungsten[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
                     "1": "[b]Produce Titanium[/b]",
                     "2": "[b]Hand Truck[/b]",
                     "3": "[b]Platform truck[/b]",
@@ -151,7 +151,7 @@
                 },
                 "Tungsten": {
                     "name": "Tungsten",
-                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Vaporium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, you've produced sufficient Tungsten to buy the [b]Vaporium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
                     "1": "[b]Produce Tungstein[/b]",
                     "2": "[b]Rope Pulley[/b]",
                     "3": "[b]Chain Pulley[/b]",
@@ -172,19 +172,19 @@
                 "Vaporium": {
                     "name": "Vaporium",
                     "1": "[b]Produce Vaporium[/b]",
-                    "2": "[b][/b]",
-                    "3": "[b][/b]",
-                    "4": "[b][/b]",
-                    "5": "[b][/b]",
-                    "6": "[b][/b]",
-                    "7": "[b]Auto-bot[/b]",
+                    "2": "[b]Chemical Test[/b]",
+                    "3": "[b]Energy Research[/b]",
+                    "4": "[b]Better Glassware[/b]",
+                    "5": "[b]Glass Capsules[/b]",
+                    "6": "[b]Auto-bot[/b]",
+                    "7": "[b]Temperature Control[/b]",
                     "8": "[b]Cost Reduction[/b]",
                     "9": "[b]Double Production[/b]",
                     "10": "[b]Combo: Steam[/b]",
                     "11": "[b]Combo: Tungsten[/b]",
-                    "12": "[b][/b]",
-                    "13": "[b][/b]",
-                    "14": "[b][/b]",
+                    "12": "[b]Reinforced Capsules[/b]",
+                    "13": "[b]Pressure Gauge[/b]",
+                    "14": "[b]Bulletproof Safe[/b]",
                     "15": "[b]Refined Material[/b]",
                     "16": "[b]Final Armour[/b]"
                 }
@@ -192,14 +192,15 @@
             "work": {
                 "unlock": "UNLOCK",
                 "upgrade": "UPGRADE",
+                "locked": "\nUnknown",
                 "label": {
                     "name": "ICONS",
                     "damage": "Damage",
                     "p_damage": "Penetrating Damage",
                     "ammo": "Ammo",
-                    "cooldown": "Cooldown"
+                    "cooldown": "Cooldown",
+                    "special": "Special Effect"
                 },
-                "locked": "\nUnknown",
                 "weapons": {
                     "nospecial": "None",
                     "stunchance": "Aplly Stun ({0}%)",
@@ -214,12 +215,12 @@
                 "skills": {
                     "0": "Instatly regenerate {0} energy shield back.\n[icon=cd] {3} turns.",
                     "1": "Active a vitality power, capable of healing {0} HP.\n[icon=cd] {3} turns.",
-                    "2": "Area Attack. [icon=dmg] {0}\n[icon=special] {1} fire  for {2} turns.\n[icon=cd] {3} turns",
-                    "3": "[icon=dmg] {0}\n[icon=special] {1} fire  for {2} turns.\n[icon=cd] {3} turns",
+                    "2": "Area Attack. [icon=dmg] {0}\n[icon=special] {1} fire for {2} turns.\n[icon=cd] {3} turns",
+                    "3": "[icon=dmg] {0}\n[icon=special] {1} poison for {2} turns.\n[icon=cd] {3} turns",
                     "4": "Increase your damage by {0}% of attacks for {2} turns.\n[icon=cd] {3} turns.",
                     "5": "Deal {0} damage back to enemies for {2} turns.\n[icon=cd] {3} turns.",
                     "6": "Reduce target's damage by {0}% for {2} turns.\n[icon=cd] {3} turns.",
-                    "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns.\n[icon=cd] {3} turnos"
+                    "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns."
                 },
                 "armors": {
                     "nospecial": "None",
@@ -277,7 +278,8 @@
             "ready": "Click anywhere to start!",
             "tip_1": "If a level is too difficult try changing your equipment. There're many combos available in the game!",
             "tip_2": "Each armor has different amount of equipement slots. Test each one according to your available equipment.",
-            "tip_3": "At level 10, all equipements receive a significant upgrade to their attributes. Prioritize having fewer high-level items instead of many low-level ones."
+            "tip_3": "At level 10, all equipements receive a significant upgrade to their attributes. Prioritize having fewer high-level items instead of many low-level ones.",
+            "tip_4": "After purchasing the Auto-bot upgrade, remember to activate it by right-clicking on the producer"
         },
 
         "tutorial": {

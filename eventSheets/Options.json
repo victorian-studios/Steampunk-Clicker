@@ -12,6 +12,16 @@
 			"sid": 375288569565460
 		},
 		{
+			"eventType": "variable",
+			"name": "Option_FPS",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 793825052966305
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -160,8 +170,67 @@
 						}
 					],
 					"sid": 970092825885665
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 760929563870649,
+							"parameters": {
+								"variable": "Option_FPS"
+							}
+						},
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 363422931072126,
+							"parameters": {
+								"object": "Checkbox_Options",
+								"expression": "Checkbox_Options.ID",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Checkbox_Options",
+							"sid": 137652079080888,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 108433360431836
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 493823908506079,
+					"parameters": {
+						"layer": "\"FPS\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_FPS",
+					"sid": 955058254812013,
+					"parameters": {
+						"text": "\"[outline=#ffffff]\" & fps & \"[/outline]\""
+					}
+				}
+			],
+			"sid": 587313813761683
 		},
 		{
 			"eventType": "block",
@@ -173,6 +242,15 @@
 					"parameters": {
 						"object": "Btn_Config"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 898459003836087,
+					"parameters": {
+						"variable": "Battle_Ended"
+					},
+					"isInverted": true
 				},
 				{
 					"id": "is-any-playing",
@@ -2162,11 +2240,11 @@
 						},
 						{
 							"eventType": "comment",
-							"text": "Show FPS / A FAZER...",
+							"text": "Show FPS",
 							"text-color": [
-								1,
-								0,
-								0,
+								0.7215686274509804,
+								0.7215686274509804,
+								0.7215686274509804,
 								1
 							]
 						},
@@ -2208,6 +2286,24 @@
 											"parameters": {
 												"frame-number": "1"
 											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 925814325990416,
+											"parameters": {
+												"layer": "\"FPS\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 760881067706481,
+											"parameters": {
+												"variable": "Option_FPS",
+												"value": "true"
+											}
 										}
 									],
 									"sid": 510053220262206
@@ -2228,6 +2324,24 @@
 											"sid": 400804960327182,
 											"parameters": {
 												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 179182190037457,
+											"parameters": {
+												"layer": "\"FPS\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 903080741353925,
+											"parameters": {
+												"variable": "Option_FPS",
+												"value": "false"
 											}
 										}
 									],

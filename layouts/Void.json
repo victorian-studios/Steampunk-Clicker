@@ -1846,7 +1846,7 @@
 					"sid": 302668015864941,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 75,
+						"HP": 150,
 						"MAX_HP": 150,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
@@ -2143,7 +2143,7 @@
 					"sid": 684015969448293,
 					"tags": "",
 					"instanceVariables": {
-						"HP": 75,
+						"HP": 150,
 						"MAX_HP": 150,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
@@ -8155,6 +8155,70 @@
 						"z": 0,
 						"angle": 0
 					}
+				},
+				{
+					"type": "Text_Skip",
+					"properties": {
+						"text": "Skip >",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 38,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"text-direction": "ltr",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 138,
+					"sid": 927433305665685,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1,
+								"destroy": false,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 927433305665685,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1762,
+						"y": 996,
+						"width": 151,
+						"height": 69,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.6
+						],
+						"z": 0,
+						"angle": 0
+					}
 				}
 			],
 			"sid": 817517694227424,
@@ -8262,6 +8326,41 @@
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"isInitiallyInteractive": false,
+			"isHTMLElementsLayer": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"sampling": "auto",
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "FPS",
+			"overriden": 1,
+			"subLayers": [],
+			"instances": [],
+			"sid": 372404166669006,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
 			"color": [
 				1,

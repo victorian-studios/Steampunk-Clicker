@@ -2209,6 +2209,144 @@
 				}
 			],
 			"sid": 469197625780365
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 629907299403234,
+					"parameters": {
+						"object": "Text_Skip"
+					}
+				},
+				{
+					"id": "compare-opacity",
+					"objectClass": "Text_Skip",
+					"sid": 710159087537552,
+					"parameters": {
+						"comparison": 5,
+						"opacity": "60"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "start-fade",
+					"objectClass": "Text_Skip",
+					"sid": 812181812352163,
+					"behaviorType": "Fade"
+				}
+			],
+			"sid": 755116532927950,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 192448918548682,
+							"parameters": {
+								"variable": "Story_Comic",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Comic_Side2",
+							"sid": 882926371475104,
+							"parameters": {
+								"animation": "\"Page 4\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "Comic Page",
+							"sid": 996386901855240,
+							"parameters": [
+								"0",
+								true
+							]
+						}
+					],
+					"sid": 170016686992240
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 842643203850905,
+							"parameters": {
+								"variable": "Story_Comic",
+								"comparison": 0,
+								"value": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Comic_Side2",
+							"sid": 897934661816979,
+							"parameters": {
+								"animation": "\"Page 6\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "Comic Page",
+							"sid": 817250320275253,
+							"parameters": [
+								"0",
+								true
+							]
+						}
+					],
+					"sid": 968953235798501
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 788056683693448,
+							"parameters": {
+								"variable": "Story_Comic",
+								"comparison": 0,
+								"value": "7"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Comic_Side2",
+							"sid": 999164297023822,
+							"parameters": {
+								"animation": "\"Page 8\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "Comic Page",
+							"sid": 157621338913416,
+							"parameters": [
+								"0",
+								true
+							]
+						}
+					],
+					"sid": 866017893471601
+				}
+			]
 		}
 	],
 	"sid": 668903503354586

@@ -96,6 +96,16 @@
 			"sid": 834522476980952
 		},
 		{
+			"eventType": "variable",
+			"name": "Dif_Multiply",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "multiplicador de vida dos inimigos",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 515607890294246
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -193,6 +203,15 @@
 					"parameters": {
 						"variable": "TURN",
 						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 180861406789186,
+					"parameters": {
+						"variable": "Dif_Multiply",
+						"value": "A_Level_Data.At(4, Level)"
 					}
 				},
 				{
@@ -1626,6 +1645,33 @@
 												"where": "behind",
 												"object": "Player"
 											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 772185269419080,
+											"parameters": {
+												"instance-variable": "MAX_HP",
+												"value": "round( Self.MAX_HP * Dif_Multiply )"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 758905555125721,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "Self.MAX_HP"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 187789408304192,
+											"parameters": {
+												"instance-variable": "Block",
+												"value": "round( Self.Block * Dif_Multiply )"
+											}
 										}
 									],
 									"sid": 503118704804094,
@@ -2179,6 +2225,15 @@
 						"comparison": 0,
 						"value": "\"\""
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 787438049190705,
+					"parameters": {
+						"variable": "Battle_Ended"
+					},
+					"isInverted": true
 				},
 				{
 					"id": "layer-is-visible",
@@ -3281,10 +3336,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 423385624270647,
+											"sid": 539714330376192,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
-												"layer": "\"HUD\"",
+												"layer": "\"Health\"",
 												"x": "738",
 												"y": "954",
 												"create-hierarchy": false,
@@ -3373,10 +3428,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 159928709225583,
+													"sid": 330485854936862,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
+														"layer": "\"Health\"",
 														"x": "324",
 														"y": "720",
 														"create-hierarchy": false,
@@ -3433,10 +3488,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 383495980833868,
+													"sid": 708019752891108,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
+														"layer": "\"Health\"",
 														"x": "324",
 														"y": "720",
 														"create-hierarchy": false,
@@ -3616,10 +3671,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 697755767496322,
+													"sid": 349250918266312,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
+														"layer": "\"Health\"",
 														"x": "324",
 														"y": "720",
 														"create-hierarchy": false,
@@ -3769,10 +3824,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 685013588138967,
+															"sid": 866985006963346,
 															"parameters": {
 																"object-to-create": "Text_Dmg_Numb",
-																"layer": "\"HUD\"",
+																"layer": "\"Health\"",
 																"x": "301",
 																"y": "814",
 																"create-hierarchy": false,
@@ -3851,10 +3906,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 634436420401119,
+															"sid": 688946482389532,
 															"parameters": {
 																"object-to-create": "Text_Dmg_Numb",
-																"layer": "\"HUD\"",
+																"layer": "\"Health\"",
 																"x": "301",
 																"y": "814",
 																"create-hierarchy": false,
@@ -4029,10 +4084,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 693249818509622,
+															"sid": 326013451479629,
 															"parameters": {
 																"object-to-create": "Text_Dmg_Numb",
-																"layer": "\"HUD\"",
+																"layer": "\"Health\"",
 																"x": "324",
 																"y": "720",
 																"create-hierarchy": false,
@@ -4182,10 +4237,10 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 691930584010144,
+																	"sid": 685859614453685,
 																	"parameters": {
 																		"object-to-create": "Text_Dmg_Numb",
-																		"layer": "\"HUD\"",
+																		"layer": "\"Health\"",
 																		"x": "301",
 																		"y": "814",
 																		"create-hierarchy": false,
@@ -4264,10 +4319,10 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 237162945846579,
+																	"sid": 312673782334157,
 																	"parameters": {
 																		"object-to-create": "Text_Dmg_Numb",
-																		"layer": "\"HUD\"",
+																		"layer": "\"Health\"",
 																		"x": "301",
 																		"y": "814",
 																		"create-hierarchy": false,
@@ -4374,10 +4429,10 @@
 										{
 											"id": "create-object",
 											"objectClass": "System",
-											"sid": 827903655517823,
+											"sid": 452945070307858,
 											"parameters": {
 												"object-to-create": "Text_Dmg_Numb",
-												"layer": "\"HUD\"",
+												"layer": "\"Health\"",
 												"x": "324",
 												"y": "720",
 												"create-hierarchy": false,
@@ -13968,10 +14023,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 923537651403687,
+													"sid": 794907480146874,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
+														"layer": "\"Health\"",
 														"x": "Enemy.ImagePointX(1)",
 														"y": "Enemy.ImagePointY(1)",
 														"create-hierarchy": false,
@@ -14032,10 +14087,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 286904984108993,
+													"sid": 974726307642732,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
+														"layer": "\"Health\"",
 														"x": "Enemy.ImagePointX(1)",
 														"y": "Enemy.ImagePointY(1)",
 														"create-hierarchy": false,
@@ -14139,10 +14194,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 431167531177928,
+													"sid": 717092342204595,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
+														"layer": "\"Health\"",
 														"x": "Enemy.ImagePointX(1)",
 														"y": "Enemy.ImagePointY(1)",
 														"create-hierarchy": false,
@@ -14199,10 +14254,10 @@
 												{
 													"id": "create-object",
 													"objectClass": "System",
-													"sid": 369321974848640,
+													"sid": 937046286199185,
 													"parameters": {
 														"object-to-create": "Text_Dmg_Numb",
-														"layer": "\"HUD\"",
+														"layer": "\"Health\"",
 														"x": "Enemy.ImagePointX(1)",
 														"y": "Enemy.ImagePointY(1)",
 														"create-hierarchy": false,
@@ -14320,10 +14375,10 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 354471138422313,
+															"sid": 941532761364463,
 															"parameters": {
 																"object-to-create": "Text_Dmg_Numb",
-																"layer": "\"HUD\"",
+																"layer": "\"Health\"",
 																"x": "Enemy.ImagePointX(1)",
 																"y": "Enemy.ImagePointY(1)",
 																"create-hierarchy": false,
@@ -14407,10 +14462,10 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 164895144216569,
+																	"sid": 928443971392623,
 																	"parameters": {
 																		"object-to-create": "Text_Dmg_Numb",
-																		"layer": "\"HUD\"",
+																		"layer": "\"Health\"",
 																		"x": "Enemy.ImagePointX(1)",
 																		"y": "Enemy.ImagePointY(1)",
 																		"create-hierarchy": false,
@@ -14551,10 +14606,10 @@
 																{
 																	"id": "create-object",
 																	"objectClass": "System",
-																	"sid": 674456645201816,
+																	"sid": 496804459448693,
 																	"parameters": {
 																		"object-to-create": "Text_Dmg_Numb",
-																		"layer": "\"HUD\"",
+																		"layer": "\"Health\"",
 																		"x": "Enemy.ImagePointX(1)",
 																		"y": "Enemy.ImagePointY(1)",
 																		"create-hierarchy": false,
@@ -19335,6 +19390,16 @@
 							"sid": 167351793709080,
 							"parameters": {
 								"variable": "Tutorial_Fight"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 713955558448452,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 0,
+								"value": "1"
 							}
 						},
 						{
