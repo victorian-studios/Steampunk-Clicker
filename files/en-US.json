@@ -192,6 +192,7 @@
             "work": {
                 "unlock": "UNLOCK",
                 "upgrade": "UPGRADE",
+                "title_locked": "Locked",
                 "locked": "\nUnknown",
                 "label": {
                     "name": "ICONS",
@@ -210,7 +211,17 @@
                     "aoeattackchance": "Area Dmg ({0}%)",
                     "fire": "Apply {0} [icon=fire] ({1}%)",
                     "recharge": "Regen {0}[icon=shield]",
-                    "shieldextradmg": "If [icon=shield]>0, deal +{0}[icon=dmg]"
+                    "shieldextradmg": "If [icon=shield]>0, deal +{0}[icon=dmg]",
+                    "name": {
+                        "Club": "Club",
+                        "Knife": "Knife",
+                        "Pistol": "Pistol",
+                        "Blunderbuss": "Blunderbuss",
+                        "Katana": "Katana",
+                        "Granade Launcher": "Granade Launcher",
+                        "Electric Shield": "Electric Shield",
+                        "Electric Sword": "Electric Sword"
+                    }
                 },
                 "skills": {
                     "0": "Instatly regenerate {0} energy shield back.\n[icon=cd] {3} turns.",
@@ -220,7 +231,17 @@
                     "4": "Increase your damage by {0}% of attacks for {2} turns.\n[icon=cd] {3} turns.",
                     "5": "Deal {0} damage back to enemies for {2} turns.\n[icon=cd] {3} turns.",
                     "6": "Reduce target's damage by {0}% for {2} turns.\n[icon=cd] {3} turns.",
-                    "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns."
+                    "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns.",
+                    "name": {
+                        "Recharge": "Recharge",
+                        "Heal": "Heal",
+                        "Fire Bomb": "Fire Bomb",
+                        "Electrify": "Electrify",
+                        "Poison Darts": "Poison Darts",
+                        "Fortify": "Fortify",
+                        "Bone Breaker": "Bone Breaker",
+                        "Discharge Mark": "Discharge Mark"
+                    }
                 },
                 "armors": {
                     "nospecial": "None",
