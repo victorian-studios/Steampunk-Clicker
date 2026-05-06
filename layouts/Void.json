@@ -528,7 +528,7 @@
 					}
 				},
 				{
-					"type": "Btn_Upgrade_Weapon",
+					"type": "Btn_Upgrade_WeaponSkill",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Upgrade",
@@ -985,7 +985,7 @@
 					}
 				},
 				{
-					"type": "Btn_Upgrade_Weapon",
+					"type": "Btn_Upgrade_WeaponSkill",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Upgrade",
@@ -1194,10 +1194,10 @@
 				{
 					"type": "Text_Item_Info_Armor",
 					"properties": {
-						"text": "[icon=hp] 999 | [icon=shield] 999\n[icon=special] Something cool",
+						"text": "[size=23][icon=hp] 999 | [icon=shield] 999[/size]\n[size=17][icon=special]Active: Deal [icon=dmg]{0} to random targets {1} times .[/size]",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 22,
+						"size": 18,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,

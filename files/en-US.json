@@ -226,7 +226,7 @@
                 "skills": {
                     "0": "Instatly regenerate {0} energy shield back.\n[icon=cd] {3} turns.",
                     "1": "Active a vitality power, capable of healing {0} HP.\n[icon=cd] {3} turns.",
-                    "2": "Area Attack. [icon=dmg] {0}\n[icon=special] {1} fire for {2} turns.\n[icon=cd] {3} turns",
+                    "2": "Area Attack. [icon=dmg]{0}\n[icon=special] {1}fire for {2} turns.\n[icon=cd] {3} turns",
                     "3": "[icon=dmg] {0}\n[icon=special] {1} poison for {2} turns.\n[icon=cd] {3} turns",
                     "4": "Increase your damage by {0}% of attacks for {2} turns.\n[icon=cd] {3} turns.",
                     "5": "Deal {0} damage back to enemies for {2} turns.\n[icon=cd] {3} turns.",
@@ -245,12 +245,12 @@
                 },
                 "armors": {
                     "nospecial": "None",
-                    "dodge": "",
-                    "hpregen": "",
-                    "": "",
-                    "": "",
-                    "": "",
-                    "": ""
+                    "dodge": "[size=17][icon=special]Active: {0}% Dodge chance. ({1} turns)[/size]",
+                    "hpregen": "[size=18][icon=special]+{0}[icon=hp] every turn.[/size]",
+                    "spike": "[size=17][icon=special]Deal {0} damage back to enemies.[/size]",
+                    "missile": "[size=17][icon=special]Active: Deal [icon=dmg]{0} to random targets {1} times .[/size]",
+                    "negate": "[size=18]{0}% chance don't receive any damage.[/size]",
+                    "sdrergen": "[size=18][icon=special]+{0}[icon=shield] every turn.[/size]"
                 }
             },
             "map": {

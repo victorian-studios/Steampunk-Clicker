@@ -370,13 +370,13 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 625781754228663,
+					"sid": 846435740690466,
 					"parameters": {
 						"audio-file": {
 							"path": "Menu/rotating_metal_cog"
 						},
 						"loop": "not-looping",
-						"volume": "0",
+						"volume": "-20 + (VOLUME * 0.2)",
 						"stereo-pan": "0",
 						"tag-optional": "\"rotate\""
 					}
