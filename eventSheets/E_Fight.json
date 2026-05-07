@@ -188,6 +188,15 @@
 					}
 				},
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 532482269977189,
+					"parameters": {
+						"layer": "\"Tutorial\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
 					"sid": 726347224971335,
@@ -367,6 +376,15 @@
 					"sid": 232208205475171,
 					"parameters": {
 						"layer": "\"Habs\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 808889322949552,
+					"parameters": {
+						"layer": "\"Health\"",
 						"visibility": "visible"
 					}
 				}
@@ -3569,6 +3587,12 @@
 													"parameters": {
 														"text": "abs ( Amount )"
 													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 354259804311960,
+													"behaviorType": "Fade"
 												}
 											],
 											"sid": 898425353525452
@@ -3638,6 +3662,12 @@
 														"variable": "HP",
 														"value": "HP_Max"
 													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "Text_Dmg_Numb",
+													"sid": 603826362247219,
+													"behaviorType": "Fade"
 												}
 											],
 											"sid": 649346504041908
@@ -8211,7 +8241,17 @@
 															}
 														}
 													],
-													"actions": [],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 578462394040450,
+															"parameters": {
+																"type": "log",
+																"message": "\"Fire-Bomb\""
+															}
+														}
+													],
 													"sid": 105540652518965,
 													"children": [
 														{
@@ -8239,7 +8279,7 @@
 																},
 																{
 																	"callFunction": "Apply_Effect_Enemy",
-																	"sid": 832307487369560,
+																	"sid": 188710799428943,
 																	"parameters": [
 																		false,
 																		false,
@@ -8247,7 +8287,7 @@
 																		"\"fire\"",
 																		"A_Habilities.At(3, Action_Lvl, Action_ID )",
 																		"A_Habilities.At(4, Action_Lvl, Action_ID )",
-																		"0"
+																		"Enemy.My_ID"
 																	]
 																}
 															],
@@ -8380,7 +8420,22 @@
 															}
 														}
 													],
-													"actions": [],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 701286344414348,
+															"parameters": {
+																"audio-file": {
+																	"path": "Upgrade/Level_Up_3_by_Universfield"
+																},
+																"loop": "not-looping",
+																"volume": "-20 + (VOLUME * 0.2)",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
 													"sid": 853979944564764,
 													"children": [
 														{
@@ -8399,13 +8454,13 @@
 															],
 															"actions": [
 																{
-																	"id": "add-to-eventvar",
-																	"objectClass": "System",
-																	"sid": 791382372922901,
-																	"parameters": {
-																		"variable": "HP",
-																		"value": "int(A_Habilities.At(2, Action_Lvl, Action_ID))"
-																	}
+																	"callFunction": "Change_Health_Player",
+																	"sid": 588841890523389,
+																	"parameters": [
+																		"int(A_Habilities.At(2, Action_Lvl, Action_ID))",
+																		false,
+																		false
+																	]
 																}
 															],
 															"sid": 950261075667246
@@ -8421,13 +8476,13 @@
 															],
 															"actions": [
 																{
-																	"id": "set-eventvar-value",
-																	"objectClass": "System",
-																	"sid": 430567224360691,
-																	"parameters": {
-																		"variable": "HP",
-																		"value": "HP_Max"
-																	}
+																	"callFunction": "Change_Health_Player",
+																	"sid": 521130321906054,
+																	"parameters": [
+																		"HP_Max - HP",
+																		false,
+																		false
+																	]
 																}
 															],
 															"sid": 352327053494727
@@ -8612,7 +8667,7 @@
 																},
 																{
 																	"callFunction": "Apply_Effect_Enemy",
-																	"sid": 403402522776173,
+																	"sid": 809591440769803,
 																	"parameters": [
 																		false,
 																		false,
@@ -8620,7 +8675,7 @@
 																		"\"poison\"",
 																		"A_Habilities.At(3, Action_Lvl, Action_ID )",
 																		"A_Habilities.At(4, Action_Lvl, Action_ID )",
-																		"Target_ID"
+																		"Enemy.My_ID"
 																	]
 																}
 															],
@@ -8677,7 +8732,7 @@
 																},
 																{
 																	"callFunction": "Apply_Effect_Enemy",
-																	"sid": 470534099446699,
+																	"sid": 191835859226761,
 																	"parameters": [
 																		false,
 																		true,
@@ -8685,7 +8740,7 @@
 																		"\"weak\"",
 																		"A_Habilities.At(3, Action_Lvl, Action_ID )",
 																		"A_Habilities.At(4, Action_Lvl, Action_ID )",
-																		"Target_ID"
+																		"Enemy.My_ID"
 																	]
 																}
 															],
@@ -8882,17 +8937,7 @@
 													"sid": 496200515452418
 												}
 											],
-											"actions": [
-												{
-													"id": "subtract-from-instvar",
-													"objectClass": "Icon_Effect_Player",
-													"sid": 649234689520919,
-													"parameters": {
-														"instance-variable": "Duration",
-														"value": "1"
-													}
-												}
-											],
+											"actions": [],
 											"sid": 918006689191242,
 											"children": [
 												{
@@ -8940,6 +8985,15 @@
 														}
 													],
 													"actions": [
+														{
+															"id": "subtract-from-instvar",
+															"objectClass": "Icon_Effect_Player",
+															"sid": 573911032631569,
+															"parameters": {
+																"instance-variable": "Duration",
+																"value": "1"
+															}
+														},
 														{
 															"id": "set-at-xy",
 															"objectClass": "A_Fight_Effects",
@@ -10040,6 +10094,15 @@
 										"variable": "Battle_Ended"
 									},
 									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 735682271336728,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -10086,6 +10149,15 @@
 									"sid": 376649564308484,
 									"parameters": {
 										"variable": "Battle_Ended"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 520503940585096,
+									"parameters": {
+										"layer": "\"Options\""
 									},
 									"isInverted": true
 								}
@@ -10199,6 +10271,15 @@
 									"sid": 178655961956605,
 									"parameters": {
 										"variable": "Battle_Ended"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 450365227196344,
+									"parameters": {
+										"layer": "\"Options\""
 									},
 									"isInverted": true
 								}
@@ -15510,16 +15591,26 @@
 							"sid": 909569987887473
 						},
 						{
-							"name": "Target",
+							"name": "Target_My_ID",
 							"type": "number",
 							"initialValue": "0",
-							"comment": "",
+							"comment": "a variavel my_id do Enemy",
 							"sid": 771458271558359
 						}
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 709027546872997,
+							"parameters": {
+								"type": "log",
+								"message": "\"Função Effect Enemy chamada\""
+							}
+						}
+					],
 					"sid": 789262515063843,
 					"children": [
 						{
@@ -15533,11 +15624,21 @@
 										"object": "Enemy",
 										"expression": "Enemy.My_ID",
 										"comparison": 0,
-										"value": "Target"
+										"value": "Target_My_ID"
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 415757362966587,
+									"parameters": {
+										"type": "log",
+										"message": "\"Effect Alvo encontrado\""
+									}
+								}
+							],
 							"sid": 309750598626786,
 							"children": [
 								{
@@ -15552,7 +15653,17 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 969215206488875,
+											"parameters": {
+												"type": "log",
+												"message": "\"Effect DOT\""
+											}
+										}
+									],
 									"sid": 339004584981703,
 									"children": [
 										{
@@ -15779,7 +15890,7 @@
 																		"object": "Icon_Effect_Enemy",
 																		"expression": "Icon_Effect_Enemy.My_Z",
 																		"comparison": 0,
-																		"value": "Target"
+																		"value": "Target_My_ID"
 																	}
 																},
 																{
@@ -15881,7 +15992,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 675127807792378,
+													"parameters": {
+														"type": "log",
+														"message": "\"Fire-Bomb Effect\""
+													}
+												}
+											],
 											"sid": 679498843084560,
 											"children": [
 												{
@@ -16091,7 +16212,7 @@
 																		"object": "Icon_Effect_Enemy",
 																		"expression": "Icon_Effect_Enemy.My_Z",
 																		"comparison": 0,
-																		"value": "Target"
+																		"value": "Target_My_ID"
 																	}
 																},
 																{
@@ -16109,6 +16230,14 @@
 																}
 															],
 															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "Icon_Effect_Enemy",
+																	"sid": 316870754966673,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																},
 																{
 																	"id": "set-instvar-value",
 																	"objectClass": "Icon_Effect_Enemy",
@@ -16420,7 +16549,7 @@
 																		"object": "Icon_Effect_Enemy",
 																		"expression": "Icon_Effect_Enemy.My_Z",
 																		"comparison": 0,
-																		"value": "Target"
+																		"value": "Target_My_ID"
 																	}
 																},
 																{
@@ -16732,7 +16861,7 @@
 																		"object": "Icon_Effect_Enemy",
 																		"expression": "Icon_Effect_Enemy.My_Z",
 																		"comparison": 0,
-																		"value": "Target"
+																		"value": "Target_My_ID"
 																	}
 																},
 																{
@@ -17061,7 +17190,7 @@
 																		"object": "Icon_Effect_Enemy",
 																		"expression": "Icon_Effect_Enemy.My_Z",
 																		"comparison": 0,
-																		"value": "Target"
+																		"value": "Target_My_ID"
 																	}
 																},
 																{
@@ -17373,7 +17502,7 @@
 																		"object": "Icon_Effect_Enemy",
 																		"expression": "Icon_Effect_Enemy.My_Z",
 																		"comparison": 0,
-																		"value": "Target"
+																		"value": "Target_My_ID"
 																	}
 																},
 																{
@@ -17972,17 +18101,7 @@
 											"sid": 440569326957176
 										}
 									],
-									"actions": [
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "Icon_Effect_Enemy",
-											"sid": 749654972283377,
-											"parameters": {
-												"instance-variable": "Duration",
-												"value": "1"
-											}
-										}
-									],
+									"actions": [],
 									"sid": 779934356612370,
 									"children": [
 										{
@@ -18022,6 +18141,15 @@
 												}
 											],
 											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Icon_Effect_Enemy",
+													"sid": 250443055459111,
+													"parameters": {
+														"instance-variable": "Duration",
+														"value": "1"
+													}
+												},
 												{
 													"id": "set-at-xy",
 													"objectClass": "A_Fight_Effects",
@@ -18303,6 +18431,29 @@
 								}
 							],
 							"sid": 110876209193216
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-at-offset",
+									"objectClass": "Enemy",
+									"sid": 645274102377674,
+									"parameters": {
+										"object": "Icon_Enemy_Shield",
+										"offset-x": "-15",
+										"offset-y": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Icon_Enemy_Shield",
+									"sid": 185111095837217
+								}
+							],
+							"sid": 520284628698614
 						},
 						{
 							"eventType": "block",
@@ -19762,6 +19913,15 @@
 							}
 						},
 						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 684875838433109,
+							"parameters": {
+								"layer": "\"Tutorial\"",
+								"visibility": "visible"
+							}
+						},
+						{
 							"id": "typewriter-text",
 							"objectClass": "Text_Tutorial",
 							"sid": 148192360469378,
@@ -19811,7 +19971,8 @@
 							]
 						}
 					],
-					"sid": 689559068641603
+					"sid": 689559068641603,
+					"disabled": true
 				},
 				{
 					"eventType": "block",

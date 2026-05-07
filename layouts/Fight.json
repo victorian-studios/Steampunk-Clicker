@@ -290,7 +290,7 @@
 						"Hab_2": "Atk_fullpierce_10",
 						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 1,
 						"OnFire": "",
 						"ID": "Z1",
 						"Special_Hab_Used": false
@@ -366,7 +366,7 @@
 						"Hab_2": "Atk_fullpierce_10",
 						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 1,
 						"OnFire": "",
 						"ID": "Z1",
 						"Special_Hab_Used": false
@@ -442,7 +442,7 @@
 						"Hab_2": "Atk_fullpierce_10",
 						"Special_Hab": "",
 						"My_ID": 1,
-						"Block": 0,
+						"Block": 1,
 						"OnFire": "",
 						"ID": "Z1",
 						"Special_Hab_Used": false
@@ -2410,7 +2410,7 @@
 							"tags": "",
 							"instanceVariables": {
 								"my_ID": 3,
-								"block": 0
+								"block": 1
 							},
 							"behaviors": {
 								"Sine": {
@@ -2426,6 +2426,51 @@
 										"enabled": false,
 										"live-preview": false
 									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 614,
+								"children": [
+									{
+										"uid": 615,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
 								}
 							},
 							"instanceFolderItem": {
@@ -2481,6 +2526,34 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 614,
+								"uid": 615,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 610504633871002,
 								"expanded": true
@@ -2518,7 +2591,7 @@
 							"tags": "",
 							"instanceVariables": {
 								"my_ID": 1,
-								"block": 0
+								"block": 1
 							},
 							"behaviors": {
 								"Sine": {
@@ -2534,6 +2607,51 @@
 										"enabled": false,
 										"live-preview": false
 									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 616,
+								"children": [
+									{
+										"uid": 617,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
 								}
 							},
 							"instanceFolderItem": {
@@ -2589,6 +2707,34 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 616,
+								"uid": 617,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 689323494872072,
 								"expanded": true
@@ -2626,7 +2772,7 @@
 							"tags": "",
 							"instanceVariables": {
 								"my_ID": 2,
-								"block": 0
+								"block": 1
 							},
 							"behaviors": {
 								"Sine": {
@@ -2642,6 +2788,51 @@
 										"enabled": false,
 										"live-preview": false
 									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": null,
+								"uid": 618,
+								"children": [
+									{
+										"uid": 619,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									}
+								],
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
 								}
 							},
 							"instanceFolderItem": {
@@ -2697,6 +2888,34 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 618,
+								"uid": 619,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
 							"instanceFolderItem": {
 								"sid": 816018504126050,
 								"expanded": true
@@ -3267,7 +3486,7 @@
 					],
 					"sid": 475694608119557,
 					"effectTypes": [],
-					"isInitiallyVisible": true,
+					"isInitiallyVisible": false,
 					"isInitiallyInteractive": true,
 					"isHTMLElementsLayer": false,
 					"color": [
@@ -4521,9 +4740,9 @@
 									"locked": false,
 									"world": {
 										"x": 898,
-										"y": -348,
+										"y": -342,
 										"width": 404,
-										"height": 86,
+										"height": 80,
 										"originX": 0,
 										"originY": 0,
 										"color": [
@@ -4684,9 +4903,9 @@
 									"showing": true,
 									"locked": false,
 									"world": {
-										"x": 1316,
+										"x": 1301.1052819313795,
 										"y": -148,
-										"width": 123.10528193137952,
+										"width": 138,
 										"height": 35.59808856251698,
 										"originX": 0,
 										"originY": 0,

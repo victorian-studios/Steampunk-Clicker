@@ -541,7 +541,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"Price_1": "",
-						"Price_2": ""
+						"Price_2": "",
+						"Type": "WP"
 					},
 					"behaviors": {
 						"Pin": {
@@ -998,7 +999,8 @@
 					"tags": "",
 					"instanceVariables": {
 						"Price_1": "",
-						"Price_2": ""
+						"Price_2": "",
+						"Type": "HAB"
 					},
 					"behaviors": {
 						"Pin": {
@@ -7882,6 +7884,45 @@
 						"z": 0,
 						"angle": 0
 					}
+				},
+				{
+					"type": "Icon_check_batalhas",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 228,
+					"sid": 338105620130648,
+					"tags": "",
+					"instanceVariables": {
+						"Lvl_ID_Check": 2
+					},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 338105620130648,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 320,
+						"y": 1015,
+						"width": 58.99999999999999,
+						"height": 58.99999999999999,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
 				}
 			],
 			"sid": 250077146265599,
@@ -8215,6 +8256,76 @@
 							1,
 							1,
 							0.6
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Icon_MouseTouch",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 623,
+					"sid": 581677120533213,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "vertical",
+								"wave": "sine",
+								"period": 2.75,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 8,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Rotate": {
+							"properties": {
+								"speed": 0,
+								"acceleration": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 2,
+								"wait-time": 0,
+								"fade-out-time": 0,
+								"destroy": false,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 581677120533213,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 468,
+						"y": 211,
+						"width": 90,
+						"height": 90,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
 						],
 						"z": 0,
 						"angle": 0

@@ -2237,6 +2237,30 @@
 					"objectClass": "Text_Skip",
 					"sid": 812181812352163,
 					"behaviorType": "Fade"
+				},
+				{
+					"id": "set-fade-in-time",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 206791186945839,
+					"behaviorType": "Fade",
+					"parameters": {
+						"fade-in-time": "0"
+					}
+				},
+				{
+					"id": "set-fade-out-time",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 830797833021835,
+					"behaviorType": "Fade",
+					"parameters": {
+						"fade-out-time": "1"
+					}
+				},
+				{
+					"id": "restart-fade",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 547823996181025,
+					"behaviorType": "Fade"
 				}
 			],
 			"sid": 755116532927950,
@@ -2347,6 +2371,104 @@
 					"sid": 866017893471601
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-between-angles",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 992301922033261,
+					"parameters": {
+						"first-angle": "334",
+						"second-angle": "338"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 179071651751078,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"speed": "18"
+					}
+				}
+			],
+			"sid": 526238286172766
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-between-angles",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 927505673903514,
+					"parameters": {
+						"first-angle": "0",
+						"second-angle": "4"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 544840851286662,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"speed": "-18"
+					}
+				}
+			],
+			"sid": 821656023879421
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 827220883574222
+				},
+				{
+					"id": "compare-opacity",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 826966329040792,
+					"parameters": {
+						"comparison": 0,
+						"opacity": "100"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-fade-in-time",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 951799948802726,
+					"behaviorType": "Fade",
+					"parameters": {
+						"fade-in-time": "0"
+					}
+				},
+				{
+					"id": "set-fade-out-time",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 761193620774512,
+					"behaviorType": "Fade",
+					"parameters": {
+						"fade-out-time": "1"
+					}
+				},
+				{
+					"id": "restart-fade",
+					"objectClass": "Icon_MouseTouch",
+					"sid": 791320426208669,
+					"behaviorType": "Fade"
+				}
+			],
+			"sid": 750730919690750
 		}
 	],
 	"sid": 668903503354586
