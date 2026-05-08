@@ -5545,6 +5545,25 @@
 							"children": [
 								{
 									"eventType": "comment",
+									"text": "Pronto pra ser comprado - Aqui poderia fazer um Unlock_Upgrade se a gente soubesse o valor do z_index referente ao upgrade atual"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Icon_Upg",
+											"sid": 617230361095289,
+											"parameters": {
+												"instance-variable": "Sold"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 784137228653320
+								},
+								{
+									"eventType": "comment",
 									"text": "Pronto pra ser comprado"
 								},
 								{
@@ -6208,6 +6227,36 @@
 															}
 														},
 														{
+															"callFunction": "Unlock_Upgrade",
+															"sid": 555616891137629,
+															"parameters": [
+																"int(tokenat(Icon_Upg.Upg_Connections, 0, \"_\") )",
+																"Icon_Upg.LayerName",
+																"loopindex(\"z_index\")",
+																false
+															]
+														},
+														{
+															"callFunction": "Unlock_Upgrade",
+															"sid": 501275480545721,
+															"parameters": [
+																"int(tokenat(Icon_Upg.Upg_Connections, 1, \"_\") )",
+																"Icon_Upg.LayerName",
+																"loopindex(\"z_index\")",
+																false
+															]
+														},
+														{
+															"callFunction": "Unlock_Upgrade",
+															"sid": 699050385178412,
+															"parameters": [
+																"int(tokenat(Icon_Upg.Upg_Connections, 2, \"_\") )",
+																"Icon_Upg.LayerName",
+																"loopindex(\"z_index\")",
+																false
+															]
+														},
+														{
 															"id": "log",
 															"objectClass": "Browser",
 															"sid": 809585165527750,
@@ -6450,6 +6499,10 @@
 							"sid": 794601871825987,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Se o upgrade está com a animação \"Locked\" então muda a opacidade pra 30 e fica aguardando alcançá-lo na ordem de upgrades"
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -6513,9 +6566,20 @@
 										{
 											"callFunction": "Save_Local_Storage",
 											"sid": 912662005877498
+										},
+										{
+											"callFunction": "Update_Upgrades",
+											"sid": 760331426039111,
+											"parameters": [
+												true
+											]
 										}
 									],
 									"sid": 528652037410771
+								},
+								{
+									"eventType": "comment",
+									"text": "Se o upgrade está com opacidade 30 então muda pra 100 e salva no A_Upg_Data que está disponível para compra"
 								},
 								{
 									"eventType": "block",
@@ -8316,17 +8380,18 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 943723156549421,
+											"sid": 267244636754722,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 4,
-												"value": "1"
+												"value": "2"
 											}
 										},
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 748385291336237,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Wood\"",
 												"comparison": 5,
@@ -8337,6 +8402,7 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 191303052145261,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Copper\"",
 												"comparison": 0,
@@ -8397,17 +8463,18 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 702518948108874,
+											"sid": 550195427274080,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 4,
-												"value": "2"
+												"value": "3"
 											}
 										},
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 737322067037498,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Copper\"",
 												"comparison": 5,
@@ -8418,6 +8485,7 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 432023403691728,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Iron\"",
 												"comparison": 0,
@@ -8478,17 +8546,18 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 360475638940587,
+											"sid": 552426251715537,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 4,
-												"value": "3"
+												"value": "6"
 											}
 										},
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 287583690115562,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Iron\"",
 												"comparison": 5,
@@ -8499,6 +8568,7 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 137075025471912,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Titanium\"",
 												"comparison": 0,
@@ -8559,17 +8629,18 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 788737874953303,
+											"sid": 491149984544293,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 4,
-												"value": "4"
+												"value": "7"
 											}
 										},
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 751493855666421,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Titanium\"",
 												"comparison": 5,
@@ -8580,6 +8651,7 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 738714137539437,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Tungsten\"",
 												"comparison": 0,
@@ -8640,17 +8712,18 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 148306407535897,
+											"sid": 198495166134898,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 4,
-												"value": "5"
+												"value": "9"
 											}
 										},
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 101365311455456,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Tungsten\"",
 												"comparison": 5,
@@ -8661,6 +8734,7 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 845875196070940,
+											"disabled": true,
 											"parameters": {
 												"key": "\"Vaporium\"",
 												"comparison": 0,

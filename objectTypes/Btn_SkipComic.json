@@ -1,0 +1,96 @@
+{
+	"name": "Btn_SkipComic",
+	"plugin-id": "Sprite",
+	"sid": 560818344018288,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 695173407002988
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 120,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 5465959,
+						"collisionPoly": {
+							"points": [
+								0.104,
+								0.175,
+								0.952,
+								0.225,
+								0.952,
+								0.8583333333333333,
+								0.616,
+								0.9,
+								0.54,
+								0.9,
+								0.088,
+								0.825,
+								0.048,
+								0.7583333333333333
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 250,
+						"height": 120,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7652159,
+						"collisionPoly": {
+							"points": [
+								0.096,
+								0.15833333333333333,
+								0.96,
+								0.20833333333333334,
+								0.96,
+								0.875,
+								0.624,
+								0.9166666666666666,
+								0.532,
+								0.9166666666666666,
+								0.08,
+								0.8416666666666667,
+								0.04,
+								0.775
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 288643695701168,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

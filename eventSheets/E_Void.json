@@ -2216,26 +2216,26 @@
 				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
-					"sid": 629907299403234,
+					"sid": 760731178844512,
 					"parameters": {
-						"object": "Text_Skip"
+						"object": "Btn_SkipComic"
 					}
 				},
 				{
 					"id": "compare-opacity",
-					"objectClass": "Text_Skip",
-					"sid": 710159087537552,
+					"objectClass": "Btn_SkipComic",
+					"sid": 283939860484812,
 					"parameters": {
-						"comparison": 5,
-						"opacity": "60"
+						"comparison": 4,
+						"opacity": "50"
 					}
 				}
 			],
 			"actions": [
 				{
 					"id": "start-fade",
-					"objectClass": "Text_Skip",
-					"sid": 812181812352163,
+					"objectClass": "Btn_SkipComic",
+					"sid": 984229737607021,
 					"behaviorType": "Fade"
 				},
 				{
@@ -2469,6 +2469,51 @@
 				}
 			],
 			"sid": 750730919690750
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 448788364231207,
+					"parameters": {
+						"object": "Btn_SkipComic"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_SkipComic",
+					"sid": 543425181363146,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 698940725963993
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 968397699572386
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_SkipComic",
+					"sid": 547069942846757,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 531720813511845
 		}
 	],
 	"sid": 668903503354586

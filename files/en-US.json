@@ -35,7 +35,7 @@
             "upg": {
                 "locked": "[b]Locked[/b]",
                 "unavailable": "This upgrade can't be purchased right now. Buy the previous one first.",
-                "unlock_new_upgs": "Rose, I've made progress in my research and discovered some new upgrades for some producers. Check it out!",
+                "unlock_new_upgs": "Rose, I've made progress in my research and discovered some new upgrades for you. Check it out!",
                 "tip_unlock": "Progress in the map to unlock this upgrade.",
                 "unlock_wood": "\nUnlock the Wood production!",
                 "unlock_copper": "\nUnlock the Copper production!",
@@ -55,7 +55,7 @@
                 "steam_premium": "Work in progress...",
                 "Steam": {
                     "name": "Steam",
-                    "unlock_next": "Hey Rose, you've produced sufficient Steam to buy the [b]Wood[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, you've produced sufficient Steam to buy the [b]Wood[/b] production. Check the [b]Upgrades Tab[/b] for more information.",
                     "1": "[b]Coal[/b]",
                     "2": "[b]Coal Sacks[/b]",
                     "3": "[b]Coal Boxes[/b]",
@@ -73,7 +73,7 @@
                 },
                 "Wood": {
                     "name": "Wood",
-                    "unlock_next": "Hey Rose, you've produced sufficient Wood to buy the [b]Copper[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, what do you think about using [b]Copper[/b] for your next armor? Check the [b]Upgrades Tab[/b] to start producing.",
                     "1": "[b]Produce Wood[/b]",
                     "2": "[b]Old Saw[/b]",
                     "3": "[b]Brand New Saw[/b]",
@@ -93,7 +93,7 @@
                 },
                 "Copper": {
                     "name": "Copper",
-                    "unlock_next": "Hey Rose, you've produced sufficient Copper to buy the [b]Iron[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, what do you think about using [b]Iron[/b] for your next armor? Check the [b]Upgrades Tab[/b] to start producing.",
                     "1": "[b]Produce Copper[/b]",
                     "2": "[b]Extra Coal[/b]",
                     "3": "[b]Preheating[/b]",
@@ -113,7 +113,7 @@
                 },
                 "Iron": {
                     "name": "Iron",
-                    "unlock_next": "Hey Rose, you've produced sufficient Iron to buy the [b]Titanium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, what do you think about using [b]Titanium[/b] for your next armor? Check the [b]Upgrades Tab[/b] to start producing.",
                     "1": "[b]Produce Iron[/b]",
                     "2": "[b]Mine Cart[/b]",
                     "3": "[b]Sturdy Pickaxes[/b]",
@@ -133,7 +133,7 @@
                 },
                 "Titanium": {
                     "name": "Titanium",
-                    "unlock_next": "Hey Rose, you've produced sufficient Titanium to buy the [b]Tungsten[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Hey Rose, what do you think about using [b]Tungsten[/b] for your next armor? Check the [b]Upgrades Tab[/b] to start producing.",
                     "1": "[b]Produce Titanium[/b]",
                     "2": "[b]Hand Truck[/b]",
                     "3": "[b]Platform truck[/b]",
@@ -153,7 +153,7 @@
                 },
                 "Tungsten": {
                     "name": "Tungsten",
-                    "unlock_next": "Hey Rose, you've produced sufficient Tungsten to buy the [b]Vaporium[/b] production. Check the [b]Upgrades Tab[/b] for more information!",
+                    "unlock_next": "Rose! I've founded a new powerfull mineral: [b]Vaporium[/b]! I'm sure this is going to be revolutionary! Check the [b]Upgrades Tab[/b] to start producing.",
                     "1": "[b]Produce Tungstein[/b]",
                     "2": "[b]Rope Pulley[/b]",
                     "3": "[b]Chain Pulley[/b]",
@@ -251,7 +251,7 @@
                     "hpregen": "[size=18][icon=special]+{0}[icon=hp] every turn.[/size]",
                     "spike": "[size=17][icon=special]Deal {0} damage back to enemies.[/size]",
                     "missile": "[size=17][icon=special]Active: Deal [icon=dmg]{0} to random targets {1} times .[/size]",
-                    "negate": "[size=18]{0}% chance don't receive any damage.[/size]",
+                    "stun": "[size=18]{0}% chance to stun enemies that attack you.[/size]",
                     "sdrergen": "[size=18][icon=special]+{0}[icon=shield] every turn.[/size]"
                 }
             },
