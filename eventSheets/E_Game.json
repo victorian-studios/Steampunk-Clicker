@@ -118,8 +118,8 @@
 		{
 			"eventType": "variable",
 			"name": "Armor_Special_ID",
-			"type": "string",
-			"initialValue": "",
+			"type": "number",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -1842,17 +1842,90 @@
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 916467393684467,
+			"children": [
 				{
-					"id": "set-animation-frame",
-					"objectClass": "Buttons",
-					"sid": 345569344289315,
-					"parameters": {
-						"frame-number": "1"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 690153085347544,
+							"parameters": {
+								"object": "Btn_Bkg"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 863961004009835,
+							"parameters": {
+								"object": "Btn_Info"
+							}
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 267937625491006,
+							"parameters": {
+								"object": "Btn_Tut"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 824506892243457,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 895522843261647,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Buttons",
+									"sid": 759998409014474,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 228791040088427
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 495583090097318
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Buttons",
+							"sid": 212989730044272,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 515266883370832
 				}
-			],
-			"sid": 916467393684467
+			]
 		},
 		{
 			"eventType": "block",
@@ -5098,345 +5171,392 @@
 								"instance-variable": "Producing"
 							},
 							"isInverted": true
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Production",
-							"sid": 620568580645854,
-							"parameters": {
-								"instance-variable": "prod_cap",
-								"comparison": 5,
-								"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
-							}
 						}
 					],
 					"actions": [],
 					"sid": 756135889625200,
 					"children": [
 						{
-							"eventType": "comment",
-							"text": "Wood prod"
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Production",
-									"sid": 509038915331337,
+									"sid": 940320884035659,
 									"parameters": {
-										"instance-variable": "cond_material_quant_1",
-										"comparison": 1,
-										"value": "\"\""
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 322689063870987,
-									"parameters": {
-										"instance-variable": "cond_material_quant_2",
-										"comparison": 0,
-										"value": "\"\""
+										"instance-variable": "prod_cap",
+										"comparison": 5,
+										"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
 									}
 								}
 							],
 							"actions": [],
-							"sid": 317066724081974,
+							"sid": 725157320499992,
 							"children": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-value",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 185003524214801,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
-												"comparison": 5,
-												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "start-timer",
-											"objectClass": "Production",
-											"sid": 930665151299605,
-											"behaviorType": "Timer",
-											"parameters": {
-												"duration": "Production.prod_time",
-												"type": "once",
-												"tag": "\"other_prod_time\""
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production",
-											"sid": 131336945326083,
-											"parameters": {
-												"instance-variable": "Producing",
-												"value": "true"
-											}
-										},
-										{
-											"id": "set-key",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 450012971264278,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										}
-									],
-									"sid": 279711689955781,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 150049428787164
-												},
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Production",
-													"sid": 162120915553817,
-													"parameters": {
-														"object": "Icon_Autoprod_Light"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Autoprod_Light",
-													"sid": 193173519651178,
-													"parameters": {
-														"frame-number": "1"
-													}
-												}
-											],
-											"sid": 445213052536615
-										}
-									]
+									"eventType": "comment",
+									"text": "Wood prod"
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 579900011741857
+											"id": "compare-instance-variable",
+											"objectClass": "Production",
+											"sid": 790613388997265,
+											"parameters": {
+												"instance-variable": "cond_material_quant_1",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Production",
+											"sid": 642423011271391,
+											"parameters": {
+												"instance-variable": "cond_material_quant_2",
+												"comparison": 0,
+												"value": "\"\""
+											}
 										}
 									],
 									"actions": [],
-									"sid": 121833182249069,
+									"sid": 281950390027808,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 354537077238437
-												},
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Production",
-													"sid": 166575013616374,
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 479839490604371,
 													"parameters": {
-														"object": "Icon_Autoprod_Light"
+														"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+														"comparison": 5,
+														"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
 													}
 												}
 											],
 											"actions": [
 												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Autoprod_Light",
-													"sid": 501229033193518,
+													"id": "start-timer",
+													"objectClass": "Production",
+													"sid": 466931904005569,
+													"behaviorType": "Timer",
 													"parameters": {
-														"frame-number": "2"
+														"duration": "Production.prod_time",
+														"type": "once",
+														"tag": "\"other_prod_time\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production",
+													"sid": 469888867368300,
+													"parameters": {
+														"instance-variable": "Producing",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-key",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 890042278794357,
+													"parameters": {
+														"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+														"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
 													}
 												}
 											],
-											"sid": 654690028817140
+											"sid": 381720554729048,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 714053329569636
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Production",
+															"sid": 137703634402352,
+															"parameters": {
+																"object": "Icon_Autoprod_Light"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Icon_Autoprod_Light",
+															"sid": 811572458485363,
+															"parameters": {
+																"frame-number": "1"
+															}
+														}
+													],
+													"sid": 531308352429373
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 832820767139426
+												}
+											],
+											"actions": [],
+											"sid": 544871833024439,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 958105162133788
+														},
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Production",
+															"sid": 413819677145315,
+															"parameters": {
+																"object": "Icon_Autoprod_Light"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Icon_Autoprod_Light",
+															"sid": 522977852854343,
+															"parameters": {
+																"frame-number": "2"
+															}
+														}
+													],
+													"sid": 292610074289283
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "comment",
+									"text": "All others"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Production",
+											"sid": 298074022430799,
+											"parameters": {
+												"instance-variable": "cond_material_quant_1",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Production",
+											"sid": 213337055019456,
+											"parameters": {
+												"instance-variable": "cond_material_quant_2",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 357640509336715,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 448347625322821,
+													"parameters": {
+														"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
+														"comparison": 5,
+														"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+													}
+												},
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 918116552267886,
+													"parameters": {
+														"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
+														"comparison": 5,
+														"value": "int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "start-timer",
+													"objectClass": "Production",
+													"sid": 999498185962172,
+													"behaviorType": "Timer",
+													"parameters": {
+														"duration": "Production.prod_time",
+														"type": "once",
+														"tag": "\"other_prod_time\""
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production",
+													"sid": 466138262664435,
+													"parameters": {
+														"instance-variable": "Producing",
+														"value": "true"
+													}
+												},
+												{
+													"id": "set-key",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 153836345728193,
+													"parameters": {
+														"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
+														"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
+													}
+												},
+												{
+													"id": "set-key",
+													"objectClass": "Dict_Temp_Prod_Data",
+													"sid": 512086047369617,
+													"parameters": {
+														"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
+														"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+													}
+												}
+											],
+											"sid": 315677722093914,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Production",
+															"sid": 539873998652473,
+															"parameters": {
+																"object": "Icon_Autoprod_Light"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 139891880901061
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Icon_Autoprod_Light",
+															"sid": 767195024051562,
+															"parameters": {
+																"frame-number": "1"
+															}
+														}
+													],
+													"sid": 561854527655305
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 164949332855684
+												}
+											],
+											"actions": [],
+											"sid": 548764073808486,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "Production",
+															"sid": 769004231705292,
+															"parameters": {
+																"object": "Icon_Autoprod_Light"
+															}
+														},
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 513954966781219
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Icon_Autoprod_Light",
+															"sid": 487166063831212,
+															"parameters": {
+																"frame-number": "2"
+															}
+														}
+													],
+													"sid": 845743872262744
+												}
+											]
 										}
 									]
 								}
 							]
 						},
 						{
-							"eventType": "comment",
-							"text": "All others"
-						},
-						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 711938729726762,
-									"parameters": {
-										"instance-variable": "cond_material_quant_1",
-										"comparison": 1,
-										"value": "\"\""
-									}
-								},
-								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 426098548363659,
-									"parameters": {
-										"instance-variable": "cond_material_quant_2",
-										"comparison": 1,
-										"value": "\"\""
-									}
+									"id": "else",
+									"objectClass": "System",
+									"sid": 261688377877820
 								}
 							],
 							"actions": [],
-							"sid": 501981931934541,
+							"sid": 416460246239186,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-value",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 323858980259659,
+											"id": "is-overlapping-another-object",
+											"objectClass": "Production",
+											"sid": 120519347385068,
 											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\")",
-												"comparison": 5,
-												"value": "int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										},
-										{
-											"id": "compare-value",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 130423420457940,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\")",
-												"comparison": 5,
-												"value": "int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+												"object": "Icon_Autoprod_Light"
 											}
 										}
 									],
 									"actions": [
 										{
-											"id": "start-timer",
-											"objectClass": "Production",
-											"sid": 690444464584436,
-											"behaviorType": "Timer",
+											"id": "set-animation-frame",
+											"objectClass": "Icon_Autoprod_Light",
+											"sid": 253744561847468,
 											"parameters": {
-												"duration": "Production.prod_time",
-												"type": "once",
-												"tag": "\"other_prod_time\""
-											}
-										},
-										{
-											"id": "set-boolean-instvar",
-											"objectClass": "Production",
-											"sid": 283886016382441,
-											"parameters": {
-												"instance-variable": "Producing",
-												"value": "true"
-											}
-										},
-										{
-											"id": "set-key",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 910334902123356,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_1, 0, \"_\" )",
-												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_1, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_1, 1, \"_\") )"
-											}
-										},
-										{
-											"id": "set-key",
-											"objectClass": "Dict_Temp_Prod_Data",
-											"sid": 715238562319108,
-											"parameters": {
-												"key": "tokenat (Production.cond_material_quant_2, 0, \"_\" )",
-												"value": "Dict_Temp_Prod_Data.Get(tokenat (Production.cond_material_quant_2, 0, \"_\" )) - int ( tokenat ( Production.cond_material_quant_2, 1, \"_\") )"
+												"frame-number": "2"
 											}
 										}
 									],
-									"sid": 404743953335643,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Production",
-													"sid": 574614612154994,
-													"parameters": {
-														"object": "Icon_Autoprod_Light"
-													}
-												},
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 931087936803621
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Autoprod_Light",
-													"sid": 408217557725658,
-													"parameters": {
-														"frame-number": "1"
-													}
-												}
-											],
-											"sid": 708891986078225
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "else",
-											"objectClass": "System",
-											"sid": 951659539741878
-										}
-									],
-									"actions": [],
-									"sid": 195068708672100,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "is-overlapping-another-object",
-													"objectClass": "Production",
-													"sid": 986870083764912,
-													"parameters": {
-														"object": "Icon_Autoprod_Light"
-													}
-												},
-												{
-													"id": "trigger-once-while-true",
-													"objectClass": "System",
-													"sid": 576807295910325
-												}
-											],
-											"actions": [
-												{
-													"id": "set-animation-frame",
-													"objectClass": "Icon_Autoprod_Light",
-													"sid": 784011712582594,
-													"parameters": {
-														"frame-number": "2"
-													}
-												}
-											],
-											"sid": 445570140455160
-										}
-									]
+									"sid": 707707752358136
 								}
 							]
 						}
@@ -6454,6 +6574,7 @@
 							"id": "log",
 							"objectClass": "Browser",
 							"sid": 308487092281311,
+							"disabled": true,
 							"parameters": {
 								"type": "log",
 								"message": "\"upg_id: \"&upgrade_id & \" / layer: \"&layer& \" / z_index:\"&layer_z_index"
@@ -8029,11 +8150,11 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 833833179839209,
+											"sid": 217830335895457,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 0,
-												"value": "3"
+												"value": "1"
 											}
 										},
 										{
@@ -8052,10 +8173,10 @@
 									"actions": [
 										{
 											"callFunction": "Notification_Warning",
-											"sid": 443571857283734,
+											"sid": 804504151043941,
 											"parameters": [
 												"\"Upgrades\"",
-												"0"
+												"102"
 											]
 										},
 										{
@@ -8070,9 +8191,69 @@
 										},
 										{
 											"callFunction": "Unlock_Upgrade",
-											"sid": 118534896685259,
+											"sid": 399313985589078,
+											"parameters": [
+												"8",
+												"\"Steam\"",
+												"0",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 628587513499558,
+											"parameters": [
+												"9",
+												"\"Steam\"",
+												"0",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 217387446310846,
+											"parameters": [
+												"10",
+												"\"Steam\"",
+												"0",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 846144366390526,
 											"parameters": [
 												"11",
+												"\"Steam\"",
+												"0",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 103317411924798,
+											"parameters": [
+												"12",
+												"\"Steam\"",
+												"0",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 259786945723334,
+											"parameters": [
+												"13",
+												"\"Steam\"",
+												"0",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 866984261850720,
+											"parameters": [
+												"14",
 												"\"Steam\"",
 												"0",
 												true
@@ -8105,11 +8286,11 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 606402847948141,
+											"sid": 965583610161100,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 0,
-												"value": "9"
+												"value": "2"
 											}
 										},
 										{
@@ -8128,25 +8309,95 @@
 									"actions": [
 										{
 											"callFunction": "Notification_Warning",
-											"sid": 915042097542462,
+											"sid": 886645381119945,
 											"parameters": [
 												"\"Upgrades\"",
-												"0"
+												"103"
 											]
 										},
 										{
 											"callFunction": "Unlock_Upgrade",
-											"sid": 956148418405985,
+											"sid": 573813874028066,
 											"parameters": [
-												"14",
-												"\"Steam\"",
-												"0",
+												"7",
+												"\"Wood\"",
+												"1",
 												true
 											]
 										},
 										{
 											"callFunction": "Unlock_Upgrade",
-											"sid": 637843654004201,
+											"sid": 554408079199176,
+											"parameters": [
+												"8",
+												"\"Wood\"",
+												"1",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 637367720451197,
+											"parameters": [
+												"9",
+												"\"Wood\"",
+												"1",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 138920565189871,
+											"parameters": [
+												"10",
+												"\"Wood\"",
+												"1",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 502557226917432,
+											"parameters": [
+												"11",
+												"\"Wood\"",
+												"1",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 193426953434461,
+											"parameters": [
+												"12",
+												"\"Wood\"",
+												"1",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 425134959132220,
+											"parameters": [
+												"13",
+												"\"Wood\"",
+												"1",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 211366762875221,
+											"parameters": [
+												"14",
+												"\"Wood\"",
+												"1",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 873378658921490,
 											"parameters": [
 												"15",
 												"\"Wood\"",
@@ -8156,57 +8407,17 @@
 										},
 										{
 											"callFunction": "Unlock_Upgrade",
-											"sid": 946397986130442,
+											"sid": 433132138202867,
 											"parameters": [
-												"15",
-												"\"Copper\"",
-												"2",
-												true
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 526678953750653,
-											"parameters": [
-												"15",
-												"\"Iron\"",
-												"3",
-												true
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 778221546323791,
-											"parameters": [
-												"15",
-												"\"Titanium\"",
-												"4",
-												true
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 431540077893765,
-											"parameters": [
-												"15",
-												"\"Tungsten\"",
-												"5",
-												true
-											]
-										},
-										{
-											"callFunction": "Unlock_Upgrade",
-											"sid": 345005015536374,
-											"parameters": [
-												"15",
-												"\"Vaporium\"",
-												"6",
+												"16",
+												"\"Wood\"",
+												"1",
 												true
 											]
 										},
 										{
 											"callFunction": "Pop_up_Tutorial",
-											"sid": 250090161125284,
+											"sid": 896246740553136,
 											"parameters": [
 												"Internationalization.Lookup(\"game.upg.unlock_new_upgs\")",
 												"2",
@@ -8216,7 +8427,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 883155355615775,
+											"sid": 699352938833416,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"value": "\"unlock_next\""
@@ -8231,11 +8442,11 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 500589151382103,
+											"sid": 391263724336252,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 0,
-												"value": "10"
+												"value": "4"
 											}
 										},
 										{
@@ -8254,25 +8465,115 @@
 									"actions": [
 										{
 											"callFunction": "Notification_Warning",
-											"sid": 494522491152381,
+											"sid": 751394723955191,
 											"parameters": [
 												"\"Upgrades\"",
-												"0"
+												"104"
 											]
 										},
 										{
 											"callFunction": "Unlock_Upgrade",
-											"sid": 938205012171411,
+											"sid": 133872075843604,
+											"parameters": [
+												"7",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 226273793693911,
+											"parameters": [
+												"8",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 663201295363249,
+											"parameters": [
+												"9",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 532473876675107,
+											"parameters": [
+												"10",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 480436136984642,
+											"parameters": [
+												"11",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 669287000368795,
+											"parameters": [
+												"12",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 429319121516430,
+											"parameters": [
+												"13",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 825471845629823,
+											"parameters": [
+												"14",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 398869283934801,
+											"parameters": [
+												"15",
+												"\"Copper\"",
+												"2",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 584281364720467,
 											"parameters": [
 												"16",
-												"\"Wood\"",
-												"1",
+												"\"Copper\"",
+												"2",
 												true
 											]
 										},
 										{
 											"callFunction": "Pop_up_Tutorial",
-											"sid": 316258373058693,
+											"sid": 459559088135553,
 											"parameters": [
 												"Internationalization.Lookup(\"game.upg.unlock_new_upgs\")",
 												"2",
@@ -8282,7 +8583,7 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 815740028543432,
+											"sid": 225253705128683,
 											"parameters": {
 												"variable": "Tutorial_Name",
 												"value": "\"unlock_next\""
@@ -8290,6 +8591,630 @@
 										}
 									],
 									"sid": 471465521739269
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Save_File",
+											"sid": 328920425247984,
+											"parameters": {
+												"key": "\"LVL\"",
+												"comparison": 0,
+												"value": "5"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 366406127585092,
+											"parameters": {
+												"x": "16",
+												"y": "1",
+												"z": "1",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Notification_Warning",
+											"sid": 828362388404567,
+											"parameters": [
+												"\"Upgrades\"",
+												"105"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 431190292497582,
+											"parameters": [
+												"7",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 205079875788624,
+											"parameters": [
+												"8",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 466983328192205,
+											"parameters": [
+												"9",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 484309164456807,
+											"parameters": [
+												"10",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 804431230821114,
+											"parameters": [
+												"11",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 725218678108971,
+											"parameters": [
+												"12",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 339464161627753,
+											"parameters": [
+												"13",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 242204876734022,
+											"parameters": [
+												"14",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 192887075091534,
+											"parameters": [
+												"15",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 662330830956131,
+											"parameters": [
+												"16",
+												"\"Iron\"",
+												"3",
+												true
+											]
+										},
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 918310460931483,
+											"parameters": [
+												"Internationalization.Lookup(\"game.upg.unlock_new_upgs\")",
+												"2",
+												"\"Happy\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 626749084438522,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"unlock_next\""
+											}
+										}
+									],
+									"sid": 903527540734086
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Save_File",
+											"sid": 782093581560463,
+											"parameters": {
+												"key": "\"LVL\"",
+												"comparison": 0,
+												"value": "8"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 800460715038954,
+											"parameters": {
+												"x": "16",
+												"y": "1",
+												"z": "1",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Notification_Warning",
+											"sid": 339513869274090,
+											"parameters": [
+												"\"Upgrades\"",
+												"106"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 287255283301692,
+											"parameters": [
+												"7",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 625981010066107,
+											"parameters": [
+												"8",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 588653332790362,
+											"parameters": [
+												"9",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 383234560511456,
+											"parameters": [
+												"10",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 375216122044970,
+											"parameters": [
+												"11",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 962287134629124,
+											"parameters": [
+												"12",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 671599222765070,
+											"parameters": [
+												"13",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 358323444047208,
+											"parameters": [
+												"14",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 365053969149055,
+											"parameters": [
+												"15",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 723087318789400,
+											"parameters": [
+												"16",
+												"\"Titanium\"",
+												"4",
+												true
+											]
+										},
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 915048084874725,
+											"parameters": [
+												"Internationalization.Lookup(\"game.upg.unlock_new_upgs\")",
+												"2",
+												"\"Happy\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 160158178005287,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"unlock_next\""
+											}
+										}
+									],
+									"sid": 350689658386777
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Save_File",
+											"sid": 449808589771137,
+											"parameters": {
+												"key": "\"LVL\"",
+												"comparison": 0,
+												"value": "10"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 440307550416283,
+											"parameters": {
+												"x": "16",
+												"y": "1",
+												"z": "1",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Notification_Warning",
+											"sid": 765871566122657,
+											"parameters": [
+												"\"Upgrades\"",
+												"107"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 536660950648547,
+											"parameters": [
+												"7",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 171583125013091,
+											"parameters": [
+												"8",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 891005399979858,
+											"parameters": [
+												"9",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 450991721231496,
+											"parameters": [
+												"10",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 456474228952064,
+											"parameters": [
+												"11",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 223869296095922,
+											"parameters": [
+												"12",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 847138046743395,
+											"parameters": [
+												"13",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 474910916966465,
+											"parameters": [
+												"14",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 556453793260292,
+											"parameters": [
+												"15",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 954826948406265,
+											"parameters": [
+												"16",
+												"\"Tungsten\"",
+												"5",
+												true
+											]
+										},
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 579811267572027,
+											"parameters": [
+												"Internationalization.Lookup(\"game.upg.unlock_new_upgs\")",
+												"2",
+												"\"Happy\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 246697220406239,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"unlock_next\""
+											}
+										}
+									],
+									"sid": 384537057564586
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Save_File",
+											"sid": 760942920463792,
+											"parameters": {
+												"key": "\"LVL\"",
+												"comparison": 0,
+												"value": "11"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 158905294089869,
+											"parameters": {
+												"x": "16",
+												"y": "1",
+												"z": "1",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Notification_Warning",
+											"sid": 657805055128754,
+											"parameters": [
+												"\"Upgrades\"",
+												"108"
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 713097466023854,
+											"parameters": [
+												"7",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 281528657604661,
+											"parameters": [
+												"8",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 671635266392746,
+											"parameters": [
+												"9",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 182143880656339,
+											"parameters": [
+												"10",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 165345479654640,
+											"parameters": [
+												"11",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 744029059617554,
+											"parameters": [
+												"12",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 659028356458070,
+											"parameters": [
+												"13",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 710491111385517,
+											"parameters": [
+												"14",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 761850856314435,
+											"parameters": [
+												"15",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Unlock_Upgrade",
+											"sid": 981140390668644,
+											"parameters": [
+												"16",
+												"\"Vaporium\"",
+												"6",
+												true
+											]
+										},
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 628602916484181,
+											"parameters": [
+												"Internationalization.Lookup(\"game.upg.unlock_new_upgs\")",
+												"2",
+												"\"Happy\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 964017789599590,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"unlock_next\""
+											}
+										}
+									],
+									"sid": 357744822434059
 								}
 							]
 						},
@@ -8380,10 +9305,10 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 267244636754722,
+											"sid": 837149477867094,
 											"parameters": {
 												"key": "\"LVL\"",
-												"comparison": 4,
+												"comparison": 0,
 												"value": "2"
 											}
 										},
@@ -8402,7 +9327,6 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 191303052145261,
-											"disabled": true,
 											"parameters": {
 												"key": "\"Copper\"",
 												"comparison": 0,
@@ -8463,10 +9387,10 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 550195427274080,
+											"sid": 908044024812461,
 											"parameters": {
 												"key": "\"LVL\"",
-												"comparison": 4,
+												"comparison": 0,
 												"value": "3"
 											}
 										},
@@ -8485,7 +9409,6 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 432023403691728,
-											"disabled": true,
 											"parameters": {
 												"key": "\"Iron\"",
 												"comparison": 0,
@@ -8546,10 +9469,10 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 552426251715537,
+											"sid": 945800253474534,
 											"parameters": {
 												"key": "\"LVL\"",
-												"comparison": 4,
+												"comparison": 0,
 												"value": "6"
 											}
 										},
@@ -8568,7 +9491,6 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 137075025471912,
-											"disabled": true,
 											"parameters": {
 												"key": "\"Titanium\"",
 												"comparison": 0,
@@ -8629,10 +9551,10 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 491149984544293,
+											"sid": 811104531501202,
 											"parameters": {
 												"key": "\"LVL\"",
-												"comparison": 4,
+												"comparison": 0,
 												"value": "7"
 											}
 										},
@@ -8651,7 +9573,6 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 738714137539437,
-											"disabled": true,
 											"parameters": {
 												"key": "\"Tungsten\"",
 												"comparison": 0,
@@ -8712,10 +9633,10 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 198495166134898,
+											"sid": 437642520877855,
 											"parameters": {
 												"key": "\"LVL\"",
-												"comparison": 4,
+												"comparison": 0,
 												"value": "9"
 											}
 										},
@@ -8734,7 +9655,6 @@
 											"id": "compare-value",
 											"objectClass": "Dict_Temp_Prod_Data",
 											"sid": 845875196070940,
-											"disabled": true,
 											"parameters": {
 												"key": "\"Vaporium\"",
 												"comparison": 0,
@@ -9700,6 +10620,15 @@
 							"parameters": {
 								"layer": "\"Upgrades\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 213533725294760,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -10256,6 +11185,15 @@
 							"parameters": {
 								"layer": "\"Upgrades\""
 							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 689559435985438,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -14262,13 +15200,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
+													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 648177356822852,
+													"sid": 207462319750797,
 													"parameters": {
-														"variable": "frame",
+														"first-value": "A_Armor.At(8, 1, frame - 1)",
 														"comparison": 0,
-														"value": "1"
+														"second-value": "\"1_1\""
 													}
 												}
 											],
@@ -14340,24 +15278,120 @@
 														}
 													],
 													"sid": 131171539106273
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "wait-for-previous-actions",
+															"objectClass": "System",
+															"sid": 299148166070311
+														}
+													],
+													"sid": 685069076229977,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "icon_list_weapon_clone",
+																	"sid": 437421733057844,
+																	"parameters": {
+																		"object": "Wp_Slot"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "icon_list_weapon_clone",
+																	"sid": 317521125995928,
+																	"parameters": {
+																		"instance-variable": "Recent_Copy"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "icon_list_weapon_clone",
+																	"sid": 918514592941895,
+																	"parameters": {
+																		"instance-variable": "Pin_Obj_ID",
+																		"comparison": 0,
+																		"value": "2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "icon_list_weapon_clone",
+																	"sid": 489362741386925
+																}
+															],
+															"sid": 828824039502989
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 922644302267660,
+																	"parameters": {
+																		"object": "Hab_Slot"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 204969130754639,
+																	"parameters": {
+																		"instance-variable": "Recent_Copy"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 870920442944561,
+																	"parameters": {
+																		"instance-variable": "Pin_Obj_ID",
+																		"comparison": 0,
+																		"value": "2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 513606737869943
+																}
+															],
+															"sid": 351238133328477
+														}
+													]
 												}
 											]
 										},
 										{
 											"eventType": "comment",
-											"text": "Copper"
+											"text": "Copper / Titanium"
 										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
+													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 325723620655232,
+													"sid": 643095103602348,
 													"parameters": {
-														"variable": "frame",
+														"first-value": "A_Armor.At(8, 1, frame - 1)",
 														"comparison": 0,
-														"value": "2"
+														"second-value": "\"1_2\""
 													}
 												}
 											],
@@ -14401,99 +15435,118 @@
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 498676230516230,
+															"id": "is-overlapping-another-object",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 251546176049772,
 															"parameters": {
-																"object": "Hab_Slot",
-																"expression": "Hab_Slot.ID",
+																"object": "Wp_Slot"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 406271034583064,
+															"parameters": {
+																"instance-variable": "Recent_Copy"
+															},
+															"isInverted": true
+														},
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 587898956271661,
+															"parameters": {
+																"instance-variable": "Pin_Obj_ID",
 																"comparison": 0,
 																"value": "2"
 															}
 														}
 													],
-													"actions": [],
-													"sid": 581858893175533
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 661919293200055
+														}
+													],
+													"sid": 316888275107040
 												},
 												{
 													"eventType": "block",
 													"conditions": [],
 													"actions": [
 														{
-															"id": "create-object",
+															"id": "wait-for-previous-actions",
 															"objectClass": "System",
-															"sid": 221614969134898,
-															"parameters": {
-																"object-to-create": "Hab_Slot",
-																"layer": "\"Frg List\"",
-																"x": " 1160",
-																"y": "176",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Hab_Slot",
-															"sid": 997871341049711,
-															"parameters": {
-																"instance-variable": "ID",
-																"value": "2"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 722745168108402,
-															"parameters": {
-																"variable": "HAB_ID_2",
-																"value": "0"
-															}
+															"sid": 559418060786206
 														}
 													],
-													"sid": 477582987995542
+													"sid": 355235576525490,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [],
+															"actions": [
+																{
+																	"id": "create-object",
+																	"objectClass": "System",
+																	"sid": 448033921205495,
+																	"parameters": {
+																		"object-to-create": "Hab_Slot",
+																		"layer": "\"Frg List\"",
+																		"x": " 1160",
+																		"y": "176",
+																		"create-hierarchy": false,
+																		"template-name": "\"\""
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Hab_Slot",
+																	"sid": 785018152433103,
+																	"parameters": {
+																		"instance-variable": "ID",
+																		"value": "2"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 459785077296426,
+																	"parameters": {
+																		"variable": "HAB_ID_2",
+																		"value": "0"
+																	}
+																}
+															],
+															"sid": 172595386775650
+														}
+													]
 												}
 											]
 										},
 										{
 											"eventType": "comment",
-											"text": "Iron"
+											"text": "Iron / Tungsten"
 										},
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
+													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 864065703733834,
+													"sid": 276747525368455,
 													"parameters": {
-														"variable": "frame",
+														"first-value": "A_Armor.At(8, 1, frame - 1)",
 														"comparison": 0,
-														"value": "3"
+														"second-value": "\"2_1\""
 													}
 												}
 											],
 											"actions": [],
 											"sid": 283662091672786,
 											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 335308921491983,
-															"parameters": {
-																"object": "Wp_Slot",
-																"expression": "Wp_Slot.ID",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 244703347263057
-												},
 												{
 													"eventType": "block",
 													"conditions": [],
@@ -14564,236 +15617,61 @@
 														}
 													],
 													"sid": 776699388473341
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Titanium"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 910977983931914,
-													"parameters": {
-														"variable": "frame",
-														"comparison": 0,
-														"value": "5"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 606400847269910,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 536272937914237,
-															"parameters": {
-																"object": "Wp_Slot",
-																"expression": "Wp_Slot.ID",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 331250562784365
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 660617479799490
-														}
-													],
-													"actions": [
-														{
-															"id": "create-object",
-															"objectClass": "System",
-															"sid": 747594059332949,
-															"parameters": {
-																"object-to-create": "Wp_Slot",
-																"layer": "\"Frg List\"",
-																"x": " 1130",
-																"y": "106",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Wp_Slot",
-															"sid": 737424223436124,
-															"parameters": {
-																"instance-variable": "ID",
-																"value": "2"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 216963641771007,
-															"parameters": {
-																"variable": "Weapon_ID_2",
-																"value": "\"none\""
-															}
-														}
-													],
-													"sid": 562528828030358
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 597168629504436,
-															"parameters": {
-																"object": "Hab_Slot",
-																"expression": "Hab_Slot.ID",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "destroy",
-															"objectClass": "Hab_Slot",
-															"sid": 160580928473113
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 523726167428898,
-															"parameters": {
-																"variable": "HAB_ID_2",
-																"value": "0"
-															}
-														}
-													],
-													"sid": 717180064922780
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Tungsten"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-eventvar",
-													"objectClass": "System",
-													"sid": 844114074292604,
-													"parameters": {
-														"variable": "frame",
-														"comparison": 0,
-														"value": "5"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 414645143635427,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 750888234255526,
-															"parameters": {
-																"object": "Wp_Slot",
-																"expression": "Wp_Slot.ID",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "destroy",
-															"objectClass": "Wp_Slot",
-															"sid": 579800361713587
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 905524602991599,
-															"parameters": {
-																"variable": "Weapon_ID_2",
-																"value": "\"none\""
-															}
-														}
-													],
-													"sid": 702692233485908
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 194998646472152,
-															"parameters": {
-																"object": "Hab_Slot",
-																"expression": "Hab_Slot.ID",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 402462613237322
 												},
 												{
 													"eventType": "block",
 													"conditions": [],
 													"actions": [
 														{
-															"id": "create-object",
+															"id": "wait-for-previous-actions",
 															"objectClass": "System",
-															"sid": 494619913267445,
-															"parameters": {
-																"object-to-create": "Hab_Slot",
-																"layer": "\"Frg List\"",
-																"x": " 1160",
-																"y": "176",
-																"create-hierarchy": false,
-																"template-name": "\"\""
-															}
-														},
-														{
-															"id": "set-instvar-value",
-															"objectClass": "Hab_Slot",
-															"sid": 204988109583700,
-															"parameters": {
-																"instance-variable": "ID",
-																"value": "2"
-															}
-														},
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 387939853386299,
-															"parameters": {
-																"variable": "HAB_ID_2",
-																"value": "0"
-															}
+															"sid": 847193796653779
 														}
 													],
-													"sid": 312387313429832
+													"sid": 256157021294418,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 734495446538502,
+																	"parameters": {
+																		"object": "Hab_Slot"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 378246000347265,
+																	"parameters": {
+																		"instance-variable": "Recent_Copy"
+																	},
+																	"isInverted": true
+																},
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 498394979359995,
+																	"parameters": {
+																		"instance-variable": "Pin_Obj_ID",
+																		"comparison": 0,
+																		"value": "2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "icon_list_habilities_clone",
+																	"sid": 831769687777374
+																}
+															],
+															"sid": 172044524548327
+														}
+													]
 												}
 											]
 										},
@@ -14805,13 +15683,13 @@
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-eventvar",
+													"id": "compare-two-values",
 													"objectClass": "System",
-													"sid": 903591944758022,
+													"sid": 750856662483064,
 													"parameters": {
-														"variable": "frame",
+														"first-value": "A_Armor.At(8, 1, frame - 1)",
 														"comparison": 0,
-														"value": "6"
+														"second-value": "\"2_2\""
 													}
 												}
 											],
@@ -14820,31 +15698,7 @@
 											"children": [
 												{
 													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 401163295999222,
-															"parameters": {
-																"object": "Wp_Slot",
-																"expression": "Wp_Slot.ID",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 734313553998183
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "else",
-															"objectClass": "System",
-															"sid": 929034748867650
-														}
-													],
+													"conditions": [],
 													"actions": [
 														{
 															"id": "create-object",
@@ -14879,24 +15733,6 @@
 														}
 													],
 													"sid": 495942480033468
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "pick-by-comparison",
-															"objectClass": "System",
-															"sid": 128486656627248,
-															"parameters": {
-																"object": "Hab_Slot",
-																"expression": "Hab_Slot.ID",
-																"comparison": 0,
-																"value": "2"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 813118326530903
 												},
 												{
 													"eventType": "block",
@@ -15429,7 +16265,36 @@
 											}
 										}
 									],
-									"sid": 297218163093831
+									"sid": 297218163093831,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Save_File",
+													"sid": 401755265617344,
+													"parameters": {
+														"key": "\"ARM_\" & Armor_ID",
+														"comparison": 0,
+														"value": "10"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 633370277150758,
+													"parameters": {
+														"variable": "Armor_Special_ID",
+														"value": "int( Armor_ID )"
+													}
+												}
+											],
+											"sid": 358971103118082
+										}
+									]
 								}
 							],
 							"isOrBlock": true
@@ -17281,9 +18146,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Info_Armor",
-																	"sid": 406666230248318,
+																	"sid": 999506444632023,
 																	"parameters": {
-																		"text": "\"[size=23][icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & \"[/size]\" &newline & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
+																		"text": "\"[size=23][icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & \" [icon=wp] \" & tokenat(A_Armor.At( 8,1, counter ), 0, \"_\") & \" [icon=sk] \" & tokenat(A_Armor.At( 8,1, counter ), 1, \"_\") & \"[/size]\" &newline & \"[size=17]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\")) & \"[/size]\""
 																	}
 																}
 															],
@@ -17379,9 +18244,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Info_Armor",
-																	"sid": 922229456302320,
+																	"sid": 563910010606408,
 																	"parameters": {
-																		"text": "\"[size=23][icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & \"[/size]\" & newline & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\"))"
+																		"text": "\"[size=23][icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & \" [icon=wp] \" & tokenat(A_Armor.At( 8,1, counter ), 0, \"_\") & \" [icon=sk] \" & tokenat(A_Armor.At( 8,1, counter ), 1, \"_\") & \"[/size]\" & newline & \"[size=17]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\")) & \"[/size]\""
 																	}
 																}
 															],
@@ -17623,6 +18488,15 @@
 									"parameters": {
 										"layer": "\"Workshop\""
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 852631622709489,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
 								},
 								{
 									"id": "compare-eventvar",
@@ -22128,6 +23002,60 @@
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 778302473216752,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "625"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 314566012011148,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.sk_slot\")"
+											}
+										}
+									],
+									"sid": 560436295690637
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 206742861235591,
+											"parameters": {
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
+												"comparison": 0,
+												"value": "626"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextoAiDaVida",
+											"sid": 824752899910181,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"game.work.label.wp_slot\")"
+											}
+										}
+									],
+									"sid": 212626402105281
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
 											"id": "layer-is-visible",
 											"objectClass": "System",
 											"sid": 755253381628776,
@@ -22440,6 +23368,14 @@
 							"sid": 450934937589025
 						},
 						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 728134151978826,
+							"parameters": {
+								"layer": "\"Map\""
+							}
+						},
+						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 538975522139733,
@@ -22534,6 +23470,11 @@
 										"layer": "\"Levels\"",
 										"visibility": "visible"
 									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Icon_check_batalhas",
+									"sid": 648124983288434
 								},
 								{
 									"id": "tween-value",
@@ -22748,9 +23689,9 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "icon_zombie",
-															"sid": 958863663269635,
+															"sid": 383778592269082,
 															"parameters": {
-																"frame-number": "Self.Level_ID"
+																"frame-number": "loopindex + 1"
 															}
 														},
 														{
@@ -22783,9 +23724,9 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "icon_zombie",
-															"sid": 729265246884512,
+															"sid": 229251614060902,
 															"parameters": {
-																"frame-number": "Self.Level_ID"
+																"frame-number": "loopindex + 1"
 															}
 														}
 													],
@@ -23078,9 +24019,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text_Map_Desc",
-							"sid": 766798514862695,
+							"sid": 157606926216059,
 							"parameters": {
-								"text": "Internationalization.Lookup(\"game.map.City-\"&icon_zombie.Level_ID)"
+								"text": "Internationalization.Lookup(\"game.map.\" & icon_zombie.AnimationName &\"-\"&icon_zombie.Level_ID)"
 							}
 						}
 					],
@@ -23843,10 +24784,10 @@
 								{
 									"id": "start-timer",
 									"objectClass": "Text_Tutorial",
-									"sid": 541336060834845,
+									"sid": 361240120250358,
 									"behaviorType": "Timer",
 									"parameters": {
-										"duration": "0.75",
+										"duration": "0.95",
 										"type": "once",
 										"tag": "\"prevent_skip\""
 									}
@@ -24921,6 +25862,30 @@
 													],
 													"sid": 584822304502118,
 													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "layer-is-visible",
+																	"objectClass": "System",
+																	"sid": 606710252650949,
+																	"parameters": {
+																		"layer": "\"Production\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-visible",
+																	"objectClass": "Bkg_Obj",
+																	"sid": 407353841990077,
+																	"parameters": {
+																		"visibility": "visible"
+																	}
+																}
+															],
+															"sid": 318624058111662
+														},
 														{
 															"eventType": "block",
 															"conditions": [
@@ -27352,9 +28317,9 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 914011173011811,
+													"sid": 779304576546124,
 													"parameters": {
-														"seconds": "0.01",
+														"seconds": "0.8",
 														"use-timescale": true
 													}
 												}
@@ -27560,9 +28525,9 @@
 												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 239418182625398,
+													"sid": 476767561352793,
 													"parameters": {
-														"seconds": "0.01",
+														"seconds": "0.8",
 														"use-timescale": true
 													}
 												}

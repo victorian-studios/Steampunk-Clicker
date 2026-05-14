@@ -195,13 +195,15 @@
                 "unlock": "UNLOCK",
                 "upgrade": "UPGRADE",
                 "title_locked": "Locked",
-                "locked": "\nUnknown",
+                "locked": "Unknown",
                 "label": {
                     "name": "ICONS",
                     "damage": "Damage",
                     "p_damage": "Penetrating Damage",
                     "ammo": "Ammo",
                     "cooldown": "Cooldown",
+                    "sk_slot": "Skill Slot",
+                    "wp_slot": "Weapon Slot",
                     "special": "Special Effect"
                 },
                 "weapons": {
@@ -239,7 +241,7 @@
                         "Heal": "Heal",
                         "Fire Bomb": "Fire Bomb",
                         "Electrify": "Electrify",
-                        "Poison Darts": "Poison Darts",
+                        "Poison Dart": "Poison Dart",
                         "Fortify": "Fortify",
                         "Bone Breaker": "Bone Breaker",
                         "Discharge Mark": "Discharge Mark"
@@ -247,12 +249,12 @@
                 },
                 "armors": {
                     "nospecial": "[icon=special] None",
-                    "dodge": "[size=17][icon=special]Active: {0}% Dodge chance. ({1} turns)[/size]",
-                    "hpregen": "[size=18][icon=special]+{0}[icon=hp] every turn.[/size]",
-                    "spike": "[size=17][icon=special]Deal {0} damage back to enemies.[/size]",
-                    "missile": "[size=17][icon=special]Active: Deal [icon=dmg]{0} to random targets {1} times .[/size]",
-                    "stun": "[size=18]{0}% chance to stun enemies that attack you.[/size]",
-                    "sdrergen": "[size=18][icon=special]+{0}[icon=shield] every turn.[/size]"
+                    "dodge": "[icon=special]Active: {0}% Dodge chance. ({1} turns)",
+                    "hpregen": "[icon=special]+{0}[icon=hp] every turn.",
+                    "spike": "[icon=special]Deal {0} damage back to enemies.",
+                    "missile": "[icon=special]Active: Deal [icon=dmg]{0} to random targets {1} times.",
+                    "stun": "{0}% chance to stun enemies that attack you.",
+                    "sdrergen": "[icon=special]+{0}[icon=shield] every turn."
                 }
             },
             "map": {
@@ -261,7 +263,7 @@
                 "Grave_Title": "GRAVEYARD",
                 "Mount_Title": "MOUNTAIN",
                 "Castle_Title": "CASTLE",
-                "Airshop_Title": "AIRSHIP",
+                "Airship_Title": "AIRSHIP",
                 "City-1": "[b]LEVEL - 1[/b]\n\nZombie x1",
                 "City-2": "[b]LEVEL - 2[/b]\n\nZombie x1 | Z Woman x1",
                 "City-3": "[b]LEVEL - 3[/b]\n\nZ Woman x1 | Z Dog x2",

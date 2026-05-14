@@ -15521,8 +15521,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 960,
-								"y": 386,
+								"x": 967,
+								"y": 392,
 								"width": 1864,
 								"height": 187,
 								"originX": 0.5,
@@ -16290,7 +16290,7 @@
 							"locked": false,
 							"world": {
 								"x": 1153,
-								"y": 738,
+								"y": 745,
 								"width": 256,
 								"height": 72,
 								"originX": 0.5,
@@ -16331,7 +16331,7 @@
 							"locked": false,
 							"world": {
 								"x": 751.3647866683558,
-								"y": 737.0943600050672,
+								"y": 743.0943600050672,
 								"width": 252.37744002026895,
 								"height": 71.29573336711496,
 								"originX": 0.5,
@@ -16530,7 +16530,7 @@
 							"locked": false,
 							"world": {
 								"x": 664,
-								"y": 716,
+								"y": 722,
 								"width": 181,
 								"height": 45,
 								"originX": 0,
@@ -16583,7 +16583,7 @@
 							"locked": false,
 							"world": {
 								"x": 1062,
-								"y": 719,
+								"y": 726,
 								"width": 181,
 								"height": 45,
 								"originX": 0,
@@ -17033,7 +17033,7 @@
 							"tags": "",
 							"instanceVariables": {
 								"ID": 2,
-								"Grow": 182
+								"Grow": 222
 							},
 							"behaviors": {},
 							"instanceFolderItem": {
@@ -17043,9 +17043,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1131,
-								"y": 558,
-								"width": 182,
+								"x": 1106.5316534858775,
+								"y": 553.0370480038722,
+								"width": 222,
 								"height": 14,
 								"originX": 0,
 								"originY": 0,
@@ -17133,7 +17133,7 @@
 							"tags": "",
 							"instanceVariables": {
 								"ID": 3,
-								"place_id": "Graveyard_Title"
+								"place_id": "Grave_Title"
 							},
 							"behaviors": {
 								"Sine": {
@@ -17193,7 +17193,7 @@
 							"tags": "",
 							"instanceVariables": {
 								"ID": 6,
-								"place_id": "Mountain_Title"
+								"place_id": "Mount_Title"
 							},
 							"behaviors": {
 								"Sine": {
@@ -17383,8 +17383,8 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1326,
-								"y": 619,
+								"x": 1340,
+								"y": 616,
 								"width": 147,
 								"height": 14,
 								"originX": 0,
@@ -18148,7 +18148,7 @@
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Default",
-								"initial-frame": 4,
+								"initial-frame": 3,
 								"enable-collisions": true,
 								"live-preview": false
 							},
@@ -18331,6 +18331,66 @@
 											"d": true,
 											"sm": "normal"
 										}
+									},
+									{
+										"uid": 626,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 624,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 625,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 314,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
 									}
 								],
 								"flags": {
@@ -18367,10 +18427,10 @@
 							"world": {
 								"x": 960,
 								"y": 540,
-								"width": 740,
-								"height": 628,
+								"width": 738,
+								"height": 650,
 								"originX": 0.5,
-								"originY": 0.5191082802547771,
+								"originY": 0.5,
 								"color": [
 									1,
 									1,
@@ -18441,7 +18501,7 @@
 							"locked": false,
 							"world": {
 								"x": 711,
-								"y": 487,
+								"y": 467,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -18516,7 +18576,7 @@
 							"locked": false,
 							"world": {
 								"x": 711,
-								"y": 599,
+								"y": 568,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -18591,7 +18651,7 @@
 							"locked": false,
 							"world": {
 								"x": 1015,
-								"y": 487,
+								"y": 467,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -18666,7 +18726,7 @@
 							"locked": false,
 							"world": {
 								"x": 1015,
-								"y": 599,
+								"y": 568,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -18828,8 +18888,8 @@
 							"locked": false,
 							"world": {
 								"x": 759,
-								"y": 439,
-								"width": 208,
+								"y": 419,
+								"width": 200,
 								"height": 96,
 								"originX": 0,
 								"originY": 0,
@@ -18909,8 +18969,8 @@
 							"locked": false,
 							"world": {
 								"x": 759,
-								"y": 551,
-								"width": 208,
+								"y": 520,
+								"width": 200,
 								"height": 96,
 								"originX": 0,
 								"originY": 0,
@@ -18989,9 +19049,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1047,
-								"y": 439,
-								"width": 208,
+								"x": 1063,
+								"y": 419,
+								"width": 200,
 								"height": 96,
 								"originX": 0,
 								"originY": 0,
@@ -19070,9 +19130,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1047,
-								"y": 551,
-								"width": 208,
+								"x": 1063,
+								"y": 520,
+								"width": 200,
 								"height": 96,
 								"originX": 0,
 								"originY": 0,
@@ -19146,7 +19206,7 @@
 							"locked": false,
 							"world": {
 								"x": 776,
-								"y": 711,
+								"y": 755,
 								"width": 97,
 								"height": 97,
 								"originX": 0.5,
@@ -19227,8 +19287,320 @@
 							"locked": false,
 							"world": {
 								"x": 831,
-								"y": 667,
+								"y": 711,
 								"width": 347,
+								"height": 96,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Icon_prod",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Workshop",
+								"initial-frame": 7,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 314,
+							"sid": 401018255883613,
+							"tags": "",
+							"instanceVariables": {
+								"material_id": "",
+								"upg_icon_frame": 0,
+								"Self_X": 0
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 379,
+								"uid": 314,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 401018255883613,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 711,
+								"y": 666,
+								"width": 97,
+								"height": 97,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Icon_prod",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Workshop",
+								"initial-frame": 8,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 624,
+							"sid": 783994178536567,
+							"tags": "",
+							"instanceVariables": {
+								"material_id": "",
+								"upg_icon_frame": 0,
+								"Self_X": 0
+							},
+							"behaviors": {
+								"Tween": {
+									"properties": {
+										"enabled": true
+									}
+								}
+							},
+							"sceneGraphData": {
+								"parent-uid": 379,
+								"uid": 624,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 783994178536567,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1015,
+								"y": 666,
+								"width": 97,
+								"height": 97,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "TextoAiDaVida",
+							"properties": {
+								"text": "Skill Slot",
+								"enable-bbcode": true,
+								"font": "monospace",
+								"size": 23,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 625,
+							"sid": 158012635956856,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 379,
+								"uid": 625,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 158012635956856,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 759,
+								"y": 618,
+								"width": 200,
+								"height": 96,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "TextoAiDaVida",
+							"properties": {
+								"text": "Weapon Slot",
+								"enable-bbcode": true,
+								"font": "monospace",
+								"size": 23,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 626,
+							"sid": 939623136743360,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 379,
+								"uid": 626,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"instanceFolderItem": {
+								"sid": 939623136743360,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1063,
+								"y": 618,
+								"width": 200,
 								"height": 96,
 								"originX": 0,
 								"originY": 0,

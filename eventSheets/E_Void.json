@@ -2224,10 +2224,10 @@
 				{
 					"id": "compare-opacity",
 					"objectClass": "Btn_SkipComic",
-					"sid": 283939860484812,
+					"sid": 872599764546739,
 					"parameters": {
-						"comparison": 4,
-						"opacity": "50"
+						"comparison": 5,
+						"opacity": "60"
 					}
 				}
 			],
@@ -2237,34 +2237,51 @@
 					"objectClass": "Btn_SkipComic",
 					"sid": 984229737607021,
 					"behaviorType": "Fade"
-				},
-				{
-					"id": "set-fade-in-time",
-					"objectClass": "Icon_MouseTouch",
-					"sid": 206791186945839,
-					"behaviorType": "Fade",
-					"parameters": {
-						"fade-in-time": "0"
-					}
-				},
-				{
-					"id": "set-fade-out-time",
-					"objectClass": "Icon_MouseTouch",
-					"sid": 830797833021835,
-					"behaviorType": "Fade",
-					"parameters": {
-						"fade-out-time": "1"
-					}
-				},
-				{
-					"id": "restart-fade",
-					"objectClass": "Icon_MouseTouch",
-					"sid": 547823996181025,
-					"behaviorType": "Fade"
 				}
 			],
 			"sid": 755116532927950,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-opacity",
+							"objectClass": "Icon_MouseTouch",
+							"sid": 115600038538431,
+							"parameters": {
+								"comparison": 1,
+								"opacity": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "Icon_MouseTouch",
+							"sid": 760731087821551,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-in-time": "0"
+							}
+						},
+						{
+							"id": "set-fade-out-time",
+							"objectClass": "Icon_MouseTouch",
+							"sid": 269768779066760,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-out-time": "1"
+							}
+						},
+						{
+							"id": "restart-fade",
+							"objectClass": "Icon_MouseTouch",
+							"sid": 343726591096703,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 192043344271970
+				},
 				{
 					"eventType": "block",
 					"conditions": [

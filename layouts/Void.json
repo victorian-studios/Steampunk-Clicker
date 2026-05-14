@@ -1196,7 +1196,7 @@
 				{
 					"type": "Text_Item_Info_Armor",
 					"properties": {
-						"text": "[size=23][icon=hp] 999 | [icon=shield] 999[/size]\n[size=17][icon=special]Active: Deal [icon=dmg]{0} to random targets {1} times .[/size]",
+						"text": "[size=23][icon=hp] 999 [icon=shield] 99 [icon=shield] 9 [icon=shield] 9[/size] \n[size=17][icon=special]Active: Deal [icon=dmg]{0} to random targets {1} times .[/size]",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 18,
@@ -1210,7 +1210,7 @@
 							1
 						],
 						"horizontal-alignment": "left",
-						"vertical-alignment": "center",
+						"vertical-alignment": "top",
 						"wrapping": "word",
 						"text-direction": "ltr",
 						"icon-set": 248002167639998,
@@ -1265,9 +1265,9 @@
 					"locked": false,
 					"world": {
 						"x": 30,
-						"y": 746.5,
+						"y": 743,
 						"width": 307,
-						"height": 83,
+						"height": 90,
 						"originX": 0,
 						"originY": 0.5,
 						"color": [
@@ -3040,7 +3040,7 @@
 						"MAX_HP": 90,
 						"Hab_1_Chance": 50,
 						"Hab_1": "Atk_default_20",
-						"Hab_2": "Atk_pierce_20",
+						"Hab_2": "Atk_pierce_15",
 						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
@@ -3337,7 +3337,7 @@
 						"MAX_HP": 100,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "DOT_Poison_5_3",
+						"Hab_2": "DOT_poison_10_3",
 						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
@@ -3634,7 +3634,7 @@
 						"MAX_HP": 100,
 						"Hab_1_Chance": 65,
 						"Hab_1": "Atk_default_15",
-						"Hab_2": "DOT_Poison_5_3",
+						"Hab_2": "DOT_poison_10_3",
 						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
@@ -4228,7 +4228,7 @@
 						"MAX_HP": 90,
 						"Hab_1_Chance": 50,
 						"Hab_1": "Atk_default_20",
-						"Hab_2": "Atk_pierce_20",
+						"Hab_2": "Atk_pierce_15",
 						"Special_Hab": "",
 						"My_ID": 1,
 						"Block": 0,
@@ -7923,6 +7923,516 @@
 						"z": 0,
 						"angle": 0
 					}
+				},
+				{
+					"type": "Hab_Slot",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 138,
+					"sid": 656450959233386,
+					"tags": "",
+					"instanceVariables": {
+						"ID": 1,
+						"CD_Max": 0,
+						"Uses": 0,
+						"Free": true,
+						"Ready": false
+					},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "size",
+								"wave": "sine",
+								"period": 2,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 25,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 656450959233386,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 100,
+						"y": 892,
+						"width": 106,
+						"height": 106,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Wp_Slot",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 313,
+					"sid": 801289670719977,
+					"tags": "",
+					"instanceVariables": {
+						"ID": 1,
+						"CD_Max": 0,
+						"Ammo_Max": 0,
+						"Ammo": 0,
+						"Free": true,
+						"Ready": false,
+						"Reload": false
+					},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "size",
+								"wave": "sine",
+								"period": 2,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 25,
+								"magnitude-random": 0,
+								"enabled": false,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 801289670719977,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 224,
+						"y": 889,
+						"width": 106,
+						"height": 106,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Effect_Dagger",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 627,
+					"sid": 736529232598010,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0.25,
+								"wait-time": 0.5,
+								"fade-out-time": 0.25,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 736529232598010,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1001,
+						"y": 720,
+						"width": 97,
+						"height": 97,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Effect_Explosion",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 628,
+					"sid": 295538615046542,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 295538615046542,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 645,
+						"y": 1138,
+						"width": 238,
+						"height": 238,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Effect_Fire",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 629,
+					"sid": 314734475717665,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0.25,
+								"wait-time": 1,
+								"fade-out-time": 0.25,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 314734475717665,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 903,
+						"y": 1233,
+						"width": 343,
+						"height": 446,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Effect_Heal",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 630,
+					"sid": 556833476175600,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0.25,
+								"wait-time": 0.75,
+								"fade-out-time": 0.25,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 556833476175600,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 420.7894736842105,
+						"y": 1026,
+						"width": 81,
+						"height": 91,
+						"originX": -0.008771929824561403,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Effect_Mark",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 631,
+					"sid": 836132911688015,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0.25,
+								"wait-time": 0.75,
+								"fade-out-time": 0.25,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						},
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 836132911688015,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 1052,
+						"y": 978,
+						"width": 180,
+						"height": 180,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "raio",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 632,
+					"sid": 685075657682944,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {},
+					"instanceFolderItem": {
+						"sid": 685075657682944,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 116,
+						"y": 1293,
+						"width": 494,
+						"height": 549,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Effect_Bone_Break",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 633,
+					"sid": 337960009109956,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 1,
+								"fade-out-time": 0.5,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 337960009109956,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 447,
+						"y": 1179,
+						"width": 160,
+						"height": 160,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Effect_Spark",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 634,
+					"sid": 795338372545435,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0.75,
+								"fade-out-time": 0.25,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 795338372545435,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 586,
+						"y": 1509,
+						"width": 346,
+						"height": 346,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
 				}
 			],
 			"sid": 250077146265599,
@@ -8309,7 +8819,7 @@
 							1,
 							1,
 							1,
-							0.5
+							0.6
 						],
 						"z": 0,
 						"angle": 0

@@ -1,0 +1,63 @@
+{
+	"name": "Effect_Heal",
+	"plugin-id": "Sprite",
+	"sid": 377382100437626,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 836581610556290
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 337083837037451
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 171,
+						"height": 191,
+						"originX": -0.008771929824561403,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1413074,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.005235602094240838,
+								1,
+								0.005235602094240838,
+								1,
+								0.9947643979057592,
+								0,
+								0.9947643979057592
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 179548864553035,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
