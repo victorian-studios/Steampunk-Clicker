@@ -14254,7 +14254,8 @@
 															}
 														}
 													],
-													"sid": 474475932176934
+													"sid": 474475932176934,
+													"disabled": true
 												}
 											]
 										},
@@ -14296,6 +14297,15 @@
 													"parameters": {
 														"instance-variable": "Recent_Copy",
 														"value": "false"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 303913507017334,
+													"behaviorType": "DragandDrop",
+													"parameters": {
+														"state": "disabled"
 													}
 												},
 												{
@@ -15194,6 +15204,15 @@
 													"sid": 819450919637477,
 													"parameters": {
 														"frame-number": "frame"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 711992008668336,
+													"behaviorType": "DragandDrop",
+													"parameters": {
+														"state": "disabled"
 													}
 												},
 												{
@@ -16372,6 +16391,15 @@
 											"sid": 161647108113387,
 											"parameters": {
 												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Armor_Slot",
+											"sid": 723909655012632,
+											"parameters": {
+												"instance-variable": "Free",
+												"value": "true"
 											}
 										}
 									],
@@ -20110,6 +20138,38 @@
 													"sid": 740268659246509
 												},
 												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-unique-id",
+															"objectClass": "TextoAiDaVida",
+															"sid": 894520203559815,
+															"parameters": {
+																"unique-id": "253"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "TextoAiDaVida",
+															"sid": 843794923855152,
+															"parameters": {
+																"visibility": "visible"
+															}
+														},
+														{
+															"id": "set-text",
+															"objectClass": "TextoAiDaVida",
+															"sid": 529482288520427,
+															"parameters": {
+																"text": "Internationalization.Lookup(\"game.work.upgrade\")"
+															}
+														}
+													],
+													"sid": 821564768866203
+												},
+												{
 													"eventType": "comment",
 													"text": "Verifica se tem 2 preços"
 												},
@@ -22787,11 +22847,6 @@
 									}
 								},
 								{
-									"id": "is-visible",
-									"objectClass": "Btn_Buy",
-									"sid": 809185924091742
-								},
-								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
 									"sid": 233951274353106,
@@ -22807,646 +22862,198 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Btn_Buy",
-											"sid": 212943789813150,
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 632871903539697,
 											"parameters": {
-												"instance-variable": "Price_2",
+												"object": "TextoAiDaVida",
+												"expression": "TextoAiDaVida.UID",
 												"comparison": 0,
-												"value": "\"\""
+												"value": "253"
 											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "TextoAiDaVida",
+											"sid": 453619871876712
 										}
 									],
 									"actions": [],
-									"sid": 543960989045693,
+									"sid": 532977315548050,
 									"children": [
 										{
 											"eventType": "block",
 											"conditions": [
 												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 772348420631894,
+													"id": "compare-instance-variable",
+													"objectClass": "Btn_Buy",
+													"sid": 542906283919379,
 													"parameters": {
-														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
-														"comparison": 5,
-														"value": "int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "Play_Audio",
-													"sid": 326124611938665,
-													"parameters": [
-														false,
-														false,
-														true,
-														false,
-														false,
-														false,
-														false,
-														false
-													]
-												},
-												{
-													"id": "set-key",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 958648806763781,
-													"parameters": {
-														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
-														"value": "Self.Get ( tokenat ( Btn_Buy.Price_1, 0, \"_\" ) ) - int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
-													}
-												},
-												{
-													"id": "set-key",
-													"objectClass": "Dict_Save_File",
-													"sid": 991180198111236,
-													"parameters": {
-														"key": "Btn_Buy.Type",
-														"value": "Dict_Save_File.Get(Btn_Buy.Type) + 1"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 330103190836270,
-													"parameters": {
-														"seconds": "0.01",
-														"use-timescale": true
-													}
-												}
-											],
-											"sid": 866133361610278,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 368514859291733,
-															"parameters": {
-																"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"WP\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"callFunction": "Get Generic Upg Info",
-															"sid": 978166151630127,
-															"parameters": [
-																"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
-															]
-														},
-														{
-															"callFunction": "PopulateList",
-															"sid": 771784351034359,
-															"parameters": [
-																"\"Weapons\""
-															]
-														}
-													],
-													"sid": 630107480940053
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 472285419889077,
-															"parameters": {
-																"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"HAB\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"callFunction": "Get Generic Upg Info",
-															"sid": 983618472961014,
-															"parameters": [
-																"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
-															]
-														},
-														{
-															"callFunction": "PopulateList",
-															"sid": 665805555038587,
-															"parameters": [
-																"\"Hab\""
-															]
-														}
-													],
-													"sid": 629243912874031
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 147563852490695,
-															"parameters": {
-																"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"ARM\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"callFunction": "PopulateList",
-															"sid": 771852962312547,
-															"parameters": [
-																"\"Armor\""
-															]
-														},
-														{
-															"callFunction": "Get Armor Upg Info",
-															"sid": 979208428894479,
-															"parameters": [
-																"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
-															]
-														}
-													],
-													"sid": 553296797156565
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 694627166666468,
-													"parameters": {
-														"object": "Btn_Upgrade_WeaponSkill"
+														"instance-variable": "Price_2",
+														"comparison": 0,
+														"value": "\"\""
 													}
 												}
 											],
 											"actions": [],
-											"sid": 361182822642777,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Btn_Upgrade_WeaponSkill",
-															"sid": 105626756582558,
-															"parameters": {
-																"instance-variable": "Type",
-																"comparison": 0,
-																"value": "\"WP_\""
-															}
-														}
-													],
-													"actions": [],
-													"sid": 379473082426538,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-value",
-																	"objectClass": "Dict_Save_File",
-																	"sid": 531168165844835,
-																	"parameters": {
-																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
-																		"comparison": 0,
-																		"value": "9"
-																	}
-																},
-																{
-																	"id": "compare-at-xyz",
-																	"objectClass": "A_Prod_Data",
-																	"sid": 828793024346686,
-																	"parameters": {
-																		"x": "10",
-																		"y": "1",
-																		"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-animation",
-																	"objectClass": "Btn_Upgrade_WeaponSkill",
-																	"sid": 889601199366103,
-																	"parameters": {
-																		"animation": "\"Locked\"",
-																		"from": "beginning"
-																	}
-																},
-																{
-																	"id": "log",
-																	"objectClass": "Browser",
-																	"sid": 909819424798521,
-																	"parameters": {
-																		"type": "log",
-																		"message": "\"Lock\""
-																	}
-																},
-																{
-																	"id": "set-layer-visible",
-																	"objectClass": "System",
-																	"sid": 953337667590290,
-																	"parameters": {
-																		"layer": "\"Work Upg\"",
-																		"visibility": "invisible"
-																	}
-																}
-															],
-															"sid": 165175954175510
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Btn_Upgrade_WeaponSkill",
-															"sid": 584172288723904,
-															"parameters": {
-																"instance-variable": "Type",
-																"comparison": 0,
-																"value": "\"HAB_\""
-															}
-														}
-													],
-													"actions": [],
-													"sid": 997538946783121,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-value",
-																	"objectClass": "Dict_Save_File",
-																	"sid": 591696423648895,
-																	"parameters": {
-																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
-																		"comparison": 0,
-																		"value": "9"
-																	}
-																},
-																{
-																	"id": "compare-at-xyz",
-																	"objectClass": "A_Prod_Data",
-																	"sid": 824431518296262,
-																	"parameters": {
-																		"x": "10",
-																		"y": "1",
-																		"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-animation",
-																	"objectClass": "Btn_Upgrade_WeaponSkill",
-																	"sid": 976611009280778,
-																	"parameters": {
-																		"animation": "\"Locked\"",
-																		"from": "beginning"
-																	}
-																},
-																{
-																	"id": "set-layer-visible",
-																	"objectClass": "System",
-																	"sid": 492871778488859,
-																	"parameters": {
-																		"layer": "\"Work Upg\"",
-																		"visibility": "invisible"
-																	}
-																}
-															],
-															"sid": 980295093423450
-														}
-													]
-												}
-											]
-										},
-										{
-											"eventType": "comment",
-											"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 885454755924159,
-													"parameters": {
-														"object": "Btn_Upgrade_Armor"
-													}
-												}
-											],
-											"actions": [],
-											"sid": 189114898945929,
+											"sid": 250297527766897,
 											"children": [
 												{
 													"eventType": "block",
 													"conditions": [
 														{
 															"id": "compare-value",
+															"objectClass": "Dict_Temp_Prod_Data",
+															"sid": 392766861066836,
+															"parameters": {
+																"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
+																"comparison": 5,
+																"value": "int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 321717992910218,
+															"parameters": [
+																false,
+																false,
+																true,
+																false,
+																false,
+																false,
+																false,
+																false
+															]
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Temp_Prod_Data",
+															"sid": 731175257287090,
+															"parameters": {
+																"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
+																"value": "Self.Get ( tokenat ( Btn_Buy.Price_1, 0, \"_\" ) ) - int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
+															}
+														},
+														{
+															"id": "set-key",
 															"objectClass": "Dict_Save_File",
-															"sid": 567233569904207,
-															"parameters": {
-																"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
-																"comparison": 0,
-																"value": "9"
-															}
-														},
-														{
-															"id": "compare-at-xyz",
-															"objectClass": "A_Prod_Data",
-															"sid": 946230308455280,
-															"parameters": {
-																"x": "11",
-																"y": "1",
-																"z": "Btn_Upgrade_Armor.IID  + 1",
-																"comparison": 0,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-animation",
-															"objectClass": "Btn_Upgrade_Armor",
-															"sid": 397501129116629,
-															"parameters": {
-																"animation": "\"Locked\"",
-																"from": "beginning"
-															}
-														},
-														{
-															"id": "set-layer-visible",
-															"objectClass": "System",
-															"sid": 538635236990855,
-															"parameters": {
-																"layer": "\"Work Upg\"",
-																"visibility": "invisible"
-															}
-														}
-													],
-													"sid": 627484894938068
-												}
-											]
-										}
-									]
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "Btn_Buy",
-											"sid": 214448433671148,
-											"parameters": {
-												"instance-variable": "Price_2",
-												"comparison": 1,
-												"value": "\"\""
-											}
-										}
-									],
-									"actions": [],
-									"sid": 860936276078664,
-									"children": [
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 242007210486590,
-													"parameters": {
-														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
-														"comparison": 5,
-														"value": "int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
-													}
-												},
-												{
-													"id": "compare-value",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 634037665446075,
-													"parameters": {
-														"key": "tokenat ( Btn_Buy.Price_2, 0, \"_\" )",
-														"comparison": 5,
-														"value": "int ( tokenat ( Btn_Buy.Price_2, 1, \"_\" ) )"
-													}
-												}
-											],
-											"actions": [
-												{
-													"callFunction": "Play_Audio",
-													"sid": 107567662218094,
-													"parameters": [
-														false,
-														false,
-														true,
-														false,
-														false,
-														false,
-														false,
-														false
-													]
-												},
-												{
-													"id": "set-key",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 153433607518550,
-													"parameters": {
-														"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
-														"value": "Self.Get ( tokenat ( Btn_Buy.Price_1, 0, \"_\" ) ) - int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
-													}
-												},
-												{
-													"id": "set-key",
-													"objectClass": "Dict_Temp_Prod_Data",
-													"sid": 339353752080480,
-													"parameters": {
-														"key": "tokenat ( Btn_Buy.Price_2, 0, \"_\" )",
-														"value": "Self.Get ( tokenat ( Btn_Buy.Price_2, 0, \"_\" ) ) - int ( tokenat ( Btn_Buy.Price_2, 1, \"_\" ) )"
-													}
-												},
-												{
-													"id": "set-key",
-													"objectClass": "Dict_Save_File",
-													"sid": 761754543446378,
-													"parameters": {
-														"key": "Btn_Buy.Type",
-														"value": "Dict_Save_File.Get(Btn_Buy.Type) + 1"
-													}
-												}
-											],
-											"sid": 110420634446027,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 801295537963050,
-															"parameters": {
-																"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"WP\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 903295779350587,
-															"parameters": {
-																"seconds": "0.01",
-																"use-timescale": true
-															}
-														},
-														{
-															"callFunction": "PopulateList",
-															"sid": 827093317466397,
-															"parameters": [
-																"\"Weapons\""
-															]
-														},
-														{
-															"callFunction": "Get Generic Upg Info",
-															"sid": 437991269933602,
-															"parameters": [
-																"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
-															]
-														}
-													],
-													"sid": 791639923885125
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 204683885645267,
-															"parameters": {
-																"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"HAB\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 309897747538367,
-															"parameters": {
-																"seconds": "0.01",
-																"use-timescale": true
-															}
-														},
-														{
-															"callFunction": "PopulateList",
-															"sid": 321182203613874,
-															"parameters": [
-																"\"Hab\""
-															]
-														},
-														{
-															"callFunction": "Get Generic Upg Info",
-															"sid": 134842037918638,
-															"parameters": [
-																"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
-															]
-														}
-													],
-													"sid": 938701528275710
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-two-values",
-															"objectClass": "System",
-															"sid": 451766508581674,
-															"parameters": {
-																"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
-																"comparison": 0,
-																"second-value": "\"ARM\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "wait",
-															"objectClass": "System",
-															"sid": 710985476208957,
-															"parameters": {
-																"seconds": "0.01",
-																"use-timescale": true
-															}
-														},
-														{
-															"callFunction": "PopulateList",
-															"sid": 807577255916346,
-															"parameters": [
-																"\"Armor\""
-															]
-														},
-														{
-															"callFunction": "Get Armor Upg Info",
-															"sid": 379235481625670,
-															"parameters": [
-																"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
-															]
-														}
-													],
-													"sid": 837602115191229
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-value",
-															"objectClass": "Dict_Save_File",
-															"sid": 672862060907149,
+															"sid": 599241639997593,
 															"parameters": {
 																"key": "Btn_Buy.Type",
-																"comparison": 0,
-																"value": "9"
+																"value": "Dict_Save_File.Get(Btn_Buy.Type) + 1"
 															}
-														}
-													],
-													"actions": [
+														},
 														{
-															"id": "set-layer-visible",
+															"id": "wait",
 															"objectClass": "System",
-															"sid": 831407749643763,
+															"sid": 548515065658968,
 															"parameters": {
-																"layer": "\"Work Upg\"",
-																"visibility": "invisible"
+																"seconds": "0.01",
+																"use-timescale": true
 															}
 														}
 													],
-													"sid": 476251997331380
+													"sid": 562352640681770,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 478976707637888,
+																	"parameters": {
+																		"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
+																		"comparison": 0,
+																		"second-value": "\"WP\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Get Generic Upg Info",
+																	"sid": 636564333268418,
+																	"parameters": [
+																		"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
+																	]
+																},
+																{
+																	"callFunction": "PopulateList",
+																	"sid": 215905083739630,
+																	"parameters": [
+																		"\"Weapons\""
+																	]
+																}
+															],
+															"sid": 861537335941640
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 649067437467955,
+																	"parameters": {
+																		"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
+																		"comparison": 0,
+																		"second-value": "\"HAB\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Get Generic Upg Info",
+																	"sid": 174824913890038,
+																	"parameters": [
+																		"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
+																	]
+																},
+																{
+																	"callFunction": "PopulateList",
+																	"sid": 487079789410574,
+																	"parameters": [
+																		"\"Hab\""
+																	]
+																}
+															],
+															"sid": 561572350729686
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 286466306759225,
+																	"parameters": {
+																		"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
+																		"comparison": 0,
+																		"second-value": "\"ARM\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "PopulateList",
+																	"sid": 953188992141459,
+																	"parameters": [
+																		"\"Armor\""
+																	]
+																},
+																{
+																	"callFunction": "Get Armor Upg Info",
+																	"sid": 148477197017986,
+																	"parameters": [
+																		"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
+																	]
+																}
+															],
+															"sid": 769052076719045
+														}
+													]
 												},
 												{
 													"eventType": "comment",
@@ -23458,14 +23065,14 @@
 														{
 															"id": "for-each",
 															"objectClass": "System",
-															"sid": 354521332631945,
+															"sid": 173082500831873,
 															"parameters": {
 																"object": "Btn_Upgrade_WeaponSkill"
 															}
 														}
 													],
 													"actions": [],
-													"sid": 860221956187180,
+													"sid": 497226721055960,
 													"children": [
 														{
 															"eventType": "block",
@@ -23473,7 +23080,7 @@
 																{
 																	"id": "compare-instance-variable",
 																	"objectClass": "Btn_Upgrade_WeaponSkill",
-																	"sid": 914373540249647,
+																	"sid": 627541068657296,
 																	"parameters": {
 																		"instance-variable": "Type",
 																		"comparison": 0,
@@ -23482,7 +23089,7 @@
 																}
 															],
 															"actions": [],
-															"sid": 444318765675447,
+															"sid": 471467833563916,
 															"children": [
 																{
 																	"eventType": "block",
@@ -23490,7 +23097,7 @@
 																		{
 																			"id": "compare-value",
 																			"objectClass": "Dict_Save_File",
-																			"sid": 531888746872137,
+																			"sid": 965679333562302,
 																			"parameters": {
 																				"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
 																				"comparison": 0,
@@ -23500,7 +23107,7 @@
 																		{
 																			"id": "compare-at-xyz",
 																			"objectClass": "A_Prod_Data",
-																			"sid": 661995451258876,
+																			"sid": 484744936322796,
 																			"parameters": {
 																				"x": "10",
 																				"y": "1",
@@ -23514,7 +23121,7 @@
 																		{
 																			"id": "set-animation",
 																			"objectClass": "Btn_Upgrade_WeaponSkill",
-																			"sid": 841258181528158,
+																			"sid": 451423721408248,
 																			"parameters": {
 																				"animation": "\"Locked\"",
 																				"from": "beginning"
@@ -23523,14 +23130,23 @@
 																		{
 																			"id": "log",
 																			"objectClass": "Browser",
-																			"sid": 935227070023041,
+																			"sid": 478692860195355,
 																			"parameters": {
 																				"type": "log",
 																				"message": "\"Lock\""
 																			}
+																		},
+																		{
+																			"id": "set-layer-visible",
+																			"objectClass": "System",
+																			"sid": 797026842371135,
+																			"parameters": {
+																				"layer": "\"Work Upg\"",
+																				"visibility": "invisible"
+																			}
 																		}
 																	],
-																	"sid": 663950849330840
+																	"sid": 732631461703463
 																}
 															]
 														},
@@ -23540,7 +23156,7 @@
 																{
 																	"id": "compare-instance-variable",
 																	"objectClass": "Btn_Upgrade_WeaponSkill",
-																	"sid": 648192249587459,
+																	"sid": 602017695213921,
 																	"parameters": {
 																		"instance-variable": "Type",
 																		"comparison": 0,
@@ -23549,7 +23165,7 @@
 																}
 															],
 															"actions": [],
-															"sid": 654179767347435,
+															"sid": 701527076822620,
 															"children": [
 																{
 																	"eventType": "block",
@@ -23557,7 +23173,7 @@
 																		{
 																			"id": "compare-value",
 																			"objectClass": "Dict_Save_File",
-																			"sid": 908190637304980,
+																			"sid": 408442349141261,
 																			"parameters": {
 																				"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
 																				"comparison": 0,
@@ -23567,7 +23183,7 @@
 																		{
 																			"id": "compare-at-xyz",
 																			"objectClass": "A_Prod_Data",
-																			"sid": 785990598573180,
+																			"sid": 796621367127863,
 																			"parameters": {
 																				"x": "10",
 																				"y": "1",
@@ -23581,7 +23197,7 @@
 																		{
 																			"id": "set-animation",
 																			"objectClass": "Btn_Upgrade_WeaponSkill",
-																			"sid": 481321979132400,
+																			"sid": 178771888042652,
 																			"parameters": {
 																				"animation": "\"Locked\"",
 																				"from": "beginning"
@@ -23590,14 +23206,14 @@
 																		{
 																			"id": "set-layer-visible",
 																			"objectClass": "System",
-																			"sid": 339980882711309,
+																			"sid": 631209337716874,
 																			"parameters": {
 																				"layer": "\"Work Upg\"",
 																				"visibility": "invisible"
 																			}
 																		}
 																	],
-																	"sid": 780581536590510
+																	"sid": 674277302112558
 																}
 															]
 														}
@@ -23613,14 +23229,14 @@
 														{
 															"id": "for-each",
 															"objectClass": "System",
-															"sid": 674913685913484,
+															"sid": 916633969179342,
 															"parameters": {
 																"object": "Btn_Upgrade_Armor"
 															}
 														}
 													],
 													"actions": [],
-													"sid": 718519969193740,
+													"sid": 241754461460256,
 													"children": [
 														{
 															"eventType": "block",
@@ -23628,7 +23244,7 @@
 																{
 																	"id": "compare-value",
 																	"objectClass": "Dict_Save_File",
-																	"sid": 380126099230440,
+																	"sid": 343925370216079,
 																	"parameters": {
 																		"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
 																		"comparison": 0,
@@ -23638,11 +23254,11 @@
 																{
 																	"id": "compare-at-xyz",
 																	"objectClass": "A_Prod_Data",
-																	"sid": 396680919139942,
+																	"sid": 156515044817949,
 																	"parameters": {
 																		"x": "11",
 																		"y": "1",
-																		"z": "Btn_Upgrade_Armor.IID + 1",
+																		"z": "Btn_Upgrade_Armor.IID  + 1",
 																		"comparison": 0,
 																		"value": "0"
 																	}
@@ -23652,7 +23268,7 @@
 																{
 																	"id": "set-animation",
 																	"objectClass": "Btn_Upgrade_Armor",
-																	"sid": 399454242300751,
+																	"sid": 793159958289569,
 																	"parameters": {
 																		"animation": "\"Locked\"",
 																		"from": "beginning"
@@ -23661,14 +23277,478 @@
 																{
 																	"id": "set-layer-visible",
 																	"objectClass": "System",
-																	"sid": 719357621577102,
+																	"sid": 280167613345045,
 																	"parameters": {
 																		"layer": "\"Work Upg\"",
 																		"visibility": "invisible"
 																	}
 																}
 															],
-															"sid": 832595077660467
+															"sid": 411241394443232
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Btn_Buy",
+													"sid": 705814985705028,
+													"parameters": {
+														"instance-variable": "Price_2",
+														"comparison": 1,
+														"value": "\"\""
+													}
+												}
+											],
+											"actions": [],
+											"sid": 436396713023891,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Temp_Prod_Data",
+															"sid": 113149262512413,
+															"parameters": {
+																"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
+																"comparison": 5,
+																"value": "int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
+															}
+														},
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Temp_Prod_Data",
+															"sid": 131732717358827,
+															"parameters": {
+																"key": "tokenat ( Btn_Buy.Price_2, 0, \"_\" )",
+																"comparison": 5,
+																"value": "int ( tokenat ( Btn_Buy.Price_2, 1, \"_\" ) )"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 488394916239785,
+															"parameters": [
+																false,
+																false,
+																true,
+																false,
+																false,
+																false,
+																false,
+																false
+															]
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Temp_Prod_Data",
+															"sid": 991500613489015,
+															"parameters": {
+																"key": "tokenat ( Btn_Buy.Price_1, 0, \"_\" )",
+																"value": "Self.Get ( tokenat ( Btn_Buy.Price_1, 0, \"_\" ) ) - int ( tokenat ( Btn_Buy.Price_1, 1, \"_\" ) )"
+															}
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Temp_Prod_Data",
+															"sid": 995015524868513,
+															"parameters": {
+																"key": "tokenat ( Btn_Buy.Price_2, 0, \"_\" )",
+																"value": "Self.Get ( tokenat ( Btn_Buy.Price_2, 0, \"_\" ) ) - int ( tokenat ( Btn_Buy.Price_2, 1, \"_\" ) )"
+															}
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Save_File",
+															"sid": 221408092162813,
+															"parameters": {
+																"key": "Btn_Buy.Type",
+																"value": "Dict_Save_File.Get(Btn_Buy.Type) + 1"
+															}
+														}
+													],
+													"sid": 745854560470103,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 539391244547136,
+																	"parameters": {
+																		"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
+																		"comparison": 0,
+																		"second-value": "\"WP\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 731707645003266,
+																	"parameters": {
+																		"seconds": "0.01",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"callFunction": "PopulateList",
+																	"sid": 664210634933399,
+																	"parameters": [
+																		"\"Weapons\""
+																	]
+																},
+																{
+																	"callFunction": "Get Generic Upg Info",
+																	"sid": 582396820219346,
+																	"parameters": [
+																		"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
+																	]
+																}
+															],
+															"sid": 380521056714796
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 924024286802916,
+																	"parameters": {
+																		"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
+																		"comparison": 0,
+																		"second-value": "\"HAB\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 731397851892860,
+																	"parameters": {
+																		"seconds": "0.01",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"callFunction": "PopulateList",
+																	"sid": 636032978629412,
+																	"parameters": [
+																		"\"Hab\""
+																	]
+																},
+																{
+																	"callFunction": "Get Generic Upg Info",
+																	"sid": 319023287931436,
+																	"parameters": [
+																		"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
+																	]
+																}
+															],
+															"sid": 439416637166140
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 671537526218848,
+																	"parameters": {
+																		"first-value": "tokenat(Btn_Buy.Type, 0, \"_\")",
+																		"comparison": 0,
+																		"second-value": "\"ARM\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 620049922057032,
+																	"parameters": {
+																		"seconds": "0.01",
+																		"use-timescale": true
+																	}
+																},
+																{
+																	"callFunction": "PopulateList",
+																	"sid": 608446675993613,
+																	"parameters": [
+																		"\"Armor\""
+																	]
+																},
+																{
+																	"callFunction": "Get Armor Upg Info",
+																	"sid": 111815630442825,
+																	"parameters": [
+																		"int( tokenat ( Btn_Buy.Type, 1, \"_\" ) )"
+																	]
+																}
+															],
+															"sid": 903701699070320
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 385988384014219,
+																	"parameters": {
+																		"key": "Btn_Buy.Type",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-layer-visible",
+																	"objectClass": "System",
+																	"sid": 603697880968707,
+																	"parameters": {
+																		"layer": "\"Work Upg\"",
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 164243482425661
+														},
+														{
+															"eventType": "comment",
+															"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 450323365655423,
+																	"parameters": {
+																		"object": "Btn_Upgrade_WeaponSkill"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 444270725623700,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Btn_Upgrade_WeaponSkill",
+																			"sid": 714573363435824,
+																			"parameters": {
+																				"instance-variable": "Type",
+																				"comparison": 0,
+																				"value": "\"WP_\""
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 191478649461612,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-value",
+																					"objectClass": "Dict_Save_File",
+																					"sid": 302155460109392,
+																					"parameters": {
+																						"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																						"comparison": 0,
+																						"value": "9"
+																					}
+																				},
+																				{
+																					"id": "compare-at-xyz",
+																					"objectClass": "A_Prod_Data",
+																					"sid": 657423390548989,
+																					"parameters": {
+																						"x": "10",
+																						"y": "1",
+																						"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																						"comparison": 0,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-animation",
+																					"objectClass": "Btn_Upgrade_WeaponSkill",
+																					"sid": 146186919033749,
+																					"parameters": {
+																						"animation": "\"Locked\"",
+																						"from": "beginning"
+																					}
+																				},
+																				{
+																					"id": "log",
+																					"objectClass": "Browser",
+																					"sid": 588570227548729,
+																					"parameters": {
+																						"type": "log",
+																						"message": "\"Lock\""
+																					}
+																				}
+																			],
+																			"sid": 328156126965491
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Btn_Upgrade_WeaponSkill",
+																			"sid": 114211116027258,
+																			"parameters": {
+																				"instance-variable": "Type",
+																				"comparison": 0,
+																				"value": "\"HAB_\""
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 958315618463613,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-value",
+																					"objectClass": "Dict_Save_File",
+																					"sid": 834960062767272,
+																					"parameters": {
+																						"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																						"comparison": 0,
+																						"value": "9"
+																					}
+																				},
+																				{
+																					"id": "compare-at-xyz",
+																					"objectClass": "A_Prod_Data",
+																					"sid": 936862835679579,
+																					"parameters": {
+																						"x": "10",
+																						"y": "1",
+																						"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																						"comparison": 0,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-animation",
+																					"objectClass": "Btn_Upgrade_WeaponSkill",
+																					"sid": 406941219927360,
+																					"parameters": {
+																						"animation": "\"Locked\"",
+																						"from": "beginning"
+																					}
+																				},
+																				{
+																					"id": "set-layer-visible",
+																					"objectClass": "System",
+																					"sid": 565573706071063,
+																					"parameters": {
+																						"layer": "\"Work Upg\"",
+																						"visibility": "invisible"
+																					}
+																				}
+																			],
+																			"sid": 708215551133109
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"eventType": "comment",
+															"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 102952820473581,
+																	"parameters": {
+																		"object": "Btn_Upgrade_Armor"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 130969982246470,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-value",
+																			"objectClass": "Dict_Save_File",
+																			"sid": 477215309351406,
+																			"parameters": {
+																				"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
+																				"comparison": 0,
+																				"value": "9"
+																			}
+																		},
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Prod_Data",
+																			"sid": 346742781677352,
+																			"parameters": {
+																				"x": "11",
+																				"y": "1",
+																				"z": "Btn_Upgrade_Armor.IID + 1",
+																				"comparison": 0,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-animation",
+																			"objectClass": "Btn_Upgrade_Armor",
+																			"sid": 644327964410262,
+																			"parameters": {
+																				"animation": "\"Locked\"",
+																				"from": "beginning"
+																			}
+																		},
+																		{
+																			"id": "set-layer-visible",
+																			"objectClass": "System",
+																			"sid": 358191224811173,
+																			"parameters": {
+																				"layer": "\"Work Upg\"",
+																				"visibility": "invisible"
+																			}
+																		}
+																	],
+																	"sid": 193662219955282
+																}
+															]
 														}
 													]
 												}
@@ -23689,11 +23769,6 @@
 										"object": "Btn_Close",
 										"type": "start"
 									}
-								},
-								{
-									"id": "is-visible",
-									"objectClass": "Btn_Close",
-									"sid": 457295909237382
 								},
 								{
 									"id": "layer-is-visible",

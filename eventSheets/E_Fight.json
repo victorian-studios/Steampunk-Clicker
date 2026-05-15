@@ -427,6 +427,45 @@
 						{
 							"id": "compare-animation-frame",
 							"objectClass": "Bkg_Fight",
+							"sid": 303087056088880,
+							"parameters": {
+								"comparison": 0,
+								"number": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Bkg_Frg_Extra_2",
+							"sid": 751450593396511,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 445515006621054,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Bkg_Frg_Extra_2",
+							"sid": 744969503552351
+						}
+					],
+					"sid": 332111432707244
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Bkg_Fight",
 							"sid": 773377115452169,
 							"parameters": {
 								"comparison": 5,
@@ -846,9 +885,9 @@
 						{
 							"id": "set-animation-frame",
 							"objectClass": "icon_list_armor",
-							"sid": 550331913874554,
+							"sid": 821959335082339,
 							"parameters": {
-								"frame-number": "0"
+								"frame-number": "Armor_Special_ID"
 							}
 						},
 						{
@@ -3241,6 +3280,41 @@
 										}
 									],
 									"sid": 464160432114535
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Icon_Effect_Player",
+											"sid": 327590809996984,
+											"parameters": {
+												"animation": "\"dodge\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Icon_Effect_Player",
+											"sid": 486772727755897,
+											"parameters": {
+												"instance-variable": "Duration",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 108997413398115,
+											"parameters": {
+												"x": "4",
+												"y": "0",
+												"value": "Icon_Effect_Player.AnimationName & \"_\" & Icon_Effect_Player.Potency & \"_\" & Icon_Effect_Player.Duration"
+											}
+										}
+									],
+									"sid": 474628528764994
 								},
 								{
 									"eventType": "block",
@@ -6852,11 +6926,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 240355375118176,
+													"sid": 529545870140251,
 													"parameters": {
 														"variable": "Armor_Special_ID",
 														"comparison": 0,
-														"value": "1"
+														"value": "0"
 													}
 												}
 											],
@@ -6891,11 +6965,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 683735531064180,
+													"sid": 903884104579172,
 													"parameters": {
 														"variable": "Armor_Special_ID",
 														"comparison": 0,
-														"value": "4"
+														"value": "3"
 													}
 												}
 											],
@@ -7608,10 +7682,10 @@
 								{
 									"id": "log",
 									"objectClass": "Browser",
-									"sid": 287326761801939,
+									"sid": 977476876910928,
 									"parameters": {
 										"type": "log",
-										"message": "\"Player Action: \"&Action_Type&\" | \"& Action_ID & \" - Lvl \"&Action_Lvl & \" > tar \"&Target_UID& \" [ All: \"&All_Targets&\" / Fri: \"&Friendly&\" ]\""
+										"message": "\"Player Action: \"&Action_Type&\" | \"& Action_ID & \" - Lvl \"&Action_Lvl & \" > tar \"&Target_UID& \" [ All: \"&All_Targets&\" / Fri: \"&Friendly&\" ]\" & newline & \"Special: \"&Special"
 									}
 								}
 							],
@@ -10959,6 +11033,7 @@
 															"id": "is-animation-playing",
 															"objectClass": "Icon_Effect_Player",
 															"sid": 565345661280203,
+															"disabled": true,
 															"parameters": {
 																"animation": "\"dodge\""
 															}
@@ -10993,9 +11068,9 @@
 														{
 															"id": "set-at-xy",
 															"objectClass": "A_Fight_Effects",
-															"sid": 713849904473923,
+															"sid": 353083839371902,
 															"parameters": {
-																"x": "2",
+																"x": "Icon_Effect_Player.Effect_Index",
 																"y": "0",
 																"value": "Icon_Effect_Player.AnimationName & \"_\" & Icon_Effect_Player.Potency & \"_\" & Icon_Effect_Player.Duration"
 															}
@@ -11475,10 +11550,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 518485272874433,
+									"sid": 655684217210998,
 									"parameters": {
 										"variable": "counter",
-										"value": "icon_list_armor.AnimationFrame - 1"
+										"value": "icon_list_armor.AnimationFrame"
 									}
 								},
 								{
@@ -11511,13 +11586,11 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 566858679051009,
+											"id": "is-animation-playing",
+											"objectClass": "icon_list_armor",
+											"sid": 378606705802806,
 											"parameters": {
-												"variable": "Armor_Special_ID",
-												"comparison": 0,
-												"value": "0"
+												"animation": "\"Default\""
 											}
 										}
 									],
@@ -11549,13 +11622,11 @@
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 147327283283446,
+											"id": "is-animation-playing",
+											"objectClass": "icon_list_armor",
+											"sid": 726588334149244,
 											"parameters": {
-												"variable": "Armor_Special_ID",
-												"comparison": 4,
-												"value": "0"
+												"animation": "\"Special\""
 											}
 										}
 									],
@@ -12107,15 +12178,12 @@
 									}
 								},
 								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 908676498934210,
+									"id": "is-animation-playing",
+									"objectClass": "icon_list_armor",
+									"sid": 542235891079056,
 									"parameters": {
-										"variable": "Armor_Special_ID",
-										"comparison": 1,
-										"value": "0"
-									},
-									"isInverted": true
+										"animation": "\"Special\""
+									}
 								},
 								{
 									"id": "compare-boolean-eventvar",
@@ -14004,11 +14072,11 @@
 														{
 															"id": "compare-eventvar",
 															"objectClass": "System",
-															"sid": 311067363924362,
+															"sid": 300531891651368,
 															"parameters": {
 																"variable": "Armor_Special_ID",
 																"comparison": 0,
-																"value": "4"
+																"value": "0"
 															}
 														}
 													],
@@ -14058,6 +14126,67 @@
 														}
 													],
 													"sid": 205621680657398
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 338238336288172,
+															"parameters": {
+																"variable": "Armor_Special_ID",
+																"comparison": 0,
+																"value": "3"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Use_Hab_Player",
+															"sid": 846267523167631,
+															"parameters": [
+																"\"ARM\"",
+																"Armor_Special_ID",
+																"10",
+																"0",
+																true,
+																false,
+																"\"\""
+															]
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Armor_Slot",
+															"sid": 640809594565291,
+															"parameters": {
+																"instance-variable": "Ready",
+																"value": "false"
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Armor_Slot",
+															"sid": 161427641545581,
+															"parameters": {
+																"object": "Bkg_CD",
+																"layer": "\"Habs\"",
+																"image-point": "0",
+																"create-hierarchy": false,
+																"template-name": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Bkg_CD",
+															"sid": 106186577924511,
+															"parameters": {
+																"instance-variable": "CD_Time",
+																"value": "int(tokenat(A_Armor.At( 4, 10, Armor_Special_ID ), 3, \"_\"))"
+															}
+														}
+													],
+													"sid": 380543426050102
 												}
 											]
 										}
@@ -14301,7 +14430,7 @@
 													"actions": [
 														{
 															"callFunction": "Use_Hab_Player",
-															"sid": 383137988218523,
+															"sid": 108790161182555,
 															"parameters": [
 																"tokenat(Weapon_ID_2, 0, \"_\")",
 																"int( tokenat(Weapon_ID_2, 1, \"_\") )",
@@ -14309,7 +14438,7 @@
 																"the_target",
 																false,
 																false,
-																"A_Weapons.At(5,Dict_Save_File.Get(Weapon_ID_1),int( tokenat(Weapon_ID_1, 1, \"_\") ))"
+																"A_Weapons.At(5,Dict_Save_File.Get(Weapon_ID_2),int( tokenat(Weapon_ID_2, 1, \"_\") ))"
 															]
 														},
 														{
@@ -14700,46 +14829,195 @@
 									"isInverted": true
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 103369778803088,
+							"children": [
 								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 236778979291507,
-									"disabled": true,
-									"parameters": {
-										"variable": "TURN",
-										"value": "1"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 313231689694050,
+											"parameters": {
+												"object": "Icon_Effect_Player"
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Icon_Effect_Player",
+											"sid": 745372134450834
+										}
+									],
+									"actions": [],
+									"sid": 334879075168024,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 370984438963159,
+													"parameters": {
+														"animation": "\"zap\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 392316254916809,
+													"parameters": {
+														"animation": "\"power\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 840425078159822,
+													"disabled": true,
+													"parameters": {
+														"animation": "\"dodge\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 417585835490312,
+													"parameters": {
+														"animation": "\"weak\""
+													}
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 829666261204974,
+													"parameters": {
+														"animation": "\"vulnerable\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 467315347806610,
+													"parameters": {
+														"instance-variable": "Duration",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 965188881913431,
+													"parameters": {
+														"x": "Icon_Effect_Player.Effect_Index",
+														"y": "0",
+														"value": "Icon_Effect_Player.AnimationName & \"_\" & Icon_Effect_Player.Potency & \"_\" & Icon_Effect_Player.Duration"
+													}
+												}
+											],
+											"sid": 595387929008186,
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 260988436864549,
+													"parameters": {
+														"instance-variable": "Duration",
+														"comparison": 3,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 368511231587742,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-at-xy",
+													"objectClass": "A_Fight_Effects",
+													"sid": 774000147023291,
+													"parameters": {
+														"x": "Icon_Effect_Player.Effect_Index",
+														"y": "0",
+														"value": "tokenat( A_Fight_Effects.At( Icon_Effect_Player.Effect_Index, 0), 0, \"_\") & \"_0_0\""
+													}
+												}
+											],
+											"sid": 877550072598986
+										}
+									]
 								},
 								{
-									"id": "destroy",
-									"objectClass": "Icon_Mira",
-									"sid": 563022799060590
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Icon_Mira",
+											"sid": 307134911213012
+										},
+										{
+											"id": "set-position",
+											"objectClass": "Select_Hab",
+											"sid": 241185927725925,
+											"parameters": {
+												"x": "-100",
+												"y": "-1000"
+											}
+										},
+										{
+											"id": "set-layer-opacity",
+											"objectClass": "System",
+											"sid": 996423562584536,
+											"parameters": {
+												"layer": "\"Habs\"",
+												"opacity": "50"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 603303815942478,
+											"parameters": {
+												"seconds": "0.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 159118358676881,
+											"parameters": {
+												"type": "log",
+												"message": "\"- - - PLAYER TURN END - - -\""
+											}
+										},
+										{
+											"callFunction": "Enemy_Turn",
+											"sid": 686430434164578
+										}
+									],
+									"sid": 138867103890382
 								},
 								{
-									"id": "set-position",
-									"objectClass": "Select_Hab",
-									"sid": 423664575959927,
-									"parameters": {
-										"x": "-100",
-										"y": "-1000"
-									}
-								},
-								{
-									"id": "set-layer-opacity",
-									"objectClass": "System",
-									"sid": 871832379418667,
-									"parameters": {
-										"layer": "\"Habs\"",
-										"opacity": "50"
-									}
-								},
-								{
-									"callFunction": "Enemy_Turn",
-									"sid": 475450779355137
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 569400861124037
 								}
-							],
-							"sid": 103369778803088
+							]
 						}
 					],
 					"sid": 636389828713455
@@ -23157,6 +23435,15 @@
 							"sid": 576136525278169,
 							"parameters": {
 								"text": "\"[outline=#000000]\"&Internationalization.Lookup(\"fight.battle_won\")&\"[/outline]\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Info_Battle",
+							"sid": 444978564284003,
+							"disabled": true,
+							"parameters": {
+								"text": "\"[outline=#000000]\"&\"BATTLE...WON???\"&\"[/outline]\""
 							}
 						},
 						{
