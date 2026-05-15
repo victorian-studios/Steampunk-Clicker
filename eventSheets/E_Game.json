@@ -589,17 +589,7 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "log",
-							"objectClass": "Browser",
-							"sid": 659554666930903,
-							"parameters": {
-								"type": "error",
-								"message": "\"OUOUOU\""
-							}
-						}
-					],
+					"actions": [],
 					"sid": 592910184939967,
 					"children": [
 						{
@@ -8016,6 +8006,13 @@
 										"z": "ActiveLayer_ID",
 										"value": "1"
 									}
+								},
+								{
+									"callFunction": "PopulateList",
+									"sid": 997934359621488,
+									"parameters": [
+										"\"Armor\""
+									]
 								}
 							],
 							"sid": 275077975674456
@@ -8160,13 +8157,13 @@
 										{
 											"id": "compare-at-xyz",
 											"objectClass": "A_Upg_Data",
-											"sid": 974152265573728,
+											"sid": 284136161784789,
 											"parameters": {
 												"x": "7",
 												"y": "1",
 												"z": "0",
-												"comparison": 1,
-												"value": "0"
+												"comparison": 0,
+												"value": "-1"
 											}
 										}
 									],
@@ -8296,13 +8293,13 @@
 										{
 											"id": "compare-at-xyz",
 											"objectClass": "A_Upg_Data",
-											"sid": 962722593737412,
+											"sid": 882784720167674,
 											"parameters": {
-												"x": "15",
+												"x": "7",
 												"y": "1",
 												"z": "1",
-												"comparison": 1,
-												"value": "0"
+												"comparison": 0,
+												"value": "-1"
 											}
 										}
 									],
@@ -8452,13 +8449,13 @@
 										{
 											"id": "compare-at-xyz",
 											"objectClass": "A_Upg_Data",
-											"sid": 356722836063249,
+											"sid": 740479611272293,
 											"parameters": {
-												"x": "16",
+												"x": "7",
 												"y": "1",
-												"z": "1",
-												"comparison": 1,
-												"value": "0"
+												"z": "2",
+												"comparison": 0,
+												"value": "-1"
 											}
 										}
 									],
@@ -8598,23 +8595,23 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 328920425247984,
+											"sid": 581409696069653,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 0,
-												"value": "5"
+												"value": "6"
 											}
 										},
 										{
 											"id": "compare-at-xyz",
 											"objectClass": "A_Upg_Data",
-											"sid": 366406127585092,
+											"sid": 735551219099879,
 											"parameters": {
-												"x": "16",
+												"x": "7",
 												"y": "1",
-												"z": "1",
-												"comparison": 1,
-												"value": "0"
+												"z": "3",
+												"comparison": 0,
+												"value": "-1"
 											}
 										}
 									],
@@ -8764,13 +8761,13 @@
 										{
 											"id": "compare-at-xyz",
 											"objectClass": "A_Upg_Data",
-											"sid": 800460715038954,
+											"sid": 649232164570429,
 											"parameters": {
-												"x": "16",
+												"x": "7",
 												"y": "1",
-												"z": "1",
-												"comparison": 1,
-												"value": "0"
+												"z": "4",
+												"comparison": 0,
+												"value": "-1"
 											}
 										}
 									],
@@ -8920,13 +8917,13 @@
 										{
 											"id": "compare-at-xyz",
 											"objectClass": "A_Upg_Data",
-											"sid": 440307550416283,
+											"sid": 912921828550467,
 											"parameters": {
-												"x": "16",
+												"x": "7",
 												"y": "1",
-												"z": "1",
-												"comparison": 1,
-												"value": "0"
+												"z": "5",
+												"comparison": 0,
+												"value": "-1"
 											}
 										}
 									],
@@ -9076,13 +9073,13 @@
 										{
 											"id": "compare-at-xyz",
 											"objectClass": "A_Upg_Data",
-											"sid": 158905294089869,
+											"sid": 233559065248026,
 											"parameters": {
-												"x": "16",
+												"x": "7",
 												"y": "1",
-												"z": "1",
-												"comparison": 1,
-												"value": "0"
+												"z": "6",
+												"comparison": 0,
+												"value": "-1"
 											}
 										}
 									],
@@ -9469,11 +9466,11 @@
 										{
 											"id": "compare-value",
 											"objectClass": "Dict_Save_File",
-											"sid": 945800253474534,
+											"sid": 404995458521464,
 											"parameters": {
 												"key": "\"LVL\"",
 												"comparison": 0,
-												"value": "6"
+												"value": "5"
 											}
 										},
 										{
@@ -14446,7 +14443,75 @@
 											}
 										}
 									],
-									"sid": 368642914640085
+									"sid": 368642914640085,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 895445747903575,
+													"parameters": {
+														"object": "Wp_Slot",
+														"expression": "Wp_Slot.ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Wp_Slot",
+													"sid": 119097030297857
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 769355858956992,
+													"parameters": {
+														"variable": "Weapon_ID_2",
+														"value": "\"none\""
+													}
+												}
+											],
+											"sid": 363719621695478
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 797770534624814,
+													"parameters": {
+														"object": "Hab_Slot",
+														"expression": "Hab_Slot.ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Hab_Slot",
+													"sid": 578228013408867
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 893198008971384,
+													"parameters": {
+														"variable": "HAB_ID_2",
+														"value": "0"
+													}
+												}
+											],
+											"sid": 718432954199330
+										}
+									]
 								}
 							]
 						},
@@ -15281,6 +15346,50 @@
 												},
 												{
 													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 220585544810684,
+															"parameters": {
+																"object": "Wp_Slot"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 263664421768911
+														}
+													],
+													"sid": 286650436370466
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "icon_list_habilities_clone",
+															"sid": 930566215574712,
+															"parameters": {
+																"object": "Hab_Slot"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "icon_list_habilities_clone",
+															"sid": 226465930912088
+														}
+													],
+													"sid": 390771695910474
+												},
+												{
+													"eventType": "block",
 													"conditions": [],
 													"actions": [
 														{
@@ -15437,6 +15546,28 @@
 														{
 															"id": "is-overlapping-another-object",
 															"objectClass": "icon_list_weapon_clone",
+															"sid": 971226219492982,
+															"parameters": {
+																"object": "Wp_Slot"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "icon_list_weapon_clone",
+															"sid": 441304136746883
+														}
+													],
+													"sid": 741383865614606
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "icon_list_weapon_clone",
 															"sid": 251546176049772,
 															"parameters": {
 																"object": "Wp_Slot"
@@ -15554,12 +15685,12 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 782317262839023,
+															"sid": 917876788295012,
 															"parameters": {
 																"object-to-create": "Wp_Slot",
 																"layer": "\"Frg List\"",
 																"x": " 1130",
-																"y": "106",
+																"y": "496",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -15617,6 +15748,28 @@
 														}
 													],
 													"sid": 776699388473341
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-overlapping-another-object",
+															"objectClass": "icon_list_habilities_clone",
+															"sid": 102235248654758,
+															"parameters": {
+																"object": "Hab_Slot"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "destroy",
+															"objectClass": "icon_list_habilities_clone",
+															"sid": 431633245778664
+														}
+													],
+													"sid": 499913540233098
 												},
 												{
 													"eventType": "block",
@@ -15703,12 +15856,12 @@
 														{
 															"id": "create-object",
 															"objectClass": "System",
-															"sid": 955633147000081,
+															"sid": 253670280691756,
 															"parameters": {
 																"object-to-create": "Wp_Slot",
 																"layer": "\"Frg List\"",
 																"x": " 1130",
-																"y": "106",
+																"y": "496",
 																"create-hierarchy": false,
 																"template-name": "\"\""
 															}
@@ -18244,9 +18397,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Item_Info_Armor",
-																	"sid": 563910010606408,
+																	"sid": 606463688017649,
 																	"parameters": {
-																		"text": "\"[size=23][icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" | [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & \" [icon=wp] \" & tokenat(A_Armor.At( 8,1, counter ), 0, \"_\") & \" [icon=sk] \" & tokenat(A_Armor.At( 8,1, counter ), 1, \"_\") & \"[/size]\" & newline & \"[size=17]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\")) & \"[/size]\""
+																		"text": "\"[size=23][icon=hp] \" & A_Armor.At( 2,Dict_Save_File.Get(\"ARM_\" & counter), counter ) &  \" [icon=shield] \" & A_Armor.At( 3,Dict_Save_File.Get(\"ARM_\" & counter), counter ) & \" [icon=wp] \" & tokenat(A_Armor.At( 8,1, counter ), 0, \"_\") & \" [icon=sk] \" & tokenat(A_Armor.At( 8,1, counter ), 1, \"_\") & \"[/size]\" & newline & \"[size=17]\" & Internationalization.Lookup( \"game.work.armors.\" & tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 0, \"_\"), tokenat( A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 1, \"_\"), tokenat(A_Armor.At( 4, Dict_Save_File.Get( \"ARM_\" & counter ), counter ), 2, \"_\")) & \"[/size]\""
 																	}
 																}
 															],
@@ -18313,6 +18466,244 @@
 															]
 														}
 													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 819407660600838
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 833605679929047,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										}
+									],
+									"sid": 880652735481407,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 767266276253042,
+													"parameters": {
+														"object": "Btn_Upgrade_WeaponSkill"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 234501003714858,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
+															"sid": 846957397070244,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"WP_\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 454228652389769,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 646900138105082,
+																	"parameters": {
+																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																},
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Prod_Data",
+																	"sid": 417476290160000,
+																	"parameters": {
+																		"x": "10",
+																		"y": "1",
+																		"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 392337501506704,
+																	"parameters": {
+																		"animation": "\"Locked\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 643228947427539,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Lock\""
+																	}
+																}
+															],
+															"sid": 339614162477480
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
+															"sid": 754182437667391,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"HAB_\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 238789188119088,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 447581250545541,
+																	"parameters": {
+																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																},
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Prod_Data",
+																	"sid": 388602439821332,
+																	"parameters": {
+																		"x": "10",
+																		"y": "1",
+																		"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 561801619681985,
+																	"parameters": {
+																		"animation": "\"Locked\"",
+																		"from": "beginning"
+																	}
+																}
+															],
+															"sid": 212333280630412
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 987204709482715,
+													"parameters": {
+														"object": "Btn_Upgrade_Armor"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 628385277243439,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 773341526292341,
+															"parameters": {
+																"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
+																"comparison": 0,
+																"value": "9"
+															}
+														},
+														{
+															"id": "compare-at-xyz",
+															"objectClass": "A_Prod_Data",
+															"sid": 618603738319274,
+															"parameters": {
+																"x": "11",
+																"y": "1",
+																"z": "Btn_Upgrade_Armor.IID + 1",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Armor",
+															"sid": 590135063313668,
+															"parameters": {
+																"animation": "\"Locked\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-layer-visible",
+															"objectClass": "System",
+															"sid": 998084674072498,
+															"parameters": {
+																"layer": "\"Work Upg\"",
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 599462787911865
 												}
 											]
 										}
@@ -18729,6 +19120,134 @@
 								{
 									"id": "on-touched-object",
 									"objectClass": "Touch",
+									"sid": 817216268999306,
+									"parameters": {
+										"object": "Btn_Upgrade_WeaponSkill",
+										"type": "start"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Btn_Upgrade_WeaponSkill",
+									"sid": 160159365081960
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Btn_Upgrade_WeaponSkill",
+									"sid": 280479308069630,
+									"parameters": {
+										"animation": "\"Locked\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 797292137443796,
+									"parameters": {
+										"layer": "\"Workshop\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 212398742290369,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 843083426757190,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Save_File",
+											"sid": 942884009106913,
+											"parameters": {
+												"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+												"comparison": 0,
+												"value": "9"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 651798197258565,
+											"parameters": {
+												"x": "10",
+												"y": "1",
+												"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 591582778758515,
+											"parameters": [
+												"Internationalization.Lookup(\"tutorial.error.refine_tip\")",
+												"3",
+												"\"\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 321060709886401,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"error\""
+											}
+										}
+									],
+									"sid": 118615691010007
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 170341634213318
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 538417091497216,
+											"parameters": [
+												"Internationalization.Lookup(\"tutorial.error.default_locked\")",
+												"3",
+												"\"\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 410874070306091,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"error\""
+											}
+										}
+									],
+									"sid": 540641495787963
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
 									"sid": 897741188367506,
 									"parameters": {
 										"object": "Btn_Upgrade_Armor",
@@ -18787,6 +19306,134 @@
 								}
 							],
 							"sid": 904299271682009
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 935981202939103,
+									"parameters": {
+										"object": "Btn_Upgrade_Armor",
+										"type": "start"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Btn_Upgrade_Armor",
+									"sid": 642850670678644
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Btn_Upgrade_Armor",
+									"sid": 266245690928835,
+									"parameters": {
+										"animation": "\"Locked\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 321700273365080,
+									"parameters": {
+										"layer": "\"Workshop\""
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 594590589391828,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 235876397172144,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Save_File",
+											"sid": 830771161697434,
+											"parameters": {
+												"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
+												"comparison": 0,
+												"value": "9"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 492398801114112,
+											"parameters": {
+												"x": "11",
+												"y": "1",
+												"z": "Btn_Upgrade_WeaponSkill.IID",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 456434638143481,
+											"parameters": [
+												"Internationalization.Lookup(\"tutorial.error.armor_tip\")",
+												"3",
+												"\"\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 928583346980100,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"error\""
+											}
+										}
+									],
+									"sid": 669128713812867
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 160885239636687
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Pop_up_Tutorial",
+											"sid": 490140898472058,
+											"parameters": [
+												"Internationalization.Lookup(\"tutorial.error.default_locked\")",
+												"3",
+												"\"\""
+											]
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 872442607961657,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"value": "\"error\""
+											}
+										}
+									],
+									"sid": 817349229999269
+								}
+							]
 						},
 						{
 							"functionName": "Get Generic Upg Info",
@@ -22140,6 +22787,11 @@
 									}
 								},
 								{
+									"id": "is-visible",
+									"objectClass": "Btn_Buy",
+									"sid": 809185924091742
+								},
+								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
 									"sid": 233951274353106,
@@ -22322,6 +22974,239 @@
 														}
 													],
 													"sid": 553296797156565
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 694627166666468,
+													"parameters": {
+														"object": "Btn_Upgrade_WeaponSkill"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 361182822642777,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
+															"sid": 105626756582558,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"WP_\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 379473082426538,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 531168165844835,
+																	"parameters": {
+																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																},
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Prod_Data",
+																	"sid": 828793024346686,
+																	"parameters": {
+																		"x": "10",
+																		"y": "1",
+																		"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 889601199366103,
+																	"parameters": {
+																		"animation": "\"Locked\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 909819424798521,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Lock\""
+																	}
+																},
+																{
+																	"id": "set-layer-visible",
+																	"objectClass": "System",
+																	"sid": 953337667590290,
+																	"parameters": {
+																		"layer": "\"Work Upg\"",
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 165175954175510
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
+															"sid": 584172288723904,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"HAB_\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 997538946783121,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 591696423648895,
+																	"parameters": {
+																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																},
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Prod_Data",
+																	"sid": 824431518296262,
+																	"parameters": {
+																		"x": "10",
+																		"y": "1",
+																		"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 976611009280778,
+																	"parameters": {
+																		"animation": "\"Locked\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-layer-visible",
+																	"objectClass": "System",
+																	"sid": 492871778488859,
+																	"parameters": {
+																		"layer": "\"Work Upg\"",
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 980295093423450
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 885454755924159,
+													"parameters": {
+														"object": "Btn_Upgrade_Armor"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 189114898945929,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 567233569904207,
+															"parameters": {
+																"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
+																"comparison": 0,
+																"value": "9"
+															}
+														},
+														{
+															"id": "compare-at-xyz",
+															"objectClass": "A_Prod_Data",
+															"sid": 946230308455280,
+															"parameters": {
+																"x": "11",
+																"y": "1",
+																"z": "Btn_Upgrade_Armor.IID  + 1",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Armor",
+															"sid": 397501129116629,
+															"parameters": {
+																"animation": "\"Locked\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-layer-visible",
+															"objectClass": "System",
+															"sid": 538635236990855,
+															"parameters": {
+																"layer": "\"Work Upg\"",
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 627484894938068
 												}
 											]
 										}
@@ -22535,6 +23420,257 @@
 														}
 													],
 													"sid": 837602115191229
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 672862060907149,
+															"parameters": {
+																"key": "Btn_Buy.Type",
+																"comparison": 0,
+																"value": "9"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-layer-visible",
+															"objectClass": "System",
+															"sid": 831407749643763,
+															"parameters": {
+																"layer": "\"Work Upg\"",
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 476251997331380
+												},
+												{
+													"eventType": "comment",
+													"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 354521332631945,
+															"parameters": {
+																"object": "Btn_Upgrade_WeaponSkill"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 860221956187180,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 914373540249647,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"WP_\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 444318765675447,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-value",
+																			"objectClass": "Dict_Save_File",
+																			"sid": 531888746872137,
+																			"parameters": {
+																				"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																				"comparison": 0,
+																				"value": "9"
+																			}
+																		},
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Prod_Data",
+																			"sid": 661995451258876,
+																			"parameters": {
+																				"x": "10",
+																				"y": "1",
+																				"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																				"comparison": 0,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-animation",
+																			"objectClass": "Btn_Upgrade_WeaponSkill",
+																			"sid": 841258181528158,
+																			"parameters": {
+																				"animation": "\"Locked\"",
+																				"from": "beginning"
+																			}
+																		},
+																		{
+																			"id": "log",
+																			"objectClass": "Browser",
+																			"sid": 935227070023041,
+																			"parameters": {
+																				"type": "log",
+																				"message": "\"Lock\""
+																			}
+																		}
+																	],
+																	"sid": 663950849330840
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 648192249587459,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"HAB_\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 654179767347435,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-value",
+																			"objectClass": "Dict_Save_File",
+																			"sid": 908190637304980,
+																			"parameters": {
+																				"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																				"comparison": 0,
+																				"value": "9"
+																			}
+																		},
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Prod_Data",
+																			"sid": 785990598573180,
+																			"parameters": {
+																				"x": "10",
+																				"y": "1",
+																				"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																				"comparison": 0,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-animation",
+																			"objectClass": "Btn_Upgrade_WeaponSkill",
+																			"sid": 481321979132400,
+																			"parameters": {
+																				"animation": "\"Locked\"",
+																				"from": "beginning"
+																			}
+																		},
+																		{
+																			"id": "set-layer-visible",
+																			"objectClass": "System",
+																			"sid": 339980882711309,
+																			"parameters": {
+																				"layer": "\"Work Upg\"",
+																				"visibility": "invisible"
+																			}
+																		}
+																	],
+																	"sid": 780581536590510
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each",
+															"objectClass": "System",
+															"sid": 674913685913484,
+															"parameters": {
+																"object": "Btn_Upgrade_Armor"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 718519969193740,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 380126099230440,
+																	"parameters": {
+																		"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																},
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Prod_Data",
+																	"sid": 396680919139942,
+																	"parameters": {
+																		"x": "11",
+																		"y": "1",
+																		"z": "Btn_Upgrade_Armor.IID + 1",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "Btn_Upgrade_Armor",
+																	"sid": 399454242300751,
+																	"parameters": {
+																		"animation": "\"Locked\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "set-layer-visible",
+																	"objectClass": "System",
+																	"sid": 719357621577102,
+																	"parameters": {
+																		"layer": "\"Work Upg\"",
+																		"visibility": "invisible"
+																	}
+																}
+															],
+															"sid": 832595077660467
+														}
+													]
 												}
 											]
 										}
@@ -22553,6 +23689,11 @@
 										"object": "Btn_Close",
 										"type": "start"
 									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Btn_Close",
+									"sid": 457295909237382
 								},
 								{
 									"id": "layer-is-visible",
@@ -22618,11 +23759,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Btn_Upgrade_WeaponSkill",
-													"sid": 716910915303157,
+													"sid": 476067140379527,
 													"parameters": {
 														"instance-variable": "Type",
 														"comparison": 0,
-														"value": "\"WP\""
+														"value": "\"WP_\""
 													}
 												}
 											],
@@ -22658,7 +23799,7 @@
 													"actions": [
 														{
 															"id": "set-animation",
-															"objectClass": "Btn_Upgrade_Armor",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
 															"sid": 291866694124428,
 															"parameters": {
 																"animation": "\"Locked\"",
@@ -22676,11 +23817,11 @@
 												{
 													"id": "compare-instance-variable",
 													"objectClass": "Btn_Upgrade_WeaponSkill",
-													"sid": 255295554580204,
+													"sid": 566563379826371,
 													"parameters": {
 														"instance-variable": "Type",
 														"comparison": 0,
-														"value": "\"HAB\""
+														"value": "\"HAB_\""
 													}
 												}
 											],
@@ -22716,7 +23857,7 @@
 													"actions": [
 														{
 															"id": "set-animation",
-															"objectClass": "Btn_Upgrade_Armor",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
 															"sid": 993959784058788,
 															"parameters": {
 																"animation": "\"Locked\"",
@@ -22765,11 +23906,11 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Prod_Data",
-													"sid": 517477669142331,
+													"sid": 793665632934210,
 													"parameters": {
 														"x": "11",
 														"y": "1",
-														"z": "Btn_Upgrade_WeaponSkill.IID",
+														"z": "Btn_Upgrade_Armor.IID + 1",
 														"comparison": 0,
 														"value": "0"
 													}
@@ -23347,6 +24488,40 @@
 								}
 							],
 							"sid": 775526874435742
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 686312749876653,
+									"parameters": {
+										"object": "TiledBackground"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TiledBackground",
+									"sid": 271532613072301,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 3,
+										"value": "Dict_Save_File.Get(\"LVL\")"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "TiledBackground",
+									"sid": 288092219982708,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 547078866301929
 						}
 					]
 				},
@@ -24954,9 +26129,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-any-click",
-							"objectClass": "Mouse",
-							"sid": 963516930995920
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 449657027413126
 						},
 						{
 							"id": "is-visible",
@@ -30059,9 +31234,101 @@
 					"parameters": [
 						true
 					]
+				},
+				{
+					"id": "set-key",
+					"objectClass": "Dict_Temp_Prod_Data",
+					"sid": 213910611496851,
+					"parameters": {
+						"key": "\"Steam\"",
+						"value": "99"
+					}
 				}
 			],
-			"sid": 241447796002093
+			"sid": 241447796002093,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 685274727023134,
+							"parameters": {
+								"key": "\"Iron\"",
+								"comparison": 1,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 162014050470844,
+							"parameters": {
+								"key": "\"Iron\"",
+								"value": "99"
+							}
+						}
+					],
+					"sid": 547818231750994
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 418257050797670,
+							"parameters": {
+								"key": "\"Copper\"",
+								"comparison": 1,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 485157665187076,
+							"parameters": {
+								"key": "\"Copper\"",
+								"value": "99"
+							}
+						}
+					],
+					"sid": 599386909307960
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 959028359486753,
+							"parameters": {
+								"key": "\"Steam\"",
+								"comparison": 0,
+								"value": "99"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-key",
+							"objectClass": "Dict_Temp_Prod_Data",
+							"sid": 518117526235147,
+							"parameters": {
+								"key": "\"Wood\"",
+								"value": "99"
+							}
+						}
+					],
+					"sid": 130957911437707
+				}
+			]
 		}
 	],
 	"sid": 739369905008436

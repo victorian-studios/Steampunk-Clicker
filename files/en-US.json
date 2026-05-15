@@ -209,11 +209,12 @@
                 "weapons": {
                     "nospecial": "None",
                     "stunchance": "Aplly Stun ({0}%)",
-                    "poison": "Apply {0} [icon=poison] ({1}%)",
+                    "poison": "Apply {0}[icon=poison]({1} turns)",
                     "extraammo": "Gain +1[icon=ammo] ({0}%)",
+                    "extraammo_txt": "[outline=#ffffff]+1[icon=ammo][/outline]",
                     "splashdmg": "{0}% Splash [icon=dmg]",
                     "aoeattackchance": "Area Dmg ({0}%)",
-                    "fire": "Apply {0} [icon=fire] ({1}%)",
+                    "fire": "Apply {0}[icon=fire] ({1}%)",
                     "recharge": "Regen {0}[icon=shield]",
                     "shieldextradmg": "If [icon=shield]>0, deal +{0}[icon=dmg]",
                     "name": {
@@ -230,9 +231,9 @@
                 "skills": {
                     "0": "Instatly regenerate {0} energy shield back.\n[icon=cd] {3} turns.",
                     "1": "Active a vitality power, capable of healing {0} HP.\n[icon=cd] {3} turns.",
-                    "2": "Area Attack. [icon=dmg]{0}\n[icon=special] {1} fire for {2} turns.\n[icon=cd] {3} turns",
+                    "2": "Area Attack. [icon=dmg]{0}\n[icon=special] {1}[icon=fire] for {2} turns.\n[icon=cd] {3} turns",
                     "3": "Deal {0} damage back to enemies for {2} turns.\n[icon=cd] {3} turns.",
-                    "4": "[icon=dmg] {0}\n[icon=special] {1} poison for {2} turns.\n[icon=cd] {3} turns",
+                    "4": "[icon=dmg] {0}\n[icon=special] {1}[icon=poison] for {2} turns.\n[icon=cd] {3} turns",
                     "5": "Increase your damage by {0}% of attacks for {2} turns.\n[icon=cd] {3} turns.",
                     "6": "Reduce target's damage by {0}% for {2} turns.\n[icon=cd] {3} turns.",
                     "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns.",
@@ -273,7 +274,7 @@
                 "Mount-7": "[b]LEVEL - 1[/b]\n\nVulture x1 | Mummy x1",
                 "Mount-8": "[b]LEVEL - 2[/b]\n\nWanderer x1 | Vulture x2",
                 "Mount-9": "[b]LEVEL - 3[/b]\n\nWanderer x1 | Mummy x1 | Mummy x1",
-                "Castle-10": "[b]LEVEL - 1[/b]\n\nDog x1 | Strong Zombie x2",
+                "Castle-10": "[b]LEVEL - 1[/b]\n\nStrong Zombie x2 | Dog x1",
                 "Castle-11": "[b]LEVEL - 2[/b]\n\nStrong Zombie x2 | Experiment x1",
                 "Castle-12": "[b]BOSS LEVEL[/b]\n\nViktor x1"
             }
@@ -293,6 +294,7 @@
             "weak": "Attacks deal {0}% less damage ({1} turns)",
             "vulnerable": "Receive {0}% more damage from attacks ({1} turns)",
             "mark": "Receive {0}% more damage from attacks ({1} turns)",
+            "stun": "This target cannot act for 1 turn.",
             "dodge_trigger": "Dodge!",
             "battle_won": "BATTLE WON!",
             "battle_lost": "BATTLE LOST!",
@@ -310,7 +312,10 @@
         "tutorial": {
             "error": {
                 "no_armor_fight": "Calm down, you don't have any armor equipped yet in the workshop. To get one, produce some materials to create the level 1 [b]Wood Armor[/b]. Then you can fight!",
-                "no_weapon_fight": "Hey Rose, be carefull! You don't have a weapon equipped yet. Go to the workshop to see what is available, pay their price and then equip it there. I'd recommend the [b]Club[/b] as a cheap first weapon for your first try!"
+                "no_weapon_fight": "Hey Rose, be carefull! You don't have a weapon equipped yet. Go to the workshop to see what is available, pay their price and then equip it there. I'd recommend the [b]Club[/b] as a cheap first weapon for your first try!",
+                "refine_tip": "Looks like you’ve reached upgrade level 9 for this item. Purchase the [b]Refined Material[/b] Upgrade in the corresponding material’s [b]Upgrades tab[/b] to reach level 10.",
+                "armor_tip": "This armor is level 9, right? If you want to reach level 10, you need to purchase the [b]Final Armor[/b] upgrade in the corresponding material’s [b]Upgrades tab[/b].",
+                "default_locked": "This is currently unavailable. Unlock new producers to discover this item."
             },
             "welcome": {
                 "1": "Oh Rose! You finally arrived at the factory. Welcome my daughter!",

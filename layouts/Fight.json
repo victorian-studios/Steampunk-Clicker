@@ -2938,6 +2938,45 @@
 								"z": 0,
 								"angle": 0
 							}
+						},
+						{
+							"type": "List_Enemy_UID",
+							"properties": {
+								"items": "Item 1\nItem 2\nItem 3",
+								"tooltip": "",
+								"initially-visible": true,
+								"enabled": true,
+								"type": "dropdown-list",
+								"multi-select": false,
+								"auto-font-size": true,
+								"id": "",
+								"class": ""
+							},
+							"uid": 635,
+							"sid": 325697593002773,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"instanceFolderItem": {
+								"sid": 325697593002773,
+								"expanded": true
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 2006,
+								"y": -40,
+								"width": 150,
+								"height": 22,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								]
+							}
 						}
 					],
 					"sid": 464121982404993,
@@ -6828,7 +6867,7 @@
 				{
 					"type": "Text_Item_Info",
 					"properties": {
-						"text": "[icon=dmg] 999 | [icon=pdmg] 999 | [icon=ammo] 99\n[icon=special] 50% Crit chance",
+						"text": "[icon=dmg] 999 | [icon=pdmg] 999 | [icon=ammo] 99\n[icon=special] Apply Stun (99%)",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 33,
@@ -6980,7 +7019,7 @@
 				{
 					"type": "Text_Dmg_Numb",
 					"properties": {
-						"text": "999",
+						"text": "[outline=#ffffff]+1[icon=ammo]",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 40,
@@ -6997,7 +7036,7 @@
 						"vertical-alignment": "top",
 						"wrapping": "word",
 						"text-direction": "ltr",
-						"icon-set": -1,
+						"icon-set": 248002167639998,
 						"initially-visible": true,
 						"origin": "top-left",
 						"read-aloud": false

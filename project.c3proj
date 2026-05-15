@@ -71,6 +71,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "LocalStorage",
 			"name": "Local storage",
 			"author": "Scirra",
@@ -395,7 +402,8 @@
 			"Effect_Mark",
 			"raio",
 			"Effect_Bone_Break",
-			"Effect_Spark"
+			"Effect_Spark",
+			"List_Enemy_UID"
 		],
 		"subfolders": []
 	},

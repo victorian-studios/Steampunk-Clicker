@@ -1551,7 +1551,13 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"id": "clear",
+					"objectClass": "List_Enemy_UID",
+					"sid": 747515087587087
+				}
+			],
 			"sid": 650442849108328,
 			"children": [
 				{
@@ -1628,6 +1634,14 @@
 											}
 										},
 										{
+											"id": "add-item",
+											"objectClass": "List_Enemy_UID",
+											"sid": 566376600735991,
+											"parameters": {
+												"text": "str(Enemy.UID)"
+											}
+										},
+										{
 											"id": "set-animation",
 											"objectClass": "Enemy",
 											"sid": 854477307943385,
@@ -1688,6 +1702,11 @@
 												"instance-variable": "Block",
 												"value": "round( Self.Block * Dif_Multiply )"
 											}
+										},
+										{
+											"id": "move-to-bottom",
+											"objectClass": "Enemy",
+											"sid": 118095866662448
 										}
 									],
 									"sid": 503118704804094,
@@ -1961,7 +1980,17 @@
 							"sid": 298043219301554
 						}
 					],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 400561686592424,
+							"parameters": {
+								"type": "error",
+								"message": "\"Specific parameter is empty\""
+							}
+						}
+					],
 					"sid": 857699333992057
 				}
 			]
@@ -3841,9 +3870,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Dmg_Numb",
-													"sid": 928629643745953,
+													"sid": 331200089308720,
 													"parameters": {
-														"text": "ceil( abs( Amount * p_dmg_mod ) )"
+														"text": "\"[icon=pdmg]\" & ceil( abs( Amount * p_dmg_mod ) )"
 													}
 												}
 											],
@@ -3994,9 +4023,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Dmg_Numb",
-															"sid": 137319641705278,
+															"sid": 565768401126473,
 															"parameters": {
-																"text": "ceil( abs( Amount * p_dmg_mod ) )"
+																"text": "\"[icon=dmg]\" & ceil( abs( Amount * p_dmg_mod ) )"
 															}
 														}
 													],
@@ -4076,9 +4105,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Dmg_Numb",
-															"sid": 397764551401264,
+															"sid": 697348472184466,
 															"parameters": {
-																"text": "abs ( remaining_dmg )"
+																"text": "\"[icon=dmg]\" & abs ( remaining_dmg )"
 															}
 														}
 													],
@@ -4407,9 +4436,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Dmg_Numb",
-																	"sid": 152524517912743,
+																	"sid": 924366815170314,
 																	"parameters": {
-																		"text": "ceil( abs( Amount * p_dmg_mod ) )"
+																		"text": "\"[icon=dmg]\" & ceil( abs( Amount * p_dmg_mod ) )"
 																	}
 																}
 															],
@@ -4489,9 +4518,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Dmg_Numb",
-																	"sid": 724187906229541,
+																	"sid": 295625065322057,
 																	"parameters": {
-																		"text": "abs ( remaining_dmg )"
+																		"text": "\"[icon=dmg]\" & abs ( remaining_dmg )"
 																	}
 																}
 															],
@@ -7545,10 +7574,10 @@
 									"sid": 950616424141684
 								},
 								{
-									"name": "Target_ID",
+									"name": "Target_UID",
 									"type": "number",
 									"initialValue": "0",
-									"comment": "",
+									"comment": "the enemy UID",
 									"sid": 944625020653498
 								},
 								{
@@ -7564,6 +7593,13 @@
 									"initialValue": "false",
 									"comment": "é para ser usado em si mesmo",
 									"sid": 685302726364482
+								},
+								{
+									"name": "Special",
+									"type": "string",
+									"initialValue": "",
+									"comment": "usado pelas armas com efeitos extras",
+									"sid": 978662663107738
 								}
 							],
 							"eventType": "function-block",
@@ -7575,7 +7611,7 @@
 									"sid": 287326761801939,
 									"parameters": {
 										"type": "log",
-										"message": "\"Player Action: \"&Action_Type&\" | \"& Action_ID & \" - Lvl \"&Action_Lvl & \" > tar \"&Target_ID& \" [ All: \"&All_Targets&\" / Fri: \"&Friendly&\" ]\""
+										"message": "\"Player Action: \"&Action_Type&\" | \"& Action_ID & \" - Lvl \"&Action_Lvl & \" > tar \"&Target_UID& \" [ All: \"&All_Targets&\" / Fri: \"&Friendly&\" ]\""
 									}
 								}
 							],
@@ -7590,6 +7626,16 @@
 									"isStatic": true,
 									"isConstant": false,
 									"sid": 463296082688400
+								},
+								{
+									"eventType": "variable",
+									"name": "rng",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 101773020529230
 								},
 								{
 									"eventType": "block",
@@ -7816,12 +7862,13 @@
 																	"actions": [
 																		{
 																			"callFunction": "Change_Health_Enemy",
-																			"sid": 147359041590085,
+																			"sid": 755680267721412,
 																			"parameters": [
 																				"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																				"0",
 																				true,
-																				"Enemy.UID"
+																				"Enemy.UID",
+																				"Special"
 																			]
 																		},
 																		{
@@ -7840,7 +7887,8 @@
 																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																				"0",
 																				false,
-																				"Enemy.UID"
+																				"Enemy.UID",
+																				"\"\""
 																			]
 																		}
 																	],
@@ -7862,12 +7910,13 @@
 																	"actions": [
 																		{
 																			"callFunction": "Change_Health_Enemy",
-																			"sid": 514957571766994,
+																			"sid": 718662023999967,
 																			"parameters": [
 																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																				"0",
 																				false,
-																				"Enemy.UID"
+																				"Enemy.UID",
+																				"Special"
 																			]
 																		}
 																	],
@@ -7908,12 +7957,13 @@
 															"actions": [
 																{
 																	"callFunction": "Change_Health_Enemy",
-																	"sid": 984741852159168,
+																	"sid": 835234143030604,
 																	"parameters": [
 																		"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																		"0",
 																		false,
-																		"Enemy.UID"
+																		"Enemy.UID",
+																		"Special"
 																	]
 																},
 																{
@@ -7974,99 +8024,205 @@
 											"children": [
 												{
 													"eventType": "comment",
-													"text": "Tem dano perfurante"
+													"text": "É a Katana?"
 												},
 												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "compare-at-xyz",
-															"objectClass": "A_Weapons",
-															"sid": 264745562133775,
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 442106573632699,
 															"parameters": {
-																"x": "3",
-																"y": "Action_Lvl",
-																"z": "Action_ID",
-																"comparison": 1,
-																"value": "0"
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"aoeattackchance\""
 															}
 														}
 													],
-													"actions": [],
-													"sid": 193006342747338,
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 870781955853988,
+															"parameters": {
+																"variable": "rng",
+																"value": "random( 0, 101)"
+															}
+														}
+													],
+													"sid": 500923763366164,
 													"children": [
 														{
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "pick-by-comparison",
+																	"id": "compare-eventvar",
 																	"objectClass": "System",
-																	"sid": 746835218902577,
+																	"sid": 833192338498608,
 																	"parameters": {
-																		"object": "Enemy",
-																		"expression": "Enemy.UID",
-																		"comparison": 0,
-																		"value": "Target_ID"
+																		"variable": "rng",
+																		"comparison": 3,
+																		"value": "int( tokenat( A_Weapons.At(5, Action_Lvl, Action_ID), 0, \"_\" ))"
 																	}
 																}
 															],
-															"actions": [],
-															"sid": 670809865578532,
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 637261574977756,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Katana AoE!\""
+																	}
+																}
+															],
+															"sid": 525686215791259,
 															"children": [
 																{
 																	"eventType": "comment",
-																	"text": "Se tem block, aplica o dano perfurante separado do dano padrão"
+																	"text": "Tem dano perfurante"
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "compare-instance-variable",
-																			"objectClass": "Enemy",
-																			"sid": 404289700819346,
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Weapons",
+																			"sid": 277260870650669,
 																			"parameters": {
-																				"instance-variable": "Block",
+																				"x": "3",
+																				"y": "Action_Lvl",
+																				"z": "Action_ID",
 																				"comparison": 1,
 																				"value": "0"
 																			}
 																		}
 																	],
-																	"actions": [
+																	"actions": [],
+																	"sid": 397580464231347,
+																	"children": [
 																		{
-																			"callFunction": "Change_Health_Enemy",
-																			"sid": 703327756015590,
-																			"parameters": [
-																				"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
-																				"0",
-																				true,
-																				"Target_ID"
-																			]
-																		},
-																		{
-																			"id": "wait",
-																			"objectClass": "System",
-																			"sid": 440259109742738,
-																			"parameters": {
-																				"seconds": "0.1",
-																				"use-timescale": true
-																			}
-																		},
-																		{
-																			"callFunction": "Change_Health_Enemy",
-																			"sid": 978500358818016,
-																			"parameters": [
-																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
-																				"0",
-																				false,
-																				"Target_ID"
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "for-each",
+																					"objectClass": "System",
+																					"sid": 721199816679605,
+																					"parameters": {
+																						"object": "Enemy"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"type": "comment",
+																					"text": "Exclusivo do Granade Launcher"
+																				},
+																				{
+																					"id": "spawn-another-object",
+																					"objectClass": "Enemy",
+																					"sid": 548393643387667,
+																					"parameters": {
+																						"object": "Effect_Explosion",
+																						"layer": "\"Health\"",
+																						"image-point": "1",
+																						"create-hierarchy": false,
+																						"template-name": "\"\""
+																					}
+																				}
+																			],
+																			"sid": 818354579424544,
+																			"children": [
+																				{
+																					"eventType": "comment",
+																					"text": "Se tem block, aplica o dano perfurante separado do dano padrão"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "Enemy",
+																							"sid": 671110145167305,
+																							"parameters": {
+																								"instance-variable": "Block",
+																								"comparison": 1,
+																								"value": "0"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 938762072841993,
+																							"parameters": [
+																								"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																								"0",
+																								true,
+																								"Enemy.UID",
+																								"\"\""
+																							]
+																						},
+																						{
+																							"id": "wait",
+																							"objectClass": "System",
+																							"sid": 389498742380830,
+																							"parameters": {
+																								"seconds": "0.1",
+																								"use-timescale": true
+																							}
+																						},
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 472762162690945,
+																							"parameters": [
+																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
+																								"0",
+																								false,
+																								"Enemy.UID",
+																								"\"\""
+																							]
+																						}
+																					],
+																					"sid": 988471002331520
+																				},
+																				{
+																					"eventType": "comment",
+																					"text": "Se não tem block, soma o dano perfurante com o dano padrão"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 467782145224306
+																						}
+																					],
+																					"actions": [
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 113528967289961,
+																							"parameters": [
+																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																								"0",
+																								false,
+																								"Enemy.UID",
+																								"\"\""
+																							]
+																						}
+																					],
+																					"sid": 115836325683876
+																				}
 																			]
 																		}
-																	],
-																	"sid": 824025553157129
+																	]
 																},
 																{
 																	"eventType": "comment",
-																	"text": "Se não tem block, soma o dano perfurante com o dano padrão"
+																	"text": "Não tem dano perfurante"
 																},
 																{
 																	"eventType": "block",
@@ -8074,30 +8230,544 @@
 																		{
 																			"id": "else",
 																			"objectClass": "System",
-																			"sid": 242406926262471
+																			"sid": 321004880191061
 																		}
 																	],
-																	"actions": [
+																	"actions": [],
+																	"sid": 623001081361494,
+																	"children": [
 																		{
-																			"callFunction": "Change_Health_Enemy",
-																			"sid": 728996023543949,
-																			"parameters": [
-																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
-																				"0",
-																				false,
-																				"Target_ID"
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "for-each",
+																					"objectClass": "System",
+																					"sid": 396748867050587,
+																					"parameters": {
+																						"object": "Enemy"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"callFunction": "Change_Health_Enemy",
+																					"sid": 562906540260630,
+																					"parameters": [
+																						"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																						"0",
+																						false,
+																						"Enemy.UID",
+																						"\"\""
+																					]
+																				},
+																				{
+																					"id": "log",
+																					"objectClass": "Browser",
+																					"sid": 883676243206023,
+																					"parameters": {
+																						"type": "log",
+																						"message": "\"Dmg: \"& -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod ) & \" / mod: \" & Player_Dmg_mod"
+																					}
+																				}
+																			],
+																			"sid": 541265637170768
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 343171396583105
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 738331097621667,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Katana AoE failed\""
+																	}
+																}
+															],
+															"sid": 777260214703440,
+															"children": [
+																{
+																	"eventType": "comment",
+																	"text": "Tem dano perfurante"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-at-xyz",
+																			"objectClass": "A_Weapons",
+																			"sid": 937093491063012,
+																			"parameters": {
+																				"x": "3",
+																				"y": "Action_Lvl",
+																				"z": "Action_ID",
+																				"comparison": 1,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 610322115347862,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "pick-by-comparison",
+																					"objectClass": "System",
+																					"sid": 843872059856234,
+																					"parameters": {
+																						"object": "Enemy",
+																						"expression": "Enemy.UID",
+																						"comparison": 0,
+																						"value": "Target_UID"
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 268841570166308,
+																			"children": [
+																				{
+																					"eventType": "comment",
+																					"text": "Se tem block, aplica o dano perfurante separado do dano padrão"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "Enemy",
+																							"sid": 805628353274431,
+																							"parameters": {
+																								"instance-variable": "Block",
+																								"comparison": 1,
+																								"value": "0"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 712065977338059,
+																							"parameters": [
+																								"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																								"0",
+																								true,
+																								"Target_UID",
+																								"Special"
+																							]
+																						},
+																						{
+																							"id": "wait",
+																							"objectClass": "System",
+																							"sid": 861789387551453,
+																							"parameters": {
+																								"seconds": "0.1",
+																								"use-timescale": true
+																							}
+																						},
+																						{
+																							"type": "comment",
+																							"text": "-1 * arredonda pra cima ( dano normal * modificador de dano )"
+																						},
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 680958751517441,
+																							"parameters": [
+																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
+																								"0",
+																								false,
+																								"Target_UID",
+																								"\"\""
+																							]
+																						}
+																					],
+																					"sid": 436504205220134,
+																					"children": [
+																						{
+																							"eventType": "comment",
+																							"text": "É a espada de vaporium?"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 898327948185833,
+																									"parameters": {
+																										"first-value": "tokenat(Special, 0, \"_\")",
+																										"comparison": 0,
+																										"second-value": "\"shieldextradmg\""
+																									}
+																								}
+																							],
+																							"actions": [],
+																							"sid": 767681302305916,
+																							"children": [
+																								{
+																									"eventType": "comment",
+																									"text": "O escudo está cheio?"
+																								},
+																								{
+																									"eventType": "block",
+																									"conditions": [
+																										{
+																											"id": "compare-eventvar",
+																											"objectClass": "System",
+																											"sid": 224387779876288,
+																											"parameters": {
+																												"variable": "Shield",
+																												"comparison": 4,
+																												"value": "0"
+																											}
+																										}
+																									],
+																									"actions": [
+																										{
+																											"callFunction": "Change_Health_Enemy",
+																											"sid": 421817631884124,
+																											"parameters": [
+																												"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																												"0",
+																												true,
+																												"Target_UID",
+																												"Special"
+																											]
+																										},
+																										{
+																											"id": "wait",
+																											"objectClass": "System",
+																											"sid": 886314283238194,
+																											"parameters": {
+																												"seconds": "0.1",
+																												"use-timescale": true
+																											}
+																										},
+																										{
+																											"type": "comment",
+																											"text": "-1 * arredonda pra cima ( ( dano normal + dano extra com escudo cheio ) * Modificador de dano )"
+																										},
+																										{
+																											"callFunction": "Change_Health_Enemy",
+																											"sid": 198328771354454,
+																											"parameters": [
+																												"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) ) * Player_Dmg_mod )",
+																												"0",
+																												false,
+																												"Target_UID",
+																												"\"\""
+																											]
+																										}
+																									],
+																									"sid": 843202502053716
+																								},
+																								{
+																									"eventType": "block",
+																									"conditions": [
+																										{
+																											"id": "else",
+																											"objectClass": "System",
+																											"sid": 452208083134845
+																										}
+																									],
+																									"actions": [
+																										{
+																											"callFunction": "Change_Health_Enemy",
+																											"sid": 906038455982363,
+																											"parameters": [
+																												"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																												"0",
+																												true,
+																												"Target_UID",
+																												"Special"
+																											]
+																										},
+																										{
+																											"id": "wait",
+																											"objectClass": "System",
+																											"sid": 200328301604485,
+																											"parameters": {
+																												"seconds": "0.1",
+																												"use-timescale": true
+																											}
+																										},
+																										{
+																											"callFunction": "Change_Health_Enemy",
+																											"sid": 666921293302382,
+																											"parameters": [
+																												"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
+																												"0",
+																												false,
+																												"Target_UID",
+																												"\"\""
+																											]
+																										}
+																									],
+																									"sid": 517513746574697
+																								}
+																							]
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "else",
+																									"objectClass": "System",
+																									"sid": 335406881226764
+																								}
+																							],
+																							"actions": [
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 419615076363315,
+																									"parameters": [
+																										"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																										"0",
+																										true,
+																										"Target_UID",
+																										"Special"
+																									]
+																								},
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 234644683430949,
+																									"parameters": {
+																										"seconds": "0.1",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"type": "comment",
+																									"text": "-1 * arredonda pra cima ( dano normal * Modificador de dano )"
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 710531960588098,
+																									"parameters": [
+																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
+																										"0",
+																										false,
+																										"Target_UID",
+																										"\"\""
+																									]
+																								}
+																							],
+																							"sid": 929363498285196
+																						}
+																					]
+																				},
+																				{
+																					"eventType": "comment",
+																					"text": "Se não tem block, soma o dano perfurante com o dano padrão"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 441741601438774
+																						}
+																					],
+																					"actions": [],
+																					"sid": 602255001919078,
+																					"children": [
+																						{
+																							"eventType": "comment",
+																							"text": "É a espada de vaporium?"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 202750096775970,
+																									"parameters": {
+																										"first-value": "tokenat(Special, 0, \"_\")",
+																										"comparison": 0,
+																										"second-value": "\"shieldextradmg\""
+																									}
+																								}
+																							],
+																							"actions": [],
+																							"sid": 586388641326281,
+																							"children": [
+																								{
+																									"eventType": "comment",
+																									"text": "O escudo está cheio?"
+																								},
+																								{
+																									"eventType": "block",
+																									"conditions": [
+																										{
+																											"id": "compare-eventvar",
+																											"objectClass": "System",
+																											"sid": 552958644850167,
+																											"parameters": {
+																												"variable": "Shield",
+																												"comparison": 4,
+																												"value": "0"
+																											}
+																										}
+																									],
+																									"actions": [
+																										{
+																											"type": "comment",
+																											"text": "Se tem dano normal:\n\n-1 * arredonda pra cima ( ( dano normal + dano perfurante + dano extra com escudo cheio ) * Modificador de dano )\n\nSe não tem dano normal:\n\n-1 * arredonda pra cima ( ( dano perfurante + dano extra com escudo cheio ) * Modificador de dano )"
+																										},
+																										{
+																											"callFunction": "Change_Health_Enemy",
+																											"sid": 952111694725051,
+																											"parameters": [
+																												"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod )",
+																												"0",
+																												false,
+																												"Target_UID",
+																												"Special"
+																											]
+																										}
+																									],
+																									"sid": 127403878238242
+																								},
+																								{
+																									"eventType": "block",
+																									"conditions": [
+																										{
+																											"id": "else",
+																											"objectClass": "System",
+																											"sid": 417053086154800
+																										}
+																									],
+																									"actions": [
+																										{
+																											"type": "comment",
+																											"text": "Se tem dano normal:\n\n-1 * arredonda pra cima ( ( dano normal + dano perfurante ) * Modificador de dano )\n\nSe não tem dano normal:\n\n-1 * arredonda pra cima ( ( dano perfurante ) * Modificador de dano )"
+																										},
+																										{
+																											"callFunction": "Change_Health_Enemy",
+																											"sid": 580816693960174,
+																											"parameters": [
+																												"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																												"0",
+																												false,
+																												"Target_UID",
+																												"Special"
+																											]
+																										}
+																									],
+																									"sid": 840002364939487
+																								}
+																							]
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "else",
+																									"objectClass": "System",
+																									"sid": 938926885945827
+																								}
+																							],
+																							"actions": [
+																								{
+																									"type": "comment",
+																									"text": "Se tem dano normal:\n\n-1 * arredonda pra cima ( ( dano normal + dano perfurante ) * modificador de dano )\n\nSe não tem dano normal:\n\n-1 * arredonda pra cima ( ( dano perfurante ) * modificador de dano )"
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 230589923037622,
+																									"parameters": [
+																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																										"0",
+																										false,
+																										"Target_UID",
+																										"Special"
+																									]
+																								}
+																							],
+																							"sid": 669164408946535
+																						}
+																					]
+																				}
 																			]
 																		}
+																	]
+																},
+																{
+																	"eventType": "comment",
+																	"text": "Não tem dano perfurante"
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 212843904034965
+																		}
 																	],
-																	"sid": 124885191556879
+																	"actions": [],
+																	"sid": 375885726488335,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "pick-by-comparison",
+																					"objectClass": "System",
+																					"sid": 164246876658639,
+																					"parameters": {
+																						"object": "Enemy",
+																						"expression": "Enemy.UID",
+																						"comparison": 0,
+																						"value": "Target_UID"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"callFunction": "Change_Health_Enemy",
+																					"sid": 579413995739262,
+																					"parameters": [
+																						"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																						"0",
+																						false,
+																						"Target_UID",
+																						"Special"
+																					]
+																				},
+																				{
+																					"id": "log",
+																					"objectClass": "Browser",
+																					"sid": 745111694352755,
+																					"parameters": {
+																						"type": "log",
+																						"message": "\"Dmg: \"& -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod ) & \" / mod: \" & Player_Dmg_mod"
+																					}
+																				}
+																			],
+																			"sid": 190902393641993
+																		}
+																	]
 																}
 															]
 														}
 													]
-												},
-												{
-													"eventType": "comment",
-													"text": "Não tem dano perfurante"
 												},
 												{
 													"eventType": "block",
@@ -8105,11 +8775,543 @@
 														{
 															"id": "else",
 															"objectClass": "System",
-															"sid": 613878140833375
+															"sid": 796694042246586
 														}
 													],
 													"actions": [],
-													"sid": 999563152558547,
+													"sid": 620898963619464,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Tem dano perfurante"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Weapons",
+																	"sid": 601975573905083,
+																	"parameters": {
+																		"x": "3",
+																		"y": "Action_Lvl",
+																		"z": "Action_ID",
+																		"comparison": 1,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 137022000002910,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-comparison",
+																			"objectClass": "System",
+																			"sid": 173256603456375,
+																			"parameters": {
+																				"object": "Enemy",
+																				"expression": "Enemy.UID",
+																				"comparison": 0,
+																				"value": "Target_UID"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 448636617755585,
+																	"children": [
+																		{
+																			"eventType": "comment",
+																			"text": "Se tem block, aplica o dano perfurante separado do dano padrão"
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "Enemy",
+																					"sid": 110553713501813,
+																					"parameters": {
+																						"instance-variable": "Block",
+																						"comparison": 1,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 783805182124724,
+																			"children": [
+																				{
+																					"eventType": "comment",
+																					"text": "É a espada de vaporium?"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-two-values",
+																							"objectClass": "System",
+																							"sid": 794440255751295,
+																							"parameters": {
+																								"first-value": "tokenat(Special, 0, \"_\")",
+																								"comparison": 0,
+																								"second-value": "\"shieldextradmg\""
+																							}
+																						}
+																					],
+																					"actions": [],
+																					"sid": 110230217653535,
+																					"children": [
+																						{
+																							"eventType": "comment",
+																							"text": "O escudo está cheio?"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-eventvar",
+																									"objectClass": "System",
+																									"sid": 757586212554596,
+																									"parameters": {
+																										"variable": "Shield",
+																										"comparison": 4,
+																										"value": "0"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 227680069384194,
+																									"parameters": [
+																										"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																										"0",
+																										true,
+																										"Target_UID",
+																										"Special"
+																									]
+																								},
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 547965461598465,
+																									"parameters": {
+																										"seconds": "0.1",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"type": "comment",
+																									"text": "-1 * arredonda pra cima ( ( dano normal + dano extra com escudo cheio ) * Modificador de dano )"
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 500224880116592,
+																									"parameters": [
+																										"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) ) * Player_Dmg_mod )",
+																										"0",
+																										false,
+																										"Target_UID",
+																										"\"\""
+																									]
+																								}
+																							],
+																							"sid": 369821247635688
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "else",
+																									"objectClass": "System",
+																									"sid": 527347672937773
+																								}
+																							],
+																							"actions": [
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 762923442565308,
+																									"parameters": [
+																										"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																										"0",
+																										true,
+																										"Target_UID",
+																										"Special"
+																									]
+																								},
+																								{
+																									"id": "wait",
+																									"objectClass": "System",
+																									"sid": 918227956819658,
+																									"parameters": {
+																										"seconds": "0.1",
+																										"use-timescale": true
+																									}
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 669697158378942,
+																									"parameters": [
+																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
+																										"0",
+																										false,
+																										"Target_UID",
+																										"\"\""
+																									]
+																								}
+																							],
+																							"sid": 297085384227330
+																						}
+																					]
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 175403731117267
+																						}
+																					],
+																					"actions": [
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 545207871406822,
+																							"parameters": [
+																								"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
+																								"0",
+																								true,
+																								"Target_UID",
+																								"Special"
+																							]
+																						},
+																						{
+																							"id": "wait",
+																							"objectClass": "System",
+																							"sid": 150782760762756,
+																							"parameters": {
+																								"seconds": "0.1",
+																								"use-timescale": true
+																							}
+																						},
+																						{
+																							"type": "comment",
+																							"text": "-1 * arredonda pra cima ( dano normal * Modificador de dano )"
+																						},
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 166307147110979,
+																							"parameters": [
+																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
+																								"0",
+																								false,
+																								"Target_UID",
+																								"\"\""
+																							]
+																						}
+																					],
+																					"sid": 703880793326786
+																				}
+																			]
+																		},
+																		{
+																			"eventType": "comment",
+																			"text": "Se não tem block, soma o dano perfurante com o dano padrão"
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 277948359937320
+																				}
+																			],
+																			"actions": [],
+																			"sid": 184849523086078,
+																			"children": [
+																				{
+																					"eventType": "comment",
+																					"text": "É a espada de vaporium?"
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-two-values",
+																							"objectClass": "System",
+																							"sid": 466584658454785,
+																							"parameters": {
+																								"first-value": "tokenat(Special, 0, \"_\")",
+																								"comparison": 0,
+																								"second-value": "\"shieldextradmg\""
+																							}
+																						}
+																					],
+																					"actions": [],
+																					"sid": 192308917606735,
+																					"children": [
+																						{
+																							"eventType": "comment",
+																							"text": "O escudo está cheio?"
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-eventvar",
+																									"objectClass": "System",
+																									"sid": 366139309640298,
+																									"parameters": {
+																										"variable": "Shield",
+																										"comparison": 4,
+																										"value": "0"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"type": "comment",
+																									"text": "Se tem dano normal:\n\n-1 * arredonda pra cima ( ( dano normal + dano perfurante + dano extra com escudo cheio ) * Modificador de dano )\n\nSe não tem dano normal:\n\n-1 * arredonda pra cima ( ( dano perfurante + dano extra com escudo cheio ) * Modificador de dano )"
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 601858256164578,
+																									"parameters": [
+																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod )",
+																										"0",
+																										false,
+																										"Target_UID",
+																										"Special"
+																									]
+																								}
+																							],
+																							"sid": 623552103167252
+																						},
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "else",
+																									"objectClass": "System",
+																									"sid": 154086742099925
+																								}
+																							],
+																							"actions": [
+																								{
+																									"type": "comment",
+																									"text": "Se tem dano normal:\n\n-1 * arredonda pra cima ( ( dano normal + dano perfurante ) * Modificador de dano )\n\nSe não tem dano normal:\n\n-1 * arredonda pra cima ( ( dano perfurante ) * Modificador de dano )"
+																								},
+																								{
+																									"callFunction": "Change_Health_Enemy",
+																									"sid": 418165147206664,
+																									"parameters": [
+																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																										"0",
+																										false,
+																										"Target_UID",
+																										"Special"
+																									]
+																								}
+																							],
+																							"sid": 375341308594666
+																						}
+																					]
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 722952742655574
+																						}
+																					],
+																					"actions": [
+																						{
+																							"type": "comment",
+																							"text": "Se tem dano normal:\n\n-1 * arredonda pra cima ( ( dano normal + dano perfurante ) * modificador de dano )\n\nSe não tem dano normal:\n\n-1 * arredonda pra cima ( ( dano perfurante ) * modificador de dano )"
+																						},
+																						{
+																							"callFunction": "Change_Health_Enemy",
+																							"sid": 589263888566771,
+																							"parameters": [
+																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																								"0",
+																								false,
+																								"Target_UID",
+																								"Special"
+																							]
+																						}
+																					],
+																					"sid": 948067659953294
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"eventType": "comment",
+															"text": "Não tem dano perfurante"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 892088096493218
+																}
+															],
+															"actions": [],
+															"sid": 101803582446889,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-comparison",
+																			"objectClass": "System",
+																			"sid": 167162811187892,
+																			"parameters": {
+																				"object": "Enemy",
+																				"expression": "Enemy.UID",
+																				"comparison": 0,
+																				"value": "Target_UID"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "Change_Health_Enemy",
+																			"sid": 586661858245196,
+																			"parameters": [
+																				"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
+																				"0",
+																				false,
+																				"Target_UID",
+																				"Special"
+																			]
+																		},
+																		{
+																			"id": "log",
+																			"objectClass": "Browser",
+																			"sid": 520771341221325,
+																			"parameters": {
+																				"type": "log",
+																				"message": "\"Dmg: \"& -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod ) & \" / mod: \" & Player_Dmg_mod"
+																			}
+																		}
+																	],
+																	"sid": 255486119251959
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Special"
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 695874799119828,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 754518057491615,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"stunchance\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 568034390849468,
+															"parameters": {
+																"variable": "rng",
+																"value": "random( 0, 101)"
+															}
+														}
+													],
+													"sid": 938041625691243,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 361698646917226,
+																	"parameters": {
+																		"variable": "rng",
+																		"comparison": 3,
+																		"value": "int( tokenat(Special, 1, \"_\") )"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 735535519898793,
+															"disabled": true,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "pick-by-comparison",
+																			"objectClass": "System",
+																			"sid": 433006723090120,
+																			"parameters": {
+																				"object": "Enemy",
+																				"expression": "Enemy.UID",
+																				"comparison": 0,
+																				"value": "Target_UID"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 631968896725181,
+																	"disabled": true
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 472816289992895,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"poison\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 984743370254560,
+													"disabled": true,
 													"children": [
 														{
 															"eventType": "block",
@@ -8117,37 +9319,594 @@
 																{
 																	"id": "pick-by-comparison",
 																	"objectClass": "System",
-																	"sid": 235188594970277,
+																	"sid": 745752158383606,
 																	"parameters": {
 																		"object": "Enemy",
 																		"expression": "Enemy.UID",
 																		"comparison": 0,
-																		"value": "Target_ID"
+																		"value": "Target_UID"
 																	}
 																}
 															],
 															"actions": [
 																{
-																	"callFunction": "Change_Health_Enemy",
-																	"sid": 620458115329938,
+																	"callFunction": "Apply_Effect_Enemy",
+																	"sid": 293861702784604,
 																	"parameters": [
-																		"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
-																		"0",
 																		false,
-																		"Target_ID"
+																		false,
+																		true,
+																		"\"poison\"",
+																		"int(tokenat(Special, 1, \"_\"))",
+																		"int(tokenat(Special, 2, \"_\"))",
+																		"Enemy.My_ID"
 																	]
-																},
+																}
+															],
+															"sid": 388745716335288,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 925126048557850,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"extraammo\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 612061487463156,
+															"parameters": {
+																"variable": "rng",
+																"value": "random( 0, 101)"
+															}
+														}
+													],
+													"sid": 689673420653776,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
 																{
-																	"id": "log",
-																	"objectClass": "Browser",
-																	"sid": 926006816276290,
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 162266819273568,
 																	"parameters": {
-																		"type": "log",
-																		"message": "\"Dmg: \"& -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod ) & \" / mod: \" & Player_Dmg_mod"
+																		"variable": "rng",
+																		"comparison": 3,
+																		"value": "int( tokenat(Special, 1, \"_\") )"
 																	}
 																}
 															],
-															"sid": 669367701928861
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 180656419105219,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Extra ammo\""
+																	}
+																}
+															],
+															"sid": 471470534505763,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 562792540515237,
+																			"parameters": {
+																				"variable": "Weapon_ID_1",
+																				"comparison": 0,
+																				"value": "\"WP_2\""
+																			}
+																		},
+																		{
+																			"id": "pick-by-comparison",
+																			"objectClass": "System",
+																			"sid": 437734006869482,
+																			"parameters": {
+																				"object": "Wp_Slot",
+																				"expression": "Wp_Slot.ID",
+																				"comparison": 0,
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Wp_Slot",
+																			"sid": 866486542457891,
+																			"parameters": {
+																				"instance-variable": "Ammo",
+																				"value": "1"
+																			}
+																		},
+																		{
+																			"id": "spawn-another-object",
+																			"objectClass": "Player",
+																			"sid": 528774663401405,
+																			"parameters": {
+																				"object": "Text_Dmg_Numb",
+																				"layer": "\"Health\"",
+																				"image-point": "1",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		},
+																		{
+																			"id": "set-angle-of-motion",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 109786261518042,
+																			"behaviorType": "Bullet",
+																			"parameters": {
+																				"angle": "random ( 240, 300 )"
+																			}
+																		},
+																		{
+																			"id": "set-font-color",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 628667304705575,
+																			"parameters": {
+																				"color": "rgbEx(255, 0, 0)"
+																			}
+																		},
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 843477868288520,
+																			"parameters": {
+																				"text": "Internationalization.Lookup(\"game.work.weapons.extraammo_txt\")"
+																			}
+																		}
+																	],
+																	"sid": 273369070978260
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-eventvar",
+																			"objectClass": "System",
+																			"sid": 230995607642368,
+																			"parameters": {
+																				"variable": "Weapon_ID_2",
+																				"comparison": 0,
+																				"value": "\"WP_2\""
+																			}
+																		},
+																		{
+																			"id": "pick-by-comparison",
+																			"objectClass": "System",
+																			"sid": 778599685672185,
+																			"parameters": {
+																				"object": "Wp_Slot",
+																				"expression": "Wp_Slot.ID",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "add-to-instvar",
+																			"objectClass": "Wp_Slot",
+																			"sid": 884173400883027,
+																			"parameters": {
+																				"instance-variable": "Ammo",
+																				"value": "1"
+																			}
+																		},
+																		{
+																			"id": "spawn-another-object",
+																			"objectClass": "Player",
+																			"sid": 562835878198945,
+																			"parameters": {
+																				"object": "Text_Dmg_Numb",
+																				"layer": "\"Health\"",
+																				"image-point": "1",
+																				"create-hierarchy": false,
+																				"template-name": "\"\""
+																			}
+																		},
+																		{
+																			"id": "set-angle-of-motion",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 544103198776459,
+																			"behaviorType": "Bullet",
+																			"parameters": {
+																				"angle": "random ( 240, 300 )"
+																			}
+																		},
+																		{
+																			"id": "set-font-color",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 721289082198598,
+																			"parameters": {
+																				"color": "rgbEx(255, 0, 0)"
+																			}
+																		},
+																		{
+																			"id": "set-text",
+																			"objectClass": "Text_Dmg_Numb",
+																			"sid": 867473516454773,
+																			"parameters": {
+																				"text": "Internationalization.Lookup(\"game.work.weapons.extraammo_txt\")"
+																			}
+																		}
+																	],
+																	"sid": 479179313271164
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 426249289479335
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 135521172424224,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Extra ammo rng fail\""
+																	}
+																}
+															],
+															"sid": 593134712428156
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 508409292669289,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"splashdmg\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 211664498269318,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-by-comparison",
+																	"objectClass": "System",
+																	"sid": 406733062405039,
+																	"parameters": {
+																		"object": "Enemy",
+																		"expression": "Enemy.UID",
+																		"comparison": 0,
+																		"value": "Target_UID"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 642064724842615,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Enemy",
+																			"sid": 334697433971574,
+																			"parameters": {
+																				"instance-variable": "My_ID",
+																				"comparison": 0,
+																				"value": "1"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"type": "comment",
+																			"text": "-1 * arredonda pra baixo( dano normal * ( splash / 100 ) ) * modificador de dano)"
+																		},
+																		{
+																			"callFunction": "Change_Health_Enemy",
+																			"sid": 205376251664811,
+																			"parameters": [
+																				"-1 * ceil( (A_Weapons.At(2, Action_Lvl, Action_ID) * (int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\") ) / 100 ) ) * Player_Dmg_mod )",
+																				"0",
+																				false,
+																				"int(List_Enemy_UID.ItemTextAt(1) )",
+																				"\"\""
+																			]
+																		},
+																		{
+																			"callFunction": "Change_Health_Enemy",
+																			"sid": 550036806833985,
+																			"parameters": [
+																				"-1 * ceil( (A_Weapons.At(2, Action_Lvl, Action_ID) * (int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\") ) / 100 ) ) * Player_Dmg_mod )",
+																				"0",
+																				false,
+																				"int(List_Enemy_UID.ItemTextAt(2) )",
+																				"\"\""
+																			]
+																		}
+																	],
+																	"sid": 950900638523804
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Enemy",
+																			"sid": 729344100273995,
+																			"parameters": {
+																				"instance-variable": "My_ID",
+																				"comparison": 0,
+																				"value": "2"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Enemy",
+																			"sid": 418099891374525,
+																			"parameters": {
+																				"instance-variable": "My_ID",
+																				"comparison": 0,
+																				"value": "3"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "Change_Health_Enemy",
+																			"sid": 428462459076946,
+																			"parameters": [
+																				"-1 * ceil( (A_Weapons.At(2, Action_Lvl, Action_ID) * (int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\") ) / 100 ) ) * Player_Dmg_mod )",
+																				"0",
+																				false,
+																				"int(List_Enemy_UID.ItemTextAt(0) )",
+																				"\"\""
+																			]
+																		}
+																	],
+																	"sid": 625107855602944,
+																	"isOrBlock": true
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 444125576792020,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"fire\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 155523146546656,
+															"parameters": {
+																"variable": "rng",
+																"value": "random( 0, 101)"
+															}
+														}
+													],
+													"sid": 576146477919866,
+													"disabled": true,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 480614852019760,
+																	"parameters": {
+																		"variable": "rng",
+																		"comparison": 3,
+																		"value": "int( tokenat(Special, 1, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 962923986656535,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Fire!\""
+																	}
+																}
+															],
+															"sid": 811271332902359,
+															"disabled": true,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "for-each",
+																			"objectClass": "System",
+																			"sid": 875346998530122,
+																			"parameters": {
+																				"object": "Enemy"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Enemy",
+																			"sid": 877594097213394,
+																			"parameters": {
+																				"instance-variable": "HP",
+																				"comparison": 4,
+																				"value": "0"
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"callFunction": "Apply_Effect_Enemy",
+																			"sid": 636688578916026,
+																			"parameters": [
+																				false,
+																				false,
+																				true,
+																				"\"fire\"",
+																				"int(tokenat(Special, 1, \"_\"))",
+																				"3",
+																				"Enemy.My_ID"
+																			]
+																		}
+																	],
+																	"sid": 488460096892441,
+																	"disabled": true
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 832646384459155
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 790297634622710,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Fire fail\""
+																	}
+																}
+															],
+															"sid": 804201614026866,
+															"disabled": true
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 455745080411279,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"recharge\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 617097835635647,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 485575219079412,
+																	"parameters": {
+																		"first-value": "Shield + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\"))",
+																		"comparison": 3,
+																		"second-value": "Shield_Max"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "add-to-eventvar",
+																	"objectClass": "System",
+																	"sid": 409340724572848,
+																	"parameters": {
+																		"variable": "Shield",
+																		"value": "int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\"))"
+																	}
+																},
+																{
+																	"callFunction": "Change_Health_Player",
+																	"sid": 654215705074773,
+																	"parameters": [
+																		"int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\"))",
+																		false,
+																		true
+																	]
+																}
+															],
+															"sid": 987176304725527
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 385408919624102
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Change_Health_Player",
+																	"sid": 317013348493632,
+																	"parameters": [
+																		"Shield_Max - Shield",
+																		false,
+																		true
+																	]
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 851777772384499,
+																	"parameters": {
+																		"variable": "Shield",
+																		"value": "Shield_Max"
+																	}
+																}
+															],
+															"sid": 550564648937946
 														}
 													]
 												}
@@ -8388,7 +10147,8 @@
 																		"-1 * ( A_Habilities.At ( 2, Action_Lvl, Action_ID ) )",
 																		"0",
 																		false,
-																		"Enemy.UID"
+																		"Enemy.UID",
+																		"\"\""
 																	]
 																},
 																{
@@ -8793,7 +10553,7 @@
 																		"object": "Enemy",
 																		"expression": "Enemy.UID",
 																		"comparison": 0,
-																		"value": "Target_ID"
+																		"value": "Target_UID"
 																	}
 																}
 															],
@@ -8827,7 +10587,8 @@
 																		"-1 * ( A_Habilities.At ( 2, Action_Lvl, Action_ID ) )",
 																		"0",
 																		false,
-																		"Enemy.UID"
+																		"Enemy.UID",
+																		"\"\""
 																	]
 																},
 																{
@@ -8880,7 +10641,7 @@
 																		"object": "Enemy",
 																		"expression": "Enemy.UID",
 																		"comparison": 0,
-																		"value": "Target_ID"
+																		"value": "Target_UID"
 																	}
 																}
 															],
@@ -8904,7 +10665,8 @@
 																		"-1 * ( A_Habilities.At ( 2, Action_Lvl, Action_ID ) )",
 																		"0",
 																		false,
-																		"Enemy.UID"
+																		"Enemy.UID",
+																		"\"\""
 																	]
 																},
 																{
@@ -8957,7 +10719,7 @@
 																		"object": "Enemy",
 																		"expression": "Enemy.UID",
 																		"comparison": 0,
-																		"value": "Target_ID"
+																		"value": "Target_UID"
 																	}
 																}
 															],
@@ -9075,16 +10837,6 @@
 											"sid": 471083016848670,
 											"children": [
 												{
-													"eventType": "variable",
-													"name": "rng",
-													"type": "number",
-													"initialValue": "0",
-													"comment": "",
-													"isStatic": false,
-													"isConstant": false,
-													"sid": 335621686711948
-												},
-												{
 													"eventType": "block",
 													"conditions": [
 														{
@@ -9100,7 +10852,7 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 358569187474691,
+															"sid": 660344436058945,
 															"parameters": {
 																"variable": "rng",
 																"value": "choose ( 1, 2, 3 )"
@@ -9115,7 +10867,7 @@
 																{
 																	"id": "pick-by-comparison",
 																	"objectClass": "System",
-																	"sid": 722495338591180,
+																	"sid": 970344889636064,
 																	"parameters": {
 																		"object": "Enemy",
 																		"expression": "Enemy.My_ID",
@@ -9132,7 +10884,8 @@
 																		"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																		"0",
 																		false,
-																		"Enemy.UID"
+																		"Enemy.UID",
+																		"\"\""
 																	]
 																},
 																{
@@ -9946,6 +11699,14 @@
 											"sid": 151877192655169,
 											"parameters": {
 												"animation": "\"mark\""
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Icon_Effect_Enemy",
+											"sid": 759267343792353,
+											"parameters": {
+												"animation": "\"stun\""
 											}
 										}
 									],
@@ -10997,14 +12758,15 @@
 													"actions": [
 														{
 															"callFunction": "Use_Hab_Player",
-															"sid": 597629667519043,
+															"sid": 222041888735379,
 															"parameters": [
 																"tokenat(Weapon_ID_1, 0, \"_\")",
 																"int( tokenat(Weapon_ID_1, 1, \"_\") )",
 																"Dict_Save_File.Get(Weapon_ID_1)",
 																"0",
 																true,
-																false
+																false,
+																"A_Weapons.At(5,Dict_Save_File.Get(Weapon_ID_1),int( tokenat(Weapon_ID_1, 1, \"_\") ))"
 															]
 														},
 														{
@@ -11167,14 +12929,15 @@
 													"actions": [
 														{
 															"callFunction": "Use_Hab_Player",
-															"sid": 148330351221403,
+															"sid": 276280042053689,
 															"parameters": [
 																"tokenat(Weapon_ID_2, 0, \"_\")",
 																"int( tokenat(Weapon_ID_2, 1, \"_\") )",
 																"Dict_Save_File.Get(Weapon_ID_2)",
 																"0",
 																true,
-																false
+																false,
+																"A_Weapons.At(5,Dict_Save_File.Get(Weapon_ID_2),int( tokenat(Weapon_ID_2, 1, \"_\") ))"
 															]
 														},
 														{
@@ -11361,7 +13124,8 @@
 																"Dict_Save_File.Get( \"HAB_\" & HAB_ID_1)",
 																"0",
 																true,
-																false
+																false,
+																"\"\""
 															]
 														},
 														{
@@ -11455,7 +13219,8 @@
 																"Dict_Save_File.Get( \"HAB_\" & HAB_ID_2)",
 																"0",
 																true,
-																false
+																false,
+																"\"\""
 															]
 														},
 														{
@@ -11581,7 +13346,8 @@
 																"10",
 																"0",
 																true,
-																false
+																false,
+																"\"\""
 															]
 														},
 														{
@@ -11675,7 +13441,8 @@
 																"Dict_Save_File.Get(Weapon_ID_1)",
 																"0",
 																false,
-																true
+																true,
+																"\"\""
 															]
 														},
 														{
@@ -11845,7 +13612,8 @@
 																"Dict_Save_File.Get(Weapon_ID_2)",
 																"0",
 																false,
-																true
+																true,
+																"\"\""
 															]
 														},
 														{
@@ -12032,7 +13800,8 @@
 																"Dict_Save_File.Get( \"HAB_\" & HAB_ID_1)",
 																"0",
 																false,
-																true
+																true,
+																"\"\""
 															]
 														},
 														{
@@ -12126,7 +13895,8 @@
 																"Dict_Save_File.Get( \"HAB_\" & HAB_ID_2)",
 																"0",
 																false,
-																true
+																true,
+																"\"\""
 															]
 														},
 														{
@@ -12252,7 +14022,8 @@
 																"10",
 																"0",
 																false,
-																true
+																true,
+																"\"\""
 															]
 														},
 														{
@@ -12359,14 +14130,15 @@
 													"actions": [
 														{
 															"callFunction": "Use_Hab_Player",
-															"sid": 205417625261854,
+															"sid": 450139810146374,
 															"parameters": [
 																"tokenat(Weapon_ID_1, 0, \"_\")",
 																"int( tokenat(Weapon_ID_1, 1, \"_\") )",
 																"Dict_Save_File.Get(Weapon_ID_1)",
 																"the_target",
 																false,
-																false
+																false,
+																"A_Weapons.At(5,Dict_Save_File.Get(Weapon_ID_1),int( tokenat(Weapon_ID_1, 1, \"_\") ))"
 															]
 														},
 														{
@@ -12529,14 +14301,15 @@
 													"actions": [
 														{
 															"callFunction": "Use_Hab_Player",
-															"sid": 911216099720833,
+															"sid": 383137988218523,
 															"parameters": [
 																"tokenat(Weapon_ID_2, 0, \"_\")",
 																"int( tokenat(Weapon_ID_2, 1, \"_\") )",
 																"Dict_Save_File.Get(Weapon_ID_2)",
 																"the_target",
 																false,
-																false
+																false,
+																"A_Weapons.At(5,Dict_Save_File.Get(Weapon_ID_1),int( tokenat(Weapon_ID_1, 1, \"_\") ))"
 															]
 														},
 														{
@@ -12723,7 +14496,8 @@
 																"Dict_Save_File.Get( \"HAB_\" & HAB_ID_1)",
 																"the_target",
 																false,
-																false
+																false,
+																"\"\""
 															]
 														},
 														{
@@ -12817,7 +14591,8 @@
 																"Dict_Save_File.Get( \"HAB_\" & HAB_ID_2)",
 																"the_target",
 																false,
-																false
+																false,
+																"\"\""
 															]
 														},
 														{
@@ -13214,7 +14989,8 @@
 																		"-1 * Icon_Effect_Enemy.Potency",
 																		"0",
 																		true,
-																		"Enemy.UID"
+																		"Enemy.UID",
+																		"\"\""
 																	]
 																},
 																{
@@ -13313,7 +15089,8 @@
 																		"-1 * Icon_Effect_Enemy.Potency",
 																		"0",
 																		true,
-																		"Enemy.UID"
+																		"Enemy.UID",
+																		"\"\""
 																	]
 																},
 																{
@@ -13578,15 +15355,6 @@
 																						"variable": "lock",
 																						"value": "1"
 																					}
-																				},
-																				{
-																					"id": "log",
-																					"objectClass": "Browser",
-																					"sid": 261618418303370,
-																					"parameters": {
-																						"type": "log",
-																						"message": "\"lock \"&lock"
-																					}
 																				}
 																			],
 																			"sid": 330151623258958,
@@ -13707,6 +15475,15 @@
 																									}
 																								},
 																								{
+																									"id": "subtract-from-instvar",
+																									"objectClass": "Enemy",
+																									"sid": 652003297835830,
+																									"parameters": {
+																										"instance-variable": "Hab_1_Chance",
+																										"value": "5"
+																									}
+																								},
+																								{
 																									"callFunction": "Use_Hab_Enemy",
 																									"sid": 368948437460996,
 																									"parameters": [
@@ -13739,6 +15516,15 @@
 																									"parameters": {
 																										"animation": "Self.ID & \"_Attack\"",
 																										"from": "beginning"
+																									}
+																								},
+																								{
+																									"id": "add-to-instvar",
+																									"objectClass": "Enemy",
+																									"sid": 669577400686969,
+																									"parameters": {
+																										"instance-variable": "Hab_1_Chance",
+																										"value": "10"
 																									}
 																								},
 																								{
@@ -13787,7 +15573,8 @@
 																										"-1 * Icon_Effect_Player.Potency",
 																										"0",
 																										true,
-																										"Enemy.UID"
+																										"Enemy.UID",
+																										"\"\""
 																									]
 																								}
 																							],
@@ -14181,7 +15968,8 @@
 																												"-1 * Icon_Effect_Player.Potency",
 																												"0",
 																												true,
-																												"Enemy.UID"
+																												"Enemy.UID",
+																												"\"\""
 																											]
 																										}
 																									],
@@ -14573,7 +16361,8 @@
 																												"-1 * Icon_Effect_Player.Potency",
 																												"0",
 																												true,
-																												"Enemy.UID"
+																												"Enemy.UID",
+																												"\"\""
 																											]
 																										}
 																									],
@@ -14726,6 +16515,14 @@
 																						"y": "Enemy.My_ID",
 																						"value": "Icon_Effect_Enemy.AnimationName & \"_0_0\""
 																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Enemy",
+																					"sid": 963735347752880,
+																					"parameters": {
+																						"frame-number": "0"
+																					}
 																				}
 																			],
 																			"sid": 195923649831797
@@ -14855,11 +16652,28 @@
 							"initialValue": "0",
 							"comment": "the enemy UID",
 							"sid": 478125143852963
+						},
+						{
+							"name": "Special",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 190749927092522
 						}
 					],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 408976350409718,
+							"parameters": {
+								"type": "log",
+								"message": "\"Chance Health Enemy: \nAm: \"&Amount&newline&\"Pierc: \"&Piercing&newline&\"UID: \"&Enemy_UID"
+							}
+						}
+					],
 					"sid": 496571242295401,
 					"children": [
 						{
@@ -14891,6 +16705,16 @@
 							"isStatic": false,
 							"isConstant": false,
 							"sid": 790728315937538
+						},
+						{
+							"eventType": "variable",
+							"name": "rng_special",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 998737016972937
 						},
 						{
 							"eventType": "variable",
@@ -15454,9 +17278,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Dmg_Numb",
-															"sid": 526334113478761,
+															"sid": 801429711765754,
 															"parameters": {
-																"text": "ceil( abs( Amount * e_dmg_mod ) )"
+																"text": "\"[icon=pdmg]\" & ceil( abs( Amount * e_dmg_mod ) )"
 															}
 														}
 													],
@@ -15541,9 +17365,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Dmg_Numb",
-																	"sid": 412793754305552,
+																	"sid": 247903414085869,
 																	"parameters": {
-																		"text": "ceil( abs( Amount * e_dmg_mod ) )"
+																		"text": "\"[icon=dmg]\" & ceil( abs( Amount * e_dmg_mod ) )"
 																	}
 																}
 															],
@@ -15685,9 +17509,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Dmg_Numb",
-																	"sid": 319498861449417,
+																	"sid": 129263225009793,
 																	"parameters": {
-																		"text": "remaining_dmg"
+																		"text": "\"[icon=dmg]\" & remaining_dmg"
 																	}
 																}
 															],
@@ -15738,6 +17562,231 @@
 														}
 													],
 													"sid": 122247973433359
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Special - Stun do porrete"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 890816253598427,
+													"parameters": {
+														"first-value": "tokenat(Special, 0, \"_\")",
+														"comparison": 0,
+														"second-value": "\"stunchance\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 209982618722832,
+													"parameters": {
+														"variable": "rng_special",
+														"value": "random( 0, 101)"
+													}
+												}
+											],
+											"sid": 771895880437863,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 917832323576263,
+															"parameters": {
+																"variable": "rng_special",
+																"comparison": 3,
+																"value": "int( tokenat(Special, 1, \"_\") )"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Apply_Effect_Enemy",
+															"sid": 134296353647529,
+															"parameters": [
+																false,
+																true,
+																false,
+																"\"stun\"",
+																"0",
+																"1",
+																"Enemy.My_ID"
+															]
+														},
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 593428008725094,
+															"parameters": {
+																"type": "log",
+																"message": "\"Stun!\""
+															}
+														}
+													],
+													"sid": 932030441040006
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 637176152988463
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 979340253708868,
+															"parameters": {
+																"type": "log",
+																"message": "\"Stun rng fail\""
+															}
+														}
+													],
+													"sid": 584069990414746
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Special - Poison da faca"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 827768570325793,
+													"parameters": {
+														"first-value": "tokenat(Special, 0, \"_\")",
+														"comparison": 0,
+														"second-value": "\"poison\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Apply_Effect_Enemy",
+													"sid": 564716782841777,
+													"parameters": [
+														false,
+														false,
+														true,
+														"\"poison\"",
+														"int(tokenat(Special, 1, \"_\"))",
+														"int(tokenat(Special, 2, \"_\"))",
+														"Enemy.My_ID"
+													]
+												}
+											],
+											"sid": 768520815057400
+										},
+										{
+											"eventType": "comment",
+											"text": "Special - Fire do lança granadanas"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 473415442236682,
+													"parameters": {
+														"first-value": "tokenat(Special, 0, \"_\")",
+														"comparison": 0,
+														"second-value": "\"fire\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 463340114450816,
+													"parameters": {
+														"variable": "rng",
+														"value": "random( 0, 101)"
+													}
+												}
+											],
+											"sid": 940291099632078,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 304593619982076,
+															"parameters": {
+																"variable": "rng",
+																"comparison": 3,
+																"value": "int( tokenat(Special, 1, \"_\") )"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 866704828614048,
+															"parameters": {
+																"type": "log",
+																"message": "\"Fire!\""
+															}
+														},
+														{
+															"callFunction": "Apply_Effect_Enemy",
+															"sid": 280528972834040,
+															"parameters": [
+																false,
+																false,
+																true,
+																"\"fire\"",
+																"int(tokenat(Special, 1, \"_\"))",
+																"3",
+																"Enemy.My_ID"
+															]
+														}
+													],
+													"sid": 296326640969228
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 688323932750128
+														}
+													],
+													"actions": [
+														{
+															"id": "log",
+															"objectClass": "Browser",
+															"sid": 603617734726831,
+															"parameters": {
+																"type": "log",
+																"message": "\"Fire fail\""
+															}
+														}
+													],
+													"sid": 225694565725776
 												}
 											]
 										}
@@ -15854,9 +17903,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Dmg_Numb",
-																	"sid": 314145183337083,
+																	"sid": 144639597730402,
 																	"parameters": {
-																		"text": "ceil( abs( Amount * e_dmg_mod ) )"
+																		"text": "\"[icon=dmg]\" & ceil( abs( Amount * e_dmg_mod ) )"
 																	}
 																}
 															],
@@ -16140,6 +18189,231 @@
 															"sid": 494817608016581
 														}
 													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Special - Stun do porrete"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 374921531169212,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"stunchance\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 119046784447732,
+															"parameters": {
+																"variable": "rng_special",
+																"value": "random( 0, 101)"
+															}
+														}
+													],
+													"sid": 864521146278017,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 696576516744666,
+																	"parameters": {
+																		"variable": "rng_special",
+																		"comparison": 3,
+																		"value": "int( tokenat(Special, 1, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Apply_Effect_Enemy",
+																	"sid": 232747474617578,
+																	"parameters": [
+																		false,
+																		true,
+																		false,
+																		"\"stun\"",
+																		"0",
+																		"1",
+																		"Enemy.My_ID"
+																	]
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 384165291943329,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Stun!\""
+																	}
+																}
+															],
+															"sid": 999268953412789
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 904921785612387
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 182073870940280,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Stun rng fail\""
+																	}
+																}
+															],
+															"sid": 313785861493994
+														}
+													]
+												},
+												{
+													"eventType": "comment",
+													"text": "Special - Poison da faca"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 561725500053041,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"poison\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Apply_Effect_Enemy",
+															"sid": 479145865812664,
+															"parameters": [
+																false,
+																false,
+																true,
+																"\"poison\"",
+																"int(tokenat(Special, 1, \"_\"))",
+																"int(tokenat(Special, 2, \"_\"))",
+																"Enemy.My_ID"
+															]
+														}
+													],
+													"sid": 865174405632781
+												},
+												{
+													"eventType": "comment",
+													"text": "Special - Fire do lança granadanas"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 346708335323284,
+															"parameters": {
+																"first-value": "tokenat(Special, 0, \"_\")",
+																"comparison": 0,
+																"second-value": "\"fire\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 352761029478350,
+															"parameters": {
+																"variable": "rng",
+																"value": "random( 0, 101)"
+															}
+														}
+													],
+													"sid": 123109051362550,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 546566088953434,
+																	"parameters": {
+																		"variable": "rng",
+																		"comparison": 3,
+																		"value": "int( tokenat(Special, 1, \"_\") )"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 871510240470782,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Fire!\""
+																	}
+																},
+																{
+																	"callFunction": "Apply_Effect_Enemy",
+																	"sid": 779140811692077,
+																	"parameters": [
+																		false,
+																		false,
+																		true,
+																		"\"fire\"",
+																		"int(tokenat(Special, 1, \"_\"))",
+																		"3",
+																		"Enemy.My_ID"
+																	]
+																}
+															],
+															"sid": 393922194048635
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 690295382320353
+																}
+															],
+															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 840405925072823,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Fire fail\""
+																	}
+																}
+															],
+															"sid": 138355466797002
+														}
+													]
 												}
 											]
 										},
@@ -16186,13 +18460,203 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Dmg_Numb",
-													"sid": 120567282258776,
+													"sid": 648956075438688,
 													"parameters": {
 														"text": "Internationalization.Lookup(\"fight.dodge_trigger\")"
 													}
 												}
 											],
 											"sid": 109771920078636
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy",
+											"sid": 875909271955347,
+											"parameters": {
+												"instance-variable": "HP",
+												"comparison": 3,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Enemy",
+											"sid": 873344796333587,
+											"parameters": {
+												"instance-variable": "ID",
+												"comparison": 1,
+												"value": "\"VK\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 243639731871421
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Enemy",
+											"sid": 482716557795048,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 184503195639970,
+											"parameters": {
+												"instance-variable": "HP",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 717051751833494,
+											"parameters": {
+												"instance-variable": "Hab_1",
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 997266865667971,
+											"parameters": {
+												"instance-variable": "Hab_2",
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Enemy",
+											"sid": 488836454721906,
+											"parameters": {
+												"instance-variable": "Hab_1_Chance",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 893023734631436,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 221934849676930,
+													"parameters": {
+														"object": "Icon_Effect_Enemy",
+														"expression": "Icon_Effect_Enemy.My_Z",
+														"comparison": 0,
+														"value": "Enemy.My_ID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Effect_Enemy",
+													"sid": 479523467060316
+												}
+											],
+											"sid": 375612536882717
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-overlapping-at-offset",
+													"objectClass": "Enemy",
+													"sid": 406497413433381,
+													"parameters": {
+														"object": "Icon_Enemy_Shield",
+														"offset-x": "-15",
+														"offset-y": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Icon_Enemy_Shield",
+													"sid": 609565460355412
+												}
+											],
+											"sid": 655102680716910
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "flash",
+													"objectClass": "Enemy",
+													"sid": 716353534990141,
+													"behaviorType": "Flash",
+													"parameters": {
+														"on-time": "0.1",
+														"off-time": "0.1",
+														"duration": "2"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 750574509211452,
+													"parameters": {
+														"seconds": "2",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "Enemy",
+													"sid": 356800415612490,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 912950060286046
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 194181539243066,
+													"parameters": {
+														"variable": "TURN",
+														"comparison": 0,
+														"value": "Enemy.My_ID"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 844674045662249,
+													"parameters": {
+														"type": "log",
+														"message": "\"O inimigo morreu, passando o turno\""
+													}
+												},
+												{
+													"callFunction": "Enemy_Turn",
+													"sid": 780623860090693
+												}
+											],
+											"sid": 939708546099646
 										}
 									]
 								}
@@ -16288,17 +18752,7 @@
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "log",
-									"objectClass": "Browser",
-									"sid": 415757362966587,
-									"parameters": {
-										"type": "log",
-										"message": "\"Effect Alvo encontrado\""
-									}
-								}
-							],
+							"actions": [],
 							"sid": 309750598626786,
 							"children": [
 								{
@@ -16456,10 +18910,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 308200748332410,
+																	"sid": 221881348565035,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -16501,10 +18955,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 640381544578949,
+																	"sid": 624632086697337,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -16580,10 +19034,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 287261839445835,
+																	"sid": 775458737558338,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -16625,10 +19079,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 316934093519908,
+																	"sid": 225777632538878,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -16778,10 +19232,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 697353745634198,
+																	"sid": 911297200902324,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -16823,10 +19277,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 636365800235703,
+																	"sid": 755389976908896,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -16910,10 +19364,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 369987206413925,
+																	"sid": 809446515634713,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -16955,10 +19409,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 846271810627081,
+																	"sid": 857238318002851,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -17115,10 +19569,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 566840081509223,
+																	"sid": 271221003372199,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -17160,10 +19614,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 753305282468174,
+																	"sid": 882596813966024,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -17239,10 +19693,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 638156072885141,
+																	"sid": 536535758461826,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -17284,10 +19738,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 411692269074452,
+																	"sid": 220420356320878,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -17427,10 +19881,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 354119956222018,
+																	"sid": 597479585617173,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -17472,10 +19926,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 886613597705163,
+																	"sid": 252910679383224,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -17551,10 +20005,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 463585422104675,
+																	"sid": 809922154194959,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -17596,10 +20050,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 531137835574556,
+																	"sid": 272722745850247,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -17756,10 +20210,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 705541045170906,
+																	"sid": 178748860402572,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -17801,10 +20255,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 512509072145290,
+																	"sid": 819396895107330,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -17880,10 +20334,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 543569193455968,
+																	"sid": 521893993612319,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -17925,10 +20379,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 294173847113262,
+																	"sid": 454220992276310,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -18068,10 +20522,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 152172167794674,
+																	"sid": 168087936627030,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -18113,10 +20567,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 345025709215845,
+																	"sid": 479476829223880,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -18192,10 +20646,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 106962905047135,
+																	"sid": 278512928979429,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -18237,10 +20691,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 143153937006298,
+																	"sid": 776675938914774,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -18264,7 +20718,16 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "set-animation-frame",
+													"objectClass": "Enemy",
+													"sid": 897762696426648,
+													"parameters": {
+														"frame-number": "1"
+													}
+												}
+											],
 											"sid": 538154385662623,
 											"children": [
 												{
@@ -18277,9 +20740,9 @@
 														{
 															"id": "compare-two-values",
 															"objectClass": "System",
-															"sid": 787705718844926,
+															"sid": 361402776289385,
 															"parameters": {
-																"first-value": "tokenat ( A_Fight_Effects.At(7, Enemy.My_ID), 0, \"_\" )",
+																"first-value": "tokenat ( A_Fight_Effects.At(7, Enemy.My_ID), 1, \"_\" )",
 																"comparison": 0,
 																"second-value": "\"0\""
 															}
@@ -18294,6 +20757,14 @@
 																"x": "7",
 																"y": "Enemy.My_ID",
 																"value": "ID & \"_\" & Duration"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "Enemy",
+															"sid": 347260796445382,
+															"parameters": {
+																"frame-number": "1"
 															}
 														}
 													],
@@ -18313,11 +20784,11 @@
 																{
 																	"id": "compare-instance-variable",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 447993223173328,
+																	"sid": 930643579861713,
 																	"parameters": {
 																		"instance-variable": "My_Z",
 																		"comparison": 0,
-																		"value": "Enemy.My_ID"
+																		"value": "Target_My_ID"
 																	}
 																},
 																{
@@ -18328,6 +20799,15 @@
 																}
 															],
 															"actions": [
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 682295317437773,
+																	"parameters": {
+																		"type": "log",
+																		"message": "\"Achamos um icone effect\""
+																	}
+																},
 																{
 																	"id": "stop-loop",
 																	"objectClass": "System",
@@ -18380,10 +20860,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 791476348750273,
+																	"sid": 964417925641356,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -18425,10 +20905,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 672572895347923,
+																	"sid": 296043614624179,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -18504,10 +20984,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 848391266220741,
+																	"sid": 431640542481229,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																},
 																{
@@ -18549,10 +21029,10 @@
 																{
 																	"id": "set-size",
 																	"objectClass": "Icon_Effect_Enemy",
-																	"sid": 243935385402054,
+																	"sid": 505137362861139,
 																	"parameters": {
-																		"width": "78",
-																		"height": "78"
+																		"width": "55",
+																		"height": "55"
 																	}
 																}
 															],
@@ -19024,7 +21504,8 @@
 												"0",
 												"int( tokenat ( Hab_Name, 0, \"_\" ) )",
 												false,
-												"Enemy.UID"
+												"Enemy.UID",
+												"\"\""
 											]
 										}
 									],
@@ -19060,11 +21541,11 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Icon_Effect_Enemy",
-											"sid": 580575049935579,
+											"sid": 258308728845384,
 											"parameters": {
 												"instance-variable": "My_Z",
 												"comparison": 0,
-												"value": "Enemy.My_ID"
+												"value": "TURN"
 											}
 										},
 										{
@@ -19130,6 +21611,15 @@
 														"x": "Icon_Effect_Enemy.Effect_Index",
 														"y": "Enemy.My_ID",
 														"value": "Icon_Effect_Enemy.AnimationName & \"_\" & Icon_Effect_Enemy.Potency & \"_\" & Icon_Effect_Enemy.Duration"
+													}
+												},
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 763536381418107,
+													"parameters": {
+														"type": "log",
+														"message": "\"DIMINIU OU OU OU \""
 													}
 												}
 											],
@@ -19213,7 +21703,7 @@
 					"type": "number",
 					"initialValue": "0",
 					"comment": "",
-					"isStatic": false,
+					"isStatic": true,
 					"isConstant": false,
 					"sid": 971462061578880
 				},
@@ -19259,214 +21749,42 @@
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Enemy",
-							"sid": 312306218883452,
-							"parameters": {
-								"animation": "Self.ID & \"_Idle\"",
-								"from": "beginning"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 149827371106133,
-					"isOrBlock": true
-				},
-				{
-					"eventType": "comment",
-					"text": "Para o boss, ele tem mais animações específicas que os outros que se limitam a apenas à animação de ataque e dano"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-any-animation-finished",
-							"objectClass": "Enemy",
-							"sid": 533789863613704
-						},
-						{
-							"id": "compare-animation-frame-tag",
-							"objectClass": "Enemy",
-							"sid": 468771605474303,
-							"parameters": {
-								"comparison": 0,
-								"tag": "\"end\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Enemy",
-							"sid": 346597913372514,
-							"parameters": {
-								"animation": "Self.ID & \"_Idle\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 561449464961661
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Enemy",
-							"sid": 733369235904838,
-							"parameters": {
-								"instance-variable": "HP",
-								"comparison": 3,
-								"value": "0"
-							}
-						},
-						{
-							"id": "compare-instance-variable",
-							"objectClass": "Enemy",
-							"sid": 581115372617673,
-							"parameters": {
-								"instance-variable": "ID",
-								"comparison": 1,
-								"value": "\"VK\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Enemy",
-							"sid": 982629295392481,
-							"parameters": {
-								"frame-number": "1"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 855962558998205,
-							"parameters": {
-								"instance-variable": "HP",
-								"value": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 117795552754549,
-							"parameters": {
-								"instance-variable": "Hab_1",
-								"value": "\"\""
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 148981643491467,
-							"parameters": {
-								"instance-variable": "Hab_2",
-								"value": "\"\""
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 308895405556360,
-							"parameters": {
-								"instance-variable": "Hab_1_Chance",
-								"value": "\"\""
-							}
-						}
-					],
-					"sid": 635079720803883,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Sem stun"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-comparison",
+									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 504934593115216,
+									"sid": 168659579450898,
 									"parameters": {
-										"object": "Icon_Effect_Enemy",
-										"expression": "Icon_Effect_Enemy.My_Z",
+										"first-value": "int( tokenat(A_Fight_Effects.At( 7, Enemy.My_ID), 1, \"_\") )",
 										"comparison": 0,
-										"value": "Enemy.My_ID"
+										"second-value": "0"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "destroy",
-									"objectClass": "Icon_Effect_Enemy",
-									"sid": 525155559533140
-								}
-							],
-							"sid": 110876209193216
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-at-offset",
+									"id": "set-animation",
 									"objectClass": "Enemy",
-									"sid": 645274102377674,
+									"sid": 709971873099547,
 									"parameters": {
-										"object": "Icon_Enemy_Shield",
-										"offset-x": "-15",
-										"offset-y": "0"
+										"animation": "Self.ID & \"_Idle\"",
+										"from": "beginning"
 									}
 								}
 							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Icon_Enemy_Shield",
-									"sid": 185111095837217
-								}
-							],
-							"sid": 520284628698614
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "trigger-once-while-true",
-									"objectClass": "System",
-									"sid": 299058037387610
-								}
-							],
-							"actions": [
-								{
-									"id": "flash",
-									"objectClass": "Enemy",
-									"sid": 967823273193478,
-									"behaviorType": "Flash",
-									"parameters": {
-										"on-time": "0.1",
-										"off-time": "0.1",
-										"duration": "2"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 150232837948401,
-									"parameters": {
-										"seconds": "2",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "start-fade",
-									"objectClass": "Enemy",
-									"sid": 990752526525411,
-									"behaviorType": "Fade"
-								}
-							],
-							"sid": 301935928035432
+							"sid": 840377616795609
 						}
-					]
+					],
+					"isOrBlock": true
 				},
 				{
 					"eventType": "block",
@@ -19478,18 +21796,39 @@
 							"behaviorType": "Flash"
 						}
 					],
-					"actions": [
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Enemy",
-							"sid": 260535841926868,
-							"parameters": {
-								"frame-number": "0"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 386847379290056,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Sem stun"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 201817053934801,
+									"parameters": {
+										"first-value": "int( tokenat(A_Fight_Effects.At( 7, Enemy.My_ID), 1, \"_\") )",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Enemy",
+									"sid": 174248641100873,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 696271808948846
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -19647,6 +21986,64 @@
 										}
 									],
 									"sid": 870195863526829
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Para o boss, ele tem mais animações específicas que os outros que se limitam a apenas à animação de ataque e dano"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-animation-finished",
+									"objectClass": "Enemy",
+									"sid": 993439358372860
+								},
+								{
+									"id": "compare-animation-frame-tag",
+									"objectClass": "Enemy",
+									"sid": 632528359070262,
+									"parameters": {
+										"comparison": 0,
+										"tag": "\"end\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 944716848129786,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "Sem stun"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 106767816738829,
+											"parameters": {
+												"first-value": "int( tokenat(A_Fight_Effects.At( 7, Enemy.My_ID), 1, \"_\") )",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Enemy",
+											"sid": 616840564471025,
+											"parameters": {
+												"animation": "Self.ID & \"_Idle\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 841047320007913
 								}
 							]
 						},
@@ -20042,7 +22439,7 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "Effects",
+			"title": "Visual Effects",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
