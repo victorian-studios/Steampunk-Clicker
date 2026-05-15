@@ -46,7 +46,7 @@
                 "prodcapup": "\nAumente a capacidade da produção para {0}.",
                 "prodspeedup": "\nReduza o tempo de de produção em {0}%.",
                 "autoprod": "Automatize a sua produção! Clique com o botão direito do mouse no ícone do material para ligar/desligar e deixe o resto com os robôs.",
-                "costred": "\nRReduza o custo de produção para este material.",
+                "costred": "\nReduza o custo de produção para este material.",
                 "doubleprod": "\nDobre a quantidade de materiais produzida a cada ciclo.",
                 "prodcombo": "\nUse este material para ajudar a reduzir o/a ",
                 "prodcombo2": " tempo de produção para {0}%.",
@@ -194,6 +194,7 @@
             "work": {
                 "unlock": "BLOQUEADO",
                 "upgrade": "MELHORIA",
+                "cancel": "CANCELAR",
                 "title_locked": "Bloquado",
                 "locked": "Desconhecido",
                 "label": {
@@ -312,7 +313,7 @@
         "tutorial": {
             "error": {
                 "no_armor_fight": "Acalme-se minha filha, você ainda não equipou uma armadura lá na oficina. Para fazer isso, produza alguns materiais para criar uma [b]Armadura de Madeira[/b] de nível 1. Aí você pode lutar!",
-                "no_weapon_fight": "Ô Rose, Toma cuidado! Você ainda não tem nenhuma arma com você. Vá para a oficina para ver o que está disponível, compra e ai você equipa. Eu recomendaria o [b]Porrete[/b] por ser a primeira arma mais baratinha para sua primeira tentativa!",
+                "no_weapon_fight": "Ô Rose, Toma cuidado! Você ainda não tem nenhuma arma com você. Vá para a oficina para ver o que está disponível, compra e aí você equipa. Eu recomendaria o [b]Porrete[/b] por ser a primeira arma mais baratinha para sua primeira tentativa!",
                 "refine_tip": "Olha só! Parece que você chegou ao nível 9 de melhoria para este item. Compre o aprimoramento de [b]Material Refinado[/b] na [b]Aba de Melhorias[/b] do material correspondente para chegar ao nível 10.",
                 "armor_tip": "Esta armadira é nível 9, né? Se você quiser chegar ao nível 10, você precisa comprar o aprimoramento de [b]Armadura Final[/b] na [b]Aba de Melhorias[/b] do material correspondente.",
                 "default_locked": "Isto está indisponível no momento. Desbloqueie novos produtores para descobrir este item."
@@ -331,64 +332,65 @@
                 "10.1": "Perfeito! Viu como é simples? Agora, continuando...",
                 "11" : "Próximo, nós temos a [b]Área de Melhoria[/b]!",
                 "12" : "Aqui você pode ver, comprar e também desbloquear novos upgrades para cada produtor que você tiver.",
-                "13" : "Later, try checking the tabs in the right, they'll show every producer's specific itens for making them even more efficient.",
-                "14" : "And a important information: for unlocking new producers you just have to wait until their icon become available. Then you can check their price and finally start making new materials in the factory.",
-                "15" : "Don't worry, I will come back again every time you have a new producer to unlock.",
-                "16" : "Okay, now that's my favorite part: [b]The Workshop[/b]!",
-                "17" : "In this place you can start using your materials for your main objective: making your armor and weapons.",
-                "18" : "I'm not gonna lie to you, this monsters out there are pretty dangerous and also seems to be much stronger than we think. So you can't leave this place without finishing your armor completely.",
-                "19" : "In the left part you have the [b]Weapons and Skills[/b] tabs. At the momment they're all locked by default. But it's just a matter of time until you have them all available to you.",
-                "20" : "Each one have different uses and sometimes even an special effect for upgraded versions. Take your time to dedice wich one works better for every enemy. To equip is just drag and drop it in the available slot.",
-                "21" : "Now the part you're waiting for: the [b]Armor[/b] tab in the right.",
-                "22" : "As I said, you need to equip any type of armor to go out and fight the monstrers outside. I suggest start by a wooden version since it's simple, fast to make but not so effective.",
-                "23" : "Just like the weapons/skills, you can also upgrade your armor for better stats and performance in battle. And can also come with a special bonus if you upgrade enough.",
-                "24" : "To equip the armor, is just like the others, drag and drop it but in the slot in the middle.",
-                "25" : "Perfect, now let's head back to the office.",
-                "26" : "To finish, that's the office or, more specifically, the [b]Map Area[/b]!",
-                "27" : "I've got an entire map of the city and the exterior part around it. Here you can see all the paths and decide where you want to go next.",
-                "28" : "At the momment I can't see any other path to follow ratter than this one right here.",
-                "29" : "But don't think too much, if you have an armor and a weapon, then you should try to check how strong these enemies are, their attack patterns, resistances and so on.", 
-                "30" : "If you fail, just head back to the factory, upgrade and start over again.",
-                "31" : "It's very probable that after defeating them, they can come back again, so you can retry beating their faces another time. Just remember that you need to reach the root of the problem to solve all this.",
-                "32" : "Well, I think that's all for now. Don't worry, as I said earlyer, I'll come back again from time to time when there's something important to tell you.",
-                "33" : "I love you Rose. Take care out there, It's dangerous to go alone. Make your armor and weapons to fight them!",
-                "34" : "And most important: If you forget anything, I'm always available to talk. [b]Just press the '[b]?[/b]' button in any area![/b]"
+                "13" : "Depois dá uma olhada nas abas à direita, elas vão te mostrar todos os items específicos de cada produtor e que tornam ele cada vez mais eficiente.",
+                "14" : "E uma informação importante: para desbloquear novos produtores você só precisa esperar até que o ícone deles fique disponível. E aí você poderá ver o preço deles e assim finalmente criar novos materiais na fábrica.",
+                "15" : "E fique tranquila minha filha, eu vou aparecer toda vez que você tiver algum novo produtor para ser desbloqueado.",
+                "16" : "Bem, agora, vamos a minha parte favorita: [b]A Oficina[/b]!",
+                "17" : "Neste lugar você finalmente começará a usar seus materiais para o seu objetivo principal: criar armaduras e armas.",
+                "18" : "Eu não vou mentir para você, esses monstros lá fora são bem perigosos e perecem ser mais forte do que pensamos. Então você não pode sair daqui sem terminar sua armadura por completo.",
+                "19" : "Na esqueda você tem as abas de [b]Armas e Habilidades[/b]. No momento todas elas estão bloqueadas por padrão. Mas é questão de tempo até você ter todas elas disponíveis para você.",
+                "20" : "Cada uma tem usos diferentes e em alguns casos tem até um efeito especial nas versões melhoradas. Fique a vontade para decidir qual delas funcionará melhor para cada tipo de inimigo. Para equipá-las apenas arraste e largue no slot disponível.",
+                "21" : "Agora vem a parte que você estava esperando: a aba de [b]Armadura[/b] localizada na direita.",
+                "22" : "Como eu disse, você precisa equipar qualquer tipo de armadura para poder ir lá pra gora e lutar contra esses monstros. Eu sugiro começar pela versão em madeira, já que é a mais simples e rápida de ser feita, apesar de não ser tão efetiva.",
+                "23" : "Assim como as armas/habilidades, você pode também aprimorar a sua armadura e assim melhorar sua performance na batalha. E além disso ela pode ter um bônus especial se você melhorar o suficiente.",
+                "24" : "Para equipar a armadura, assim como as outras, é só arrastar e largar no slot do meio.",
+
+                "25" : "Perfeito, agora vamos para o escritório.",
+                "26" : "Para finalizarmos, esse aqui é o escritório, ou mais especificamente a [b]Área do Mapa[/b]!",
+                "27" : "Aqui temos um mapa de toda a cidade e outros lugares fora dela. Aqui você pode ver todos os caminhos e decidir onde você vai querer ir.",
+                "28" : "No momento eu não consigo ver outro caminho a seguir a não ser este bem aqui.",
+                "29" : "Mas nem pense muito minha filha, se você tiver uma armadura e armadura, então você deve ver o quão forte são esses inimigos, seus padrões de ataque, resistência e por aí vai.", 
+                "30" : "Caso você perca, é só voltar para a fábrica, melhorar seus itens e tentar de novo.",
+                "31" : "É bem provável que depois de derrotados, ele voltem então você pode tentar socar a cara deles de novo uma outra hora. Apenas se lembre que você precisa chegar até a raiz do problema para resolver tudo isso.",
+                "32" : "Bem Rose, acho que isso é tudo por agora. Não se preocupe, como eu disse mais cedo, eu irei voltar algumas vezes quando tiver algo de importante para te falar. Well, I think that's all for now. Don't worry, as I said earlyer, I'll come back again from time to time when there's something important to tell you.",
+                "33" : "Eu te amo minha filhinha. Se cuide lá fora, é perigoso ir sozinha. Crie suas armaduras e armas para lutar com eles!",
+                "34" : "E mais importante: Caso você esqueça alguma coisa, eu estou sempre livre para conversar. [b]É só pressionar o botão de '[b]?[/b]' em qualquer uma das áreas![/b]"
             },
             "prod": {
-                "1": "This is the [b]Production Area[/b]! \nTo produce anything click in the icon and wait until the progress bar gets full.",
-                "2": "Some machines require specific ammonts of resources to be able to produce a single unit of their material.",
-                "3": "When you buy any auto production upgrade, keep an eye if you have enougth materials to keep the machines working. In any case you can enable/disable it by right clicking in the machine's icon."
+                "1": "Essa aqui é a [b]Área de Produção[/b]! \nPara produzir algo é só clicar no ícone e esperar até a barra de progresso estar totalmente preenchida.",
+                "2": "Algumas máquinas exigem uma quantidade específica de recursos para conseguirem produzir uma única unidade do seu material.",
+                "3": "Quando você comprar qualquer melhoria de automatização, fique de olho se você terá materiais suficientes para ter as máquinas operando. De qualquer forma você consegue habilitar/desabilitar clicando com o botão direito no ícone do produtor."
             },
             "upg": {
-                "1": "This is the [b]Upgrade Area[/b]! \nCheck all the permanent upgrades available for all the machines you currently have unlocked.",
-                "2": "All upgrades cost some of your materials. In the top of the screen you can always check the total of resources that you have right now. The value is update in real time.",
-                "3": "In order to unlock more upgrades you have to progress in the map, so I can have time to complete my research."
+                "1": "Essa aqui é a [b]Área de Melhoria[/b]! \nDá uma olhada em todos as melhorias permanentes para todas as máquinas que você tiver desbloqueado até o momento.",
+                "2": "Todos as melhorias custam um pouco dos seus materiais. Na parte de cima da tela você pode sempre checar o quanto de recursos você tem neste momento. Este valor é atualizado em tempo real.",
+                "3": "Para desbloquear mais melhorias você deve progredir no mapa, e assim eu terei tempo para completar a minha pesquisa."
             },
             "work": {
-                "1": "This is the [b]Workshop[/b]! \nThis is the palce to choose your equippment and upgrade your armor, weapons and skills.",
-                "2": "Each armor have a different amount of slots to equip weapons and skills. Try different combinations of them to understand what suit you better.",
-                "3": "The 10th and final level of every item only unlocks after you buy the '[i]Material Refinado[/i]' or '[i]Final Armor[/i]' upgrade from the [b]Upgrade Area[/b]."
+                "1": "Esse aqui é a [b]Oficina[/b]! \nEsse é o lugar para você escolher o seu equipamento e melhorar as suas armaduras, armas e habilidades.",
+                "2": "Cada armadura tem uma quantidade diferente de slots para equipar armas e habilidades. Tente diferentes tipos de combinações para entender qual delas você se adapta melhor.",
+                "3": "O 10° e último nível de todo item só é desbloqueado depois que você comprar o '[i]Material Refinado[/i]' ou a melhoria de'[i]Armadura Final[/i]' na [b]Área de Upgrade[/b]."
             },
             "map": {
-                "1": "This is my office, more specificly, the [b]Map Area[/b]! \nAll level availables can appear here.",
-                "2": "First select region represented by the arrows. Then, click on any available level to see more information. When you're ready to go click the green check button.",
-                "3": "Before you enter any level, make sure that you have all the right equipments. I'm not let you go without an [b]armor and a weapon/skill[/b]."
+                "1": "Aqui é meu escritório, mais especificamente a [b]Área do Mapa[/b]! \nTodos os níveis disponíveis aparecerão aqui.",
+                "2": "Primeiro, selecione a região representada pelas setas.Então, clique em qualquer nível disponível par ver mais informações. Quando você estiver pronto para ir basta clicar no botão verde de check.",
+                "3": "Antes que você entre em qualquer nível, tenha certeza de que você tem todos os equipamentos certinhos. Eu não te deixarei ir lá para fora sem ao menos uma [b]armadura e uma arma/habilidade[/b]."
             },
             "fight": {
-                "1": "Hey Rose! It's me again.",
-                "2": "I came here as soon as I saw you walking out on the street in your armor! Just be careful, don't draw as much attention next time.",
-                "3": "Anyway, would you mind if I help you recall your battle skills?\n[color=rgb(255,255,255)]Press [b](Y)[/b] Yes / [b](N)[/b] No[/color]",
-                "3.1": "Okay okay, I'm not going to bother you anymore. Good luck Rose!",
-                "4": "First, when you enconter an enemy, you'll need to defeat them all to progress. I suggest you [b]focus on one target at a time[/b].",
-                "5": "Now you can choose wich [b]weapon or ability[/b] you would like to use first. Check their information any time by moving your mouse over them.",
-                "6": "Then select and finally click on your target to execute your move. After doing any action you will finish your turn.",
-                "7": "After you act, it's time for the enemies to attack you. Thankfully your armor was designed to receive an great amount of damage and still keep you alive. Just remember that you're not invincible.",
-                "8": "Some enemies will have different attack patterns and, obviously, different abilities. You'll never know what they do until you fight them.",
-                "9": "In case you suffer any damage, keep looking at the blue bar bellow. It's your main health bar, just like the enemies, when it reaches [b]zero[/b] you will be defeated.",
-                "10": "But if you have paid attention, notice that there's also another shield bar next to it. That ''blue shield'' represent's your [b]shield power[/b]. That's what makes your armor special and versatile.",
-                "11": "The energy remaining won't last forever, since it will absorb most of the damage received from the enemies during the fight. Unless the enemy has some [b]attack that ignore the energy from the armor[/b].",
-                "12": "[b]Remember:[/b] if you're loosing, it's better to retreat and come back to factory for further upgrades. But don't give up so easily! Try different builds and combinations. Every enemy has it's weakness!",
-                "13": "That's all for now, good luck!"
+                "1": "Ô Rose! Sou eu de novo.",
+                "2": "Eu vim aqui o mais rápido que pude, assim que eu te vi caminhando na rua com sua armadura! Tome cuidado, não chame muita atenção da próxima vez.",
+                "3": "De qualquer forma, você gostaria que eu te ajudasse a lembrar as suas habilidades na batalha?\n[color=rgb(255,255,255)]Press [b](Y)[/b] Sim / [b](N)[/b] Não[/color]",
+                "3.1": "Tudo bem, já entendi e não vou mais te incomodar. Boa sorte Rose!",
+                "4": "Primeiro, quando você encontrar um inimigo, você irá precisar derrotar todos eles para progredir. Eu sugiro que você [b]foque em um por vez[/b].",
+                "5": "Agora você pode escolher qual [b]arma ou habilidade[/b] você gostaria de usar primeiro. Veja a informação sobre elas passando o mouse por cima delas.",
+                "6": "Então selecione e finalmente cliqueno seu alvo para executar o seu movimento. Depois de realizar qualquer ação seu turno ser[a finalizado.",
+                "7": "Depois que você agir, é a hora dos inimigos te atacarem. Ainda bem que a sua armadura foi projetada para receber uma grande quantidade de dano e ainda manter você viva. Apenas lembre-se que você não é invencível.",
+                "8": "Alguns inimigos terão diferentes padrões de ataques e, obviamente, habilidades distintas. Você nunca saberá o que eles fazem até você lutar contra eles.",
+                "9": "Caso você sofra algum tipo de dano, fique de olho na barra azul abaixo. Ela é a sua barra de vida principal, e assim como a dos inimigos, quando ela chegar a [b]zero[/b] você será derrotado.",
+                "10": "Mas se você prestou atenção, perceba que tem uma outra barra em formato de escudo próxima à ela. Esse ''escudo azul'' representa o seu [b]poder do escudo[/b]. Isso faz a deixa a sua armadura especial e versátil.",
+                "11": "A energia restante não irá durar para sempre, já que ela absorverá grande parte do dano recebido dos inimigos durante a luta. Ao menos que o inimigo tenha algum tipo de [b]ataque que ignore a energia da armadura[/b].",
+                "12": "[b]Lembre-se:[/b] se você sentir que está perdendo, é melhor recuar e voltar para a fábrica para comprar melhorias. Mas não desista assim tão fácil! Tente diferentes combinações de itens. Cada inimigo tem uma fraqueza!",
+                "13": "Isso é tudo por agora, boa sorte filhinha!"
             }
         }
     }
