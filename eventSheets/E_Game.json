@@ -1532,6 +1532,9 @@
 								true,
 								false,
 								false,
+								false,
+								false,
+								false,
 								false
 							]
 						}
@@ -2533,6 +2536,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -3492,6 +3498,9 @@
 												false,
 												false,
 												false,
+												false,
+												false,
+												false,
 												false
 											]
 										}
@@ -3619,6 +3628,9 @@
 													"parameters": [
 														false,
 														true,
+														false,
+														false,
+														false,
 														false,
 														false,
 														false,
@@ -4020,6 +4032,9 @@
 													"parameters": [
 														false,
 														true,
+														false,
+														false,
+														false,
 														false,
 														false,
 														false,
@@ -4948,6 +4963,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								},
@@ -5094,6 +5112,9 @@
 												false,
 												false,
 												true,
+												false,
+												false,
+												false,
 												false,
 												false,
 												false,
@@ -7564,6 +7585,9 @@
 								false,
 								false,
 								true,
+								false,
+								false,
+								false,
 								false,
 								false,
 								false,
@@ -11072,6 +11096,9 @@
 										false,
 										false,
 										true,
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
@@ -16244,7 +16271,8 @@
 																{
 																	"id": "move-to-bottom",
 																	"objectClass": "Hab_Slot",
-																	"sid": 556574805526626
+																	"sid": 556574805526626,
+																	"disabled": true
 																},
 																{
 																	"id": "set-instvar-value",
@@ -16368,7 +16396,8 @@
 																{
 																	"id": "move-to-bottom",
 																	"objectClass": "Wp_Slot",
-																	"sid": 725192186264865
+																	"sid": 725192186264865,
+																	"disabled": true
 																},
 																{
 																	"id": "set-instvar-value",
@@ -16469,7 +16498,8 @@
 														{
 															"id": "move-to-bottom",
 															"objectClass": "Wp_Slot",
-															"sid": 545160225447023
+															"sid": 545160225447023,
+															"disabled": true
 														},
 														{
 															"id": "set-instvar-value",
@@ -16523,7 +16553,8 @@
 														{
 															"id": "move-to-bottom",
 															"objectClass": "Hab_Slot",
-															"sid": 499411855453527
+															"sid": 499411855453527,
+															"disabled": true
 														},
 														{
 															"id": "set-instvar-value",
@@ -23419,6 +23450,9 @@
 																false,
 																false,
 																false,
+																false,
+																false,
+																false,
 																false
 															]
 														},
@@ -23975,6 +24009,9 @@
 																false,
 																false,
 																true,
+																false,
+																false,
+																false,
 																false,
 																false,
 																false,
@@ -29021,6 +29058,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -31170,11 +31210,32 @@
 							"sid": 964103366989122
 						},
 						{
+							"name": "Blade",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 517782166525868
+						},
+						{
 							"name": "Shot",
 							"type": "boolean",
 							"initialValue": "false",
 							"comment": "",
 							"sid": 906720311358930
+						},
+						{
+							"name": "Power_Zap",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 255038939294715
+						},
+						{
+							"name": "Shock_Zap",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 885713729374997
 						}
 					],
 					"eventType": "function-block",
@@ -31861,6 +31922,97 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
+									"sid": 415506627316262,
+									"parameters": {
+										"variable": "Blade"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 410003210390226,
+									"parameters": {
+										"variable": "rng_sound",
+										"value": "choose (1, 2)"
+									}
+								}
+							],
+							"sid": 519469532271165,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 643843434510829,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 899191009350988,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/IMPACT Metal Blade Chink 01"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 887913287536155
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 733292971972061,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 292649876103623,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/IMPACT Metal Blade Chink 02"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 966764505590820
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
 									"sid": 786213213625902,
 									"parameters": {
 										"variable": "Shot"
@@ -31884,6 +32036,86 @@
 								}
 							],
 							"sid": 299238706061598
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 351555504050734,
+									"parameters": {
+										"variable": "Power_Zap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 423221148197068,
+									"parameters": {
+										"audio-file": {
+											"path": "Battle/electric_by_freesound_community"
+										},
+										"loop": "not-looping",
+										"volume": "-40 + ( VOLUME * 0.4 )",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 677750644231537,
+									"parameters": {
+										"seconds": "1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "fade-volume",
+									"objectClass": "Audio",
+									"sid": 993036939232990,
+									"parameters": {
+										"tag": "\"Power_zap\"",
+										"db": "-100",
+										"duration": "1",
+										"ending": "stop"
+									}
+								}
+							],
+							"sid": 388070685490212
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 744993659552957,
+									"parameters": {
+										"variable": "Shock_Zap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 118381684835095,
+									"parameters": {
+										"audio-file": {
+											"path": "Battle/electricity"
+										},
+										"loop": "not-looping",
+										"volume": "-40 + ( VOLUME * 0.4 )",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 969592382319821
 						}
 					]
 				}

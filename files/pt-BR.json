@@ -272,7 +272,7 @@
                 "City-1": "[b]NÍVEL - 1[/b]\n\nZumbi x1",
                 "City-2": "[b]NÍVEL - 2[/b]\n\nZumbi x1 | Mulher Zumbi x1",
                 "City-3": "[b]NÍVEL - 3[/b]\n\nMulher Zumbi x1 | Z Cachorro x2",
-                "Grave-4": "[b]NÍVEL - 1[/b]\n\nMúmia x1 | Zumbi x1",
+                "Grave-4": "[b]NÍVEL - 1[/b]\n\nMúmia x1 | Zumbi x1 | Mulher Zumbi x1",
                 "Grave-5": "[b]NÍVEL - 2[/b]\n\nCachorro x1 | Múmia x2",
                 "Grave-6": "[b]NÍVEL - 3[/b]\n\nMúmia x1 | Mulher Zumbi x2",
                 "Mount-7": "[b]NÍVEL - 1[/b]\n\nUrubu x1 | Múmia x1",
@@ -291,6 +291,7 @@
                 "desc": "Não sofra penalidade ao fazer isso."
             },
             "skip": "Pule seu turno.",
+            "no_ammo": "Esta arma está sem munição [icon=ammo].",
             "poison": "{0} Veneno ({1} turnos)",
             "fire": "{0} Fogo ({1} turnos)",
             "zap": "Cause {0} dano aos atacantes que te acertarem ({1} turnos)",
@@ -336,7 +337,7 @@
                 "10.1": "Perfeito! Viu como é simples? Agora, continuando...",
                 "11" : "Próximo, nós temos a [b]Área de Melhoria[/b]!",
                 "12" : "Aqui você pode ver, comprar e também desbloquear novos upgrades para cada produtor que você tiver.",
-                "13" : "Depois dê uma olhada nas abas à direita, elas vão te mostrar todos os items específicos de cada produtor e que tornam ele cada vez mais eficiente.",
+                "13" : "Depois dá uma olhada nas abas à direita, elas vão te mostrar todos os items específicos de cada produtor e que tornam ele cada vez mais eficiente.",
                 "14" : "E uma informação importante: para desbloquear novos produtores você só precisa esperar até que o ícone deles fique disponível. E aí você poderá ver o preço deles e assim finalmente criar novos materiais na fábrica.",
                 "15" : "E fique tranquila minha filha, eu vou aparecer toda vez que você tiver algum novo produtor para ser desbloqueado.",
                 "16" : "Bem, agora, vamos a minha parte favorita: [b]A Oficina[/b]!",
@@ -363,22 +364,21 @@
             "prod": {
                 "1": "Essa aqui é a [b]Área de Produção[/b]! \nPara produzir algo é só clicar no ícone e esperar até a barra de progresso estar totalmente preenchida.",
                 "2": "Algumas máquinas exigem uma quantidade específica de recursos para conseguirem produzir uma única unidade do seu material.",
-                "3": "Quando você comprar uma melhoria de autobot, veja se terá materiais suficientes para ter as máquinas operando. Independente, você consegue habilitar/desabilitar clicando com o botão direito no ícone do produtor."
+                "3": "Quando você comprar qualquer melhoria de automatização, fique de olho se você terá materiais suficientes para ter as máquinas operando. De qualquer forma você consegue habilitar/desabilitar clicando com o botão direito no ícone do produtor."
             },
-
             "upg": {
-                "1": "Essa aqui é a [b]Área de Melhoria[/b]! \nDê uma olhada em todos as melhorias permanentes para as máquinas que você estiver desbloqueado até o momento.",
-                "2": "Todos as melhorias custam um pouco dos seus materiais. Na parte de cima da tela você pode sempre checar quanto recursos você tem neste momento. Este valor é atualizado em tempo real.",
+                "1": "Essa aqui é a [b]Área de Melhoria[/b]! \nDê uma olhada em todos as melhorias permanentes para todas as máquinas que você estiver desbloqueado até o momento.",
+                "2": "Todos as melhorias custam um pouco dos seus materiais. Na parte de cima da tela você pode sempre checar o quanto de recursos você tem neste momento. Este valor é atualizado em tempo real.",
                 "3": "Para desbloquear mais melhorias você deve progredir no mapa, e assim eu terei tempo para completar a minha pesquisa."
             },
             "work": {
                 "1": "Essa aqui é a [b]Oficina[/b]! \nEsse é o lugar para você escolher o seu equipamento e melhorar as suas armaduras, armas e habilidades.",
                 "2": "Cada armadura tem uma quantidade diferente de slots para equipar armas e habilidades. Tente diferentes tipos de combinações para entender qual delas você se adapta melhor.",
-                "3": "O 10° e último nível de todo item só é desbloqueado depois que você comprar o '[i]Material Refinado[/i]' ou a melhoria de '[i]Armadura Final[/i]' na [b]Área de Upgrade[/b]."
+                "3": "O 10° e último nível de todo item só é desbloqueado depois que você comprar o '[i]Material Refinado[/i]' ou a melhoria de'[i]Armadura Final[/i]' na [b]Área de Upgrade[/b]."
             },
             "map": {
                 "1": "Aqui é meu escritório, mais especificamente a [b]Área do Mapa[/b]! \nTodos os níveis disponíveis aparecerão aqui.",
-                "2": "Primeiro, selecione a região representada pelas setas. Então, clique em qualquer nível disponível par ver mais informações. Quando você estiver pronto para ir basta clicar no botão verde de [b]check[/b].",
+                "2": "Primeiro, selecione a região representada pelas setas. Então, clique em qualquer nível disponível par ver mais informações. Quando você estiver pronto para ir basta clicar no botão verde de [b]check[/b]",
                 "3": "Antes que você entre em qualquer nível, tenha certeza de que você tem todos os equipamentos certinhos. Eu não te deixarei ir lá para fora sem ao menos uma [b]armadura e uma arma/habilidade[/b]."
             },
             "fight": {

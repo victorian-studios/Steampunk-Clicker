@@ -149,6 +149,15 @@
 					}
 				},
 				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 458538844070976,
+					"parameters": {
+						"layer": "\"Particles\"",
+						"visibility": "invisible"
+					}
+				},
+				{
 					"id": "set-layer-opacity",
 					"objectClass": "System",
 					"sid": 182034108085950,
@@ -587,11 +596,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 291105860191892,
+							"sid": 729664786126963,
 							"parameters": {
 								"variable": "Armor_ID",
 								"comparison": 0,
-								"value": "\"5\""
+								"value": "\"4\""
 							}
 						}
 					],
@@ -702,11 +711,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 562246027114586,
+							"sid": 409879765606735,
 							"parameters": {
 								"variable": "Armor_ID",
 								"comparison": 0,
-								"value": "\"4\""
+								"value": "\"5\""
 							}
 						}
 					],
@@ -882,37 +891,7 @@
 							}
 						}
 					],
-					"sid": 727665650213296,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "pick-by-comparison",
-									"objectClass": "System",
-									"sid": 319355216998692,
-									"parameters": {
-										"object": "Wp_Slot",
-										"expression": "Wp_Slot.ID",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-position",
-									"objectClass": "Wp_Slot",
-									"sid": 195315866557312,
-									"parameters": {
-										"x": "1746",
-										"y": "984"
-									}
-								}
-							],
-							"sid": 642280270325315
-						}
-					]
+					"sid": 727665650213296
 				},
 				{
 					"eventType": "block",
@@ -996,61 +975,164 @@
 					"sid": 298432684673681,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Tive que passar o \"Set position\" do Wp_Slot pra cá, pois ele demorava pra trocar de posição e o icon_list_weapon ficava no local errado"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "pick-by-comparison",
+									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 595392269587103,
+									"sid": 480739192218632,
 									"parameters": {
-										"object": "Wp_Slot",
-										"expression": "Wp_Slot.ID",
+										"variable": "Armor_ID",
 										"comparison": 0,
-										"value": "1"
+										"value": "\"6\""
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 712740235597246,
+							"children": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Wp_Slot",
-									"sid": 478694251737952,
-									"parameters": {
-										"instance-variable": "Ammo_Max",
-										"value": "A_Weapons.At (4, Dict_Save_File.Get(Weapon_ID_1), tokenat( Weapon_ID_1, 1, \"_\" ) ) > 0 ? A_Weapons.At (4, Dict_Save_File.Get(Weapon_ID_1), tokenat( Weapon_ID_1, 1, \"_\" ) ) : 0"
-									}
-								},
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 115719899789886,
+											"parameters": {
+												"object": "Wp_Slot",
+												"expression": "Wp_Slot.ID",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Wp_Slot",
+											"sid": 745084133794624,
+											"parameters": {
+												"x": "1746",
+												"y": "984"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Wp_Slot",
+											"sid": 467446635579821,
+											"parameters": {
+												"instance-variable": "Ammo_Max",
+												"value": "A_Weapons.At (4, Dict_Save_File.Get(Weapon_ID_1), tokenat( Weapon_ID_1, 1, \"_\" ) ) > 0 ? A_Weapons.At (4, Dict_Save_File.Get(Weapon_ID_1), tokenat( Weapon_ID_1, 1, \"_\" ) ) : 0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Wp_Slot",
+											"sid": 557352116478441,
+											"parameters": {
+												"instance-variable": "Ammo",
+												"value": "Self.Ammo_Max"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Wp_Slot",
+											"sid": 685003793213274,
+											"parameters": {
+												"object": "icon_list_weapon",
+												"layer": "\"Habs\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "icon_list_weapon",
+											"sid": 839105032782306,
+											"parameters": {
+												"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\") ) + 1"
+											}
+										}
+									],
+									"sid": 773635290999376
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Wp_Slot",
-									"sid": 862124851518370,
-									"parameters": {
-										"instance-variable": "Ammo",
-										"value": "Self.Ammo_Max"
-									}
-								},
-								{
-									"id": "spawn-another-object",
-									"objectClass": "Wp_Slot",
-									"sid": 671100749613752,
-									"parameters": {
-										"object": "icon_list_weapon",
-										"layer": "\"Habs\"",
-										"image-point": "0",
-										"create-hierarchy": false,
-										"template-name": "\"\""
-									}
-								},
-								{
-									"id": "set-animation-frame",
-									"objectClass": "icon_list_weapon",
-									"sid": 525034541635843,
-									"parameters": {
-										"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\") ) + 1"
-									}
+									"id": "else",
+									"objectClass": "System",
+									"sid": 982251762745529
 								}
 							],
-							"sid": 820979804770189
+							"actions": [],
+							"sid": 552697120221912,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-comparison",
+											"objectClass": "System",
+											"sid": 342413788933492,
+											"parameters": {
+												"object": "Wp_Slot",
+												"expression": "Wp_Slot.ID",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Wp_Slot",
+											"sid": 212236953414863,
+											"parameters": {
+												"instance-variable": "Ammo_Max",
+												"value": "A_Weapons.At (4, Dict_Save_File.Get(Weapon_ID_1), tokenat( Weapon_ID_1, 1, \"_\" ) ) > 0 ? A_Weapons.At (4, Dict_Save_File.Get(Weapon_ID_1), tokenat( Weapon_ID_1, 1, \"_\" ) ) : 0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Wp_Slot",
+											"sid": 318661643845264,
+											"parameters": {
+												"instance-variable": "Ammo",
+												"value": "Self.Ammo_Max"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Wp_Slot",
+											"sid": 867039791633758,
+											"parameters": {
+												"object": "icon_list_weapon",
+												"layer": "\"Habs\"",
+												"image-point": "0",
+												"create-hierarchy": false,
+												"template-name": "\"\""
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "icon_list_weapon",
+											"sid": 972318076828961,
+											"parameters": {
+												"frame-number": "int( tokenat( Weapon_ID_1, 1, \"_\") ) + 1"
+											}
+										}
+									],
+									"sid": 421323845781043
+								}
+							]
 						}
 					]
 				},
@@ -3432,7 +3514,8 @@
 												"-1 * Icon_Effect_Player.Potency",
 												true,
 												false,
-												true
+												true,
+												"0"
 											]
 										}
 									],
@@ -3557,7 +3640,8 @@
 										"5",
 										false,
 										false,
-										false
+										false,
+										"0"
 									]
 								}
 							],
@@ -3605,7 +3689,8 @@
 										"10",
 										false,
 										true,
-										false
+										false,
+										"0"
 									]
 								}
 							],
@@ -3648,6 +3733,13 @@
 							"initialValue": "false",
 							"comment": "",
 							"sid": 825966478849327
+						},
+						{
+							"name": "Z_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "o inimigo que originou o dano",
+							"sid": 778876054221578
 						}
 					],
 					"eventType": "function-block",
@@ -4435,6 +4527,74 @@
 											"sid": 595344326588513
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 265837009658602,
+											"parameters": {
+												"variable": "IgnoreDodge"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Icon_Effect_Player",
+											"sid": 790488072890971,
+											"parameters": {
+												"animation": "\"zap\""
+											}
+										},
+										{
+											"id": "is-visible",
+											"objectClass": "Icon_Effect_Player",
+											"sid": 162836879116616
+										}
+									],
+									"actions": [
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 460594650768596,
+											"parameters": {
+												"type": "log",
+												"message": "\"zap\""
+											}
+										},
+										{
+											"callFunction": "Play_Audio",
+											"sid": 616205836857514,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true
+											]
+										},
+										{
+											"callFunction": "Change_Health_Enemy",
+											"sid": 118062153205648,
+											"parameters": [
+												"-1 * Icon_Effect_Player.Potency",
+												"0",
+												true,
+												false,
+												"Z_UID",
+												"\"\""
+											]
+										}
+									],
+									"sid": 615050719742703
 								}
 							],
 							"isOrBlock": true
@@ -4867,6 +5027,65 @@
 													"sid": 761244250666263
 												}
 											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 580626199948818,
+													"parameters": {
+														"animation": "\"zap\""
+													}
+												},
+												{
+													"id": "is-visible",
+													"objectClass": "Icon_Effect_Player",
+													"sid": 392189417428814
+												}
+											],
+											"actions": [
+												{
+													"id": "log",
+													"objectClass": "Browser",
+													"sid": 375664912071742,
+													"parameters": {
+														"type": "log",
+														"message": "\"zap\""
+													}
+												},
+												{
+													"callFunction": "Play_Audio",
+													"sid": 298250975833597,
+													"parameters": [
+														false,
+														false,
+														false,
+														false,
+														false,
+														false,
+														false,
+														false,
+														false,
+														false,
+														true
+													]
+												},
+												{
+													"callFunction": "Change_Health_Enemy",
+													"sid": 874247463432837,
+													"parameters": [
+														"-1 * Icon_Effect_Player.Potency",
+														"0",
+														true,
+														false,
+														"Z_UID",
+														"\"\""
+													]
+												}
+											],
+											"sid": 782574646367890
 										}
 									]
 								},
@@ -5330,7 +5549,25 @@
 											}
 										}
 									],
-									"actions": [],
+									"actions": [
+										{
+											"callFunction": "Play_Audio",
+											"sid": 917535127893139,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true,
+												false
+											]
+										}
+									],
 									"sid": 422379930419612,
 									"children": [
 										{
@@ -10190,7 +10427,8 @@
 																		"int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\"))",
 																		false,
 																		true,
-																		false
+																		false,
+																		"0"
 																	]
 																}
 															],
@@ -10213,7 +10451,8 @@
 																		"Shield_Max - Shield",
 																		false,
 																		true,
-																		false
+																		false,
+																		"0"
 																	]
 																},
 																{
@@ -10272,6 +10511,9 @@
 																false,
 																true,
 																false,
+																false,
+																false,
+																false,
 																false
 															]
 														}
@@ -10308,6 +10550,9 @@
 																false,
 																false,
 																true,
+																false,
+																false,
+																false,
 																false
 															]
 														}
@@ -10344,11 +10589,210 @@
 																false,
 																false,
 																false,
-																true
+																false,
+																true,
+																false,
+																false
 															]
 														}
 													],
-													"sid": 693623159899387
+													"sid": 693623159899387,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "comment",
+													"text": "Blunderbuss"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 164966758120969,
+															"parameters": {
+																"variable": "Action_ID",
+																"comparison": 0,
+																"value": "3"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 378677067495342,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false
+															]
+														}
+													],
+													"sid": 797801811555916
+												},
+												{
+													"eventType": "comment",
+													"text": "Katana"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 848488801649773,
+															"parameters": {
+																"variable": "Action_ID",
+																"comparison": 0,
+																"value": "4"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 915307359408632,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false,
+																false,
+																false
+															]
+														}
+													],
+													"sid": 508166716561295
+												},
+												{
+													"eventType": "comment",
+													"text": "Granade Launcher"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 420466795702997,
+															"parameters": {
+																"variable": "Action_ID",
+																"comparison": 0,
+																"value": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 690903192198107,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false
+															]
+														}
+													],
+													"sid": 926896253949996
+												},
+												{
+													"eventType": "comment",
+													"text": "Sword"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 396096602563213,
+															"parameters": {
+																"variable": "Action_ID",
+																"comparison": 0,
+																"value": "6"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 743756926707841,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false
+															]
+														}
+													],
+													"sid": 949233078434349
+												},
+												{
+													"eventType": "comment",
+													"text": "Shield"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 402025398486917,
+															"parameters": {
+																"variable": "Action_ID",
+																"comparison": 0,
+																"value": "7"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "Play_Audio",
+															"sid": 882714459515699,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false,
+																false,
+																false,
+																false
+															]
+														}
+													],
+													"sid": 735013714867969
 												}
 											]
 										}
@@ -10572,7 +11016,8 @@
 																		"int(A_Habilities.At(2, Action_Lvl, Action_ID))",
 																		false,
 																		true,
-																		false
+																		false,
+																		"0"
 																	]
 																}
 															],
@@ -10595,7 +11040,8 @@
 																		"Shield_Max - Shield",
 																		false,
 																		true,
-																		false
+																		false,
+																		"0"
 																	]
 																},
 																{
@@ -10670,7 +11116,8 @@
 																		"int(A_Habilities.At(2, Action_Lvl, Action_ID))",
 																		false,
 																		false,
-																		false
+																		false,
+																		"0"
 																	]
 																}
 															],
@@ -10693,7 +11140,8 @@
 																		"HP_Max - HP",
 																		false,
 																		false,
-																		false
+																		false,
+																		"0"
 																	]
 																}
 															],
@@ -11500,109 +11948,37 @@
 							"sid": 964036629993678,
 							"children": [
 								{
-									"eventType": "comment",
-									"text": "Verifica se tem dano penetrante"
-								},
-								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-at-xyz",
-											"objectClass": "A_Weapons",
-											"sid": 182026739143723,
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 174446151063075,
 											"parameters": {
-												"x": "3",
-												"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
-												"z": "counter",
-												"comparison": 4,
-												"value": "0"
+												"object": "Bkg_CD"
+											}
+										},
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Bkg_CD",
+											"sid": 525309801627056,
+											"parameters": {
+												"comparison": 0,
+												"number": "1"
 											}
 										}
 									],
-									"actions": [],
-									"sid": 962120917466187,
-									"children": [
+									"actions": [
 										{
-											"eventType": "comment",
-											"text": "Verifica se tem munição"
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "compare-at-xyz",
-													"objectClass": "A_Weapons",
-													"sid": 731574070236965,
-													"parameters": {
-														"x": "4",
-														"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
-														"z": "counter",
-														"comparison": 4,
-														"value": "0"
-													}
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Text_Item_Info",
-													"sid": 970876714405924,
-													"disabled": true,
-													"parameters": {
-														"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
-													}
-												}
-											],
-											"sid": 786785607036501,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "icon_list_weapon",
-															"sid": 361970988562296,
-															"parameters": {
-																"object": "Wp_Slot"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Item_Info",
-															"sid": 763101584115284,
-															"parameters": {
-																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Wp_Slot.Ammo & \"/\" &Wp_Slot.Ammo_Max  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
-															}
-														}
-													],
-													"sid": 201032565059901
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [
-												{
-													"id": "else",
-													"objectClass": "System",
-													"sid": 238221797925284
-												}
-											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Text_Item_Info",
-													"sid": 366018805729992,
-													"parameters": {
-														"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
-													}
-												}
-											],
-											"sid": 697320185344178
+											"id": "set-text",
+											"objectClass": "Text_Item_Info",
+											"sid": 420141177804914,
+											"parameters": {
+												"text": "Internationalization.Lookup(\"fight.no_ammo\")"
+											}
 										}
-									]
+									],
+									"sid": 418032486095557
 								},
 								{
 									"eventType": "block",
@@ -11610,15 +11986,15 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 928988334022705
+											"sid": 276230286190248
 										}
 									],
 									"actions": [],
-									"sid": 968743056981020,
+									"sid": 188916444570783,
 									"children": [
 										{
 											"eventType": "comment",
-											"text": "Verifica se tem munição"
+											"text": "Verifica se tem dano penetrante"
 										},
 										{
 											"eventType": "block",
@@ -11626,9 +12002,9 @@
 												{
 													"id": "compare-at-xyz",
 													"objectClass": "A_Weapons",
-													"sid": 196259031382742,
+													"sid": 874651067934282,
 													"parameters": {
-														"x": "4",
+														"x": "3",
 														"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
 														"z": "counter",
 														"comparison": 4,
@@ -11636,28 +12012,26 @@
 													}
 												}
 											],
-											"actions": [
-												{
-													"id": "set-text",
-													"objectClass": "Text_Item_Info",
-													"sid": 829229175221354,
-													"disabled": true,
-													"parameters": {
-														"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
-													}
-												}
-											],
-											"sid": 451952368166498,
+											"actions": [],
+											"sid": 296700352847730,
 											"children": [
+												{
+													"eventType": "comment",
+													"text": "Verifica se tem munição"
+												},
 												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "is-overlapping-another-object",
-															"objectClass": "icon_list_weapon",
-															"sid": 520484968058596,
+															"id": "compare-at-xyz",
+															"objectClass": "A_Weapons",
+															"sid": 864787805415348,
 															"parameters": {
-																"object": "Wp_Slot"
+																"x": "4",
+																"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
+																"z": "counter",
+																"comparison": 4,
+																"value": "0"
 															}
 														}
 													],
@@ -11665,13 +12039,61 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info",
-															"sid": 495207074664605,
+															"sid": 633828932675249,
+															"disabled": true,
 															"parameters": {
-																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Wp_Slot.Ammo & \"/\" &Wp_Slot.Ammo_Max  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
 															}
 														}
 													],
-													"sid": 885726864926534
+													"sid": 626485878348208,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "icon_list_weapon",
+																	"sid": 464362356287780,
+																	"parameters": {
+																		"object": "Wp_Slot"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Item_Info",
+																	"sid": 696617115289382,
+																	"parameters": {
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Wp_Slot.Ammo & \"/\" &Wp_Slot.Ammo_Max  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																	}
+																}
+															],
+															"sid": 964050864214448
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 487722292084615
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Text_Item_Info",
+															"sid": 601788312324083,
+															"parameters": {
+																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) &  \" | \" & \"[icon=pdmg] \" & A_Weapons.At( 3, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+															}
+														}
+													],
+													"sid": 142431135431204
 												}
 											]
 										},
@@ -11681,28 +12103,101 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 797819624385693
+													"sid": 756529608782082
 												}
 											],
-											"actions": [
+											"actions": [],
+											"sid": 271024578751780,
+											"children": [
 												{
-													"id": "set-text",
-													"objectClass": "Text_Item_Info",
-													"sid": 824563574297660,
-													"parameters": {
-														"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
-													}
+													"eventType": "comment",
+													"text": "Verifica se tem munição"
 												},
 												{
-													"id": "set-font-size",
-													"objectClass": "Text_Item_Info",
-													"sid": 285182279502450,
-													"parameters": {
-														"size-pt": "40"
-													}
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-at-xyz",
+															"objectClass": "A_Weapons",
+															"sid": 356827114977627,
+															"parameters": {
+																"x": "4",
+																"y": "Dict_Save_File.Get ( \"WP_\" & counter ) ",
+																"z": "counter",
+																"comparison": 4,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Text_Item_Info",
+															"sid": 680967607656781,
+															"disabled": true,
+															"parameters": {
+																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & A_Weapons.At( 4, Dict_Save_File.Get( \"WP_\" & counter ), counter )  & newline & \"[icon=special] \" & A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter )"
+															}
+														}
+													],
+													"sid": 213554138514701,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "icon_list_weapon",
+																	"sid": 367650578095798,
+																	"parameters": {
+																		"object": "Wp_Slot"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Text_Item_Info",
+																	"sid": 251478652382444,
+																	"parameters": {
+																		"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & \" | [icon=ammo] \" & Wp_Slot.Ammo & \"/\" &Wp_Slot.Ammo_Max  & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+																	}
+																}
+															],
+															"sid": 452740192259550
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 866554141627718
+														}
+													],
+													"actions": [
+														{
+															"id": "set-text",
+															"objectClass": "Text_Item_Info",
+															"sid": 783522256799821,
+															"parameters": {
+																"text": "\"[icon=dmg] \" & A_Weapons.At( 2, Dict_Save_File.Get( \"WP_\" & counter ), counter ) & newline & \"[icon=special] \" & Internationalization.Lookup( \"game.work.weapons.\" & tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 0, \"_\"), tokenat( A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 1, \"_\"), tokenat(A_Weapons.At( 5, Dict_Save_File.Get( \"WP_\" & counter ), counter ), 2, \"_\"))"
+															}
+														},
+														{
+															"id": "set-font-size",
+															"objectClass": "Text_Item_Info",
+															"sid": 140186492810093,
+															"parameters": {
+																"size-pt": "40"
+															}
+														}
+													],
+													"sid": 519027820209981
 												}
-											],
-											"sid": 629772940136731
+											]
 										}
 									]
 								}
@@ -16920,48 +17415,6 @@
 																										}
 																									],
 																									"sid": 557424162197815
-																								},
-																								{
-																									"eventType": "block",
-																									"conditions": [
-																										{
-																											"id": "is-animation-playing",
-																											"objectClass": "Icon_Effect_Player",
-																											"sid": 580626199948818,
-																											"parameters": {
-																												"animation": "\"zap\""
-																											}
-																										},
-																										{
-																											"id": "is-visible",
-																											"objectClass": "Icon_Effect_Player",
-																											"sid": 392189417428814
-																										}
-																									],
-																									"actions": [
-																										{
-																											"id": "wait",
-																											"objectClass": "System",
-																											"sid": 452049492104006,
-																											"parameters": {
-																												"seconds": "0.75",
-																												"use-timescale": true
-																											}
-																										},
-																										{
-																											"callFunction": "Change_Health_Enemy",
-																											"sid": 923971142094851,
-																											"parameters": [
-																												"-1 * Icon_Effect_Player.Potency",
-																												"0",
-																												true,
-																												false,
-																												"Enemy.UID",
-																												"\"\""
-																											]
-																										}
-																									],
-																									"sid": 782574646367890
 																								}
 																							]
 																						}
@@ -21775,12 +22228,13 @@
 									"actions": [
 										{
 											"callFunction": "Change_Health_Player",
-											"sid": 153304573060376,
+											"sid": 474382590162171,
 											"parameters": [
 												"-1 * ceil( int ( tokenat ( Hab_Name, 2, \"_\") ) * Dmg_Mod )",
 												false,
 												false,
-												false
+												false,
+												"Z_UID"
 											]
 										},
 										{
@@ -21793,6 +22247,9 @@
 												false,
 												false,
 												true,
+												false,
+												false,
+												false,
 												false,
 												false
 											]
@@ -21821,12 +22278,13 @@
 									"actions": [
 										{
 											"callFunction": "Change_Health_Player",
-											"sid": 705345857105089,
+											"sid": 653664824976934,
 											"parameters": [
 												"-1 * ceil( int( tokenat ( Hab_Name, 2, \"_\") ) * Dmg_Mod )",
 												true,
 												false,
-												false
+												false,
+												"Z_UID"
 											]
 										},
 										{
@@ -21840,6 +22298,9 @@
 												false,
 												false,
 												true,
+												false,
+												false,
+												false,
 												false
 											]
 										}
@@ -21897,6 +22358,9 @@
 									"callFunction": "Play_Audio",
 									"sid": 498592557456609,
 									"parameters": [
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
@@ -21967,6 +22431,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -22029,6 +22496,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -22072,6 +22542,9 @@
 									"callFunction": "Play_Audio",
 									"sid": 801317584375035,
 									"parameters": [
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
@@ -25051,6 +25524,9 @@
 									"sid": 488847821313530,
 									"parameters": [
 										true,
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
