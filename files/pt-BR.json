@@ -19,12 +19,14 @@
             "video": {
                 "title": "VIDEO",
                 "screen": "Tela Cheia",
-                "fps": "Mostrar FPS"
+                "fps": "Mostrar FPS",
+                "particles": "Desabilitar Partículas"
             }, 
             
             "exit": {
-                "title": "SALVAR DADOS",
-                "warning": "ATENÇÃO: isso vai excluir todo o seu progresso e reiniciar o jogo!",
+                "title": "RESETAR",
+                "warning": "ATENÇÃO: isso vai excluir todo o seu progresso e o jogo será fechado!",
+                "confirm": "Tem certeza?",
                 "reset": "APAGAR TODO O SALVAMENTO"
             }
             
@@ -195,6 +197,7 @@
                 "unlock": "BLOQUEADO",
                 "upgrade": "MELHORIA",
                 "cancel": "CANCELAR",
+                "materials": "Materiais",
                 "title_locked": "Bloquado",
                 "locked": "Desconhecido",
                 "label": {
@@ -277,7 +280,8 @@
                 "Mount-9": "[b]NÍVEL - 3[/b]\n\nAndarilho x1 | Múmia x1 | Múmia x1",
                 "Castle-10": "[b]NÍVEL - 1[/b]\n\nZumbi Forte x2 | Cachorro x1",
                 "Castle-11": "[b]NÍVEL - 2[/b]\n\nZumbi Forte x2 | Experimento x1",
-                "Castle-12": "[b]NÍVEL DO CHEFE[/b]\n\nViktor x1"
+                "Castle-12": "[b]CHEFÃO[/b]\n\nViktor x1",
+                "Airship-14": "[b]CHEFÃO[/b]\n\nViktor Monstro x1"
             }
         },
 

@@ -209,6 +209,17 @@
 							"properties": {
 								"enabled": true
 							}
+						},
+						"Bullet": {
+							"properties": {
+								"speed": 0,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": false,
+								"step": false,
+								"enabled": false
+							}
 						}
 					},
 					"instanceFolderItem": {
@@ -263,7 +274,9 @@
 					"uid": 278,
 					"sid": 187421585794842,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": 0
+					},
 					"behaviors": {
 						"Pin": {
 							"properties": {
@@ -399,7 +412,9 @@
 					"uid": 280,
 					"sid": 112195151897469,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": 0
+					},
 					"behaviors": {
 						"Pin": {
 							"properties": {
@@ -473,7 +488,9 @@
 					"uid": 281,
 					"sid": 463460893401536,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": 0
+					},
 					"behaviors": {
 						"Pin": {
 							"properties": {
@@ -547,7 +564,9 @@
 					"uid": 282,
 					"sid": 723861339857422,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": 0
+					},
 					"behaviors": {
 						"Pin": {
 							"properties": {
@@ -621,7 +640,9 @@
 					"uid": 283,
 					"sid": 548747941649897,
 					"tags": "",
-					"instanceVariables": {},
+					"instanceVariables": {
+						"ID": 0
+					},
 					"behaviors": {
 						"Pin": {
 							"properties": {

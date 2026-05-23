@@ -106,6 +106,15 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Steamworks_Ext",
+			"name": "Steamworks",
+			"author": "Scirra",
+			"bundled": false,
+			"version": "1.6.0.0",
+			"sdkVersion": 2
+		},
+		{
+			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -404,7 +413,11 @@
 			"Effect_Bone_Break",
 			"Effect_Spark",
 			"List_Enemy_UID",
-			"Bkg_Frg_Extra_2"
+			"Bkg_Frg_Extra_2",
+			"Steamworks",
+			"Particles2",
+			"Particles_Fog",
+			"Particle_Fog_Sprite"
 		],
 		"subfolders": []
 	},
@@ -1083,16 +1096,7 @@
 			]
 		},
 		"music": {
-			"items": [
-				{
-					"name": "(Main_Menu_Theme) 516912__xythe__chill-tune-for-a-game.webm",
-					"type": "audio/webm; codecs=opus",
-					"sid": 641632743490172,
-					"file-info": {
-						"purpose": "none"
-					}
-				}
-			],
+			"items": [],
 			"subfolders": [
 				{
 					"items": [
@@ -1105,33 +1109,9 @@
 							}
 						},
 						{
-							"name": "Creepy_Halloween_Orchestra_by_Humanoide_Media.mp3",
-							"type": "audio/mpeg",
-							"sid": 295441864459132,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "Epic_Battle_by_Francisco_Samuel.mp3",
-							"type": "audio/mpeg",
-							"sid": 722172079678403,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "Battle_Theme_by_Aley_Vlas.mp3",
-							"type": "audio/mpeg",
-							"sid": 252337052500168,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "Epic_Battle_Song_by_Rolandomat.mp3",
-							"type": "audio/mpeg",
-							"sid": 911761781134058,
+							"name": "Epic_Battle_by_Francisco_Samuel (edited).webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 441300036155340,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -1181,14 +1161,6 @@
 							}
 						},
 						{
-							"name": "Classical_String_Quartet_by_Humanoide_Media.mp3",
-							"type": "audio/mpeg",
-							"sid": 321496644802819,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
 							"name": "Victorian_Violin_Waltz_by_Humanoid_Media.mp3",
 							"type": "audio/mpeg",
 							"sid": 581532345802705,
@@ -1206,14 +1178,6 @@
 							"name": "Cinematic_Violin_Uplifting_Music_by_Humanoide_Media.mp3",
 							"type": "audio/mpeg",
 							"sid": 718982957957233,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "Bloody_Haunting_Night_Epic_Dark_Horror_Soundtrack_Loopable_by_Joel_Fazhari.mp3",
-							"type": "audio/mpeg",
-							"sid": 379415214405173,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -1273,6 +1237,28 @@
 					],
 					"subfolders": [],
 					"name": "Trailer"
+				},
+				{
+					"items": [
+						{
+							"name": "Bloody_Haunting_Night_Epic_Dark_Horror_Soundtrack_Loopable_by_Joel_Fazhari.mp3",
+							"type": "audio/mpeg",
+							"sid": 379415214405173,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "Creepy_Halloween_Orchestra_by_Humanoide_Media.mp3",
+							"type": "audio/mpeg",
+							"sid": 295441864459132,
+							"file-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "Halloween"
 				}
 			]
 		},
@@ -1469,7 +1455,7 @@
 		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
-		"useLoaderLayout": false,
+		"useLoaderLayout": true,
 		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
@@ -1505,7 +1491,7 @@
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "none",
 		"preloadSounds": true,
 		"uidAllocationMode": "increment",
 		"cordovaiOSScheme": "app",

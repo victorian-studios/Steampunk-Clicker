@@ -106,6 +106,16 @@
 			"sid": 515607890294246
 		},
 		{
+			"eventType": "variable",
+			"name": "Ach_NoDmg",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "para saber se o player tomou dano ou não",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 816801942194467
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -125,31 +135,9 @@
 					}
 				},
 				{
-					"id": "stop",
-					"objectClass": "Audio",
-					"sid": 369405679482554,
-					"parameters": {
-						"tag": "\"Main\""
-					}
-				},
-				{
 					"id": "destroy",
 					"objectClass": "Enemy",
 					"sid": 575624260009986
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 575136602199698,
-					"parameters": {
-						"audio-file": {
-							"path": "Battles/Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
-						},
-						"loop": "looping",
-						"volume": "-40 + (VOLUME * 0.4 )",
-						"stereo-pan": "0",
-						"tag-optional": "\"Fight\""
-					}
 				},
 				{
 					"id": "set-layer-visible",
@@ -221,6 +209,15 @@
 					"parameters": {
 						"variable": "Dif_Multiply",
 						"value": "A_Level_Data.At(4, Level)"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 274153305125575,
+					"parameters": {
+						"variable": "Ach_NoDmg",
+						"value": "1"
 					}
 				},
 				{
@@ -456,6 +453,11 @@
 							"id": "move-to-top",
 							"objectClass": "Bkg_Frg_Extra_2",
 							"sid": 744969503552351
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Player",
+							"sid": 244958691853765
 						}
 					],
 					"sid": 332111432707244
@@ -512,9 +514,52 @@
 							"id": "move-to-top",
 							"objectClass": "Frg_Extra",
 							"sid": 357493576363830
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Player",
+							"sid": 489594594715474
 						}
 					],
 					"sid": 174078565009254
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 432334487202975,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 0,
+								"value": "5"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 293288795283454,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 0,
+								"value": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 513068099630082,
+							"parameters": {
+								"layer": "\"Particles\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 863848132412383,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "comment",
@@ -871,7 +916,18 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 791407434575241,
+							"parameters": {
+								"variable": "Armor_Special_ID",
+								"comparison": 5,
+								"value": "0"
+							}
+						}
+					],
 					"actions": [
 						{
 							"id": "set-animation",
@@ -899,7 +955,8 @@
 							}
 						}
 					],
-					"sid": 569830528384736
+					"sid": 569830528384736,
+					"isOrBlock": true
 				},
 				{
 					"eventType": "comment",
@@ -922,6 +979,16 @@
 								"variable": "Weapon_ID_1",
 								"comparison": 1,
 								"value": "\"none\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 395930361005171,
+							"parameters": {
+								"variable": "Weapon_ID_1",
+								"comparison": 1,
+								"value": "\"\""
 							}
 						}
 					],
@@ -998,6 +1065,16 @@
 								"variable": "Weapon_ID_2",
 								"comparison": 1,
 								"value": "\"none\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 562357062385586,
+							"parameters": {
+								"variable": "Weapon_ID_2",
+								"comparison": 1,
+								"value": "\"\""
 							}
 						}
 					],
@@ -1280,6 +1357,85 @@
 						}
 					],
 					"sid": 893821882369594
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 355413529718087
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 208895878723485
+				}
+			],
+			"sid": 585558478763399,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 919431017883495,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 2,
+								"value": "14"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 507716202573186,
+							"parameters": {
+								"audio-file": {
+									"path": "Battles/Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
+								},
+								"loop": "looping",
+								"volume": "-40 + (VOLUME * 0.4 )",
+								"stereo-pan": "0",
+								"tag-optional": "\"Fight\""
+							}
+						}
+					],
+					"sid": 925035689710344
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 749234151815220
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 689624571380354,
+							"parameters": {
+								"audio-file": {
+									"path": "Battles/Epic_Battle_by_Francisco_Samuel (edited)"
+								},
+								"loop": "looping",
+								"volume": "-40 + (VOLUME * 0.4 )",
+								"stereo-pan": "0",
+								"tag-optional": "\"Fight\""
+							}
+						}
+					],
+					"sid": 386309123428475
 				}
 			]
 		},
@@ -3271,11 +3427,12 @@
 										},
 										{
 											"callFunction": "Change_Health_Player",
-											"sid": 163425450111808,
+											"sid": 818221701795259,
 											"parameters": [
 												"-1 * Icon_Effect_Player.Potency",
 												true,
-												false
+												false,
+												true
 											]
 										}
 									],
@@ -3399,6 +3556,7 @@
 									"parameters": [
 										"5",
 										false,
+										false,
 										false
 									]
 								}
@@ -3446,7 +3604,8 @@
 									"parameters": [
 										"10",
 										false,
-										true
+										true,
+										false
 									]
 								}
 							],
@@ -3482,6 +3641,13 @@
 							"initialValue": "false",
 							"comment": "para spawnar um txt para o escudo",
 							"sid": 504366975512703
+						},
+						{
+							"name": "IgnoreDodge",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 825966478849327
 						}
 					],
 					"eventType": "function-block",
@@ -3867,6 +4033,14 @@
 										"comparison": 0,
 										"value": "0"
 									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 259905238332442,
+									"parameters": {
+										"variable": "IgnoreDodge"
+									}
 								}
 							],
 							"actions": [],
@@ -3947,6 +4121,15 @@
 													"sid": 331200089308720,
 													"parameters": {
 														"text": "\"[icon=pdmg]\" & ceil( abs( Amount * p_dmg_mod ) )"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 292565130638371,
+													"parameters": {
+														"variable": "Ach_NoDmg",
+														"value": "0"
 													}
 												}
 											],
@@ -4183,6 +4366,15 @@
 															"parameters": {
 																"text": "\"[icon=dmg]\" & abs ( remaining_dmg )"
 															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 820267929583621,
+															"parameters": {
+																"variable": "Ach_NoDmg",
+																"value": "0"
+															}
 														}
 													],
 													"sid": 603681722513267
@@ -4244,7 +4436,8 @@
 										}
 									]
 								}
-							]
+							],
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -4360,6 +4553,15 @@
 															"sid": 565016708345749,
 															"parameters": {
 																"text": "ceil( abs( Amount * p_dmg_mod ) )"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 657920729395320,
+															"parameters": {
+																"variable": "Ach_NoDmg",
+																"value": "0"
 															}
 														}
 													],
@@ -4595,6 +4797,15 @@
 																	"sid": 295625065322057,
 																	"parameters": {
 																		"text": "\"[icon=dmg]\" & abs ( remaining_dmg )"
+																	}
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 182488486755869,
+																	"parameters": {
+																		"variable": "Ach_NoDmg",
+																		"value": "0"
 																	}
 																}
 															],
@@ -7941,6 +8152,7 @@
 																				"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																				"0",
 																				true,
+																				false,
 																				"Enemy.UID",
 																				"Special"
 																			]
@@ -7960,6 +8172,7 @@
 																			"parameters": [
 																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																				"0",
+																				false,
 																				false,
 																				"Enemy.UID",
 																				"\"\""
@@ -7988,6 +8201,7 @@
 																			"parameters": [
 																				"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																				"0",
+																				false,
 																				false,
 																				"Enemy.UID",
 																				"Special"
@@ -8035,6 +8249,7 @@
 																	"parameters": [
 																		"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																		"0",
+																		false,
 																		false,
 																		"Enemy.UID",
 																		"Special"
@@ -8235,6 +8450,7 @@
 																								"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																								"0",
 																								true,
+																								false,
 																								"Enemy.UID",
 																								"\"\""
 																							]
@@ -8254,6 +8470,7 @@
 																							"parameters": [
 																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																								"0",
+																								false,
 																								false,
 																								"Enemy.UID",
 																								"\"\""
@@ -8282,6 +8499,7 @@
 																							"parameters": [
 																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																								"0",
+																								false,
 																								false,
 																								"Enemy.UID",
 																								"\"\""
@@ -8329,6 +8547,7 @@
 																					"parameters": [
 																						"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																						"0",
+																						false,
 																						false,
 																						"Enemy.UID",
 																						"\"\""
@@ -8439,6 +8658,7 @@
 																								"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																								"0",
 																								true,
+																								false,
 																								"Target_UID",
 																								"Special"
 																							]
@@ -8462,6 +8682,7 @@
 																							"parameters": [
 																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																								"0",
+																								false,
 																								false,
 																								"Target_UID",
 																								"\"\""
@@ -8517,6 +8738,7 @@
 																												"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																												"0",
 																												true,
+																												false,
 																												"Target_UID",
 																												"Special"
 																											]
@@ -8540,6 +8762,7 @@
 																											"parameters": [
 																												"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) ) * Player_Dmg_mod )",
 																												"0",
+																												false,
 																												false,
 																												"Target_UID",
 																												"\"\""
@@ -8565,6 +8788,7 @@
 																												"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																												"0",
 																												true,
+																												false,
 																												"Target_UID",
 																												"Special"
 																											]
@@ -8584,6 +8808,7 @@
 																											"parameters": [
 																												"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																												"0",
+																												false,
 																												false,
 																												"Target_UID",
 																												"\"\""
@@ -8611,6 +8836,7 @@
 																										"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																										"0",
 																										true,
+																										false,
 																										"Target_UID",
 																										"Special"
 																									]
@@ -8634,6 +8860,7 @@
 																									"parameters": [
 																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																										"0",
+																										false,
 																										false,
 																										"Target_UID",
 																										"\"\""
@@ -8711,6 +8938,7 @@
 																												"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod )",
 																												"0",
 																												false,
+																												false,
 																												"Target_UID",
 																												"Special"
 																											]
@@ -8738,6 +8966,7 @@
 																											"parameters": [
 																												"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																												"0",
+																												false,
 																												false,
 																												"Target_UID",
 																												"Special"
@@ -8768,6 +8997,7 @@
 																									"parameters": [
 																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																										"0",
+																										false,
 																										false,
 																										"Target_UID",
 																										"Special"
@@ -8820,6 +9050,7 @@
 																					"parameters": [
 																						"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																						"0",
+																						false,
 																						false,
 																						"Target_UID",
 																						"Special"
@@ -8964,6 +9195,7 @@
 																										"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																										"0",
 																										true,
+																										false,
 																										"Target_UID",
 																										"Special"
 																									]
@@ -8987,6 +9219,7 @@
 																									"parameters": [
 																										"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) ) * Player_Dmg_mod )",
 																										"0",
+																										false,
 																										false,
 																										"Target_UID",
 																										"\"\""
@@ -9012,6 +9245,7 @@
 																										"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																										"0",
 																										true,
+																										false,
 																										"Target_UID",
 																										"Special"
 																									]
@@ -9031,6 +9265,7 @@
 																									"parameters": [
 																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																										"0",
+																										false,
 																										false,
 																										"Target_UID",
 																										"\"\""
@@ -9058,6 +9293,7 @@
 																								"-1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) * Player_Dmg_mod)",
 																								"0",
 																								true,
+																								false,
 																								"Target_UID",
 																								"Special"
 																							]
@@ -9081,6 +9317,7 @@
 																							"parameters": [
 																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) * Player_Dmg_mod ) : 0",
 																								"0",
+																								false,
 																								false,
 																								"Target_UID",
 																								"\"\""
@@ -9158,6 +9395,7 @@
 																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) + int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\")) )* Player_Dmg_mod )",
 																										"0",
 																										false,
+																										false,
 																										"Target_UID",
 																										"Special"
 																									]
@@ -9185,6 +9423,7 @@
 																									"parameters": [
 																										"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																										"0",
+																										false,
 																										false,
 																										"Target_UID",
 																										"Special"
@@ -9215,6 +9454,7 @@
 																							"parameters": [
 																								"A_Weapons.At ( 2, Action_Lvl, Action_ID ) > 0 ? -1 * ceil( ( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) ) + ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) ) )* Player_Dmg_mod ) : -1 * ceil( ( A_Weapons.At ( 3, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																								"0",
+																								false,
 																								false,
 																								"Target_UID",
 																								"Special"
@@ -9267,6 +9507,7 @@
 																			"parameters": [
 																				"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																				"0",
+																				false,
 																				false,
 																				"Target_UID",
 																				"Special"
@@ -9713,6 +9954,7 @@
 																				"-1 * ceil( (A_Weapons.At(2, Action_Lvl, Action_ID) * (int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\") ) / 100 ) ) * Player_Dmg_mod )",
 																				"0",
 																				false,
+																				false,
 																				"int(List_Enemy_UID.ItemTextAt(1) )",
 																				"\"\""
 																			]
@@ -9723,6 +9965,7 @@
 																			"parameters": [
 																				"-1 * ceil( (A_Weapons.At(2, Action_Lvl, Action_ID) * (int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\") ) / 100 ) ) * Player_Dmg_mod )",
 																				"0",
+																				false,
 																				false,
 																				"int(List_Enemy_UID.ItemTextAt(2) )",
 																				"\"\""
@@ -9762,6 +10005,7 @@
 																			"parameters": [
 																				"-1 * ceil( (A_Weapons.At(2, Action_Lvl, Action_ID) * (int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\") ) / 100 ) ) * Player_Dmg_mod )",
 																				"0",
+																				false,
 																				false,
 																				"int(List_Enemy_UID.ItemTextAt(0) )",
 																				"\"\""
@@ -9945,7 +10189,8 @@
 																	"parameters": [
 																		"int(tokenat(A_Weapons.At(5, Action_Lvl, Action_ID), 1, \"_\"))",
 																		false,
-																		true
+																		true,
+																		false
 																	]
 																}
 															],
@@ -9967,7 +10212,8 @@
 																	"parameters": [
 																		"Shield_Max - Shield",
 																		false,
-																		true
+																		true,
+																		false
 																	]
 																},
 																{
@@ -10221,6 +10467,7 @@
 																		"-1 * ( A_Habilities.At ( 2, Action_Lvl, Action_ID ) )",
 																		"0",
 																		false,
+																		false,
 																		"Enemy.UID",
 																		"\"\""
 																	]
@@ -10324,7 +10571,8 @@
 																	"parameters": [
 																		"int(A_Habilities.At(2, Action_Lvl, Action_ID))",
 																		false,
-																		true
+																		true,
+																		false
 																	]
 																}
 															],
@@ -10346,7 +10594,8 @@
 																	"parameters": [
 																		"Shield_Max - Shield",
 																		false,
-																		true
+																		true,
+																		false
 																	]
 																},
 																{
@@ -10420,6 +10669,7 @@
 																	"parameters": [
 																		"int(A_Habilities.At(2, Action_Lvl, Action_ID))",
 																		false,
+																		false,
 																		false
 																	]
 																}
@@ -10441,6 +10691,7 @@
 																	"sid": 521130321906054,
 																	"parameters": [
 																		"HP_Max - HP",
+																		false,
 																		false,
 																		false
 																	]
@@ -10661,6 +10912,7 @@
 																		"-1 * ( A_Habilities.At ( 2, Action_Lvl, Action_ID ) )",
 																		"0",
 																		false,
+																		false,
 																		"Enemy.UID",
 																		"\"\""
 																	]
@@ -10738,6 +10990,7 @@
 																	"parameters": [
 																		"-1 * ( A_Habilities.At ( 2, Action_Lvl, Action_ID ) )",
 																		"0",
+																		false,
 																		false,
 																		"Enemy.UID",
 																		"\"\""
@@ -10957,6 +11210,7 @@
 																	"parameters": [
 																		"-1 * ceil( ( A_Weapons.At ( 2, Action_Lvl, Action_ID ) )* Player_Dmg_mod )",
 																		"0",
+																		false,
 																		false,
 																		"Enemy.UID",
 																		"\"\""
@@ -12284,15 +12538,6 @@
 									"id": "destroy",
 									"objectClass": "Icon_Mira",
 									"sid": 340684268014280
-								},
-								{
-									"id": "set-position",
-									"objectClass": "Select_Hab",
-									"sid": 638290775330160,
-									"parameters": {
-										"x": "Wp_Slot.X",
-										"y": "Wp_Slot.Y"
-									}
 								}
 							],
 							"sid": 253425244956556,
@@ -12312,6 +12557,15 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Select_Hab",
+											"sid": 640073887751602,
+											"parameters": {
+												"x": "Wp_Slot.X",
+												"y": "Wp_Slot.Y"
+											}
+										},
 										{
 											"callFunction": "Get_Targets",
 											"sid": 783636581263879,
@@ -12336,9 +12590,38 @@
 												"comparison": 0,
 												"value": "2"
 											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 636712771497249,
+											"parameters": {
+												"variable": "Weapon_ID_2",
+												"comparison": 1,
+												"value": "\"none\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 584193671477907,
+											"parameters": {
+												"variable": "Weapon_ID_2",
+												"comparison": 1,
+												"value": "\"\""
+											}
 										}
 									],
 									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Select_Hab",
+											"sid": 785886200576032,
+											"parameters": {
+												"x": "Wp_Slot.X",
+												"y": "Wp_Slot.Y"
+											}
+										},
 										{
 											"callFunction": "Get_Targets",
 											"sid": 933114346909120,
@@ -12406,15 +12689,6 @@
 									"id": "destroy",
 									"objectClass": "Icon_Mira",
 									"sid": 588054020604608
-								},
-								{
-									"id": "set-position",
-									"objectClass": "Select_Hab",
-									"sid": 288335137056840,
-									"parameters": {
-										"x": "Hab_Slot.X",
-										"y": "Hab_Slot.Y"
-									}
 								}
 							],
 							"sid": 891738353614996,
@@ -12431,9 +12705,28 @@
 												"comparison": 0,
 												"value": "1"
 											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 237488482192020,
+											"parameters": {
+												"variable": "HAB_ID_1",
+												"comparison": 1,
+												"value": "-1"
+											}
 										}
 									],
 									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Select_Hab",
+											"sid": 854878826741722,
+											"parameters": {
+												"x": "Hab_Slot.X",
+												"y": "Hab_Slot.Y"
+											}
+										},
 										{
 											"callFunction": "Get_Targets",
 											"sid": 651663477121188,
@@ -12458,9 +12751,28 @@
 												"comparison": 0,
 												"value": "2"
 											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 343878214839210,
+											"parameters": {
+												"variable": "HAB_ID_2",
+												"comparison": 1,
+												"value": "-1"
+											}
 										}
 									],
 									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Select_Hab",
+											"sid": 321467597563327,
+											"parameters": {
+												"x": "Hab_Slot.X",
+												"y": "Hab_Slot.Y"
+											}
+										},
 										{
 											"callFunction": "Get_Targets",
 											"sid": 592151474685773,
@@ -15262,10 +15574,11 @@
 																},
 																{
 																	"callFunction": "Change_Health_Enemy",
-																	"sid": 585380240090470,
+																	"sid": 783316746995527,
 																	"parameters": [
 																		"-1 * Icon_Effect_Enemy.Potency",
 																		"0",
+																		true,
 																		true,
 																		"Enemy.UID",
 																		"\"\""
@@ -15362,10 +15675,11 @@
 																},
 																{
 																	"callFunction": "Change_Health_Enemy",
-																	"sid": 665128621584025,
+																	"sid": 651474927351563,
 																	"parameters": [
 																		"-1 * Icon_Effect_Enemy.Potency",
 																		"0",
+																		true,
 																		true,
 																		"Enemy.UID",
 																		"\"\""
@@ -15851,6 +16165,7 @@
 																										"-1 * Icon_Effect_Player.Potency",
 																										"0",
 																										true,
+																										false,
 																										"Enemy.UID",
 																										"\"\""
 																									]
@@ -16246,6 +16561,7 @@
 																												"-1 * Icon_Effect_Player.Potency",
 																												"0",
 																												true,
+																												false,
 																												"Enemy.UID",
 																												"\"\""
 																											]
@@ -16639,6 +16955,7 @@
 																												"-1 * Icon_Effect_Player.Potency",
 																												"0",
 																												true,
+																												false,
 																												"Enemy.UID",
 																												"\"\""
 																											]
@@ -16923,6 +17240,13 @@
 							"initialValue": "false",
 							"comment": "true - atravessa shield / false - não atravessa shield",
 							"sid": 381150073947430
+						},
+						{
+							"name": "IgnoreDodge",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 129947376822574
 						},
 						{
 							"name": "Enemy_UID",
@@ -17478,6 +17802,14 @@
 												"variable": "dodge",
 												"comparison": 0,
 												"value": "0"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 550543346900690,
+											"parameters": {
+												"variable": "IgnoreDodge"
 											}
 										}
 									],
@@ -18068,7 +18400,8 @@
 												}
 											]
 										}
-									]
+									],
+									"isOrBlock": true
 								},
 								{
 									"eventType": "block",
@@ -21446,6 +21779,7 @@
 											"parameters": [
 												"-1 * ceil( int ( tokenat ( Hab_Name, 2, \"_\") ) * Dmg_Mod )",
 												false,
+												false,
 												false
 											]
 										},
@@ -21491,6 +21825,7 @@
 											"parameters": [
 												"-1 * ceil( int( tokenat ( Hab_Name, 2, \"_\") ) * Dmg_Mod )",
 												true,
+												false,
 												false
 											]
 										},
@@ -21781,6 +22116,7 @@
 											"parameters": [
 												"0",
 												"int( tokenat ( Hab_Name, 0, \"_\" ) )",
+												false,
 												false,
 												"Enemy.UID",
 												"\"\""
@@ -23536,6 +23872,152 @@
 					"sid": 860089130590857,
 					"children": [
 						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Save_File",
+									"sid": 938453500692024,
+									"parameters": {
+										"key": "\"ACH_OVERKILL\"",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 225147768676843,
+									"parameters": {
+										"variable": "Armor_ID",
+										"comparison": 0,
+										"value": "\"6\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 530573507196806,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 181469734415882,
+											"parameters": {
+												"variable": "Weapon_ID_1",
+												"comparison": 0,
+												"value": "\"WP_7\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 916495660067063,
+											"parameters": {
+												"variable": "Weapon_ID_2",
+												"comparison": 0,
+												"value": "\"WP_6\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Save_File",
+											"sid": 459378627044255,
+											"parameters": {
+												"key": "\"ACH_OVERKILL\"",
+												"value": "1"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 166283433693292,
+											"parameters": {
+												"achievement": "\"OVERKILL\""
+											}
+										}
+									],
+									"sid": 335706639690841
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 777895356682096,
+											"parameters": {
+												"variable": "Weapon_ID_1",
+												"comparison": 0,
+												"value": "\"WP_6\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 809731655044127,
+											"parameters": {
+												"variable": "Weapon_ID_2",
+												"comparison": 0,
+												"value": "\"WP_7\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 705676214574172
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Save_File",
+									"sid": 368589697518510,
+									"parameters": {
+										"key": "\"ACH_NODMG\"",
+										"comparison": 0,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 386187211835775,
+									"parameters": {
+										"variable": "Ach_NoDmg",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-key",
+									"objectClass": "Dict_Save_File",
+									"sid": 685587211729903,
+									"parameters": {
+										"key": "\"ACH_NODMG\"",
+										"value": "1"
+									}
+								},
+								{
+									"id": "unlock-achievement",
+									"objectClass": "Steamworks",
+									"sid": 649563892490144,
+									"parameters": {
+										"achievement": "\"NODAMAGE\""
+									}
+								}
+							],
+							"sid": 413762072670298
+						},
+						{
 							"eventType": "comment",
 							"text": "Se for a batalha contra o boss e ele morrer, vai pra comic."
 						},
@@ -23545,11 +24027,11 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 287179530022115,
+									"sid": 872298387101181,
 									"parameters": {
 										"variable": "Level",
 										"comparison": 0,
-										"value": "13"
+										"value": "14"
 									}
 								}
 							],
@@ -23703,17 +24185,139 @@
 												"variable": "Layout_To_Load",
 												"value": "\"Game\""
 											}
-										},
-										{
-											"id": "go-to-layout",
-											"objectClass": "System",
-											"sid": 184611228230002,
-											"parameters": {
-												"layout": "Loading"
-											}
 										}
 									],
-									"sid": 960755404049332
+									"sid": 960755404049332,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Save_File",
+													"sid": 955796845159298,
+													"parameters": {
+														"key": "\"LVL\"",
+														"comparison": 0,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "unlock-achievement",
+													"objectClass": "Steamworks",
+													"sid": 724291407049349,
+													"parameters": {
+														"achievement": "\"CITY\""
+													}
+												}
+											],
+											"sid": 511019058327524
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Save_File",
+													"sid": 980172405608208,
+													"parameters": {
+														"key": "\"LVL\"",
+														"comparison": 0,
+														"value": "6"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "unlock-achievement",
+													"objectClass": "Steamworks",
+													"sid": 600827157581526,
+													"parameters": {
+														"achievement": "\"CEMETERY\""
+													}
+												}
+											],
+											"sid": 119122458048023
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Save_File",
+													"sid": 459128036273040,
+													"parameters": {
+														"key": "\"LVL\"",
+														"comparison": 0,
+														"value": "9"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "unlock-achievement",
+													"objectClass": "Steamworks",
+													"sid": 231971544959519,
+													"parameters": {
+														"achievement": "\"MOUTAIN\""
+													}
+												}
+											],
+											"sid": 472541902268019
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-value",
+													"objectClass": "Dict_Save_File",
+													"sid": 259255682811381,
+													"parameters": {
+														"key": "\"LVL\"",
+														"comparison": 0,
+														"value": "12"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "unlock-achievement",
+													"objectClass": "Steamworks",
+													"sid": 399605410139935,
+													"parameters": {
+														"achievement": "\"CASTLE\""
+													}
+												}
+											],
+											"sid": 777633717026232
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 955575536816720,
+													"parameters": {
+														"seconds": "0.01",
+														"use-timescale": true
+													}
+												},
+												{
+													"id": "go-to-layout",
+													"objectClass": "System",
+													"sid": 638499176193379,
+													"parameters": {
+														"layout": "Loading"
+													}
+												}
+											],
+											"sid": 914641173772559
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -24699,94 +25303,41 @@
 				{
 					"id": "on-key-pressed",
 					"objectClass": "Keyboard",
-					"sid": 552741054973773,
+					"sid": 465245024075534,
 					"parameters": {
-						"key": 49
+						"key": 68
 					}
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 609103275155175,
+			"children": [
 				{
-					"callFunction": "Apply_Effect_Player",
-					"sid": 164094090375787,
-					"parameters": [
-						true,
-						false,
-						false,
-						"\"zap\"",
-						"15",
-						"3"
-					]
-				},
-				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 128333376256572,
-					"parameters": {
-						"layer": "\"Tutorial\"",
-						"visibility": "invisible"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 647169073425793,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 564436195521992,
+							"parameters": {
+								"instance-variable": "HP",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 262570369078355
 				}
-			],
-			"sid": 609103275155175
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 491275519016728,
-					"parameters": {
-						"key": 50
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Apply_Effect_Enemy",
-					"sid": 248669404038112,
-					"parameters": [
-						false,
-						true,
-						false,
-						"\"mark\"",
-						"25",
-						"3",
-						"2"
-					]
-				}
-			],
-			"sid": 429550222586243
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 118143859477034,
-					"parameters": {
-						"key": 51
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Apply_Effect_Enemy",
-					"sid": 429471540211260,
-					"parameters": [
-						false,
-						false,
-						true,
-						"\"poison\"",
-						"5",
-						"3",
-						"3"
-					]
-				}
-			],
-			"sid": 652933750189793
+			]
 		}
 	],
 	"sid": 486033056870913

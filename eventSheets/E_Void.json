@@ -40,7 +40,83 @@
 					]
 				}
 			],
-			"sid": 538592892704961
+			"sid": 538592892704961,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 104140786341934,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 318424926330632
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 647023480722637,
+							"parameters": {
+								"audio-file": {
+									"path": "Main Game/Victorian_Violin_Waltz_by_Humanoid_Media"
+								},
+								"loop": "looping",
+								"volume": "-40 + ( VOLUME * 0.4 )",
+								"stereo-pan": "0",
+								"tag-optional": "\"Cred\""
+							}
+						}
+					],
+					"sid": 975911762992768
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 135428578384082,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 0,
+								"value": "14"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 589869892067122
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 219106856936670,
+							"parameters": {
+								"audio-file": {
+									"path": "Credits/One_Thousand_Years_Ago_Victorian_Gothic_Piano_Music_Loopable_by_Joel_Fazhari"
+								},
+								"loop": "looping",
+								"volume": "-40 + ( VOLUME * 0.4 )",
+								"stereo-pan": "0",
+								"tag-optional": "\"Cred\""
+							}
+						}
+					],
+					"sid": 670728876948999
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -1705,6 +1781,41 @@
 									]
 								},
 								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Save_File",
+											"sid": 956427088031893,
+											"parameters": {
+												"key": "\"ACH_VK\"",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Save_File",
+											"sid": 123375444537935,
+											"parameters": {
+												"key": "\"ACH_VK\"",
+												"value": "1"
+											}
+										},
+										{
+											"id": "unlock-achievement",
+											"objectClass": "Steamworks",
+											"sid": 768695909046191,
+											"parameters": {
+												"achievement": "\"VIKTOR\""
+											}
+										}
+									],
+									"sid": 179096687381711
+								},
+								{
 									"bookmark": true,
 									"eventType": "block",
 									"conditions": [],
@@ -1717,6 +1828,16 @@
 												"seconds": "1",
 												"use-timescale": true
 											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Comic_Side1",
+											"sid": 351544535792309
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Comic_Side2",
+											"sid": 330843170525953
 										},
 										{
 											"id": "set-layer-visible",
@@ -1749,6 +1870,42 @@
 											"id": "set-angle-of-motion",
 											"objectClass": "Txt_Credits",
 											"sid": 728182390165763,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "270"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "victorianstudio",
+											"sid": 122095046299254,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "victorianstudio",
+											"sid": 209559823226534,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"angle": "270"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Game_Logo",
+											"sid": 173271727022398,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-angle-of-motion",
+											"objectClass": "Game_Logo",
+											"sid": 535078082718394,
 											"behaviorType": "Bullet",
 											"parameters": {
 												"angle": "270"
@@ -2176,44 +2333,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-any-touch-end",
-					"objectClass": "Touch",
-					"sid": 824628449386493
-				},
-				{
-					"id": "compare-boolean-eventvar",
-					"objectClass": "System",
-					"sid": 463035645578822,
-					"parameters": {
-						"variable": "Credits"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 957018478672007,
-					"parameters": {
-						"variable": "Layout_To_Load",
-						"value": "\"Menu\""
-					}
-				},
-				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 409303746894203,
-					"parameters": {
-						"layout": "Loading"
-					}
-				}
-			],
-			"sid": 469197625780365
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
 					"sid": 760731178844512,
@@ -2231,16 +2350,92 @@
 					}
 				}
 			],
-			"actions": [
-				{
-					"id": "start-fade",
-					"objectClass": "Btn_SkipComic",
-					"sid": 984229737607021,
-					"behaviorType": "Fade"
-				}
-			],
+			"actions": [],
 			"sid": 755116532927950,
 			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 795736076248466,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 0,
+								"value": "14"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Btn_SkipComic",
+							"sid": 949380242288189,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.2"
+							}
+						}
+					],
+					"sid": 450699691176726,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 452292969961417,
+									"parameters": {
+										"variable": "Credits"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 964518828457746,
+									"parameters": {
+										"variable": "Layout_To_Load",
+										"value": "\"Menu\""
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 763832708973355,
+									"parameters": {
+										"layout": "Loading"
+									}
+								}
+							],
+							"sid": 285245887115508
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 685860244762967
+						}
+					],
+					"actions": [
+						{
+							"id": "start-fade",
+							"objectClass": "Btn_SkipComic",
+							"sid": 975827597516867,
+							"behaviorType": "Fade"
+						}
+					],
+					"sid": 535594663515224
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -2383,11 +2578,58 @@
 								"0",
 								true
 							]
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 470744240279356,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
 						}
 					],
 					"sid": 866017893471601
 				}
 			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Sair dos créditos automaticamente"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-y",
+					"objectClass": "victorianstudio",
+					"sid": 965603996989741,
+					"parameters": {
+						"comparison": 0,
+						"y-co-ordinate": "-255"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 648448784171130,
+					"parameters": {
+						"variable": "Layout_To_Load",
+						"value": "\"Menu\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 938101001794020,
+					"parameters": {
+						"layout": "Loading"
+					}
+				}
+			],
+			"sid": 379857813098638
 		},
 		{
 			"eventType": "block",

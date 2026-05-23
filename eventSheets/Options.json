@@ -22,6 +22,16 @@
 			"sid": 793825052966305
 		},
 		{
+			"eventType": "variable",
+			"name": "Option_Particles",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 811062292307377
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -97,6 +107,15 @@
 					"sid": 660515690708545,
 					"parameters": {
 						"layer": "\"SaveData\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 811072566379711,
+					"parameters": {
+						"layer": "\"Confirm\"",
 						"visibility": "invisible"
 					}
 				},
@@ -212,6 +231,36 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 312992024139923
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "Progbar_volume",
+					"sid": 904174274133741,
+					"parameters": {
+						"width": "Slider_Volume.X - 830"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 935943661308255,
+					"parameters": {
+						"variable": "VOLUME",
+						"value": "int( Progbar_volume.Width / 5.12 )"
+					}
+				}
+			],
+			"sid": 247754348208836
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "layer-is-visible",
 					"objectClass": "System",
 					"sid": 493823908506079,
@@ -272,66 +321,6 @@
 			"actions": [],
 			"sid": 488862661229787,
 			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-all",
-							"objectClass": "System",
-							"sid": 426424512768714,
-							"parameters": {
-								"object": "Btn_Config_Options"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Btn_Config_Options",
-							"sid": 297902993767659,
-							"parameters": {
-								"frame-number": "0"
-							}
-						}
-					],
-					"sid": 360364676804994
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "pick-by-comparison",
-							"objectClass": "System",
-							"sid": 896323873625605,
-							"parameters": {
-								"object": "Btn_Config_Options",
-								"expression": "Btn_Config_Options.ID",
-								"comparison": 0,
-								"value": "1"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 319068112495885,
-							"parameters": {
-								"seconds": "0.01",
-								"use-timescale": true
-							}
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Btn_Config_Options",
-							"sid": 179716049009994,
-							"parameters": {
-								"frame-number": "1"
-							}
-						}
-					],
-					"sid": 895461983324315
-				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -1204,6 +1193,132 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "compare-y",
+					"objectClass": "Bkg_options",
+					"sid": 248829616799145,
+					"parameters": {
+						"comparison": 0,
+						"y-co-ordinate": "-310"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 748067379762310,
+			"disabled": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 495284815532553,
+							"parameters": {
+								"object": "Btn_Config_Options"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 327849004234435,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 652069407580638,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 148085504235082,
+							"parameters": {
+								"object": "Btn_Config_Options",
+								"expression": "Btn_Config_Options.ID",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 789271045721251,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Btn_Config_Options",
+							"sid": 190554964900286,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Btn_Config_Options",
+							"sid": 499109120089769,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 867770098951179,
+							"parameters": {
+								"layer": "\"Translation\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 523777122865218,
+							"parameters": {
+								"layer": "\"Sound\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 296060678921452,
+							"parameters": {
+								"layer": "\"Video\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 526377034640435,
+							"parameters": {
+								"layer": "\"SaveData\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 684847088357950,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-tap-object",
 					"objectClass": "Touch",
 					"sid": 137220176121596,
@@ -1292,6 +1407,15 @@
 					"sid": 206309320039303,
 					"parameters": {
 						"layer": "\"SaveData\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 973759197461628,
+					"parameters": {
+						"layer": "\"Confirm\"",
 						"visibility": "invisible"
 					}
 				},
@@ -1863,6 +1987,28 @@
 							"parameters": {
 								"text": "Internationalization.Lookup( Self.my_Txt )"
 							}
+						},
+						{
+							"callFunction": "PopulateList",
+							"sid": 777165764881829,
+							"parameters": [
+								"\"Armor\""
+							]
+						},
+						{
+							"callFunction": "PopulateList",
+							"sid": 172061335768872,
+							"parameters": [
+								"\"Weapons\""
+							]
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Contorno_fake",
+							"sid": 612621925060012,
+							"parameters": {
+								"frame-number": "0"
+							}
 						}
 					],
 					"sid": 238856495934875
@@ -1891,25 +2037,7 @@
 							"behaviorType": "DragDrop"
 						}
 					],
-					"actions": [
-						{
-							"id": "set-width",
-							"objectClass": "Progbar_volume",
-							"sid": 131052681294961,
-							"parameters": {
-								"width": "Slider_Volume.X - 830"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 557031628550610,
-							"parameters": {
-								"variable": "VOLUME",
-								"value": "int( Progbar_volume.Width / 5.12 )"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 106735847736593,
 					"children": [
 						{
@@ -2413,6 +2541,163 @@
 									"sid": 461505978665827
 								}
 							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Particles",
+							"text-color": [
+								0.7215686274509804,
+								0.7215686274509804,
+								0.7215686274509804,
+								1
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Checkbox_Options",
+									"sid": 511328589359944,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 282012489514540,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 159634264369180,
+											"parameters": {
+												"comparison": 0,
+												"number": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 416887992420140,
+											"parameters": {
+												"frame-number": "1"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 864343920157786,
+											"parameters": {
+												"layer": "\"Particles\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 120018547596807,
+											"parameters": {
+												"variable": "Option_Particles",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 546498277654841,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 687180308131633,
+													"parameters": {
+														"object": "Production"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 222095960348227,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "pick-by-comparison",
+															"objectClass": "System",
+															"sid": 339354595437333,
+															"parameters": {
+																"object": "Particles_Steam",
+																"expression": "Particles_Steam.ID",
+																"comparison": 0,
+																"value": "Production.Array_ID"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-rate",
+															"objectClass": "Particles_Steam",
+															"sid": 545788022472654,
+															"parameters": {
+																"rate": "0"
+															}
+														}
+													],
+													"sid": 102205168320606
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 455212946293587
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "Checkbox_Options",
+											"sid": 576994137264620,
+											"parameters": {
+												"frame-number": "0"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 990803185827676,
+											"parameters": {
+												"layer": "\"Particles\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 873152578208899,
+											"parameters": {
+												"variable": "Option_Particles",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 886043639017501
+								}
+							]
 						}
 					]
 				}
@@ -2458,12 +2743,110 @@
 					],
 					"actions": [
 						{
-							"id": "clear-storage",
-							"objectClass": "LocalStorage",
-							"sid": 504592975577652
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 919471701608323,
+							"parameters": {
+								"layer": "\"Confirm\"",
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 620499289203040
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 872581263751115,
+							"parameters": {
+								"object": "Btn_Start_Level"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Btn_Start_Level",
+							"sid": 761480723129697,
+							"parameters": {
+								"animation": "\"Options\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 735793173643986,
+							"parameters": {
+								"layer": "\"SaveData\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 860084030313955,
+							"parameters": {
+								"layer": "\"Confirm\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "clear-storage",
+							"objectClass": "LocalStorage",
+							"sid": 133444525284325
+						}
+					],
+					"sid": 463705088872946
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 126014731905757,
+							"parameters": {
+								"object": "Btn_Confirm_Exit"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Btn_Confirm_Exit",
+							"sid": 609045078948152,
+							"parameters": {
+								"animation": "\"Options\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 509180764231021,
+							"parameters": {
+								"layer": "\"SaveData\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 823823790583896,
+							"parameters": {
+								"layer": "\"Confirm\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 421462713155147,
+							"parameters": {
+								"layer": "\"Confirm\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 648790345282914
 				},
 				{
 					"eventType": "block",
@@ -2506,12 +2889,9 @@
 							}
 						},
 						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 823591893417290,
-							"parameters": {
-								"layout": "Loading"
-							}
+							"id": "close",
+							"objectClass": "Browser",
+							"sid": 922088328435099
 						}
 					],
 					"sid": 138669370211029

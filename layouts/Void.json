@@ -8800,6 +8800,9 @@
 								"enabled": false,
 								"live-preview": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"instanceFolderItem": {
@@ -8864,7 +8867,7 @@
 				{
 					"type": "Txt_Credits",
 					"properties": {
-						"text": "STEAM & CLICKS\n\n\n[u]Game Designer[/u]\nVitor Cirilo\n\n\n[u]Programmer[/u]\nVitor Cirilo\n\n\n[u]2D Artist[/u]\nAna Luiza\n\n\n[u]Animator[/u]\nAna Luiza\n\n\n[u]Game Testers[/u]\nAna Barata\nThuan Martins\n\n\nDeveloped by Victorian Studio\n\n\nThank you for playing!",
+						"text": "\n\n\n[u]Game Designer[/u]\nVitor Cirilo\n\n\n[u]Programmer[/u]\nVitor Cirilo\n\n\n[u]2D Artist[/u]\nAna Luiza\n\n\n[u]Animator[/u]\nAna Luiza\n\n\n[u]Game Testers[/u]\nAna Barata\nMarcelo Campos\nThuan Martins\n\n\nDeveloped by Victorian Studio\n\n\nThank you for playing!",
 						"enable-bbcode": true,
 						"font": "Arial",
 						"size": 50,
@@ -8913,9 +8916,112 @@
 						"x": 960,
 						"y": 1062,
 						"width": 1068,
-						"height": 2052,
+						"height": 2179,
 						"originX": 0.5,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "victorianstudio",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 638,
+					"sid": 836111270114454,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Bullet": {
+							"properties": {
+								"speed": 50,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": false,
+								"step": false,
+								"enabled": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 836111270114454,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 945,
+						"y": 3390,
+						"width": 361,
+						"height": 453,
+						"originX": 0.45013850415512463,
+						"originY": 0.4900662251655629,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"z": 0,
+						"angle": 0
+					}
+				},
+				{
+					"type": "Game_Logo",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 639,
+					"sid": 484931752248116,
+					"tags": "",
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Bullet": {
+							"properties": {
+								"speed": 50,
+								"acceleration": 0,
+								"gravity": 0,
+								"bounce-off-solids": false,
+								"set-angle": false,
+								"step": false,
+								"enabled": false
+							}
+						}
+					},
+					"instanceFolderItem": {
+						"sid": 484931752248116,
+						"expanded": true
+					},
+					"showing": true,
+					"locked": false,
+					"world": {
+						"x": 960,
+						"y": 1140,
+						"width": 721,
+						"height": 111,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
