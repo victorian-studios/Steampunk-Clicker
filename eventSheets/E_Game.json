@@ -315,29 +315,6 @@
 					}
 				},
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 344283639055936,
-					"parameters": {
-						"seconds": "0.01",
-						"use-timescale": true
-					}
-				},
-				{
-					"callFunction": "PopulateList",
-					"sid": 349745385732962,
-					"parameters": [
-						"\"Weapons\""
-					]
-				},
-				{
-					"callFunction": "PopulateList",
-					"sid": 473247920119678,
-					"parameters": [
-						"\"Armor\""
-					]
-				},
-				{
 					"id": "set-y",
 					"objectClass": "Bkg_Work_Info",
 					"sid": 105883987006110,
@@ -965,6 +942,36 @@
 					],
 					"sid": 264275605624889,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 717409898613147,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "PopulateList",
+							"sid": 550609041899896,
+							"parameters": [
+								"\"Weapons\""
+							]
+						},
+						{
+							"callFunction": "PopulateList",
+							"sid": 218512004733881,
+							"parameters": [
+								"\"Armor\""
+							]
+						}
+					],
+					"sid": 660033166189670
 				}
 			]
 		},
@@ -20077,9 +20084,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 746003746421338,
+													"sid": 185567435956951,
 													"parameters": {
-														"text": "A_Weapons.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"WP_\" & counter ) & \" > \" & Dict_Save_File.Get( \"WP_\" & counter )+1"
+														"text": "Internationalization.Lookup(\"game.work.weapons.name.\" & A_Weapons.At(1, 1, counter) ) & newline & \"LVL \" & Dict_Save_File.Get( \"WP_\" & counter ) & \" > \" & Dict_Save_File.Get( \"WP_\" & counter )+1"
 													}
 												},
 												{
@@ -20615,9 +20622,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 991661716391839,
+													"sid": 848064684271207,
 													"parameters": {
-														"text": "A_Weapons.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"WP_\" & counter ) & \" > \" & Dict_Save_File.Get( \"WP_\" & counter )+1"
+														"text": "Internationalization.Lookup(\"game.work.weapons.name.\" & A_Weapons.At(1, 1, counter) ) & newline & \"LVL \" & Dict_Save_File.Get( \"WP_\" & counter ) & \" > \" & Dict_Save_File.Get( \"WP_\" & counter )+1"
 													}
 												},
 												{
@@ -21192,9 +21199,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 170755481474480,
+													"sid": 663118173984707,
 													"parameters": {
-														"text": "A_Weapons.At( 1, 1, counter ) & newline & \"LVL. 10\""
+														"text": "Internationalization.Lookup(\"game.work.weapons.name.\" & A_Weapons.At(1, 1, counter) ) & newline & \"LVL. 10\""
 													}
 												},
 												{
@@ -21446,9 +21453,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 314908241947794,
+													"sid": 854331612455568,
 													"parameters": {
-														"text": "A_Habilities.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"HAB_\" & counter ) & \" > \" & Dict_Save_File.Get( \"HAB_\" & counter )+1"
+														"text": "Internationalization.Lookup(\"game.work.skills.name.\" & A_Habilities.At(1, 1, counter) ) & newline & \"LVL \" & Dict_Save_File.Get( \"HAB_\" & counter ) & \" > \" & Dict_Save_File.Get( \"HAB_\" & counter )+1"
 													}
 												},
 												{
@@ -21871,9 +21878,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 985420994983631,
+													"sid": 580808199151185,
 													"parameters": {
-														"text": "A_Habilities.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"HAB_\" & counter ) & \" > \" & Dict_Save_File.Get( \"HAB_\" & counter )+1"
+														"text": "Internationalization.Lookup(\"game.work.skills.name.\" & A_Habilities.At(1, 1, counter) ) & newline & \"LVL \" & Dict_Save_File.Get( \"HAB_\" & counter ) & \" > \" & Dict_Save_File.Get( \"HAB_\" & counter )+1"
 													}
 												},
 												{
@@ -22280,9 +22287,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 155851841405564,
+													"sid": 627332241725769,
 													"parameters": {
-														"text": "A_Habilities.At( 1, 1, counter ) & newline & \"LVL. 10\""
+														"text": "Internationalization.Lookup(\"game.work.skills.name.\" & A_Habilities.At(1, 1, counter) ) & newline & \"LVL. 10\""
 													}
 												},
 												{
@@ -22420,9 +22427,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 888814818260113,
+													"sid": 413609680880917,
 													"parameters": {
-														"text": "A_Armor.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"ARM_\" & counter ) & \" > \" & Dict_Save_File.Get( \"ARM_\" & counter )+1"
+														"text": "Internationalization.Lookup(\"game.upg.\" & A_Armor.At(1, 1, counter) & \".name\") & newline & \"LVL \" & Dict_Save_File.Get( \"ARM_\" & counter ) & \" > \" & Dict_Save_File.Get( \"ARM_\" & counter )+1"
 													}
 												},
 												{
@@ -22837,9 +22844,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 523348798575863,
+													"sid": 927957687281184,
 													"parameters": {
-														"text": "A_Armor.At( 1, 1, counter ) & newline & \"LVL \" & Dict_Save_File.Get( \"ARM_\" & counter ) & \" > \" & Dict_Save_File.Get( \"ARM_\" & counter )+1"
+														"text": "Internationalization.Lookup(\"game.upg.\" & A_Armor.At(1, 1, counter) & \".name\") & newline & \"LVL \" & Dict_Save_File.Get( \"ARM_\" & counter ) & \" > \" & Dict_Save_File.Get( \"ARM_\" & counter )+1"
 													}
 												},
 												{
@@ -23246,9 +23253,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Item_Name_Upg",
-													"sid": 992318220458072,
+													"sid": 747619492536284,
 													"parameters": {
-														"text": "A_Armor.At( 1, 1, counter ) & newline & \"LVL. 10\""
+														"text": "Internationalization.Lookup(\"game.upg.\" & A_Armor.At(1, 1, counter) & \".name\") & newline & \"LVL. 10\""
 													}
 												},
 												{
@@ -29594,6 +29601,11 @@
 									}
 								},
 								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 979948981119874
+								},
+								{
 									"callFunction": "PopulateList",
 									"sid": 624870614673201,
 									"parameters": [
@@ -32397,7 +32409,8 @@
 					}
 				}
 			],
-			"sid": 241447796002093
+			"sid": 241447796002093,
+			"disabled": true
 		}
 	],
 	"sid": 739369905008436

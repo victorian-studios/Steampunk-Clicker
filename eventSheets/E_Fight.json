@@ -247,6 +247,14 @@
 					}
 				},
 				{
+					"id": "set-text",
+					"objectClass": "Text_Info_Battle",
+					"sid": 676880873791264,
+					"parameters": {
+						"text": "\"[outline=#000000]\"&Internationalization.Lookup(\"fight.battle_start\")&\"[/outline]\""
+					}
+				},
+				{
 					"id": "pin-to-object-properties",
 					"objectClass": "Text_Item_Info",
 					"sid": 214889652317349,
@@ -299,12 +307,12 @@
 				{
 					"id": "tween-one-property",
 					"objectClass": "Text_Info_Battle",
-					"sid": 894713915785263,
+					"sid": 690371594616405,
 					"behaviorType": "Tween",
 					"parameters": {
 						"tags": "\"\"",
 						"property": "offsetX",
-						"end-value": "2500",
+						"end-value": "3000",
 						"time": "0.5",
 						"ease": "default",
 						"destroy-on-complete": "no",
@@ -531,44 +539,6 @@
 						}
 					],
 					"sid": 174078565009254
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 432334487202975,
-							"parameters": {
-								"variable": "Level",
-								"comparison": 0,
-								"value": "5"
-							}
-						},
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 293288795283454,
-							"parameters": {
-								"variable": "Level",
-								"comparison": 0,
-								"value": "6"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
-							"sid": 513068099630082,
-							"parameters": {
-								"layer": "\"Particles\"",
-								"visibility": "visible"
-							}
-						}
-					],
-					"sid": 863848132412383,
-					"isOrBlock": true
 				},
 				{
 					"eventType": "comment",
@@ -1464,6 +1434,145 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 229347469301195,
+							"parameters": {
+								"variable": "Option_Particles"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 418090859673874,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 335794987763456,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 0,
+										"value": "4"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 963722623795492,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 0,
+										"value": "5"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 644103181279306,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 820314322742020,
+									"parameters": {
+										"layer": "\"Particles\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 191961563755438,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 533445381373040,
+											"parameters": {
+												"object": "Particle_Fog_Sprite"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-speed",
+											"objectClass": "Particle_Fog_Sprite",
+											"sid": 961944477926398,
+											"behaviorType": "Bullet",
+											"parameters": {
+												"speed": "Self.Bullet.Speed - int(random(0,11))"
+											}
+										}
+									],
+									"sid": 353710443929878
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 208465680575403
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Particle_Fog_Sprite",
+									"sid": 114640208157598
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Particles_Fog",
+									"sid": 516959572741223
+								}
+							],
+							"sid": 821406405318909
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 987754058216804
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Particle_Fog_Sprite",
+							"sid": 521416260519321
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Particles_Fog",
+							"sid": 396157253497759
+						}
+					],
+					"sid": 168196948856996
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
 							"sid": 919431017883495,
@@ -1942,15 +2051,6 @@
 											"parameters": {
 												"instance-variable": "My_ID",
 												"value": "loopindex"
-											}
-										},
-										{
-											"id": "move-to-object",
-											"objectClass": "Enemy",
-											"sid": 860033072392046,
-											"parameters": {
-												"where": "behind",
-												"object": "Player"
 											}
 										},
 										{
@@ -24006,12 +24106,12 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Text_Info_Battle",
-							"sid": 461809615535523,
+							"sid": 882647278569253,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "offsetX",
-								"end-value": "2500",
+								"end-value": "3000",
 								"time": "0.5",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -24318,12 +24418,12 @@
 						{
 							"id": "tween-one-property",
 							"objectClass": "Text_Info_Battle",
-							"sid": 507172686289020,
+							"sid": 200669719193252,
 							"behaviorType": "Tween",
 							"parameters": {
 								"tags": "\"\"",
 								"property": "offsetX",
-								"end-value": "2500",
+								"end-value": "3000",
 								"time": "0.5",
 								"ease": "default",
 								"destroy-on-complete": "no",
@@ -25787,6 +25887,7 @@
 			],
 			"actions": [],
 			"sid": 609103275155175,
+			"disabled": true,
 			"children": [
 				{
 					"eventType": "block",
@@ -25811,7 +25912,8 @@
 							}
 						}
 					],
-					"sid": 262570369078355
+					"sid": 262570369078355,
+					"disabled": true
 				}
 			]
 		}

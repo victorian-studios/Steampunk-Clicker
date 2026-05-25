@@ -224,6 +224,93 @@
 						}
 					],
 					"sid": 108433360431836
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 942279176246326,
+							"parameters": {
+								"object": "Icon_Flag"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Icon_Flag",
+							"sid": 729705609932567,
+							"parameters": {
+								"width": "200",
+								"height": "120"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Icon_Flag",
+							"sid": 651002093024275,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 136596999273215
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-comparison",
+							"objectClass": "System",
+							"sid": 434317791631744,
+							"parameters": {
+								"object": "Icon_Flag",
+								"expression": "Icon_Flag.AnimationName",
+								"comparison": 0,
+								"value": "Language"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 135927235927891,
+							"parameters": {
+								"seconds": "0.01",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Obj_country_select",
+							"sid": 358161222475591,
+							"parameters": {
+								"x": "Icon_Flag.X",
+								"y": "Icon_Flag.Y"
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "Icon_Flag",
+							"sid": 877641093463685,
+							"parameters": {
+								"width": "250",
+								"height": "150"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Icon_Flag",
+							"sid": 128002059728819,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 138122985875315
 				}
 			]
 		},
@@ -379,6 +466,20 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 908477499455329,
+									"parameters": {
+										"audio-file": {
+											"path": "Upgrade/IMPACT Hit Short Clink 01"
+										},
+										"loop": "not-looping",
+										"volume": "-20 + (VOLUME - 0.2)",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "move-to-layer",
 									"objectClass": "Btn_Config",
 									"sid": 811628031290684,
@@ -517,6 +618,20 @@
 									"parameters": {
 										"seconds": "0.01",
 										"use-timescale": true
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 510696947652766,
+									"parameters": {
+										"audio-file": {
+											"path": "Upgrade/IMPACT Hit Short Clink 01"
+										},
+										"loop": "not-looping",
+										"volume": "-20 + (VOLUME - 0.2)",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
 									}
 								},
 								{
@@ -719,6 +834,20 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 941253524341308,
+									"parameters": {
+										"audio-file": {
+											"path": "Upgrade/IMPACT Hit Short Clink 01"
+										},
+										"loop": "not-looping",
+										"volume": "-20 + (VOLUME - 0.2)",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "move-to-bottom",
 									"objectClass": "Bkg_black_Options",
 									"sid": 752848003362244
@@ -813,6 +942,20 @@
 									"parameters": {
 										"seconds": "0.01",
 										"use-timescale": true
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 629195473056472,
+									"parameters": {
+										"audio-file": {
+											"path": "Upgrade/IMPACT Hit Short Clink 01"
+										},
+										"loop": "not-looping",
+										"volume": "-20 + (VOLUME - 0.2)",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
 									}
 								},
 								{
@@ -952,6 +1095,20 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 640034898549229,
+									"parameters": {
+										"audio-file": {
+											"path": "Upgrade/IMPACT Hit Short Clink 01"
+										},
+										"loop": "not-looping",
+										"volume": "-20 + (VOLUME - 0.2)",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "move-to-layer",
 									"objectClass": "Btn_Config",
 									"sid": 200982182431264,
@@ -1054,6 +1211,20 @@
 									"parameters": {
 										"seconds": "0.01",
 										"use-timescale": true
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 575056372051890,
+									"parameters": {
+										"audio-file": {
+											"path": "Upgrade/IMPACT Hit Short Clink 01"
+										},
+										"loop": "not-looping",
+										"volume": "-20 + (VOLUME - 0.2)",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
 									}
 								},
 								{
@@ -1981,37 +2152,134 @@
 							"sid": 299208019637551
 						},
 						{
+							"callFunction": "Update_Translation",
+							"sid": 543854746755565
+						}
+					],
+					"sid": 238856495934875
+				},
+				{
+					"functionName": "Update_Translation",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
 							"id": "set-text",
 							"objectClass": "Text_Fixed",
-							"sid": 534559419946838,
+							"sid": 375590994120273,
 							"parameters": {
 								"text": "Internationalization.Lookup( Self.my_Txt )"
 							}
 						},
 						{
+							"id": "set-animation-frame",
+							"objectClass": "Contorno_fake",
+							"sid": 521768761777137,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
 							"callFunction": "PopulateList",
-							"sid": 777165764881829,
+							"sid": 521510697913837,
 							"parameters": [
 								"\"Armor\""
 							]
 						},
 						{
 							"callFunction": "PopulateList",
-							"sid": 172061335768872,
+							"sid": 965482729356073,
 							"parameters": [
 								"\"Weapons\""
 							]
-						},
-						{
-							"id": "set-animation-frame",
-							"objectClass": "Contorno_fake",
-							"sid": 612621925060012,
-							"parameters": {
-								"frame-number": "0"
-							}
 						}
 					],
-					"sid": 238856495934875
+					"sid": 638971290270352,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 762513234108679,
+									"parameters": {
+										"layer": "\"Levels\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 355408544020524,
+									"parameters": {
+										"layer": "\"Map\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-value",
+									"objectClass": "Icon_Map_Pointer",
+									"sid": 865968173195559,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"layer_opacity\"",
+										"start-value": "100",
+										"end-value": "0",
+										"time": "0.4",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 123509650848112,
+									"parameters": {
+										"seconds": "0.4",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 104593006052286,
+									"parameters": {
+										"layer": "\"Levels\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-active",
+									"objectClass": "icon_zombie",
+									"sid": 389544067154040,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "inactive"
+									}
+								},
+								{
+									"id": "set-cycle-position",
+									"objectClass": "icon_zombie",
+									"sid": 977403310809875,
+									"behaviorType": "Sine",
+									"parameters": {
+										"cycle-position": "0"
+									}
+								}
+							],
+							"sid": 361535658035885
+						}
+					]
 				}
 			],
 			"sid": 206372623497167

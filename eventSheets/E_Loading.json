@@ -53,7 +53,7 @@
 				{
 					"id": "preload",
 					"objectClass": "Audio",
-					"sid": 492617106239691,
+					"sid": 362524413645267,
 					"parameters": {
 						"audio-file": {
 							"path": "Battles/Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
@@ -67,6 +67,36 @@
 					"parameters": {
 						"audio-file": {
 							"path": "Main Game/Steampunk_Victorian_Orchestra_by_Humanoide_Media"
+						}
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 169678656263829,
+					"parameters": {
+						"audio-file": {
+							"path": "Main Game/Victorian_Violin_Waltz_by_Humanoid_Media"
+						}
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 844645409010562,
+					"parameters": {
+						"audio-file": {
+							"path": "Menu/Cinematic_Violin_Uplifting_Music_by_Humanoide_Media"
+						}
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 175322050255780,
+					"parameters": {
+						"audio-file": {
+							"path": "Credits/Steampunk_Adventure_Scherzo_Only_Orchestra_by_Humanoide_Media"
 						}
 					}
 				},
@@ -563,9 +593,9 @@
 						{
 							"id": "go-to-layout",
 							"objectClass": "System",
-							"sid": 166050900009296,
+							"sid": 149521998233893,
 							"parameters": {
-								"layout": "Void"
+								"layout": "Language"
 							}
 						}
 					],
@@ -659,18 +689,31 @@
 						"text": "Internationalization.Lookup( Self.my_Txt & \".ready\" )",
 						"duration": "0.5"
 					}
-				},
+				}
+			],
+			"sid": 251050673486792
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "preloads-complete",
+					"objectClass": "Audio",
+					"sid": 805955654976032
+				}
+			],
+			"actions": [
 				{
 					"id": "set-boolean-eventvar",
 					"objectClass": "System",
-					"sid": 678583703237236,
+					"sid": 170146251690006,
 					"parameters": {
 						"variable": "Ready_To_Start",
 						"value": "true"
 					}
 				}
 			],
-			"sid": 251050673486792
+			"sid": 952589065244530
 		},
 		{
 			"eventType": "comment",

@@ -1,0 +1,282 @@
+{
+	"name": "E_Language",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 516192847824243,
+					"parameters": {
+						"object": "Icon_Flag"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 304163326190752,
+					"parameters": {
+						"variable": "Language",
+						"value": "Icon_Flag.AnimationName"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Obj_country_select",
+					"sid": 693134670745870,
+					"parameters": {
+						"x": "Icon_Flag.X",
+						"y": "Icon_Flag.Y"
+					}
+				}
+			],
+			"sid": 100792816145584,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Icon_Flag",
+							"sid": 818576582820207,
+							"parameters": {
+								"animation": "\"en-US\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 735221240550024,
+							"parameters": {
+								"tag": "\"Translation\"",
+								"file": {
+									"path": "en-US.json"
+								}
+							}
+						}
+					],
+					"sid": 160612920532264
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Icon_Flag",
+							"sid": 439895338988901,
+							"parameters": {
+								"animation": "\"pt-BR\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 980697925310942,
+							"parameters": {
+								"tag": "\"Translation\"",
+								"file": {
+									"path": "pt-BR.json"
+								}
+							}
+						}
+					],
+					"sid": 890246635936890
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-all",
+							"objectClass": "System",
+							"sid": 822374427577810,
+							"parameters": {
+								"object": "Icon_Flag"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Icon_Flag",
+							"sid": 975641149421927,
+							"parameters": {
+								"width": "384",
+								"height": "224"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Icon_Flag",
+							"sid": 151533121863680,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 822745222205905
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Icon_Flag",
+							"sid": 438289104577823,
+							"parameters": {
+								"width": "416",
+								"height": "256"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Icon_Flag",
+							"sid": 944004341682593,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 716238694706289
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 644739515849524,
+					"parameters": {
+						"tag": "\"Translation\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load-from-json",
+					"objectClass": "Internationalization",
+					"sid": 753166542330837,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-locale",
+					"objectClass": "Internationalization",
+					"sid": 772624852955646,
+					"parameters": {
+						"locale": "Language"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 702418210803978
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Fixed",
+					"sid": 985681829274071,
+					"parameters": {
+						"text": "Internationalization.Lookup( Self.my_Txt )"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Btn_Start_Level",
+					"sid": 510844322639355,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 843514293963303
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 873701311012835,
+					"parameters": {
+						"object": "Btn_Start_Level"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_Start_Level",
+					"sid": 656436270400674,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 603029289462097
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 235940051326407
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_Start_Level",
+					"sid": 106992430457780,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 745144563588445
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 479881416454848,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "Btn_Start_Level"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Btn_Start_Level",
+					"sid": 787067867889164
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 976432565435311,
+					"parameters": {
+						"layout": "Void"
+					}
+				}
+			],
+			"sid": 808586030876759
+		}
+	],
+	"sid": 906898277766444
+}

@@ -52,9 +52,8 @@
                 "doubleprod": "\nDouble the ammont of materials produced of each cycle.",
                 "prodcombo": "\nUse this material to help reduce the ",
                 "prodcombo2": " production time to {0}%.",
-                "refine": "Start producing a refined version of this material to enhance its properties and enable the final upgrade for some weapons and skills.",
-                "premium": "After extensive research, your machines are now capable of creating a premium version of this material, making it possible to craft the best version of your armor.",
-                "steam_premium": "Work in progress...",
+                "refine": "Start producing a refined version of this material to enable the final upgrade for some weapons and skills.",
+                "premium": "Now you're capable of creating a premium version of this material, unlocking the best version of your armor.",
                 "Steam": {
                     "name": "Steam",
                     "unlock_next": "Hey Rose, you've produced sufficient Steam to buy the [b]Wood[/b] production. Check the [b]Upgrades Tab[/b] for more information.",
@@ -194,6 +193,9 @@
                 }
             },
             "work": {
+                "weapon": "WEAPON",
+                "skill": "SKILL",
+                "armor": "ARMOR",
                 "unlock": "UNLOCK",
                 "upgrade": "UPGRADE",
                 "cancel": "CANCEL",
@@ -302,6 +304,7 @@
             "mark": "Receive {0}% more damage from attacks ({1} turns)",
             "stun": "This target cannot act for 1 turn.",
             "dodge_trigger": "Dodge!",
+            "battle_start": "BATTLE START",
             "battle_won": "BATTLE WON!",
             "battle_lost": "BATTLE LOST!",
             "battle_won_vk": "BATTLE...WON???"
@@ -338,8 +341,8 @@
                 "11" : "Next, we have the [b]Upgrade Area[/b]!",
                 "12" : "Here you can check, buy and also unlock new upgrades for each producer you have.",
                 "13" : "Later, try checking the tabs in the right, they'll show every producer's specific items for making them even more efficient.",
-                "14" : "And an important information: for unlocking new producers you just have to wait until their icon become available. Then you can check their price and finally start making new materials in the factory.",
-                "15" : "Don't worry, I will come back again every time you have a new producer to unlock.",
+                "14" : "And an important information: you need to complete some levels to unlock new producers and upgrades.",
+                "15" : "Don't worry, I will come back again every time you unlock a new producer or upgrades.",
                 "16" : "Okay, now that's my favorite part: [b]The Workshop[/b]!",
                 "17" : "In this place you can start using your materials for your main objective: making your armor and weapons.",
                 "18" : "I'm not gonna lie to you, these monsters out there are pretty dangerous and also seem to be much stronger than we thought. So you can't leave this place without finishing your armor completely.",
@@ -393,7 +396,7 @@
                 "9": "In case you suffer any damage, keep looking at the blue bar bellow. It's your main health bar, just like the enemies, when it reaches [b]zero[/b] you will be defeated.",
                 "10": "But if you have paid attention, notice that there's also another shield bar next to it. That ''blue shield'' represent's your [b]shield power[/b]. That's what makes your armor special and versatile.",
                 "11": "The energy remaining won't last forever, since it will absorb most of the damage received from the enemies during the fight. Unless the enemy has some [b]attack that ignore the energy from the armor[/b].",
-                "12": "[b]Remember:[/b] if you're loosing, it's better to retreat and come back to factory for further upgrades. But don't give up so easily! Try different builds and combinations. Every enemy has it's weakness!",
+                "12": "[b]Remember:[/b] if you're loosing, it's better to retreat and come back to factory for further upgrades. But don't give up so easily! Try different builds and combinations.",
                 "13": "That's all for now, good luck!"
             }
         }
