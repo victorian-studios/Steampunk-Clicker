@@ -166,6 +166,16 @@
 			"sid": 312728297560671
 		},
 		{
+			"eventType": "variable",
+			"name": "Update_Price_Workshop",
+			"type": "string",
+			"initialValue": "0_0",
+			"comment": "para atualizar a cor do preço do workshop",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 535834739207130
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -296,14 +306,16 @@
 					"callFunction": "PopulateList",
 					"sid": 617903370572312,
 					"parameters": [
-						"\"Weapons\""
+						"\"Weapons\"",
+						false
 					]
 				},
 				{
 					"callFunction": "PopulateList",
 					"sid": 728285948389039,
 					"parameters": [
-						"\"Armor\""
+						"\"Armor\"",
+						false
 					]
 				},
 				{
@@ -977,14 +989,16 @@
 							"callFunction": "PopulateList",
 							"sid": 550609041899896,
 							"parameters": [
-								"\"Weapons\""
+								"\"Weapons\"",
+								false
 							]
 						},
 						{
 							"callFunction": "PopulateList",
 							"sid": 218512004733881,
 							"parameters": [
-								"\"Armor\""
+								"\"Armor\"",
+								false
 							]
 						}
 					],
@@ -1578,6 +1592,7 @@
 								false,
 								false,
 								true,
+								false,
 								false,
 								false,
 								false,
@@ -3096,6 +3111,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								}
@@ -3205,6 +3221,81 @@
 								}
 							],
 							"sid": 833738404038629
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 912944209365187,
+									"parameters": {
+										"layer": "\"Work Upg\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 715262457525244,
+									"parameters": {
+										"layer": "\"Workshop\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 501706852392245,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 199630025719635,
+											"parameters": {
+												"first-value": "tokenat( Update_Price_Workshop, 1, \"_\")",
+												"comparison": 0,
+												"second-value": "\"WPSK\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Get Generic Upg Info",
+											"sid": 740533903559551,
+											"parameters": [
+												"int ( tokenat( Update_Price_Workshop, 0, \"_\" ) )"
+											]
+										}
+									],
+									"sid": 848075336192584
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 651430509795390,
+											"parameters": {
+												"first-value": "tokenat( Update_Price_Workshop, 1, \"_\")",
+												"comparison": 0,
+												"second-value": "\"ARM\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Get Armor Upg Info",
+											"sid": 910605907120317,
+											"parameters": [
+												"int ( tokenat( Update_Price_Workshop, 0, \"_\" ) )"
+											]
+										}
+									],
+									"sid": 564329667311558
+								}
+							]
 						}
 					]
 				},
@@ -4070,6 +4161,7 @@
 												false,
 												false,
 												false,
+												false,
 												false
 											]
 										}
@@ -4197,6 +4289,7 @@
 													"parameters": [
 														false,
 														true,
+														false,
 														false,
 														false,
 														false,
@@ -4615,6 +4708,7 @@
 														false,
 														false,
 														false,
+														false,
 														false
 													]
 												}
@@ -4801,6 +4895,81 @@
 										}
 									],
 									"sid": 357052386053392
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 773006513331887,
+											"parameters": {
+												"layer": "\"Work Upg\""
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 210471566768111,
+											"parameters": {
+												"layer": "\"Workshop\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 860777422716908,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 836485861029528,
+													"parameters": {
+														"first-value": "tokenat( Update_Price_Workshop, 1, \"_\")",
+														"comparison": 0,
+														"second-value": "\"WPSK\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Get Generic Upg Info",
+													"sid": 634943718728928,
+													"parameters": [
+														"int ( tokenat( Update_Price_Workshop, 0, \"_\" ) )"
+													]
+												}
+											],
+											"sid": 507054794069080
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 296662729378751,
+													"parameters": {
+														"first-value": "tokenat( Update_Price_Workshop, 1, \"_\")",
+														"comparison": 0,
+														"second-value": "\"ARM\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "Get Armor Upg Info",
+													"sid": 791132813070661,
+													"parameters": [
+														"int ( tokenat( Update_Price_Workshop, 0, \"_\" ) )"
+													]
+												}
+											],
+											"sid": 492762666713883
+										}
+									]
 								}
 							]
 						},
@@ -5553,6 +5722,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								},
@@ -5699,6 +5869,7 @@
 												false,
 												false,
 												true,
+												false,
 												false,
 												false,
 												false,
@@ -8185,6 +8356,7 @@
 								false,
 								false,
 								false,
+								false,
 								false
 							]
 						}
@@ -8280,7 +8452,8 @@
 													"callFunction": "PopulateList",
 													"sid": 421227599351982,
 													"parameters": [
-														"\"Armor\""
+														"\"Armor\"",
+														false
 													]
 												}
 											],
@@ -8311,7 +8484,8 @@
 													"callFunction": "PopulateList",
 													"sid": 297527023974441,
 													"parameters": [
-														"\"Armor\""
+														"\"Armor\"",
+														false
 													]
 												}
 											],
@@ -9291,7 +9465,8 @@
 									"callFunction": "PopulateList",
 									"sid": 997934359621488,
 									"parameters": [
-										"\"Armor\""
+										"\"Armor\"",
+										false
 									]
 								}
 							],
@@ -9318,32 +9493,36 @@
 							"sid": 357750160041850
 						},
 						{
+							"eventType": "comment",
+							"text": "O efeito da água foi travado até que se tenha uma animação correta com a nova organização dos upgrades"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "pick-by-comparison",
 									"objectClass": "System",
-									"sid": 711726969817125,
+									"sid": 456693169720699,
 									"parameters": {
 										"object": "valvula_upgrades",
 										"expression": "valvula_upgrades.LayerName",
 										"comparison": 0,
-										"value": "ActiveLayer"
+										"value": "\"Bkg_Upg\""
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation",
+									"id": "start-animation",
 									"objectClass": "valvula_upgrades",
-									"sid": 100230254865018,
+									"sid": 356227986060180,
 									"parameters": {
-										"animation": "\"Default\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 663736509412273
+							"sid": 663736509412273,
+							"disabled": true
 						},
 						{
 							"eventType": "block",
@@ -9379,7 +9558,8 @@
 									}
 								}
 							],
-							"sid": 824068991203106
+							"sid": 824068991203106,
+							"disabled": true
 						}
 					]
 				},
@@ -11717,6 +11897,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								},
@@ -13114,6 +13295,67 @@
 										}
 									],
 									"sid": 745482289238472
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 195771327583742
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "Text_Upg_Price",
+											"sid": 710856933401923,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.4"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 532731530475361,
+											"parameters": {
+												"audio-file": {
+													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 271624703376605,
+											"parameters": {
+												"seconds": "0.2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 873199904883776,
+											"parameters": {
+												"audio-file": {
+													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 505794395844213
 								}
 							]
 						},
@@ -13267,6 +13509,67 @@
 										}
 									],
 									"sid": 832365582065899
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 682771342001844
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "Text_Upg_Price",
+											"sid": 907151306724997,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.4"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 507351768846911,
+											"parameters": {
+												"audio-file": {
+													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 903251401706129,
+											"parameters": {
+												"seconds": "0.2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 833057707787949,
+											"parameters": {
+												"audio-file": {
+													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 187126606297068
 								}
 							]
 						}
@@ -14264,15 +14567,6 @@
 							"actions": [
 								{
 									"id": "set-y",
-									"objectClass": "Bkg_Tab_List",
-									"sid": 686205245809884,
-									"disabled": true,
-									"parameters": {
-										"y": "252 - Scroll_1.Y "
-									}
-								},
-								{
-									"id": "set-y",
 									"objectClass": "Scroll_1",
 									"sid": 185398887156910,
 									"parameters": {
@@ -14367,15 +14661,6 @@
 								}
 							],
 							"actions": [
-								{
-									"id": "set-y",
-									"objectClass": "Bkg_Tab_List2",
-									"sid": 661070636076622,
-									"disabled": true,
-									"parameters": {
-										"y": "252 - Scroll_2.Y "
-									}
-								},
 								{
 									"id": "set-y",
 									"objectClass": "Scroll_2",
@@ -14475,6 +14760,15 @@
 									"parameters": {
 										"object": "icon_list_weapon",
 										"type": "start"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "icon_list_weapon",
+									"sid": 115882196630352,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "155"
 									}
 								},
 								{
@@ -14940,6 +15234,15 @@
 								{
 									"id": "compare-y",
 									"objectClass": "icon_list_habilities",
+									"sid": 203083974290342,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "155"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "icon_list_habilities",
 									"sid": 370058091956834,
 									"parameters": {
 										"comparison": 2,
@@ -15357,6 +15660,15 @@
 									"parameters": {
 										"object": "icon_list_armor",
 										"type": "start"
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "icon_list_armor",
+									"sid": 395799662170665,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "155"
 									}
 								},
 								{
@@ -17338,10 +17650,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 168274103758889,
+															"sid": 373835981809778,
 															"parameters": {
 																"variable": "Weapon_ID_1",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														},
 														{
@@ -17356,7 +17668,7 @@
 														{
 															"id": "set-key",
 															"objectClass": "Dict_Save_File",
-															"sid": 163894761579639,
+															"sid": 883295468559329,
 															"parameters": {
 																"key": "\"WP_SLOT_1\"",
 																"value": "0"
@@ -17884,6 +18196,13 @@
 									"initialValue": "",
 									"comment": "",
 									"sid": 554619795565259
+								},
+								{
+									"name": "SetPosY",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "mantem a mesma posição da lista após ser atualizada",
+									"sid": 330708774294365
 								}
 							],
 							"eventType": "function-block",
@@ -17891,6 +18210,46 @@
 							"actions": [],
 							"sid": 700601831389817,
 							"children": [
+								{
+									"eventType": "variable",
+									"name": "Bkg_Tab_Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 984586087767840
+								},
+								{
+									"eventType": "variable",
+									"name": "Scroll_Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 936536745195243
+								},
+								{
+									"eventType": "variable",
+									"name": "Bkg_Tab_2_Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 923784857253951
+								},
+								{
+									"eventType": "variable",
+									"name": "Scroll_2_Y",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": true,
+									"isConstant": false,
+									"sid": 823136996642826
+								},
 								{
 									"eventType": "comment",
 									"text": "250 é o Item_Card.Height"
@@ -17910,6 +18269,24 @@
 										}
 									],
 									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 776191518714127,
+											"parameters": {
+												"variable": "Bkg_Tab_Y",
+												"value": "Bkg_Tab_List.Y"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 617343227286481,
+											"parameters": {
+												"variable": "Scroll_Y",
+												"value": "Scroll_1.Y"
+											}
+										},
 										{
 											"id": "destroy",
 											"objectClass": "Item_Card_W",
@@ -17942,6 +18319,7 @@
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List",
 											"sid": 356789272236022,
+											"disabled": true,
 											"parameters": {
 												"x": "325",
 												"y": "Contorno_fake.ImagePointY(1)"
@@ -17951,6 +18329,7 @@
 											"id": "set-y",
 											"objectClass": "Scroll_1",
 											"sid": 781412895015379,
+											"disabled": true,
 											"parameters": {
 												"y": "Contorno_fake.ImagePointY(1) + 11"
 											}
@@ -18724,6 +19103,24 @@
 									],
 									"actions": [
 										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 174023557010738,
+											"parameters": {
+												"variable": "Bkg_Tab_Y",
+												"value": "Bkg_Tab_List.Y"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 731265471122198,
+											"parameters": {
+												"variable": "Scroll_Y",
+												"value": "Scroll_1.Y"
+											}
+										},
+										{
 											"id": "destroy",
 											"objectClass": "Item_Card_W",
 											"sid": 897357244105324
@@ -18755,6 +19152,7 @@
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List",
 											"sid": 337872747378254,
+											"disabled": true,
 											"parameters": {
 												"x": "325",
 												"y": "Contorno_fake.ImagePointY(1)"
@@ -18764,6 +19162,7 @@
 											"id": "set-y",
 											"objectClass": "Scroll_1",
 											"sid": 865339745463205,
+											"disabled": true,
 											"parameters": {
 												"y": "Contorno_fake.ImagePointY(1) + 11"
 											}
@@ -19259,6 +19658,24 @@
 									],
 									"actions": [
 										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 730149502780291,
+											"parameters": {
+												"variable": "Bkg_Tab_2_Y",
+												"value": "Bkg_Tab_List2.Y"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 624923080409261,
+											"parameters": {
+												"variable": "Scroll_2_Y",
+												"value": "Scroll_2.Y"
+											}
+										},
+										{
 											"id": "destroy",
 											"objectClass": "Item_Card_A",
 											"sid": 278779661826487
@@ -19280,6 +19697,7 @@
 											"id": "set-position",
 											"objectClass": "Bkg_Tab_List2",
 											"sid": 337048237649480,
+											"disabled": true,
 											"parameters": {
 												"x": "1535",
 												"y": "Contorno_fake.ImagePointY(1)"
@@ -19289,6 +19707,7 @@
 											"id": "set-y",
 											"objectClass": "Scroll_2",
 											"sid": 244674504550073,
+											"disabled": true,
 											"parameters": {
 												"y": "Contorno_fake.ImagePointY(1) + 11"
 											}
@@ -19553,9 +19972,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info_Armor",
-															"sid": 469683523207137,
+															"sid": 121481784345057,
 															"parameters": {
-																"text": "Internationalization.Lookup( \"game.work.locked\")"
+																"text": "newline & Internationalization.Lookup( \"game.work.locked\")"
 															}
 														},
 														{
@@ -19611,7 +20030,7 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Item_Info_Armor",
-															"sid": 600354912231556,
+															"sid": 723873525131483,
 															"parameters": {
 																"text": "Internationalization.Lookup( \"game.work.locked\")"
 															}
@@ -19780,6 +20199,186 @@
 									],
 									"sid": 880652735481407,
 									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 339409145561151,
+													"parameters": {
+														"variable": "SetPosY"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 319282441916065,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 477511181280967,
+															"parameters": {
+																"variable": "Bkg_Tab_Y",
+																"comparison": 1,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-y",
+															"objectClass": "Bkg_Tab_List",
+															"sid": 315424566624054,
+															"parameters": {
+																"y": "Bkg_Tab_Y"
+															}
+														},
+														{
+															"id": "set-y",
+															"objectClass": "Scroll_1",
+															"sid": 409266959276166,
+															"parameters": {
+																"y": "Scroll_Y"
+															}
+														}
+													],
+													"sid": 861056067710726
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 487726345722254,
+															"parameters": {
+																"variable": "Bkg_Tab_2_Y",
+																"comparison": 1,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-y",
+															"objectClass": "Bkg_Tab_List2",
+															"sid": 932210513695871,
+															"parameters": {
+																"y": "Bkg_Tab_2_Y"
+															}
+														},
+														{
+															"id": "set-y",
+															"objectClass": "Scroll_2",
+															"sid": 454357149002711,
+															"parameters": {
+																"y": "Scroll_2_Y"
+															}
+														}
+													],
+													"sid": 965900943373785
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 960582237520521
+												}
+											],
+											"actions": [],
+											"sid": 176517166238621,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 676126631023875,
+															"parameters": {
+																"variable": "Type",
+																"comparison": 0,
+																"value": "\"Weapons\""
+															}
+														},
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 948236909736122,
+															"parameters": {
+																"variable": "Type",
+																"comparison": 0,
+																"value": "\"Hab\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "Bkg_Tab_List",
+															"sid": 208262922450902,
+															"parameters": {
+																"x": "325",
+																"y": "Contorno_fake.ImagePointY(1)"
+															}
+														},
+														{
+															"id": "set-y",
+															"objectClass": "Scroll_1",
+															"sid": 751290533694095,
+															"parameters": {
+																"y": "Contorno_fake.ImagePointY(1) + 11"
+															}
+														}
+													],
+													"sid": 602545624624010,
+													"isOrBlock": true
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 577400753426275,
+															"parameters": {
+																"variable": "Type",
+																"comparison": 0,
+																"value": "\"Armor\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "Bkg_Tab_List2",
+															"sid": 567599851081274,
+															"parameters": {
+																"x": "1535",
+																"y": "Contorno_fake.ImagePointY(1)"
+															}
+														},
+														{
+															"id": "set-y",
+															"objectClass": "Scroll_2",
+															"sid": 164163541482004,
+															"parameters": {
+																"y": "Contorno_fake.ImagePointY(1) + 11"
+															}
+														}
+													],
+													"sid": 969447170937730
+												}
+											]
+										},
 										{
 											"eventType": "comment",
 											"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
@@ -20090,7 +20689,8 @@
 											"callFunction": "PopulateList",
 											"sid": 734102179344007,
 											"parameters": [
-												"List"
+												"List",
+												false
 											]
 										},
 										{
@@ -20106,7 +20706,8 @@
 											"callFunction": "PopulateList",
 											"sid": 922136483291203,
 											"parameters": [
-												"List"
+												"List",
+												false
 											]
 										}
 									],
@@ -20131,7 +20732,8 @@
 											"callFunction": "PopulateList",
 											"sid": 490280181917730,
 											"parameters": [
-												"List"
+												"List",
+												false
 											]
 										}
 									],
@@ -20267,7 +20869,8 @@
 											"callFunction": "PopulateList",
 											"sid": 319781097528730,
 											"parameters": [
-												"\"Armor\""
+												"\"Armor\"",
+												false
 											]
 										},
 										{
@@ -20283,11 +20886,13 @@
 											"callFunction": "PopulateList",
 											"sid": 704406614118184,
 											"parameters": [
-												"\"Armor\""
+												"\"Armor\"",
+												false
 											]
 										}
 									],
-									"sid": 600953231184624
+									"sid": 600953231184624,
+									"disabled": true
 								}
 							]
 						}
@@ -20407,6 +21012,15 @@
 									"parameters": [
 										"Btn_Upgrade_WeaponSkill.IID"
 									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 406075987812259,
+									"parameters": {
+										"variable": "Update_Price_Workshop",
+										"value": "Btn_Upgrade_WeaponSkill.IID & \"_WPSK\""
+									}
 								}
 							],
 							"sid": 967351267593000
@@ -20520,6 +21134,7 @@
 												false,
 												false,
 												false,
+												false,
 												true
 											]
 										}
@@ -20558,6 +21173,7 @@
 											"callFunction": "Play_Audio",
 											"sid": 165765605633943,
 											"parameters": [
+												false,
 												false,
 												false,
 												false,
@@ -20640,6 +21256,15 @@
 									"parameters": [
 										"Btn_Upgrade_Armor.IID"
 									]
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 231497936644914,
+									"parameters": {
+										"variable": "Update_Price_Workshop",
+										"value": "Btn_Upgrade_Armor.IID & \"_ARM\""
+									}
 								}
 							],
 							"sid": 904299271682009
@@ -20753,6 +21378,7 @@
 												false,
 												false,
 												false,
+												false,
 												true
 											]
 										}
@@ -20791,6 +21417,7 @@
 											"callFunction": "Play_Audio",
 											"sid": 878772454619198,
 											"parameters": [
+												false,
 												false,
 												false,
 												false,
@@ -21031,9 +21658,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 243629698099008,
+																	"sid": 693984503246747,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21071,9 +21698,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 847836405598259,
+																	"sid": 870115879771888,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21111,9 +21738,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 725033737654274,
+																	"sid": 234094688985479,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21151,9 +21778,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 482757643221211,
+																	"sid": 254797437762139,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21223,9 +21850,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 154874845744852,
+																	"sid": 406687419186514,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21249,9 +21876,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 715506437682932,
+																	"sid": 129260368381456,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21540,15 +22167,6 @@
 													],
 													"actions": [
 														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 610893790219600,
-															"disabled": true,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter)+1, 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
-															}
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
 															"sid": 885158274888554,
@@ -21610,9 +22228,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 194149747401290,
+																	"sid": 767467038331755,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21650,9 +22268,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 482422342088406,
+																	"sid": 479941462830572,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21690,9 +22308,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 749325407459674,
+																	"sid": 162324101869775,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21730,9 +22348,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 868641588663367,
+																	"sid": 577825808474527,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(7, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21753,9 +22371,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
-															"sid": 375383574865672,
+															"sid": 672834482848096,
 															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 															}
 														},
 														{
@@ -21810,9 +22428,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 764705272332003,
+																	"sid": 846392604214907,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -21836,9 +22454,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 817726379353956,
+																	"sid": 333403643071727,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Weapons.At(6, Dict_Save_File.Get( \"WP_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22347,15 +22965,6 @@
 													],
 													"actions": [
 														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 587218462131236,
-															"disabled": true,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
-															}
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
 															"sid": 759148660543389,
@@ -22417,9 +23026,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 708603379614395,
+																	"sid": 131357368048012,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22457,9 +23066,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 749045333860782,
+																	"sid": 218076358396153,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22497,9 +23106,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 993828689758502,
+																	"sid": 181167058219115,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22537,9 +23146,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 616921068901687,
+																	"sid": 490972637700954,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22557,15 +23166,6 @@
 														}
 													],
 													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 764422147204162,
-															"disabled": true,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
-															}
-														},
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
@@ -22618,9 +23218,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 921474072860732,
+																	"sid": 983358912369310,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22644,9 +23244,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 753282685667265,
+																	"sid": 494370587665950,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22772,15 +23372,6 @@
 													],
 													"actions": [
 														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 950511653966711,
-															"disabled": true,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter)+1, 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
-															}
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
 															"sid": 265022059691037,
@@ -22842,9 +23433,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 627684227452128,
+																	"sid": 278884050435479,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22882,9 +23473,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 400246785482506,
+																	"sid": 447087217810349,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22922,9 +23513,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 540973399096690,
+																	"sid": 184541805295752,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22962,9 +23553,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 745597715905637,
+																	"sid": 905616545788822,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(7, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -22982,15 +23573,6 @@
 														}
 													],
 													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 734042315579872,
-															"disabled": true,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
-															}
-														},
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
@@ -23043,9 +23625,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 132840143787396,
+																	"sid": 527073880960983,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23069,9 +23651,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 902622562053318,
+																	"sid": 951427999388159,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Habilities.At(6, Dict_Save_File.Get( \"HAB_\" & counter)+1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23323,9 +23905,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
-															"sid": 730509666537247,
+															"sid": 210267740156765,
 															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
 															}
 														},
 														{
@@ -23390,9 +23972,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 600433385825022,
+																	"sid": 649709020598904,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23430,9 +24012,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 950149690547173,
+																	"sid": 534390359704848,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23470,9 +24052,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 970281933480301,
+																	"sid": 246734779555821,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23510,9 +24092,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 153200177916918,
+																	"sid": 714160108631830,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"] / [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(6, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(6, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23533,9 +24115,9 @@
 														{
 															"id": "set-text",
 															"objectClass": "Text_Work_Upg_Price",
-															"sid": 518976189914370,
+															"sid": 532667713901566,
 															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
+																"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
 															}
 														},
 														{
@@ -23590,9 +24172,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 133879404026856,
+																	"sid": 840650900806313,
 																	"parameters": {
-																		"text": "\"Materials: \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": \" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23616,9 +24198,9 @@
 																{
 																	"id": "set-text",
 																	"objectClass": "Text_Work_Upg_Price",
-																	"sid": 325651982801454,
+																	"sid": 519817328753402,
 																	"parameters": {
-																		"text": "\"Materials: [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
+																		"text": "Internationalization.Lookup(\"game.work.materials\") & \": [color=rgb(255,0,0)]\" & tokenat( A_Armor.At(5, 1, counter), 1, \"_\")  & \"[/color] [icon=\" & tokenat ( A_Armor.At(5, 1, counter), 0, \"_\") & \"]\""
 																	}
 																}
 															],
@@ -23737,15 +24319,6 @@
 														}
 													],
 													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 933589639661424,
-															"disabled": true,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"] / \" & tokenat( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter)+1, 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(6, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
-															}
-														},
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
@@ -23948,15 +24521,6 @@
 														}
 													],
 													"actions": [
-														{
-															"id": "set-text",
-															"objectClass": "Text_Work_Upg_Price",
-															"sid": 151627509966665,
-															"disabled": true,
-															"parameters": {
-																"text": "\"Materials: \" & tokenat( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 1, \"_\")  & \" [icon=\" & tokenat ( A_Armor.At(5, Dict_Save_File.Get( \"ARM_\" & counter)+1, counter), 0, \"_\") & \"]\""
-															}
-														},
 														{
 															"id": "set-instvar-value",
 															"objectClass": "Btn_Buy",
@@ -24297,6 +24861,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														},
@@ -24356,67 +24921,12 @@
 																	"callFunction": "PopulateList",
 																	"sid": 215905083739630,
 																	"parameters": [
-																		"\"Weapons\""
+																		"\"Weapons\"",
+																		false
 																	]
 																}
 															],
-															"sid": 861537335941640,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-value",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 248420898003811,
-																			"parameters": {
-																				"key": "Btn_Buy.Type",
-																				"comparison": 0,
-																				"value": "10"
-																			}
-																		},
-																		{
-																			"id": "compare-value",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 315452428096785,
-																			"parameters": {
-																				"key": "\"ACH_WP10\"",
-																				"comparison": 0,
-																				"value": "0"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-key",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 319041911235571,
-																			"parameters": {
-																				"key": "\"ACH_WP10\"",
-																				"value": "1"
-																			}
-																		},
-																		{
-																			"id": "unlock-achievement",
-																			"objectClass": "Steamworks",
-																			"sid": 207704527712215,
-																			"parameters": {
-																				"achievement": "\"ARM10\""
-																			}
-																		},
-																		{
-																			"id": "log",
-																			"objectClass": "Browser",
-																			"sid": 569618057443610,
-																			"parameters": {
-																				"type": "log",
-																				"message": "\"Cheksonsons\""
-																			}
-																		}
-																	],
-																	"sid": 634634077664181
-																}
-															]
+															"sid": 861537335941640
 														},
 														{
 															"eventType": "block",
@@ -24444,58 +24954,12 @@
 																	"callFunction": "PopulateList",
 																	"sid": 487079789410574,
 																	"parameters": [
-																		"\"Hab\""
+																		"\"Hab\"",
+																		false
 																	]
 																}
 															],
-															"sid": 561572350729686,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-value",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 460234663756788,
-																			"parameters": {
-																				"key": "Btn_Buy.Type",
-																				"comparison": 0,
-																				"value": "10"
-																			}
-																		},
-																		{
-																			"id": "compare-value",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 264514050358456,
-																			"parameters": {
-																				"key": "\"ACH_SK10\"",
-																				"comparison": 0,
-																				"value": "0"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-key",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 246100612808013,
-																			"parameters": {
-																				"key": "\"ACH_SK10\"",
-																				"value": "1"
-																			}
-																		},
-																		{
-																			"id": "unlock-achievement",
-																			"objectClass": "Steamworks",
-																			"sid": 936947523832222,
-																			"parameters": {
-																				"achievement": "\"SKILL10\""
-																			}
-																		}
-																	],
-																	"sid": 134769240535123
-																}
-															]
+															"sid": 561572350729686
 														},
 														{
 															"eventType": "block",
@@ -24516,7 +24980,8 @@
 																	"callFunction": "PopulateList",
 																	"sid": 953188992141459,
 																	"parameters": [
-																		"\"Armor\""
+																		"\"Armor\"",
+																		false
 																	]
 																},
 																{
@@ -24527,159 +24992,181 @@
 																	]
 																}
 															],
-															"sid": 769052076719045,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-value",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 159225114070442,
-																			"parameters": {
-																				"key": "Btn_Buy.Type",
-																				"comparison": 0,
-																				"value": "10"
-																			}
-																		},
-																		{
-																			"id": "compare-value",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 577571785591871,
-																			"parameters": {
-																				"key": "\"ACH_AR10\"",
-																				"comparison": 0,
-																				"value": "0"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-key",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 717281089978214,
-																			"parameters": {
-																				"key": "\"ACH_AR10\"",
-																				"value": "1"
-																			}
-																		},
-																		{
-																			"id": "unlock-achievement",
-																			"objectClass": "Steamworks",
-																			"sid": 210922998153881,
-																			"parameters": {
-																				"achievement": "\"PROTECT10\""
-																			}
-																		}
-																	],
-																	"sid": 233942460835647
-																}
-															]
-														}
-													]
-												},
-												{
-													"eventType": "comment",
-													"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
-												},
-												{
-													"eventType": "block",
-													"conditions": [
+															"sid": 769052076719045
+														},
 														{
-															"id": "for-each",
-															"objectClass": "System",
-															"sid": 173082500831873,
-															"parameters": {
-																"object": "Btn_Upgrade_WeaponSkill"
-															}
-														}
-													],
-													"actions": [],
-													"sid": 497226721055960,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Btn_Upgrade_WeaponSkill",
-																	"sid": 627541068657296,
-																	"parameters": {
-																		"instance-variable": "Type",
-																		"comparison": 0,
-																		"value": "\"WP_\""
-																	}
-																}
-															],
-															"actions": [],
-															"sid": 471467833563916,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-value",
-																			"objectClass": "Dict_Save_File",
-																			"sid": 965679333562302,
-																			"parameters": {
-																				"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
-																				"comparison": 0,
-																				"value": "9"
-																			}
-																		},
-																		{
-																			"id": "compare-at-xyz",
-																			"objectClass": "A_Prod_Data",
-																			"sid": 484744936322796,
-																			"parameters": {
-																				"x": "10",
-																				"y": "1",
-																				"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
-																				"comparison": 0,
-																				"value": "0"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-animation",
-																			"objectClass": "Btn_Upgrade_WeaponSkill",
-																			"sid": 451423721408248,
-																			"parameters": {
-																				"animation": "\"Locked\"",
-																				"from": "beginning"
-																			}
-																		},
-																		{
-																			"id": "set-layer-visible",
-																			"objectClass": "System",
-																			"sid": 797026842371135,
-																			"parameters": {
-																				"layer": "\"Work Upg\"",
-																				"visibility": "invisible"
-																			}
-																		}
-																	],
-																	"sid": 732631461703463
-																}
-															]
+															"eventType": "comment",
+															"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
 														},
 														{
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "compare-instance-variable",
-																	"objectClass": "Btn_Upgrade_WeaponSkill",
-																	"sid": 602017695213921,
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 935265072153250,
 																	"parameters": {
-																		"instance-variable": "Type",
-																		"comparison": 0,
-																		"value": "\"HAB_\""
+																		"object": "Btn_Upgrade_WeaponSkill"
 																	}
 																}
 															],
 															"actions": [],
-															"sid": 701527076822620,
+															"sid": 113197716798586,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Btn_Upgrade_WeaponSkill",
+																			"sid": 252813625882781,
+																			"parameters": {
+																				"instance-variable": "Type",
+																				"comparison": 0,
+																				"value": "\"WP_\""
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 819870395260446,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-value",
+																					"objectClass": "Dict_Save_File",
+																					"sid": 105235069773025,
+																					"parameters": {
+																						"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																						"comparison": 0,
+																						"value": "9"
+																					}
+																				},
+																				{
+																					"id": "compare-at-xyz",
+																					"objectClass": "A_Prod_Data",
+																					"sid": 601615848202611,
+																					"parameters": {
+																						"x": "10",
+																						"y": "1",
+																						"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																						"comparison": 0,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-animation",
+																					"objectClass": "Btn_Upgrade_WeaponSkill",
+																					"sid": 748064569103012,
+																					"parameters": {
+																						"animation": "\"Locked\"",
+																						"from": "beginning"
+																					}
+																				},
+																				{
+																					"id": "set-layer-visible",
+																					"objectClass": "System",
+																					"sid": 604405598799528,
+																					"parameters": {
+																						"layer": "\"Work Upg\"",
+																						"visibility": "invisible"
+																					}
+																				}
+																			],
+																			"sid": 539684573207693
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "Btn_Upgrade_WeaponSkill",
+																			"sid": 907208469927466,
+																			"parameters": {
+																				"instance-variable": "Type",
+																				"comparison": 0,
+																				"value": "\"HAB_\""
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 529092132396980,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-value",
+																					"objectClass": "Dict_Save_File",
+																					"sid": 835914548986235,
+																					"parameters": {
+																						"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																						"comparison": 0,
+																						"value": "9"
+																					}
+																				},
+																				{
+																					"id": "compare-at-xyz",
+																					"objectClass": "A_Prod_Data",
+																					"sid": 790230157095262,
+																					"parameters": {
+																						"x": "10",
+																						"y": "1",
+																						"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																						"comparison": 0,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-animation",
+																					"objectClass": "Btn_Upgrade_WeaponSkill",
+																					"sid": 168626149023486,
+																					"parameters": {
+																						"animation": "\"Locked\"",
+																						"from": "beginning"
+																					}
+																				},
+																				{
+																					"id": "set-layer-visible",
+																					"objectClass": "System",
+																					"sid": 596885978280465,
+																					"parameters": {
+																						"layer": "\"Work Upg\"",
+																						"visibility": "invisible"
+																					}
+																				}
+																			],
+																			"sid": 741142733713465
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"eventType": "comment",
+															"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "for-each",
+																	"objectClass": "System",
+																	"sid": 250609431208186,
+																	"parameters": {
+																		"object": "Btn_Upgrade_Armor"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 379562002610648,
 															"children": [
 																{
 																	"eventType": "block",
@@ -24687,9 +25174,9 @@
 																		{
 																			"id": "compare-value",
 																			"objectClass": "Dict_Save_File",
-																			"sid": 408442349141261,
+																			"sid": 969950910563679,
 																			"parameters": {
-																				"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																				"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
 																				"comparison": 0,
 																				"value": "9"
 																			}
@@ -24697,11 +25184,11 @@
 																		{
 																			"id": "compare-at-xyz",
 																			"objectClass": "A_Prod_Data",
-																			"sid": 796621367127863,
+																			"sid": 690253461832664,
 																			"parameters": {
-																				"x": "10",
+																				"x": "11",
 																				"y": "1",
-																				"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																				"z": "Btn_Upgrade_Armor.IID  + 1",
 																				"comparison": 0,
 																				"value": "0"
 																			}
@@ -24710,8 +25197,8 @@
 																	"actions": [
 																		{
 																			"id": "set-animation",
-																			"objectClass": "Btn_Upgrade_WeaponSkill",
-																			"sid": 178771888042652,
+																			"objectClass": "Btn_Upgrade_Armor",
+																			"sid": 296653024759422,
 																			"parameters": {
 																				"animation": "\"Locked\"",
 																				"from": "beginning"
@@ -24720,87 +25207,79 @@
 																		{
 																			"id": "set-layer-visible",
 																			"objectClass": "System",
-																			"sid": 631209337716874,
+																			"sid": 872200059816098,
 																			"parameters": {
 																				"layer": "\"Work Upg\"",
 																				"visibility": "invisible"
 																			}
 																		}
 																	],
-																	"sid": 674277302112558
+																	"sid": 899920139725071
 																}
 															]
 														}
 													]
 												},
 												{
-													"eventType": "comment",
-													"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
-												},
-												{
 													"eventType": "block",
 													"conditions": [
 														{
-															"id": "for-each",
+															"id": "else",
 															"objectClass": "System",
-															"sid": 916633969179342,
+															"sid": 808556552158197
+														}
+													],
+													"actions": [
+														{
+															"id": "flash",
+															"objectClass": "Text_Work_Upg_Price",
+															"sid": 190929026713528,
+															"behaviorType": "Flash",
 															"parameters": {
-																"object": "Btn_Upgrade_Armor"
+																"on-time": "0.1",
+																"off-time": "0.1",
+																"duration": "0.4"
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 622632886179211,
+															"parameters": {
+																"audio-file": {
+																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+																},
+																"loop": "not-looping",
+																"volume": "-20 + (VOLUME * 0.2)",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 244870582447936,
+															"parameters": {
+																"seconds": "0.2",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 200750542193144,
+															"parameters": {
+																"audio-file": {
+																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+																},
+																"loop": "not-looping",
+																"volume": "-20 + (VOLUME * 0.2)",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
 															}
 														}
 													],
-													"actions": [],
-													"sid": 241754461460256,
-													"children": [
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "compare-value",
-																	"objectClass": "Dict_Save_File",
-																	"sid": 343925370216079,
-																	"parameters": {
-																		"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
-																		"comparison": 0,
-																		"value": "9"
-																	}
-																},
-																{
-																	"id": "compare-at-xyz",
-																	"objectClass": "A_Prod_Data",
-																	"sid": 156515044817949,
-																	"parameters": {
-																		"x": "11",
-																		"y": "1",
-																		"z": "Btn_Upgrade_Armor.IID  + 1",
-																		"comparison": 0,
-																		"value": "0"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "set-animation",
-																	"objectClass": "Btn_Upgrade_Armor",
-																	"sid": 793159958289569,
-																	"parameters": {
-																		"animation": "\"Locked\"",
-																		"from": "beginning"
-																	}
-																},
-																{
-																	"id": "set-layer-visible",
-																	"objectClass": "System",
-																	"sid": 280167613345045,
-																	"parameters": {
-																		"layer": "\"Work Upg\"",
-																		"visibility": "invisible"
-																	}
-																}
-															],
-															"sid": 411241394443232
-														}
-													]
+													"sid": 977253866777049
 												}
 											]
 										},
@@ -24853,6 +25332,7 @@
 																false,
 																false,
 																true,
+																false,
 																false,
 																false,
 																false,
@@ -24922,9 +25402,10 @@
 																},
 																{
 																	"callFunction": "PopulateList",
-																	"sid": 664210634933399,
+																	"sid": 471688916642501,
 																	"parameters": [
-																		"\"Weapons\""
+																		"\"Weapons\"",
+																		true
 																	]
 																},
 																{
@@ -25019,9 +25500,10 @@
 																},
 																{
 																	"callFunction": "PopulateList",
-																	"sid": 636032978629412,
+																	"sid": 417500189241479,
 																	"parameters": [
-																		"\"Hab\""
+																		"\"Hab\"",
+																		true
 																	]
 																},
 																{
@@ -25107,9 +25589,10 @@
 																},
 																{
 																	"callFunction": "PopulateList",
-																	"sid": 608446675993613,
+																	"sid": 953882451352390,
 																	"parameters": [
-																		"\"Armor\""
+																		"\"Armor\"",
+																		true
 																	]
 																},
 																{
@@ -25412,6 +25895,67 @@
 															]
 														}
 													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 395952686174422
+														}
+													],
+													"actions": [
+														{
+															"id": "flash",
+															"objectClass": "Text_Work_Upg_Price",
+															"sid": 110883790627124,
+															"behaviorType": "Flash",
+															"parameters": {
+																"on-time": "0.1",
+																"off-time": "0.1",
+																"duration": "0.4"
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 787722887037127,
+															"parameters": {
+																"audio-file": {
+																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+																},
+																"loop": "not-looping",
+																"volume": "-20 + (VOLUME * 0.2)",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "wait",
+															"objectClass": "System",
+															"sid": 805611058815100,
+															"parameters": {
+																"seconds": "0.2",
+																"use-timescale": true
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 504015138727653,
+															"parameters": {
+																"audio-file": {
+																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+																},
+																"loop": "not-looping",
+																"volume": "-20 + (VOLUME * 0.2)",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
+													"sid": 276793148161529
 												}
 											]
 										}
@@ -25455,6 +25999,13 @@
 									"parameters": {
 										"layer": "\"Exit\""
 									},
+									"isInverted": true
+								},
+								{
+									"id": "is-flashing",
+									"objectClass": "Text_Work_Upg_Price",
+									"sid": 859951043136305,
+									"behaviorType": "Flash",
 									"isInverted": true
 								}
 							],
@@ -27861,7 +28412,7 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 968147244856838,
 									"parameters": {
 										"animation": "\"Idle\"",
@@ -27870,7 +28421,7 @@
 								},
 								{
 									"id": "tween-two-properties",
-									"objectClass": "t_balao_de_fala",
+									"objectClass": "Bkg_balao_de_fala",
 									"sid": 822068104321181,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -27888,7 +28439,7 @@
 								},
 								{
 									"id": "tween-two-properties",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 332120588323377,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -27915,7 +28466,7 @@
 								},
 								{
 									"id": "tween-two-properties",
-									"objectClass": "t_balao_de_fala",
+									"objectClass": "Bkg_balao_de_fala",
 									"sid": 729238582143948,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -27933,7 +28484,7 @@
 								},
 								{
 									"id": "tween-two-properties",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 202948382938166,
 									"behaviorType": "Tween",
 									"parameters": {
@@ -28003,7 +28554,7 @@
 										},
 										{
 											"id": "set-animation",
-											"objectClass": "t_personagem",
+											"objectClass": "Character",
 											"sid": 294223379868033,
 											"parameters": {
 												"animation": "\"Dad_\"&CharExpression",
@@ -28174,7 +28725,7 @@
 												},
 												{
 													"id": "set-animation",
-													"objectClass": "t_personagem",
+													"objectClass": "Character",
 													"sid": 702185540157828,
 													"parameters": {
 														"animation": "\"Dad_Default\"",
@@ -28254,7 +28805,7 @@
 													"actions": [
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 827192749619513,
 															"parameters": {
 																"animation": "\"Dad_Happy\"",
@@ -28281,7 +28832,7 @@
 													"actions": [
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 547358043221010,
 															"parameters": {
 																"animation": "\"Dad_Happy\"",
@@ -28500,7 +29051,7 @@
 														},
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 647918779159165,
 															"parameters": {
 																"animation": "\"Dad_Happy\"",
@@ -28511,14 +29062,16 @@
 															"callFunction": "PopulateList",
 															"sid": 370456465199797,
 															"parameters": [
-																"\"Weapons\""
+																"\"Weapons\"",
+																false
 															]
 														},
 														{
 															"callFunction": "PopulateList",
 															"sid": 769939814804433,
 															"parameters": [
-																"\"Armor\""
+																"\"Armor\"",
+																false
 															]
 														}
 													],
@@ -28751,7 +29304,7 @@
 														},
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 872323522596277,
 															"parameters": {
 																"animation": "\"Dad_Happy\"",
@@ -28919,7 +29472,7 @@
 														},
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 407527272184291,
 															"parameters": {
 																"animation": "\"Dad_Happy\"",
@@ -29140,7 +29693,7 @@
 												},
 												{
 													"id": "set-animation",
-													"objectClass": "t_personagem",
+													"objectClass": "Character",
 													"sid": 695722799523951,
 													"parameters": {
 														"animation": "\"Dad_Default\"",
@@ -29244,7 +29797,7 @@
 														},
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 119120207441819,
 															"parameters": {
 																"animation": "\"Dad_Happy\"",
@@ -29468,7 +30021,7 @@
 										},
 										{
 											"id": "set-animation",
-											"objectClass": "t_personagem",
+											"objectClass": "Character",
 											"sid": 366053630396301,
 											"parameters": {
 												"animation": "\"Dad_Default\"",
@@ -29674,7 +30227,7 @@
 												},
 												{
 													"id": "set-animation",
-													"objectClass": "t_personagem",
+													"objectClass": "Character",
 													"sid": 627942017942625,
 													"parameters": {
 														"animation": "\"Dad_Default\"",
@@ -29721,7 +30274,7 @@
 													"actions": [
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 870766534647425,
 															"parameters": {
 																"animation": "\"Dad_Happy\"",
@@ -29918,7 +30471,7 @@
 										},
 										{
 											"id": "set-animation",
-											"objectClass": "t_personagem",
+											"objectClass": "Character",
 											"sid": 200167080631091,
 											"parameters": {
 												"animation": "\"Dad_Happy\"",
@@ -30073,6 +30626,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								}
@@ -30112,7 +30666,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "t_personagem",
+							"objectClass": "Character",
 							"sid": 652491561814152,
 							"parameters": {
 								"animation": "\"Dad_Idle\"",
@@ -30234,7 +30788,7 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 960481494628944,
 									"parameters": {
 										"animation": "\"Dad_Happy\"",
@@ -30304,7 +30858,7 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 881169201651585,
 									"parameters": {
 										"animation": "\"Dad_Happy\"",
@@ -30374,7 +30928,7 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 717191974669119,
 									"parameters": {
 										"animation": "\"Dad_Happy\"",
@@ -30444,7 +30998,7 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 385836452692444,
 									"parameters": {
 										"animation": "\"Dad_Happy\"",
@@ -30632,14 +31186,16 @@
 									"callFunction": "PopulateList",
 									"sid": 624870614673201,
 									"parameters": [
-										"\"Weapons\""
+										"\"Weapons\"",
+										false
 									]
 								},
 								{
 									"callFunction": "PopulateList",
 									"sid": 936641488131575,
 									"parameters": [
-										"\"Armor\""
+										"\"Armor\"",
+										false
 									]
 								}
 							],
@@ -30849,14 +31405,16 @@
 									"callFunction": "PopulateList",
 									"sid": 936564587100124,
 									"parameters": [
-										"\"Weapons\""
+										"\"Weapons\"",
+										false
 									]
 								},
 								{
 									"callFunction": "PopulateList",
 									"sid": 672804836702765,
 									"parameters": [
-										"\"Armor\""
+										"\"Armor\"",
+										false
 									]
 								},
 								{
@@ -31829,6 +32387,10 @@
 									]
 								},
 								{
+									"eventType": "comment",
+									"text": "Atualizar os botões de upgrade para equipamentos lvl 9"
+								},
+								{
 									"eventType": "block",
 									"conditions": [],
 									"actions": [
@@ -31836,18 +32398,250 @@
 											"callFunction": "PopulateList",
 											"sid": 612481905469467,
 											"parameters": [
-												"\"Weapons\""
+												"\"Weapons\"",
+												false
 											]
 										},
 										{
 											"callFunction": "PopulateList",
 											"sid": 679467427702883,
 											"parameters": [
-												"\"Armor\""
+												"\"Armor\"",
+												false
 											]
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 492749393668670,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"callFunction": "PopulateList",
+											"sid": 971485668566611,
+											"parameters": [
+												"\"Armor\"",
+												false
+											]
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 947571900932682
 										}
 									],
-									"sid": 940592158953811
+									"sid": 940592158953811,
+									"children": [
+										{
+											"eventType": "comment",
+											"text": "Travar upgrades de Weapon/Skill quando alcançar o limite pré upgrade de refinamento"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 451304518024764,
+													"parameters": {
+														"object": "Btn_Upgrade_WeaponSkill"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 849700934156228,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
+															"sid": 584677720191095,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"WP_\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 318020919110575,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 961685083495857,
+																	"parameters": {
+																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																},
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Prod_Data",
+																	"sid": 879266418401032,
+																	"parameters": {
+																		"x": "10",
+																		"y": "1",
+																		"z": "A_Weapons.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 197684374243291,
+																	"parameters": {
+																		"animation": "\"Locked\"",
+																		"from": "beginning"
+																	}
+																}
+															],
+															"sid": 824468788485261
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Btn_Upgrade_WeaponSkill",
+															"sid": 613757560654765,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"HAB_\""
+															}
+														}
+													],
+													"actions": [],
+													"sid": 726362090378359,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-value",
+																	"objectClass": "Dict_Save_File",
+																	"sid": 974546602028126,
+																	"parameters": {
+																		"key": "Btn_Upgrade_WeaponSkill.Type & Btn_Upgrade_WeaponSkill.IID",
+																		"comparison": 0,
+																		"value": "9"
+																	}
+																},
+																{
+																	"id": "compare-at-xyz",
+																	"objectClass": "A_Prod_Data",
+																	"sid": 500056045498914,
+																	"parameters": {
+																		"x": "10",
+																		"y": "1",
+																		"z": "A_Habilities.At(8, 10, Btn_Upgrade_WeaponSkill.IID)",
+																		"comparison": 0,
+																		"value": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-animation",
+																	"objectClass": "Btn_Upgrade_WeaponSkill",
+																	"sid": 773208666015736,
+																	"parameters": {
+																		"animation": "\"Locked\"",
+																		"from": "beginning"
+																	}
+																}
+															],
+															"sid": 417241941419346
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "comment",
+											"text": "Travar upgrades de Armor quando alcançar o limite pré upgrade premium"
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 936405332577417,
+													"parameters": {
+														"object": "Btn_Upgrade_Armor"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 610795261682583,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-value",
+															"objectClass": "Dict_Save_File",
+															"sid": 177032086407792,
+															"parameters": {
+																"key": "\"ARM_\" & Btn_Upgrade_Armor.IID",
+																"comparison": 0,
+																"value": "9"
+															}
+														},
+														{
+															"id": "compare-at-xyz",
+															"objectClass": "A_Prod_Data",
+															"sid": 499338221729188,
+															"parameters": {
+																"x": "11",
+																"y": "1",
+																"z": "Btn_Upgrade_Armor.IID + 1",
+																"comparison": 0,
+																"value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "Btn_Upgrade_Armor",
+															"sid": 849435825118865,
+															"parameters": {
+																"animation": "\"Locked\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "set-layer-visible",
+															"objectClass": "System",
+															"sid": 735427866287323,
+															"parameters": {
+																"layer": "\"Work Upg\"",
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 861937201106992
+												}
+											]
+										}
+									]
 								}
 							]
 						}
@@ -32005,7 +32799,8 @@
 							"callFunction": "PopulateList",
 							"sid": 437222457456355,
 							"parameters": [
-								"\"Weapons\""
+								"\"Weapons\"",
+								false
 							]
 						}
 					],
@@ -32041,7 +32836,8 @@
 							"callFunction": "PopulateList",
 							"sid": 805057953480773,
 							"parameters": [
-								"\"Armor\""
+								"\"Armor\"",
+								false
 							]
 						}
 					],
@@ -32416,6 +33212,13 @@
 							"initialValue": "false",
 							"comment": "",
 							"sid": 885713729374997
+						},
+						{
+							"name": "Flap",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 940984853895995
 						},
 						{
 							"name": "Error",
@@ -33431,6 +34234,97 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
+									"sid": 524642985498076,
+									"parameters": {
+										"variable": "Flap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 438363526272055,
+									"parameters": {
+										"variable": "rng_sound",
+										"value": "choose ( 1,2)"
+									}
+								}
+							],
+							"sid": 749508523245479,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 703390793204077,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 862117532179247,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/bird_flapping_wings_1"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 680064672512119
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 547190554731961,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 845594533356475,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/bird_flapping_wings_2"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 317376846654302
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
 									"sid": 249907613780108,
 									"parameters": {
 										"variable": "Error"
@@ -33486,7 +34380,183 @@
 							}
 						}
 					],
-					"sid": 465476629052193
+					"sid": 465476629052193,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Corrigir o novo tempo do vaporium"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-at-xyz",
+									"objectClass": "A_Prod_Data",
+									"sid": 167743368129440,
+									"parameters": {
+										"x": "8",
+										"y": "1",
+										"z": "6",
+										"comparison": 1,
+										"value": "20"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xyz",
+									"objectClass": "A_Prod_Data",
+									"sid": 742041842840130,
+									"parameters": {
+										"x": "8",
+										"y": "1",
+										"z": "6",
+										"value": "20"
+									}
+								}
+							],
+							"sid": 444789742952011,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Production",
+											"sid": 349432973781392,
+											"parameters": {
+												"instance-variable": "material_id",
+												"comparison": 0,
+												"value": "\"Vaporium\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Production",
+											"sid": 263490556806194,
+											"parameters": {
+												"instance-variable": "base_prodtime",
+												"value": "20"
+											}
+										}
+									],
+									"sid": 400122634733225
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Corrigir possível falha ao liberar o upgrade da armadura final"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 422701771859658,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "0",
+										"end-index": "6"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 662715247642408,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 914011945463967,
+											"parameters": {
+												"x": "15",
+												"y": "1",
+												"z": "loopindex",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 872611360660797,
+											"parameters": {
+												"x": "15",
+												"y": "1",
+												"z": "loopindex",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 489884126165005,
+											"parameters": {
+												"x": "16",
+												"y": "1",
+												"z": "loopindex",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 545074253582975,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 841373306820370,
+											"parameters": {
+												"x": "15",
+												"y": "1",
+												"z": "loopindex",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 182090635104840,
+											"parameters": {
+												"x": "16",
+												"y": "1",
+												"z": "loopindex",
+												"comparison": 1,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Upg_Data",
+											"sid": 232728785497946,
+											"parameters": {
+												"x": "16",
+												"y": "1",
+												"z": "loopindex",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 517227696147289
+								}
+							]
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -33928,62 +34998,86 @@
 					"sid": 897938195561238
 				},
 				{
+					"eventType": "comment",
+					"text": "Alguns itens estavam aparecendo no frame 0 (cadeado) quando não deveriam"
+				},
+				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-at-xyz",
-							"objectClass": "A_Prod_Data",
-							"sid": 199491129368577,
-							"parameters": {
-								"x": "8",
-								"y": "1",
-								"z": "6",
-								"comparison": 0,
-								"value": "25"
-							}
+							"id": "on-any-touch-end",
+							"objectClass": "Touch",
+							"sid": 280662486942525
 						}
 					],
-					"actions": [
-						{
-							"id": "set-at-xyz",
-							"objectClass": "A_Prod_Data",
-							"sid": 237820717655589,
-							"parameters": {
-								"x": "8",
-								"y": "1",
-								"z": "6",
-								"value": "20"
-							}
-						}
-					],
-					"sid": 687865763345164,
+					"actions": [],
+					"sid": 256716294487737,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Production",
-									"sid": 798963533142647,
+									"id": "compare-animation-frame",
+									"objectClass": "icon_list_weapon_clone",
+									"sid": 168309247640614,
 									"parameters": {
-										"instance-variable": "material_id",
 										"comparison": 0,
-										"value": "\"Vaporium\""
+										"number": "0"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "Production",
-									"sid": 839897099510107,
+									"id": "destroy",
+									"objectClass": "icon_list_weapon_clone",
+									"sid": 183873437409587
+								}
+							],
+							"sid": 924976895744790
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 496074052952890,
 									"parameters": {
-										"instance-variable": "base_prodtime",
-										"value": "20"
+										"comparison": 0,
+										"number": "0"
 									}
 								}
 							],
-							"sid": 180448097352719
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "icon_list_habilities_clone",
+									"sid": 231050352565905
+								}
+							],
+							"sid": 810570810371257
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 115988281020808,
+									"parameters": {
+										"comparison": 0,
+										"number": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "icon_list_armor_clone",
+									"sid": 244533580734753
+								}
+							],
+							"sid": 983301594438323
 						}
 					]
 				}

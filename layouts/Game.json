@@ -4284,7 +4284,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "tala_upgrades_base",
+							"type": "Bkg_upg_base",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Default",
@@ -11256,8 +11256,8 @@
 							"tags": "",
 							"instanceVariables": {
 								"Name": "16",
-								"Price_1": "Copper_100",
-								"Price_2": "Iron_50",
+								"Price_1": "Copper_90",
+								"Price_2": "Iron_32",
 								"Upg_Connections": "16_0_0",
 								"Unlocked": false,
 								"Sold": false,
@@ -13935,6 +13935,9 @@
 							"properties": {
 								"destroy": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"showing": true,
@@ -15661,6 +15664,9 @@
 									"properties": {
 										"destroy": false
 									}
+								},
+								"Flash": {
+									"properties": {}
 								}
 							},
 							"showing": true,
@@ -15979,7 +15985,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "tela_batalhas",
+							"type": "Bkg_batalhas",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Default",
@@ -19690,7 +19696,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "t_balao_de_fala",
+							"type": "Bkg_balao_de_fala",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Default",
@@ -19729,7 +19735,7 @@
 							}
 						},
 						{
-							"type": "t_personagem",
+							"type": "Character",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Dad_Default",

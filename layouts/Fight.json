@@ -2015,11 +2015,11 @@
 						"object": -1,
 						"initially-visible": true,
 						"live-preview": false,
-						"speed": 850,
+						"speed": 1400,
 						"size": 20,
 						"opacity": 100,
 						"grow-rate": 0,
-						"x-randomiser": 2150,
+						"x-randomiser": 2200,
 						"y-randomiser": 0,
 						"initial-speed-randomiser": 0,
 						"size-randomiser": 0,
@@ -2030,7 +2030,7 @@
 						"life-speed-randomiser": 20,
 						"opacity-randomiser": 0,
 						"destroy-mode": "timeout-expired",
-						"timeout": 2
+						"timeout": 1.5
 					},
 					"uid": 232,
 					"sid": 380908345293303,
@@ -4147,9 +4147,9 @@
 							"showing": true,
 							"locked": false,
 							"world": {
-								"x": 1128,
+								"x": 1122,
 								"y": 740,
-								"width": 30,
+								"width": 40,
 								"height": 30,
 								"originX": 0,
 								"originY": 0,
@@ -4749,7 +4749,7 @@
 					"subLayers": [],
 					"instances": [
 						{
-							"type": "t_balao_de_fala",
+							"type": "Bkg_balao_de_fala",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Default",
@@ -4788,7 +4788,7 @@
 							}
 						},
 						{
-							"type": "t_personagem",
+							"type": "Character",
 							"properties": {
 								"initially-visible": true,
 								"initial-animation": "Dad_Happy",
@@ -6510,7 +6510,7 @@
 								{
 									"type": "TextoAiDaVida",
 									"properties": {
-										"text": "v. 1.0.2",
+										"text": "v. 1.0.3",
 										"enable-bbcode": true,
 										"font": "monospace",
 										"size": 20,

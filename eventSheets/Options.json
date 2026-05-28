@@ -491,6 +491,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								},
@@ -641,6 +642,7 @@
 									"parameters": [
 										false,
 										true,
+										false,
 										false,
 										false,
 										false,
@@ -871,6 +873,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								},
@@ -977,6 +980,7 @@
 									"parameters": [
 										false,
 										true,
+										false,
 										false,
 										false,
 										false,
@@ -1144,6 +1148,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								},
@@ -1258,6 +1263,7 @@
 									"parameters": [
 										false,
 										true,
+										false,
 										false,
 										false,
 										false,
@@ -1509,6 +1515,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								},
@@ -1719,6 +1726,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								},
@@ -1855,6 +1863,7 @@
 									"parameters": [
 										false,
 										true,
+										false,
 										false,
 										false,
 										false,
@@ -2831,14 +2840,16 @@
 							"callFunction": "PopulateList",
 							"sid": 521510697913837,
 							"parameters": [
-								"\"Armor\""
+								"\"Armor\"",
+								false
 							]
 						},
 						{
 							"callFunction": "PopulateList",
 							"sid": 965482729356073,
 							"parameters": [
-								"\"Weapons\""
+								"\"Weapons\"",
+								false
 							]
 						},
 						{

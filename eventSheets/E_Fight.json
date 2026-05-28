@@ -1669,13 +1669,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 231367503730357,
+							"sid": 104308297422058,
 							"parameters": {
 								"audio-file": {
 									"path": "Battle/heavy_rain_and_thunder_by_freesound_community"
 								},
 								"loop": "looping",
-								"volume": "-50 + (VOLUME * 0.5 )",
+								"volume": "-40 + (VOLUME * 0.4 )",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -4736,6 +4736,7 @@
 												false,
 												false,
 												true,
+												false,
 												false
 											]
 										},
@@ -5230,6 +5231,7 @@
 														false,
 														false,
 														true,
+														false,
 														false
 													]
 												},
@@ -5727,6 +5729,7 @@
 												false,
 												false,
 												true,
+												false,
 												false,
 												false
 											]
@@ -10681,6 +10684,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10717,6 +10721,7 @@
 																false,
 																false,
 																true,
+																false,
 																false,
 																false,
 																false,
@@ -10765,6 +10770,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10808,6 +10814,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10844,6 +10851,7 @@
 																false,
 																false,
 																true,
+																false,
 																false,
 																false,
 																false,
@@ -10892,6 +10900,7 @@
 																true,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10934,6 +10943,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10969,6 +10979,7 @@
 																false,
 																false,
 																true,
+																false,
 																false,
 																false,
 																false,
@@ -16783,36 +16794,99 @@
 																									"sid": 172280361048443
 																								}
 																							],
-																							"actions": [
+																							"actions": [],
+																							"sid": 991430311885920,
+																							"children": [
 																								{
-																									"id": "set-animation",
-																									"objectClass": "Enemy",
-																									"sid": 582125896592225,
-																									"parameters": {
-																										"animation": "Self.ID & \"_Attack\"",
-																										"from": "beginning"
-																									}
+																									"eventType": "comment",
+																									"text": "Se for o Urubu, aumenta consideravelmente a chance de usar a Hab 1"
 																								},
 																								{
-																									"id": "add-to-instvar",
-																									"objectClass": "Enemy",
-																									"sid": 669577400686969,
-																									"parameters": {
-																										"instance-variable": "Hab_1_Chance",
-																										"value": "10"
-																									}
+																									"eventType": "block",
+																									"conditions": [
+																										{
+																											"id": "compare-instance-variable",
+																											"objectClass": "Enemy",
+																											"sid": 511347695464433,
+																											"parameters": {
+																												"instance-variable": "Hab_2",
+																												"comparison": 0,
+																												"value": "\"BFF_dodge_30_3\""
+																											}
+																										}
+																									],
+																									"actions": [
+																										{
+																											"id": "set-animation",
+																											"objectClass": "Enemy",
+																											"sid": 873382336847876,
+																											"parameters": {
+																												"animation": "Self.ID & \"_Attack\"",
+																												"from": "beginning"
+																											}
+																										},
+																										{
+																											"id": "add-to-instvar",
+																											"objectClass": "Enemy",
+																											"sid": 374428431379937,
+																											"parameters": {
+																												"instance-variable": "Hab_1_Chance",
+																												"value": "100"
+																											}
+																										},
+																										{
+																											"callFunction": "Use_Hab_Enemy",
+																											"sid": 271756021414504,
+																											"parameters": [
+																												"Enemy.Hab_2",
+																												"Dmg_mod",
+																												"0"
+																											]
+																										}
+																									],
+																									"sid": 911613835081139
 																								},
 																								{
-																									"callFunction": "Use_Hab_Enemy",
-																									"sid": 611065979277758,
-																									"parameters": [
-																										"Enemy.Hab_2",
-																										"Dmg_mod",
-																										"0"
-																									]
+																									"eventType": "block",
+																									"conditions": [
+																										{
+																											"id": "else",
+																											"objectClass": "System",
+																											"sid": 827942060057863
+																										}
+																									],
+																									"actions": [
+																										{
+																											"id": "set-animation",
+																											"objectClass": "Enemy",
+																											"sid": 528224826494089,
+																											"parameters": {
+																												"animation": "Self.ID & \"_Attack\"",
+																												"from": "beginning"
+																											}
+																										},
+																										{
+																											"id": "add-to-instvar",
+																											"objectClass": "Enemy",
+																											"sid": 318977103453269,
+																											"parameters": {
+																												"instance-variable": "Hab_1_Chance",
+																												"value": "15"
+																											}
+																										},
+																										{
+																											"callFunction": "Use_Hab_Enemy",
+																											"sid": 426192869506301,
+																											"parameters": [
+																												"Enemy.Hab_2",
+																												"Dmg_mod",
+																												"0"
+																											]
+																										}
+																									],
+																									"sid": 223664924307194
 																								}
-																							],
-																							"sid": 991430311885920
+																							]
 																						},
 																						{
 																							"eventType": "block",
@@ -17586,9 +17660,32 @@
 																										{
 																											"id": "wait",
 																											"objectClass": "System",
-																											"sid": 568365062646132,
+																											"sid": 977980554920709,
 																											"parameters": {
-																												"seconds": "0.7",
+																												"seconds": "0.1",
+																												"use-timescale": true
+																											}
+																										},
+																										{
+																											"id": "play",
+																											"objectClass": "Audio",
+																											"sid": 631453247151563,
+																											"parameters": {
+																												"audio-file": {
+																													"path": "Battle/VOCAL EVIL Breath Deep 02"
+																												},
+																												"loop": "not-looping",
+																												"volume": "-25 + (VOLUME * 0.25)",
+																												"stereo-pan": "0",
+																												"tag-optional": "\"\""
+																											}
+																										},
+																										{
+																											"id": "wait",
+																											"objectClass": "System",
+																											"sid": 655950116888158,
+																											"parameters": {
+																												"seconds": "0.6",
 																												"use-timescale": true
 																											}
 																										},
@@ -22442,6 +22539,7 @@
 												false,
 												false,
 												false,
+												false,
 												false
 											]
 										}
@@ -22489,6 +22587,7 @@
 												false,
 												false,
 												true,
+												false,
 												false,
 												false,
 												false,
@@ -22552,6 +22651,7 @@
 									"callFunction": "Play_Audio",
 									"sid": 498592557456609,
 									"parameters": [
+										false,
 										false,
 										false,
 										false,
@@ -22634,6 +22734,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								}
@@ -22684,26 +22785,6 @@
 										"int( tokenat ( Hab_Name, 2, \"_\" ) )",
 										"int( tokenat ( Hab_Name, 3, \"_\" ) )"
 									]
-								},
-								{
-									"callFunction": "Play_Audio",
-									"sid": 410263461761632,
-									"parameters": [
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false,
-										false
-									]
 								}
 							],
 							"sid": 587514031388473
@@ -22745,6 +22826,7 @@
 									"callFunction": "Play_Audio",
 									"sid": 801317584375035,
 									"parameters": [
+										false,
 										false,
 										false,
 										false,
@@ -22817,6 +22899,172 @@
 							"sid": 750660852502178,
 							"children": [
 								{
+									"eventType": "comment",
+									"text": "Tiro do Viktor"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 728963335217113,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"Atk_pierce_20\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 233039535894174,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/WEAPON GUNSHOT Bullet Hit 06"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 205327425505247
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 638361476746140,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"DOT_poison_10_3\""
+											}
+										},
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 401520820233002,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"DOT_Poison_15_2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 548100811309749,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/spit_by_freesound_community"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.20)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 874393274527594,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 236566116762356,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"DFF_weak_25_3\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 153605847889030,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/bone_snap_by_saboteurcomics"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.20)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 622928657139602,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/NEGATIVE Failure Descending Chime 08"
+												},
+												"loop": "not-looping",
+												"volume": "-25 + (VOLUME * 0.25)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 281967290072828
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 323449130208960,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"DFF_weak_30_3\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 108459111307842,
+											"parameters": {
+												"seconds": "0.2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 419854294092483,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/NEGATIVE Failure Descending Chime 08"
+												},
+												"loop": "not-looping",
+												"volume": "-25 + (VOLUME * 0.25)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 304046297409794
+								},
+								{
 									"eventType": "block",
 									"conditions": [
 										{
@@ -22834,13 +23082,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 650542059842570,
+											"sid": 383332015396395,
 											"parameters": {
 												"audio-file": {
-													"path": "Battle/VOCAL EVIL Breath Deep 02"
+													"path": "Battle/738439__qubodup__orc-grunt-3"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOLUME * 0.20)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -22854,11 +23102,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 559755724924302,
+											"sid": 167702419598585,
 											"parameters": {
 												"variable": "Hab_Name",
 												"comparison": 0,
-												"value": "\"DFF_weak_25_3\""
+												"value": "\"DFF_vulnerable_25_2\""
 											}
 										}
 									],
@@ -22866,7 +23114,7 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 542326809832401,
+											"sid": 523979486920044,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/NEGATIVE Failure Descending Chime 08"
@@ -22878,7 +23126,95 @@
 											}
 										}
 									],
-									"sid": 795208563893974
+									"sid": 290497552984998
+								},
+								{
+									"eventType": "comment",
+									"text": "Urubu"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 982747228932743,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"BFF_dodge_30_3\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Play_Audio",
+											"sid": 780018418143789,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true,
+												false
+											]
+										}
+									],
+									"sid": 738473537196012
+								},
+								{
+									"eventType": "comment",
+									"text": "Bomba de fumaça"
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 867282805976494,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"BFF_dodge_30_4\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 938631232627346,
+											"parameters": {
+												"seconds": "0.5",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 309240234153471,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/smoke-bomb_by_freesound_community"
+												},
+												"loop": "not-looping",
+												"volume": "-25 + (VOLUME * 0.25)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 209281598652936
 								}
 							]
 						},
@@ -25628,7 +25964,7 @@
 												},
 												{
 													"id": "set-animation",
-													"objectClass": "t_personagem",
+													"objectClass": "Character",
 													"sid": 819313049752364,
 													"parameters": {
 														"animation": "\"Dad_Default\"",
@@ -25731,7 +26067,7 @@
 													"actions": [
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 243574941344922,
 															"parameters": {
 																"animation": "\"Happy\"",
@@ -25851,7 +26187,7 @@
 														},
 														{
 															"id": "set-animation",
-															"objectClass": "t_personagem",
+															"objectClass": "Character",
 															"sid": 598799271719838,
 															"parameters": {
 																"animation": "\"Happy\"",
@@ -25893,7 +26229,7 @@
 								},
 								{
 									"id": "set-animation",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 337094594969835,
 									"parameters": {
 										"animation": "\"Dad_Idle\"",
@@ -25953,6 +26289,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								}
@@ -25992,7 +26329,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "t_personagem",
+							"objectClass": "Character",
 							"sid": 759525745450343,
 							"parameters": {
 								"animation": "\"Dad_Idle\"",
@@ -26078,7 +26415,7 @@
 							"actions": [
 								{
 									"id": "set-animation",
-									"objectClass": "t_personagem",
+									"objectClass": "Character",
 									"sid": 135133762208800,
 									"parameters": {
 										"animation": "\"Happy\"",
@@ -26180,7 +26517,7 @@
 						},
 						{
 							"id": "set-animation",
-							"objectClass": "t_personagem",
+							"objectClass": "Character",
 							"sid": 503312042114965,
 							"parameters": {
 								"animation": "\"Dad_Default\"",
