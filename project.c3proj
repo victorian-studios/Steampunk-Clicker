@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 47604,
+	"savedWithRelease": 48700,
 	"name": "Steampunk Clicker",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -403,21 +403,21 @@
 			"Bkg_Preto_Icons",
 			"Icon_MouseTouch",
 			"Btn_SkipComic",
-			"Particles",
+			"Particle_Rain",
 			"Effect_Dagger",
 			"Effect_Explosion",
 			"Effect_Fire",
 			"Effect_Heal",
 			"Effect_Mark",
-			"raio",
+			"Particle_raio",
 			"Effect_Bone_Break",
 			"Effect_Spark",
 			"List_Enemy_UID",
 			"Bkg_Frg_Extra_2",
 			"Steamworks",
-			"Particles2",
 			"Particles_Fog",
-			"Particle_Fog_Sprite"
+			"Particle_Fog_Sprite",
+			"Btn_ExitGame"
 		],
 		"subfolders": []
 	},
@@ -643,14 +643,6 @@
 							"name": "Blocked_by_Ana_Caldeira.mp3",
 							"type": "audio/mpeg",
 							"sid": 355164190296926,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
-						{
-							"name": "IMPACT Heavy Thump Ascending 01.ogg",
-							"type": "audio/ogg; codecs=vorbis",
-							"sid": 956950652323643,
 							"file-info": {
 								"purpose": "none"
 							}
@@ -1106,6 +1098,14 @@
 							"file-info": {
 								"purpose": "none"
 							}
+						},
+						{
+							"name": "NEGATIVE Failure Descending Chime 08.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 924346777901159,
+							"file-info": {
+								"purpose": "none"
+							}
 						}
 					],
 					"subfolders": [],
@@ -1118,14 +1118,6 @@
 			"subfolders": [
 				{
 					"items": [
-						{
-							"name": "Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media.mp3",
-							"type": "audio/mpeg",
-							"sid": 577217384039814,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
 						{
 							"name": "Epic_Battle_by_Francisco_Samuel (edited).webm",
 							"type": "audio/webm; codecs=opus",
@@ -1148,14 +1140,6 @@
 				},
 				{
 					"items": [
-						{
-							"name": "One_Thousand_Years_Ago_Victorian_Gothic_Piano_Music_Loopable_by_Joel_Fazhari.mp3",
-							"type": "audio/mpeg",
-							"sid": 870920521010136,
-							"file-info": {
-								"purpose": "none"
-							}
-						},
 						{
 							"name": "Steampunk_Adventure_Scherzo_Only_Orchestra_by_Humanoide_Media.mp3",
 							"type": "audio/mpeg",
@@ -1487,7 +1471,7 @@
 		"authorWebsite": "",
 		"appId": "",
 		"pixelRounding": false,
-		"zAxisScale": "normalized",
+		"zAxisScale": "regular",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": true,
 		"fullscreenMode": "letterbox-scale",

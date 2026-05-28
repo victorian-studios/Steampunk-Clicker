@@ -20,10 +20,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 920684376304552,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -48,7 +44,7 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "City",
-						"initial-frame": 4,
+						"initial-frame": 12,
 						"enable-collisions": true,
 						"live-preview": false
 					},
@@ -57,10 +53,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 459934633799630,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -130,10 +122,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 667231152064799,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -169,10 +157,6 @@
 						"my_ID": 1
 					},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 158492976848253,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -208,10 +192,6 @@
 						"my_ID": 2
 					},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 306959268110216,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -247,10 +227,6 @@
 						"my_ID": 3
 					},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 696106441633194,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -322,10 +298,6 @@
 								"brightness": 1
 							}
 						}
-					},
-					"instanceFolderItem": {
-						"sid": 482700777884809,
-						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
@@ -399,10 +371,6 @@
 							}
 						}
 					},
-					"instanceFolderItem": {
-						"sid": 789533682476927,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -475,10 +443,6 @@
 							}
 						}
 					},
-					"instanceFolderItem": {
-						"sid": 538930199924689,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -512,10 +476,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 777455488909270,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -549,10 +509,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 794565956871240,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -606,63 +562,1486 @@
 		{
 			"name": "Particles",
 			"overriden": 0,
-			"subLayers": [],
+			"subLayers": [
+				{
+					"name": "Rain",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [],
+					"sid": 778671597709610,
+					"effectTypes": [],
+					"isInitiallyVisible": true,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"sampling": "auto",
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				},
+				{
+					"name": "Fog",
+					"overriden": 0,
+					"subLayers": [],
+					"instances": [
+						{
+							"type": "Particles_Fog",
+							"properties": {
+								"rate": 0.8,
+								"spray-cone": 1,
+								"type": "continuous-spray",
+								"object": -1,
+								"initially-visible": true,
+								"live-preview": false,
+								"speed": 40,
+								"size": 600,
+								"opacity": 20,
+								"grow-rate": 0,
+								"x-randomiser": 0,
+								"y-randomiser": 700,
+								"initial-speed-randomiser": 10,
+								"size-randomiser": 25,
+								"grow-rate-randomiser": 0,
+								"acceleration": 0,
+								"gravity": 0,
+								"angle-randomiser": 0,
+								"life-speed-randomiser": 0,
+								"opacity-randomiser": 0,
+								"destroy-mode": "timeout-expired",
+								"timeout": 90
+							},
+							"uid": 652,
+							"sid": 507813018642296,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": -518,
+								"y": 370,
+								"width": 100,
+								"height": 100,
+								"originX": 0,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 679,
+							"sid": 904233834018322,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 886,
+								"y": 100,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 653,
+							"sid": 730563558995270,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 26,
+								"y": 246,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 655,
+							"sid": 939985797893517,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 22,
+								"y": 462,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 656,
+							"sid": 293430485234525,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": -110,
+								"y": 580,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 657,
+							"sid": 466304331567416,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 56,
+								"y": 716,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 658,
+							"sid": 109903713791857,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": -146,
+								"y": 790,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 659,
+							"sid": 711786482149196,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": -40,
+								"y": 112,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 654,
+							"sid": 320088300823153,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1250,
+								"y": 216,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 662,
+							"sid": 660417152664342,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 852,
+								"y": 428,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 663,
+							"sid": 754062759866842,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1112,
+								"y": 544,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 664,
+							"sid": 815418113828561,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 644,
+								"y": 596,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 665,
+							"sid": 714875939513962,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 526,
+								"y": 738,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 666,
+							"sid": 834397076258334,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1008,
+								"y": 734,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 668,
+							"sid": 310020370010339,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1282,
+								"y": 342,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 669,
+							"sid": 777757319045745,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1526,
+								"y": 522,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 671,
+							"sid": 803142471374985,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1864,
+								"y": 294,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 673,
+							"sid": 158815573525909,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1392,
+								"y": 120,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 674,
+							"sid": 344476442039561,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 426,
+								"y": 138,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 675,
+							"sid": 357703864553707,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1030,
+								"y": 454,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 676,
+							"sid": 449590952083101,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1578,
+								"y": 290,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 677,
+							"sid": 478081612970161,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1798,
+								"y": 634,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 678,
+							"sid": 645518948826447,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 1788,
+								"y": 752,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 681,
+							"sid": 272087229533519,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": -186,
+								"y": 452,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Particle_Fog_Sprite",
+							"properties": {
+								"initially-visible": true,
+								"initial-animation": "Animation 1",
+								"initial-frame": 0,
+								"enable-collisions": true,
+								"live-preview": false
+							},
+							"uid": 661,
+							"sid": 486896178549815,
+							"tags": "",
+							"instanceVariables": {},
+							"behaviors": {
+								"Bullet": {
+									"properties": {
+										"speed": 40,
+										"acceleration": 0,
+										"gravity": 0,
+										"bounce-off-solids": false,
+										"set-angle": false,
+										"step": false,
+										"enabled": true
+									}
+								},
+								"Fade": {
+									"properties": {
+										"fade-in-time": 3,
+										"wait-time": 0,
+										"fade-out-time": 0,
+										"destroy": false,
+										"enabled": true,
+										"live-preview": false
+									}
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": -184,
+								"y": 182,
+								"width": 600,
+								"height": 250,
+								"originX": 0.5,
+								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									0.2
+								],
+								"z": 0,
+								"angle": 0
+							}
+						}
+					],
+					"sid": 733863780487536,
+					"effectTypes": [],
+					"isInitiallyVisible": false,
+					"isInitiallyInteractive": true,
+					"isHTMLElementsLayer": false,
+					"color": [
+						1,
+						1,
+						1,
+						1
+					],
+					"backgroundColor": [
+						0.3686274509803922,
+						0.3686274509803922,
+						0.3686274509803922,
+						1
+					],
+					"isTransparent": true,
+					"sampling": "auto",
+					"parallaxX": 1,
+					"parallaxY": 1,
+					"scaleRate": 1,
+					"forceOwnTexture": false,
+					"renderingMode": "3d",
+					"drawOrder": "z-order",
+					"useRenderCells": false,
+					"blendMode": "normal",
+					"zElevation": 0,
+					"global": false
+				}
+			],
 			"instances": [
 				{
-					"type": "Particles_Fog",
+					"type": "Particle_Rain",
 					"properties": {
-						"rate": 0.8,
+						"rate": 50,
 						"spray-cone": 1,
 						"type": "continuous-spray",
 						"object": -1,
 						"initially-visible": true,
 						"live-preview": false,
-						"speed": 40,
-						"size": 600,
-						"opacity": 20,
+						"speed": 850,
+						"size": 20,
+						"opacity": 100,
 						"grow-rate": 0,
-						"x-randomiser": 0,
+						"x-randomiser": 2150,
 						"y-randomiser": 0,
-						"initial-speed-randomiser": 10,
-						"size-randomiser": 25,
+						"initial-speed-randomiser": 0,
+						"size-randomiser": 0,
 						"grow-rate-randomiser": 0,
-						"acceleration": 0,
+						"acceleration": 400,
 						"gravity": 0,
 						"angle-randomiser": 0,
-						"life-speed-randomiser": 0,
+						"life-speed-randomiser": 20,
 						"opacity-randomiser": 0,
 						"destroy-mode": "timeout-expired",
-						"timeout": 90
+						"timeout": 2
 					},
-					"uid": 652,
-					"sid": 507813018642296,
+					"uid": 232,
+					"sid": 380908345293303,
 					"tags": "",
 					"instanceVariables": {},
-					"behaviors": {
-						"Sine": {
-							"properties": {
-								"movement": "vertical",
-								"wave": "sine",
-								"period": 4,
-								"period-random": 0,
-								"period-offset": 0,
-								"period-offset-random": 0,
-								"magnitude": 200,
-								"magnitude-random": 0,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 507813018642296,
-						"expanded": true
-					},
+					"behaviors": {},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": -518,
-						"y": 370,
+						"x": 728,
+						"y": -182,
 						"width": 100,
 						"height": 100,
 						"originX": 0,
@@ -674,1429 +2053,13 @@
 							1
 						],
 						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 679,
-					"sid": 904233834018322,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 904233834018322,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 886,
-						"y": 100,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 653,
-					"sid": 730563558995270,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 730563558995270,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 26,
-						"y": 246,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 655,
-					"sid": 939985797893517,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 939985797893517,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 22,
-						"y": 462,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 656,
-					"sid": 293430485234525,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 293430485234525,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -110,
-						"y": 580,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 657,
-					"sid": 466304331567416,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 466304331567416,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 56,
-						"y": 716,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 658,
-					"sid": 109903713791857,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 109903713791857,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -146,
-						"y": 790,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 659,
-					"sid": 711786482149196,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 711786482149196,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -40,
-						"y": 112,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 654,
-					"sid": 320088300823153,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 320088300823153,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1250,
-						"y": 216,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 662,
-					"sid": 660417152664342,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 660417152664342,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 852,
-						"y": 428,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 663,
-					"sid": 754062759866842,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 754062759866842,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1112,
-						"y": 544,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 664,
-					"sid": 815418113828561,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 815418113828561,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 644,
-						"y": 596,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 665,
-					"sid": 714875939513962,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 714875939513962,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 526,
-						"y": 738,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 666,
-					"sid": 834397076258334,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 834397076258334,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1008,
-						"y": 734,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 668,
-					"sid": 310020370010339,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 310020370010339,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1282,
-						"y": 342,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 669,
-					"sid": 777757319045745,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 777757319045745,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1526,
-						"y": 522,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 671,
-					"sid": 803142471374985,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 803142471374985,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1864,
-						"y": 294,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 673,
-					"sid": 158815573525909,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 158815573525909,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1392,
-						"y": 120,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 674,
-					"sid": 344476442039561,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 344476442039561,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 426,
-						"y": 138,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 675,
-					"sid": 357703864553707,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 357703864553707,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1030,
-						"y": 454,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 676,
-					"sid": 449590952083101,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 449590952083101,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1578,
-						"y": 290,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 677,
-					"sid": 478081612970161,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 478081612970161,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1798,
-						"y": 634,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 678,
-					"sid": 645518948826447,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 645518948826447,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": 1788,
-						"y": 752,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 681,
-					"sid": 272087229533519,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 272087229533519,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -186,
-						"y": 452,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
-					}
-				},
-				{
-					"type": "Particle_Fog_Sprite",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 661,
-					"sid": 486896178549815,
-					"tags": "",
-					"instanceVariables": {},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 40,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": false,
-								"enabled": true
-							}
-						},
-						"Fade": {
-							"properties": {
-								"fade-in-time": 3,
-								"wait-time": 0,
-								"fade-out-time": 0,
-								"destroy": false,
-								"enabled": true,
-								"live-preview": false
-							}
-						}
-					},
-					"instanceFolderItem": {
-						"sid": 486896178549815,
-						"expanded": true
-					},
-					"showing": true,
-					"locked": false,
-					"world": {
-						"x": -184,
-						"y": 182,
-						"width": 600,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							0.2
-						],
-						"z": 0,
-						"angle": 0
+						"angle": 1.0904178260319368
 					}
 				}
 			],
 			"sid": 206809772248104,
 			"effectTypes": [],
-			"isInitiallyVisible": false,
+			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
 			"isHTMLElementsLayer": false,
 			"color": [
@@ -2173,10 +2136,6 @@
 								"brightness": 1
 							}
 						}
-					},
-					"instanceFolderItem": {
-						"sid": 174108255795176,
-						"expanded": true
 					},
 					"showing": true,
 					"locked": false,
@@ -2255,10 +2214,6 @@
 								"hp": 1
 							},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 201991703004044,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2292,10 +2247,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 150529018906753,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2345,10 +2296,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 925109987749980,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2382,10 +2329,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 749463668285552,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2419,10 +2362,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 405391677350929,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2456,10 +2395,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 556518360149417,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2509,10 +2444,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 607004132840352,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2546,10 +2477,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 505922077236424,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2583,10 +2510,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 971502415042068,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2624,10 +2547,6 @@
 								"hp": 1
 							},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 257763088096871,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2661,10 +2580,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 393721759141808,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2714,10 +2629,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 427996003475732,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2755,10 +2666,6 @@
 								"hp": 1
 							},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 619127185784976,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2792,10 +2699,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 656732135309139,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2845,10 +2748,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 197660941764885,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2908,10 +2807,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 703901972435927,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -2958,10 +2853,6 @@
 								"Flash": {
 									"properties": {}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 810161285358794,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3026,10 +2917,6 @@
 									"properties": {}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 300866786755346,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3087,10 +2974,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 583535675063943,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3151,10 +3034,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 874950658480655,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3213,10 +3092,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 770094224417282,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3277,10 +3152,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 255407713685829,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3339,10 +3210,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 405135162073547,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3403,10 +3270,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 517167477003466,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3465,10 +3328,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 988890512873364,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3529,10 +3388,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 142679220953817,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3591,10 +3446,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 714358565426741,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3655,10 +3506,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 658838602385463,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3717,10 +3564,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 889477400062515,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3781,10 +3624,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 964942565070685,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3842,10 +3681,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 833112266096026,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -3905,10 +3740,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 124207688960941,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -3966,10 +3797,6 @@
 										"destroy": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 647852586751492,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -4067,10 +3894,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 310934395909634,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4147,10 +3970,6 @@
 									"transformO": 0,
 									"previewSceneGraph": false
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 610504633871002,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -4248,10 +4067,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 406131458914960,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4328,10 +4143,6 @@
 									"transformO": 0,
 									"previewSceneGraph": false
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 689323494872072,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -4429,10 +4240,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 941804259210544,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4510,10 +4317,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 816018504126050,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4551,10 +4354,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 325697593002773,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4622,10 +4421,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 392199655380947,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4677,10 +4472,6 @@
 										"live-preview": false
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 368603263968588,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -4737,10 +4528,6 @@
 										"live-preview": false
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 978690918133617,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -4819,10 +4606,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 380415768310707,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4856,10 +4639,6 @@
 							"tags": "",
 							"instanceVariables": {},
 							"behaviors": {},
-							"instanceFolderItem": {
-								"sid": 577635810595706,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -4913,10 +4692,6 @@
 										"live-preview": false
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 605706790243964,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -4993,10 +4768,6 @@
 									}
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 577274714943280,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -5035,10 +4806,6 @@
 										"enabled": true
 									}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 421257880482060,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -5092,10 +4859,6 @@
 								"Timer": {
 									"properties": {}
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 521490521617834,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -5194,10 +4957,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 990364445105122,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -5242,36 +5001,6 @@
 								"uid": 392,
 								"children": [
 									{
-										"uid": 393,
-										"flags": {
-											"x": true,
-											"y": true,
-											"z": true,
-											"w": true,
-											"h": true,
-											"a": true,
-											"o": false,
-											"v": false,
-											"d": true,
-											"sm": "normal"
-										}
-									},
-									{
-										"uid": 394,
-										"flags": {
-											"x": true,
-											"y": true,
-											"z": true,
-											"w": true,
-											"h": true,
-											"a": true,
-											"o": false,
-											"v": false,
-											"d": true,
-											"sm": "normal"
-										}
-									},
-									{
 										"uid": 395,
 										"flags": {
 											"x": true,
@@ -5288,6 +5017,36 @@
 									},
 									{
 										"uid": 396,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 393,
+										"flags": {
+											"x": true,
+											"y": true,
+											"z": true,
+											"w": true,
+											"h": true,
+											"a": true,
+											"o": false,
+											"v": false,
+											"d": true,
+											"sm": "normal"
+										}
+									},
+									{
+										"uid": 683,
 										"flags": {
 											"x": true,
 											"y": true,
@@ -5327,10 +5086,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 598832581669075,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -5340,168 +5095,6 @@
 								"height": 468,
 								"originX": 0.5,
 								"originY": 0.5,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"z": 0,
-								"angle": 0
-							}
-						},
-						{
-							"type": "TextoAiDaVida",
-							"properties": {
-								"text": "EXIT",
-								"enable-bbcode": true,
-								"font": "monospace",
-								"size": 58,
-								"line-height": 0,
-								"bold": true,
-								"italic": false,
-								"color": [
-									0,
-									0,
-									0,
-									1
-								],
-								"horizontal-alignment": "center",
-								"vertical-alignment": "center",
-								"wrapping": "word",
-								"text-direction": "ltr",
-								"icon-set": -1,
-								"initially-visible": true,
-								"origin": "top-left",
-								"read-aloud": false
-							},
-							"uid": 393,
-							"sid": 979127678722831,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"sceneGraphData": {
-								"parent-uid": 392,
-								"uid": 393,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"a": true,
-									"o": false,
-									"v": false,
-									"d": true,
-									"sm": "normal"
-								},
-								"preview": {
-									"transformX": 0,
-									"transformY": 0,
-									"transformZ": 0,
-									"transformW": 0,
-									"transformH": 0,
-									"transformA": 0,
-									"transformSX": 0,
-									"transformSY": 0,
-									"transformO": 0,
-									"previewSceneGraph": false
-								}
-							},
-							"instanceFolderItem": {
-								"sid": 979127678722831,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 647,
-								"y": 408,
-								"width": 611,
-								"height": 89,
-								"originX": 0,
-								"originY": 0,
-								"color": [
-									1,
-									1,
-									1,
-									1
-								],
-								"z": 0,
-								"angle": 0
-							}
-						},
-						{
-							"type": "TextoAiDaVida",
-							"properties": {
-								"text": "There's no penalty in doing so!",
-								"enable-bbcode": true,
-								"font": "monospace",
-								"size": 31,
-								"line-height": 0,
-								"bold": false,
-								"italic": false,
-								"color": [
-									0,
-									0,
-									0,
-									1
-								],
-								"horizontal-alignment": "center",
-								"vertical-alignment": "center",
-								"wrapping": "word",
-								"text-direction": "ltr",
-								"icon-set": -1,
-								"initially-visible": true,
-								"origin": "top-left",
-								"read-aloud": false
-							},
-							"uid": 394,
-							"sid": 821044536660407,
-							"tags": "",
-							"instanceVariables": {},
-							"behaviors": {},
-							"sceneGraphData": {
-								"parent-uid": 392,
-								"uid": 394,
-								"flags": {
-									"x": true,
-									"y": true,
-									"z": true,
-									"w": true,
-									"h": true,
-									"a": true,
-									"o": false,
-									"v": false,
-									"d": true,
-									"sm": "normal"
-								},
-								"preview": {
-									"transformX": 0,
-									"transformY": 0,
-									"transformZ": 0,
-									"transformW": 0,
-									"transformH": 0,
-									"transformA": 0,
-									"transformSX": 0,
-									"transformSY": 0,
-									"transformO": 0,
-									"previewSceneGraph": false
-								}
-							},
-							"instanceFolderItem": {
-								"sid": 821044536660407,
-								"expanded": true
-							},
-							"showing": true,
-							"locked": false,
-							"world": {
-								"x": 646,
-								"y": 534,
-								"width": 611,
-								"height": 89,
-								"originX": 0,
-								"originY": 0,
 								"color": [
 									1,
 									1,
@@ -5553,10 +5146,6 @@
 									"transformO": 0,
 									"previewSceneGraph": false
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 846112624260604,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -5619,10 +5208,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 894453986259945,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -5632,6 +5217,164 @@
 								"height": 80,
 								"originX": 0.5,
 								"originY": 0.5,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Text_Fixed",
+							"properties": {
+								"text": "exit",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 58,
+								"line-height": 0,
+								"bold": true,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 683,
+							"sid": 438736368534746,
+							"tags": "",
+							"instanceVariables": {
+								"my_Txt": "fight.exit.title"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 392,
+								"uid": 683,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 647,
+								"y": 408,
+								"width": 611,
+								"height": 89,
+								"originX": 0,
+								"originY": 0,
+								"color": [
+									1,
+									1,
+									1,
+									1
+								],
+								"z": 0,
+								"angle": 0
+							}
+						},
+						{
+							"type": "Text_Fixed",
+							"properties": {
+								"text": "There's no penalty in doing so!",
+								"enable-bbcode": true,
+								"font": "Arial",
+								"size": 31,
+								"line-height": 0,
+								"bold": false,
+								"italic": false,
+								"color": [
+									0,
+									0,
+									0,
+									1
+								],
+								"horizontal-alignment": "center",
+								"vertical-alignment": "center",
+								"wrapping": "word",
+								"text-direction": "ltr",
+								"icon-set": -1,
+								"initially-visible": true,
+								"origin": "top-left",
+								"read-aloud": false
+							},
+							"uid": 393,
+							"sid": 131251905482661,
+							"tags": "",
+							"instanceVariables": {
+								"my_Txt": "fight.exit.desc"
+							},
+							"behaviors": {},
+							"sceneGraphData": {
+								"parent-uid": 392,
+								"uid": 393,
+								"flags": {
+									"x": true,
+									"y": true,
+									"z": true,
+									"w": true,
+									"h": true,
+									"a": true,
+									"o": false,
+									"v": false,
+									"d": true,
+									"sm": "normal"
+								},
+								"preview": {
+									"transformX": 0,
+									"transformY": 0,
+									"transformZ": 0,
+									"transformW": 0,
+									"transformH": 0,
+									"transformA": 0,
+									"transformSX": 0,
+									"transformSY": 0,
+									"transformO": 0,
+									"previewSceneGraph": false
+								}
+							},
+							"showing": true,
+							"locked": false,
+							"world": {
+								"x": 646,
+								"y": 534,
+								"width": 611,
+								"height": 89,
+								"originX": 0,
+								"originY": 0,
 								"color": [
 									1,
 									1,
@@ -5723,10 +5466,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 913993968496235,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -6247,10 +5986,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 333206813912165,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -6352,10 +6087,6 @@
 													"previewSceneGraph": false
 												}
 											},
-											"instanceFolderItem": {
-												"sid": 542769568326621,
-												"expanded": true
-											},
 											"showing": true,
 											"locked": false,
 											"world": {
@@ -6416,10 +6147,6 @@
 													"transformO": 0,
 													"previewSceneGraph": false
 												}
-											},
-											"instanceFolderItem": {
-												"sid": 990107776517693,
-												"expanded": true
 											},
 											"showing": true,
 											"locked": false,
@@ -6499,10 +6226,6 @@
 													"transformO": 0,
 													"previewSceneGraph": false
 												}
-											},
-											"instanceFolderItem": {
-												"sid": 626286083073664,
-												"expanded": true
 											},
 											"showing": true,
 											"locked": false,
@@ -6607,10 +6330,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 667852071362932,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -6689,10 +6408,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 525313409836236,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -6773,10 +6488,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 416829885174102,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -6799,7 +6510,7 @@
 								{
 									"type": "TextoAiDaVida",
 									"properties": {
-										"text": "v. 1.0.0",
+										"text": "v. 1.0.2",
 										"enable-bbcode": true,
 										"font": "monospace",
 										"size": 20,
@@ -6853,10 +6564,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 160886336602348,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -6942,7 +6649,7 @@
 									"sid": 279144319813511,
 									"tags": "",
 									"instanceVariables": {
-										"my_Txt": "options.video.screen"
+										"my_Txt": "options.video.fullscreen"
 									},
 									"behaviors": {},
 									"sceneGraphData": {
@@ -6973,16 +6680,12 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 279144319813511,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
 										"x": 802,
 										"y": -554,
-										"width": 272,
+										"width": 616,
 										"height": 48,
 										"originX": 0,
 										"originY": 0,
@@ -7056,10 +6759,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 463289492431641,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -7122,10 +6821,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 689319675004396,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -7190,10 +6885,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 877151132918356,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -7256,10 +6947,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 231979074095240,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -7339,10 +7026,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 994208049100182,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -7441,10 +7124,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 934791054151440,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -7516,10 +7195,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 276695231361532,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -7587,10 +7262,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 637802759883815,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -7670,10 +7341,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 897960726268667,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -7772,10 +7439,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 210613458657951,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -7836,10 +7499,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 317863404327610,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -7920,10 +7579,6 @@
 											"previewSceneGraph": false
 										}
 									},
-									"instanceFolderItem": {
-										"sid": 636240015622869,
-										"expanded": true
-									},
 									"showing": true,
 									"locked": false,
 									"world": {
@@ -7984,10 +7639,6 @@
 											"transformO": 0,
 											"previewSceneGraph": false
 										}
-									},
-									"instanceFolderItem": {
-										"sid": 189021913899652,
-										"expanded": true
 									},
 									"showing": true,
 									"locked": false,
@@ -8092,10 +7743,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 160078156753733,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -8165,10 +7812,6 @@
 									"transformO": 0,
 									"previewSceneGraph": false
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 397287688297872,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -8240,10 +7883,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 665816753343420,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -8313,10 +7952,6 @@
 									"transformO": 0,
 									"previewSceneGraph": false
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 512456192876290,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -8397,10 +8032,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 549100701512667,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -8479,10 +8110,6 @@
 									"transformO": 0,
 									"previewSceneGraph": false
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 788905248874465,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -8563,10 +8190,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 989596308042724,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -8645,10 +8268,6 @@
 									"transformO": 0,
 									"previewSceneGraph": false
 								}
-							},
-							"instanceFolderItem": {
-								"sid": 647514467328909,
-								"expanded": true
 							},
 							"showing": true,
 							"locked": false,
@@ -8729,10 +8348,6 @@
 									"previewSceneGraph": false
 								}
 							},
-							"instanceFolderItem": {
-								"sid": 872656014097561,
-								"expanded": true
-							},
 							"showing": true,
 							"locked": false,
 							"world": {
@@ -8799,10 +8414,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 202791285704086,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -8836,10 +8447,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 475724706458918,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -8873,10 +8480,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 708936946295796,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -8910,10 +8513,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 452379448973689,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -8969,10 +8568,6 @@
 							}
 						}
 					},
-					"instanceFolderItem": {
-						"sid": 518964789520788,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9025,10 +8620,6 @@
 							}
 						}
 					},
-					"instanceFolderItem": {
-						"sid": 382609122061408,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9062,10 +8653,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 188831973855630,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9137,10 +8724,6 @@
 							}
 						}
 					},
-					"instanceFolderItem": {
-						"sid": 210820839200861,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9189,15 +8772,11 @@
 							}
 						}
 					},
-					"instanceFolderItem": {
-						"sid": 184626607537468,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
-						"x": 528,
-						"y": -204,
+						"x": -216,
+						"y": -78,
 						"width": 204,
 						"height": 54,
 						"originX": 0.5,
@@ -9329,10 +8908,6 @@
 							}
 						}
 					},
-					"instanceFolderItem": {
-						"sid": 488296077923354,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9382,10 +8957,6 @@
 					"tags": "",
 					"instanceVariables": {},
 					"behaviors": {},
-					"instanceFolderItem": {
-						"sid": 668179174498071,
-						"expanded": true
-					},
 					"showing": true,
 					"locked": false,
 					"world": {
@@ -9472,10 +9043,6 @@
 			"global": false
 		}
 	],
-	"scene-graphs-folder-root": {
-		"items": [],
-		"subfolders": []
-	},
 	"sid": 617353685324739,
 	"nonworld-instances": [],
 	"effectTypes": [],

@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "Layout_To_Load",
 			"type": "string",
-			"initialValue": "First_Time_Menu",
+			"initialValue": "First_Load",
 			"comment": "Nome do layout que o jogador está sendo redirecionado",
 			"isStatic": false,
 			"isConstant": false,
@@ -101,16 +101,6 @@
 					}
 				},
 				{
-					"id": "request-fullscreen",
-					"objectClass": "Browser",
-					"sid": 518246493862480,
-					"disabled": true,
-					"parameters": {
-						"mode": "stretch-letterbox-scale",
-						"navigation-ui": "auto"
-					}
-				},
-				{
 					"id": "check-item-exists",
 					"objectClass": "LocalStorage",
 					"sid": 786082775943642,
@@ -127,15 +117,24 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 480829949181986,
+							"sid": 858674747020364,
 							"parameters": {
 								"variable": "Layout_To_Load",
 								"comparison": 0,
-								"value": "\"First_Time_Menu\""
+								"value": "\"First_Load\""
 							}
 						}
 					],
 					"actions": [
+						{
+							"id": "request-fullscreen",
+							"objectClass": "Browser",
+							"sid": 288404996897828,
+							"parameters": {
+								"mode": "stretch-letterbox-scale",
+								"navigation-ui": "auto"
+							}
+						},
 						{
 							"id": "set-visible",
 							"objectClass": "victorianstudio",
@@ -145,14 +144,11 @@
 							}
 						},
 						{
-							"id": "request-project-file",
-							"objectClass": "AJAX",
-							"sid": 503051969346794,
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 484161391748572,
 							"parameters": {
-								"tag": "\"en-US\"",
-								"file": {
-									"path": "en-US.json"
-								}
+								"key": "\"My_Lang\""
 							}
 						},
 						{
@@ -581,6 +577,16 @@
 							}
 						},
 						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 676227248313726,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 0,
+								"value": "\"First_Load\""
+							}
+						},
+						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 896364535325552,
@@ -620,6 +626,26 @@
 								"variable": "First_Time"
 							},
 							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 218698009742174,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 1,
+								"value": "\"Fight\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 712549933708872,
+							"parameters": {
+								"variable": "Layout_To_Load",
+								"comparison": 1,
+								"value": "\"Game\""
+							}
 						}
 					],
 					"actions": [
@@ -782,12 +808,16 @@
 			"sid": 358400961246110
 		},
 		{
+			"eventType": "comment",
+			"text": "My_Save"
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
 					"id": "on-item-exists",
 					"objectClass": "LocalStorage",
-					"sid": 119855349392841,
+					"sid": 185998917971484,
 					"parameters": {
 						"key": "\"My_Save\""
 					}
@@ -797,112 +827,13 @@
 				{
 					"id": "get-item",
 					"objectClass": "LocalStorage",
-					"sid": 715531719729654,
+					"sid": 596138701196867,
 					"parameters": {
 						"key": "\"My_Save\""
 					}
 				}
 			],
-			"sid": 964206858108067
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-exists",
-					"objectClass": "LocalStorage",
-					"sid": 891160839486620,
-					"parameters": {
-						"key": "\"Prod_Data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "get-item",
-					"objectClass": "LocalStorage",
-					"sid": 700895848075008,
-					"parameters": {
-						"key": "\"Prod_Data\""
-					}
-				}
-			],
-			"sid": 220413273828443
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-exists",
-					"objectClass": "LocalStorage",
-					"sid": 338402634789930,
-					"parameters": {
-						"key": "\"Upg_Data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "get-item",
-					"objectClass": "LocalStorage",
-					"sid": 191749053155133,
-					"parameters": {
-						"key": "\"Upg_Data\""
-					}
-				}
-			],
-			"sid": 189856012432823
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-item-missing",
-					"objectClass": "LocalStorage",
-					"sid": 934764736230382,
-					"parameters": {
-						"key": "\"Upg_Data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 567400453938066,
-					"parameters": {
-						"tag": "\"upg_data\"",
-						"file": {
-							"path": "Upg_Data.json"
-						}
-					}
-				}
-			],
-			"sid": 875187772597108
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 320999530630631,
-					"parameters": {
-						"tag": "\"upg_data\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "load",
-					"objectClass": "A_Upg_Data",
-					"sid": 671321665174148,
-					"parameters": {
-						"json": "AJAX.LastData"
-					}
-				}
-			],
-			"sid": 765624236051893
+			"sid": 461023025910861
 		},
 		{
 			"eventType": "block",
@@ -943,6 +874,34 @@
 			"sid": 929787240410597
 		},
 		{
+			"eventType": "comment",
+			"text": "Prod_Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 504798831299073,
+					"parameters": {
+						"key": "\"Prod_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 769801213874746,
+					"parameters": {
+						"key": "\"Prod_Data\""
+					}
+				}
+			],
+			"sid": 544383136878489
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -971,6 +930,85 @@
 			"sid": 598769730974610
 		},
 		{
+			"eventType": "comment",
+			"text": "Upg_Data"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 427852468344321,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 750392950630275,
+					"parameters": {
+						"tag": "\"upg_data\"",
+						"file": {
+							"path": "Upg_Data.json"
+						}
+					}
+				}
+			],
+			"sid": 726045375685091
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 605784641906545,
+					"parameters": {
+						"tag": "\"upg_data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "A_Upg_Data",
+					"sid": 292043983550578,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 558023125068457
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 898620037893232,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 657399278382290,
+					"parameters": {
+						"key": "\"Upg_Data\""
+					}
+				}
+			],
+			"sid": 808747891243701
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -993,6 +1031,205 @@
 				}
 			],
 			"sid": 259786559257340
+		},
+		{
+			"eventType": "comment",
+			"text": "My_Lang"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 772628301522069,
+					"parameters": {
+						"key": "\"My_Lang\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 871679244640410,
+					"parameters": {
+						"key": "\"My_Lang\"",
+						"value": "\"en-US\""
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 669877691599896,
+					"parameters": {
+						"tag": "\"Transl\"",
+						"file": {
+							"path": "en-US.json"
+						}
+					}
+				}
+			],
+			"sid": 882486417539198
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 306633348706038,
+					"parameters": {
+						"key": "\"My_Lang\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 683046350467880,
+					"parameters": {
+						"key": "\"My_Lang\""
+					}
+				}
+			],
+			"sid": 109878259136792
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 209559719184455,
+					"parameters": {
+						"key": "\"My_Lang\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 585783035337672,
+					"parameters": {
+						"variable": "Language",
+						"value": "LocalStorage.ItemValue"
+					}
+				}
+			],
+			"sid": 719912437103760,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 525394659957246,
+							"parameters": {
+								"variable": "Language",
+								"comparison": 0,
+								"value": "\"en-US\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 868792552322995,
+							"parameters": {
+								"tag": "\"Transl\"",
+								"file": {
+									"path": "en-US.json"
+								}
+							}
+						}
+					],
+					"sid": 711717158527018
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 623463852521600,
+							"parameters": {
+								"variable": "Language",
+								"comparison": 0,
+								"value": "\"pt-BR\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 543905684617335,
+							"parameters": {
+								"tag": "\"Transl\"",
+								"file": {
+									"path": "pt-BR.json"
+								}
+							}
+						}
+					],
+					"sid": 831839129786794
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 280150224636049,
+					"parameters": {
+						"tag": "\"Transl\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load-from-json",
+					"objectClass": "Internationalization",
+					"sid": 993887182220969,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "set-locale",
+					"objectClass": "Internationalization",
+					"sid": 872225813507951,
+					"parameters": {
+						"locale": "Language"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 274039292433327
+				},
+				{
+					"id": "typewriter-text",
+					"objectClass": "Text_Fixed",
+					"sid": 821750556684343,
+					"parameters": {
+						"text": "Internationalization.Lookup( Self.my_Txt & \".ready\" )",
+						"duration": "0.5"
+					}
+				},
+				{
+					"callFunction": "Update_Translation",
+					"sid": 814477413541944
+				}
+			],
+			"sid": 119126079271683
 		}
 	],
 	"sid": 203567447080996

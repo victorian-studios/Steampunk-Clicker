@@ -398,6 +398,15 @@
 					"isInverted": true
 				},
 				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 910257675410663,
+					"parameters": {
+						"layer": "\"Exit\""
+					},
+					"isInverted": true
+				},
+				{
 					"id": "is-any-playing",
 					"objectClass": "Bkg_options",
 					"sid": 183300614352599,
@@ -466,18 +475,24 @@
 									}
 								},
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 908477499455329,
-									"parameters": {
-										"audio-file": {
-											"path": "Upgrade/IMPACT Hit Short Clink 01"
-										},
-										"loop": "not-looping",
-										"volume": "-20 + (VOLUME - 0.2)",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
+									"callFunction": "Play_Audio",
+									"sid": 980028029547637,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
 								},
 								{
 									"id": "move-to-layer",
@@ -621,18 +636,24 @@
 									}
 								},
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 510696947652766,
-									"parameters": {
-										"audio-file": {
-											"path": "Upgrade/IMPACT Hit Short Clink 01"
-										},
-										"loop": "not-looping",
-										"volume": "-20 + (VOLUME - 0.2)",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
+									"callFunction": "Play_Audio",
+									"sid": 366684420885149,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
 								},
 								{
 									"id": "set-enabled",
@@ -834,18 +855,24 @@
 									}
 								},
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 941253524341308,
-									"parameters": {
-										"audio-file": {
-											"path": "Upgrade/IMPACT Hit Short Clink 01"
-										},
-										"loop": "not-looping",
-										"volume": "-20 + (VOLUME - 0.2)",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
+									"callFunction": "Play_Audio",
+									"sid": 435447046584181,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
 								},
 								{
 									"id": "move-to-bottom",
@@ -945,18 +972,24 @@
 									}
 								},
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 629195473056472,
-									"parameters": {
-										"audio-file": {
-											"path": "Upgrade/IMPACT Hit Short Clink 01"
-										},
-										"loop": "not-looping",
-										"volume": "-20 + (VOLUME - 0.2)",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
+									"callFunction": "Play_Audio",
+									"sid": 630857433843259,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
 								},
 								{
 									"id": "set-layer-visible",
@@ -1095,18 +1128,24 @@
 									}
 								},
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 640034898549229,
-									"parameters": {
-										"audio-file": {
-											"path": "Upgrade/IMPACT Hit Short Clink 01"
-										},
-										"loop": "not-looping",
-										"volume": "-20 + (VOLUME - 0.2)",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
+									"callFunction": "Play_Audio",
+									"sid": 742162649389038,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
 								},
 								{
 									"id": "move-to-layer",
@@ -1214,18 +1253,24 @@
 									}
 								},
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 575056372051890,
-									"parameters": {
-										"audio-file": {
-											"path": "Upgrade/IMPACT Hit Short Clink 01"
-										},
-										"loop": "not-looping",
-										"volume": "-20 + (VOLUME - 0.2)",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
+									"callFunction": "Play_Audio",
+									"sid": 554322246445257,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
 								},
 								{
 									"id": "move-to-layer",
@@ -1321,6 +1366,594 @@
 								}
 							],
 							"sid": 995975903350170
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 516260256524707
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 395845211202622,
+					"parameters": {
+						"object": "Bkg_options"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 165289511483499,
+					"parameters": {
+						"object": "Btn_Config"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 512300346606122,
+					"parameters": {
+						"variable": "Battle_Ended"
+					},
+					"isInverted": true
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 800457697674179,
+					"parameters": {
+						"layer": "\"Work Info\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 871105886102588,
+					"parameters": {
+						"layer": "\"Exit\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Bkg_options",
+					"sid": 490079098164047,
+					"behaviorType": "Tween",
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 250417345982515,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 905686757671445,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Game\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 300938979687044,
+							"parameters": {
+								"variable": "Tutorial_Name",
+								"comparison": 0,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 552968861719283,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 776465643448532,
+									"parameters": {
+										"layer": "\"Options\""
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Bkg_options",
+									"sid": 271685121850476,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "540"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 272570713814422,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"callFunction": "Play_Audio",
+									"sid": 485149721350315,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 944301207224084,
+									"parameters": {
+										"layer": "\"HUD\""
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Scroll_1",
+									"sid": 240264372480485,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Scroll_2",
+									"sid": 429406710161781,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Bkg_Tab_List",
+									"sid": 343683675082313,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Bkg_Tab_List2",
+									"sid": 642524027024427,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 582530413841508
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 938401179099307,
+									"parameters": {
+										"x": "970",
+										"y": "-1000"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 538418193795971,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 203104049194207,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 869009426766025,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_up\"",
+										"property": "offsetY",
+										"end-value": "-310",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 221929778241181,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 460353680563713,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 868428160909295
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 454589583869567,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Fight\""
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 644961409264866,
+							"parameters": {
+								"variable": "Tutorial_Name",
+								"comparison": 0,
+								"value": "\"\""
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 816710475980123,
+							"parameters": {
+								"layer": "\"Exit\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 279251664375271,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 843983210933450,
+									"parameters": {
+										"layer": "\"Options\""
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Bkg_options",
+									"sid": 846357760099929,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "540"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 914542501076173,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"callFunction": "Play_Audio",
+									"sid": 280262135963308,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 586586479928230
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 277578417496599,
+									"parameters": {
+										"x": "970",
+										"y": "-1000"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 811250565623759,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 901566305862852,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 468564669247368,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_up\"",
+										"property": "offsetY",
+										"end-value": "-310",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 327527014946319,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 864211554611213,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 365971293382335
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 496231838535087,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Menu\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 773990169064438,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 172686658578988,
+									"parameters": {
+										"layer": "\"Options\""
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "Bkg_options",
+									"sid": 837576316296919,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "540"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-time-scale",
+									"objectClass": "System",
+									"sid": 429881316765333,
+									"parameters": {
+										"time-scale": "1"
+									}
+								},
+								{
+									"callFunction": "Play_Audio",
+									"sid": 800359521090381,
+									"parameters": [
+										false,
+										true,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false,
+										false
+									]
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "Btn_Config",
+									"sid": 568878012296548,
+									"parameters": {
+										"layer": "\"Bkg\""
+									}
+								},
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Bkg_black_Options",
+									"sid": 388264825827633
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bkg_black_Options",
+									"sid": 491373032632870,
+									"parameters": {
+										"x": "970",
+										"y": "-1000"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 475430012500431,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_down\"",
+										"property": "offsetY",
+										"end-value": "560",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 757271200420751,
+									"parameters": {
+										"seconds": "0.1",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Bkg_options",
+									"sid": 180142760314658,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"options_up\"",
+										"property": "offsetY",
+										"end-value": "-310",
+										"time": "0.5",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 903912153142768,
+									"parameters": {
+										"seconds": "0.5",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 440661239992929,
+									"parameters": {
+										"layer": "\"Options\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 602109069650305
 						}
 					]
 				}
@@ -1993,6 +2626,15 @@
 							}
 						},
 						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 557355597195870,
+							"parameters": {
+								"key": "\"My_Lang\"",
+								"value": "Language"
+							}
+						},
+						{
 							"id": "set-position",
 							"objectClass": "Obj_country_select",
 							"sid": 793368184501337,
@@ -2198,6 +2840,15 @@
 							"parameters": [
 								"\"Weapons\""
 							]
+						},
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 273841016208304,
+							"parameters": {
+								"key": "\"My_Lang\"",
+								"value": "Language"
+							}
 						}
 					],
 					"sid": 638971290270352,
@@ -2669,7 +3320,45 @@
 											}
 										}
 									],
-									"sid": 442985801257286
+									"sid": 442985801257286,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 702877010749776,
+													"parameters": {
+														"object": "Text_Fixed",
+														"expression": "Text_Fixed.UID",
+														"comparison": 0,
+														"value": "565"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Text_Fixed",
+													"sid": 738198327614857,
+													"parameters": {
+														"instance-variable": "my_Txt",
+														"value": "\"options.video.fullscreen\""
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Fixed",
+													"sid": 274583612165842,
+													"parameters": {
+														"text": "Internationalization.Lookup( Self.my_Txt )"
+													}
+												}
+											],
+											"sid": 855532815750453
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -2695,7 +3384,45 @@
 											}
 										}
 									],
-									"sid": 216323976579173
+									"sid": 216323976579173,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-by-comparison",
+													"objectClass": "System",
+													"sid": 459413863803687,
+													"parameters": {
+														"object": "Text_Fixed",
+														"expression": "Text_Fixed.UID",
+														"comparison": 0,
+														"value": "565"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Text_Fixed",
+													"sid": 787150070875182,
+													"parameters": {
+														"instance-variable": "my_Txt",
+														"value": "\"options.video.borderless\""
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text_Fixed",
+													"sid": 412311454019581,
+													"parameters": {
+														"text": "Internationalization.Lookup( Self.my_Txt )"
+													}
+												}
+											],
+											"sid": 173276422109749
+										}
+									]
 								}
 							]
 						},
@@ -3017,6 +3744,20 @@
 							"parameters": {
 								"layer": "\"Confirm\"",
 								"visibility": "visible"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 870433179539332,
+							"parameters": {
+								"audio-file": {
+									"path": "Shop/Blocked_by_Ana_Caldeira"
+								},
+								"loop": "not-looping",
+								"volume": "-20 + (VOLUME - 0.2)",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
 							}
 						}
 					],

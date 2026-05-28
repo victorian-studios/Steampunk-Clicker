@@ -38,6 +38,14 @@
 						"Story_Comic",
 						false
 					]
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Txt_Credits",
+					"sid": 573501331979086,
+					"parameters": {
+						"text": "Internationalization.Lookup(\"credits\")"
+					}
 				}
 			],
 			"sid": 538592892704961,
@@ -85,11 +93,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 135428578384082,
+							"sid": 961441747980434,
 							"parameters": {
 								"variable": "Level",
 								"comparison": 0,
-								"value": "14"
+								"value": "13"
 							}
 						}
 					],
@@ -2359,11 +2367,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 795736076248466,
+							"sid": 590145385936252,
 							"parameters": {
 								"variable": "Level",
 								"comparison": 0,
-								"value": "14"
+								"value": "13"
 							}
 						}
 					],
@@ -2603,9 +2611,9 @@
 				{
 					"id": "compare-y",
 					"objectClass": "victorianstudio",
-					"sid": 965603996989741,
+					"sid": 815401371407667,
 					"parameters": {
-						"comparison": 0,
+						"comparison": 3,
 						"y-co-ordinate": "-255"
 					}
 				}

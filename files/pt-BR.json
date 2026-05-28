@@ -18,7 +18,8 @@
             },
             "video": {
                 "title": "VIDEO",
-                "screen": "Tela Cheia",
+                "fullscreen": "Tela Cheia",
+                "borderless": "Janela Sem Bordas",
                 "fps": "Mostrar FPS",
                 "particles": "Desabilitar Partículas"
             }, 
@@ -33,7 +34,13 @@
         },
 
         "game": {
-            "prod": {},
+            "exit": {
+                "title": "SAIR?",
+                "desc": "O seu progresso ficará salvo."
+            },
+            "prod": {
+                "cost": "CUSTO:"
+            },
             "upg": {
                 "locked": "[b]Bloqueado[/b]",
                 "unavailable": "Esta melhoria não pode ser comprada agora. Compre a anterior primeiro.",
@@ -50,8 +57,8 @@
                 "autoprod": "Automatize a sua produção! Clique com o botão direito do mouse no ícone do material para ligar/desligar e deixe o resto com os robôs.",
                 "costred": "\nReduza o custo de produção para este material.",
                 "doubleprod": "\nDobre a quantidade de materiais produzida a cada ciclo.",
-                "prodcombo": "\nUse este material para ajudar a reduzir o tempo de produção do(a) ",
-                "prodcombo2": " para {0}%.",
+                "prodcombo": "Use este material para ajudar a reduzir o tempo de produção do(a) ",
+                "prodcombo2": " em {0}%.",
                 "refine": "Comece a produzir a versão refinada deste material para disponibilizar a última melhoria para algumas armas e habilidades.",
                 "premium": "Agora você é capaz de criar a versão premium deste material, permitindo criar a melhor versão da sua armadura.",
                 "Steam": {
@@ -81,7 +88,7 @@
                     "4": "[b]Corda[/b]",
                     "5": "[b]Caixas de Transporte[/b]",
                     "6": "[b]Auto-bot[/b]",
-                    "7": "[b]Serra Cisrcular[/b]",
+                    "7": "[b]Serra Circular[/b]",
                     "8": "[b]Redução de Custo[/b]",
                     "9": "[b]Dobrar a Produção[/b]",
                     "10": "[b]Combo: Vapor[/b]",
@@ -197,10 +204,10 @@
                 "skill": "HAB.",
                 "armor": "ARMADURA",
                 "unlock": "BLOQUEADO",
-                "upgrade": "MELHORIA",
+                "upgrade": "MELHORAR",
                 "cancel": "CANCELAR",
                 "materials": "Materiais",
-                "title_locked": "Bloquado",
+                "title_locked": "Bloqueado",
                 "locked": "Desconhecido",
                 "label": {
                     "name": "ÍCONES",
@@ -214,7 +221,7 @@
                 },
                 "weapons": {
                     "nospecial": "Nenhum",
-                    "stunchance": "Aplica Atordoamento ({0}%)",
+                    "stunchance": "Atordoamento ({0}%)",
                     "poison": "Aplica {0}[icon=poison]({1} turnos)",
                     "extraammo": "Ganha +1[icon=ammo] ({0}%)",
                     "extraammo_txt": "[outline=#ffffff]+1[icon=ammo][/outline]",
@@ -235,13 +242,13 @@
                     }
                 },
                 "skills": {
-                    "0": "Instantaneamente regenera {0} de energia do escudo de volta.\n[icon=cd] {3} turnos.",
+                    "0": "Instantaneamente regenera {0} de energia do escudo.\n[icon=cd] {3} turnos.",
                     "1": "Ativa um poder retaurador, capaz de curar {0} PV.\n[icon=cd] {3} turnos.",
                     "2": "Ataque em Área. [icon=dmg]{0}\n[icon=special] {1}[icon=fire] por {2} turnos.\n[icon=cd] {3} turnos",
                     "3": "Dê {0} de dano de volta aos inimigos por {2} turnos.\n[icon=cd] {3} turnos.",
                     "4": "[icon=dmg] {0}\n[icon=special] {1}[icon=poison] por {2} turnos.\n[icon=cd] {3} turnos",
-                    "5": "Aumente seu dano para {0}% para ataques por {2} turnos.\n[icon=cd] {3} turnos.",
-                    "6": "Reduza o dano recebido do alvo {0}% por {2} turnos.\n[icon=cd] {3} turnos.",
+                    "5": "Aumente seu dano dos ataques em {0}% por {2} turnos.\n[icon=cd] {3} turnos.",
+                    "6": "Reduza o dano do alvo em {0}% por {2} turnos.\n[icon=cd] {3} turnos.",
                     "7": "Dê {0}[icon=pdmg] e o alvo recebe +{1}% de dano por {2} turnos.",
                     "name": {
                         "Recharge": "Recarga",
@@ -259,7 +266,7 @@
                     "dodge": "[icon=special]Ativo: {0}% Chance de desviar. ({1} turnos)",
                     "hpregen": "[icon=special]+{0}[icon=hp] todo turno.",
                     "spike": "[icon=special]Dê {0} de dano de volta aos inimigos.",
-                    "missile": "[icon=special]Ativo: DÊ [icon=dmg]{0} para alvos aleatórios {1} vezes.",
+                    "missile": "[icon=special]Ativo: Dê [icon=dmg]{0} em alvos aleatórios {1} vezes.",
                     "stun": "{0}% de chance de atordoar inimigos que te ataquem.",
                     "sdrergen": "[icon=special]+{0}[icon=shield] todo turno."
                 }
@@ -277,7 +284,7 @@
                 "Grave-4": "[b]NÍVEL - 1[/b]\n\nMúmia x1 | Zumbi x1 | Mulher Zumbi x1",
                 "Grave-5": "[b]NÍVEL - 2[/b]\n\nCachorro x1 | Múmia x2",
                 "Grave-6": "[b]NÍVEL - 3[/b]\n\nMúmia x1 | Mulher Zumbi x2",
-                "Mount-7": "[b]NÍVEL - 1[/b]\n\nUrubu x1 | Múmia x1",
+                "Mount-7": "[b]NÍVEL - 1[/b]\n\nUrubu x1 | Múmia x1 | Zumbi x1",
                 "Mount-8": "[b]NÍVEL - 2[/b]\n\nAndarilho x1 | Urubu x2",
                 "Mount-9": "[b]NÍVEL - 3[/b]\n\nAndarilho x1 | Múmia x1 | Múmia x1",
                 "Castle-10": "[b]NÍVEL - 1[/b]\n\nZumbi Forte x2 | Cachorro x1",
@@ -289,8 +296,8 @@
 
         "fight": {
             "exit": {
-                "name": "SAIR?",
-                "desc": "Não sofra penalidade ao fazer isso."
+                "title": "FUGIR?",
+                "desc": "Você não sofre penalidade alguma ao fazer isso."
             },
             "skip": "Pule seu turno.",
             "no_ammo": "Esta arma está sem munição [icon=ammo].",
@@ -360,7 +367,7 @@
                 "29" : "Mas nem pense muito minha filha, se você tiver uma arma e armadura, então você verá o quão forte são esses inimigos, seus padrões de ataque, resistência e por aí vai.", 
                 "30" : "Caso você perca, é só voltar para a fábrica, melhorar seus itens e tentar de novo.",
                 "31" : "É bem provável que depois de derrotados, ele voltem então você pode tentar socar a cara deles de novo uma outra hora. Apenas se lembre que você precisa chegar até a raiz do problema para resolver tudo isso.",
-                "32" : "Bem Rose, acho que isso é tudo por agora. Não se preocupe, como eu disse mais cedo, eu irei voltar algumas vezes quando tiver algo de importante para te falar. Well, I think that's all for now.",
+                "32" : "Bem Rose, acho que isso é tudo por agora. Não se preocupe, como eu disse mais cedo, eu irei voltar algumas vezes quando tiver algo de importante para te falar.",
                 "33" : "Eu te amo minha filhinha. Se cuide lá fora, é perigoso ir sozinha. Crie suas armaduras e armas para lutar com eles!",
                 "34" : "E mais importante: Caso você esqueça alguma coisa, eu estou sempre livre para conversar. [b]É só pressionar o botão de '[b]?[/b]' em qualquer uma das áreas![/b]"
             },
@@ -372,7 +379,7 @@
             "upg": {
                 "1": "Essa aqui é a [b]Área de Melhoria[/b]! \nDê uma olhada em todos as melhorias permanentes para todas as máquinas que você estiver desbloqueado até o momento.",
                 "2": "Todos as melhorias custam um pouco dos seus materiais. Na parte de cima da tela você pode sempre checar o quanto de recursos você tem neste momento. Este valor é atualizado em tempo real.",
-                "3": "Para desbloquear mais melhorias você deve progredir no mapa, e assim eu terei tempo para completar a minha pesquisa."
+                "3": "Para desbloquear mais melhorias você deve progredir no mapa, e assim eu terei tempo para completar as minhas pesquisas."
             },
             "work": {
                 "1": "Essa aqui é a [b]Oficina[/b]! \nEsse é o lugar para você escolher o seu equipamento e melhorar as suas armaduras, armas e habilidades.",
@@ -381,8 +388,8 @@
             },
             "map": {
                 "1": "Aqui é meu escritório, mais especificamente a [b]Área do Mapa[/b]! \nTodos os níveis disponíveis aparecerão aqui.",
-                "2": "Primeiro, selecione a região representada pelas setas. Então, clique em qualquer nível disponível par ver mais informações. Quando você estiver pronto para ir basta clicar no botão verde de [b]check[/b]",
-                "3": "Antes que você entre em qualquer nível, tenha certeza de que você tem todos os equipamentos certinhos. Eu não te deixarei ir lá para fora sem ao menos uma [b]armadura e uma arma/habilidade[/b]."
+                "2": "Primeiro, selecione a região representada pelas setas. Então, clique em qualquer nível disponível par ver mais informações. Quando você estiver pronto para ir basta clicar no botão verde de [b]✔[/b]",
+                "3": "Antes que você entre em qualquer nível, tenha certeza de que você tem todos os itens equipados. Eu não te deixarei lutar sem ao menos uma [b]armadura e uma arma/habilidade[/b]."
             },
             "fight": {
                 "1": "Ô Rose! Sou eu de novo.",
@@ -400,6 +407,8 @@
                 "12": "[b]Lembre-se:[/b] se você sentir que está perdendo, é melhor recuar e voltar para a fábrica para comprar melhorias. Mas não desista assim tão fácil! Tente diferentes combinações de itens.",
                 "13": "Isso é tudo por agora, boa sorte filhinha!"
             }
-        }
+        },
+
+        "credits": "\n\n\nDesenvolvido por Victorian Studio\n\n\n[u]Game Designer[/u]\nVitor Cirilo\n\n\n[u]Programador[/u]\nVitor Cirilo\n\n\n[u]Artista 2D[/u]\nAna Luiza\n\n\n[u]Animadora[/u]\nAna Luiza\n\n\n[u]Testadores[/u]\nAna Barata\nMarcelo Campos\nThuan Martins\n\n\nObrigado por jogar!"
     }
 }

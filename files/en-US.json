@@ -3,7 +3,7 @@
 	"strings": {
 
 		"main_menu": {
-			
+
 		},
 
         "options": {
@@ -18,7 +18,8 @@
             },
             "video": {
                 "title": "VIDEO",
-                "screen": "Fullscreen",
+                "fullscreen": "Fullscreen",
+                "borderless": "Borderless Windowed",
                 "fps": "Show FPS",
                 "particles": "Disable Particles"
             }, 
@@ -33,7 +34,13 @@
         },
 
         "game": {
-            "prod": {},
+            "exit": {
+                "title": "LEAVE?",
+                "desc": "Your progress will be saved."
+            },
+            "prod": {
+                "cost": "COST:"
+            },
             "upg": {
                 "locked": "[b]Locked[/b]",
                 "unavailable": "This upgrade can't be purchased right now. Buy the previous one first.",
@@ -50,8 +57,8 @@
                 "autoprod": "Makes your production automatic! Just right click the material icon to toggle on/off and let the rest to the robots.",
                 "costred": "\nReduce the production cost of this material.",
                 "doubleprod": "\nDouble the ammont of materials produced of each cycle.",
-                "prodcombo": "\nUse this material to help reduce the ",
-                "prodcombo2": " production time to {0}%.",
+                "prodcombo": "Use this material to help reduce the ",
+                "prodcombo2": " production time by {0}%.",
                 "refine": "Start producing a refined version of this material to enable the final upgrade for some weapons and skills.",
                 "premium": "Now you're capable of creating a premium version of this material, unlocking the best version of your armor.",
                 "Steam": {
@@ -214,7 +221,7 @@
                 },
                 "weapons": {
                     "nospecial": "None",
-                    "stunchance": "Aplly Stun ({0}%)",
+                    "stunchance": "Apply Stun ({0}%)",
                     "poison": "Apply {0}[icon=poison]({1} turns)",
                     "extraammo": "Gain +1[icon=ammo] ({0}%)",
                     "extraammo_txt": "[outline=#ffffff]+1[icon=ammo][/outline]",
@@ -240,7 +247,7 @@
                     "2": "Area Attack. [icon=dmg]{0}\n[icon=special] {1}[icon=fire] for {2} turns.\n[icon=cd] {3} turns",
                     "3": "Deal {0} damage back to enemies for {2} turns.\n[icon=cd] {3} turns.",
                     "4": "[icon=dmg] {0}\n[icon=special] {1}[icon=poison] for {2} turns.\n[icon=cd] {3} turns",
-                    "5": "Increase your damage by {0}% of attacks for {2} turns.\n[icon=cd] {3} turns.",
+                    "5": "Increase the damage of attacks by {0}% for {2} turns.\n[icon=cd] {3} turns.",
                     "6": "Reduce target's damage by {0}% for {2} turns.\n[icon=cd] {3} turns.",
                     "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns.",
                     "name": {
@@ -277,7 +284,7 @@
                 "Grave-4": "[b]LEVEL - 1[/b]\n\nMummy x1 | Zombie x1 | Woman Zombie x1",
                 "Grave-5": "[b]LEVEL - 2[/b]\n\nDog x1 | Mummy x2",
                 "Grave-6": "[b]LEVEL - 3[/b]\n\nMummy x1 | Woman Zombie x2",
-                "Mount-7": "[b]LEVEL - 1[/b]\n\nVulture x1 | Mummy x1",
+                "Mount-7": "[b]LEVEL - 1[/b]\n\nVulture x1 | Mummy x1 | Zombie x1",
                 "Mount-8": "[b]LEVEL - 2[/b]\n\nWanderer x1 | Vulture x2",
                 "Mount-9": "[b]LEVEL - 3[/b]\n\nWanderer x1 | Mummy x1 | Mummy x1",
                 "Castle-10": "[b]LEVEL - 1[/b]\n\nStrong Zombie x2 | Dog x1",
@@ -289,7 +296,7 @@
 
         "fight": {
             "exit": {
-                "name": "EXIT?",
+                "title": "RUN AWAY?",
                 "desc": "There's no penalty in doing so."
             },
             "skip": "Skip your turn.",
@@ -380,7 +387,7 @@
             },
             "map": {
                 "1": "This is my office, more specificly, the [b]Map Area[/b]! \nAll level availables can appear here.",
-                "2": "First select region represented by the arrows. Then, click on any available level to see more information. When you're ready to go click the green [b]check[/b] button.",
+                "2": "First select region represented by the arrows. Then, click on any available level to see more information. When you're ready to go click the green [b]✔[/b] button.",
                 "3": "Before you enter any level, make sure that you have all the right equipments. I'm not let you go without an [b]armor and a weapon/skill[/b]."
             },
             "fight": {
@@ -399,6 +406,8 @@
                 "12": "[b]Remember:[/b] if you're loosing, it's better to retreat and come back to factory for further upgrades. But don't give up so easily! Try different builds and combinations.",
                 "13": "That's all for now, good luck!"
             }
-        }
+        },
+
+        "credits": "\n\n\nDeveloped by Victorian Studio\n\n\n[u]Game Designer[/u]\nVitor Cirilo\n\n\n[u]Programmer[/u]\nVitor Cirilo\n\n\n[u]2D Artist[/u]\nAna Luiza\n\n\n[u]Animator[/u]\nAna Luiza\n\n\n[u]Game Testers[/u]\nAna Barata\nMarcelo Campos\nThuan Martins\n\n\nThank you for playing!"
     }
 }

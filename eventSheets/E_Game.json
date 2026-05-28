@@ -321,6 +321,14 @@
 					"parameters": {
 						"y": "-310"
 					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Bkg_Exit",
+					"sid": 359448026487065,
+					"parameters": {
+						"y": "-310"
+					}
 				}
 			],
 			"sid": 535886495439238,
@@ -471,6 +479,7 @@
 					],
 					"actions": [],
 					"sid": 168097080379613,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -555,7 +564,8 @@
 									}
 								}
 							],
-							"sid": 730643083005777
+							"sid": 730643083005777,
+							"disabled": true
 						}
 					]
 				},
@@ -575,6 +585,7 @@
 					],
 					"actions": [],
 					"sid": 592910184939967,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -659,7 +670,8 @@
 									}
 								}
 							],
-							"sid": 864159544296419
+							"sid": 864159544296419,
+							"disabled": true
 						}
 					]
 				},
@@ -679,6 +691,7 @@
 					],
 					"actions": [],
 					"sid": 633739988852853,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -745,7 +758,8 @@
 									}
 								}
 							],
-							"sid": 411607778326778
+							"sid": 411607778326778,
+							"disabled": true
 						}
 					]
 				},
@@ -765,6 +779,7 @@
 					],
 					"actions": [],
 					"sid": 547376005521550,
+					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -831,7 +846,8 @@
 									}
 								}
 							],
-							"sid": 866518789147290
+							"sid": 866518789147290,
+							"disabled": true
 						}
 					]
 				},
@@ -907,7 +923,8 @@
 							}
 						}
 					],
-					"sid": 764542562304001
+					"sid": 764542562304001,
+					"disabled": true
 				},
 				{
 					"eventType": "block",
@@ -1019,6 +1036,30 @@
 				}
 			],
 			"sid": 239401094400489
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Production_Vapor",
+					"sid": 790079987328676,
+					"parameters": {
+						"object": "Text_Vapor"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_Vapor",
+					"sid": 203509424438061,
+					"parameters": {
+						"text": "Internationalization.Lookup(\"game.upg.Steam.name\") & \": \"& Dict_Temp_Prod_Data.Get(\"Steam\") &\" / \"&Production_Vapor.prod_cap"
+					}
+				}
+			],
+			"sid": 962899890219894
 		},
 		{
 			"eventType": "block",
@@ -1542,6 +1583,9 @@
 								false,
 								false,
 								false,
+								false,
+								false,
+								false,
 								false
 							]
 						}
@@ -1894,6 +1938,15 @@
 										"layer": "\"Options\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 409087638490736,
+									"parameters": {
+										"layer": "\"Exit\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -1977,6 +2030,15 @@
 					"sid": 406826037560372,
 					"parameters": {
 						"layer": "\"Options\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 545361424643574,
+					"parameters": {
+						"layer": "\"Exit\""
 					},
 					"isInverted": true
 				},
@@ -2124,6 +2186,506 @@
 							"sid": 520325785287564
 						}
 					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 405968803048598,
+					"parameters": {
+						"object": "Btn_ExitGame",
+						"type": "end"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 159215804695100,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 558395466606520,
+					"parameters": {
+						"layer": "\"Options\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "is-any-playing",
+					"objectClass": "Bkg_Exit",
+					"sid": 107211788646445,
+					"behaviorType": "Tween",
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 490733288066869,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 372962145171706,
+							"parameters": {
+								"layer": "\"Exit\""
+							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Bkg_Exit",
+							"sid": 203561077607618,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "540"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 112176441386932,
+							"parameters": {
+								"time-scale": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 384064251298268,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 261058376323910,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 278240601191492,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_up\"",
+								"property": "offsetY",
+								"end-value": "-310",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 470148766271043,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 555174465481100,
+							"parameters": {
+								"layer": "\"Exit\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 181345818572025
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 354914558420890
+						}
+					],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 491810661620281,
+							"parameters": {
+								"time-scale": "0"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 409202937114641,
+							"parameters": {
+								"layer": "\"Exit\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 149594343440874,
+							"parameters": {
+								"object": "Bkg_Exit",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 461084739162433,
+							"parameters": {
+								"object": "Btn_Confirm_Exit",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-object-time-scale",
+							"objectClass": "System",
+							"sid": 234443397481020,
+							"parameters": {
+								"object": "Btn_ExitGame",
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 833188601642042,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down_hi\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 813863742462635
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Bkg_Exit",
+					"sid": 635937137187718,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"options_down_hi\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Bkg_Exit",
+					"sid": 857935958152871,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"options_up\"",
+						"property": "offsetY",
+						"end-value": "540",
+						"time": "0.1",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 982409965812338
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 378689487218089,
+					"parameters": {
+						"object": "Btn_Confirm_Exit",
+						"type": "end"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 902143411373519,
+					"parameters": {
+						"variable": "Tutorial_Name",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 428572187761057,
+					"parameters": {
+						"layer": "\"Options\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 663839285986201,
+					"parameters": {
+						"layer": "\"Levels\""
+					},
+					"isInverted": true
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 806754917846762,
+					"parameters": {
+						"layer": "\"Exit\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-time-scale",
+					"objectClass": "System",
+					"sid": 122680705663725,
+					"parameters": {
+						"time-scale": "1"
+					}
+				}
+			],
+			"sid": 471580308105344,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Btn_Confirm_Exit",
+							"sid": 953988312203470,
+							"parameters": {
+								"animation": "\"Confirm\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "fade-volume",
+							"objectClass": "Audio",
+							"sid": 355768722433950,
+							"parameters": {
+								"tag": "\"Main\"",
+								"db": "-100",
+								"duration": "1",
+								"ending": "stop"
+							}
+						},
+						{
+							"id": "set-fade-in-time",
+							"objectClass": "Frg_Fade",
+							"sid": 428812601314140,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-in-time": "1"
+							}
+						},
+						{
+							"id": "set-wait-time",
+							"objectClass": "Frg_Fade",
+							"sid": 108525381800946,
+							"behaviorType": "Fade",
+							"parameters": {
+								"wait-time": "0"
+							}
+						},
+						{
+							"id": "set-fade-out-time",
+							"objectClass": "Frg_Fade",
+							"sid": 466201517111664,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-out-time": "0"
+							}
+						},
+						{
+							"id": "restart-fade",
+							"objectClass": "Frg_Fade",
+							"sid": 717687732597530,
+							"behaviorType": "Fade"
+						},
+						{
+							"callFunction": "Dictionary_to_Array",
+							"sid": 108931898294279
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 631359403255326
+						},
+						{
+							"callFunction": "Save_Local_Storage",
+							"sid": 606366463192937
+						},
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 991655054158607
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 992435021218091
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 766641251549555,
+							"parameters": {
+								"seconds": "1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "close",
+							"objectClass": "Browser",
+							"sid": 283634651253193
+						}
+					],
+					"sid": 395954039089145
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Btn_Confirm_Exit",
+							"sid": 861520939084925,
+							"parameters": {
+								"animation": "\"Deny\""
+							}
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "Bkg_Exit",
+							"sid": 967929504604680,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "540"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 136111278484601,
+							"parameters": {
+								"time-scale": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 484256060340150,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_down\"",
+								"property": "offsetY",
+								"end-value": "560",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 316466777000381,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Bkg_Exit",
+							"sid": 102773855378626,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"options_up\"",
+								"property": "offsetY",
+								"end-value": "-310",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 263044606898486,
+							"parameters": {
+								"seconds": "0.5",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 228927046982567,
+							"parameters": {
+								"layer": "\"Exit\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 319493353195014
 				}
 			]
 		},
@@ -2347,7 +2909,7 @@
 						{
 							"id": "is-overlapping-another-object",
 							"objectClass": "Progress_Bar_Vapor",
-							"sid": 894484105034711,
+							"sid": 473860200951369,
 							"parameters": {
 								"object": "Production_Vapor"
 							}
@@ -2357,37 +2919,13 @@
 						{
 							"id": "set-animation-speed",
 							"objectClass": "Progress_Bar_Vapor",
-							"sid": 849620226935238,
+							"sid": 722092901323045,
 							"parameters": {
 								"speed": "60 /  Production_Vapor.prod_time"
 							}
 						}
 					],
-					"sid": 479864442842182
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Production_Vapor",
-							"sid": 153266093692531,
-							"parameters": {
-								"object": "Text_Vapor"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text_Vapor",
-							"sid": 909749120929170,
-							"parameters": {
-								"text": "Internationalization.Lookup(\"game.upg.Steam.name\") & \": \"& Dict_Temp_Prod_Data.Get(\"Steam\") &\" / \"&Production_Vapor.prod_cap"
-							}
-						}
-					],
-					"sid": 697503332036469
+					"sid": 514425853000980
 				},
 				{
 					"eventType": "block",
@@ -2415,6 +2953,15 @@
 							"sid": 378100868538078,
 							"parameters": {
 								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 619729665217951,
+							"parameters": {
+								"layer": "\"Exit\""
 							},
 							"isInverted": true
 						},
@@ -2538,6 +3085,9 @@
 									"parameters": [
 										false,
 										true,
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
@@ -3377,6 +3927,15 @@
 							"isInverted": true
 						},
 						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 124547550609530,
+							"parameters": {
+								"layer": "\"Exit\""
+							},
+							"isInverted": true
+						},
+						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Production",
 							"sid": 110331807960943,
@@ -3500,6 +4059,9 @@
 											"parameters": [
 												false,
 												true,
+												false,
+												false,
+												false,
 												false,
 												false,
 												false,
@@ -3635,6 +4197,9 @@
 													"parameters": [
 														false,
 														true,
+														false,
+														false,
+														false,
 														false,
 														false,
 														false,
@@ -4047,6 +4612,9 @@
 														false,
 														false,
 														false,
+														false,
+														false,
+														false,
 														false
 													]
 												}
@@ -4301,9 +4869,9 @@
 								{
 									"id": "set-text",
 									"objectClass": "Text_ProdQuant",
-									"sid": 184416599863321,
+									"sid": 425474040218276,
 									"parameters": {
-										"text": "Production.material_id & \" \" & Dict_Temp_Prod_Data.Get(Production.material_id) & \" / \" & Production.prod_cap"
+										"text": "Internationalization.Lookup(\"game.upg.\" & Production.material_id & \".name\") & \" \" & Dict_Temp_Prod_Data.Get(Production.material_id) & \" / \" & Production.prod_cap"
 									}
 								}
 							],
@@ -4678,12 +5246,12 @@
 									"objectClass": "Prod_Pannel",
 									"sid": 296874962039211,
 									"parameters": {
-										"object": "TextoAiDaVida"
+										"object": "Text_Fixed"
 									}
 								},
 								{
 									"id": "is-on-layer",
-									"objectClass": "TextoAiDaVida",
+									"objectClass": "Text_Fixed",
 									"sid": 390792577999287,
 									"parameters": {
 										"layer": "\"Secondary_Icons\""
@@ -4693,7 +5261,7 @@
 							"actions": [
 								{
 									"id": "set-visible",
-									"objectClass": "TextoAiDaVida",
+									"objectClass": "Text_Fixed",
 									"sid": 899571376559354,
 									"parameters": {
 										"visibility": "visible"
@@ -4848,14 +5416,14 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Prod_Pannel",
-									"sid": 775754153005517,
+									"sid": 917578259173448,
 									"parameters": {
-										"object": "TextoAiDaVida"
+										"object": "Text_Fixed"
 									}
 								},
 								{
 									"id": "is-on-layer",
-									"objectClass": "TextoAiDaVida",
+									"objectClass": "Text_Fixed",
 									"sid": 880640827934335,
 									"parameters": {
 										"layer": "\"Secondary_Icons\""
@@ -4865,7 +5433,7 @@
 							"actions": [
 								{
 									"id": "set-visible",
-									"objectClass": "TextoAiDaVida",
+									"objectClass": "Text_Fixed",
 									"sid": 519600436467582,
 									"parameters": {
 										"visibility": "invisible"
@@ -4902,6 +5470,15 @@
 							"sid": 881797291232908,
 							"parameters": {
 								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 578213324527246,
+							"parameters": {
+								"layer": "\"Exit\""
 							},
 							"isInverted": true
 						},
@@ -4967,6 +5544,9 @@
 										false,
 										false,
 										true,
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
@@ -5119,6 +5699,9 @@
 												false,
 												false,
 												true,
+												false,
+												false,
+												false,
 												false,
 												false,
 												false,
@@ -7381,9 +7964,9 @@
 								{
 									"id": "compare-two-values",
 									"objectClass": "System",
-									"sid": 285590916893893,
+									"sid": 399966859105560,
 									"parameters": {
-										"first-value": "Upgrade_ID",
+										"first-value": "tokenat ( Upgrade_ID, 0, \"-\" )",
 										"comparison": 0,
 										"second-value": "\"costred\""
 									}
@@ -7592,6 +8175,9 @@
 								false,
 								false,
 								true,
+								false,
+								false,
+								false,
 								false,
 								false,
 								false,
@@ -8333,7 +8919,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 321035256611184,
+									"parameters": {
+										"type": "log",
+										"message": "\"Prod Combo!\""
+									}
+								}
+							],
 							"sid": 220887771182474,
 							"children": [
 								{
@@ -8405,10 +9001,10 @@
 												{
 													"id": "subtract-from-instvar",
 													"objectClass": "Production",
-													"sid": 881688685792797,
+													"sid": 252279192373571,
 													"parameters": {
 														"instance-variable": "prod_time",
-														"value": "A_Prod_Data.At(8, 1, ActiveLayer_ID) * float( tokenat ( Upgrade_name, 2, \"_\" ) )"
+														"value": "A_Prod_Data.At(8, 1, Production.Array_ID) * float( tokenat ( Upgrade_name, 2, \"_\" ) )"
 													}
 												},
 												{
@@ -10662,6 +11258,15 @@
 								"layer": "\"Options\""
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 908585499052196,
+							"parameters": {
+								"layer": "\"Exit\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [],
@@ -11109,6 +11714,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								},
@@ -11311,6 +11919,15 @@
 							"sid": 213533725294760,
 							"parameters": {
 								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 579075117981326,
+							"parameters": {
+								"layer": "\"Exit\""
 							},
 							"isInverted": true
 						}
@@ -11878,6 +12495,15 @@
 								"layer": "\"Options\""
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 927437288022138,
+							"parameters": {
+								"layer": "\"Exit\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -12324,6 +12950,15 @@
 							"sid": 990342565967475,
 							"parameters": {
 								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 679352206924910,
+							"parameters": {
+								"layer": "\"Exit\""
 							},
 							"isInverted": true
 						},
@@ -13873,6 +14508,15 @@
 										"layer": "\"Options\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 488384559344794,
+									"parameters": {
+										"layer": "\"Exit\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -14324,6 +14968,15 @@
 										"layer": "\"Options\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 274682316686876,
+									"parameters": {
+										"layer": "\"Exit\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -14735,6 +15388,15 @@
 									"sid": 502488224050925,
 									"parameters": {
 										"layer": "\"Options\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 686878504569637,
+									"parameters": {
+										"layer": "\"Exit\""
 									},
 									"isInverted": true
 								}
@@ -16090,10 +16752,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 628515443800989,
+															"sid": 886841512030830,
 															"parameters": {
 																"variable": "HAB_ID_2",
-																"value": "0"
+																"value": "-1"
 															}
 														}
 													],
@@ -16291,12 +16953,17 @@
 																	}
 																},
 																{
+																	"id": "move-to-bottom",
+																	"objectClass": "Hab_Slot",
+																	"sid": 510487150870703
+																},
+																{
 																	"id": "set-eventvar-value",
 																	"objectClass": "System",
-																	"sid": 459785077296426,
+																	"sid": 246790605246972,
 																	"parameters": {
 																		"variable": "HAB_ID_2",
-																		"value": "0"
+																		"value": "-1"
 																	}
 																}
 															],
@@ -16403,8 +17070,16 @@
 																{
 																	"id": "move-to-bottom",
 																	"objectClass": "Wp_Slot",
-																	"sid": 725192186264865,
-																	"disabled": true
+																	"sid": 255862335420683
+																},
+																{
+																	"id": "move-to-object",
+																	"objectClass": "Wp_Slot",
+																	"sid": 694916176372227,
+																	"parameters": {
+																		"where": "in-front",
+																		"object": "armadura_madeira"
+																	}
 																},
 																{
 																	"id": "set-instvar-value",
@@ -16503,18 +17178,26 @@
 															}
 														},
 														{
-															"id": "move-to-bottom",
-															"objectClass": "Wp_Slot",
-															"sid": 545160225447023,
-															"disabled": true
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "Wp_Slot",
 															"sid": 171757606952046,
 															"parameters": {
 																"instance-variable": "ID",
 																"value": "2"
+															}
+														},
+														{
+															"id": "move-to-bottom",
+															"objectClass": "Wp_Slot",
+															"sid": 422574351170135
+														},
+														{
+															"id": "move-to-object",
+															"objectClass": "Wp_Slot",
+															"sid": 214961155825887,
+															"parameters": {
+																"where": "in-front",
+																"object": "armadura_madeira"
 															}
 														},
 														{
@@ -16558,12 +17241,6 @@
 															}
 														},
 														{
-															"id": "move-to-bottom",
-															"objectClass": "Hab_Slot",
-															"sid": 499411855453527,
-															"disabled": true
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "Hab_Slot",
 															"sid": 820078667638724,
@@ -16573,12 +17250,17 @@
 															}
 														},
 														{
+															"id": "move-to-bottom",
+															"objectClass": "Hab_Slot",
+															"sid": 713450385645651
+														},
+														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 693724831769979,
+															"sid": 331422309137096,
 															"parameters": {
 																"variable": "HAB_ID_2",
-																"value": "0"
+																"value": "-1"
 															}
 														}
 													],
@@ -16670,6 +17352,15 @@
 																"instance-variable": "Free",
 																"value": "true"
 															}
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Save_File",
+															"sid": 163894761579639,
+															"parameters": {
+																"key": "\"WP_SLOT_1\"",
+																"value": "0"
+															}
 														}
 													],
 													"sid": 843841611454612
@@ -16757,6 +17448,15 @@
 															"parameters": {
 																"instance-variable": "Free",
 																"value": "true"
+															}
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Save_File",
+															"sid": 284274667361236,
+															"parameters": {
+																"key": "\"WP_SLOT_2\"",
+																"value": "0"
 															}
 														}
 													],
@@ -16863,6 +17563,15 @@
 																"instance-variable": "Free",
 																"value": "true"
 															}
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Save_File",
+															"sid": 986353497988821,
+															"parameters": {
+																"key": "\"HAB_SLOT_1\"",
+																"value": "0"
+															}
 														}
 													],
 													"sid": 149478029991562
@@ -16950,6 +17659,15 @@
 															"parameters": {
 																"instance-variable": "Free",
 																"value": "true"
+															}
+														},
+														{
+															"id": "set-key",
+															"objectClass": "Dict_Save_File",
+															"sid": 557438072246864,
+															"parameters": {
+																"key": "\"HAB_SLOT_2\"",
+																"value": "0"
 															}
 														}
 													],
@@ -19444,9 +20162,27 @@
 								{
 									"id": "layer-is-visible",
 									"objectClass": "System",
-									"sid": 852631622709489,
+									"sid": 380137050070795,
+									"parameters": {
+										"layer": "\"Work Info\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 276758936524867,
 									"parameters": {
 										"layer": "\"Options\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 937656969170842,
+									"parameters": {
+										"layer": "\"Exit\""
 									},
 									"isInverted": true
 								},
@@ -19766,6 +20502,26 @@
 												"variable": "Tutorial_Name",
 												"value": "\"error\""
 											}
+										},
+										{
+											"callFunction": "Play_Audio",
+											"sid": 488479553228725,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true
+											]
 										}
 									],
 									"sid": 118615691010007
@@ -19797,6 +20553,26 @@
 												"variable": "Tutorial_Name",
 												"value": "\"error\""
 											}
+										},
+										{
+											"callFunction": "Play_Audio",
+											"sid": 165765605633943,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true
+											]
 										}
 									],
 									"sid": 540641495787963
@@ -19959,6 +20735,26 @@
 												"variable": "Tutorial_Name",
 												"value": "\"error\""
 											}
+										},
+										{
+											"callFunction": "Play_Audio",
+											"sid": 477395792382355,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true
+											]
 										}
 									],
 									"sid": 669128713812867
@@ -19990,6 +20786,26 @@
 												"variable": "Tutorial_Name",
 												"value": "\"error\""
 											}
+										},
+										{
+											"callFunction": "Play_Audio",
+											"sid": 878772454619198,
+											"parameters": [
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												false,
+												true
+											]
 										}
 									],
 									"sid": 817349229999269
@@ -23386,6 +24202,24 @@
 									"parameters": {
 										"layer": "\"Work Upg\""
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 230100093404458,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 894476675051831,
+									"parameters": {
+										"layer": "\"Exit\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -23453,6 +24287,9 @@
 																false,
 																false,
 																true,
+																false,
+																false,
+																false,
 																false,
 																false,
 																false,
@@ -24016,6 +24853,9 @@
 																false,
 																false,
 																true,
+																false,
+																false,
+																false,
 																false,
 																false,
 																false,
@@ -24598,6 +25438,24 @@
 									"parameters": {
 										"layer": "\"Work Upg\""
 									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 421490245483025,
+									"parameters": {
+										"layer": "\"Options\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 659924853046420,
+									"parameters": {
+										"layer": "\"Exit\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -25273,6 +26131,151 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "on-any-click",
+									"objectClass": "Mouse",
+									"sid": 626950007154344
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 466235384084523,
+									"parameters": {
+										"object": "Bkg_Work_Info"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 987775343874241,
+									"parameters": {
+										"object": "Btn_Info"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 192487344132840,
+									"parameters": {
+										"variable": "Tutorial_Name",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 697224964374720,
+									"parameters": {
+										"layer": "\"Workshop\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 618953016571907,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 223159330381223,
+											"parameters": {
+												"layer": "\"Work Info\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 772118643991940,
+											"parameters": {
+												"seconds": "0.01",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-layer-interactive",
+											"objectClass": "System",
+											"sid": 370673625128105,
+											"parameters": {
+												"layer": "\"Workshop\"",
+												"interactive": true
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Bkg_Work_Info",
+											"sid": 914345382346790,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"options_down\"",
+												"property": "offsetY",
+												"end-value": "560",
+												"time": "0.1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 265898379858332,
+											"parameters": {
+												"seconds": "0.1",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "tween-one-property",
+											"objectClass": "Bkg_Work_Info",
+											"sid": 582272973246626,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"options_up\"",
+												"property": "offsetY",
+												"end-value": "-310",
+												"time": "0.2",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no",
+												"repeat-count": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 471731859484349,
+											"parameters": {
+												"seconds": "0.2",
+												"use-timescale": true
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 472610671007939,
+											"parameters": {
+												"layer": "\"Work Info\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 348866718907666
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "on-tweens-finished",
 									"objectClass": "Bkg_Work_Info",
 									"sid": 381227372230139,
@@ -25469,13 +26472,22 @@
 							}
 						},
 						{
-							"id": "compare-y",
-							"objectClass": "Bkg_options",
-							"sid": 720441762899773,
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 328040732658609,
 							"parameters": {
-								"comparison": 1,
-								"y-co-ordinate": "540"
-							}
+								"layer": "\"Exit\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 480495351233627,
+							"parameters": {
+								"layer": "\"Options\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -25954,6 +26966,15 @@
 								"layer": "\"Options\""
 							},
 							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 829210049875956,
+							"parameters": {
+								"layer": "\"Exit\""
+							},
+							"isInverted": true
 						}
 					],
 					"actions": [
@@ -26079,6 +27100,15 @@
 							"sid": 853876735200569,
 							"parameters": {
 								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 595558961395018,
+							"parameters": {
+								"layer": "\"Exit\""
 							},
 							"isInverted": true
 						},
@@ -26214,6 +27244,15 @@
 							"sid": 214591490226980,
 							"parameters": {
 								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 595805188957318,
+							"parameters": {
+								"layer": "\"Exit\""
 							},
 							"isInverted": true
 						},
@@ -26535,9 +27574,18 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-destroyed",
+							"id": "compare-opacity",
 							"objectClass": "Frg_Fade",
-							"sid": 229444465983279
+							"sid": 603589340150828,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 387329102853726
 						}
 					],
 					"actions": [],
@@ -26615,99 +27663,6 @@
 								}
 							],
 							"sid": 822725493820367
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 441378275522030,
-									"parameters": {
-										"variable": "Level",
-										"comparison": 0,
-										"value": "1"
-									}
-								},
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 362695739780159,
-									"parameters": {
-										"variable": "Tutorial_Name",
-										"comparison": 0,
-										"value": "\"\""
-									}
-								},
-								{
-									"id": "compare-value",
-									"objectClass": "Dict_Save_File",
-									"sid": 359947003549886,
-									"parameters": {
-										"key": "\"LVL\"",
-										"comparison": 0,
-										"value": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"callFunction": "Pop_up_Tutorial",
-									"sid": 198975071933864,
-									"parameters": [
-										"\"\"",
-										"0",
-										"\"\""
-									]
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 473527088668253,
-									"parameters": {
-										"variable": "Tutorial",
-										"value": "1"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 752029041337329,
-									"parameters": {
-										"variable": "Tutorial_Name",
-										"value": "\"end_demo\""
-									}
-								},
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 848800947011259,
-									"parameters": {
-										"layer": "\"Tutorial\"",
-										"visibility": "visible"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 504778729127263,
-									"parameters": {
-										"seconds": "0.65",
-										"use-timescale": true
-									}
-								},
-								{
-									"id": "typewriter-text",
-									"objectClass": "Text_Tutorial",
-									"sid": 567965135667715,
-									"parameters": {
-										"text": "Internationalization.Lookup( \"tutorial.\" & Tutorial_Name & \".\" & str(Tutorial) )",
-										"duration": "3"
-									}
-								}
-							],
-							"sid": 155823297580506,
-							"disabled": true
 						}
 					]
 				},
@@ -26812,15 +27767,6 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 646971028665867,
-									"parameters": {
-										"group-name": "\"Vapor Prod\"",
-										"state": "activated"
-									}
-								},
-								{
-									"id": "set-group-active",
-									"objectClass": "System",
 									"sid": 548391781621342,
 									"parameters": {
 										"group-name": "\"Outros Prods\"",
@@ -26833,7 +27779,36 @@
 									"sid": 952804874632164
 								}
 							],
-							"sid": 380731180021608
+							"sid": 380731180021608,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 663157411821111,
+											"parameters": {
+												"variable": "Tutorial_Name",
+												"comparison": 1,
+												"value": "\"welcome\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 495976846269343,
+											"parameters": {
+												"group-name": "\"Vapor Prod\"",
+												"state": "activated"
+											}
+										}
+									],
+									"sid": 303938070741241
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -26853,6 +27828,15 @@
 									"parameters": {
 										"seconds": "0.01",
 										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 221303705796262,
+									"parameters": {
+										"layer": "\"Tutorial\"",
+										"visibility": "visible"
 									}
 								},
 								{
@@ -28103,6 +29087,15 @@
 														"group-name": "\"Vapor Prod\"",
 														"state": "activated"
 													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Production_Vapor",
+													"sid": 532896780226074,
+													"parameters": {
+														"instance-variable": "Producing",
+														"value": "false"
+													}
 												}
 											],
 											"sid": 772120649789704,
@@ -28370,8 +29363,17 @@
 															}
 														},
 														{
+															"id": "set-boolean-instvar",
+															"objectClass": "Production_Vapor",
+															"sid": 305263177691133,
+															"parameters": {
+																"instance-variable": "Producing",
+																"value": "false"
+															}
+														},
+														{
 															"callFunction": "Save_Local_Storage",
-															"sid": 745390481846605
+															"sid": 671258677349255
 														},
 														{
 															"id": "set-group-active",
@@ -29068,6 +30070,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -29144,6 +30149,15 @@
 							"sid": 892144772149632,
 							"parameters": {
 								"layer": "\"Options\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 414043497694773,
+							"parameters": {
+								"layer": "\"Exit\""
 							},
 							"isInverted": true
 						},
@@ -29546,6 +30560,15 @@
 										0.984313725490196,
 										1
 									]
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 149433438917238,
+									"parameters": {
+										"group-name": "\"Vapor Prod\"",
+										"state": "deactivated"
+									}
 								},
 								{
 									"id": "request-project-file",
@@ -30240,6 +31263,15 @@
 													}
 												},
 												{
+													"id": "set-enabled",
+													"objectClass": "icon_list_armor_clone",
+													"sid": 611670856621438,
+													"behaviorType": "DragandDrop",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
 													"id": "set-boolean-instvar",
 													"objectClass": "Armor_Slot",
 													"sid": 660160774866394,
@@ -30272,6 +31304,15 @@
 													"sid": 406671541857055,
 													"parameters": {
 														"frame-number": "Armor_ID"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 211113700799955,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
 													}
 												},
 												{
@@ -30310,7 +31351,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 357081528981324,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
+													}
+												}
+											],
 											"sid": 319685503614400,
 											"children": [
 												{
@@ -30353,9 +31404,9 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "icon_list_weapon_clone",
-															"sid": 238253305374574,
+															"sid": 511137055650358,
 															"parameters": {
-																"frame-number": "Dict_Save_File.Get(\"WP_SLOT_1\")"
+																"frame-number": "Dict_Save_File.Get(\"WP_SLOT_1\") "
 															}
 														},
 														{
@@ -30406,11 +31457,47 @@
 											],
 											"actions": [
 												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 902251750565500,
+													"parameters": {
+														"object-to-create": "Wp_Slot",
+														"layer": "\"Frg List\"",
+														"x": " 1130",
+														"y": "496",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "move-to-bottom",
+													"objectClass": "Wp_Slot",
+													"sid": 465526888888203
+												},
+												{
+													"id": "move-to-object",
+													"objectClass": "Wp_Slot",
+													"sid": 935707606516989,
+													"parameters": {
+														"where": "in-front",
+														"object": "armadura_madeira"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Wp_Slot",
+													"sid": 356255250956715,
+													"parameters": {
+														"instance-variable": "ID",
+														"value": "2"
+													}
+												},
+												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 779304576546124,
+													"sid": 652716357238049,
 													"parameters": {
-														"seconds": "0.8",
+														"seconds": "0.2",
 														"use-timescale": true
 													}
 												}
@@ -30457,7 +31544,7 @@
 														{
 															"id": "set-animation-frame",
 															"objectClass": "icon_list_weapon_clone",
-															"sid": 438181605784296,
+															"sid": 507228865833770,
 															"parameters": {
 																"frame-number": "Dict_Save_File.Get(\"WP_SLOT_2\")"
 															}
@@ -30482,7 +31569,7 @@
 														},
 														{
 															"callFunction": "Change Equipped Hab",
-															"sid": 343651574378967,
+															"sid": 836011051406467,
 															"parameters": [
 																"Dict_Save_File.Get(\"WP_SLOT_2\")",
 																"\"WP\"",
@@ -30518,7 +31605,17 @@
 													}
 												}
 											],
-											"actions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 294468824483872,
+													"parameters": {
+														"seconds": "0.2",
+														"use-timescale": true
+													}
+												}
+											],
 											"sid": 823284012358819,
 											"children": [
 												{
@@ -30614,11 +31711,38 @@
 											],
 											"actions": [
 												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 982577475556411,
+													"parameters": {
+														"object-to-create": "Hab_Slot",
+														"layer": "\"Frg List\"",
+														"x": " 1160",
+														"y": "176",
+														"create-hierarchy": false,
+														"template-name": "\"\""
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Hab_Slot",
+													"sid": 336105021605353,
+													"parameters": {
+														"instance-variable": "ID",
+														"value": "2"
+													}
+												},
+												{
+													"id": "move-to-bottom",
+													"objectClass": "Hab_Slot",
+													"sid": 231509866832528
+												},
+												{
 													"id": "wait",
 													"objectClass": "System",
-													"sid": 476767561352793,
+													"sid": 526013583715208,
 													"parameters": {
-														"seconds": "0.8",
+														"seconds": "0.2",
 														"use-timescale": true
 													}
 												}
@@ -30703,6 +31827,27 @@
 											]
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "PopulateList",
+											"sid": 612481905469467,
+											"parameters": [
+												"\"Weapons\""
+											]
+										},
+										{
+											"callFunction": "PopulateList",
+											"sid": 679467427702883,
+											"parameters": [
+												"\"Armor\""
+											]
+										}
+									],
+									"sid": 940592158953811
 								}
 							]
 						}
@@ -30712,9 +31857,18 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-destroyed",
+							"id": "compare-opacity",
 							"objectClass": "Frg_Fade",
-							"sid": 166233941406113
+							"sid": 605866192764058,
+							"parameters": {
+								"comparison": 0,
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 341247786201275
 						}
 					],
 					"actions": [
@@ -31236,6 +32390,20 @@
 							"sid": 906720311358930
 						},
 						{
+							"name": "Shotgun",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 666438496037788
+						},
+						{
+							"name": "RocketL",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 505018069342677
+						},
+						{
 							"name": "Power_Zap",
 							"type": "boolean",
 							"initialValue": "false",
@@ -31248,6 +32416,13 @@
 							"initialValue": "false",
 							"comment": "",
 							"sid": 885713729374997
+						},
+						{
+							"name": "Error",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 617333126141033
 						}
 					],
 					"eventType": "function-block",
@@ -32055,6 +33230,127 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
+									"sid": 586485359777176,
+									"parameters": {
+										"variable": "Shotgun"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 821348359234738,
+									"parameters": {
+										"variable": "rng_sound",
+										"value": "choose ( 1,2)"
+									}
+								}
+							],
+							"sid": 105039175183529,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 372829325482397,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 604953036856017,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/WEAPON GUNSHOT ShotGun 02"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 137975953408040
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 746949509063220,
+											"parameters": {
+												"variable": "rng_sound",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 785882525694700,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/WEAPON GUNSHOT ShotGun 04"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 307374943408235
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 595804762814535,
+									"parameters": {
+										"variable": "RocketL"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 207152604086718,
+									"parameters": {
+										"audio-file": {
+											"path": "Battle/WEAPON GUNSHOT Rocket Launcher 03"
+										},
+										"loop": "not-looping",
+										"volume": "-50 + ( VOLUME * 0.5 )",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 650617468723537
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
 									"sid": 351555504050734,
 									"parameters": {
 										"variable": "Power_Zap"
@@ -32128,6 +33424,36 @@
 								}
 							],
 							"sid": 969592382319821
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 249907613780108,
+									"parameters": {
+										"variable": "Error"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 456111037816108,
+									"parameters": {
+										"audio-file": {
+											"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
+										},
+										"loop": "not-looping",
+										"volume": "-20 + ( VOLUME * 0.2 )",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 714250962404805
 						}
 					]
 				}
@@ -32274,6 +33600,392 @@
 						}
 					],
 					"sid": 436728943531897
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production_Vapor",
+							"sid": 183101311693185,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Production_Vapor",
+							"sid": 118078932093680,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"value": "0.245"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 549798634582631,
+							"parameters": {
+								"x": "3",
+								"y": "1",
+								"z": "0",
+								"value": "0.245"
+							}
+						}
+					],
+					"sid": 178937000040619
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 972418583841379,
+							"parameters": {
+								"instance-variable": "material_id",
+								"comparison": 0,
+								"value": "\"Wood\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 421621497939966,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Production",
+							"sid": 836169396455474,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"value": "0.449"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 115009720263535,
+							"parameters": {
+								"x": "3",
+								"y": "1",
+								"z": "1",
+								"value": "0.449"
+							}
+						}
+					],
+					"sid": 114578787258792
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 496874007081240,
+							"parameters": {
+								"instance-variable": "material_id",
+								"comparison": 0,
+								"value": "\"Copper\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 200877803522878,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Production",
+							"sid": 155365412043351,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"value": "0.89"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 454804315694534,
+							"parameters": {
+								"x": "3",
+								"y": "1",
+								"z": "2",
+								"value": "0.89"
+							}
+						}
+					],
+					"sid": 334040035800614
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 631244870376995,
+							"parameters": {
+								"instance-variable": "material_id",
+								"comparison": 0,
+								"value": "\"Iron\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 680922962116167,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Production",
+							"sid": 949429333160793,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"value": "1.19"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 365144162224353,
+							"parameters": {
+								"x": "3",
+								"y": "1",
+								"z": "3",
+								"value": "1.19"
+							}
+						}
+					],
+					"sid": 964028857607356
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 235244870146872,
+							"parameters": {
+								"instance-variable": "material_id",
+								"comparison": 0,
+								"value": "\"Titanium\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 263554482612595,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Production",
+							"sid": 270505019855581,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"value": "1.79"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 959263358980970,
+							"parameters": {
+								"x": "3",
+								"y": "1",
+								"z": "4",
+								"value": "1.79"
+							}
+						}
+					],
+					"sid": 801010964750560
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 301480568255506,
+							"parameters": {
+								"instance-variable": "material_id",
+								"comparison": 0,
+								"value": "\"Tungsten\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 211473876559885,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Production",
+							"sid": 491383103000770,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"value": "2.25"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 655396482612932,
+							"parameters": {
+								"x": "3",
+								"y": "1",
+								"z": "5",
+								"value": "2.25"
+							}
+						}
+					],
+					"sid": 305901554203467
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 704218311451893,
+							"parameters": {
+								"instance-variable": "material_id",
+								"comparison": 0,
+								"value": "\"Vaporium\""
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Production",
+							"sid": 816144296431609,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Production",
+							"sid": 911614964184833,
+							"parameters": {
+								"instance-variable": "prod_time",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 858003976108741,
+							"parameters": {
+								"x": "3",
+								"y": "1",
+								"z": "6",
+								"value": "3"
+							}
+						}
+					],
+					"sid": 897938195561238
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 199491129368577,
+							"parameters": {
+								"x": "8",
+								"y": "1",
+								"z": "6",
+								"comparison": 0,
+								"value": "25"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-at-xyz",
+							"objectClass": "A_Prod_Data",
+							"sid": 237820717655589,
+							"parameters": {
+								"x": "8",
+								"y": "1",
+								"z": "6",
+								"value": "20"
+							}
+						}
+					],
+					"sid": 687865763345164,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Production",
+									"sid": 798963533142647,
+									"parameters": {
+										"instance-variable": "material_id",
+										"comparison": 0,
+										"value": "\"Vaporium\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Production",
+									"sid": 839897099510107,
+									"parameters": {
+										"instance-variable": "base_prodtime",
+										"value": "20"
+									}
+								}
+							],
+							"sid": 180448097352719
+						}
+					]
 				}
 			],
 			"sid": 429822142499843

@@ -149,15 +149,6 @@
 					}
 				},
 				{
-					"id": "set-layer-visible",
-					"objectClass": "System",
-					"sid": 458538844070976,
-					"parameters": {
-						"layer": "\"Particles\"",
-						"visibility": "invisible"
-					}
-				},
-				{
 					"id": "set-layer-opacity",
 					"objectClass": "System",
 					"sid": 182034108085950,
@@ -1483,9 +1474,9 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 820314322742020,
+									"sid": 957929262439136,
 									"parameters": {
-										"layer": "\"Particles\"",
+										"layer": "\"Fog\"",
 										"visibility": "visible"
 									}
 								}
@@ -1542,6 +1533,51 @@
 								}
 							],
 							"sid": 821406405318909
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 224502847478128,
+									"parameters": {
+										"variable": "Level",
+										"comparison": 0,
+										"value": "13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 745089736860440,
+									"parameters": {
+										"layer": "\"Rain\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 240455576591060
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 161931186368316
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Particle_Rain",
+									"sid": 831879671552635
+								}
+							],
+							"sid": 622487914995965
 						}
 					],
 					"isOrBlock": true
@@ -1565,6 +1601,11 @@
 							"id": "destroy",
 							"objectClass": "Particles_Fog",
 							"sid": 396157253497759
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Particle_Rain",
+							"sid": 545508472024386
 						}
 					],
 					"sid": 168196948856996
@@ -1575,11 +1616,11 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 919431017883495,
+							"sid": 592413505497502,
 							"parameters": {
 								"variable": "Level",
 								"comparison": 2,
-								"value": "14"
+								"value": "13"
 							}
 						}
 					],
@@ -1621,6 +1662,20 @@
 								},
 								"loop": "looping",
 								"volume": "-40 + (VOLUME * 0.4 )",
+								"stereo-pan": "0",
+								"tag-optional": "\"Fight\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 231367503730357,
+							"parameters": {
+								"audio-file": {
+									"path": "Battle/heavy_rain_and_thunder_by_freesound_community"
+								},
+								"loop": "looping",
+								"volume": "-50 + (VOLUME * 0.5 )",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -3159,7 +3214,7 @@
 					"children": [
 						{
 							"eventType": "comment",
-							"text": "Cooldowns"
+							"text": "Cooldowns e Munição"
 						},
 						{
 							"eventType": "block",
@@ -4678,7 +4733,10 @@
 												false,
 												false,
 												false,
-												true
+												false,
+												false,
+												true,
+												false
 											]
 										},
 										{
@@ -5169,7 +5227,10 @@
 														false,
 														false,
 														false,
-														true
+														false,
+														false,
+														true,
+														false
 													]
 												},
 												{
@@ -5663,7 +5724,10 @@
 												false,
 												false,
 												false,
+												false,
+												false,
 												true,
+												false,
 												false
 											]
 										}
@@ -10614,6 +10678,9 @@
 																false,
 																false,
 																false,
+																false,
+																false,
+																false,
 																false
 															]
 														}
@@ -10650,6 +10717,9 @@
 																false,
 																false,
 																true,
+																false,
+																false,
+																false,
 																false,
 																false,
 																false,
@@ -10692,6 +10762,9 @@
 																false,
 																true,
 																false,
+																false,
+																false,
+																false,
 																false
 															]
 														}
@@ -10720,7 +10793,7 @@
 													"actions": [
 														{
 															"callFunction": "Play_Audio",
-															"sid": 378677067495342,
+															"sid": 536543944210018,
 															"parameters": [
 																false,
 																false,
@@ -10730,7 +10803,10 @@
 																false,
 																false,
 																false,
+																false,
 																true,
+																false,
+																false,
 																false,
 																false
 															]
@@ -10771,6 +10847,9 @@
 																false,
 																false,
 																false,
+																false,
+																false,
+																false,
 																false
 															]
 														}
@@ -10798,7 +10877,7 @@
 													"actions": [
 														{
 															"callFunction": "Play_Audio",
-															"sid": 690903192198107,
+															"sid": 151929986344626,
 															"parameters": [
 																false,
 																false,
@@ -10808,7 +10887,10 @@
 																false,
 																false,
 																false,
+																false,
+																false,
 																true,
+																false,
 																false,
 																false
 															]
@@ -10837,7 +10919,7 @@
 													"actions": [
 														{
 															"callFunction": "Play_Audio",
-															"sid": 743756926707841,
+															"sid": 208102072817915,
 															"parameters": [
 																false,
 																false,
@@ -10846,8 +10928,11 @@
 																false,
 																false,
 																false,
-																false,
 																true,
+																false,
+																false,
+																false,
+																false,
 																false,
 																false
 															]
@@ -10884,6 +10969,9 @@
 																false,
 																false,
 																true,
+																false,
+																false,
+																false,
 																false,
 																false,
 																false,
@@ -11180,13 +11268,13 @@
 														{
 															"id": "play",
 															"objectClass": "Audio",
-															"sid": 701286344414348,
+															"sid": 146674554437156,
 															"parameters": {
 																"audio-file": {
 																	"path": "Upgrade/Level_Up_3_by_Universfield"
 																},
 																"loop": "not-looping",
-																"volume": "-20 + (VOLUME * 0.2)",
+																"volume": "-12 + (VOLUME * 0.12)",
 																"stereo-pan": "0",
 																"tag-optional": "\"\""
 															}
@@ -22351,6 +22439,9 @@
 												false,
 												false,
 												false,
+												false,
+												false,
+												false,
 												false
 											]
 										}
@@ -22398,6 +22489,9 @@
 												false,
 												false,
 												true,
+												false,
+												false,
+												false,
 												false,
 												false,
 												false,
@@ -22458,6 +22552,9 @@
 									"callFunction": "Play_Audio",
 									"sid": 498592557456609,
 									"parameters": [
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
@@ -22534,6 +22631,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -22599,6 +22699,9 @@
 										false,
 										false,
 										false,
+										false,
+										false,
+										false,
 										false
 									]
 								}
@@ -22642,6 +22745,9 @@
 									"callFunction": "Play_Audio",
 									"sid": 801317584375035,
 									"parameters": [
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
@@ -22697,6 +22803,82 @@
 										}
 									],
 									"sid": 185324712652941
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Sound"
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 750660852502178,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 931220550197214,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"BFF_power_25_4\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 650542059842570,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/VOCAL EVIL Breath Deep 02"
+												},
+												"loop": "not-looping",
+												"volume": "-20 + (VOLUME * 0.2)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 215831414102542
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 559755724924302,
+											"parameters": {
+												"variable": "Hab_Name",
+												"comparison": 0,
+												"value": "\"DFF_weak_25_3\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 542326809832401,
+											"parameters": {
+												"audio-file": {
+													"path": "Battle/NEGATIVE Failure Descending Chime 08"
+												},
+												"loop": "not-looping",
+												"volume": "-25 + (VOLUME * 0.25)",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 795208563893974
 								}
 							]
 						},
@@ -23002,6 +23184,15 @@
 										"comparison": 0,
 										"second-value": "0"
 									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Enemy",
+									"sid": 664421977993671,
+									"parameters": {
+										"animation": "\"VK_Death\""
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
@@ -23043,6 +23234,53 @@
 								}
 							],
 							"sid": 950046422625053
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemy",
+									"sid": 879746227013219,
+									"parameters": {
+										"instance-variable": "ID",
+										"comparison": 0,
+										"value": "\"VK\""
+									}
+								},
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Enemy",
+									"sid": 954915980708196,
+									"parameters": {
+										"animation": "\"VK_Idle\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Enemy",
+									"sid": 943210261062121,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "HP",
+										"comparison": 4,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-effect-parameter",
+									"objectClass": "Enemy",
+									"sid": 755000617613205,
+									"parameters": {
+										"effect": "\"Brightness\"",
+										"parameter-index": "0",
+										"value": "100"
+									}
+								}
+							],
+							"sid": 461587756507665
 						}
 					]
 				},
@@ -23918,6 +24156,85 @@
 						}
 					],
 					"sid": 171248714073353
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 597756706127642,
+							"parameters": {
+								"interval-seconds": "random( 10, 20)"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 594426112114259,
+							"parameters": {
+								"variable": "Level",
+								"comparison": 0,
+								"value": "13"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 336715140376287,
+							"parameters": {
+								"variable": "Option_Particles"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 464630072352869,
+							"parameters": {
+								"object-to-create": "Particle_raio",
+								"layer": "\"Bkg\"",
+								"x": "random(58, 774)",
+								"y": "random(272, 280)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 844263672104040,
+							"parameters": {
+								"audio-file": {
+									"path": "Battle/thunder"
+								},
+								"loop": "not-looping",
+								"volume": "-20 + (VOLUME * 0.2)",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 111821994416438
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "Particle_raio",
+							"sid": 711707076107163
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Particle_raio",
+							"sid": 959514335905182
+						}
+					],
+					"sid": 158333117286137
 				}
 			],
 			"sid": 665550493471881
@@ -24600,11 +24917,11 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 872298387101181,
+									"sid": 393465987733914,
 									"parameters": {
 										"variable": "Level",
 										"comparison": 0,
-										"value": "14"
+										"value": "13"
 									}
 								}
 							],
@@ -25624,6 +25941,9 @@
 									"sid": 488847821313530,
 									"parameters": [
 										true,
+										false,
+										false,
+										false,
 										false,
 										false,
 										false,
