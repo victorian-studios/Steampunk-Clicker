@@ -13,8 +13,9 @@
                 "choose": "CHOOSE YOUR LANGUAGE:"
             },
             "sound": {
-                "title": "SOUND",
-                "music": "[u]MASTER VOLUME[/u]"
+                "title": "AUDIO",
+                "music": "[u]MUSIC[/u]",
+                "sound": "[u]SOUND[/u]"
             },
             "video": {
                 "title": "VIDEO",
@@ -209,6 +210,7 @@
                 "materials": "Materials",
                 "title_locked": "Locked",
                 "locked": " Unknown",
+                "max_lvl": "MAX LEVEL REACHED",
                 "label": {
                     "name": "ICONS",
                     "damage": "Damage",
@@ -248,8 +250,8 @@
                     "3": "Deal {0} damage back to enemies for {2} turns.\n[icon=cd] {3} turns.",
                     "4": "[icon=dmg] {0}\n[icon=special] {1}[icon=poison] for {2} turns.\n[icon=cd] {3} turns",
                     "5": "Increase the damage of attacks by {0}% for {2} turns.\n[icon=cd] {3} turns.",
-                    "6": "Reduce target's damage by {0}% for {2} turns.\n[icon=cd] {3} turns.",
-                    "7": "Deal {0}[icon=pdmg] and target receive +{1}% damage for {2} turns.",
+                    "6": "Deal {0}[icon=pdmg] and target deal -{1}% damage for {2} turns.\n[icon=cd] {3} turns.",
+                    "7": "Mark a target to receive +{1}% damage for {2} turns.",
                     "name": {
                         "Recharge": "Recharge",
                         "Heal": "Heal",
@@ -258,7 +260,7 @@
                         "Poison Dart": "Poison Dagger",
                         "Fortify": "Fortify",
                         "Bone Breaker": "Bone Breaker",
-                        "Discharge Mark": "Discharge Mark"
+                        "Discharge Mark": "Discharged Mark"
                     }
                 },
                 "armors": {
@@ -319,10 +321,14 @@
 
         "loading": {
             "ready": "Click anywhere to start!",
-            "tip_1": "If a level is too difficult try changing your equipment. There're many combos available in the game!",
+            "tip_1": "If a level is too difficult try changing your equipment. There're many combos available!",
             "tip_2": "Each armor has different amount of equipement slots. Test each one according to your available equipment.",
-            "tip_3": "At level 10, all equipements receive a significant upgrade to their attributes. Prioritize having fewer high-level items instead of many low-level ones.",
-            "tip_4": "After purchasing the Auto-bot upgrade, remember to activate it by right-clicking on the producer."
+            "tip_3": "At level 10, all equipements receive a significant upgrade to their attributes.",
+            "tip_4": "With the Auto-bot upgrade, you can activate it by right-clicking on the producer.",
+            "tip_5": "Prioritize having fewer high-level items instead of many low-level ones.",
+            "tip_6": "",
+            "tip_7": "",
+            "tip_8": ""
         },
 
         "tutorial": {
@@ -397,7 +403,7 @@
                 "3.1": "Okay okay, I'm not going to bother you anymore. Good luck Rose!",
                 "4": "First, when you enconter an enemy, you'll need to defeat them all to progress. I suggest you [b]focus on one target at a time[/b].",
                 "5": "Now you can choose wich [b]weapon or ability[/b] you would like to use first. Check their information any time by moving your mouse over them.",
-                "6": "Then select and finally click on your target to execute your move. After doing any action you will finish your turn.",
+                "6": "Then select and finally click on your target to execute your move. After doing [b]2 actions[/b] you will finish your turn.",
                 "7": "After you act, it's time for the enemies to attack you. Thankfully your armor was designed to receive an great amount of damage and still keep you alive. Just remember that you're not invincible.",
                 "8": "Some enemies will have different attack patterns and, obviously, different abilities. You'll never know what they do until you fight them.",
                 "9": "In case you suffer any damage, keep looking at the blue bar bellow. It's your main health bar, just like the enemies, when it reaches [b]zero[/b] you will be defeated.",

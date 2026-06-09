@@ -79,7 +79,7 @@
 									"path": "Main Game/Victorian_Violin_Waltz_by_Humanoid_Media"
 								},
 								"loop": "looping",
-								"volume": "-40 + ( VOLUME * 0.4 )",
+								"volume": "-40 + ( VOL_MUSIC * 0.4 )",
 								"stereo-pan": "0",
 								"tag-optional": "\"Cred\""
 							}
@@ -126,7 +126,7 @@
 									"path": "Credits/One_Thousand_Years_Ago_Victorian_Gothic_Piano_Music_Loopable_by_Joel_Fazhari"
 								},
 								"loop": "looping",
-								"volume": "-40 + ( VOLUME * 0.4 )",
+								"volume": "-40 + ( VOL_MUSIC * 0.4 )",
 								"stereo-pan": "0",
 								"tag-optional": "\"Cred\""
 							}
@@ -2791,6 +2791,523 @@
 				}
 			],
 			"sid": 531720813511845
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 151743544302487,
+					"parameters": {
+						"object": "Btn_next"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_next",
+					"sid": 924310513487590,
+					"parameters": {
+						"frame-number": "1"
+					}
+				}
+			],
+			"sid": 146481172861065
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 592549787565802
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Btn_next",
+					"sid": 193218052766320,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 406035714650441
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Comic_Manager",
+					"sid": 926407463732475,
+					"parameters": {
+						"instance-variable": "Page_1_Completed"
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "Comic_Side2",
+					"sid": 743581183742131,
+					"parameters": {
+						"comparison": 0,
+						"number": "Self.AnimationFrameCount - 1"
+					}
+				},
+				{
+					"id": "compare-animation-frame-tag",
+					"objectClass": "Comic_Side2",
+					"sid": 408803850485959,
+					"parameters": {
+						"comparison": 1,
+						"tag": "\"STOP\""
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Btn_next",
+					"sid": 618385566910284,
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Btn_next",
+					"sid": 778266753518050,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 514518947884193
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 521461108885357
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Btn_next",
+					"sid": 387807639779425
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "Btn_next",
+					"sid": 295336878248230,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 195526520209728
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 283699919974036,
+					"parameters": {
+						"object": "Btn_next"
+					}
+				},
+				{
+					"id": "is-visible",
+					"objectClass": "Btn_next",
+					"sid": 818699694351403
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Btn_next",
+					"sid": 706589301342763
+				}
+			],
+			"sid": 914565157480257,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Comic_Side1",
+							"sid": 901360758355977,
+							"parameters": {
+								"unique-id": "400"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 656096292230164,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "Comic_Side1",
+									"sid": 577698604989552,
+									"parameters": {
+										"comparison": 1,
+										"opacity": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-fade-in-time",
+									"objectClass": "Comic_Side1",
+									"sid": 692678168529579,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-in-time": "0"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "Comic_Side1",
+									"sid": 579512400981820,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "1"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "Comic_Side1",
+									"sid": 551738145270434,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 375035573230336
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 123421583352473,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Comic_Side1",
+									"sid": 909718314650984,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 727435917540994
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Comic_Side1",
+							"sid": 819410946272286,
+							"parameters": {
+								"unique-id": "401"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 404015917481492,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "Comic_Side1",
+									"sid": 828105869264134,
+									"parameters": {
+										"comparison": 1,
+										"opacity": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-fade-in-time",
+									"objectClass": "Comic_Side1",
+									"sid": 466214023616986,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-in-time": "0"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "Comic_Side1",
+									"sid": 939067608933976,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "1"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "Comic_Side1",
+									"sid": 242152890087588,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 149948108512274
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 468741313964591,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Comic_Side1",
+									"sid": 795772509723105,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 524085387349071
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Comic_Side2",
+							"sid": 183167464750857,
+							"parameters": {
+								"unique-id": "403"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 375750150890994,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "Comic_Side2",
+									"sid": 999860712710757,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-fade-in-time",
+									"objectClass": "Comic_Side2",
+									"sid": 582673866134201,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-in-time": "0"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "Comic_Side2",
+									"sid": 524272367650321,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "1"
+									}
+								},
+								{
+									"id": "restart-fade",
+									"objectClass": "Comic_Side2",
+									"sid": 390881725760501,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 915481235879399
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 209986053938925,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Comic_Side2",
+									"sid": 176085971206304,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 953467900017925
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Comic_Side2",
+							"sid": 214474978236515,
+							"parameters": {
+								"unique-id": "404"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 795678901229738,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-opacity",
+									"objectClass": "Comic_Side2",
+									"sid": 227418024204424,
+									"parameters": {
+										"comparison": 0,
+										"opacity": "100"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-fade-in-time",
+									"objectClass": "Comic_Side2",
+									"sid": 284724736785575,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-in-time": "0"
+									}
+								},
+								{
+									"id": "set-fade-out-time",
+									"objectClass": "Comic_Side2",
+									"sid": 954018528329208,
+									"behaviorType": "Fade",
+									"parameters": {
+										"fade-out-time": "1"
+									}
+								},
+								{
+									"id": "restart-fade",
+									"objectClass": "Comic_Side2",
+									"sid": 679089995363205,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 289974361274490
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 493048493637830,
+									"parameters": {
+										"seconds": "1.0",
+										"use-timescale": true
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Comic_Side2",
+									"sid": 217900312348560,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 913502805758805
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 689727388909189,
+							"parameters": {
+								"seconds": "1.0",
+								"use-timescale": true
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Comic_Manager",
+							"sid": 198799224373658,
+							"parameters": {
+								"instance-variable": "Page_1_Completed",
+								"value": "false"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 755033594118019,
+							"parameters": {
+								"seconds": "0.1",
+								"use-timescale": true
+							}
+						},
+						{
+							"callFunction": "Comic Page",
+							"sid": 119302880611979,
+							"parameters": [
+								"0",
+								false
+							]
+						}
+					],
+					"sid": 701099008343005
+				}
+			]
 		}
 	],
 	"sid": 668903503354586

@@ -111,7 +111,7 @@
 							"path": "Menu/Cinematic_Violin_Uplifting_Music_by_Humanoide_Media"
 						},
 						"loop": "looping",
-						"volume": "-40 + ( VOLUME * 0.4 )",
+						"volume": "-40 + ( VOL_MUSIC * 0.4 )",
 						"stereo-pan": "0",
 						"tag-optional": "\"Menu\""
 					}
@@ -358,13 +358,13 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 846435740690466,
+					"sid": 563128166030834,
 					"parameters": {
 						"audio-file": {
 							"path": "Menu/rotating_metal_cog"
 						},
 						"loop": "not-looping",
-						"volume": "-20 + (VOLUME * 0.2)",
+						"volume": "-20 + (VOL_SOUND * 0.2)",
 						"stereo-pan": "0",
 						"tag-optional": "\"rotate\""
 					}
@@ -436,13 +436,13 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 395848024251000,
+					"sid": 206785257152442,
 					"parameters": {
 						"audio-file": {
 							"path": "Menu/442382__hisoul__bmx-rotating-chain-and-wheels-mechanical-mono"
 						},
 						"loop": "not-looping",
-						"volume": "-35 + ( VOLUME * 0.35 )",
+						"volume": "-35 + ( VOL_SOUND * 0.35 )",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}

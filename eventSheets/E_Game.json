@@ -199,7 +199,7 @@
 							"path": "Main Game/Steampunk_Victorian_Orchestra_by_Humanoide_Media"
 						},
 						"loop": "looping",
-						"volume": "-40 + ( VOLUME * 0.4 )",
+						"volume": "-40 + ( VOL_MUSIC * 0.4 )",
 						"stereo-pan": "0",
 						"tag-optional": "\"Main\""
 					}
@@ -2992,11 +2992,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Production_Vapor",
-							"sid": 178011997457402,
+							"sid": 204695671584071,
 							"parameters": {
 								"instance-variable": "prod_cap",
 								"comparison": 5,
-								"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
+								"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + 1"
 							}
 						}
 					],
@@ -3166,6 +3166,44 @@
 					],
 					"sid": 368789993134456,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-value",
+									"objectClass": "Dict_Temp_Prod_Data",
+									"sid": 250218434528654,
+									"parameters": {
+										"key": "\"Steam\"",
+										"comparison": 4,
+										"value": "Production_Vapor.prod_cap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-key",
+									"objectClass": "Dict_Temp_Prod_Data",
+									"sid": 277665179732445,
+									"parameters": {
+										"key": "\"Steam\"",
+										"value": " Production_Vapor.prod_cap"
+									}
+								},
+								{
+									"id": "set-at-xyz",
+									"objectClass": "A_Prod_Data",
+									"sid": 348505898197483,
+									"parameters": {
+										"x": "4",
+										"y": "1",
+										"z": "0",
+										"value": "Dict_Temp_Prod_Data.Get(\"Steam\")"
+									}
+								}
+							],
+							"sid": 288594373803645
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -3579,11 +3617,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Production_Vapor",
-									"sid": 738034454255138,
+									"sid": 265177134554952,
 									"parameters": {
 										"instance-variable": "prod_cap",
 										"comparison": 5,
-										"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + Production_Vapor.prod_quant"
+										"value": "Dict_Temp_Prod_Data.Get(\"Steam\") + 1"
 									}
 								}
 							],
@@ -4046,11 +4084,11 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "Production",
-							"sid": 751493206536156,
+							"sid": 578522464187591,
 							"parameters": {
 								"instance-variable": "prod_cap",
 								"comparison": 5,
-								"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+								"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + 1"
 							}
 						}
 					],
@@ -4832,6 +4870,44 @@
 							],
 							"sid": 368957852590897,
 							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-value",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 788546924761342,
+											"parameters": {
+												"key": "Production.material_id",
+												"comparison": 4,
+												"value": "Production_Vapor.prod_cap"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-key",
+											"objectClass": "Dict_Temp_Prod_Data",
+											"sid": 554034555163327,
+											"parameters": {
+												"key": "Production.material_id",
+												"value": " Production.prod_cap"
+											}
+										},
+										{
+											"id": "set-at-xyz",
+											"objectClass": "A_Prod_Data",
+											"sid": 919032629121339,
+											"parameters": {
+												"x": "4",
+												"y": "1",
+												"z": "Production.Array_ID",
+												"value": "Dict_Temp_Prod_Data.Get(Production.material_id)"
+											}
+										}
+									],
+									"sid": 645802790113954
+								},
 								{
 									"eventType": "block",
 									"conditions": [
@@ -6213,11 +6289,11 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Production",
-									"sid": 634185711673457,
+									"sid": 702424959877081,
 									"parameters": {
 										"instance-variable": "prod_cap",
 										"comparison": 5,
-										"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + Production.prod_quant"
+										"value": "Dict_Temp_Prod_Data.Get(Production.material_id) + 1"
 									}
 								}
 							],
@@ -9009,12 +9085,12 @@
 										{
 											"id": "set-at-xyz",
 											"objectClass": "A_Prod_Data",
-											"sid": 895189513995267,
+											"sid": 747131500435519,
 											"parameters": {
 												"x": "1",
 												"y": "1",
 												"z": "ActiveLayer_ID",
-												"value": "Production.prod_quant"
+												"value": "Production_Vapor.prod_quant"
 											}
 										}
 									],
@@ -13320,13 +13396,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 532731530475361,
+											"sid": 166843483765501,
 											"parameters": {
 												"audio-file": {
 													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -13343,13 +13419,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 873199904883776,
+											"sid": 712281662874409,
 											"parameters": {
 												"audio-file": {
 													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -13534,13 +13610,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 507351768846911,
+											"sid": 513080144011751,
 											"parameters": {
 												"audio-file": {
 													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -13557,13 +13633,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 833057707787949,
+											"sid": 742269100115273,
 											"parameters": {
 												"audio-file": {
 													"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -16287,13 +16363,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 578797891528357,
+											"sid": 391042221091658,
 											"parameters": {
 												"audio-file": {
 													"path": "Confirm/click_1"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -17747,10 +17823,10 @@
 														{
 															"id": "set-eventvar-value",
 															"objectClass": "System",
-															"sid": 704643856058911,
+															"sid": 613394595876403,
 															"parameters": {
 																"variable": "Weapon_ID_2",
-																"value": "\"\""
+																"value": "\"none\""
 															}
 														},
 														{
@@ -20244,6 +20320,15 @@
 															"parameters": {
 																"y": "Scroll_Y"
 															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 284494975470148,
+															"parameters": {
+																"variable": "Bkg_Tab_Y",
+																"value": "0"
+															}
 														}
 													],
 													"sid": 861056067710726
@@ -20277,6 +20362,15 @@
 															"sid": 454357149002711,
 															"parameters": {
 																"y": "Scroll_2_Y"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 269944946664546,
+															"parameters": {
+																"variable": "Bkg_Tab_2_Y",
+																"value": "0"
 															}
 														}
 													],
@@ -22641,9 +22735,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Work_Upg_Price",
-													"sid": 880458883924829,
+													"sid": 174853282726764,
 													"parameters": {
-														"text": "\"MAX LEVEL REACHED\""
+														"text": "Internationalization.Lookup(\"game.work.max_lvl\")"
 													}
 												},
 												{
@@ -23701,9 +23795,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Work_Upg_Price",
-													"sid": 481680820020441,
+													"sid": 417889723465039,
 													"parameters": {
-														"text": "\"MAX LEVEL REACHED\""
+														"text": "Internationalization.Lookup(\"game.work.max_lvl\")"
 													}
 												},
 												{
@@ -24649,9 +24743,9 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text_Work_Upg_Price",
-													"sid": 979243442957137,
+													"sid": 316093148926241,
 													"parameters": {
-														"text": "\"MAX LEVEL REACHED\""
+														"text": "Internationalization.Lookup(\"game.work.max_lvl\")"
 													}
 												},
 												{
@@ -25244,13 +25338,13 @@
 														{
 															"id": "play",
 															"objectClass": "Audio",
-															"sid": 622632886179211,
+															"sid": 328588871030583,
 															"parameters": {
 																"audio-file": {
 																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 																},
 																"loop": "not-looping",
-																"volume": "-20 + (VOLUME * 0.2)",
+																"volume": "-20 + (VOL_SOUND * 0.2)",
 																"stereo-pan": "0",
 																"tag-optional": "\"\""
 															}
@@ -25267,13 +25361,13 @@
 														{
 															"id": "play",
 															"objectClass": "Audio",
-															"sid": 200750542193144,
+															"sid": 251943893655446,
 															"parameters": {
 																"audio-file": {
 																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 																},
 																"loop": "not-looping",
-																"volume": "-20 + (VOLUME * 0.2)",
+																"volume": "-20 + (VOL_SOUND * 0.2)",
 																"stereo-pan": "0",
 																"tag-optional": "\"\""
 															}
@@ -25920,13 +26014,13 @@
 														{
 															"id": "play",
 															"objectClass": "Audio",
-															"sid": 787722887037127,
+															"sid": 458329115892376,
 															"parameters": {
 																"audio-file": {
 																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 																},
 																"loop": "not-looping",
-																"volume": "-20 + (VOLUME * 0.2)",
+																"volume": "-20 + (VOL_SOUND * 0.2)",
 																"stereo-pan": "0",
 																"tag-optional": "\"\""
 															}
@@ -25943,13 +26037,13 @@
 														{
 															"id": "play",
 															"objectClass": "Audio",
-															"sid": 504015138727653,
+															"sid": 797401473488739,
 															"parameters": {
 																"audio-file": {
 																	"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 																},
 																"loop": "not-looping",
-																"volume": "-20 + (VOLUME * 0.2)",
+																"volume": "-20 + (VOL_SOUND * 0.2)",
 																"stereo-pan": "0",
 																"tag-optional": "\"\""
 															}
@@ -29938,7 +30032,45 @@
 															}
 														}
 													],
-													"sid": 598400456926671
+													"sid": 598400456926671,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Production_Vapor",
+																	"sid": 172409030772814,
+																	"parameters": {
+																		"instance-variable": "prod_cap",
+																		"comparison": 1,
+																		"value": "25"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Production_Vapor",
+																	"sid": 279116316312088,
+																	"parameters": {
+																		"instance-variable": "prod_cap",
+																		"value": "25"
+																	}
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Production_Vapor",
+																	"sid": 512998334219496,
+																	"parameters": {
+																		"instance-variable": "prod_quant",
+																		"value": "1"
+																	}
+																}
+															],
+															"sid": 722472313375810
+														}
+													]
 												}
 											],
 											"isOrBlock": true
@@ -33286,13 +33418,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 864953615570589,
+											"sid": 606721449365549,
 											"parameters": {
 												"audio-file": {
 													"path": "Dialogue/TypeWriter_Mutiple_v1_wav"
 												},
 												"loop": "not-looping",
-												"volume": "-40 + (VOLUME * 0.4)",
+												"volume": "-40 + (VOL_SOUND * 0.4)",
 												"stereo-pan": "0",
 												"tag-optional": "\"dialogue\""
 											}
@@ -33318,13 +33450,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 865465125330731,
+											"sid": 685694711219169,
 											"parameters": {
 												"audio-file": {
 													"path": "Dialogue/TypeWriter_Mutiple_v2_wav"
 												},
 												"loop": "not-looping",
-												"volume": "-40 + (VOLUME * 0.4)",
+												"volume": "-40 + (VOL_SOUND * 0.4)",
 												"stereo-pan": "0",
 												"tag-optional": "\"dialogue\""
 											}
@@ -33350,13 +33482,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 234447160741729,
+											"sid": 833657139763498,
 											"parameters": {
 												"audio-file": {
 													"path": "Dialogue/TypeWriter_Mutiple_v3_wav"
 												},
 												"loop": "not-looping",
-												"volume": "-40 + (VOLUME * 0.4)",
+												"volume": "-40 + (VOL_SOUND * 0.4)",
 												"stereo-pan": "0",
 												"tag-optional": "\"dialogue\""
 											}
@@ -33382,13 +33514,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 809519397284282,
+											"sid": 710200324615148,
 											"parameters": {
 												"audio-file": {
 													"path": "Dialogue/TypeWriter_Mutiple_v4_wav"
 												},
 												"loop": "not-looping",
-												"volume": "-40 + (VOLUME * 0.4)",
+												"volume": "-40 + (VOL_SOUND * 0.4)",
 												"stereo-pan": "0",
 												"tag-optional": "\"dialogue\""
 											}
@@ -33414,13 +33546,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 846671792356660,
+											"sid": 755088092736578,
 											"parameters": {
 												"audio-file": {
 													"path": "Dialogue/TypeWriter_Mutiple_v5_wav"
 												},
 												"loop": "not-looping",
-												"volume": "-40 + (VOLUME * 0.4)",
+												"volume": "-40 + (VOL_SOUND * 0.4)",
 												"stereo-pan": "0",
 												"tag-optional": "\"dialogue\""
 											}
@@ -33473,13 +33605,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 200999542550586,
+											"sid": 365409319744161,
 											"parameters": {
 												"audio-file": {
 													"path": "Confirm/click_1"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33505,13 +33637,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 357668847934545,
+											"sid": 575008441303968,
 											"parameters": {
 												"audio-file": {
 													"path": "Confirm/click_2"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33537,13 +33669,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 390820833610153,
+											"sid": 219928510539785,
 											"parameters": {
 												"audio-file": {
 													"path": "Confirm/click_3"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33569,13 +33701,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 264522240129840,
+									"sid": 529452690814915,
 									"parameters": {
 										"audio-file": {
 											"path": "Confirm/Confirm_by_Ana_Caldeira"
 										},
 										"loop": "not-looping",
-										"volume": "-10 + ( VOLUME * 0.1 )",
+										"volume": "-10 + ( VOL_SOUND * 0.1 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -33599,13 +33731,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 517149195196882,
+									"sid": 241383559579749,
 									"parameters": {
 										"audio-file": {
 											"path": "Misc/free_locked"
 										},
 										"loop": "not-looping",
-										"volume": "-20 + ( VOLUME * 0.2 )",
+										"volume": "-20 + ( VOL_SOUND * 0.2 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -33629,13 +33761,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 319435606267847,
+									"sid": 311598672873804,
 									"parameters": {
 										"audio-file": {
 											"path": "Menu/rotating_metal_cog"
 										},
 										"loop": "not-looping",
-										"volume": "-20 + ( VOLUME * 0.2 )",
+										"volume": "-20 + ( VOL_SOUND * 0.2 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"rotate\""
 									}
@@ -33703,13 +33835,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 280568560503840,
+											"sid": 624304922031006,
 											"parameters": {
 												"audio-file": {
 													"path": "Attacks/hitting-in-a-face 1"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33735,13 +33867,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 196021230468610,
+											"sid": 665325722376080,
 											"parameters": {
 												"audio-file": {
 													"path": "Attacks/hitting-in-a-face 2"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33767,13 +33899,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 313970992596549,
+											"sid": 435610960739693,
 											"parameters": {
 												"audio-file": {
 													"path": "Attacks/hitting-in-a-face 3"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33826,13 +33958,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 797988304563469,
+											"sid": 805696403513279,
 											"parameters": {
 												"audio-file": {
 													"path": "Attacks/atk_stab_1"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33858,13 +33990,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 636822692017533,
+											"sid": 105331725216555,
 											"parameters": {
 												"audio-file": {
 													"path": "Attacks/atk_stab_2"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33890,13 +34022,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 103329137446531,
+											"sid": 925981258543539,
 											"parameters": {
 												"audio-file": {
 													"path": "Attacks/atk_stab_3"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33949,13 +34081,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 899191009350988,
+											"sid": 228129548014990,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/IMPACT Metal Blade Chink 01"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -33981,13 +34113,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 292649876103623,
+											"sid": 737948630663797,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/IMPACT Metal Blade Chink 02"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -34013,13 +34145,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 162989834716922,
+									"sid": 653988272772010,
 									"parameters": {
 										"audio-file": {
 											"path": "Attacks/gun_shot"
 										},
 										"loop": "not-looping",
-										"volume": "-40 + ( VOLUME * 0.4 )",
+										"volume": "-40 + ( VOL_SOUND * 0.4 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -34070,13 +34202,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 604953036856017,
+											"sid": 834585558917073,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/WEAPON GUNSHOT ShotGun 02"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -34102,13 +34234,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 785882525694700,
+											"sid": 369229052026439,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/WEAPON GUNSHOT ShotGun 04"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND  * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -34134,13 +34266,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 207152604086718,
+									"sid": 679112137210372,
 									"parameters": {
 										"audio-file": {
 											"path": "Battle/WEAPON GUNSHOT Rocket Launcher 03"
 										},
 										"loop": "not-looping",
-										"volume": "-50 + ( VOLUME * 0.5 )",
+										"volume": "-50 + ( VOL_SOUND * 0.5 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -34164,15 +34296,15 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 423221148197068,
+									"sid": 589058989722886,
 									"parameters": {
 										"audio-file": {
 											"path": "Battle/electric_by_freesound_community"
 										},
 										"loop": "not-looping",
-										"volume": "-40 + ( VOLUME * 0.4 )",
+										"volume": "-40 + ( VOL_SOUND * 0.4 )",
 										"stereo-pan": "0",
-										"tag-optional": "\"\""
+										"tag-optional": "\"Power_zap\""
 									}
 								},
 								{
@@ -34214,13 +34346,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 118381684835095,
+									"sid": 477390671719493,
 									"parameters": {
 										"audio-file": {
 											"path": "Battle/electricity"
 										},
 										"loop": "not-looping",
-										"volume": "-40 + ( VOLUME * 0.4 )",
+										"volume": "-40 + ( VOL_SOUND * 0.4 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -34271,13 +34403,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 862117532179247,
+											"sid": 723992673926341,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/bird_flapping_wings_1"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -34303,13 +34435,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 845594533356475,
+											"sid": 501284416901966,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/bird_flapping_wings_2"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -34335,13 +34467,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 456111037816108,
+									"sid": 523789662198391,
 									"parameters": {
 										"audio-file": {
 											"path": "Shop/Upgrade_Select_Ui_by_Techspired_Minds"
 										},
 										"loop": "not-looping",
-										"volume": "-20 + ( VOLUME * 0.2 )",
+										"volume": "-20 + ( VOL_SOUND * 0.2 )",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -34382,6 +34514,41 @@
 					],
 					"sid": 465476629052193,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "Corrigir o erro de não salvar o upgrade de \"dobrar produção\" do Vapor"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-at-xyz",
+									"objectClass": "A_Upg_Data",
+									"sid": 672535393475238,
+									"parameters": {
+										"x": "8",
+										"y": "1",
+										"z": "0",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-at-xyz",
+									"objectClass": "A_Prod_Data",
+									"sid": 433899728855851,
+									"parameters": {
+										"x": "1",
+										"y": "1",
+										"z": "0",
+										"value": "2"
+									}
+								}
+							],
+							"sid": 593283405283286
+						},
 						{
 							"eventType": "comment",
 							"text": "Corrigir o novo tempo do vaporium"

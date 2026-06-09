@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 48700,
+	"savedWithRelease": 48703,
 	"name": "Steampunk Clicker",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -341,9 +341,9 @@
 			"Text_CD",
 			"LocalStorage",
 			"A_Prod_Data",
-			"barra_volume",
-			"Slider_Volume",
-			"Progbar_volume",
+			"barra_volume_music",
+			"Slider_Volume_Music",
+			"Progbar_volume_music",
 			"Bkg_black_Options",
 			"Btn_Info",
 			"Bkg_Work_Info",
@@ -417,7 +417,11 @@
 			"Steamworks",
 			"Particles_Fog",
 			"Particle_Fog_Sprite",
-			"Btn_ExitGame"
+			"Btn_ExitGame",
+			"Slider_Volume_Sound",
+			"Progbar_volume_sound",
+			"barra_volume_sound",
+			"Btn_next"
 		],
 		"subfolders": []
 	},
@@ -1143,6 +1147,30 @@
 							"name": "738439__qubodup__orc-grunt-3.webm",
 							"type": "audio/webm; codecs=opus",
 							"sid": 762939414826164,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "bird_wings_by_dragon_studio.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 260301348602235,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "bird_flapping_wings_by_freesound_community.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 142063451659397,
+							"file-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "freesound_community-smoke-bomb-6761.ogg",
+							"type": "audio/ogg; codecs=vorbis",
+							"sid": 226219636709270,
 							"file-info": {
 								"purpose": "none"
 							}

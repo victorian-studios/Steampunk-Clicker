@@ -116,6 +116,16 @@
 			"sid": 816801942194467
 		},
 		{
+			"eventType": "variable",
+			"name": "Actions_Player",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "quantas ações o player realizou",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 672664403189986
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -218,6 +228,15 @@
 					"parameters": {
 						"variable": "Ach_NoDmg",
 						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 677072421512783,
+					"parameters": {
+						"variable": "Actions_Player",
+						"value": "0"
 					}
 				},
 				{
@@ -714,7 +733,16 @@
 						{
 							"id": "set-instvar-value",
 							"objectClass": "Wp_Slot",
-							"sid": 935947201337793,
+							"sid": 880377999472111,
+							"parameters": {
+								"instance-variable": "CD_Max",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wp_Slot",
+							"sid": 349642588150715,
 							"parameters": {
 								"instance-variable": "ID",
 								"value": "2"
@@ -823,6 +851,15 @@
 								"y": "984",
 								"create-hierarchy": false,
 								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wp_Slot",
+							"sid": 993639381262310,
+							"parameters": {
+								"instance-variable": "CD_Max",
+								"value": "1"
 							}
 						},
 						{
@@ -1634,7 +1671,7 @@
 									"path": "Battles/Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
 								},
 								"loop": "looping",
-								"volume": "-40 + (VOLUME * 0.4 )",
+								"volume": "-40 + (VOL_MUSIC * 0.4 )",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -1661,7 +1698,7 @@
 									"path": "Battles/Epic_Battle_by_Francisco_Samuel (edited)"
 								},
 								"loop": "looping",
-								"volume": "-40 + (VOLUME * 0.4 )",
+								"volume": "-40 + (VOL_MUSIC * 0.4 )",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -1669,13 +1706,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 104308297422058,
+							"sid": 261709098061649,
 							"parameters": {
 								"audio-file": {
 									"path": "Battle/heavy_rain_and_thunder_by_freesound_community"
 								},
 								"loop": "looping",
-								"volume": "-40 + (VOLUME * 0.4 )",
+								"volume": "-40 + (VOL_SOUND * 0.4 )",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -3208,6 +3245,15 @@
 								"variable": "TURN",
 								"value": "0"
 							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 188219389231093,
+							"parameters": {
+								"variable": "Actions_Player",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 585367220144085,
@@ -3710,6 +3756,41 @@
 										}
 									],
 									"sid": 474628528764994
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Icon_Effect_Player",
+											"sid": 970312976837480,
+											"parameters": {
+												"animation": "\"zap\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Icon_Effect_Player",
+											"sid": 731053619811241,
+											"parameters": {
+												"instance-variable": "Duration",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-at-xy",
+											"objectClass": "A_Fight_Effects",
+											"sid": 638191176795563,
+											"parameters": {
+												"x": "2",
+												"y": "0",
+												"value": "Icon_Effect_Player.AnimationName & \"_\" & Icon_Effect_Player.Potency & \"_\" & Icon_Effect_Player.Duration"
+											}
+										}
+									],
+									"sid": 283441815762382
 								},
 								{
 									"eventType": "block",
@@ -11181,7 +11262,22 @@
 															}
 														}
 													],
-													"actions": [],
+													"actions": [
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 529432058831058,
+															"parameters": {
+																"audio-file": {
+																	"path": "Upgrade/Level_Up_3_by_Universfield"
+																},
+																"loop": "not-looping",
+																"volume": "-11 + (VOL_SOUND * 0.11)",
+																"stereo-pan": "0",
+																"tag-optional": "\"\""
+															}
+														}
+													],
 													"sid": 141983078114009,
 													"children": [
 														{
@@ -11279,13 +11375,13 @@
 														{
 															"id": "play",
 															"objectClass": "Audio",
-															"sid": 146674554437156,
+															"sid": 444615665524124,
 															"parameters": {
 																"audio-file": {
 																	"path": "Upgrade/Level_Up_3_by_Universfield"
 																},
 																"loop": "not-looping",
-																"volume": "-12 + (VOLUME * 0.12)",
+																"volume": "-11 + (VOL_SOUND * 0.11)",
 																"stereo-pan": "0",
 																"tag-optional": "\"\""
 															}
@@ -11893,133 +11989,6 @@
 									"children": [
 										{
 											"eventType": "block",
-											"conditions": [
-												{
-													"id": "for-each",
-													"objectClass": "System",
-													"sid": 217871558325585,
-													"parameters": {
-														"object": "Icon_Effect_Player"
-													}
-												},
-												{
-													"id": "is-visible",
-													"objectClass": "Icon_Effect_Player",
-													"sid": 496200515452418
-												}
-											],
-											"actions": [],
-											"sid": 918006689191242,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 385404902342414,
-															"parameters": {
-																"animation": "\"zap\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 939953240299288,
-															"parameters": {
-																"animation": "\"power\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 565345661280203,
-															"disabled": true,
-															"parameters": {
-																"animation": "\"dodge\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 799283603762809,
-															"parameters": {
-																"animation": "\"weak\""
-															}
-														},
-														{
-															"id": "is-animation-playing",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 717822245628864,
-															"parameters": {
-																"animation": "\"vulnerable\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "subtract-from-instvar",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 573911032631569,
-															"parameters": {
-																"instance-variable": "Duration",
-																"value": "1"
-															}
-														},
-														{
-															"id": "set-at-xy",
-															"objectClass": "A_Fight_Effects",
-															"sid": 353083839371902,
-															"parameters": {
-																"x": "Icon_Effect_Player.Effect_Index",
-																"y": "0",
-																"value": "Icon_Effect_Player.AnimationName & \"_\" & Icon_Effect_Player.Potency & \"_\" & Icon_Effect_Player.Duration"
-															}
-														}
-													],
-													"sid": 188379042959965,
-													"isOrBlock": true
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "compare-instance-variable",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 134649997767865,
-															"parameters": {
-																"instance-variable": "Duration",
-																"comparison": 3,
-																"value": "0"
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-visible",
-															"objectClass": "Icon_Effect_Player",
-															"sid": 228366901699394,
-															"parameters": {
-																"visibility": "invisible"
-															}
-														},
-														{
-															"id": "set-at-xy",
-															"objectClass": "A_Fight_Effects",
-															"sid": 581548458362384,
-															"parameters": {
-																"x": "Icon_Effect_Player.Effect_Index",
-																"y": "0",
-																"value": "tokenat( A_Fight_Effects.At( Icon_Effect_Player.Effect_Index, 0), 0, \"_\") & \"_0_0\""
-															}
-														}
-													],
-													"sid": 719440683703223
-												}
-											]
-										},
-										{
-											"eventType": "block",
 											"conditions": [],
 											"actions": [
 												{
@@ -12035,40 +12004,228 @@
 														"x": "-100",
 														"y": "-1000"
 													}
-												},
-												{
-													"id": "set-layer-opacity",
-													"objectClass": "System",
-													"sid": 189402205994202,
-													"parameters": {
-														"layer": "\"Habs\"",
-														"opacity": "50"
-													}
-												},
-												{
-													"id": "wait",
-													"objectClass": "System",
-													"sid": 933113956910563,
-													"parameters": {
-														"seconds": "1.5",
-														"use-timescale": true
-													}
-												},
-												{
-													"id": "log",
-													"objectClass": "Browser",
-													"sid": 408917563655216,
-													"parameters": {
-														"type": "log",
-														"message": "\"- - - PLAYER TURN END - - -\""
-													}
-												},
-												{
-													"callFunction": "Enemy_Turn",
-													"sid": 140812262105144
 												}
 											],
-											"sid": 329481221897845
+											"sid": 329481221897845,
+											"children": [
+												{
+													"eventType": "comment",
+													"text": "Habilidades da Armadura são especiais e não consomem o turno do jogador"
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-eventvar",
+															"objectClass": "System",
+															"sid": 893247735990903,
+															"parameters": {
+																"variable": "Action_Type",
+																"comparison": 1,
+																"value": "\"ARM\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 827121052993889,
+															"parameters": {
+																"variable": "Actions_Player",
+																"value": "Actions_Player = 1 ? 2 : 1"
+															}
+														}
+													],
+													"sid": 577503226430624,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 827304607982337,
+																	"parameters": {
+																		"variable": "Actions_Player",
+																		"comparison": 0,
+																		"value": "2"
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 138955289944950,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "for-each",
+																			"objectClass": "System",
+																			"sid": 526652504222864,
+																			"parameters": {
+																				"object": "Icon_Effect_Player"
+																			}
+																		},
+																		{
+																			"id": "is-visible",
+																			"objectClass": "Icon_Effect_Player",
+																			"sid": 748442574495727
+																		}
+																	],
+																	"actions": [],
+																	"sid": 726664124252604,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 107144427368214,
+																					"parameters": {
+																						"animation": "\"zap\""
+																					}
+																				},
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 266856889232444,
+																					"parameters": {
+																						"animation": "\"power\""
+																					}
+																				},
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 547352504784336,
+																					"disabled": true,
+																					"parameters": {
+																						"animation": "\"dodge\""
+																					}
+																				},
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 552646235250684,
+																					"parameters": {
+																						"animation": "\"weak\""
+																					}
+																				},
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 950143057384834,
+																					"parameters": {
+																						"animation": "\"vulnerable\""
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "subtract-from-instvar",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 809779510623725,
+																					"parameters": {
+																						"instance-variable": "Duration",
+																						"value": "1"
+																					}
+																				},
+																				{
+																					"id": "set-at-xy",
+																					"objectClass": "A_Fight_Effects",
+																					"sid": 446183456223093,
+																					"parameters": {
+																						"x": "Icon_Effect_Player.Effect_Index",
+																						"y": "0",
+																						"value": "Icon_Effect_Player.AnimationName & \"_\" & Icon_Effect_Player.Potency & \"_\" & Icon_Effect_Player.Duration"
+																					}
+																				}
+																			],
+																			"sid": 540255894962809,
+																			"isOrBlock": true
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 605643571491020,
+																					"parameters": {
+																						"instance-variable": "Duration",
+																						"comparison": 3,
+																						"value": "0"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-visible",
+																					"objectClass": "Icon_Effect_Player",
+																					"sid": 742779246273423,
+																					"parameters": {
+																						"visibility": "invisible"
+																					}
+																				},
+																				{
+																					"id": "set-at-xy",
+																					"objectClass": "A_Fight_Effects",
+																					"sid": 245575360624667,
+																					"parameters": {
+																						"x": "Icon_Effect_Player.Effect_Index",
+																						"y": "0",
+																						"value": "tokenat( A_Fight_Effects.At( Icon_Effect_Player.Effect_Index, 0), 0, \"_\") & \"_0_0\""
+																					}
+																				}
+																			],
+																			"sid": 245235610032090
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"id": "set-layer-opacity",
+																			"objectClass": "System",
+																			"sid": 912859267292207,
+																			"parameters": {
+																				"layer": "\"Habs\"",
+																				"opacity": "50"
+																			}
+																		},
+																		{
+																			"id": "wait",
+																			"objectClass": "System",
+																			"sid": 437788957378476,
+																			"parameters": {
+																				"seconds": "1.5",
+																				"use-timescale": true
+																			}
+																		},
+																		{
+																			"id": "log",
+																			"objectClass": "Browser",
+																			"sid": 764254601648666,
+																			"parameters": {
+																				"type": "log",
+																				"message": "\"- - - PLAYER TURN END - - -\""
+																			}
+																		},
+																		{
+																			"callFunction": "Enemy_Turn",
+																			"sid": 233692593622476
+																		}
+																	],
+																	"sid": 869138199003481
+																}
+															]
+														}
+													]
+												}
+											]
 										}
 									]
 								}
@@ -12964,6 +13121,16 @@
 									"parameters": {
 										"object": "Btn_Turn_Skip"
 									}
+								},
+								{
+									"id": "compare-layer-opacity",
+									"objectClass": "System",
+									"sid": 836054098858324,
+									"parameters": {
+										"layer": "\"Habs\"",
+										"comparison": 0,
+										"opacity": "100"
+									}
 								}
 							],
 							"actions": [
@@ -13242,91 +13409,236 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Wp_Slot",
-											"sid": 219461059146728,
+											"sid": 332664061630368,
 											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "1"
+												"instance-variable": "Ammo_Max",
+												"comparison": 4,
+												"value": "0"
 											}
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 486741273783551,
+									"children": [
 										{
-											"id": "set-position",
-											"objectClass": "Select_Hab",
-											"sid": 640073887751602,
-											"parameters": {
-												"x": "Wp_Slot.X",
-												"y": "Wp_Slot.Y"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Wp_Slot",
+													"sid": 221927079819758,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Wp_Slot",
+													"sid": 558517282087650,
+													"parameters": {
+														"instance-variable": "Ammo",
+														"comparison": 4,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 856513378532062,
+													"parameters": {
+														"x": "Wp_Slot.X",
+														"y": "Wp_Slot.Y"
+													}
+												},
+												{
+													"callFunction": "Get_Targets",
+													"sid": 670306617607229,
+													"parameters": [
+														"Wp_Slot.ID",
+														"\"WP\"",
+														"Dict_Save_File.Get(Weapon_ID_1 )"
+													]
+												}
+											],
+											"sid": 201774000940209
 										},
 										{
-											"callFunction": "Get_Targets",
-											"sid": 783636581263879,
-											"parameters": [
-												"Wp_Slot.ID",
-												"\"WP\"",
-												"Dict_Save_File.Get(Weapon_ID_1 )"
-											]
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Wp_Slot",
+													"sid": 682967049865929,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Wp_Slot",
+													"sid": 278707825848502,
+													"parameters": {
+														"instance-variable": "Ammo",
+														"comparison": 4,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 720325904180004,
+													"parameters": {
+														"variable": "Weapon_ID_2",
+														"comparison": 1,
+														"value": "\"none\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 458446847664003,
+													"parameters": {
+														"variable": "Weapon_ID_2",
+														"comparison": 1,
+														"value": "\"\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 178486085357014,
+													"parameters": {
+														"x": "Wp_Slot.X",
+														"y": "Wp_Slot.Y"
+													}
+												},
+												{
+													"callFunction": "Get_Targets",
+													"sid": 804223629974167,
+													"parameters": [
+														"Wp_Slot.ID",
+														"\"WP\"",
+														"Dict_Save_File.Get(Weapon_ID_2 )"
+													]
+												}
+											],
+											"sid": 924623790228469
 										}
-									],
-									"sid": 198655226637975
+									]
 								},
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-instance-variable",
-											"objectClass": "Wp_Slot",
-											"sid": 404747817115428,
-											"parameters": {
-												"instance-variable": "ID",
-												"comparison": 0,
-												"value": "2"
-											}
-										},
-										{
-											"id": "compare-eventvar",
+											"id": "else",
 											"objectClass": "System",
-											"sid": 636712771497249,
-											"parameters": {
-												"variable": "Weapon_ID_2",
-												"comparison": 1,
-												"value": "\"none\""
-											}
-										},
-										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 584193671477907,
-											"parameters": {
-												"variable": "Weapon_ID_2",
-												"comparison": 1,
-												"value": "\"\""
-											}
+											"sid": 928569433950690
 										}
 									],
-									"actions": [
+									"actions": [],
+									"sid": 212044774188686,
+									"children": [
 										{
-											"id": "set-position",
-											"objectClass": "Select_Hab",
-											"sid": 785886200576032,
-											"parameters": {
-												"x": "Wp_Slot.X",
-												"y": "Wp_Slot.Y"
-											}
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Wp_Slot",
+													"sid": 989367436472085,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 408871024404610,
+													"parameters": {
+														"x": "Wp_Slot.X",
+														"y": "Wp_Slot.Y"
+													}
+												},
+												{
+													"callFunction": "Get_Targets",
+													"sid": 890391287909658,
+													"parameters": [
+														"Wp_Slot.ID",
+														"\"WP\"",
+														"Dict_Save_File.Get(Weapon_ID_1 )"
+													]
+												}
+											],
+											"sid": 626715077018885
 										},
 										{
-											"callFunction": "Get_Targets",
-											"sid": 933114346909120,
-											"parameters": [
-												"Wp_Slot.ID",
-												"\"WP\"",
-												"Dict_Save_File.Get(Weapon_ID_2 )"
-											]
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Wp_Slot",
+													"sid": 247367023035967,
+													"parameters": {
+														"instance-variable": "ID",
+														"comparison": 0,
+														"value": "2"
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 222711935008147,
+													"parameters": {
+														"variable": "Weapon_ID_2",
+														"comparison": 1,
+														"value": "\"none\""
+													}
+												},
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 567251424139311,
+													"parameters": {
+														"variable": "Weapon_ID_2",
+														"comparison": 1,
+														"value": "\"\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-position",
+													"objectClass": "Select_Hab",
+													"sid": 127242273781913,
+													"parameters": {
+														"x": "Wp_Slot.X",
+														"y": "Wp_Slot.Y"
+													}
+												},
+												{
+													"callFunction": "Get_Targets",
+													"sid": 160469061754375,
+													"parameters": [
+														"Wp_Slot.ID",
+														"\"WP\"",
+														"Dict_Save_File.Get(Weapon_ID_2 )"
+													]
+												}
+											],
+											"sid": 826258382253650
 										}
-									],
-									"sid": 105022034752250
+									]
 								}
 							]
 						},
@@ -15865,6 +16177,7 @@
 													"id": "is-animation-playing",
 													"objectClass": "Icon_Effect_Player",
 													"sid": 370984438963159,
+													"disabled": true,
 													"parameters": {
 														"animation": "\"zap\""
 													}
@@ -17669,13 +17982,13 @@
 																										{
 																											"id": "play",
 																											"objectClass": "Audio",
-																											"sid": 631453247151563,
+																											"sid": 210049387083317,
 																											"parameters": {
 																												"audio-file": {
 																													"path": "Battle/VOCAL EVIL Breath Deep 02"
 																												},
 																												"loop": "not-looping",
-																												"volume": "-25 + (VOLUME * 0.25)",
+																												"volume": "-25 + (VOL_SOUND * 0.25)",
 																												"stereo-pan": "0",
 																												"tag-optional": "\"\""
 																											}
@@ -22908,11 +23221,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 728963335217113,
+											"sid": 662679935676991,
 											"parameters": {
 												"variable": "Hab_Name",
 												"comparison": 0,
-												"value": "\"Atk_pierce_20\""
+												"value": "\"Atk_pierce_25\""
 											}
 										}
 									],
@@ -22920,13 +23233,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 233039535894174,
+											"sid": 695229984771448,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/WEAPON GUNSHOT Bullet Hit 06"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.2)",
+												"volume": "-20 + (VOL_SOUND * 0.2)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -22962,13 +23275,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 548100811309749,
+											"sid": 278126637901770,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/spit_by_freesound_community"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.20)",
+												"volume": "-20 + (VOL_SOUND * 0.20)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -22995,13 +23308,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 153605847889030,
+											"sid": 570554737102557,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/bone_snap_by_saboteurcomics"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.20)",
+												"volume": "-20 + (VOL_SOUND * 0.20)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -23009,13 +23322,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 622928657139602,
+											"sid": 514192086108937,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/NEGATIVE Failure Descending Chime 08"
 												},
 												"loop": "not-looping",
-												"volume": "-25 + (VOLUME * 0.25)",
+												"volume": "-25 + (VOL_SOUND * 0.25)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -23050,13 +23363,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 419854294092483,
+											"sid": 391474924316436,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/NEGATIVE Failure Descending Chime 08"
 												},
 												"loop": "not-looping",
-												"volume": "-25 + (VOLUME * 0.25)",
+												"volume": "-25 + (VOL_SOUND * 0.25)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -23082,13 +23395,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 383332015396395,
+											"sid": 992783698305891,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/738439__qubodup__orc-grunt-3"
 												},
 												"loop": "not-looping",
-												"volume": "-20 + (VOLUME * 0.20)",
+												"volume": "-20 + (VOL_SOUND * 0.20)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -23102,11 +23415,11 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 167702419598585,
+											"sid": 158483446264166,
 											"parameters": {
 												"variable": "Hab_Name",
 												"comparison": 0,
-												"value": "\"DFF_vulnerable_25_2\""
+												"value": "\"DFF_vulnerable_25_3\""
 											}
 										}
 									],
@@ -23114,13 +23427,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 523979486920044,
+											"sid": 591391095856814,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/NEGATIVE Failure Descending Chime 08"
 												},
 												"loop": "not-looping",
-												"volume": "-25 + (VOLUME * 0.25)",
+												"volume": "-25 + (VOL_SOUND * 0.25)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -23202,13 +23515,13 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 309240234153471,
+											"sid": 155506822483210,
 											"parameters": {
 												"audio-file": {
 													"path": "Battle/smoke-bomb_by_freesound_community"
 												},
 												"loop": "not-looping",
-												"volume": "-25 + (VOLUME * 0.25)",
+												"volume": "-25 + (VOL_SOUND * 0.25)",
 												"stereo-pan": "0",
 												"tag-optional": "\"\""
 											}
@@ -23311,10 +23624,10 @@
 												{
 													"id": "set-at-xy",
 													"objectClass": "A_Fight_Effects",
-													"sid": 110828595189346,
+													"sid": 900863481350152,
 													"parameters": {
 														"x": "Icon_Effect_Enemy.Effect_Index",
-														"y": "Enemy.My_ID",
+														"y": "Icon_Effect_Enemy.My_Z",
 														"value": "Icon_Effect_Enemy.AnimationName & \"_\" & Icon_Effect_Enemy.Potency & \"_\" & Icon_Effect_Enemy.Duration"
 													}
 												},
@@ -23357,10 +23670,10 @@
 												{
 													"id": "set-at-xy",
 													"objectClass": "A_Fight_Effects",
-													"sid": 613205111446815,
+													"sid": 980095483311060,
 													"parameters": {
 														"x": "Icon_Effect_Enemy.Effect_Index",
-														"y": "Enemy.My_ID",
+														"y": "Icon_Effect_Enemy.My_Z",
 														"value": "Icon_Effect_Enemy.AnimationName & \"_0_0\""
 													}
 												}
@@ -24009,13 +24322,13 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 326286028766466,
+									"sid": 908373424487899,
 									"parameters": {
 										"audio-file": {
 											"path": "Victory/Violin_Win_5_by_Floraphonic"
 										},
 										"loop": "not-looping",
-										"volume": "-10",
+										"volume": "-10 + ( VOL_SOUND * 0.1)",
 										"stereo-pan": "0",
 										"tag-optional": "\"\""
 									}
@@ -24540,13 +24853,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 844263672104040,
+							"sid": 113451687561916,
 							"parameters": {
 								"audio-file": {
 									"path": "Battle/thunder"
 								},
 								"loop": "not-looping",
-								"volume": "-20 + (VOLUME * 0.2)",
+								"volume": "-20 + (VOL_SOUND * 0.2)",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -24642,13 +24955,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 994668216911610,
+							"sid": 275349828025896,
 							"parameters": {
 								"audio-file": {
 									"path": "Defeat/Violin_Lose_4_by_Floraphonic"
 								},
 								"loop": "not-looping",
-								"volume": "-10",
+								"volume": "-10 + ( VOL_SOUND * 0.1)",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -24945,13 +25258,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 545199445723103,
+							"sid": 866730379886298,
 							"parameters": {
 								"audio-file": {
 									"path": "Victory/Violin_Win_5_by_Floraphonic"
 								},
 								"loop": "not-looping",
-								"volume": "-10",
+								"volume": "-10 + ( VOL_SOUND * 0.1)",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}

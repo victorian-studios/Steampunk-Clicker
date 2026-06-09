@@ -13,8 +13,9 @@
                 "choose": "ESCOLHA SEU IDIOMA:"
             },
             "sound": {
-                "title": "SOM",
-                "music": "[u]VOLUME PRINCIPAL[/u]"
+                "title": "ÁUDIO",
+                "music": "[u]MÚSICA[/u]",
+                "sound": "[u]SOM[/u]"
             },
             "video": {
                 "title": "VIDEO",
@@ -203,12 +204,13 @@
                 "weapon": "ARMAS",
                 "skill": "HAB.",
                 "armor": "ARMADURAS",
-                "unlock": "DESBLOQUEAR",
+                "unlock": "[size=24]DESBLOQUEAR[/size]",
                 "upgrade": "MELHORAR",
                 "cancel": "CANCELAR",
                 "materials": "Materiais",
                 "title_locked": "Bloqueado",
                 "locked": " Desconhecido",
+                "max_lvl": "NÍVEL MÁXIMO",
                 "label": {
                     "name": "ÍCONES",
                     "damage": "Dano",
@@ -225,7 +227,7 @@
                     "poison": "Aplica {0}[icon=poison]({1} turnos)",
                     "extraammo": "Ganha +1[icon=ammo] ({0}%)",
                     "extraammo_txt": "[outline=#ffffff]+1[icon=ammo][/outline]",
-                    "splashdmg": "{0}% Splash [icon=dmg]",
+                    "splashdmg": "{0}% [icon=dmg] Ao lado",
                     "aoeattackchance": "Dano em Área ({0}%)",
                     "fire": "Aplica {0}[icon=fire] ({1}%)",
                     "recharge": "Regenera {0}[icon=shield]",
@@ -236,7 +238,7 @@
                         "Pistol": "Pistola",
                         "Blunderbuss": "Bacamarte",
                         "Katana": "Katana",
-                        "Granade Launcher": "Lança-Granadas",
+                        "Granade Launcher": "[size=27]Lança-Granadas[/size]",
                         "Electric Shield": "Escudo Elétrico",
                         "Electric Sword": "Espada Elétrica"
                     }
@@ -248,8 +250,8 @@
                     "3": "Dê {0} de dano de volta aos inimigos por {2} turnos.\n[icon=cd] {3} turnos.",
                     "4": "[icon=dmg] {0}\n[icon=special] {1}[icon=poison] por {2} turnos.\n[icon=cd] {3} turnos",
                     "5": "Aumente seu dano dos ataques em {0}% por {2} turnos.\n[icon=cd] {3} turnos.",
-                    "6": "Reduza o dano do alvo em {0}% por {2} turnos.\n[icon=cd] {3} turnos.",
-                    "7": "Dê {0}[icon=pdmg] e o alvo recebe +{1}% de dano por {2} turnos.",
+                    "6": "Dê {0}[icon=pdmg] e o alvo causa -{1}% de dano por {2} turnos.\n[icon=cd] {3} turnos.",
+                    "7": "Marque um alvo para receber +{1}% de dano por {2} turnos.",
                     "name": {
                         "Recharge": "Recarga",
                         "Heal": "Cura",
@@ -319,16 +321,20 @@
 
         "loading": {
             "ready": "Clique em qualquer lugar para começar!",
-            "tip_1": "Se uma fase está muito difícil tente mudar seu equipamento. Tem muitas combinações disponíveis no jogo!",
-            "tip_2": "Cada armadura tem uma quantidade diferente de slots para equipamento. Teste cada uma de acordo com os seus equipamentos disponíveis.",
-            "tip_3": "No nível 10, todos os equipamentos recebem uma melhoria significante nos seus atributos. Priorize em ter poucos items de alto nível em vez de vários de baixo nível.",
-            "tip_4": "Depois que comprar o upgrade de Auto-bot, lembre-se de ativá-lo clicando com o botão direito do mouse no produtor."
+            "tip_1": "Se uma fase está muito difícil tente mudar seu equipamento. Tem várias combinações possíveis!",
+            "tip_2": "Cada armadura tem uma quantidade diferente de slots para equipamento. Teste cada uma de acordo com o que tiver disponível.",
+            "tip_3": "No nível 10, todos os equipamentos recebem uma melhoria significante nos seus atributos.",
+            "tip_4": "Com o upgrade de Auto-bot, lembre-se de ativá-lo clicando com o botão direito no produtor.",
+            "tip_5": "Priorize em ter poucos items de alto nível em vez de vários de baixo nível.",
+            "tip_6": "No nível 7, algumas armas ganham efeitos especiais únicos.",
+            "tip_7": "Cada produtor da fábrica tem 2 melhorias de combo de velocidade com outros produtores.",
+            "tip_8": "Alguns inimigos tem ataques penetrantes que ignoram seu escudo de energia da armadura."
         },
 
         "tutorial": {
             "error": {
-                "no_armor_fight": "Acalme-se minha filha, você ainda não equipou uma armadura lá na oficina. Para fazer isso, produza alguns materiais para criar uma [b]Armadura de Madeira[/b] de nível 1. Aí você pode lutar!",
-                "no_weapon_fight": "Ô Rose, Toma cuidado! Você ainda não tem nenhuma arma com você. Vá para a oficina para ver o que está disponível, compra e aí você equipa. Eu recomendaria o [b]Porrete[/b] por ser a primeira arma mais baratinha para sua primeira tentativa!",
+                "no_armor_fight": "Acalme-se minha filha, você ainda não equipou uma armadura lá na oficina. Para fazer isso, produza alguns materiais para criar uma [b]Armadura de Madeira[/b]. Aí você pode lutar!",
+                "no_weapon_fight": "Ô Rose, Toma cuidado! Você ainda não está usando armas. Vá para a oficina, compre alguma disponível e aí você equipa. Eu recomendaria o [b]Porrete[/b] por ser a primeira arma mais baratinha!",
                 "refine_tip": "Olha só! Parece que você chegou ao nível 9 de melhoria para este item. Compre o aprimoramento de [b]Material Refinado[/b] na [b]Aba de Melhorias[/b] do material correspondente para chegar ao nível 10.",
                 "armor_tip": "Esta armadira é nível 9, né? Se você quiser chegar ao nível 10, você precisa comprar o aprimoramento de [b]Armadura Final[/b] na [b]Aba de Melhorias[/b] do material correspondente.",
                 "default_locked": "Isto está indisponível no momento. Desbloqueie novos produtores para descobrir este item."
@@ -346,7 +352,7 @@
                 "10" : "Para produzir alguma coisa, [b]clique[/b] no ícone e a máquina fará o resto para você. [b]Tenta aí![/b]",
                 "10.1": "Perfeito! Viu como é simples? Agora, continuando...",
                 "11" : "Próximo, nós temos a [b]Área de Melhorias[/b]!",
-                "12" : "Aqui você pode ver, comprar e também desbloquear novas melhoras para cada produtor que você tiver desbloqueado.",
+                "12" : "Aqui você pode ver, comprar e também desbloquear novas melhorais para cada produtor que você tiver desbloqueado.",
                 "13" : "Depois dá uma olhada nas abas à direita, elas vão te mostrar todos os items específicos que tornam cada produtor mais eficiente.",
                 "14" : "E uma informação importante: você precisa concluir fases do mapa para desbloquear novos produtores e suas melhorias.",
                 "15" : "E fique tranquila minha filha, eu vou aparecer toda vez que você desbloquear um novo produtor ou melhorias.",
@@ -398,7 +404,7 @@
                 "3.1": "Tudo bem, já entendi e não vou mais te incomodar. Boa sorte Rose!",
                 "4": "Primeiro, quando você encontrar um inimigo, você irá precisar derrotar todos eles para progredir. Eu sugiro que você [b]foque em um por vez[/b].",
                 "5": "Agora você pode escolher qual [b]arma ou habilidade[/b] você gostaria de usar primeiro. Veja a informação sobre elas passando o mouse por cima delas.",
-                "6": "Então selecione e finalmente cliqueno seu alvo para executar o seu movimento. Depois de realizar qualquer ação seu turno será finalizado.",
+                "6": "Então selecione e finalmente cliqueno seu alvo para executar o seu movimento. Depois de realizar [b]2 ações[/b] seu turno será finalizado.",
                 "7": "Depois que você agir, é a hora dos inimigos te atacarem. Ainda bem que a sua armadura foi projetada para receber uma grande quantidade de dano e ainda manter você viva.",
                 "8": "Alguns inimigos terão diferentes padrões de ataques e, obviamente, habilidades distintas. Você nunca saberá o que eles fazem até você lutar contra eles.",
                 "9": "Caso você sofra algum tipo de dano, fique de olho na barra azul abaixo. Ela é a sua barra de vida principal, e assim como a dos inimigos, quando ela chegar a [b]zero[/b] você será derrotada.",

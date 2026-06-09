@@ -1,10 +1,18 @@
 {
-	"name": "Slider_Volume",
+	"name": "Slider_Volume_Music",
 	"plugin-id": "Sprite",
 	"sid": 652717484564533,
 	"isGlobal": false,
 	"editorNewInstanceIsReplica": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 196465295982930
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "DragnDrop",
