@@ -1665,13 +1665,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 507716202573186,
+							"sid": 549506055973058,
 							"parameters": {
 								"audio-file": {
 									"path": "Battles/Against_the_Clock_Steampunk_Victorian_Music_by_Humanoide_Media"
 								},
 								"loop": "looping",
-								"volume": "-40 + (VOL_MUSIC * 0.4 )",
+								"volume": "VOL_MUSIC > 1 ? -40 + (VOL_MUSIC * 0.4 ) : -100",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -1692,13 +1692,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 689624571380354,
+							"sid": 847976122608055,
 							"parameters": {
 								"audio-file": {
 									"path": "Battles/Epic_Battle_by_Francisco_Samuel (edited)"
 								},
 								"loop": "looping",
-								"volume": "-40 + (VOL_MUSIC * 0.4 )",
+								"volume": "VOL_MUSIC > 1 ? -40 + (VOL_MUSIC * 0.4 ) : -100",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -1706,13 +1706,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 261709098061649,
+							"sid": 925206704561456,
 							"parameters": {
 								"audio-file": {
 									"path": "Battle/heavy_rain_and_thunder_by_freesound_community"
 								},
 								"loop": "looping",
-								"volume": "-40 + (VOL_SOUND * 0.4 )",
+								"volume": "VOL_MUSIC > 1 ? -40 + (VOL_SOUND * 0.4 ) : -100",
 								"stereo-pan": "0",
 								"tag-optional": "\"Fight\""
 							}
@@ -4816,6 +4816,7 @@
 												false,
 												false,
 												false,
+												false,
 												true,
 												false,
 												false
@@ -5299,6 +5300,7 @@
 													"callFunction": "Play_Audio",
 													"sid": 298250975833597,
 													"parameters": [
+														false,
 														false,
 														false,
 														false,
@@ -5798,6 +5800,7 @@
 											"callFunction": "Play_Audio",
 											"sid": 917535127893139,
 											"parameters": [
+												false,
 												false,
 												false,
 												false,
@@ -7499,6 +7502,33 @@
 							"sid": 380075682601950
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 199181068631753,
+							"parameters": {
+								"variable": "Shield",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 546410899776353,
+							"parameters": {
+								"variable": "Shield",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 583938117565537
 				},
 				{
 					"eventType": "block",
@@ -10766,6 +10796,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10802,6 +10833,7 @@
 																false,
 																false,
 																true,
+																false,
 																false,
 																false,
 																false,
@@ -10852,6 +10884,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10896,6 +10929,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -10932,6 +10966,7 @@
 																false,
 																false,
 																true,
+																false,
 																false,
 																false,
 																false,
@@ -10982,6 +11017,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -11025,6 +11061,7 @@
 																false,
 																false,
 																false,
+																false,
 																false
 															]
 														}
@@ -11060,6 +11097,7 @@
 																false,
 																false,
 																true,
+																false,
 																false,
 																false,
 																false,
@@ -11264,18 +11302,26 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "Audio",
-															"sid": 529432058831058,
-															"parameters": {
-																"audio-file": {
-																	"path": "Upgrade/Level_Up_3_by_Universfield"
-																},
-																"loop": "not-looping",
-																"volume": "-11 + (VOL_SOUND * 0.11)",
-																"stereo-pan": "0",
-																"tag-optional": "\"\""
-															}
+															"callFunction": "Play_Audio",
+															"sid": 466553566002888,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false,
+																false,
+																false
+															]
 														}
 													],
 													"sid": 141983078114009,
@@ -11373,18 +11419,26 @@
 													],
 													"actions": [
 														{
-															"id": "play",
-															"objectClass": "Audio",
-															"sid": 444615665524124,
-															"parameters": {
-																"audio-file": {
-																	"path": "Upgrade/Level_Up_3_by_Universfield"
-																},
-																"loop": "not-looping",
-																"volume": "-11 + (VOL_SOUND * 0.11)",
-																"stereo-pan": "0",
-																"tag-optional": "\"\""
-															}
+															"callFunction": "Play_Audio",
+															"sid": 559075921597786,
+															"parameters": [
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																false,
+																true,
+																false,
+																false,
+																false,
+																false
+															]
 														}
 													],
 													"sid": 853979944564764,
@@ -22853,6 +22907,7 @@
 												false,
 												false,
 												false,
+												false,
 												false
 											]
 										}
@@ -22900,6 +22955,7 @@
 												false,
 												false,
 												true,
+												false,
 												false,
 												false,
 												false,
@@ -22978,6 +23034,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								}
@@ -23034,6 +23091,7 @@
 									"callFunction": "Play_Audio",
 									"sid": 117247353547843,
 									"parameters": [
+										false,
 										false,
 										false,
 										false,
@@ -23153,6 +23211,7 @@
 										false,
 										false,
 										false,
+										false,
 										false
 									]
 								}
@@ -23207,7 +23266,18 @@
 						},
 						{
 							"eventType": "block",
-							"conditions": [],
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 490212698064892,
+									"parameters": {
+										"variable": "VOL_SOUND",
+										"comparison": 4,
+										"value": "1"
+									}
+								}
+							],
 							"actions": [],
 							"sid": 750660852502178,
 							"children": [
@@ -23464,6 +23534,7 @@
 											"callFunction": "Play_Audio",
 											"sid": 780018418143789,
 											"parameters": [
+												false,
 												false,
 												false,
 												false,
@@ -24955,13 +25026,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 275349828025896,
+							"sid": 497398332144241,
 							"parameters": {
 								"audio-file": {
 									"path": "Defeat/Violin_Lose_4_by_Floraphonic"
 								},
 								"loop": "not-looping",
-								"volume": "-10 + ( VOL_SOUND * 0.1)",
+								"volume": "VOL_SOUND > 1 ? -20 + ( VOL_SOUND * 0.2) : -100",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -25258,13 +25329,13 @@
 						{
 							"id": "play",
 							"objectClass": "Audio",
-							"sid": 866730379886298,
+							"sid": 374151113469317,
 							"parameters": {
 								"audio-file": {
 									"path": "Victory/Violin_Win_5_by_Floraphonic"
 								},
 								"loop": "not-looping",
-								"volume": "-10 + ( VOL_SOUND * 0.1)",
+								"volume": "VOL_SOUND > 1 ? -20 + ( VOL_SOUND * 0.2) : -100",
 								"stereo-pan": "0",
 								"tag-optional": "\"\""
 							}
@@ -26590,6 +26661,7 @@
 									"sid": 488847821313530,
 									"parameters": [
 										true,
+										false,
 										false,
 										false,
 										false,

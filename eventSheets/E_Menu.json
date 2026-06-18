@@ -264,6 +264,14 @@
 					"parameters": {
 						"variable": "Ativar_Effects"
 					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 873487990756517,
+					"parameters": {
+						"variable": "Option_Particles"
+					}
 				}
 			],
 			"actions": [
@@ -358,13 +366,13 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 563128166030834,
+					"sid": 579681158711513,
 					"parameters": {
 						"audio-file": {
 							"path": "Menu/rotating_metal_cog"
 						},
 						"loop": "not-looping",
-						"volume": "-20 + (VOL_SOUND * 0.2)",
+						"volume": "VOL_SOUND > 1 ? -20 + (VOL_SOUND * 0.2) : -100",
 						"stereo-pan": "0",
 						"tag-optional": "\"rotate\""
 					}
@@ -436,13 +444,13 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 206785257152442,
+					"sid": 377724994829035,
 					"parameters": {
 						"audio-file": {
 							"path": "Menu/442382__hisoul__bmx-rotating-chain-and-wheels-mechanical-mono"
 						},
 						"loop": "not-looping",
-						"volume": "-35 + ( VOL_SOUND * 0.35 )",
+						"volume": "VOL_SOUND > 1 ? -35 + ( VOL_SOUND * 0.35 ) : -100",
 						"stereo-pan": "0",
 						"tag-optional": "\"\""
 					}

@@ -216,7 +216,7 @@
                     "damage": "Dano",
                     "p_damage": "Dano Perfurante",
                     "ammo": "Munição",
-                    "cooldown": "Cooldown",
+                    "cooldown": "Recarga / Turnos",
                     "sk_slot": "Slot de Habilidade",
                     "wp_slot": "Slot de Arma",
                     "special": "Efeito Especial"
@@ -224,12 +224,12 @@
                 "weapons": {
                     "nospecial": "Nenhum",
                     "stunchance": "Atordoamento ({0}%)",
-                    "poison": "Aplica {0}[icon=poison]({1} turnos)",
+                    "poison": "Causa {0}[icon=poison]({1} turn.)",
                     "extraammo": "Ganha +1[icon=ammo] ({0}%)",
                     "extraammo_txt": "[outline=#ffffff]+1[icon=ammo][/outline]",
-                    "splashdmg": "{0}% [icon=dmg] Ao lado",
+                    "splashdmg": "{0}% [icon=dmg] ao lado",
                     "aoeattackchance": "Dano em Área ({0}%)",
-                    "fire": "Aplica {0}[icon=fire] ({1}%)",
+                    "fire": "Causa {0}[icon=fire] ({1}%)",
                     "recharge": "Regenera {0}[icon=shield]",
                     "shieldextradmg": "Se [icon=shield]>0, dê +{0}[icon=dmg]",
                     "name": {
@@ -312,7 +312,7 @@
             "vulnerable": "Receba {0}% mais dano de ataques ({1} turnos)",
             "mark": "Recebe {0}% mais dano de ataques ({1} turnos)",
             "stun": "Este alvo não pode agir por 1 turno.",
-            "dodge_trigger": "Desvie!",
+            "dodge_trigger": "Desviou!",
             "battle_start": "BATALHA COMEÇANDO",
             "battle_won": "BATALHA GANHA!",
             "battle_lost": "BATALHA PERDIDA!",
@@ -359,7 +359,7 @@
                 "16" : "Bem, agora, vamos a minha parte favorita: [b]A Oficina[/b]!",
                 "17" : "Neste lugar você finalmente começará a usar seus materiais para o seu objetivo principal: criar armaduras e armas.",
                 "18" : "Eu não vou mentir para você, esses monstros lá fora são bem perigosos e parecem ser mais forte do que pensamos. Então você não pode sair daqui sem usar uma armadura.",
-                "19" : "Na esqueda você tem as abas de [b]Armas e Habilidades[/b]. No momento todas os itens estão bloqueadas por padrão. Mas é questão de tempo até você ter todos eles disponíveis para você.",
+                "19" : "Na esquerda você tem as abas de [b]Armas e Habilidades[/b]. No momento todas os itens estão bloqueadas por padrão. Mas é questão de tempo até você ter todos eles disponíveis para você.",
                 "20" : "Cada um tem usos diferentes e em alguns casos tem até um efeito especial nas versões melhoradas. Para equipá-las apenas arraste e largue no espaço disponível.",
                 "21" : "Agora vem a parte que você estava esperando: a aba de [b]Armadura[/b] localizada na direita.",
                 "22" : "Como eu disse, você precisa equipar uma armadura para lutar contra esses monstros. Eu sugiro começar pela versão em madeira, já que é a mais rápida de ser feita, apesar de não ser tão efetiva.",
@@ -394,7 +394,7 @@
             },
             "map": {
                 "1": "Aqui é meu escritório, mais especificamente a [b]Área do Mapa[/b]! \nTodos os níveis disponíveis aparecerão aqui.",
-                "2": "Primeiro, selecione a região representada pelas setas. Então, clique em qualquer nível disponível par ver mais informações. Quando você estiver pronto para ir basta clicar no botão verde de [b]✔[/b]",
+                "2": "Primeiro, selecione a região representada pelas setas. Então, clique em qualquer nível disponível par ver mais informações. Quando você estiver pronto para ir basta clicar no botão verde de [color=#00FF00][b]✔[/b][/color].",
                 "3": "Antes que você entre em qualquer nível, tenha certeza de que você tem todos os itens equipados. Eu não te deixarei lutar sem ao menos uma [b]armadura e uma arma/habilidade[/b]."
             },
             "fight": {
